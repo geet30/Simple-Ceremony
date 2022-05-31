@@ -1,0 +1,80 @@
+.theme-btn {
+    padding: 10px 29px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    border-radius: 5px;
+    text-decoration: none;
+    &.primary-btn {
+        background: #62CBC9;
+        color: #FFFFFF;
+        &:hover {
+            background: #5FE2E0;
+            box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.2);
+        }
+        & .disable {
+            background: #B6CED0;
+            border-radius: 5px;
+        }
+    }
+    &.primary-btn-border {
+        color: #62CBC9;
+        background: transparent;
+        border: 1px solid #62CBC9;
+        &:hover {
+            color: #5FE1DF;
+            border: 1px solid #5FE1DF;
+        }
+        & .disable {
+            border: 1px solid #B6CED0;
+            background: transparent;
+            color: #B6CED0;
+        }
+    }
+    &.secondary-btn {
+        background: $neutral-100;
+        color: #FFFFFF;
+        &:hover {
+            background: #5FE2E0;
+            box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.25);
+        }
+        & .disable {
+            background: #B6CED0;
+            border-radius: 5px;
+        }
+    }
+    &.secondary-btn-border {
+        color: $neutral-100;
+        background: transparent;
+        border: 1px solid $neutral-100;
+        &:hover {
+            color: $turquoise-100;
+            border: 1px solid $turquoise-100;
+        }
+        & .disable {
+            border: 1px solid #B6CED0;
+            background: transparent;
+            color: #B6CED0;
+        }
+    }
+}
+
+.badge {
+    border-radius: 32px;
+    padding: 2px 8px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    &.badge-primary {
+        background: #EDF6FF;
+        color: #197CD8;
+    }
+}
+
+.dot {
+    height: 6px;
+    width: 6px;
+    background: #197CD8;
+    border-radius: 50%;
+    display: inline-block;
+}

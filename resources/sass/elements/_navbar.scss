@@ -1,0 +1,26 @@
+.theme-navbar {
+    padding-top: 17px;
+    padding-bottom: 25px;
+    .navbar-brand {
+        margin: 0px;
+        padding: 0px;
+    }
+    .navbar-nav {
+        .nav-item {
+            font-weight: 700;
+            font-size: 14px;
+            color: $neutral-100;
+            padding: 0px !important;
+            margin-right: 32px !important;
+            &:hover {
+                color: $turquoise-100;
+            }
+            &.active {
+                color: $turquoise-100;
+            }
+        }
+        .mr-32 {
+            margin-right: 32px;
+        }
+    }
+}

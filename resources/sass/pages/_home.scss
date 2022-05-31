@@ -1,0 +1,129 @@
+    .slogan {
+        background-color: $turquoise-100;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    
+    .rating-color {
+        color: #FFB800;
+    }
+    
+    .google-rating {
+        .pt-65 {
+            padding-top: 65px;
+        }
+    }
+    
+    .mt-100 {
+        margin-top: 100px;
+    }
+    
+    .available-dates {
+        background-color: $neutral-25;
+    }
+    
+    .add-ons {
+        .pb-20 {
+            padding-bottom: 20px;
+        }
+        .image-card {
+            .card-body {
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+        }
+    }
+    
+    .simple-ceremonies-images {
+        background-image: linear-gradient(0.45deg, #313131 7.24%, rgba(112, 112, 112, 0) 113.76%), url('/images/cs.png');
+        height: 100%;
+        display: flex;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        padding: 21px;
+        text-decoration: none;
+        cursor: pointer;
+        @include media-breakpoint-down(md) {
+            padding: 21px 18px;
+        }
+        .step {
+            padding-bottom: 30px;
+            text-decoration: none;
+        }
+        .icon {
+            padding-bottom: 10px;
+            text-decoration: none;
+        }
+        .heading {
+            padding-bottom: 20px;
+            text-decoration: none;
+        }
+        p {
+            text-decoration: none;
+        }
+        &:hover {
+            transition: .5s ease;
+            background-image: linear-gradient(0.2deg, #62CBC9 4.79%, rgba(98, 203, 201, 0) 297.27%), url('/images/cs.png');
+        }
+    }
+    
+    .overlay-card {
+        height: 100%;
+        width: 100%;
+        @include media-breakpoint-up(md) {
+            display: flex !important;
+        }
+        border-radius: 10px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+        .img-1 {
+            background-image: url('/images/plan-wedding.png');
+        }
+        .img-2 {
+            background-image: url('/images/celebrant.png');
+        }
+        .overlay-content {
+            @include media-breakpoint-up(md) {
+                background: rgba(28, 28, 28, 0.8);
+            }
+            @include media-breakpoint-down(md) {
+                background: rgba(98, 203, 201, 0.9);
+            }
+            padding: 52px 59px 52px 78px;
+            border-radius: 10px;
+            @include media-breakpoint-down(lg) {
+                padding: 40px 30px !important;
+            }
+            .link {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 23px;
+                letter-spacing: 2px;
+                color: #FFFFFF;
+            }
+        }
+        &:hover {
+            .overlay-content {
+                transition: .5s ease;
+                background: rgba(98, 203, 201, 0.9);
+                padding-left: 83px;
+            }
+        }
+    }
+    
+    .home-quiz {
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+        background-image: url('/images/quiz.svg');
+    }
+    
+    .mt-115 {
+        margin-top: 115px;
+    }
