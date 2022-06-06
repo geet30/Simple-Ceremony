@@ -39,7 +39,7 @@
          </div>
       </div>
       <div class="col-md-6">
-         <div class="d-flex justify-content-end"> <a href="#" class="theme-btn primary-btn  me-4">See all reviews</a> </div>
+         <div class="d-flex justify-content-md-end"> <a href="#" class="theme-btn primary-btn me-md-4 mt-3 mt-md-0">See all reviews</a> </div>
       </div>
    </div>
    <div class="row pt-65">
@@ -125,6 +125,7 @@
                </div>
             </div>
          </div>
+         <div class="col-12 mt-5 d-flex justify-content-center"> <a href="#" class="theme-btn primary-btn  ">See all locations</a> </div>
       </div>
    </div>
 </section>
@@ -336,11 +337,11 @@
    <div class="container">
       <div class="row">
          <div class="col-12 bg-turquoise-50 radius-10">
-            <div class="row">
-               <div class="col-md-5  col-xl-4 px-0"> <img src="images/wedding-moments.png" class="img-fluid h-100" alt="wedding-moments"> </div>
-               <div class="col-md-7 col-xl-8 py-50">
+            <div class="row align-items-center">
+               <div class="col-md-5 ps-0"> <img src="images/wedding-moments.png" class="img-fluid" alt="wedding-moments"> </div>
+               <div class="col-md-7 pt-md-0 pt-4 pb-md-0 pb-4">
                   <h2 class="h3 text-black">Want to get married in your own <br/>dream place?</h2>
-                  <div class="d-flex mt-4 d-none d-xl-block"> <a href="#" class="theme-btn secondary-btn d-inline-flex me-3 ">Request a custom location or date and time.</a> <a href="#" class="theme-btn secondary-btn-border d-inline-flex">Book your custom location</a> </div>
+                  <div class="d-flex mt-4 d-none d-xl-flex"> <a href="#" class="theme-btn secondary-btn d-inline-flex me-3 ">Request a custom location or date and time.</a> <a href="#" class="theme-btn secondary-btn-border d-inline-flex">Book your custom location</a> </div>
                   <div class="d-grid gap-2 col-12 d-xl-none mt-4 "> <a href="#" class="theme-btn secondary-btn d-inline-flex  justify-content-center ">Request a custom location or date and time.</a> <a href="#" class="theme-btn secondary-btn-border d-inline-flex justify-content-center">Book your custom location</a> </div>
                </div>
             </div>
@@ -393,9 +394,9 @@
    <div class="container">
       <div class="row">
          <div class="col-12 bg-turquoise-50 radius-10">
-            <div class="row">
-               <div class="col-md-4 px-0"> <img src="images/lodgement.png" class="img-fluid h-100" alt="lodgement"> </div>
-               <div class="col-md-8 py-50">
+            <div class="row align-items-center">
+               <div class="col-md-5 ps-0"> <img src="images/lodgement.png" class="img-fluid" alt="lodgement"> </div>
+               <div class="col-md-7 pt-md-0 pt-4 pb-md-0 pb-4">
                   <h2 class="h3 text-black mb-0">Lodgement Voucher $110</h2>
                   <p class="body-3 netural-100 my-20">Want to start the paperwork now, but can't lock in a date? Applying for a Prospective Marriage Visa? Applying for a Shortening of Time. Avoid the cost of multiple reschedules. </p>
                   <a href="#" class="theme-btn secondary-btn d-inline-flex ">Check out a Lodgement Voucher</a> 
@@ -432,7 +433,10 @@
             <p class="body-1 mb-4 turquoise-100">We also have add ons: chairs, decorations, photographer, flowers, wedding rings and a venue to celebrate!
             </p>
             <p class="body-1 text-black mb-5"> One Stop - for your perfect wedding!</p>
-            <div class="d-flex  "> <a href="#" class="theme-btn primary-btn  me-4">Make a booking</a> <a href="#" class="theme-btn primary-btn-border ">See checklist to get married</a> </div>
+            <div class="d-lg-flex"> 
+               <a href="#" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
+               <a href="#" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
+            </div>
          </div>
       </div>
    </div>

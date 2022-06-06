@@ -9,6 +9,7 @@
         .heart {
             &.fa-regular {
                 color: #000000;
+                cursor: pointer;
             }
             &.fa-solid {
                 color: $turquoise-100 !important;

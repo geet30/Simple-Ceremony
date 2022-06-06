@@ -1,0 +1,27 @@
+.location-page-booking-cards{
+    .card-img-overlay:hover {
+        background: #6cf4ee4d;
+    }
+    .card {
+        overflow: hidden;
+        .card-img {
+            transform: scale(1, 1);
+            transition: transform 1.4s;
+        }
+        &:hover .card-img {
+            transform: scale(1.2, 1.2);
+        }
+        &:hover h3{
+            color: #fff;
+        }
+        &:hover p{
+            color: #fff;
+        }
+    }
+    .p-10 {
+        padding: 5rem;
+    }
+}
+.rounded-12{
+    border-radius: 12px;
+}
