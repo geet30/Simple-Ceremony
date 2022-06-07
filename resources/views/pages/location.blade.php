@@ -4,15 +4,33 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="card text-white border-0">
-                <img src="/images/location-header.svg" class="card-img" alt="Header Banner">
-                <div class="card-img-overlay">
-                    <h2 class="mb-4 text-center">
-                    <p class="paragraph text-white">The best offer</p>
-                    <p class="h2 text-white">Check available location and time here</p>
-                    </h2>
-                </div>
-            </div>
+               <div class="location-banner-data">
+                  <h2 class="mb-4 text-center">
+                     <p class="paragraph text-white">The best offer</p>
+                     <p class="h2 text-white">Check available location and time here</p>
+                  </h2>
+                  <div class="col-md-9 mx-auto location-search-data ">
+                     <ul class="d-lg-flex align-items-center justify-content-center gap-10 list-unstyled">
+                        <li class="">
+                           <p class="text-black button-1">Location</p>
+                           <p class="body-2 m-0 d-flex gap-2">
+                              <img class="me-2" src="images/location-page/location-icon.svg" alt="location-icon">Insert name of location
+                           </p>
+                        </li>
+                        <li class="">
+                           <p class="text-black button-1">Date & times</p>
+                           <p class="body-2 m-0 d-flex gap-2">
+                              <img class="me-2" src="images/location-page/calander-icon.svg" alt="calander-icon">Choose date
+                           </p>
+                        </li>
+                        <li class="">
+                           <a href="#" class="theme-btn primary-btn d-inline-flex">
+                              <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon">Search
+                           </a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
             </div>
         </div>
     </div>
@@ -20,13 +38,42 @@
 <section class="py-100 ">
    <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mb-3">
+        <!-- <select class="d-none js-select2" multiple="multiple">
+				<option value="O1" data-badge="">Option1</option>
+				<option value="O2" data-badge="">Option2</option>
+				<option value="O3" data-badge="">Option3</option>
+				<option value="O4" data-badge="">Option4</option>
+				<option value="O5" data-badge="">Option5</option>
+				<option value="O6" data-badge="">Option6</option>
+				<option value="O7" data-badge="">Option7</option>
+				<option value="O8" data-badge="">Option8</option>
+				<option value="O9" data-badge="">Option9</option>
+				<option value="O10" data-badge="">Option10</option>
+				<option value="O11" data-badge="">Option11</option>
+				<option value="O12" data-badge="">Option12</option>
+				<option value="O13" data-badge="">Option13</option>
+			</select> -->
             <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown link
+                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                 </a>
+                <span class="button-1">Filter by categories</span>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                    <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                     <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                     </label>
+                     </div>
+                     <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                     <label class="form-check-label" for="flexCheckChecked">
+                        Checked checkbox
+                     </label>
+                     </div>
+                    </li>
                     <li><a class="dropdown-item" href="#">Another action</a></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
