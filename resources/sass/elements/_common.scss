@@ -95,6 +95,13 @@
     }
 }
 
+.pt-50 {
+    padding-top: 50px;
+    @include media-breakpoint-down(lg) {
+        padding-top: 50px;
+    }
+}
+
 .pt-128 {
     padding-top: 128px;
     @include media-breakpoint-down(lg) {
@@ -139,12 +146,73 @@
     }
 }
 
+.px-50 {
+    padding-left: 50px;
+    padding-right: 50px;
+    @include media-breakpoint-down(lg) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+.py-80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @include media-breakpoint-down(lg) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+.ps-150 {
+    padding-left: 150px;
+    @include media-breakpoint-down(lg) {
+        padding-left: 15px;
+    }
+}
+
+.pe-40 {
+    padding-right: 40px;
+    @include media-breakpoint-down(lg) {
+        padding-right: 15px;
+    }
+}
+
+.pe-150 {
+    padding-right: 150px;
+    @include media-breakpoint-down(lg) {
+        padding-right: 15px;
+    }
+}
+
+.ps-30 {
+    padding-left: 30px;
+    @include media-breakpoint-down(lg) {
+        padding-left: 15px;
+    }
+}
+
+.px-30 {
+    padding-left: 30px;
+    padding-right: 30px;
+    @include media-breakpoint-down(lg) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
 .h-100 {
     height: 100%;
 }
 
 .mb-80 {
     margin-bottom: 80px;
+    @include media-breakpoint-down(lg) {
+        margin-bottom: 70px;
+    }
+}
+.mb-130 {
+    margin-bottom: 130px;
     @include media-breakpoint-down(lg) {
         margin-bottom: 70px;
     }
@@ -166,4 +234,41 @@
 }
 .gap-10 {
     gap: 6rem !important;
-  }
+}
+.mb-11 {
+    margin-bottom: 11px !important;
+}
+.form-control {
+    background: $turquoise-20;
+    border: 1px solid $turquoise-50;
+    border-radius: 6px;
+}
+.form-control:focus {
+    color: $turquoise-100;
+    background: $white;
+    box-shadow: 0px 2px 16px #E8F9F7;
+    border: 1px solid $turquoise-100;
+    outline-style: solid;
+    outline-color: $turquoise-50;
+    outline-width: thick;
+}
+.form-control::placeholder {
+    color: $neutral-100;
+    opacity: 1;
+}
+.form-check-input:checked {
+    background-color: $turquoise-100;
+    border-color: $turquoise-100;
+}
+.form-check-input {
+    border-color: $turquoise-100;
+    background: transparent;
+}
+.form-check-input:focus {
+    border-color: $turquoise-100;
+    outline: 0;
+    box-shadow: unset;
+}
+.sidebar-bg-color{
+    background-color: $turquoise-100;
+}

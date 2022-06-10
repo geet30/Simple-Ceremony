@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-lg theme-navbar navbar-light ">
     <div class="container">
       <!-- Logo -->
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="images/logo.png" class="img-fluid" alt="Logo">
       </a>
       <!-- Mobile Cart Icon With Toggle-->
@@ -19,10 +19,10 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
         <!-- Nav -->
         <div class="navbar-nav ">
-          <a class="nav-item nav-link active align-self-lg-center me-lg-4" href="#" aria-current="page">Home</a>
+          <a class="nav-item nav-link active align-self-lg-center me-lg-4" href="/" aria-current="page">Home</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/location">Location</a>
-          <a class="nav-item nav-link align-self-lg-center me-lg-4" href="#">How it works</a>
-          <a class="nav-item nav-link align-self-lg-center me-lg-4" href="#">Contact us</a>
+          <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/how-it-works">How it works</a>
+          <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/contact-us">Contact us</a>
           <a class="nav-item nav-link align-self-lg-center cart-icon-header d-none d-lg-block me-lg-4 position-relative" href="#">
             <img src="images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
             <span class="cart-item-counting">3</span>

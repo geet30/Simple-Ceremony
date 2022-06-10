@@ -10,7 +10,7 @@
                      <p class="h2 text-white">Check available location and time here</p>
                   </h2>
                   <div class="col-md-9 mx-auto location-search-data ">
-                     <ul class="d-lg-flex align-items-center justify-content-center gap-10 list-unstyled">
+                     <ul class="d-lg-flex align-items-center justify-content-evenly gap-10 list-unstyled">
                         <li class="">
                            <p class="text-black button-1">Location</p>
                            <p class="body-2 m-0 d-flex gap-2">
@@ -37,45 +37,36 @@
 </section>
 <section class="py-100 ">
    <div class="container">
-      <div class="row">
+      <div class="row gy-3">
         <div class="col-md-12 mb-3">
-        <!-- <select class="d-none js-select2" multiple="multiple">
-				<option value="O1" data-badge="">Option1</option>
-				<option value="O2" data-badge="">Option2</option>
-				<option value="O3" data-badge="">Option3</option>
-				<option value="O4" data-badge="">Option4</option>
-				<option value="O5" data-badge="">Option5</option>
-				<option value="O6" data-badge="">Option6</option>
-				<option value="O7" data-badge="">Option7</option>
-				<option value="O8" data-badge="">Option8</option>
-				<option value="O9" data-badge="">Option9</option>
-				<option value="O10" data-badge="">Option10</option>
-				<option value="O11" data-badge="">Option11</option>
-				<option value="O12" data-badge="">Option12</option>
-				<option value="O13" data-badge="">Option13</option>
-			</select> -->
             <div class="dropdown">
                 <a class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                 </a>
                 <span class="button-1">Filter by categories</span>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li>
-                    <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                     <label class="form-check-label" for="flexCheckDefault">
-                        Default checkbox
+                <ul class="dropdown-menu p-0 border-0" aria-labelledby="dropdownMenuLink">
+                  <div class="list-group">
+                     <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        First checkbox
                      </label>
-                     </div>
-                     <div class="form-check">
-                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                     <label class="form-check-label" for="flexCheckChecked">
-                        Checked checkbox
+                     <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Second checkbox
                      </label>
-                     </div>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                     <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Third checkbox
+                     </label>
+                     <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Fourth checkbox
+                     </label>
+                     <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Fifth checkbox
+                     </label>
+                  </div>
                 </ul>
             </div>
         </div>
@@ -85,7 +76,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Hunter valley</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
                   </a>
@@ -208,8 +199,8 @@
                     <div class="card-img-overlay d-flex flex-column justify-content-center text-center p-10">
                         <h3 class="h3 Neutral/100 mb-4">Want to get married in your own dream place?</h3>
                         <div class="d-grid gap-3 col-12">
-                            <a href="#" class="theme-btn secondary-btn d-inline-flex justify-content-center ">Request a custom location or date and time.</a> 
-                            <a href="#" class="theme-btn secondary-btn-border d-inline-flex justify-content-center">Book your custom location</a> 
+                            <a href="/request-custom-location" class="theme-btn secondary-btn d-inline-flex justify-content-center ">Request a custom location or date and time.</a> 
+                            <a href="/book-custom-location" class="theme-btn secondary-btn-border d-inline-flex justify-content-center">Book your custom location</a> 
                         </div>
                     </div>
                 </div>
@@ -221,7 +212,7 @@
                         <h3 class="h3 Neutral/100 mb-4">Like to give someone the Gift Certificate?</h3>
                         <p class="Neutral/100 body-2 mb-4">Purchase them a wedding</p>
                         <div class="d-grid gap-3 col-12">
-                            <a href="#" class="theme-btn secondary-btn d-inline-flex justify-content-center ">See all vouchers</a> 
+                            <a href="/voucher" class="theme-btn secondary-btn d-inline-flex justify-content-center ">See all vouchers</a> 
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,19 @@
+.form-term-condition {
+  background: $haze-50;
+  border-radius: 10px;
+}
+.request-custom-location-form{
+  .card {
+    border: 1px solid $turquoise-50;    
+    border-radius: 10px;
+  }
+}
+.modal-success-form{
+  .modal-content {
+    border: 0;
+    border-radius: 10px;
+  }
+}
+.was-validated .form-control:valid, .form-control.is-valid {
+  background-image: none;
+}
