@@ -1,22 +1,46 @@
 .theme-navbar {
     padding-top: 17px;
     padding-bottom: 25px;
+    background: $white;
     .navbar-brand {
         margin: 0px;
         padding: 0px;
     }
+    .cart-item-counting {
+        @include cart-icon;
+        @include media-breakpoint-down(lg) {
+            @include mobile-cart-icon;
+        }
+    }
+    .navbar-collapse {
+        @include media-breakpoint-down(lg) {
+        position: absolute;
+        background: #1C1C1C;
+        left: 0;
+        right: 0;
+        top: 90px;
+        }
+    }
     .navbar-nav {
+        @include media-breakpoint-down(lg) {
+            padding: 30px 24px;
+        }
         .nav-item {
             font-weight: 700;
             font-size: 14px;
             color: $neutral-100;
             padding: 0px !important;
-            margin-right: 32px !important;
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 15px;
+            }
             &:hover {
                 color: $turquoise-100;
             }
             &.active {
                 color: $turquoise-100;
+            }
+            @include media-breakpoint-down(lg) {
+                color: $white;
             }
         }
         .mr-32 {

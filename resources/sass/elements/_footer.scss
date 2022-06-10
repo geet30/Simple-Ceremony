@@ -17,6 +17,10 @@ footer {
                 color: #FFFFFF !important;
                 text-decoration: none;
                 padding: 14px 0px;
+                cursor: pointer;
+                &:hover {
+                    color: #62CBC9 !important;
+                }
             }
             &:last-child {
                 margin-bottom: 0px !important;
