@@ -1,0 +1,74 @@
+.booking-custom-location{
+    .form-sidebar{
+        .list-group{
+            a{
+                opacity: 0.5;
+                position: relative;
+                &.active{
+                    opacity: 1; 
+                }
+                .verticle-icon{
+                    position: absolute;
+                    bottom: -20px;
+                    left: 20px;
+                }
+            }
+        }
+    }
+    .progress {
+        border-radius: 84px;
+        background: $turquoise-50;
+        height: 22px;
+        .progress-bar {
+            background-color: $turquoise-100;
+        }
+        .progress-bar-striped {
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+            background-size: 2rem 2rem;
+        }
+    }
+    .right-part-sidebar{
+        .time-list {
+            max-width: 750px;
+            column-gap: 20px;
+            row-gap: 10px;
+            li{
+                width: 100px;
+            }
+        }
+        .radio-label {
+            cursor: pointer;
+            border: 1px solid $turquoise-50;
+            border-radius: 10px;
+            height: 35px;
+            line-height: 35px;
+        }
+        .btn-check:checked+.radio-label{
+            background: $turquoise-100;
+            color: $white;
+        }
+    }
+}
+.popover {
+    background: $turquoise-20;
+    border: 1px solid $turquoise-50;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+.popover-body {
+    color: $neutral-100;
+    padding: 0.5rem 0.9rem;
+}
+.bs-popover-bottom > .popover-arrow::after, .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow::after {
+    border-bottom-color: #f7fcfc;
+}
+.bs-popover-bottom > .popover-arrow::before, .bs-popover-auto[data-popper-placement^=bottom] > .popover-arrow::before {
+    border-bottom-color: #E2F3F2;
+}
+.bs-popover-end > .popover-arrow::before, .bs-popover-auto[data-popper-placement^=right] > .popover-arrow::before {
+    border-right-color: #E2F3F2;
+}
+.bs-popover-end > .popover-arrow::after, .bs-popover-auto[data-popper-placement^=right] > .popover-arrow::after {
+    border-right-color: #f7fcfc;
+}

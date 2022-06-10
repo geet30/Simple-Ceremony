@@ -1,0 +1,67 @@
+.voucher-link:hover{
+    color:$neutral-100;
+}
+.add-to-cart {
+    position: relative;
+        .add-to-cart-info {
+            position: absolute;
+            width: 109px;
+            height: 34px;
+            line-height: 34px;
+            top: 30px;
+            left: -45px;
+            z-index: 9;
+            background: #F7FCFC;
+            border: 1px solid #E2F3F2;
+            border-radius: 6px;
+            right: 0;
+            text-align: center;
+            display: none;
+            &:after {
+                content: "";
+                background-image: url(/images/voucher/Polygon-icon-v2.svg);
+                background-repeat: no-repeat;
+                position: absolute;
+                top: -12px;
+                left: 0;
+                right: 0;
+                width: 16px;
+                height: 14px;
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+    &:hover .add-to-cart-info {
+        display: block;
+    }    
+}
+
+.has-search {
+    .form-control {
+        padding-left: 2.375rem;
+        background: $gray-0;
+        border: 1px solid $gray-50;
+        border-radius: 6px;
+        color: $gray-500;
+        &:focus{
+            outline: 0;
+        }
+        &::placeholder {
+            color: $gray-500;
+            opacity: 1;
+        }
+    }
+    .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        text-align: center;
+        pointer-events: none;
+        color: $gray-500;
+    }
+}
+
+

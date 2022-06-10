@@ -19,7 +19,6 @@
       
        {{-- @include('elements.header') --}}
         <main >
-            @include('elements.header')
             @yield('content')
             {{-- @include('elements.footer') --}}
             @include('elements.footer')

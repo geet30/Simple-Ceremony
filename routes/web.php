@@ -19,3 +19,27 @@ Route::get('/', function () {
 Route::get('location', function () {
     return view('pages.location');
 });
+Route::get('single-location', function () {
+    return view('pages.single-location');
+});
+Route::get('request-custom-location', function () {
+    return view('pages.request-custom-location');
+});
+Route::get('book-custom-location', function () {
+    return view('pages.book-custom-location');
+});
+Route::get('book-your-location', function () {
+    return view('pages.book-your-location');
+});
+Route::get('voucher', function () {
+    return view('pages.voucher');
+});
+Route::get('voucher-details', function () {
+    return view('pages.voucher-details');
+});
+Route::get('contact-us', function () {
+    return view('pages.contact-us');
+});
+Route::get('how-it-works', function () {
+    return view('pages.how-it-works');
+});
