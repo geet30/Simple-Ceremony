@@ -1,0 +1,22 @@
+.marrige-steps {
+    background: $turquoise-20;
+    .steps {
+        background: $turquoise-100;
+        border-radius: 10px;
+        padding: 30px 25px;
+        position: relative;
+        height: 100%;
+        .step-counter {
+            position: absolute;
+            left: 0;
+            background: #1C1C1C;
+            border-radius: 0px 10px 10px 0px;
+            padding: 8px 25px;
+        }
+        .step-description {
+            background: #5AC1BF;
+            border-radius: 10px;
+            padding: 20px;
+        }
+    }
+}
