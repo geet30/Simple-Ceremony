@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick.css" />
         <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css" />
-   
+        <link href="fonts/stylesheet.css" rel="stylesheet">
     </head>
     <body class="antialiased" data-barba="wrapper">
       
