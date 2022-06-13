@@ -1,0 +1,31 @@
+.bg-turquoise-20{
+    background-color: $turquoise-20;
+}
+.compare-steps {
+    background: $white;
+    box-shadow: 0px 2px 16px #E8F9F7;
+    border-radius: 10px;
+    padding-bottom: 34px;
+        .compare-steps-header {
+            background: #62CBC9;
+            border-radius: 10px;
+            padding: 20px 10px;
+            z-index: 9;
+            &:after{
+                position: absolute;
+                background: #62cbca;
+                content: "";
+                width: 20px;
+                height: 20px;
+                bottom: -10px;
+                right: 0;
+                left: 0;
+                margin: 0 auto;
+                transform: rotate(-133deg);
+                z-index: -1;
+            }
+        }
+        ul{
+            padding: 0px 20px;
+        }
+}
