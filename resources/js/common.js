@@ -39,3 +39,8 @@ var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
+
+//for scrollspy faq page
+var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+  target: '#navbar-example'
+})

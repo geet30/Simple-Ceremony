@@ -43,3 +43,6 @@ Route::get('contact-us', function () {
 Route::get('how-it-works', function () {
     return view('pages.how-it-works');
 });
+Route::get('faq', function () {
+    return view('pages.faq');
+});
