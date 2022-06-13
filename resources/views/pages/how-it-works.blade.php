@@ -1,5 +1,5 @@
 @extends('layouts.master') @section('content')
-<section class="hero">
+<section class="hero pb-100">
    <div class="container">
       <div class="row">
          <div class="col-12">
@@ -18,11 +18,13 @@
             <p class="paragraph mb-0 text-center neutral-100">Simple step</p>
             <h2 class="h2 mb-75 neutral-100 text-center">Just 3 Steps to get married</h2>
          </div>
-         <div class="col-md-4">
+         <div class="col-lg-4 mb-4">
             <div class="steps">
                <span class="step-counter text-white h4 d-inline-block">Step 1</span>
-               <div class="steps-name d-flex mt-4 pt-5 align-items-center">
-                  <img src="/images/marriage-calander-icon.svg" class="" alt="Marriage Calander">
+               <div class="steps-name d-flex mt-4 pt-5 mb-3">
+                  <div class="step-icon me-4 d-flex align-items-center justify-content-center">
+                     <img src="/images/Booking-calander.svg" class="" alt="Marriage Calander">
+                  </div>
                   <h3 class="text-white h3">Make a <br>booking</h3>
                </div>
                <p class="body-3 text-white mb-0">From just $270. See available location, date & time</p>
@@ -63,11 +65,13 @@
                <a href="#" class="theme-btn secondary-btn d-block">Learn more</a>
             </div>
          </div>
-         <div class="col-md-4">
+         <div class="col-lg-4 mb-4">
             <div class="steps">
                <span class="step-counter text-white h4 d-inline-block">Step 2</span>
-               <div class="steps-name d-flex mt-4 pt-5 align-items-center">
-                  <img src="/images/marriage-calander-icon.svg" class="" alt="Marriage Calander">
+               <div class="steps-name d-flex mt-4 pt-5 mb-3">
+                  <div class="step-icon me-4 d-flex align-items-center justify-content-center">
+                     <img src="/images/Document.svg" class="" alt="Document">
+                  </div>
                   <h3 class="text-white h3">Complete <br>NoIM</h3>
                </div>
                <p class="body-3 text-white mb-0">Complete 1 month before your ceremony. No meeting or interview required!</p>
@@ -96,12 +100,14 @@
                <a href="#" class="theme-btn secondary-btn d-block">Learn more</a>
             </div>
          </div>
-         <div class="col-md-4">
+         <div class="col-lg-4 mb-4">
             <div class="steps">
                <span class="step-counter text-white h4 d-inline-block">Step 3</span>
-               <div class="steps-name d-flex mt-4 pt-5 align-items-center">
-                  <img src="/images/marriage-calander-icon.svg" class="" alt="Marriage Calander">
-                  <h3 class="text-white h3">Your ceremony</h3>
+               <div class="steps-name d-flex mt-4 pt-5 mb-3">
+                  <div class="step-icon me-4 d-flex align-items-center justify-content-center">
+                     <img src="/images/Wedding.svg" class="" alt="Wedding">
+                  </div>
+                  <h3 class="text-white h3">Your <br>ceremony</h3>
                </div>
                <p class="body-3 text-white mb-0">Amazing location & celebrant! See how your day will flow</p>
                <div class="step-description mt-4">

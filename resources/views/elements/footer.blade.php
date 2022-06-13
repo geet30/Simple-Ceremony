@@ -40,7 +40,7 @@
             <div class="col-sm-6 col-md-3">
               <ul class="list">
                 <li><a>Check list</a></li>
-                <li><a>FAQ</a></li>
+                <li><a href="/faq">FAQ</a></li>
                 <li><a>Terms & condition</a></li>
                 <li><a>Contact us</a></li>
               </ul>
