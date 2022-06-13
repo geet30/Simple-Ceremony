@@ -1,0 +1,66 @@
+.team-card {
+    // position: relative;
+    // display: -ms-flexbox;
+    // display: flex;
+    // -ms-flex-direction: column;
+    // flex-direction: column;
+    // min-width: 0;
+    // word-wrap: break-word;
+    // background-clip: border-box;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    .card-img-overlay {
+        background: linear-gradient(359.77deg, #62CBC9 0.25%, rgba(98, 203, 201, 0) 61.67%, rgba(255, 255, 255, 0) 99.86%);
+        border-radius: 10px;
+        padding: 30px;
+        justify-content: flex-end;
+        .content-1 {
+            display: block;
+        }
+        .content-2 {
+            display: none;
+        }
+    }
+    .card-img-top {
+        transition: all 0.2s ease;
+    }
+    &:hover {
+        .card-img-top {
+            transform: scale(1.2);
+        }
+        .card-img-overlay {
+            justify-content: center;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            background: linear-gradient(0.99deg, #62CBC9 33.59%, rgba(98, 203, 201, 0.42) 98.87%);
+            .content-1 {
+                display: none;
+            }
+            .content-2 {
+                display: block;
+            }
+        }
+    }
+}
+
+.read-icon-block {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+}
+
+.team-hr {
+    background: #CDCDCD;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    opacity: 1;
+}

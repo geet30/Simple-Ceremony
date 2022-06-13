@@ -58,7 +58,7 @@
             color: #B6CED0;
         }
     }
-    &.back-btn{
+    &.back-btn {
         padding: 10px 26px;
     }
 }
@@ -81,4 +81,16 @@
     background: #197CD8;
     border-radius: 50%;
     display: inline-block;
+}
+
+.read-icon {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-decoration: none;
+    &:hover {
+        color: #FFFFFF;
+    }
 }
