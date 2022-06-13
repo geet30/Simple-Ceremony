@@ -43,15 +43,12 @@ Route::get('contact-us', function () {
 Route::get('how-it-works', function () {
     return view('pages.how-it-works');
 });
-<<<<<<< HEAD
 Route::get('team', function () {
     return view('pages.team');
 });
 Route::get('team-detail', function () {
     return view('pages.team-detail');
 });
-=======
 Route::get('faq', function () {
     return view('pages.faq');
 });
->>>>>>> b31410c8136076f4da3974045159919da42ad64f
