@@ -1,0 +1,26 @@
+.faq-link {
+    word-break: break-all;
+    &:hover{
+        color: $turquoise-100;
+    }
+}
+.faq-menu-list {
+    background: transparent;
+    border-radius: 6px;
+    color: $neutral-100;
+    padding: 16px 20px;
+    &:hover{
+        background: $turquoise-100;
+        color: $white;
+    }
+    &.active{
+        background: $turquoise-100;
+        color: $white;
+    }
+}
+.faq-menu-list.active svg path {
+    fill: $white;
+}
+.faq-menu-list:hover svg path {
+    fill: $white;
+}
