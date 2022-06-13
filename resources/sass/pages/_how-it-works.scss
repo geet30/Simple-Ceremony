@@ -6,6 +6,23 @@
         padding: 30px 25px;
         position: relative;
         height: 100%;
+        top: 0;
+        transition: top ease 0.7s;
+        &:hover{
+            top: -50px;
+        }
+        .step-icon {
+            background: #FFFFFF;
+            box-shadow: 4px 10px 16px #4BBBB9;
+            border-radius: 10px;
+            height: 57px;
+            width: 57px;
+            position: relative;
+            top: 5px;
+            @include media-breakpoint-down(md) {
+                top: 0px;
+            }
+        }
         .step-counter {
             position: absolute;
             left: 0;
