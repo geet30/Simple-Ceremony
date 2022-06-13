@@ -52,3 +52,6 @@ Route::get('team-detail', function () {
 Route::get('faq', function () {
     return view('pages.faq');
 });
+Route::get('why-sc', function () {
+    return view('pages.why-sc');
+});

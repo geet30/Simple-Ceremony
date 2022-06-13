@@ -34,7 +34,7 @@
                 <li><a>Reschedule & corrections</a></li>
                 <li><a>The team</a></li>
                 <li><a>Advice after 1st year</a></li>
-                <li><a>Why simple ceremonies</a></li>
+                <li><a href="/why-sc">Why simple ceremonies</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3">

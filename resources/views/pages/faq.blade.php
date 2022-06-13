@@ -57,8 +57,8 @@
                   the couple are not in a 'Prohibited Relationship". This generally refers to a close family relationship.<br>
                   both parties are freely choosing to get married.
                   </p>
-                  <div class="d-flex align-items-center mb-5">
-                     <a href="#" class="theme-btn primary-btn me-3">Try quick test</a>
+                  <div class="d-md-flex align-items-center mb-5">
+                     <a href="#" class="theme-btn primary-btn me-0 me-md-3 d-inline-flex mb-3 mb-md-0">Try quick test</a>
                      <p class="body-3-regular mb-0">*In 30 seconds find out if and what you need to get married</p>
                   </div>
                   <h4 class="h4 mb-3">2. What are the steps to getting married in Australia?</h4>
