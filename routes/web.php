@@ -64,3 +64,6 @@ Route::get('why-sc', function () {
 Route::get('your-ceremony', function () {
     return view('pages.your-ceremony');
 });
+Route::get('sample-ceremony', function () {
+    return view('pages.sample-ceremony');
+});
