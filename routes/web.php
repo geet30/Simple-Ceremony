@@ -52,3 +52,9 @@ Route::get('team-detail', function () {
 Route::get('faq', function () {
     return view('pages.faq');
 });
+Route::get('married-checklist', function () {
+    return view('pages.married-checklist');
+});
+Route::get('add-ons', function () {
+    return view('pages.add-ons');
+});
