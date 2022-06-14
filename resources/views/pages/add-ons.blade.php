@@ -12,7 +12,7 @@
                      <p class="body-1 mb-0">Before booking below you will need to have booked your ceremony.</p>
                      <a class="button-3">Register now</a>
                   </div>
-                  <div><button type="button" class="theme-btn-close" data-bs-dismiss="alert" aria-label="Close"><img src="images/cross.svg" class="img-fluid" alt="cross-icon"></button></div>
+                  <div><button type="button" class="theme-btn-close" data-bs-dismiss="alert" aria-label="Close"><img src="images/cross-blue.svg" class="img-fluid" alt="cross-icon"></button></div>
                </div>
              
                

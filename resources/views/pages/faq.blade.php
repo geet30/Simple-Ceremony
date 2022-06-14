@@ -5,7 +5,7 @@
          <div class="col-md-6">
             <p class="paragraph netural-100 mt-4">FAQ</p>
             <h1 class="h1 netural-100 mb-4">Frequently Asked Questions (FAQ) about getting married</h1>
-            <p class="body-3">Below is a list of Frequently Asked Questions (FAQ) about getting married in Australia. If you have any questions please feel free to call or email us, so one of our experienced marriage celebrants can help you</p>
+            <p class="body-3-regular">Below is a list of Frequently Asked Questions (FAQ) about getting married in Australia. If you have any questions please feel free to call or email us, so one of our experienced marriage celebrants can help you</p>
          </div>
          <div class="col-md-5 offset-md-1">
             <img class="img-fluid" src="/images/faq-hero.png" alt="Faq Hero">
@@ -57,8 +57,8 @@
                   the couple are not in a 'Prohibited Relationship". This generally refers to a close family relationship.<br>
                   both parties are freely choosing to get married.
                   </p>
-                  <div class="d-flex align-items-center mb-5">
-                     <a href="#" class="theme-btn primary-btn me-3">Try quick test</a>
+                  <div class="d-md-flex align-items-center mb-5">
+                     <a href="#" class="theme-btn primary-btn me-0 me-md-3 d-inline-flex mb-3 mb-md-0">Try quick test</a>
                      <p class="body-3-regular mb-0">*In 30 seconds find out if and what you need to get married</p>
                   </div>
                   <h4 class="h4 mb-3">2. What are the steps to getting married in Australia?</h4>

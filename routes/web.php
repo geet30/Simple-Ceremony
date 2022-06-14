@@ -58,3 +58,6 @@ Route::get('married-checklist', function () {
 Route::get('add-ons', function () {
     return view('pages.add-ons');
 });
+Route::get('why-sc', function () {
+    return view('pages.why-sc');
+});
