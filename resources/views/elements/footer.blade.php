@@ -26,7 +26,7 @@
                 <li><a>How it works</a></li>
                 <li><a>Complete paperwork</a></li>
                 <li><a>Add-on to booking</a></li>
-                <li><a>Your ceremony</a></li>
+                <li><a href="/your-ceremony">Your ceremony</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3">

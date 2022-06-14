@@ -61,3 +61,6 @@ Route::get('add-ons', function () {
 Route::get('why-sc', function () {
     return view('pages.why-sc');
 });
+Route::get('your-ceremony', function () {
+    return view('pages.your-ceremony');
+});
