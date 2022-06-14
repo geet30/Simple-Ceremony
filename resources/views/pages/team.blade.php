@@ -254,7 +254,7 @@
 			<div class="col-lg-6 col-xl-5 align-self-center">
 				<p class="paragraph netural-100  mb-1">Our team</p>
 				<h2 class="h1 netural-100  mb-4">Check out Team Sugar video</h2> </div>
-			<div class="col-lg-6 col-xl-6 ml-auto align-self-center position-relative"> <img src="images/team/team-video.png" class="team-video img-fluid " alt="team-video">
+			<div class="col-lg-6 col-xl-6 ms-auto align-self-center position-relative"> <img src="images/team/team-video.png" class="team-video img-fluid " alt="team-video">
 				<a class=""><img src="images/team/play-icon.svg" class="img-fluid play-icon" alt="play-icon" /></a>
 			</div>
 			<div class="col-12">

@@ -207,7 +207,7 @@
                </div>
             </div>
          </div>
-         <div class="col-12 mt-5 d-flex justify-content-center"> <a href="#" class="theme-btn primary-btn  ">See all add-ons</a> </div>
+         <div class="col-12 mt-5 d-flex justify-content-center"> <a href="/add-ons" class="theme-btn primary-btn  ">See all add-ons</a> </div>
       </div>
    </div>
 </section>
