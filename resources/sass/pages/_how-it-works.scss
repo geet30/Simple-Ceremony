@@ -1,5 +1,4 @@
 .marrige-steps {
-    background: $turquoise-20;
     .steps {
         background: $turquoise-100;
         border-radius: 10px;
@@ -36,4 +35,10 @@
             padding: 20px;
         }
     }
+}
+.bg-turquoise-20{
+    background: $turquoise-20;
+}
+.mt-60{
+    margin-top: 70px;
 }
