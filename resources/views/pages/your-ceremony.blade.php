@@ -143,7 +143,7 @@
             </div>
          </div>
          <div class="col-md-12 text-center mt-60">
-            <a href="#" class="theme-btn primary-btn d-inline-block">See sample ceremony</a>
+            <a href="/sample-ceremony" class="theme-btn primary-btn d-inline-block">See sample ceremony</a>
          </div>
       </div>
    </div>

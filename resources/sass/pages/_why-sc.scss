@@ -29,3 +29,42 @@
             padding: 0px 20px;
         }
 }
+.invitation-card-data {
+    position: absolute;
+    text-align: center;
+    right: 140px;
+    @include media-breakpoint-down(lg) {
+        right: 50px;
+    }
+    @include media-breakpoint-down(md) {
+        right: 0px;
+        left: 0px;
+        bottom: 5px;
+    }
+}
+.partition-text {
+    display: block;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    right: -70px;
+    max-width: 100px;
+    margin: 0 auto;
+    @include media-breakpoint-down(lg) {
+        top: 60px;
+        left: 0;
+        right: -30px;
+    }
+    @include media-breakpoint-down(md) {
+        top: 34px;
+    }
+}
+.bg-turquoise-20{
+    background: $turquoise-20;
+}
+.mt-60{
+    margin-top: 60px;
+}
+.mt-50{
+    margin-top: 50px;
+}
