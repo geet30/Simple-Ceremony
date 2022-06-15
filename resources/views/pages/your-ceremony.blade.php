@@ -262,7 +262,7 @@
             </div>
          </div>
          <div class="col-md-12 text-center mt-60">
-            <a href="#" class="theme-btn primary-btn d-inline-block">Getting your registered Marriage Certificate</a>
+            <a href="/marriage-certificate" class="theme-btn primary-btn d-inline-block">Getting your registered Marriage Certificate</a>
          </div>
       </div>
    </div>

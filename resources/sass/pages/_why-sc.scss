@@ -59,6 +59,39 @@
         top: 34px;
     }
 }
+.certificate-type {
+    background: $white;
+    box-shadow: 0px 2px 16px #E8F9F7;
+    border-radius: 10px;
+    padding: 15px;
+}
+.certificate-img-1 {
+    background-image: url("/images/sign-bg.png");
+    height: 605px;
+    .overlay-content {
+        @include media-breakpoint-down(xl) {
+            padding: 40px 40px 40px 40px;
+        }
+    }
+}
+.certificate-img-2 {
+    background-image: url("/images/by-post-bg.png");
+    height: 605px;
+    .overlay-content {
+        @include media-breakpoint-down(xl) {
+            padding: 40px 40px 40px 40px;
+        }
+    }
+}
+.certificate-img-3 {
+    background-image: url("/images/online-bg.png");
+    height: 605px;
+    .overlay-content {
+        @include media-breakpoint-down(xl) {
+            padding: 40px 40px 40px 40px;
+        }
+    }
+}
 .bg-turquoise-20{
     background: $turquoise-20;
 }

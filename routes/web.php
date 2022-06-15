@@ -67,3 +67,6 @@ Route::get('your-ceremony', function () {
 Route::get('sample-ceremony', function () {
     return view('pages.sample-ceremony');
 });
+Route::get('marriage-certificate', function () {
+    return view('pages.marriage-certificate');
+});
