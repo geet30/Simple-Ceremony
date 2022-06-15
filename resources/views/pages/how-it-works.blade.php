@@ -62,7 +62,7 @@
                      </li>
                   </ul>
                </div>
-               <a href="#" class="theme-btn secondary-btn d-block">Learn more</a>
+               <a href="/location" class="theme-btn secondary-btn d-block">Learn more</a>
             </div>
          </div>
          <div class="col-lg-4 mb-4">
@@ -132,7 +132,7 @@
                      </li>
                   </ul>
                </div>
-               <a href="#" class="theme-btn secondary-btn d-block">Learn more</a>
+               <a href="/your-ceremony" class="theme-btn secondary-btn d-block">Learn more</a>
             </div>
          </div>
       </div>
@@ -226,28 +226,28 @@
          <div class="col-12 col-md-10 mx-auto">
             <div class="row">
                <div class="col-md-6 mb-3 mb-md-0">
-                  <a class="overlay-card img-1  d-block">
+                  <div class="overlay-card img-1  d-block">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Frequently Asked Questions</h3>
                         <p class="body-2 text-white  mb-4">You can see frequently asked questions here</p>
-                        <div href="#" class="card-btn-link d-flex">
+                        <a href="/faq" class="card-btn-link d-flex text-decoration-none">
                            <div class="align-self-center link">Learn more</div>
                            <div class="align-self-center"> <img src="images/arrow-white.svg" class="img-fluid" alt="arrow-icon" /></div>
-                        </div>
+                        </a>
                      </div>
-                  </a>
+                  </div>
                </div>
                <div class="col-md-6 mb-3 mb-md-0">
-                  <a class="overlay-card img-2 d-block">
+                  <div class="overlay-card img-2 d-block">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Terms & Conditions</h3>
                         <p class="body-2 text-white  mb-4">To keep everyone smiling</p>
-                        <div href="#" class="card-btn-link d-flex">
+                        <a href="#" class="card-btn-link d-flex text-decoration-none">
                            <div class="align-self-center link">Learn more</div>
                            <div class="align-self-center"> <img src="images/arrow-white.svg" class="img-fluid" alt="arrow-icon" /></div>
-                        </div>
+                        </a>
                      </div>
-                  </a>
+                  </div>
                </div>
             </div>
          </div>
@@ -280,8 +280,8 @@
             </p>
             <p class="body-1 text-black mb-5"> One Stop - for your perfect wedding!</p>
             <div class="d-lg-flex"> 
-               <a href="#" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
-               <a href="#" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
+               <a href="/location" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
+               <a href="/married-checklist" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
             </div>
          </div>
       </div>

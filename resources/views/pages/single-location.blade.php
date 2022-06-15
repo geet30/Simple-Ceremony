@@ -48,8 +48,8 @@
                <span class="h1 netural-100">Kissing Point Park, under the fish Yaralla Road, Putney</span>
             </h1>
             <div class="d-flex">
-               <a href="/book-your-location" class="theme-btn primary-btn me-4">Make a booking</a>
-               <a href="#" class="theme-btn primary-btn-border ">More information</a>
+               <a href="/book-your-location" class="theme-btn primary-btn me-4">Continue booking</a>
+               <a href="#details-information" class="theme-btn primary-btn-border ">Read detail information</a>
             </div>
          </div>
       </div>
@@ -109,7 +109,7 @@
    </div>
 </section>
 
-<section class="kissing-point-park py-100">
+<section id="details-information" class="kissing-point-park py-100">
    <div class="container">
       <div class="row">
          <div class="col-12 col-md-7 mx-auto">
@@ -172,7 +172,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Cronulla</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
                   </a>
@@ -185,7 +185,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Water taxi</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
                   </a>
@@ -198,7 +198,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Mort bay, Balmain</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
                   </a>
@@ -211,7 +211,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Coogee beach</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
                   </a>
@@ -224,7 +224,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Merewether, newcastle</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
                   </a>

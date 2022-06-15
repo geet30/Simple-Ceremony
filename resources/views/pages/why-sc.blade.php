@@ -151,7 +151,7 @@
                   </li>
                </ul>
                <div class="text-center mt-4">
-                  <a href="#" class="theme-btn primary-btn d-inline-block">Booking now</a>
+                  <a href="/location" class="theme-btn primary-btn d-inline-block">Booking now</a>
                </div>
             </div>
          </div>
@@ -202,7 +202,7 @@
                   </li>
                </ul>
                <div class="text-center mt-4">
-                  <a href="#" class="theme-btn primary-btn d-inline-block">Booking now</a>
+                  <a href="/location" class="theme-btn primary-btn d-inline-block">Booking now</a>
                </div>
             </div>
          </div>
@@ -253,7 +253,7 @@
                   </li>
                </ul>
                <div class="text-center mt-4">
-                  <a href="#" class="theme-btn primary-btn d-inline-block">Booking now</a>
+                  <a href="https://www.nsw.gov.au/family-and-relationships/marriages/get-married-by-registry" class="theme-btn primary-btn d-inline-block">Booking now</a>
                </div>
             </div>
          </div>
@@ -286,8 +286,8 @@
             </p>
             <p class="body-1 text-black mb-5"> One Stop - for your perfect wedding!</p>
             <div class="d-lg-flex"> 
-               <a href="#" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
-               <a href="#" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
+               <a href="/location" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
+               <a href="/married-checklist" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
             </div>
          </div>
       </div>
