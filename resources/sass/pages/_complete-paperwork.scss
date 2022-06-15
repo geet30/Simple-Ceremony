@@ -1,0 +1,87 @@
+.speacial-note {
+    padding: 26px 43px;
+    border-radius: 10px;
+}
+
+.events {
+    li {
+        display: flex;
+        .step-point {
+            position: relative;
+            &::after{
+                content: "";
+                position: absolute;
+                z-index: 2;
+                right: 0;
+                top: 50px;
+                transform: translateX(50%);
+                border-radius: 50%;
+                background: #62CBC9;
+                border: 1px #62CBC9 solid;
+                width: 11px;
+                height: 11px;
+            }
+            &::before{
+                content: "";
+                position: absolute;
+                z-index: 2;
+                right: 0;
+                bottom: -50px;
+                transform: translateX(50%);
+                border-radius: 50%;
+                background: #62CBC9;
+                border: 1px #62CBC9 solid;
+                width: 11px;
+                height: 11px;
+                display: none;
+            }
+        }
+        &:last-child{
+            .step-point::after{
+                display: none;
+            }
+        }
+        &:nth-last-child(2){
+            .step-point::before{
+                display: block;
+            }
+        }
+        &:last-child{
+            .steps-information {
+                .steps-information-details {
+                    padding-top: 28px;
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+        .steps-information {
+            position: relative;
+            .steps-information-details {
+                border: 1px solid #E2F3F2;
+                border-radius: 10px;
+                padding: 100px 28px 32px 30px;
+                margin-left: 34px;
+                margin-bottom: 50px;
+                &:before{
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    top: 50px;
+                    left: 0;
+                    height: 100%;
+                    border-left: 1px #62CBC9 solid;
+                }
+                .step-counter{
+                    position: absolute;
+                    left: 34px;
+                    top: 30px;
+                    background: #62CBC9;
+                    border-radius: 0px 10px 10px 0px;
+                    padding: 13px 30px;
+                }
+            }
+        }
+    }
+}
