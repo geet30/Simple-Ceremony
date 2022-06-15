@@ -70,3 +70,6 @@ Route::get('sample-ceremony', function () {
 Route::get('marriage-certificate', function () {
     return view('pages.marriage-certificate');
 });
+Route::get('complete-paperwork', function () {
+    return view('pages.complete-paperwork');
+});

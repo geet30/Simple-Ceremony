@@ -24,7 +24,7 @@
             <div class="col-sm-6 col-md-3">
               <ul class="list">
                 <li><a href="/how-it-works">How it works</a></li>
-                <li><a>Complete paperwork</a></li>
+                <li><a href="/complete-paperwork">Complete paperwork</a></li>
                 <li><a href="/add-ons">Add-on to booking</a></li>
                 <li><a href="/your-ceremony">Your ceremony</a></li>
               </ul>
