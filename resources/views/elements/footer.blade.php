@@ -16,33 +16,33 @@
           <div class="row">
             <div class="col-sm-6 col-md-3">
               <ul class="list">
-                <li><a>Home</a></li>
-                <li><a>Location</a></li>
-                <li><a>Make a booking</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/location">Location</a></li>
+                <li><a href="/location">Make a booking</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3">
               <ul class="list">
-                <li><a>How it works</a></li>
+                <li><a href="/how-it-works">How it works</a></li>
                 <li><a>Complete paperwork</a></li>
-                <li><a>Add-on to booking</a></li>
+                <li><a href="/add-ons">Add-on to booking</a></li>
                 <li><a href="/your-ceremony">Your ceremony</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3">
               <ul class="list">
                 <li><a>Reschedule & corrections</a></li>
-                <li><a>The team</a></li>
+                <li><a href="/team">The team</a></li>
                 <li><a>Advice after 1st year</a></li>
                 <li><a href="/why-sc">Why simple ceremonies</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3">
               <ul class="list">
-                <li><a>Check list</a></li>
+                <li><a href="/married-checklist">Check list</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a>Terms & condition</a></li>
-                <li><a>Contact us</a></li>
+                <li><a href="/contact-us">Contact us</a></li>
               </ul>
             </div>
           </div>

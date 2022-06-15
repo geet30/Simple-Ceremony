@@ -8,7 +8,7 @@
                <span class="h1 netural-100">Plan and book your wedding ceremonies</span>
             </h1>
             <p class="col-10 mx-auto text-center mb-4">Quicker, cheaper and a lot more fun than the government Marriage Registry Office. You can now book & complete all pre paperwork within 10minutes</p>
-            <div class="d-flex justify-content-center mb-4 "> <a href="#" class="theme-btn primary-btn  me-4">Make a booking</a> <a href="#" class="theme-btn primary-btn-border ">More information</a> </div>
+            <div class="d-flex justify-content-center mb-4 "> <a href="/location" class="theme-btn primary-btn  me-4">Make a booking</a> <a href="/how-it-works" class="theme-btn primary-btn-border ">More information</a> </div>
             <img src="images/hero.png" class="img-fluid" alt="hero"> 
          </div>
       </div>
@@ -92,7 +92,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Blues point reserve</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
                   </a>
@@ -105,7 +105,7 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Bradfield park</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
                   </a>
@@ -118,14 +118,14 @@
                <div class="card-body">
                   <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                   <h3 class="h3 netural-100 mb-4">Tench park, penrith</h3>
-                  <a href="#" class="card-btn-link d-flex">
+                  <a href="/single-location" class="card-btn-link d-flex">
                      <div class="align-self-center">Learn more</div>
                      <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
                   </a>
                </div>
             </div>
          </div>
-         <div class="col-12 mt-5 d-flex justify-content-center"> <a href="#" class="theme-btn primary-btn  ">See all locations</a> </div>
+         <div class="col-12 mt-5 d-flex justify-content-center"> <a href="/location" class="theme-btn primary-btn  ">See all locations</a> </div>
       </div>
    </div>
 </section>
@@ -305,7 +305,7 @@
         <div class="col-lg-8 mt-4 mt-lg-0">
            <div class="row">
               <div class="col-md-4 mb-3 mb-md-0">
-                 <a class="simple-ceremonies-images text-center d-block">
+                 <a href="/location" class="simple-ceremonies-images text-center d-block">
                     <div class="step"><img src="images/one.svg" class="img-fluid" alt="one"></div>
                     <div class="icon"><img src="images/date.svg" class="img-fluid" alt="date"></div>
                     <h3 class="h3 text-white heading">Make a booking</h3>
@@ -321,7 +321,7 @@
                  </a>
               </div>
               <div class="col-md-4">
-                 <a class="simple-ceremonies-images text-center d-block">
+                 <a href="/your-ceremony" class="simple-ceremonies-images text-center d-block">
                     <div class="step"><img src="images/three.svg" class="img-fluid" alt="one"></div>
                     <div class="icon"><img src="images/wedding.svg" class="img-fluid" alt="NOIM"></div>
                     <h3 class="h3 text-white heading">Your ceremony</h3>
@@ -341,8 +341,8 @@
                <div class="col-md-5 ps-0"> <img src="images/wedding-moments.png" class="img-fluid" alt="wedding-moments"> </div>
                <div class="col-md-7 pt-md-0 pt-4 pb-md-0 pb-4">
                   <h2 class="h3 text-black">Want to get married in your own <br/>dream place?</h2>
-                  <div class="d-flex mt-4 d-none d-xl-flex"> <a href="#" class="theme-btn secondary-btn d-inline-flex me-3 ">Request a custom location or date and time.</a> <a href="#" class="theme-btn secondary-btn-border d-inline-flex">Book your custom location</a> </div>
-                  <div class="d-grid gap-2 col-12 d-xl-none mt-4 "> <a href="#" class="theme-btn secondary-btn d-inline-flex  justify-content-center ">Request a custom location or date and time.</a> <a href="#" class="theme-btn secondary-btn-border d-inline-flex justify-content-center">Book your custom location</a> </div>
+                  <div class="d-flex mt-4 d-none d-xl-flex"> <a href="/request-custom-location" class="theme-btn secondary-btn d-inline-flex me-3 ">Request a custom location or date and time.</a> <a href="/book-custom-location" class="theme-btn secondary-btn-border d-inline-flex">Book your custom location</a> </div>
+                  <div class="d-grid gap-2 col-12 d-xl-none mt-4 "> <a href="/request-custom-location" class="theme-btn secondary-btn d-inline-flex  justify-content-center ">Request a custom location or date and time.</a> <a href="/book-custom-location" class="theme-btn secondary-btn-border d-inline-flex justify-content-center">Book your custom location</a> </div>
                </div>
             </div>
          </div>
@@ -362,16 +362,16 @@
          <div class="col-12 col-md-10 mx-auto">
             <div class="row">
                <div class="col-md-6 mb-3 mb-md-0">
-                  <a class="overlay-card img-1  d-block">
+                  <div class="overlay-card img-1  d-block">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Plan your wedding online & receive instant quote</h3>
                         <p class="body-1 text-white  mb-4">From cars, location, decorations, photographer, reception & more...</p>
-                        <div href="#" class="card-btn-link d-flex">
+                        <a href="/location" class="card-btn-link d-flex text-decoration-none">
                            <div class="align-self-center link">Book now</div>
                            <div class="align-self-center"> <img src="images/arrow-white.svg" class="img-fluid" alt="arrow-icon" /></div>
-                        </div>
+                        </a>
                      </div>
-                  </a>
+                  </div>
                </div>
                <div class="col-md-6 mb-3 mb-md-0">
                   <a class="overlay-card img-2 d-block">
@@ -434,8 +434,8 @@
             </p>
             <p class="body-1 text-black mb-5"> One Stop - for your perfect wedding!</p>
             <div class="d-lg-flex"> 
-               <a href="#" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
-               <a href="#" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
+               <a href="/location" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
+               <a href="/married-checklist" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
             </div>
          </div>
       </div>
