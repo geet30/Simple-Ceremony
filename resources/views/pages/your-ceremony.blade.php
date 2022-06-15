@@ -23,7 +23,7 @@
                <span class="step-counter text-white h4 d-inline-block">Step 1</span>
                <div class="steps-name flex-column d-flex mt-4 pt-5 mb-3">
                   <div class="step-icon me-4 d-flex align-items-center justify-content-center">
-                     <img src="/images/Wedding.svg" class="" alt="Wedding">
+                     <img src="/images/wedding.svg" class="" alt="Wedding">
                   </div>
                   <h3 class="text-white h3 mt-4">On the day of your ceremony - the first thing you have to do is SMILE</h3>
                </div>
@@ -159,7 +159,7 @@
                <span class="step-counter text-white h4 d-inline-block">Step 1</span>
                <div class="steps-name flex-column d-flex mt-4 pt-5 mb-3">
                   <div class="step-icon me-4 d-flex align-items-center justify-content-center">
-                     <img src="/images/Wedding.svg" class="" alt="Wedding">
+                     <img src="/images/wedding.svg" class="" alt="Wedding">
                   </div>
                   <h3 class="text-white h3 mt-4">Starting your ceremony</h3>
                </div>
