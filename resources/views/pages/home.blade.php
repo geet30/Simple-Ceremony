@@ -323,7 +323,7 @@
               <div class="col-md-4">
                  <a href="/your-ceremony" class="simple-ceremonies-images text-center d-block">
                     <div class="step"><img src="images/three.svg" class="img-fluid" alt="one"></div>
-                    <div class="icon"><img src="images/wedding.svg" class="img-fluid" alt="NOIM"></div>
+                    <div class="icon"><img src="images/home-wedding.svg" class="img-fluid" alt="NOIM"></div>
                     <h3 class="h3 text-white heading">Your ceremony</h3>
                  </a>
               </div>
