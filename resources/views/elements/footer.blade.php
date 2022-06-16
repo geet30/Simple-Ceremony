@@ -41,7 +41,7 @@
               <ul class="list">
                 <li><a href="/married-checklist">Check list</a></li>
                 <li><a href="/faq">FAQ</a></li>
-                <li><a>Terms & condition</a></li>
+                <li><a href="/term-and-condition">Terms & condition</a></li>
                 <li><a href="/contact-us">Contact us</a></li>
               </ul>
             </div>
