@@ -42,9 +42,18 @@
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Choose date is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2 invisible">Event start time</label>
-                              <input type="text" placeholder="Event start time" class="form-control body-1 netural-100" name="name" id="InputName" required>
-                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event start time is required</div>
+                              <label for="selectinput" class="form-label small-text2 invisible">Event start time</label>
+                              <select required="" name="customer_type" id="selectinput" class="js-placeholder-single-input form-control">
+                                 <option value="" disabled="" selected="" hidden="">Event start time</option>
+                                 <option value="1">09:00</option>
+                                 <option value="2">09:30</option>
+                                 <option value="3">10:00</option>
+                                 <option value="4">10:30</option>
+                                 <option value="5">11:00</option>
+                                 <option value="6">11:30</option>
+                                 <option value="7">12:00</option>
+                                 <option value="8">12:30</option>
+                              </select>
                            </div>
                         </div>
                      </div>

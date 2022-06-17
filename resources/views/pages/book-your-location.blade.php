@@ -172,8 +172,15 @@
                               <input type="text" placeholder="Your phone number" class="form-control body-1 netural-100" name="name" id="InputName">
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">This ceremony is a</label>
-                              <input type="text" placeholder="Legal marriage ceremony" class="form-control body-1 netural-100" name="name" id="InputName">
+                              <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
+                              <select name="customer_type" id="selectinput" class="js-placeholder-single-input form-control">
+                                 <option value="" disabled="" selected="" hidden="">This ceremony is a</option>
+                                 <option value="1">Legal marriage ceremony</option>
+                                 <option value="2">A commitment ceremony</option>
+                                 <option value="3">A re-newal of vows</option>
+                                 <option value="4">A naming day</option>
+                                 <option value="5">A memorial ceremony</option>
+                              </select>
                            </div>
                            <div class="col-md-12 mb-5 mt-3">
                               <div class="form-term-condition p-5">

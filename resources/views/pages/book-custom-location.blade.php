@@ -45,9 +45,16 @@
                               <h3 class="h3 Neutral/100 mt-4 mb-4">Fill the marriage celebrant, location, date & time</h3>
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">Preferred names *</label>
-                              <input type="text" placeholder="Select location" class="form-control body-1 netural-100" name="name" id="InputName" required="">
-                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Preferred names is required</div>
+                              <label for="selectinput" class="form-label small-text2">Preferred names *</label>
+                              <select required="" name="customer_type" id="selectinput" class="js-placeholder-single-input form-control">
+                                 <option value="" disabled="" selected="" hidden="">Select location</option>
+                                 <option value="1">Lorem Epsom dollar sit amet</option>
+                                 <option value="2">Lorem Epsom dollar sit amet</option>
+                                 <option value="3">Lorem Epsom dollar sit amet</option>
+                                 <option value="4">Lorem Epsom dollar sit amet</option>
+                                 <option value="5">Lorem Epsom dollar sit amet</option>
+                              </select>
+                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Select location required</div>
                            </div>
                            <div class="col-md-6 mb-4 d-none d-md-block">
                            </div>
