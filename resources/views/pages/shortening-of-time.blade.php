@@ -20,9 +20,68 @@
             <img class="img-fluid" src="/images/term-and-condition/covid-conditions.png" alt="Covid Restrictions">
          </div>
          <div class="col-md-6 offset-md-1">
-            <h4 class="h4">However, there are exceptions and a "Shortening of Time" can be aplied for.</h4>
-            <p class="body-3-regular">The Marriage Regulations 2017 (Cth) Schedule 3 - Circumstances for authorising marriage despite late notice. The 5 prescribed categories are set out below.</p>
-            
+            <h4 class="h4 mb-3">However, there are exceptions and a "Shortening of Time" can be aplied for.</h4>
+            <p class="body-3-regular">The <a href="http://classic.austlii.edu.au/au/legis/cth/num_reg/mr2017201701359210/sch3.html" class="button-1 turquoise-100 faq-link" target="_blank">Marriage Regulations 2017 (Cth)</a> Schedule 3 - Circumstances for authorising marriage despite late notice. The 5 prescribed categories are set out below.</p>
+            <h4 class="h4">They are :</h4>
+            <div class="row">
+               <div class="col-md-6">
+                  <ul class="list-unstyled mb-0">
+                     <li class="d-flex align-items-start mt-3">
+                        <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">
+                        <p class="body-3-regular mb-0 netural-100">Employment‑related or other travel commitments</p>
+                     </li>
+                     <li class="d-flex align-items-start mt-3 mb-3">
+                        <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">
+                        <p class="body-3-regular mb-0 netural-100">Wedding or celebration arrangements</p>
+                     </li>
+                  </ul>
+               </div>
+               <div class="col-md-6">
+                  <ul class="list-unstyled mb-0">
+                     <li class="d-flex align-items-start mt-3 mb-3">
+                        <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">
+                        <p class="body-3-regular mb-0 netural-100">Medical reasons</p>
+                     </li>
+                     <li class="d-flex align-items-start mt-3 mb-3">
+                        <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">
+                        <p class="body-3-regular mb-0 netural-100">Legal proceedings</p>
+                     </li>
+                     <li class="d-flex align-items-start mt-3 mb-3">
+                        <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">
+                        <p class="body-3-regular mb-0 netural-100">Error in giving notice</p>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <p class="body-3-regular mt-2">Please see the bottom of this page for details for each of these situations and examples, as published by Sutherland Local Court.</p>
+            <a href="http://classic.austlii.edu.au/au/legis/cth/num_reg/mr2017201701359210/sch3.html" class="theme-btn primary-btn mt-3 d-inline-block" target="_blank">See full details</a>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="shortening-of-time-note pb-100">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <p class="speacial-note body-3-regular bg-turquoise-20 mb-0"><span class="h4 mb-3 d-block">Please note :</span>
+               The reason for seeking a shortening of time must fall within one of the prescribed categories before the application can be considered
+               a prescribed authority has no discretion to grant a shortening of time outside the circumstances covered by these categories
+               the granting of a shortening of time is not automatic, and
+               a prescribed authority may charge an application fee, celebrants should suggest that the couple check if a fee is charged when making an appointment, with a prescribed authority
+            </p>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="pb-100 mt-5">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <h1 class="h1 netural-100">The Process</h1>
+            <p class="body-3-regular">There are 2 Options :</p>
+         </div>
+         <div class="col-md-5 offset-md-1">
+            <img class="img-fluid" src="/images/term-and-condition/shortening-of-time-video.png" alt="Shortening Of Time">
          </div>
       </div>
    </div>

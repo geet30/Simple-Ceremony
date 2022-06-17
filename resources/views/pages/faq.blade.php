@@ -18,7 +18,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-4 col-lg-3 mb-4">
-            <div id="list-example" class="list-group">
+            <div id="list-example" class="list-group sticky-top top-90">
                <a class="border-0 h4 d-flex align-items-center justify-content-between faq-menu-list text-decoration-none list-group-item-action active" href="#list-item-1">
                   <span>Prior to  your ceremony</span>
                   <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
