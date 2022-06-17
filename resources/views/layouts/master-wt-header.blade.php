@@ -10,10 +10,11 @@
         @yield('header-scripts')
         <!-- Styles -->
         <link href="css/app.css" rel="stylesheet">
+        <link href="custom-css/select-2.css" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick.css" />
         <link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css" />
-   
+        <link href="fonts/stylesheet.css" rel="stylesheet">
     </head>
     <body class="antialiased" data-barba="wrapper">
       
@@ -32,6 +33,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="js/app.js" defer></script>
 
     @yield('footer-scripts')

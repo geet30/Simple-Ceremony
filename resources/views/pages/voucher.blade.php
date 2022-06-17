@@ -5,35 +5,23 @@
       <div class="row">
       <div class="col-md-12 mb-4 mt-5 d-flex">
             <div class="dropdown">
-                <a class="btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+               <a class="btn">
                   <img src="images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                 </a>
-                <ul class="dropdown-menu p-0 border-0" aria-labelledby="dropdownMenuLink" style="">
-                  <div class="list-group">
-                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        First checkbox
-                     </label>
-                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Second checkbox
-                     </label>
-                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Third checkbox
-                     </label>
-                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Fourth checkbox
-                     </label>
-                     <label class="list-group-item">
-                        <input class="form-check-input me-1" type="checkbox" value="">
-                        Fifth checkbox
-                     </label>
-                  </div>
-                </ul>
+                <div class="select-with-checkbox">
+                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
+                     <option value="O1" data-badge="">All</option>
+                     <option value="O2" data-badge="">Harbour</option>
+                     <option value="O3" data-badge="">Beach</option>
+                     <option value="O4" data-badge="">Park</option>
+                     <option value="O5" data-badge="">River</option>
+                     <option value="O6" data-badge="">Outdoors</option>
+                     <option value="O7" data-badge="">Indoors</option>
+                     <option value="O7" data-badge="">Unique</option>
+                  </select>
+               </div>
             </div>
-            <div class="form-group has-search w-100 ms-4">
+            <div class="form-group has-search w-100 ms-4 position-relative">
                <span class="fa fa-search form-control-feedback"></span>
                <input type="text" class="form-control" placeholder="Search">
             </div>
