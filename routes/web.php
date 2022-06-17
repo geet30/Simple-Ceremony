@@ -79,3 +79,15 @@ Route::get('add-ons-detail', function () {
 Route::get('add-ons-gallery', function () {
     return view('pages.add-ons-gallery');
 });
+Route::get('term-and-condition', function () {
+    return view('pages.term-and-condition');
+});
+Route::get('authorised-person', function () {
+    return view('pages.authorised-person');
+});
+Route::get('current-restrictions', function () {
+    return view('pages.current-restrictions');
+});
+Route::get('shortening-of-time', function () {
+    return view('pages.shortening-of-time');
+});
