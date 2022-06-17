@@ -314,3 +314,23 @@
         background-color: $turquoise-20;
     }
 }
+.py-40 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @include media-breakpoint-down(lg) {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+.pb-40{
+    padding-bottom: 40px;
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 30px;
+    }
+}
+.pb-80{
+    padding-bottom: 80px;
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 40px;
+    }
+}
