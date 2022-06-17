@@ -21,78 +21,44 @@
          <div class="col-md-12 pt-45">
             <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
          </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v1.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Photographer</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $125 </div>
-                  <h3 class="h4 netural-100">Engagement pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse1.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Capture photography</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v2.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Flower</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $89 </div>
-                  <h3 class="h4 netural-100">Simple pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse2.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Flower collection</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v3.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Ring</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $299 </div>
-                  <h3 class="h4 netural-100">Couples pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse3.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Tiffany jewelry</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v4.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Ring</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $199 </div>
-                  <h3 class="h4 netural-100">Simple rings pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Beauty collection</div>
-                  </div>
-               </div>
-            </a>
-         </div>
+         @include('elements.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addOns' => [
+            [
+            'image' => 'images/add-ons/v1.png',
+            'tag' => 'Photographer',
+            'price' => ' $125',
+            'packname' => ' Engagement pack',
+            'location' => 'Tench park, penrith',
+            'personimage' => 'images/ellipse1.jpg',
+            'personname' => 'By Capture photography',
+            ],
+            [
+            'image' => 'images/add-ons/v2.png',
+            'tag' => 'Flower',
+            'price' => ' $89',
+            'packname' => 'Simple pack',
+            'location' => 'Blues point reserve',
+            'personimage' => 'images/ellipse2.jpg',
+            'personname' => 'By Flower collection',
+            ],
+            [
+            'image' => 'images/add-ons/v3.png',
+            'tag' => 'Ring',
+            'price' => ' $299',
+            'packname' => 'Couples pack',
+            'location' => 'Tench park, penrith',
+            'personimage' => 'images/ellipse3.jpg',
+            'personname' => 'By Tiffany jewelry',
+            ],
+            [
+            'image' => 'images/add-ons/v4.png',
+            'tag' => 'Ring',
+            'price' => ' $199',
+            'packname' => 'Simple rings pack',
+            'location' => 'Blues point reserve',
+            'personimage' => 'images/ellipse4.jpg',
+            'personname' => 'By Beauty collection',
+            ],
+    ]])
       </div>
    </div>
 </section>
@@ -102,186 +68,98 @@
          <div class="col-md-12 ">
             <h2 class="pb-20 h3 netural-100">  All add-ons </h2>
          </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v5.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Chair & decoration</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $599</div>
-                  <h3 class="h4 netural-100">The corona pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse1.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Prisillia decoration</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v6.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Photographer</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $302</div>
-                  <h3 class="h4 netural-100">Wedding pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Bradfield park</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse2.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Wedding dream photography</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3 ">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v7.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Venue to celebrate</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $523 </div>
-                  <h3 class="h4 netural-100">Outdoor pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse3.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By A-Shaan</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v8.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Chair & decoration</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $702 </div>
-                  <h3 class="h4 netural-100">Exclusive pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Lia decoration</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v9.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Flower</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $68 </div>
-                  <h3 class="h4 netural-100">Flower pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Flower collection</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v10.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Venue to celebrate</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $598</div>
-                  <h3 class="h4 netural-100">Classic pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Prisillia decoration</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v11.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Car rent</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $254</div>
-                  <h3 class="h4 netural-100">Classic cars 1</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Bradfield park</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Damian garage</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v12.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Car rent</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $299 </div>
-                  <h3 class="h4 netural-100">Classic cars 2</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Damian garage</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v13.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Photographer</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $299 </div>
-                  <h3 class="h4 netural-100">Intimate pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Ray photography</div>
-                  </div>
-               </div>
-            </a>
-         </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <a class="card image-card" href="add-ons-detail">
-               <img src="images/add-ons/v14.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Flower</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $299 </div>
-                  <h3 class="h4 netural-100">Simple flower</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Bradfield park</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Flower collection</div>
-                  </div>
-               </div>
-            </a>
-         </div>
+         @include('elements.all-add-ons', ['title' => 'All add-ons', '' => '', 'allAddOns' => [
+            [
+            'image' => 'images/add-ons/v5.png',
+            'tag' => 'Chair & decoration',
+            'price' => ' $599',
+            'packname' => ' The corona pack',
+            'location' => 'Blues point reserve',
+            'personimage' => 'images/ellipse1.jpg',
+            'personname' => 'By Prisillia decoration',
+            ],
+            [
+            'image' => 'images/add-ons/v6.png',
+            'tag' => 'Photographer',
+            'price' => ' $302',
+            'packname' => 'Wedding pack',
+            'location' => 'Bradfield park',
+            'personimage' => 'images/ellipse2.jpg',
+            'personname' => 'By Wedding dream photography',
+            ],
+            [
+            'image' => 'images/add-ons/v7.png',
+            'tag' => 'Venue to celebrate',
+            'price' => ' $523',
+            'packname' => 'Outdoor pack',
+            'location' => 'Tench park, penrith',
+            'personimage' => 'images/ellipse3.jpg',
+            'personname' => 'By A-Shaan',
+            ],
+            [
+            'image' => 'images/add-ons/v8.png',
+            'tag' => 'Chair & decoration',
+            'price' => ' $702',
+            'packname' => 'Exclusive pack',
+            'location' => 'Blues point reserve',
+            'personimage' => 'images/ellipse4.jpg',
+            'personname' => 'By Lia decoration',
+            ],
+            [
+            'image' => 'images/add-ons/v9.png',
+            'tag' => 'Flower',
+            'price' => ' $68',
+            'packname' => ' Flower pack',
+            'location' => 'Blues point reserve',
+            'personimage' => 'images/ellipse1.jpg',
+            'personname' => 'By Flower collection',
+            ],
+            [
+            'image' => 'images/add-ons/v10.png',
+            'tag' => 'Venue to celebrate',
+            'price' => ' $598',
+            'packname' => 'Classic pack',
+            'location' => 'Tench park, penrith',
+            'personimage' => 'images/ellipse2.jpg',
+            'personname' => 'By Prisillia decoration',
+            ],
+            [
+            'image' => 'images/add-ons/v11.png',
+            'tag' => 'Car rent',
+            'price' => ' $254',
+            'packname' => 'Classic cars 1',
+            'location' => 'Bradfield park',
+            'personimage' => 'images/ellipse3.jpg',
+            'personname' => 'By Damian garage',
+            ],
+            [
+            'image' => 'images/add-ons/v12.png',
+            'tag' => 'Car rent',
+            'price' => ' $299',
+            'packname' => 'Classic cars 2',
+            'location' => 'Blues point reserve',
+            'personimage' => 'images/ellipse4.jpg',
+            'personname' => 'By Damian garage',
+            ],
+            [
+            'image' => 'images/add-ons/v13.png',
+            'tag' => 'Photographer',
+            'price' => ' $299',
+            'packname' => 'Intimate pack',
+            'location' => 'Tench park, penrith',
+            'personimage' => 'images/ellipse3.jpg',
+            'personname' => 'By Ray photography',
+            ],
+            [
+            'image' => 'images/add-ons/v14.png',
+            'tag' => 'Flower',
+            'price' => ' $299',
+            'packname' => 'Simple flower',
+            'location' => 'Bradfield park',
+            'personimage' => 'images/ellipse4.jpg',
+            'personname' => 'By Flower collection',
+            ],
+    ]])
       </div>
    </div>
 </section>

@@ -73,6 +73,12 @@ Route::get('marriage-certificate', function () {
 Route::get('complete-paperwork', function () {
     return view('pages.complete-paperwork');
 });
+Route::get('add-ons-detail', function () {
+    return view('pages.add-ons-detail');
+});
+Route::get('add-ons-gallery', function () {
+    return view('pages.add-ons-gallery');
+});
 Route::get('term-and-condition', function () {
     return view('pages.term-and-condition');
 });
