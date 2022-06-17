@@ -1,0 +1,61 @@
+.add-ons-detail {
+    .numberCircle {
+        width: 27px;
+        height: 27px;
+        line-height: 19px;
+        border-radius: 50%;
+        text-align: center;
+        background: #62cbc9;
+        font-weight: 700;
+        font-size: 14px;
+        color: #ffff;
+    }
+    .image-block {
+        .left-img {
+            height: 275px;
+            object-fit: cover;
+            border-radius: 10.48px;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+        }
+        .all-pictures-btn {
+            position: absolute;
+            bottom: 22px;
+            right: 18px;
+        }
+        .right-img {
+            .photo {
+                height: 128px;
+                object-fit: cover;
+                border-radius: 10.48px;
+                aspect-ratio: 1 / 1;
+                width: 100%;
+            }
+            .play-icon {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}
+.addons-list {
+    padding-left: 1rem;
+    li {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #000000;
+    }
+}
+.gallery-img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.w-20{
+    width: 20%;
+}
