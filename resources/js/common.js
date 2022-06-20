@@ -40,11 +40,6 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
-//for scrollspy faq page
-var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-  target: '#navbar-example'
-})
-
 //js for select 2
 $('.js-placeholder-single-input').select2({
   minimumResultsForSearch: -1
