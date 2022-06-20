@@ -1,0 +1,26 @@
+.reschedule-correction-tabs{
+    .nav{
+        .nav-item{
+            @include media-breakpoint-down(lg) {
+                width: 100%;
+            }
+            .theme-btn.primary-btn-border.nav-link {
+                @include media-breakpoint-down(lg) {
+                    width: 100%;
+                }
+                &.active{
+                    background: #62cbca;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .correction-form{
+        label{
+            cursor: pointer;
+        }
+        .form-check-input[type=checkbox] {
+            border-radius: 35px;
+        }
+    }
+}
