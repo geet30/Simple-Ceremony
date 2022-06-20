@@ -94,3 +94,6 @@ Route::get('shortening-of-time', function () {
 Route::get('reschedule-correction', function () {
     return view('pages.reschedule-correction');
 });
+Route::get('advice-after-first-year', function () {
+    return view('pages.advice-after-first-year');
+});
