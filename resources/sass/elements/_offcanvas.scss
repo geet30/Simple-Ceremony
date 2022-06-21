@@ -1,7 +1,6 @@
 .theme-offcanvas {
     min-width: 705px;
     background: #ffffff;
-   
     @include media-breakpoint-up(xl) {
         padding: 45px 73px;
     }
