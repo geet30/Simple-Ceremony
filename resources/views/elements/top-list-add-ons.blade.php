@@ -1,6 +1,6 @@
 @foreach ($addOns as $addon)
 <div class="col-md-3 mb-3 mb-md-0">
-            <a class="card image-card" href="add-ons-detail">
+            <a class="card image-card" href="/add-ons-detail">
                <img src="{{ $addon['image'] }}" class="card-img-top" alt="add-on" title="add-on" >
                <div class="card-body">
                   <div class="badge badge-primary d-inline-flex mb-17">
