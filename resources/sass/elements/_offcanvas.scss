@@ -1,0 +1,72 @@
+.theme-offcanvas {
+    min-width: 705px;
+    background: #ffffff;
+   
+    @include media-breakpoint-up(xl) {
+        padding: 45px 73px;
+    }
+    @include media-breakpoint-between(md, xl) {
+        padding: 40px 50px;
+    }
+    @include media-breakpoint-down(md) {
+        min-width:90% ;
+        padding: 30px !important;
+    }
+    .offcanvas-header{
+        padding:0px 0px 30px 0px
+    }
+    .btn-close {
+        background: none !important;
+        width: auto;
+        height: auto;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 19px;
+        color: $turquoise-100 !important;
+        opacity: 1;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .offcanvas-body {
+        padding: 0px;
+        .table {
+            thead {
+                tr {
+                    th {
+                        font-weight: 500;
+                        font-size: 13px;
+                        line-height: 16px;
+                        color: $neutral-100;
+                        vertical-align: middle;
+                        border-bottom-width:0px !important;
+                    }
+                }
+            }
+            tbody {
+                tr {
+                    td {
+                        border-bottom-width:0px !important;
+                        vertical-align: middle;
+                        .form-control[readonly] {
+                            background-color: #f7fcfc !important;
+                            &:focus {
+                                background-color: #f7fcfc !important;
+                                border: 1px solid #e2f3f2 !important;
+                                outline: 0 !important;
+                                color: #212529 !important;
+                            }
+                        }
+                        &.total {
+                            font-weight: 500;
+                            font-size: 13px;
+                            line-height: 16px;
+                            color: #1c1c1c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

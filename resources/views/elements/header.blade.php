@@ -23,7 +23,7 @@
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/location">Location</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/how-it-works">How it works</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/contact-us">Contact us</a>
-          <a class="nav-item nav-link align-self-lg-center cart-icon-header d-none d-lg-block me-lg-4 position-relative" href="#">
+          <a class="nav-item nav-link align-self-lg-center cart-icon-header d-none d-lg-block me-lg-4 position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <img src="images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
             <span class="cart-item-counting">3</span>
           </a>
@@ -32,5 +32,5 @@
         </div>
       </div>
     </div>
-  </nav>
-  
+</nav>
+@include('elements.basket')
