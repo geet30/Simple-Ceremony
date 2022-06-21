@@ -31,9 +31,9 @@
             </div>
             <div class="col-sm-6 col-md-3">
               <ul class="list">
-                <li><a>Reschedule & corrections</a></li>
+                <li><a href="/reschedule-correction">Reschedule & corrections</a></li>
                 <li><a href="/team">The team</a></li>
-                <li><a>Advice after 1st year</a></li>
+                <li><a href="/advice-after-first-year">Advice after 1st year</a></li>
                 <li><a href="/why-sc">Why simple ceremonies</a></li>
               </ul>
             </div>
