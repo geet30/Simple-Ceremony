@@ -5,8 +5,8 @@
         <img src="images/logo.png" class="img-fluid" alt="Logo">
       </a>
       <!-- Mobile Cart Icon With Toggle-->
-      <div class="d-flex mobile-toogle-with-cart">
-        <a class="nav-item nav-link align-self-lg-center cart-icon-header d-block d-lg-none position-relative" href="#">
+      <div class="d-flex mobile-toogle-with-cart align-items-center">
+        <a class="nav-item nav-link align-self-lg-center cart-icon-header d-block d-lg-none position-relative me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
           <img src="images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
           <span class="cart-item-counting">3</span>
         </a>
@@ -23,11 +23,11 @@
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/location">Location</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/how-it-works">How it works</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/contact-us">Contact us</a>
-          <a class="nav-item nav-link align-self-lg-center cart-icon-header d-none d-lg-block me-lg-4 position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <a class="nav-item nav-link align-self-lg-center cart-icon-header d-none d-lg-block me-lg-4 position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <img src="images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
             <span class="cart-item-counting">3</span>
           </a>
-          <a href="#" class="theme-btn primary-btn w-full w-lg-auto me-lg-4 mb-3 mb-lg-0">Make a booking</a>
+          <a href="/location" class="theme-btn primary-btn w-full w-lg-auto me-lg-4 mb-3 mb-lg-0">Make a booking</a>
           <a href="#" class="theme-btn primary-btn-border w-full w-lg-auto">Login</a>
         </div>
       </div>

@@ -10,25 +10,88 @@
                      <p class="h2 text-white">Check available location and time here</p>
                   </h2>
                   <div class="col-md-9 mx-auto location-search-data ">
-                     <ul class="d-lg-flex align-items-center justify-content-evenly gap-10 list-unstyled">
-                        <li class="">
+                     <div class="row align-items-center">
+                        <div class="col-lg-5 mb-4">
                            <p class="text-black button-1">Location</p>
-                           <p class="body-2 m-0 d-flex gap-2">
-                              <img class="me-2" src="images/location-page/location-icon.svg" alt="location-icon">Insert name of location
-                           </p>
-                        </li>
-                        <li class="">
+                           <div class="search-location-with-icon d-flex">
+                              <img class="me-2" src="images/location-page/location-icon.svg" alt="location-icon">
+                              <select class="js-example-placeholder-single js-states form-control">
+                                 <option value="" disabled="" selected="" hidden="">Insert name of location</option>
+                                 <optgroup label="Alaskan/Hawaiian Time Zone">
+                                    <option value="AK">Alaska</option>
+                                    <option value="HI">Hawaii</option>
+                                  </optgroup>
+                                  <optgroup label="Pacific Time Zone">
+                                    <option value="CA">California</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="WA">Washington</option>
+                                  </optgroup>
+                                  <optgroup label="Mountain Time Zone">
+                                    <option value="AZ">Arizona</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="WY">Wyoming</option>
+                                  </optgroup>
+                                  <optgroup label="Central Time Zone">
+                                    <option value="AL">Alabama</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="WI">Wisconsin</option>
+                                  </optgroup>
+                                  <optgroup label="Eastern Time Zone">
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WV">West Virginia</option>
+                                  </optgroup>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="col-lg-4 mb-4">
                            <p class="text-black button-1">Date & times</p>
                            <p class="body-2 m-0 d-flex gap-2">
                               <img class="me-2" src="images/location-page/calander-icon.svg" alt="calander-icon">Choose date
                            </p>
-                        </li>
-                        <li class="">
+                        </div>
+                        <div class="col-lg-3">
                            <a href="#" class="theme-btn primary-btn d-inline-flex">
                               <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon">Search
                            </a>
-                        </li>
-                     </ul>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -43,7 +106,7 @@
                 <a class="btn">
                   <img src="images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                 </a>
-                <span class="button-1 position-relative">Filter by categories</span>
+               <span class="button-1 position-relative">Filter by categories</span>
                <div class="select-with-checkbox">
                   <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
                      <option value="O1" data-badge="">All</option>
