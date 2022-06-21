@@ -135,78 +135,44 @@
          <div class="col-md-12">
             <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
          </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <div class="card image-card">
-               <img src="images/add-ons/v1.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Photographer</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $125 </div>
-                  <h3 class="h4 netural-100">Engagement pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse1.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Capture photography</div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <div class="card image-card">
-               <img src="images/add-ons/v2.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Flower</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $89 </div>
-                  <h3 class="h4 netural-100">Simple pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse2.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Flower collection</div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-3 mb-3 mb-md-0">
-            <div class="card image-card">
-               <img src="images/add-ons/v3.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Ring</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $299 </div>
-                  <h3 class="h4 netural-100">Couples pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid"> Tench park, penrith</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse3.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Tiffany jewelry</div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-3">
-            <div class="card image-card">
-               <img src="images/add-ons/v4.png" class="card-img-top" alt="add-ons-1">
-               <div class="card-body">
-                  <div class="badge badge-primary d-inline-flex mb-17">
-                     <div class="dot align-self-center me-1"></div>
-                     <div class="align-self-center"> Ring</div>
-                  </div>
-                  <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting $199 </div>
-                  <h3 class="h4 netural-100">Simple rings pack</h3>
-                  <p class="small-text2 mb-1"><img src="images/location.svg" class="img-fluid">Blues point reserve</p>
-                  <div class="d-flex">
-                     <div class="align-self-center me-1"> <img src="images/ellipse4.jpg" class="img-fluid ellipse-1" alt="ellipse"> </div>
-                     <div class="small-text3 align-self-center netural-100">By Beauty collection</div>
-                  </div>
-               </div>
-            </div>
-         </div>
+      @include('elements.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addOns' => [
+    [
+    'image' => 'images/add-ons/v1.png',
+    'tag' => 'Photographer',
+    'price' => ' $125',
+    'packname' => ' Engagement pack',
+    'location' => 'Tench park, penrith',
+    'personimage' => 'images/ellipse1.jpg',
+    'personname' => 'By Capture photography',
+    ],
+    [
+    'image' => 'images/add-ons/v2.png',
+    'tag' => 'Flower',
+    'price' => ' $89',
+    'packname' => 'Simple pack',
+    'location' => 'Blues point reserve',
+    'personimage' => 'images/ellipse2.jpg',
+    'personname' => 'By Flower collection',
+    ],
+    [
+    'image' => 'images/add-ons/v3.png',
+    'tag' => 'Ring',
+    'price' => ' $299',
+    'packname' => 'Couples pack',
+    'location' => 'Tench park, penrith',
+    'personimage' => 'images/ellipse3.jpg',
+    'personname' => 'By Tiffany jewelry',
+    ],
+    [
+    'image' => 'images/add-ons/v4.png',
+    'tag' => 'Ring',
+    'price' => ' $199',
+    'packname' => 'Simple rings pack',
+    'location' => 'Blues point reserve',
+    'personimage' => 'images/ellipse4.jpg',
+    'personname' => 'By Beauty collection',
+    ],
+]])
          <div class="col-12 mt-5 d-flex justify-content-center"> <a href="/add-ons" class="theme-btn primary-btn  ">See all add-ons</a> </div>
       </div>
    </div>
