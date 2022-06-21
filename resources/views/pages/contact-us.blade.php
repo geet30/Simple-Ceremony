@@ -61,8 +61,8 @@
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Preferred names is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
-                        <label for="InputName" class="form-label small-text2">Phone number *</label>
-                        <input type="text" placeholder="Your phone number" class="form-control body-1 netural-100" name="name" id="InputName" required="">
+                        <label for="phone" class="form-label small-text2">Phone number *</label>
+                        <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 " required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
