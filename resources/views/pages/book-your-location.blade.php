@@ -168,8 +168,8 @@
                               <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="name" id="InputName">
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">Your phone number</label>
-                              <input type="text" placeholder="Your phone number" class="form-control body-1 netural-100" name="name" id="InputName">
+                              <label for="phone" class="form-label small-text2">Your phone number</label>
+                              <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 ">
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
