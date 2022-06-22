@@ -69,26 +69,16 @@
     }
     
     .overlay-card {
-        height: 100%;
-        width: 100%;
-        @include media-breakpoint-up(md) {
-            display: flex !important;
-        }
-        border-radius: 10px;
-        background-size: cover;
-        background-repeat: no-repeat;
         position: relative;
-        text-decoration: none;
-        cursor: pointer;
-        &.img-1 {
-            background-image: url('/images/plan-wedding.png');
-            height: 340px;
-        }
-        &.img-2 {
-            background-image: url('/images/celebrant.png');
-            height: 340px;
+        overflow: hidden;
+        border-radius: 10px;
+        img {
+            border-radius: 10px;
+            transition: 0.3s;
         }
         .overlay-content {
+            position: absolute;
+            top: 0px;
             @include media-breakpoint-up(md) {
                 background: rgba(28, 28, 28, 0.8);
             }
@@ -111,6 +101,9 @@
             }
         }
         &:hover {
+            img {
+                transform: scale(1.1);
+            }
             .overlay-content {
                 transition: .5s ease;
                 background: rgba(98, 203, 201, 0.9);
