@@ -1,34 +1,36 @@
-.bg-turquoise-20{
+.bg-turquoise-20 {
     background-color: $turquoise-20;
 }
+
 .compare-steps {
     background: $white;
     box-shadow: 0px 2px 16px #E8F9F7;
     border-radius: 10px;
     padding-bottom: 34px;
-        .compare-steps-header {
-            background: #62CBC9;
-            border-radius: 10px;
-            padding: 20px 10px;
-            z-index: 9;
-            &:after{
-                position: absolute;
-                background: #62cbca;
-                content: "";
-                width: 20px;
-                height: 20px;
-                bottom: -10px;
-                right: 0;
-                left: 0;
-                margin: 0 auto;
-                transform: rotate(-133deg);
-                z-index: -1;
-            }
+    .compare-steps-header {
+        background: #62CBC9;
+        border-radius: 10px;
+        padding: 20px 10px;
+        z-index: 9;
+        &:after {
+            position: absolute;
+            background: #62cbca;
+            content: "";
+            width: 20px;
+            height: 20px;
+            bottom: -10px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            transform: rotate(-133deg);
+            z-index: -1;
         }
-        ul{
-            padding: 0px 20px;
-        }
+    }
+    ul {
+        padding: 0px 20px;
+    }
 }
+
 .invitation-card-data {
     position: absolute;
     text-align: center;
@@ -42,6 +44,7 @@
         bottom: 5px;
     }
 }
+
 .partition-text {
     display: block;
     position: absolute;
@@ -59,45 +62,43 @@
         top: 34px;
     }
 }
+
 .certificate-type {
     background: $white;
     box-shadow: 0px 2px 16px #E8F9F7;
     border-radius: 10px;
     padding: 15px;
 }
-.certificate-img-1 {
-    background-image: url("/images/sign-bg.png");
-    height: 605px;
-    .overlay-content {
-        @include media-breakpoint-down(xl) {
-            padding: 40px 40px 40px 40px;
+
+.overlay-card {
+    &.certificate-img-1,
+    &.certificate-img-2,
+    &.certificate-img-3 {
+        .overlay-content {
+            @include media-breakpoint-down(xl) {
+                padding: 40px 40px 40px 40px;
+            }
         }
     }
-}
-.certificate-img-2 {
-    background-image: url("/images/by-post-bg.png");
-    height: 605px;
-    .overlay-content {
-        @include media-breakpoint-down(xl) {
-            padding: 40px 40px 40px 40px;
-        }
+    &.certificate-img-1 {
+        // height: 605px;
+    }
+    &.certificate-img-2 {
+        // height: 605px;
+    }
+    &.certificate-img-3 {
+        // height: 605px;
     }
 }
-.certificate-img-3 {
-    background-image: url("/images/online-bg.png");
-    height: 605px;
-    .overlay-content {
-        @include media-breakpoint-down(xl) {
-            padding: 40px 40px 40px 40px;
-        }
-    }
-}
-.bg-turquoise-20{
+
+.bg-turquoise-20 {
     background: $turquoise-20;
 }
-.mt-60{
+
+.mt-60 {
     margin-top: 60px;
 }
-.mt-50{
+
+.mt-50 {
     margin-top: 50px;
 }

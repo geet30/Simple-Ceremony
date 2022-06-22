@@ -328,7 +328,8 @@
          <div class="col-12 col-md-10 mx-auto">
             <div class="row">
                <div class="col-md-6 mb-3 mb-md-0">
-                  <div class="overlay-card img-1  d-block">
+                  <div class="overlay-card   d-block">
+                     <img src="images/plan-wedding.jpg" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Plan your wedding online & receive instant quote</h3>
                         <p class="body-1 text-white  mb-4">From cars, location, decorations, photographer, reception & more...</p>
@@ -340,7 +341,8 @@
                   </div>
                </div>
                <div class="col-md-6 mb-3 mb-md-0">
-                  <a class="overlay-card img-2 d-block">
+                  <a class="overlay-card d-block">
+                     <img src="images/celebrant.jpg" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Are you a FABULOUS celebrant?</h3>
                         <p class="body-1 text-white  mb-4">We are always looking for FABULOUS celebrant. </p>

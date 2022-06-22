@@ -36,7 +36,8 @@
          <div class="col-12 col-md-10 mx-auto">
             <div class="row">
                <div class="col-md-6 mb-3 mb-md-0">
-                  <div class="overlay-card img-1  d-block">
+                  <div class="overlay-card   d-block">
+                     <img src="images/plan-wedding.jpg" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-4">Option 1</h3>
                         <p class="body-3-regular text-white  mb-4">You arrange your registered Marriage Certificate direct through Births, Deaths and Marriage - online.</p>
@@ -48,7 +49,8 @@
                   </div>
                </div>
                <div class="col-md-6 mb-3 mb-md-0">
-                  <div class="overlay-card img-2 d-block">
+                  <div class="overlay-card  d-block">
+                     <img src="images/celebrant.jpg" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-4">Option 2</h3>
                         <p class="body-3-regular text-white  mb-4">We arrange your registered Marriage Certificate, if you were married in the past 30 days (an additional charge of $40)</p>
@@ -125,6 +127,7 @@
             <div class="row">
                <div class="col-md-4 mb-3 mb-md-0">
                   <div class="overlay-card certificate-img-1 d-block">
+                     <img src="images/sign-bg.png" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-4">1. Option</h3>
                         <p class="body-3-regular text-white  mb-4">Through BDM NSW website you can apply</p>
@@ -137,6 +140,7 @@
                </div>
                <div class="col-md-4 mb-3 mb-md-0">
                   <div class="overlay-card certificate-img-2 d-block">
+                     <img src="images/by-post-bg.png" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-4">2. By post</h3>
                         <p class="body-3-regular text-white  mb-4">You can do this by completing an application form and posting it directly to BDM</p>
@@ -149,6 +153,7 @@
                </div>
                <div class="col-md-4 mb-3 mb-md-0">
                   <div class="overlay-card certificate-img-3 d-block">
+                     <img src="images/online-bg.png" class="img-fluid">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-4">3. Was your ceremony performed by Michael or Ange Teulon?</h3>
                         <p class="body-3-regular text-white  mb-4">If so we can apply on your behalf and have the Marriage Certificate posted to you by registered mail.<br><br>
