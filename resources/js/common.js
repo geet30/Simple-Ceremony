@@ -63,3 +63,6 @@ $(".js-example-placeholder-single").select2({
 $('.js-example-placeholder-single').select2().on('select2:open', function(e){
   $('.select2-search__field').attr('placeholder', 'Type here....');
 })
+
+
+///////
