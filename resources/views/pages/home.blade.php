@@ -418,7 +418,7 @@
                <p class="h2 neutral-100">Based on your specific circumstances, we can let you know if you can get married and exactly what you need to get married</p>
             </h2>
             <div class="d-flex justify-content-center">
-               <a href="#" class="theme-btn secondary-btn">Start quiz</a> 
+               <a href="/quiz" class="theme-btn secondary-btn">Start quiz</a> 
             </div>
             <div class="mt-115">
                <img src="images/quiz-img.png" class="img-fluid" alt="quiz image">
