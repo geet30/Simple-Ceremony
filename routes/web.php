@@ -97,3 +97,6 @@ Route::get('reschedule-correction', function () {
 Route::get('advice-after-first-year', function () {
     return view('pages.advice-after-first-year');
 });
+Route::get('quiz', function () {
+    return view('pages.quiz');
+});
