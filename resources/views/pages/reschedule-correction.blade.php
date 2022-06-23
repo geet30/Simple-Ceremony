@@ -3,7 +3,7 @@
    <div class="container">
       <div class="row">
          <div class="col-12">
-            <h1 class="h1 netural-100 text-center mb-4">Reschedule & correction</h1>
+            <h1 class="h1 netural-100 text-center mb-5">Reschedule & correction</h1>
             <img src="images/how-it-works-main.png" class="img-fluid" alt="How It Works Main Hero Image"> 
          </div>
       </div>
@@ -33,7 +33,7 @@
                      <div class="col-md-5">
                         <img src="images/ring-ceremony.png" class="img-fluid" alt="Ring ceremony">
                      </div>
-                     <div class="col-md-7">
+                     <div class="col-md-7 mt-3 mt-md-0">
                         <h4 class="h4 netural-100">You have selected above to Reschedule your ceremony. To proceed you just need to confirm the following.</h4>
                         <ul class="list-unstyled mb-0">
                            <li class="d-flex align-items-start mt-4">
@@ -54,7 +54,7 @@
                      <div class="col-md-5">
                         <img src="images/man-with-pen-signs-document.png" class="img-fluid w-100" alt="correction">
                      </div>
-                     <div class="col-md-7">
+                     <div class="col-md-7 mt-3 mt-md-0">
                         <h4 class="h4 netural-100 mb-4">You have selected above to Make a Correction(s)<br><br>
                            There are two ways to go about this, depending on what stage of the process you are through. Please read the 2 options below to use the correct option for you.
                         </h4>
@@ -81,7 +81,7 @@
                      <div class="col-md-5">
                         <img src="images/checklist-v1.png" class="img-fluid" alt="correction">
                      </div>
-                     <div class="col-md-7">
+                     <div class="col-md-7 mt-3 mt-md-0">
                         <h4 class="h4 netural-100 mb-4">Following your Marriage Ceremony, you will have received your Certificate of Marriage. However, do you also require the Registered Marriage Certificate from Birth Deaths?  If so you need to apply to Births Deaths and Marriage NSW</h4>
                         <p class="body-3 netural-100">The current fee is $60<br><br>
                            Alternatively, we can go through the process, on your behalf, saving you from having to complete the online form and provide copies of ID.<br><br>
@@ -95,7 +95,7 @@
                      <div class="col-md-5">
                         <img src="images/checklist-v1.png" class="img-fluid" alt="correction">
                      </div>
-                     <div class="col-md-7">
+                     <div class="col-md-7 mt-3 mt-md-0">
                         <h4 class="h4 netural-100 mb-4">You have selected Other for your payment. Only use this option if alternative are not available before</h4>
                         <form action="" class="correction-form">
                            <div class="form-check mb-3" role="button">

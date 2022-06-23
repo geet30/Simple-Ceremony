@@ -11,7 +11,7 @@
       </div>
    </div>
 </section>
-<section class="marrige-steps pt-100 pb-80">
+<section class="marrige-steps pt-100 pb-80  bg-turquoise-20">
    <div class="container">
       <div class="row">
          <div class="col-md-12">

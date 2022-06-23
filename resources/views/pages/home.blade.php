@@ -86,45 +86,27 @@
             </h2>
          </div>
          <div class=" col-lg-3 col-xxl-6"></div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/locations/v1.png" class="card-img-top" alt="location-1">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Blues point reserve</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/locations/v1.png" class="card-img-top" alt="location-1">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Bradfield park</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/locations/v1.png" class="card-img-top" alt="location-1">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Tench park, penrith</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
+         @include('elements.location', ['title' => 'locations', '' => '', 'locations' => [
+    [
+    'image' => 'images/locations/v1.png',
+    'price' => ' $350',
+    'name' => ' Blues point reserve',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/locations/v1.png',
+    'price' => ' $350',
+    'name' => ' Bradfield park',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/locations/v1.png',
+    'price' => ' $350',
+    'name' => ' Tench park, penrith',
+    'btn' => 'Learn more',
+    ],
+]])
+    
          <div class="col-12 mt-5 d-flex justify-content-center"> <a href="/location" class="theme-btn primary-btn  ">See all locations</a> </div>
       </div>
    </div>
@@ -304,7 +286,10 @@
       <div class="row">
          <div class="col-12 bg-turquoise-50 radius-10">
             <div class="row align-items-center">
-               <div class="col-md-5 ps-0"> <img src="images/wedding-moments.png" class="img-fluid" alt="wedding-moments"> </div>
+               <div class="col-md-5 ps-0 pe-0"> 
+                  <img src="images/wedding-moments.png" class="img-fluid d-none d-md-block" alt="wedding-moments">
+                  <img src="images/wedding-moments-mb.png" class="img-fluid d-md-none" alt="wedding-moments">
+                </div>
                <div class="col-md-7 pt-md-0 pt-4 pb-md-0 pb-4">
                   <h2 class="h3 text-black">Want to get married in your own <br/>dream place?</h2>
                   <div class="d-flex mt-4 d-none d-xl-flex"> <a href="/request-custom-location" class="theme-btn secondary-btn d-inline-flex me-3 ">Request a custom location or date and time.</a> <a href="/book-custom-location" class="theme-btn secondary-btn-border d-inline-flex">Book your custom location</a> </div>

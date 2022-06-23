@@ -16,6 +16,9 @@
     
     .mt-100 {
         margin-top: 100px;
+        @include media-breakpoint-down(md) {
+            margin-top: 60px;   
+        }
     }
     
     .available-dates {
