@@ -184,6 +184,7 @@
                                  <option value="5">A memorial ceremony</option>
                               </select>
                            </div>
+                           
                            <div class="col-md-12 mb-5 mt-3">
                               <div class="form-term-condition p-5">
                                  <h3 class="h3 netural-100 mb-4">Conditions of booking:</h3>
