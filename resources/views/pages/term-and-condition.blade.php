@@ -19,7 +19,7 @@
          <div class="col-md-4">
             <img class="img-fluid" src="/images/term-and-condition/covid-restrictions.png" alt="Covid Restrictions">
          </div>
-         <div class="col-md-8">
+         <div class="col-md-8 mt-3 mt-md-0">
             <p class="paragraph netural-100 spartan-font">Terms and Conditions</p>
             <h2 class="h2 netural-100 mb-4">COVID-19 Restrictions</h2>
             <p class="body-3-regular">Obviously all bookings are subject to COVID-19 government restrictions. Before booking please be aware of this. For current restrictions please <a class="button-1 turquoise-100 faq-link" href="/current-restrictions">click here</a> but as you know this change regularly.<br><br>

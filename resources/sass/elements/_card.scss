@@ -22,6 +22,9 @@
         }
         .mb-15 {
             margin-bottom: 15px;
+            @include media-breakpoint-down(md) {
+                margin-bottom: 1rem;
+            }
         }
         .mb5 {
             margin-bottom: 5px;

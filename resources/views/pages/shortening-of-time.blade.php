@@ -19,7 +19,7 @@
          <div class="col-md-5">
             <img class="img-fluid" src="/images/term-and-condition/covid-conditions.png" alt="Covid Restrictions">
          </div>
-         <div class="col-md-6 offset-md-1">
+         <div class="col-md-6 offset-md-1 mt-3 mt-md-0">
             <h4 class="h4 mb-3">However, there are exceptions and a "Shortening of Time" can be aplied for.</h4>
             <p class="body-3-regular">The <a href="http://classic.austlii.edu.au/au/legis/cth/num_reg/mr2017201701359210/sch3.html" class="button-1 turquoise-100 faq-link" target="_blank">Marriage Regulations 2017 (Cth)</a> Schedule 3 - Circumstances for authorising marriage despite late notice. The 5 prescribed categories are set out below.</p>
             <h4 class="h4">They are :</h4>

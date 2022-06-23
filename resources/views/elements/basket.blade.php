@@ -61,8 +61,8 @@
         </table>
       </div>
       <div class="d-lg-flex mt-50">
-        <a href="#" class="theme-btn primary-btn me-3">Pay now</a>
-        <a href="/add-ons" class="theme-btn primary-btn-border">Continue choosing add-ons</a>
+        <a href="#" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Pay now</a>
+        <a href="/add-ons" class="theme-btn primary-btn-border  d-flex justify-content-center">Continue choosing add-ons</a>
       </div>
     </form>
   </div>

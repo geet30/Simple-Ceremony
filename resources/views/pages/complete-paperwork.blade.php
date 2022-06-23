@@ -9,12 +9,12 @@
             <h1 class="h1 netural-100 mb-3">Start your NoIM online</h1>
             <p class="body-3-regular">Watch this video for a summary of what's involved in completing your NoIM on-line & also have your signature witnessed on-line.</p>
             <p class="body-3-regular mb-4">Online on the Simple Ceremonies website.Signed & witnessed by an <span class="body-1">Authorised Person*</span>OR NOW via <span class="body-1">VIDEO witnessed</span> by us, and uploaded back to Simple Ceremonies at least <span class="body-1">ONE CALENDAR MONTH PRIOR</span> to your ceremony date</p>
-            <div class="d-flex">
-               <a href="#" class="theme-btn primary-btn me-4">Set-up NoIM here</a>
-               <a href="#details-information" class="theme-btn primary-btn-border">Read detail information</a>
+            <div class="d-lg-flex">
+               <a href="#" class="theme-btn primary-btn d-flex me-lg-4 mb-3 mb-lg-0 justify-content-center">Set-up NoIM here</a>
+               <a href="#details-information" class="theme-btn primary-btn-border  d-flex  justify-content-center">Read detail information</a>
             </div>
          </div>
-         <div class="col-md-6">
+         <div class="col-md-6 mt-3 mt-md-0">
             <img src="images/noim-main.png" alt="NoIM" class="img-fluid">
          </div>
       </div>

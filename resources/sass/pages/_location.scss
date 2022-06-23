@@ -1,6 +1,6 @@
 .location-page-booking-cards{
     .card-img-overlay:hover {
-        background: #6cf4ee4d;
+        background:  rgba(98, 203, 201, 0.5);
     }
     .card {
         overflow: hidden;
@@ -20,6 +20,9 @@
     }
     .p-10 {
         padding: 5rem;
+        @include media-breakpoint-down(lg) {
+            padding: 2rem;
+        }
     }
 }
 .rounded-12{
