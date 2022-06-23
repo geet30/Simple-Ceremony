@@ -39,7 +39,7 @@
                      <h2 class="h3 neutral-100">The corona pack bronze • $199</h2>
                   </div>
                   <div class="align-self-center">
-                     <a type="button" class="theme-btn primary-btn d-inline-flex" data-bs-toggle="modal"
+                     <a class="theme-btn primary-btn d-inline-flex" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
                         <img class="me-2" src="images/shopping-icon.svg" alt="shopping-icon">
                         Add to my wedding
@@ -295,7 +295,7 @@
                <div class="row">
                   <div class="d-md-flex">
                      <div class="d-flex">
-                        <a class="theme-btn primary-btn  me-md-4 mb-3 mb-lg-0 w-100-sm" type="button"
+                        <a class="theme-btn primary-btn  me-md-4 mb-3 mb-lg-0 w-100-sm"
                            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                            aria-controls="offcanvasRight">Continue</a>
                      </div>

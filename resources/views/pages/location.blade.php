@@ -83,7 +83,9 @@
                         <div class="col-lg-4 mb-4">
                            <p class="text-black button-1">Date & times</p>
                            <p class="body-2 m-0 d-flex gap-2">
-                              <img class="me-2" src="images/location-page/calander-icon.svg" alt="calander-icon">Choose date
+                              <a class="d-flex neutral-100 text-decoration-none choose-date outline-0" data-bs-toggle="modal" data-bs-target="#calendarmodal">
+                                 <img class="me-3" src="images/location-page/calander-icon.svg" alt="calander-icon">Choose date
+                              </a>
                            </p>
                         </div>
                         <div class="col-lg-3">
@@ -211,4 +213,60 @@
         </div>
     </div>
 </section>
+
+{{-- calander modal --}}
+<div class="modal fade" id="calendarmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-xl">
+     <div class="modal-content">
+       <div class="modal-body">
+         <div class="container-fluid">
+           <div class="row">
+               <div class="col-md-12 col-lg-7 mb-lg-0 mb-4">
+                  <div class="calendar-wrapper" id="calendar-wrapper"></div>
+               </div>
+               <div class="col-md-12 col-lg-5">
+                  <div class="calander-time mb-4">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <p class="body-1">Choose times</p>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                           <select name="time_hr" id="time_hr" class="js-placeholder-single-input form-control">
+                              <option value="" disabled="" selected="" hidden="">--:--</option>
+                              <option value="1">09:00</option>
+                              <option value="2">09:30</option>
+                              <option value="3">10:00</option>
+                              <option value="4">10:30</option>
+                              <option value="5">11:00</option>
+                              <option value="6">11:30</option>
+                              <option value="7">12:00</option>
+                              <option value="8">12:30</option>
+                           </select>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                           <select name="time_min" id="time_min" class="js-placeholder-single-input form-control">
+                              <option value="" disabled="" selected="" hidden="">--:--</option>
+                              <option value="1">09:00</option>
+                              <option value="2">09:30</option>
+                              <option value="3">10:00</option>
+                              <option value="4">10:30</option>
+                              <option value="5">11:00</option>
+                              <option value="6">11:30</option>
+                              <option value="7">12:00</option>
+                              <option value="8">12:30</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                     <button type="button" class="theme-btn primary-btn border-0 me-3">Save</button>
+                     <button type="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal">Cancel</button>
+                  </div>
+               </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+</div>
 @endsection

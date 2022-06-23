@@ -2,7 +2,7 @@
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand" href="/">
-        <img src="images/logo.png" class="img-fluid" alt="Logo">
+        <img src="images/main-logo.svg" class="img-fluid" alt="Logo">
       </a>
       <!-- Mobile Cart Icon With Toggle-->
       <div class="d-flex mobile-toogle-with-cart align-items-center">
