@@ -46,7 +46,7 @@
                                  <div class="col-md-4 mb-4 mb-md-0">
                                     <h3 class="h3 Neutral/100 mb-0">Choose date</h3>
                                  </div>
-                                 <div class="col-md-8">
+                                 <div class="col-md-8 col-xl-8 col-xxl-6">
                                     <div class="d-flex justify-content-md-end">
                                        <div class="me-5">
                                           <img class="me-2" src="/images/booking-form/available-icon.svg" alt="Available Icon">
@@ -59,74 +59,76 @@
                                     </div>
                                  </div>
                               </div>
-                              <img class="img-fluid w-100" src="/images/booking-form/calander-frame.svg" alt="Calander Frame">
+                           </div>
+                           <div class="col-xxl-10 col-xl-12 col-md-12 mb-4">
+                              <div class="calendar-wrapper" id="calendar-wrapper"></div>
                            </div>
                            <div class="col-md-12 mb-3">
                               <h3 class="h3 Neutral/100 mb-4">Select time</h3>
                               <div class="row">
                                  <div class="col-md-12">
                                     <ul class="time-list list-unstyled d-flex flex-wrap">
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="06.00" checked>
                                           <label class="radio-label body-2 text-center w-100" for="btnradio1">06.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="07.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio2">07.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="08.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio3">08.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" value="09.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio4">09.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" value="10.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio5">10.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" value="11.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio6">11.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" value="12.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio7">12.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off" value="13.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio8">13.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio9" autocomplete="off" value="14.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio9">14.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio10" autocomplete="off" value="15.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio10">15.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio11" autocomplete="off" value="16.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio11">16.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio12" autocomplete="off" value="17.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio12">17.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio13" autocomplete="off" value="18.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio13">18.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio14" autocomplete="off" value="19.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio14">19.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio15" autocomplete="off" value="20.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio15">20.00</label>
                                        </li>
-                                       <li>
+                                       <li class="me-3 mb-3">
                                           <input type="radio" class="btn-check" name="btnradio" id="btnradio16" autocomplete="off" value="21.00">
                                           <label class="radio-label body-2 text-center w-100" for="btnradio16">21.00</label>
                                        </li>
@@ -189,9 +191,9 @@
                                     a) I understand that is my responsibility to ensure the Notice of Intended Marriage form is lodged with Simple Ceremonies at least one calendar month prior to the ceremony date.<br><br>
                                     The Notice of Intended Marriage form must be prepared on this website and uploaded.<br><br>
                                     b) I understand that the Commonwealth Government of Australia recommends all couples receive pre-marriage counselling. It is not compulsory but it is recommended.
-                                       <a class="d-block mb-1" href="#">Click here to see some services</a><br>
+                                       <a class="d-block mb-1" href="/faq">Click here to see some services</a><br>
                                     c) I have read and accept the Terms as shown on this website. Click here to see 
-                                       <a class="d-block mb-1" href="#">Terms and Conditions</a><br>
+                                       <a class="d-block mb-1" href="/term-and-condition">Terms and Conditions</a><br>
                                     d) I understand that this booking is non-refundable. The booking can ONLY be changed, if one calendar month and two days notice is given prior to the scheduled ceremony date. If this is the case the rescheduling fee will be $85, otherwise you will need to re-book and pay again.<br><br>
                                     e) I understand The maximum number of people at the ceremony is 20. That is 18 guests (including children above 5 yrs) and the 2 of you. At this location, this can not be increased.<br><br>
                                  </p>

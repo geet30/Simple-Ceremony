@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.calendar-box {
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid #E2F3F2;
+    border-radius: 10px;
+}
+ .buttons-container {
+     cursor: pointer;
+}
+ .week {
+     overflow: hidden;
+}
+.day {
+    display: inline-block;
+    width: 14.28%;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: #2C3855;
+    font-size: 14px;
+    line-height: 22px;
+}
+.day.disabled span {
+    color: #A4ABBB;
+}
+ .months-container.hidden, .weeks-container.hidden {
+     display: none;
+}
+.months-wrapper {
+    overflow: hidden;
+    font-size: 14px;
+}
+ .months-wrapper .month {
+     display: inline-block;
+     width: 25%;
+     text-align: center;
+     cursor: pointer;
+}
+ .months-wrapper .month.one-third {
+     width: 33.33%;
+}
+.buttons-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+ .buttons-container .label-container {
+     display: inline-block;
+     -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+     -webkit-flex: 1;
+     -ms-flex: 1;
+     flex: 1;
+     text-align: center;
+     text-transform: uppercase;
+}
+ .year-dropdown {
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     border: none;
+     font-size: inherit;
+     font-weight: inherit;
+     font-family: inherit;
+     padding: 5px 20px;
+}
+ .prev-button, .next-button {
+     background: transparent;
+     border: none;
+     padding: 10px;
+}
+ .week {
+     margin: 10px 0;
+}
+ .week.highlight {
+     border-radius: 5px;
+}
+.week .day.header {
+    text-transform: capitalize;
+    font-size: 14px;
+    line-height: 22px;
+}
+ .day span {
+     display: inline-block;
+     width: 71px;
+     height: 40px;
+     line-height: 40px;
+     border-radius: 10px;
+     vertical-align: middle;
+}
+ .day.today span {
+     position: relative;
+     display: inline-block;
+     font-size: 110%;
+}
+/* weekend */
+ .week:not(.start-on-monday) .day:first-child, .week:not(.start-on-monday) .day:last-child {
+     color: orange;
+}
+/* sunday */
+ .week:not(.start-on-monday) .day:first-child {
+     color: #FF5C5C;
+}
+/* start on monday - weekend */
+.week.start-on-monday .day:nth-child(6), .week.start-on-monday .day:last-child {
+    color: #FF5C5C;
+}
+.week.start-on-monday .day.header:nth-child(6) {
+    color: #2C3855;
+}
+/* start on monday - sunday */
+ .week.start-on-monday .day:last-child {
+     color: #FF5C5C;
+}
+.week.start-on-monday .day.header:last-child {
+	color: #2C3855;
+}
+ .day.sunday span {
+     color: #ff8a80;
+}
+ .week .day.selected span {
+     background: #62CBC9;
+     color: white;
+}
+ .week .day[disabled="disabled"] span {
+     color: #aaa;
+     cursor: not-allowed;
+}
+ .months-wrapper .month span {
+     display: inline-block;
+     padding: 10px;
+     text-transform: capitalize;
+     margin-bottom: 10px;
+}
+.special-buttons {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+ .today-button {
+     margin: 0 auto;
+     background: transparent;
+     border: none;
+     padding: 5px;
+}

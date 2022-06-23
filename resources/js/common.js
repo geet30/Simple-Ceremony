@@ -45,7 +45,7 @@ $('.js-placeholder-single-input').select2({
   minimumResultsForSearch: -1
 });
 
-////////
+//////// Select 2 Js with checkbox
 $(".js-select2").select2({
   closeOnSelect : false,
   placeholder : "Placeholder",
@@ -54,7 +54,7 @@ $(".js-select2").select2({
   tags: true 
 });
 
-////////
+//////// Select 2 Js with search
 $(".js-example-placeholder-single").select2({
   placeholder: "Insert name of location",
   allowClear: false
@@ -65,4 +65,21 @@ $('.js-example-placeholder-single').select2().on('select2:open', function(e){
 })
 
 
-///////
+/////// calander Js
+function selectDate(date) {
+  $('#calendar-wrapper').updateCalendarOptions({
+    date: date
+  });
+  console.log(calendar.getSelectedDate());
+}
+
+var defaultConfig = {
+  weekDayLength: 2,
+  date: '08/05/2021',
+  onClickDate: selectDate,
+  showYearDropdown: true,
+  startOnMonday: true,
+};
+
+var calendar = $('#calendar-wrapper').calendar(defaultConfig);
+console.log(calendar.getSelectedDate());
