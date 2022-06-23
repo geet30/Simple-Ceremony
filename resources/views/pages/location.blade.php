@@ -123,123 +123,63 @@
                </div>
             </div>
         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Hunter_valley.png" class="card-img-top" alt="Hunter valley">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Hunter valley</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Cronulla.png" class="card-img-top" alt="Cronulla">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Cronulla</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Water_taxi.png" class="card-img-top" alt="Water taxi">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Water taxi</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Mort_bay_Balmain.png" class="card-img-top" alt="Mort bay, Balmain">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Mort bay, Balmain</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Coogee_beach.png" class="card-img-top" alt="Coogee beach">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Coogee beach</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Merewether_newcastle.png" class="card-img-top" alt="Merewether, newcastle">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Merewether, newcastle</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Blues_point_reserve.png" class="card-img-top" alt="Blues point reserve">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Blues point reserve</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Bradfield_park.png" class="card-img-top" alt="Bradfield park">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Bradfield park</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Tench_park_Penrith.png" class="card-img-top" alt="Tench park, Penrith">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Tench park, Penrith</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon" /></div>
-                  </a>
-               </div>
-            </div>
-         </div>
+        @include('elements.location', ['title' => 'locations', '' => '', 'locations' => [
+    [
+    'image' => 'images/location-page/hunter_valley.png',
+    'price' => ' $350',
+    'name' => ' Hunter valley',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/cronulla.png',
+    'price' => ' $350',
+    'name' => ' Cronulla',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/water_taxi.png',
+    'price' => ' $350',
+    'name' => ' Water taxi',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/mort_bay_Balmain.png',
+    'price' => ' $350',
+    'name' => ' Mort bay, Balmain',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/coogee_beach.png',
+    'price' => ' $350',
+    'name' => ' Coogee beach',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/merewether_newcastle.png',
+    'price' => ' $350',
+    'name' => ' Merewether, newcastle',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/blues_point_reserve.png',
+    'price' => ' $350',
+    'name' => ' Blues point reserve',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/bradfield_park.png',
+    'price' => ' $350',
+    'name' => ' Bradfield park',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/tench_park_Penrith.png',
+    'price' => ' $350',
+    'name' => 'Tench park, Penrith',
+    'btn' => 'Learn more',
+    ],
+]])
+    
       </div>
    </div>
 </section>

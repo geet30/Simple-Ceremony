@@ -27,7 +27,7 @@
                <a href="https://www.nsw.gov.au/covid-19/stay-safe/rules" class="theme-btn primary-btn-border" target="_blank">Learn more</a>
             </div>
          </div>
-         <div class="col-md-5">
+         <div class="col-md-5 mt-3 mt-md-0">
             <img src="/images/term-and-condition/covid-restrictions-hr.png" alt="Covid Restrictions" class="img-fluid">
          </div>
       </div>
@@ -39,7 +39,7 @@
          <div class="col-md-5">
             <img class="img-fluid" src="/images/term-and-condition/covid-conditions.png" alt="Covid Restrictions">
          </div>
-         <div class="col-md-6 offset-md-1">
+         <div class="col-md-6 offset-md-1 mt-3 mt-md-0">
             <p class="paragraph netural-100 spartan-font">Terms and Conditions</p>
             <h2 class="h2 netural-100 mb-4">What this means</h2>
             <h4 class="h4 mb-4">If you had a wedding booked during this period</h4>

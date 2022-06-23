@@ -47,9 +47,9 @@
                <span class="paragraph netural-100">$350</span><br>
                <span class="h1 netural-100">Kissing Point Park, under the fish Yaralla Road, Putney</span>
             </h1>
-            <div class="d-flex">
-               <a href="/book-your-location" class="theme-btn primary-btn me-4">Continue booking</a>
-               <a href="#details-information" class="theme-btn primary-btn-border ">Read detail information</a>
+            <div class="d-lg-flex">
+               <a href="/book-your-location" class="theme-btn primary-btn me-lg-4 mb-3 mb-lg-0 d-flex justify-content-center ">Continue booking</a>
+               <a href="#details-information" class="theme-btn primary-btn-border d-flex justify-content-center">Read detail information</a>
             </div>
          </div>
       </div>
@@ -153,84 +153,46 @@
                <p class="h2 netural-100 mb-0">See others location</p>
             </h2>
          </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Hunter_valley.png" class="card-img-top" alt="Hunter valley">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Hunter valley</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Cronulla.png" class="card-img-top" alt="Cronulla">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Cronulla</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Water_taxi.png" class="card-img-top" alt="Water taxi">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Water taxi</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Mort_bay_Balmain.png" class="card-img-top" alt="Mort bay, Balmain">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Mort bay, Balmain</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Coogee_beach.png" class="card-img-top" alt="Coogee beach">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Coogee beach</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-4">
-            <div class="card image-card">
-               <img src="images/location-page/Merewether_newcastle.png" class="card-img-top" alt="Merewether, newcastle">
-               <div class="card-body">
-                  <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">$350</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
-                  <h3 class="h3 netural-100 mb-4">Merewether, newcastle</h3>
-                  <a href="/single-location" class="card-btn-link d-flex">
-                     <div class="align-self-center">Learn more</div>
-                     <div class="align-self-center"> <img src="images/button-arrow.svg" class="img-fluid" alt="arrow-icon"></div>
-                  </a>
-               </div>
-            </div>
-         </div>
+         @include('elements.location', ['title' => 'locations', '' => '', 'locations' => [
+    [
+    'image' => 'images/location-page/hunter_valley.png',
+    'price' => ' $350',
+    'name' => ' Hunter valley',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/cronulla.png',
+    'price' => ' $350',
+    'name' => ' Cronulla',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/water_taxi.png',
+    'price' => ' $350',
+    'name' => ' Water taxi',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/mort_bay_Balmain.png',
+    'price' => ' $350',
+    'name' => ' Mort bay, Balmain',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/coogee_beach.png',
+    'price' => ' $350',
+    'name' => ' Coogee beach',
+    'btn' => 'Learn more',
+    ],
+    [
+    'image' => 'images/location-page/merewether_newcastle.png',
+    'price' => ' $350',
+    'name' => ' Merewether, newcastle',
+    'btn' => 'Learn more',
+    ],
+   
+]])
+    
       </div>
    </div>
 </section>

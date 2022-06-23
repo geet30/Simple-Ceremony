@@ -6,9 +6,9 @@
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
-    @include media-breakpoint-down(lg) {
-        padding: 10px !important;    
-    }
+    // @include media-breakpoint-down(lg) {
+    //     padding: 10px !important;    
+    // }
     &.primary-btn {
         background: #62CBC9;
         color: #FFFFFF;
@@ -54,6 +54,10 @@
         &:hover {
             color: $turquoise-100;
             border: 1px solid $turquoise-100;
+        }
+        &:focus{
+            color: #5FE1DF;
+            border: 1px solid #5FE1DF;
         }
         & .disable {
             border: 1px solid #B6CED0;
