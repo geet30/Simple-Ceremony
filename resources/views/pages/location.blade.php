@@ -188,7 +188,7 @@
         <div class="row">
             <div class="col-md-6 mb-md-0 mb-3">
                 <div class="card border-0 rounded-12">
-                    <img src="images/location-page/Book_your_custom_location.png" class="card-img" alt="Book your custom location">
+                    <img src="images/location-page/book_your_custom_location.png" class="card-img" alt="Book your custom location">
                     <div class="card-img-overlay d-flex flex-column justify-content-center text-center p-10">
                         <h3 class="h3 Neutral/100 mb-4">Want to get married in your own dream place?</h3>
                         <div class="d-grid gap-3 col-12">

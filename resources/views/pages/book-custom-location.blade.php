@@ -282,7 +282,7 @@
                                  </div>
                                  <div class="col-md-4 mb-4">
                                     <a href="#">
-                                       <img class="img-fluid w-100" src="/images/booking-form/B-pay.svg" alt="Visa Card">
+                                       <img class="img-fluid w-100" src="/images/booking-form/b-pay.svg" alt="Visa Card">
                                     </a>
                                  </div>
                                  <div class="col-md-4 mb-4">
