@@ -1,0 +1,21 @@
+.login{
+    .left{
+        align-items: center;
+        // height: 100vh;
+    }
+    .right{
+        .card-login{
+  
+        }
+        .top{
+            position: absolute;
+            top: 0px;
+            right: 0;
+          }     
+      .bottom{
+        position: absolute;
+        bottom: 0px;
+        left: -12%;
+      }      
+    }
+}

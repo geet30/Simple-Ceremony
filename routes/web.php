@@ -100,3 +100,6 @@ Route::get('advice-after-first-year', function () {
 Route::get('quiz', function () {
     return view('pages.quiz');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

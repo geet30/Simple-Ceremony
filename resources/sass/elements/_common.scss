@@ -243,43 +243,6 @@
     margin-bottom: 11px !important;
 }
 
-.form-control {
-    background: $turquoise-20;
-    border: 1px solid $turquoise-50;
-    border-radius: 6px;
-}
-
-.form-control:focus {
-    color: $turquoise-100;
-    background: $white;
-    box-shadow: 0px 2px 16px #E8F9F7;
-    border: 1px solid $turquoise-100;
-    outline-style: solid;
-    outline-color: $turquoise-50;
-    outline-width: thick;
-}
-
-.form-control::placeholder {
-    color: $neutral-100;
-    opacity: 1;
-}
-
-.form-check-input:checked {
-    background-color: $turquoise-100;
-    border-color: $turquoise-100;
-}
-
-.form-check-input {
-    border-color: $turquoise-100;
-    background: transparent;
-}
-
-.form-check-input:focus {
-    border-color: $turquoise-100;
-    outline: 0;
-    box-shadow: unset;
-}
-
 .sidebar-bg-color {
     background-color: $turquoise-100;
 }
@@ -321,4 +284,10 @@
     @include media-breakpoint-down(lg) {
         padding-bottom: 40px;
     }
+}
+.bg-turquoise-100{
+background-color:$turquoise-100 ;
+}
+.gray-gray-800{
+    color:$gray-gray-800
 }
