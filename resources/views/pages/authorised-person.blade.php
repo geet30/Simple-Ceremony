@@ -3,8 +3,8 @@
    <div class="container">
       <div class="row">
          <div class="col-md-6">
-            <p class="paragraph netural-100">Who is an Authorised Person?</p>
-            <h1 class="h1 netural-100 mb-4">A marriage celebrant can only  marry you after an Authorised Person has witnessed your NoIM</h1>
+            <h1 class="paragraph netural-100">Who is an Authorised Person?</h2>
+            <h2 class="h1 netural-100 mb-4">A marriage celebrant can only  marry you after an Authorised Person has witnessed your NoIM</h1>
             <p class="body-3-regular">Before your marriage celebrant ( or the Marriage Registry Office) can marry you, you need to complete a Notice of Intended Marriage (NoIM) form.<br><br>
             This form needs to be witnessed by an Authorised Person before it can be lodged with your marriage celebrant.<br><br>
             Below are a list of Authorised Persons

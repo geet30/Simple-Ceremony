@@ -7,7 +7,7 @@
                <div class="location-banner-data">
                   <h2 class="mb-4 text-center">
                      <p class="paragraph text-white">The best offer</p>
-                     <p class="h2 text-white">Check available location and time here</p>
+                     <h1 class="h2 text-white text-center mb-3">Check available location and time here</h1>
                   </h2>
                   <div class="col-md-9 mx-auto location-search-data ">
                      <div class="row align-items-center">

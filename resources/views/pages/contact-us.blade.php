@@ -5,7 +5,7 @@
       <div class="row">
          <div class="col-md-6">
             <p class="paragraph">Get in touch with us</p>
-            <h2 class="h2 netural-100">Simple Ceremonies - Marriage Celebrant</h2>
+            <h1 class="h2 netural-100">Simple Ceremonies - Marriage Celebrant</h1>
             <p class="body-3-regular mt-4 mb-5">Do not hesitate to contact Simple Ceremonies to chat with one of our experienced marriage celebrants.</p>
             <ul class="list-unstyled">
                <li class="mb-4 pb-2">
@@ -53,7 +53,7 @@
          <div class="col-md-6">
             <div class="contact-form">
                <form>
-                  <h4>Fill in the form below and we will contact you</h4>
+                  <h2 class="h4">Fill in the form below and we will contact you</h2>
                   <div class="row">
                      <div class="col-md-12 mb-4">
                         <label for="InputName" class="form-label small-text2">First Name *</label>

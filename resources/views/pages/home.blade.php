@@ -28,7 +28,7 @@
    <div class="row">
       <div class="col-md-6">
          <div class="d-flex">
-            <div class="align-self-center me-2"> <img src="images/google.png" class="img-fluid h-37" /> </div>
+            <div class="align-self-center me-2"> <img src="images/google.png" class="img-fluid h-37" alt="Google"> </div>
             <div class="align-self-center subheader-2 text-black">400+</div>
          </div>
          <div class="d-flex">
@@ -314,7 +314,7 @@
             <div class="row">
                <div class="col-md-6 mb-3 mb-md-0">
                   <div class="overlay-card   d-block">
-                     <img src="images/plan-wedding.jpg" class="img-fluid">
+                     <img src="images/plan-wedding.jpg" class="img-fluid" alt="Wedding Plan">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Plan your wedding online & receive instant quote</h3>
                         <p class="body-1 text-white  mb-4">From cars, location, decorations, photographer, reception & more...</p>
@@ -327,7 +327,7 @@
                </div>
                <div class="col-md-6 mb-3 mb-md-0">
                   <a class="overlay-card d-block">
-                     <img src="images/celebrant.jpg" class="img-fluid">
+                     <img src="images/celebrant.jpg" class="img-fluid" alt="Celebrant">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Are you a FABULOUS celebrant?</h3>
                         <p class="body-1 text-white  mb-4">We are always looking for FABULOUS celebrant. </p>

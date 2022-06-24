@@ -24,7 +24,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-5">
-            <h3 class="h3-netural-100 mb-3">Who can witness your NoIM? <br> Authorised Person.</h3>
+            <h2 class="h3 netural-100 mb-3">Who can witness your NoIM? <br> Authorised Person.</h2>
             <p class="body-3-regular">Your signature on your NoIM must be witnessed by an Authorised Person.</p>
          </div>
          <div class="col-md-5">

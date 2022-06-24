@@ -227,7 +227,7 @@
             <div class="row">
                <div class="col-md-6 mb-3 mb-md-0">
                   <div class="overlay-card  d-block">
-                     <img src="images/plan-wedding.jpg" class="img-fluid">
+                     <img src="images/plan-wedding.jpg" class="img-fluid" alt="Wedding Plan">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Frequently Asked Questions</h3>
                         <p class="body-2 text-white  mb-4">You can see frequently asked questions here</p>
@@ -240,7 +240,7 @@
                </div>
                <div class="col-md-6 mb-3 mb-md-0">
                   <div class="overlay-card  d-block">
-                     <img src="images/celebrant.jpg" class="img-fluid">
+                     <img src="images/celebrant.jpg" class="img-fluid" alt="Celebrant">
                      <div class="overlay-content">
                         <h3 class="h3 text-white mb-3">Terms & Conditions</h3>
                         <p class="body-2 text-white  mb-4">To keep everyone smiling</p>

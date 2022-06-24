@@ -27,7 +27,7 @@
             </div>
          </div>
          <div class="col-md-12">
-            <h2 class="pb-20 mt-2 h3 netural-100">All Gift Certificate</h2>
+            <h1 class="pb-20 mt-2 h3 netural-100">All Gift Certificate</h1>
          </div>
          <div class="col-md-3 mb-3">
             <div class="card image-card">
@@ -42,17 +42,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$299</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -70,17 +70,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$129</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -98,17 +98,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$124</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -126,17 +126,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$121</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -154,17 +154,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$345</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -182,17 +182,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$451</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -210,17 +210,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$134</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>
@@ -238,17 +238,17 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
                   </div>
                   <div class="d-flex justify-content-between mb5 body-3 netural-100 ">$167</div>
-                  <h3 class="h4 netural-100">
+                  <h2 class="h4 netural-100">
                      <a href="/voucher-details" class="text-decoration-none netural-100 voucher-link">   
                      Add title voucher here
                      </a>
-                  </h3>
+                  </h2>
                   <p class="small-text2 mb-1">Add short description here</p>
                </div>
             </div>

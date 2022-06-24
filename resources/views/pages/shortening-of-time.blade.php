@@ -20,9 +20,9 @@
             <img class="img-fluid" src="/images/term-and-condition/covid-conditions.png" alt="Covid Restrictions">
          </div>
          <div class="col-md-6 offset-md-1 mt-3 mt-md-0">
-            <h4 class="h4 mb-3">However, there are exceptions and a "Shortening of Time" can be aplied for.</h4>
+            <h2 class="h4 mb-3">However, there are exceptions and a "Shortening of Time" can be aplied for.</h2>
             <p class="body-3-regular">The <a href="http://classic.austlii.edu.au/au/legis/cth/num_reg/mr2017201701359210/sch3.html" class="button-1 turquoise-100 faq-link" target="_blank">Marriage Regulations 2017 (Cth)</a> Schedule 3 - Circumstances for authorising marriage despite late notice. The 5 prescribed categories are set out below.</p>
-            <h4 class="h4">They are :</h4>
+            <h3 class="h4">They are :</h3>
             <div class="row">
                <div class="col-md-6">
                   <ul class="list-unstyled mb-0">
@@ -77,7 +77,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-6">
-            <h1 class="h1 netural-100">The Process</h1>
+            <h2 class="h1 netural-100">The Process</h2>
             <p class="body-3-regular">There are 2 Options :</p>
             <ul class="list-unstyled mb-0">
                <li class="d-flex align-items-start mt-3">
@@ -385,7 +385,7 @@
          </div>
          <div class="col-md-12">
             <div class="registrar-circumstances-list-description">
-               <h4 class="h4">1. Employment-related or other travel commitments</h4>
+               <h3 class="h4">1. Employment-related or other travel commitments</h3>
                <ul class="list-unstyled mb-0 ps-3">
                   <li class="d-flex align-items-start mt-4">
                      <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">

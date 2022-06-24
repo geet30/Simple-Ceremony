@@ -42,7 +42,7 @@
          <div class="col-md-6 offset-md-1 mt-3 mt-md-0">
             <p class="paragraph netural-100 spartan-font">Terms and Conditions</p>
             <h2 class="h2 netural-100 mb-4">What this means</h2>
-            <h4 class="h4 mb-4">If you had a wedding booked during this period</h4>
+            <h3 class="h4 mb-4">If you had a wedding booked during this period</h3>
             <p class="body-3-regular">Unfortunately your wedding will need to be put on-hold.<br>
                Once restrictions have been lifted we will then work with you to re-schedule your ceremony. Please note our normal re-scheduling  fee will NOT apply during this period
             </p>
