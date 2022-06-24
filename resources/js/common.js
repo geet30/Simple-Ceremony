@@ -83,3 +83,6 @@ var defaultConfig = {
 
 var calendar = $('#calendar-wrapper').calendar(defaultConfig);
 console.log(calendar.getSelectedDate());
+
+
+/////// top navbar

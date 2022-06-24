@@ -17,7 +17,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-12 position-relative d-flex align-items-center justify-content-end">
-            <img src="images/Invitation.png" class="img-fluid" alt="Invitation Card">
+            <img src="images/invitation.png" class="img-fluid" alt="Invitation Card">
             <div class="invitation-card-data">
                <p class="netural-100 cursive">
                   Charlie
@@ -62,7 +62,7 @@
             </p>
          </div>
          <div class="col-md-6 offset-md-1">
-            <img src="images/Monitum-of-Marriage.png" class="img-fluid" alt="Monitum of Marriage">
+            <img src="images/monitum-of-marriage.png" class="img-fluid" alt="Monitum of Marriage">
          </div>
       </div>
    </div>

@@ -40,7 +40,7 @@
                <span class="step-counter text-white h4 d-inline-block">Step 2</span>
                <div class="steps-name flex-column d-flex mt-4 pt-5 mb-3">
                   <div class="step-icon me-4 d-flex align-items-center justify-content-center">
-                     <img src="/images/Document.svg" class="" alt="Document">
+                     <img src="/images/document.svg" class="" alt="Document">
                   </div>
                   <h3 class="text-white h3 mt-4">What you will need to bring</h3>
                </div>
@@ -175,7 +175,7 @@
                <span class="step-counter text-white h4 d-inline-block">Step 2</span>
                <div class="steps-name flex-column d-flex mt-4 pt-5 mb-3">
                   <div class="step-icon me-4 d-flex align-items-center justify-content-center">
-                     <img src="/images/Document.svg" class="" alt="Document">
+                     <img src="/images/document.svg" class="" alt="Document">
                   </div>
                   <h3 class="text-white h3 mt-4">Your ceremony</h3>
                </div>

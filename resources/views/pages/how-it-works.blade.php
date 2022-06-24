@@ -23,7 +23,7 @@
                <span class="step-counter text-white h4 d-inline-block">Step 1</span>
                <div class="steps-name d-flex mt-4 pt-5 mb-3">
                   <div class="step-icon me-4 d-flex align-items-center justify-content-center">
-                     <img src="/images/Booking-calander.svg" class="" alt="Marriage Calander">
+                     <img src="/images/booking-calander.svg" class="" alt="Marriage Calander">
                   </div>
                   <h3 class="text-white h3">Make a <br>booking</h3>
                </div>
@@ -70,7 +70,7 @@
                <span class="step-counter text-white h4 d-inline-block">Step 2</span>
                <div class="steps-name d-flex mt-4 pt-5 mb-3">
                   <div class="step-icon me-4 d-flex align-items-center justify-content-center">
-                     <img src="/images/Document.svg" class="" alt="Document">
+                     <img src="/images/document.svg" class="" alt="Document">
                   </div>
                   <h3 class="text-white h3">Complete <br>NoIM</h3>
                </div>
