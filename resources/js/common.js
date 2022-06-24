@@ -85,4 +85,25 @@ var calendar = $('#calendar-wrapper').calendar(defaultConfig);
 console.log(calendar.getSelectedDate());
 
 
+/////// user sidebar
+$("#sidebarMenu li a").click(function() {
+  
+  $("#sidebarMenu li a").removeClass('active')
+  $(this).addClass('active');
+});
+
 /////// top navbar
+$('.navbar-nav a').removeClass('active')
+var current = location.pathname;
+if(current=='/'){
+  $('.navbar-nav a').first().addClass('active');
+}else{
+  $('.navbar-nav a').each(function(){
+    var $this = $(this);
+    // if the current path is like this link, make it active
+    if($this.attr('href').indexOf(current) !== -1){
+        $this.addClass('active');
+    }
+})
+}
+ 
