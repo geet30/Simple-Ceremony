@@ -12,6 +12,7 @@
     &.primary-btn {
         background: #62CBC9;
         color: #FFFFFF;
+        border: none;
         &:hover {
             background: #5FE2E0;
             box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.2);
@@ -38,6 +39,7 @@
     &.secondary-btn {
         background: $neutral-100;
         color: #FFFFFF;
+        border: none;
         &:hover {
             background: #5FE2E0;
             box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.25);
