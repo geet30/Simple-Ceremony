@@ -131,3 +131,8 @@
         background: transparent;
     }
 }
+.filtertoggle-btn{
+    &:hover{
+        border: none !important;
+    }
+}
