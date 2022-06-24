@@ -25,8 +25,8 @@
                   George’s
                </p>
                <p class="p3">Wedding Ceremony</p>
-               <p class="p4"><img class="me-2" src="images/invitation-date-icon.svg">Thursday 5th March 2020 | 12 pm</p>
-               <p class="p4"><img class="me-2" src="images/invitation-icon.svg">Bradfield Park, North Sydney, New South Wales</p>
+               <p class="p4"><img class="me-2" src="images/invitation-date-icon.svg" alt="Date">Thursday 5th March 2020 | 12 pm</p>
+               <p class="p4"><img class="me-2" src="images/invitation-icon.svg" alt="Location">Bradfield Park, North Sydney, New South Wales</p>
             </div>
          </div>
       </div>

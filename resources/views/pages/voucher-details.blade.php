@@ -9,7 +9,7 @@
          <div class="col-md-12 pb-100">
             <div class="row align-items-center">
                <div class="col-md-6">
-                  <h2 class="h2 netural-100 mb-3">Add title voucher here</h2>
+                  <h1 class="h2 netural-100 mb-3">Add title voucher here</h1>
                   <h2 class="h2 netural-100 mb-4">$299</h2>
                   <p class="body-3-regular netural-100 pt-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis neque in erat maximus vulputate a sit amet ipsum. Quisque placerat, arcu at pellentesque fermentum, nunc nisl condimentum mi, eu tristique nibh leo non ante. Praesent nec rhoncus mi, eu faucibus risus. Cras tristique a arcu ut aliquet. Praesent eu bibendum magna, sed congue nisl. Praesent consequat tortor eget justo dignissim, eget vehicula sapien blandit.</p>
                   <a href="#" class="theme-btn primary-btn d-inline-flex mt-4">
@@ -37,7 +37,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -65,7 +65,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -93,7 +93,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -121,7 +121,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -149,7 +149,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -177,7 +177,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -205,7 +205,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>
@@ -233,7 +233,7 @@
                      </div>
                      <div class="cart-icon pe-3">
                         <a class="add-to-cart" href="/voucher-details">
-                           <img src="images/voucher/bag-icon.svg">
+                           <img src="images/voucher/bag-icon.svg" alt="Bag">
                            <span class="add-to-cart-info body-2 netural-100">Add to cart</span>
                         </a>
                      </div>

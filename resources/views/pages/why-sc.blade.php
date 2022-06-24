@@ -4,7 +4,7 @@
       <div class="row align-items-center">
          <div class="col-md-6">
             <p class="paragraph netural-100 mt-4">Our values</p>
-            <h2 class="h2 netural-100 mb-4">Why simple ceremonies?</h2>
+            <h1 class="h2 netural-100 mb-4">Why simple ceremonies?</h1>
             <p class="body-3-regular">SC has been designed for couples wanting to get married BUT without the fuss, stress and expense of a big marriage ceremony.<br><br>
                Having 18 years combined experience as marriage celebrants and marrying 1000s of couples we have an insight into what is ... and what isn't important - for a beautiful meaningful marriage ceremony.<br><br>
                We combined this personal insight with a simplified process and created Simple Ceremonies, over 10 years ago.</p>
@@ -22,7 +22,7 @@
          <div class="col-md-6 col-lg-4 d-flex mb-5">
             <div class="me-3"><img src="images/ceremonies-icon/v1.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Best value</h3>
+               <h2 class="h3 netural-100 mb-0">Best value</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">7 days a week - from $150 all inclusive</p>
             </div>
@@ -30,7 +30,7 @@
          <div class="col-md-6 col-lg-4  d-flex mb-5">
             <div class="me-3"><img src="images/ceremonies-icon/v2.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Amazing services</h3>
+               <h2 class="h3 netural-100 mb-0">Amazing services</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">Australia's highest rated celebrant per Google</p>
             </div>
@@ -38,7 +38,7 @@
          <div class="col-md-6 col-lg-4  d-flex mb-5">
             <div class="me-3"><img src="images/ceremonies-icon/v3.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Beautiful locations</h3>
+               <h2 class="h3 netural-100 mb-0">Beautiful locations</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">Harbour, Beach, Boat, Park, Bar, London Cab or The Studio.</p>
             </div>
@@ -46,7 +46,7 @@
          <div class="col-md-6 col-lg-4  d-flex mb-5">
             <div class="me-3"><img src="images/ceremonies-icon/v4.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">No interview required</h3>
+               <h2 class="h3 netural-100 mb-0">No interview required</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">No need for the two of you to arrange an interview before the ceremony</p>
             </div>
@@ -54,7 +54,7 @@
          <div class="col-md-6 col-lg-4  d-flex  mb-5">
             <div class="me-3"><img src="images/ceremonies-icon/v5.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Same day registration</h3>
+               <h2 class="h3 netural-100 mb-0">Same day registration</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">If required, you can pick up Registered Certificate of Marriage same day</p>
             </div>
@@ -62,7 +62,7 @@
          <div class="col-md-6 col-lg-4  d-flex  mb-5">
             <div class="me-3"><img src="images/ceremonies-icon/v6.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Paperwork online 24/7</h3>
+               <h2 class="h3 netural-100 mb-0">Paperwork online 24/7</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">No waiting for an interview &amp; only one of you has to sign before</p>
             </div>
@@ -70,7 +70,7 @@
          <div class="col-md-6 col-lg-4  d-flex  mb-5 mb-md-0">
             <div class="me-3"><img src="images/ceremonies-icon/v7.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Fabulous Celebrants</h3>
+               <h2 class="h3 netural-100 mb-0">Fabulous Celebrants</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">Hand pick, experienced and fun</p>
             </div>
@@ -78,7 +78,7 @@
          <div class="col-md-6 col-lg-4  d-flex  mb-5 mb-lg-0">
             <div class="me-3"><img src="images/ceremonies-icon/v8.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Book online 24/7</h3>
+               <h2 class="h3 netural-100 mb-0">Book online 24/7</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">See all locations, dates and time online</p>
             </div>
@@ -86,7 +86,7 @@
          <div class="col-md-6 col-lg-4  d-flex  mb-5 mb-lg-0">
             <div class="me-3"><img src="images/ceremonies-icon/v9.svg" alt="ceremonies-icon"></div>
             <div>
-               <h3 class="h3 netural-100 mb-0">Add ons</h3>
+               <h2 class="h3 netural-100 mb-0">Add ons</h2>
                <img src="images/ceremonies-icon/rectangle.svg" alt="divider" class="my-3 img-fluid">
                <p class="mb-0 body-2 netural-100 pe-2">Decorations, chairs, up to 59 people, witnesses, photographer, flowers, reception</p>
             </div>

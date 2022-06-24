@@ -1,7 +1,7 @@
 <div class="offcanvas offcanvas-end theme-offcanvas" tabindex="-1" id="offcanvasRight"
   aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
-    <h2 id="offcanvasRightLabel" class="h3 neutral-100">Your basket</h2>
+    <p id="offcanvasRightLabel" class="h3 neutral-100">Your basket</p>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
   </div>
   <div class="offcanvas-body">
@@ -27,7 +27,7 @@
                   readonly></td>
               <td><input type="text" value="$ 120" class="form-control body-1 netural-100" name="name" id="InputName"
                   readonly></td>
-              <td><img src="images/item-delete.svg" class="img-fluid"></td>
+              <td><img src="images/item-delete.svg" class="img-fluid" alt="Delete"></td>
             </tr>
             <tr>
               <td><input type="text" value="Gazebo" class="form-control body-1 netural-100" name="name" id="InputName"
@@ -38,7 +38,7 @@
                   readonly></td>
               <td><input type="text" value="$ 130" class="form-control body-1 netural-100" name="name" id="InputName"
                   readonly></td>
-              <td><img src="images/item-delete.svg" class="img-fluid"></td>
+              <td><img src="images/item-delete.svg" class="img-fluid" alt="Delete"></td>
             </tr>
             <tr>
               <td><input type="text" value="Zoom streaming" class="form-control body-1 netural-100" name="name"
@@ -49,7 +49,7 @@
                   readonly></td>
               <td><input type="text" value="$ 150" class="form-control body-1 netural-100" name="name" id="InputName"
                   readonly></td>
-              <td><img src="images/item-delete.svg" class="img-fluid"></td>
+              <td><img src="images/item-delete.svg" class="img-fluid" alt="Delete"></td>
             </tr>
             <tr>
               <td><span>&nbsp;</span></td>

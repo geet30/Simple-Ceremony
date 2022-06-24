@@ -7,8 +7,8 @@
          <div class="col-md-4 p-0 sidebar-bg-color">
             <div class="form-sidebar py-50 ps-150 pe-40">
                <a href="/location" class="theme-btn secondary-btn d-inline-flex back-btn"><img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">Back to home</a>
-               <img class="d-block mt-4" style="max-width:227px;width: 100%;" src="/images/booking-form/sidebar-white-logo.svg">
-               <h3 class="h3 text-white mt-4 mb-4">Follow these steps to complete your booking</h3>
+               <img class="d-block mt-4" style="max-width:227px;width: 100%;" src="/images/booking-form/sidebar-white-logo.svg" alt="Logo">
+               <h1 class="h3 text-white mt-4 mb-4">Follow these steps to complete your booking</h1>
                <div class="list-group" id="list-tab" role="tablist">
                   <a class="h4 text-white d-flex align-items-center text-decoration-none mb-3 active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">
                      <img class="me-4" src="/images/booking-form/calander-icon.svg" alt="Calander Icon">
@@ -42,7 +42,7 @@
                               </div>
                            </div>
                            <div class="col-md-12">
-                              <h3 class="h3 Neutral/100 mt-4 mb-4">Fill the marriage celebrant, location, date & time</h3>
+                              <h2 class="h3 Neutral/100 mt-4 mb-4">Fill the marriage celebrant, location, date & time</h2>
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="selectinput" class="form-label small-text2">Preferred names *</label>

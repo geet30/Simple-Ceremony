@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class=" col-lg-5 mb-4 mb-lg-0"> <img src="images/team/v1.png" alt="permium" class="img-fluid"> </div>
 			<div class="col-lg-7">
-				<p class="paragraph neutral-100">Marriage Celebrant Team</p>
+				<h1 class="paragraph neutral-100">Marriage Celebrant Team</h1>
 				<h2 class="h2 neutral-100 mb-4">Michael Teulon</h2>
 				<p class="body-3-regular neutral-100 mb-3">Michael has been an authorised celebrant since 2004. </p>
 				<p class=" mb-3"><span class="body-3-regular neutral-100">Over the years he has had the pleasure of performing 1000’s of ceremonies for many wonderful couples. From very simple ceremonies to

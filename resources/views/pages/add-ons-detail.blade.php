@@ -14,7 +14,7 @@
       <div class="row">
          <div class="col-md-6 align-self-center">
             <h1 class="h3 neutral-100">The Corona Pack</h1>
-            <p class="small-text2 mb-1  neutral-100"><img src="images/location.svg" class="me-1 img-fluid"> Blues point
+            <p class="small-text2 mb-1  neutral-100"><img src="images/location.svg" class="me-1 img-fluid" alt="Location"> Blues point
                reserve</p>
          </div>
          <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">

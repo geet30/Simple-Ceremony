@@ -34,7 +34,7 @@
                         <img src="images/ring-ceremony.png" class="img-fluid" alt="Ring ceremony">
                      </div>
                      <div class="col-md-7 mt-3 mt-md-0">
-                        <h4 class="h4 netural-100">You have selected above to Reschedule your ceremony. To proceed you just need to confirm the following.</h4>
+                        <h2 class="h4 netural-100">You have selected above to Reschedule your ceremony. To proceed you just need to confirm the following.</h2>
                         <ul class="list-unstyled mb-0">
                            <li class="d-flex align-items-start mt-4">
                               <img style="top:2px;" class="me-3 position-relative" src="/images/green-success.svg" alt="Check Icon">
@@ -55,9 +55,9 @@
                         <img src="images/man-with-pen-signs-document.png" class="img-fluid w-100" alt="correction">
                      </div>
                      <div class="col-md-7 mt-3 mt-md-0">
-                        <h4 class="h4 netural-100 mb-4">You have selected above to Make a Correction(s)<br><br>
+                        <h3 class="h4 netural-100 mb-4">You have selected above to Make a Correction(s)<br><br>
                            There are two ways to go about this, depending on what stage of the process you are through. Please read the 2 options below to use the correct option for you.
-                        </h4>
+                        </h3>
                         <h4 class="h4 netural-100">Step 1</h4>
                         <p class="body-3 netural-100">If you have already completed the NoIM on-line BUT have not yet uploaded it on the Simple Ceremonies site you will need to return to the online NoIM and upload</p>
                         <h4 class="h4 netural-100 mt-4">Step 2</h4>

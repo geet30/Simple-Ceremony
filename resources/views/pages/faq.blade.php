@@ -48,8 +48,8 @@
          <div class="col-md-7 offset-md-1 col-lg-8 offset-lg-1">
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100" class="scrollspy-example" tabindex="0">
                <div id="list-item-1">
-                  <h3 class="h3 mb-4">Prior to your ceremony</h3>
-                  <h4 class="h4 mb-3">1. Can I get married in Australia?</h4>
+                  <h2 class="h3 mb-4">Prior to your ceremony</h2>
+                  <h3 class="h4 mb-3">1. Can I get married in Australia?</h3>
                   <p class="body-3-regular">Anyone from any country around the world can get married in Australia. It makes no difference if you are a resident or citizen of Australia or just visiting for the day.<br><br>
                   only criteria you need to fulfil is;<br><br>
                   you must be 18 years old. In some cases, if one of the parties is 17, it may be possible - talk to your celebrant about this.<br>

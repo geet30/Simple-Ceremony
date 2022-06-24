@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-xl-5 align-self-center mb-4 mb-lg-0">
 				<p class="paragraph netural-100  mb-1">Checklist</p>
-				<h2 class="h1 netural-100  mb-4">Checklist to get married</h2> 
+				<h1 class="h1 netural-100  mb-4">Checklist to get married</h1> 
 				<p class="body-3-regular text-black">Watch the video below for your checklist to get married. Or see the Checklist,  to ensure you have a perfect marriage ceremony with out the stress. But if you get worried call your marriage celebrant before your ceremony to ensure all is ok.</p>
 			</div>
 			<div class="col-lg-6 col-xl-6 ms-auto align-self-center position-relative"> <img src="images/team/team-video.png" class="team-video img-fluid " alt="team-video">

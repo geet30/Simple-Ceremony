@@ -13,10 +13,8 @@
       <div class="row">
          <div class="col-md-12">
             <div class="card py-50 px-50">
-               <h2>
-                  <p class="paragraph text-black">Request custom location</p>
-                  <p class="h2 netural-100 mb-5">Please fill the form in below</p>
-               </h2>
+               <p class="paragraph text-black">Request custom location</p>
+               <h1 class="h2 netural-100 mb-5">Please fill the form in below</h1>
                <form class="needs-validation" method="POST" novalidate>
                   <div class="row">
                      <div class="col-md-6 mb-4">
@@ -104,7 +102,7 @@
                      </div>
                      <div class="col-md-12 mb-5 mt-3">
                         <div class="form-term-condition p-5">
-                           <h3 class="h3 netural-100 mb-5">Terms :</h3>
+                           <h2 class="h3 netural-100 mb-5">Terms :</h2>
                            <p class="body-1 netural-100">If we can perform your ceremony at the above location it will be your responsibility to ensure the location is available for ceremonies and any booking, permits or payments are arrange by you.</p>
                            <div class="form-check">
                               <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
