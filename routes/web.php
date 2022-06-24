@@ -100,6 +100,11 @@ Route::get('advice-after-first-year', function () {
 Route::get('quiz', function () {
     return view('pages.quiz');
 });
+Route::group(['prefix' => 'user'], function () {
+    Route::get('index', function () {
+        return view('user.index');
+    });
+});
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
