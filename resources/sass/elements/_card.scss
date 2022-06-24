@@ -70,14 +70,20 @@
         border-radius: 8px;
         .card-body {
             padding: 26px 36px;
+            @include media-breakpoint-down(md) {
+                padding: 30px 20px !important;     
+            }
             h1 {
                 font-weight: 500;
                 font-size: 20px;
                 line-height: 24px;
                 letter-spacing: 0.01em;
                 color:$gray-gray-900;
-                margin-bottom:32px;
+               
                 font-family:$inter-font;
+                &.mb-32{
+                    margin-bottom:32px;
+                }
             }
         }
     }
