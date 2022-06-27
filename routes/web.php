@@ -115,14 +115,20 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.add-location');
     });
 });
-Route::group(['prefix' => 'admin'], function () {
 
+Route::group(['prefix' => 'admin'], function () {
     Route::get('add-ons', function () {
         return view('admin.add-ons');
-
+    });
+});
+Route::group(['prefix' => 'admin'], function () {
     Route::get('location-detail', function () {
         return view('admin.location-detail');
-
+    });
+});
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('edit-location', function () {
+        return view('admin.edit-location');
     });
 });
 Auth::routes();
