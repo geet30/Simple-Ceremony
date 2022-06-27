@@ -16,10 +16,16 @@
         &:hover {
             background: #5FE2E0;
             box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.2);
+            img{
+                filter: brightness(0) saturate(100%) invert(100%) sepia(2%) saturate(7491%) hue-rotate(164deg) brightness(105%) contrast(102%);
+            }
         }
         & .disable {
             background: #B6CED0;
             border-radius: 5px;
+            img{
+                filter: invert(90%) sepia(16%) saturate(232%) hue-rotate(136deg) brightness(90%) contrast(86%);
+            }
         }
     }
     &.primary-btn-border {
@@ -29,11 +35,17 @@
         &:hover {
             color: #5FE1DF;
             border: 1px solid #5FE1DF;
+            img{
+                filter: invert(87%) sepia(62%) saturate(7211%) hue-rotate(148deg) brightness(94%) contrast(87%);
+            }
         }
         & .disable {
             border: 1px solid #B6CED0;
             background: transparent;
             color: #B6CED0;
+            img{
+                filter: invert(86%) sepia(22%) saturate(174%) hue-rotate(136deg) brightness(94%) contrast(84%);
+            }
         }
     }
     &.secondary-btn {
@@ -56,18 +68,33 @@
         &:hover {
             color: $turquoise-100;
             border: 1px solid $turquoise-100;
+            img{
+                filter: invert(96%) sepia(39%) saturate(4629%) hue-rotate(149deg) brightness(89%) contrast(74%);
+            }
         }
         &:focus{
             color: #5FE1DF;
             border: 1px solid #5FE1DF;
+            img{
+                filter: invert(100%) sepia(31%) saturate(6612%) hue-rotate(150deg) brightness(91%) contrast(93%);
+            }
         }
         & .disable {
             border: 1px solid #B6CED0;
             background: transparent;
             color: #B6CED0;
+            img{
+                filter: invert(83%) sepia(11%) saturate(308%) hue-rotate(136deg) brightness(95%) contrast(92%);
+            }
         }
     }
     &.back-btn {
+        padding: 10px 26px;
+    }
+    &.admin-back-btn{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 23px;
         padding: 10px 26px;
     }
 }
@@ -129,5 +156,10 @@
         z-index: 2;
         padding: 17px 22px;
         background: transparent;
+    }
+}
+.filtertoggle-btn{
+    &:hover{
+        border: none !important;
     }
 }

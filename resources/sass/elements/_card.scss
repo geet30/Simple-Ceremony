@@ -8,6 +8,10 @@
     .card-body {
         padding-top: 30px;
         padding-bottom: 30px;
+        &.py-20{
+            padding-top: 20px;
+        padding-bottom: 20px; 
+        }
         padding-left: 0px;
         padding-right: 0px;
         text-decoration: none;
@@ -50,6 +54,16 @@
             width: 17px;
         }
     }
+    &.admin-location-card{
+        .card-img-top{
+            height: 210px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            @include media-breakpoint-down(md) {
+                height: 400px; 
+            }
+        }
+    }
 }
 
 .rating-card {
@@ -86,5 +100,18 @@
                 }
             }
         }
+    }
+}
+.panel-card{
+    background: #FFFFFF;
+     box-shadow: 0px 2px 16px #E8F9F7;
+    border-radius: 10px;
+    padding:30px 45px;
+    border:none;
+    .card-title{
+        padding-bottom: 35px;
+    }
+    .card-body{
+        padding:0px;
     }
 }

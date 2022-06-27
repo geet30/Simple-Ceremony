@@ -105,6 +105,16 @@ Route::group(['prefix' => 'user'], function () {
         return view('user.index');
     });
 });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('location', function () {
+        return view('admin.location');
+    });
+});
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('add-location', function () {
+        return view('admin.add-location');
+    });
+});
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
