@@ -60,11 +60,13 @@
                       
                      <div class="col-md-6 mb-4">
                         <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
-                        <select name="age" id="age" class="js-placeholder-single-input form-control">
-                           <option value="" disabled="" selected="" hidden="">Select your answer here</option>
-                           <option value="1">Yes</option>
-                           <option value="2">No</option>
-                        </select>
+                <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
+                     <option value="O1" data-badge="">Peter</option>
+                     <option value="O2" data-badge="">Lux</option>
+                     <option value="O3" data-badge="">Michael</option>
+                     <option value="O4" data-badge="">Johnson</option>
+                  </select> 
+               
                      </div>
 </form>
                      </div>
