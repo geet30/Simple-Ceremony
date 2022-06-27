@@ -22,6 +22,9 @@
         tr{
             td{
                 padding:10px  10px 19px 48px;
+                border-bottom: 1px solid #EDEDF0;
+                border-top:none;
+                
                a{
                 &.table-link{
                     font-weight: 700;
@@ -36,6 +39,10 @@
                }
                &:last-child{
                 padding:10px  38px 19px 48px;
+                td{
+                    border-bottom: none;
+                border-top:none;
+                }
                }
             }
         }
@@ -44,8 +51,11 @@
         background-color: $turquoise-100;
         border-radius: 0px 0px 8px 8px;
         tr{
+            border-radius: 0px 0px 8px 8px;
             td{
+                border-radius: 0px 0px 8px 8px;
                 color: #ffffff;
+                padding:7px  74px 11px 44px;
             }
         }
  
