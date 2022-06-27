@@ -1,0 +1,53 @@
+.booking-info {
+    position: relative;
+    &:hover .booking-info-details {
+        display: block;
+    }
+    .info-icon{
+        cursor: pointer;
+    }
+    .booking-info-details {
+        background: #F7FCFC;
+        border: 1px solid #E2F3F2;
+        border-radius: 6px;
+        padding: 22px 33px;
+        position: absolute;
+        display: none;
+        width: 500px;
+        top: 35px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        &:after{
+            content: "";
+            background-image: url(/images/voucher/polygon-icon-v2.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            top: -12px;
+            left: 0;
+            right: 0;
+            width: 16px;
+            height: 14px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+.user-header-login {
+    .cart-icon-header {
+        cursor: pointer;
+    }
+    .cart-item-counting {
+        position: absolute;
+        background: #197CD8;
+        color: #fff;
+        border-radius: 50px;
+        height: 13px;
+        width: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        top: 0;
+        right: 0;
+    }
+}
