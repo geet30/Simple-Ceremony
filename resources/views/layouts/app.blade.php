@@ -15,7 +15,7 @@
       <link href="/custom-css/calendar.css" rel="stylesheet">
       <link href="/fonts/stylesheet.css" rel="stylesheet">
    </head>
-   <body class="antialiased" data-barba="wrapper">
+   <body class="dashboard-bg antialiased" data-barba="wrapper">
       <main>
          @yield('content')
       </main>

@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
         <!-- Nav -->
         <div class="navbar-nav ">
-          <a class="nav-item nav-link active align-self-lg-center me-lg-4" href="/" aria-current="page">Home</a>
+          <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/" aria-current="page">Home</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/location">Location</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/how-it-works">How it works</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/contact-us">Contact us</a>
