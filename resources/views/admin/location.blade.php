@@ -2,8 +2,10 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-md-3">sds</div>
-      <div class="col-md-9">
+   <div class="col-md-3 col-lg-2">
+         @include('elements.admin-sidebar')
+      </div>
+      <div class="col-md-9 col-lg-10">
          <div class="row mb-4">
             <div class="col-md-8 col-xl-9 d-flex align-self-center">
                <div class="dropdown">

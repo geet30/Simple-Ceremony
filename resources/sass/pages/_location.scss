@@ -53,3 +53,20 @@
         border-radius: 20px;
     }
 }
+// admin
+.cross-icon{
+    position: relative;
+    top: 8px;
+}
+.location-detail-slider{
+    .slick-track{
+        .slick-slide{
+            img{
+                height: 377px;
+                object-fit: cover;
+                aspect-ratio: 1 / 1;
+                border-radius: 10px;
+            }
+        }
+    }
+}
