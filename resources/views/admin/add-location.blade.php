@@ -13,7 +13,7 @@
          <div class="col-12">
             <div class="card panel-card">
                <div class="card-title">
-                <h1 class="h3 neutral-100 mb-0">Add new locations</h1>
+                <h1 class="h3 neutral-100 mb-0">Add new locationssdfdfsfdsf</h1>
                </div>
                <div class="card-body">
                <form class="needs-validation row" method="POST" novalidate>
