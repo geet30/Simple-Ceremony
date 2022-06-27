@@ -206,7 +206,13 @@ Rain. Now it doesn't happen often, but when it does you will need to shelter und
  </tbody>
  <tfoot>
  <tr>
-      <td colspan="4">Richard</td>
+      <td colspan="4">
+         <div class="theme-pagination d-flex">
+<div class="align-self-center">Rows per page: 10</div>
+<div class="align-self-center">1-10 of 12</div>
+<div class="align-self-center">Rows per page: 10</div>
+         </div>
+      </td>
       
    </tr>
   </tfoot>
