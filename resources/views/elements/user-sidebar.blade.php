@@ -1,4 +1,5 @@
-<nav id="sidebarMenu">
+
+<nav id="sidebarMenu" class="px-3">
   <div class="position-sticky pt-5 pb-100">
     <div class="d-flex justify-content-center mb-4">
       <img src="/images/user/sidebar-main-logo.svg" alt="Logo">
