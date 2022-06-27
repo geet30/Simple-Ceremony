@@ -115,7 +115,6 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.add-location');
     });
 });
-
 Route::group(['prefix' => 'admin'], function () {
     Route::get('add-ons', function () {
         return view('admin.add-ons');

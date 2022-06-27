@@ -60,6 +60,24 @@
               </button>
             </li>
           </ul>
+         <div class="row">
+            <div class="col-lg-8 col-xl-9 mb-3 mb-lg-0">
+               <ul class="nav theme-tabs">
+                  <li class="nav-item">
+                     <a class="nav-link active" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" href="#">Add ons</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#">Add-ons setting</a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-lg-4 col-xl-3">
+               <a class="theme-btn primary-btn d-flex justify-content-center">
+               <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
+               Edit information
+               </a>
+            </div>
+         </div>
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="all-ads-on" role="tabpanel" aria-labelledby="all-ads-on-tab" tabindex="0">1</div>
             <div class="tab-pane fade" id="Waiting-for-approval" role="tabpanel" aria-labelledby="Waiting-for-approval-tab" tabindex="0">2</div>
