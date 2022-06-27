@@ -2,10 +2,12 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-md-3">sds</div>
-     <div class="col-md-9">
+   <div class="col-md-3 col-lg-2">
+      @include('elements.admin-sidebar')
+</div>
+     <div class="col-md-9 col-lg-10">
       <div class="row">
-         <div class="col-12">
+         <div class="col-12 mb-30">
          <a href="/admin/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          </div>
          <div class="col-12">
