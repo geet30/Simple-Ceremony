@@ -3,6 +3,9 @@
     background: $turquoise-20;
     border: 1px solid $turquoise-50;
     border-radius: 6px;
+    &.pl-30{
+        padding-left: 30px;
+    }
 }
 
 .form-control:focus {
@@ -80,6 +83,12 @@ input:-webkit-autofill:active {
     top: 0px;
     padding: 0.7rem 0.75rem;
    right: 0px;
+ }
+ .left-icon{
+    position: absolute;
+    top: 0px;
+    padding: 0.7rem 0.75rem;
+   left: 0px;
  }
 }
 .forgot-password-link{

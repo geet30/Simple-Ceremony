@@ -110,6 +110,11 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.location');
     });
 });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('add-location', function () {
+        return view('admin.add-location');
+    });
+});
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

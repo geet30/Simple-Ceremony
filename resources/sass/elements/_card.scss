@@ -102,3 +102,16 @@
         }
     }
 }
+.panel-card{
+    background: #FFFFFF;
+     box-shadow: 0px 2px 16px #E8F9F7;
+    border-radius: 10px;
+    padding:30px 45px;
+    border:none;
+    .card-title{
+        padding-bottom: 35px;
+    }
+    .card-body{
+        padding:0px;
+    }
+}
