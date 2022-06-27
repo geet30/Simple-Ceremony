@@ -116,13 +116,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 Route::group(['prefix' => 'admin'], function () {
-
     Route::get('add-ons', function () {
         return view('admin.add-ons');
-
+    });
+});
+Route::group(['prefix' => 'admin'], function () {
     Route::get('location-detail', function () {
         return view('admin.location-detail');
-
     });
 });
 Auth::routes();
