@@ -119,7 +119,7 @@
                      <option value="O6" data-badge="">Outdoors</option>
                      <option value="O7" data-badge="">Indoors</option>
                      <option value="O7" data-badge="">Unique</option>
-                  </select>
+                  </select> 
                </div>
             </div>
         </div>

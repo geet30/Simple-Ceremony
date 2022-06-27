@@ -1,6 +1,6 @@
-.location-page-booking-cards{
+.location-page-booking-cards {
     .card-img-overlay:hover {
-        background:  rgba(98, 203, 201, 0.5);
+        background: rgba(98, 203, 201, 0.5);
     }
     .card {
         overflow: hidden;
@@ -11,10 +11,10 @@
         &:hover .card-img {
             transform: scale(1.2, 1.2);
         }
-        &:hover h3{
+        &:hover h3 {
             color: #fff;
         }
-        &:hover p{
+        &:hover p {
             color: #fff;
         }
     }
@@ -26,18 +26,18 @@
     }
 }
 .calander-time {
-    border: 1px solid #E2F3F2;
+    border: 1px solid #e2f3f2;
     border-radius: 10px;
     padding: 30px;
 }
-.rounded-12{
+.rounded-12 {
     border-radius: 12px;
 }
-.choose-date{
+.choose-date {
     cursor: pointer;
     &:hover {
         color: $neutral-100;
-    }  
+    }
 }
 .location-banner-data {
     background-image: url("/images/location-header.svg");
@@ -48,8 +48,35 @@
         padding: 30px;
         position: relative;
         top: 25px;
-        background: #FFFFFF;
+        background: #ffffff;
         box-shadow: 0px 15px 40px rgba(211, 211, 211, 0.32);
         border-radius: 20px;
+    }
+}
+// admin
+.cross-icon {
+    position: relative;
+    top: 8px;
+}
+.location-detail-slider {
+    .slider-for {
+        .slick-track {
+            .slick-slide {
+                img {
+                    height: 377px;
+                    object-fit: cover;
+                    aspect-ratio: 1 / 1;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    .slider-nav {
+        img {
+            height: 120px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
+        }
     }
 }

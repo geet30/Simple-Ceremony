@@ -312,3 +312,33 @@ background-color:$turquoise-100 ;
 .mb-30{
     margin-bottom:30px;
 }
+.mt-34{
+    margin-top:34px;
+}
+.mt-20{
+    margin-top:20px;   
+}
+.mb-20{
+    margin-bottom:20px;
+}
+.mr-6{
+    margin-right:6px;
+}
+.admin-pt-92{
+    padding-top: 20px;
+    @include media-breakpoint-up(lg) {
+        padding-top: 92px;
+    }
+}
+.pt-92{
+    padding-top: 92px;
+    @include media-breakpoint-down(lg) {
+        padding-top: 40px;
+    }
+}
+.pb-60{
+    padding-bottom: 60px;
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 40px;
+    }
+}

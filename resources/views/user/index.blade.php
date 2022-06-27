@@ -8,6 +8,7 @@
         <div class="col-md-9 col-lg-10 px-md-4">
             @include('elements.user-header')
             {{-- <div class="dashboard-content">
+
                 <div class="row">
                     <div class="col-12">
                         <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -27,6 +28,7 @@
                      </div>
                 </div>
             </div> --}}
+
         </div>
     </div>
 </div>

@@ -1,0 +1,18 @@
+.theme-tabs {
+    border-bottom:1px solid #D2D5DC;
+    .nav-item {
+        .nav-link {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+            color: $neutral-100;
+            span {
+                color: $neutral-70;
+            }
+            &.active{
+                color:$turquoise-100;
+                border-bottom:2px solid $turquoise-100;
+            }
+        }
+    }
+}

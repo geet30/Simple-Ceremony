@@ -53,7 +53,9 @@ $(".js-select2").select2({
   allowClear: false,
   tags: true 
 });
-
+$(document).ready(function() {
+  $('.js-example-basic-multiple').select2();
+});
 //////// Select 2 Js with search
 $(".js-example-placeholder-single").select2({
   placeholder: "Insert name of location",

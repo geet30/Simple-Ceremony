@@ -5,11 +5,13 @@
  */
 
 require('./bootstrap');
+require('./imgae-uploder');
 require('./password');
 require('./navbar');
 require('./like-unlike-functionlaity');
 require('./common');
 require('./tel-number');
+
 
 window.Vue = require('vue').default;
 
