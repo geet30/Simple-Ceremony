@@ -13,7 +13,7 @@
    <div class="container">
       <div class="row align-items-center">
          <div class="col-md-6">
-            <div class="slider slider-for mb-11">
+            <div class="slider slider-for mb-11 location-detail-slider">
                <div>
                   <img src="/images/single-location/single-page-slider1.png" class="w-100 img-fluid" alt="slider Image">
                </div>
