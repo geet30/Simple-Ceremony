@@ -157,28 +157,32 @@
                         <div class="col-12">
                            <div class="row">
                            <div class="col-md-5 mb-4">
-                                 <label for="age" class="form-label small-text2">Select partner/label>
-                                 <select class="js-value-single-input form-control" name="states[]" multiple="multiple">
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
+                                 <label for="age" class="form-label small-text2">Select partner</label>
+                                 <select name="partnerstatus" id="partnerstatus" class="js-placeholder-single-input form-control">
+                           <option value="" disabled="" selected="" hidden="">Select partner here</option>
+                           <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                 </select>
+                           <option value="5">Other</option>
+                        </select>
                               </div>
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select Package</label>
-                                 <select class="js-value-single-input form-control" name="states[]" multiple="multiple">
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
+                                 <select name="partnerstatus" id="partnerstatus" class="js-placeholder-single-input form-control">
+                           <option value="" disabled="" selected="" hidden="">Select package here</option>
+                           <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                 </select>
+                           <option value="5">Other</option>
+                        </select>
                               </div>
                               <div class="col-2 ">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
