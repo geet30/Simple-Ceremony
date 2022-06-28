@@ -18,14 +18,20 @@
                      <a class="nav-link active" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" href="#">Information</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link " id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#">List of marriage celebrants <span>(12)</span></a>
+                     <a class="nav-link " id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#"  >List of marriage celebrants <span>(12)</span></a>
                   </li>
                </ul>
             </div>
-            <div class="col-lg-4 col-xl-3 ">
-               <a href="/admin/edit-location" class="theme-btn primary-btn d-flex justify-content-center">
+            <div class="col-lg-4 col-xl-3 editinformation d-block">
+               <a href="/admin/edit-location" class="theme-btn primary-btn d-flex justify-content-center ">
                <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
                Edit information
+               </a>
+            </div>
+            <div class="col-lg-4 col-xl-3 addmarriage d-none">
+               <a  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="theme-btn primary-btn d-flex justify-content-center ">
+               <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
+               Add marriage celebrants
                </a>
             </div>
          </div>
@@ -232,4 +238,5 @@
       </div>
    </div>
 </div>
+@include('elements.addmarriage-celebrant')
 @endsection

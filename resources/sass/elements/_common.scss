@@ -342,3 +342,15 @@ background-color:$turquoise-100 ;
         padding-bottom: 40px;
     }
 }
+.dark-blue-100{
+    color:$dark-blue-100
+}
+.text-decoration{
+    text-decoration: underline;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.offcanvas-backdrop.show{
+    opacity: 0.3 !important;
+}

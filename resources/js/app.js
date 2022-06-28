@@ -5,7 +5,6 @@
  */
 
 require('./bootstrap');
-// require('./imgae-uploder');
 require('./password');
 require('./navbar');
 require('./like-unlike-functionlaity');

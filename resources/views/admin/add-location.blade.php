@@ -66,6 +66,16 @@
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column">
+                           <label for="InputName" class="form-label small-text2 mb-20">Upload cover photos</label>
+                           <div class="drop-zone text-center">
+                              <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
+                              <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
+                              <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
+                              </span>
+                              <input type="file" name="myFile" class="drop-zone__input">
+                           </div>
+                        </div>
+                        <div class="col-md-12 mb-4 d-flex flex-column">
                            <label for="InputName" class="form-label small-text2 mb-20">Upload gallery photos</label>
                            <div class="upload__box">
                               <div class="upload__btn-box">
