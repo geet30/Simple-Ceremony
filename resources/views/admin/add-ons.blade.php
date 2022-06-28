@@ -13,7 +13,7 @@
                   <div class="add-ons-nav-image me-4">
                      <img src="/images/admin/add-ons/message-icon.svg" alt="All add-ons">
                   </div>
-                  <div class="add-ons-nav-data">
+                  <div class="add-ons-nav-data text-start ">
                      <h3 class="h3">60</h3>
                      <p class="subheader-2">All add-ons</p>
                   </div>
@@ -26,7 +26,7 @@
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/admin/add-ons/timer-icon.svg" alt="">
                      </div>
-                     <div class="add-ons-nav-data">
+                     <div class="add-ons-nav-data text-start ">
                         <h3 class="h3">20</h3>
                         <p class="subheader-2">Waiting for approval</p>
                      </div>
@@ -39,7 +39,7 @@
                   <div class="add-ons-nav-image me-4">
                      <img src="/images/admin/add-ons/hands.svg" alt="">
                   </div>
-                  <div class="add-ons-nav-data">
+                  <div class="add-ons-nav-data text-start ">
                      <h3 class="h3">50</h3>
                      <p class="subheader-2">Approved</p>
                   </div>
@@ -52,7 +52,7 @@
                   <div class="add-ons-nav-image me-4">
                      <img src="/images/admin/add-ons/cross.svg" alt="">
                   </div>
-                  <div class="add-ons-nav-data">
+                  <div class="add-ons-nav-data text-start ">
                      <h3 class="h3">70</h3>
                      <p class="subheader-2">Reject</p>
                   </div>
@@ -72,10 +72,10 @@
                </ul>
             </div>
             <div class="col-lg-4 col-xl-3">
-               <a class="theme-btn primary-btn d-flex justify-content-center">
-               <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
-               Edit information
-               </a>
+               <div class="form-group has-search w-100 position-relative">
+                  <span class="fa fa-search form-control-feedback"></span>
+                  <input type="text" class="form-control" placeholder="Search add-ons">
+               </div>
             </div>
          </div>
           <div class="tab-content" id="pills-tabContent">
