@@ -6,6 +6,7 @@
    @include('elements.admin-sidebar')
 </div>
 <div class="col-md-9 col-lg-10">
+@include('elements.panel-header')
    <div class="row">
       <div class="col-12 mb-30">
          <a href="/admin/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>

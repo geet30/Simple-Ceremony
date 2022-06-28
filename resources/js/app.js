@@ -4,7 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
+//require('./bootstrap');
+// require('./imgae-uploder');
 require('./password');
 require('./navbar');
 require('./like-unlike-functionlaity');
