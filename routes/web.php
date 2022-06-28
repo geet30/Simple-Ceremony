@@ -130,6 +130,16 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.edit-location');
     });
 });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('admin-add-ons-details', function () {
+        return view('admin.admin-add-ons-details');
+    });
+});
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('admin-add-ons-gallery', function () {
+        return view('admin.admin-add-ons-gallery');
+    });
+});
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
