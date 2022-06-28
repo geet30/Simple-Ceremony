@@ -1,0 +1,201 @@
+.panel-header {
+    background: transparent;
+    padding-top: 32px;
+    padding-bottom: 13px;
+    .navbar {
+        .navbar-nav {
+            .nav-item {
+                .notification {
+                    padding: 7px 9px;
+                    position: relative;
+                    border: 2px solid transparent;
+                    border-radius: 6px;
+                    .notification-img {
+                        position: relative;
+                    }
+                    .notification-icon {
+                        padding: 4px;
+                        top: 15px;
+                        right: 6px;
+                    }
+                    &:hover {
+                        background-color: $turquoise-20;
+                        border: 2px solid #e2f3f2;
+                        .notification-img {
+                            path {
+                                fill: $turquoise-100;
+                            }
+                        }
+                    }
+                }
+                .dropdown-toggle {
+                    &:after {
+                        border: none !important;
+                        display: none;
+                    }
+                }
+                .dropdown-menu {
+                    background: #ffffff;
+                    box-shadow: 0px 2px 16px #e8f9f7;
+                    border-radius: 8px;
+                    border: none;
+                    &.notification-dropdwon {
+                        width: 400px;
+                        right: 0px;
+                        left: auto;
+                        @include media-breakpoint-down(sm) {
+                            width: 300px;
+                            position: absolute;
+                            right: 0px;
+                            left: auto;
+                        }
+                        .card-notification {
+                            border: none;
+                            .card-header {
+                                border: 0px;
+                                font-family: "Montserrat", sans-serif;
+                                padding: 10px 15px;
+                                background: #62cbc9;
+                                border-radius: 8px 8px 0px 0px;
+                                font-weight: 700;
+                                font-size: 14px;
+                                line-height: 19px;
+                                color: #ffffff;
+                            }
+                            .card-body {
+                                border-radius: 8px;
+                                padding: 0px;
+                                ul {
+                                    padding-left: 0px;
+                                    li {
+                                        .dot {
+                                            width: 10px;
+                                            height: 10px;
+                                            border-radius: 50%;
+                                            background-color: $turquoise-100;
+                                            position: relative;
+                                            top: -4px;
+                                        }
+                                        padding: 11px 30px 21px 30px;
+                                        background: white;
+                                        list-style: none;
+                                        border-bottom: 1px solid #ededf0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.admin-profile-menu {
+                        right: 0px;
+                        left: auto;
+                        width: 209px;
+                        padding: 11px 0px;
+                        @include media-breakpoint-down(sm) {
+                            width: 300px;
+                            position: absolute;
+                            right: 0px;
+                            left: auto;
+                        }
+                        li {
+                            a {
+                                padding: 10px 17px;
+                                font-weight: 600;
+                                font-size: 14px;
+                                line-height: 18px;
+                                color: $neutral-100;
+                                img{
+                                    margin-right: 14px;
+                                }
+                                &:hover{
+                                    background-color: transparent !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.breadcrumb {
+    margin-bottom: 0px;
+    .breadcrumb-item {
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        color: $neutral-100;
+        &:before {
+            color: $turquoise-100;
+        }
+        a {
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 16px;
+            color: $turquoise-100;
+            text-decoration: none;
+        }
+        // &.active {
+        //     a {
+        //         color: $neutral-100;
+        //     }
+        // }
+    }
+}
+.admin-profile {
+    &.dropdown-toggle {
+        .icon-rotate {
+            -moz-transition-duration: 0.4s;
+            -o-transition-duration: 0.4s;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+            display: inline-block;
+            font-size: 11px;
+            color: $neutral-100;
+        }
+        &.show {
+            .icon-rotate {
+                -moz-transform: rotate(-180deg);
+                -ms-transform: rotate(-180deg);
+                -webkit-transform: rotate(-180deg);
+                transform: rotate(-180deg);
+            }
+        }
+    }
+}
+
+
+.scrollbar
+{
+		float: left;
+	height: 300px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 450px;
+    @include media-breakpoint-down(sm) {
+        min-height:200px;
+    }
+}
+
+#style-3::-webkit-scrollbar-track
+{
+background-color: #F5F5F5;
+border-radius: 2px;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 6px;
+    border-radius: 2px;
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background: #C2C4C6;
+border-radius: 2px;
+}

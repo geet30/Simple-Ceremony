@@ -6,6 +6,7 @@
          @include('elements.admin-sidebar')
       </div>
       <div class="col-md-9 col-lg-10">
+      @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
                <a href="/admin/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
@@ -64,6 +65,16 @@
                               <option value="O3" data-badge="">Michael</option>
                               <option value="O4" data-badge="">Johnson</option>
                            </select>
+                        </div>
+                        <div class="col-md-12 mb-4 d-flex flex-column">
+                           <label for="InputName" class="form-label small-text2 mb-20">Upload cover photos</label>
+                           <div class="drop-zone text-center">
+                              <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
+                              <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
+                              <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
+                              </span>
+                              <input type="file" name="myFile" class="drop-zone__input">
+                           </div>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column">
                            <label for="InputName" class="form-label small-text2 mb-20">Upload gallery photos</label>
@@ -134,7 +145,7 @@
                            <div class="row">
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select partner</label>
-                                 <select class="js-placeholder-single-input form-control" name="states[]" multiple="multiple">
+                                 <select class="js-placeholder-single-input form-control">
                                     <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
@@ -146,7 +157,7 @@
                               </div>
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select Package</label>
-                                 <select class=js-placeholder-single-input form-control" name="states[]" multiple="multiple">
+                                 <select class="js-placeholder-single-input form-control">
                                     <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
@@ -165,7 +176,7 @@
                         <div class="col-12 mb-4">
                            <a class="d-flex add-link">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
-                              <div class="align-self-center">Add key advantages of site</div>
+                              <div class="align-self-center">Add other partners</div>
                            </a>
                         </div>
                         <div class="col-12 mt-3">

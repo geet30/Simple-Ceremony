@@ -6,6 +6,7 @@
          @include('elements.admin-sidebar')
       </div>
       <div class="col-md-9 col-lg-10">
+      @include('elements.panel-header')
          <div class="row mb-4">
             <div class="col-md-8 col-xl-9 d-flex align-self-center">
                <div class="dropdown">
