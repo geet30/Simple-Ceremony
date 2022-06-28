@@ -40,7 +40,14 @@
 }
 .was-validated .form-control:valid, .form-control.is-valid {
     background-image: none;
+    border-color:$turquoise-50;
   }
+  .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label{
+    color: #000000 !important;
+  }
+  .was-validated .form-check-input:valid, .form-check-input.is-valid {
+    border-color: $turquoise-100 !important;
+}
   .has-search {
     .form-control {
         padding-left: 2.375rem;

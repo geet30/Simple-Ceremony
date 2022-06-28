@@ -17,43 +17,48 @@
                      <h1 class="h3 neutral-100 mb-0">Add new location</h1>
                   </div>
                   <div class="card-body">
-                     <form class="needs-validation row" method="POST" novalidate>
+                  <form class="row g-3 needs-validation" novalidate>
+       
+                  
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Location</label>
-                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Location" class="form-label small-text2">Location</label>
+                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" id="Location" required>
+                           <div class="invalid-feedback">
+      Please type the name location.
+    </div>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Address</label>
-                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Address" class="form-label small-text2">Address</label>
+                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="name" id="Address">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Suburb/ Town</label>
-                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Town" class="form-label small-text2">Suburb/ Town</label>
+                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" name="name" id="Town">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Post Code</label>
-                           <input type="text" placeholder="Type the Post Code code here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Code" class="form-label small-text2">Post Code</label>
+                           <input type="text" placeholder="Type the Post Code code here" class="form-control body-1 netural-100" name="name" id="Code">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Google coordinates</label>
-                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Google" class="form-label small-text2">Google coordinates</label>
+                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="name" id="Google">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Specific directions</label>
-                           <input type="text" placeholder="Type specific directions here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="directions" class="form-label small-text2">Specific directions</label>
+                           <input type="text" placeholder="Type specific directions here" class="form-control body-1 netural-100" name="name" id="directions">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">General location</label>
-                           <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Generallocation" class="form-label small-text2">General location</label>
+                           <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100" name="name" id="Generallocation">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Location number</label>
-                           <input type="text" placeholder="Type location number here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="Locationnumber" class="form-label small-text2">Location number</label>
+                           <input type="text" placeholder="Type location number here" class="form-control body-1 netural-100" name="name" id="Locationnumber">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Price</label>
+                           <label for="Price" class="form-label small-text2">Price</label>
                            <div class=" theme-input-group">
-                              <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100 pl-30" name="name" id="InputName">
+                              <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100 pl-30" name="name" id="Price">
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                            </div>
                         </div>
@@ -67,7 +72,7 @@
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column">
-                           <label for="InputName" class="form-label small-text2 mb-20">Upload cover photos</label>
+                           <label for="photos" class="form-label small-text2 mb-20">Upload cover photos</label>
                            <div class="drop-zone text-center">
                               <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
                               <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
@@ -77,7 +82,7 @@
                            </div>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column">
-                           <label for="InputName" class="form-label small-text2 mb-20">Upload gallery photos</label>
+                           <label for="gallery" class="form-label small-text2 mb-20">Upload gallery photos</label>
                            <div class="upload__box">
                               <div class="upload__btn-box">
                                  <label class="theme-btn primary-btn ">
@@ -91,8 +96,8 @@
                         <div class="col-md-5 mb-4">
                            <div class="row">
                               <div class="col-10 col-sm-8 col-md-6  ">
-                                 <label for="InputName" class="form-label small-text2">Key advantages of site</label>
-                                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="InputName">
+                                 <label for="Key" class="form-label small-text2">Key advantages of site</label>
+                                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="Key">
                               </div>
                               <div class="col-2 col-sm-4 col-md-6">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
@@ -107,24 +112,24 @@
                            </a>
                         </div>
                         <div class="col-md-12 mb-4">
-                           <label for="InputName" class="form-label small-text2">Why have your ceremony at this place</label>
-                           <textarea class="form-control body-1 netural-100" id="exampleFormControlTextarea1" placeholder="Type here" rows="10"></textarea>
+                           <label for="ceremonyplace" class="form-label small-text2">Why have your ceremony at this place</label>
+                           <textarea class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10"></textarea>
                         </div>
                         <div class="col-md-12 mb-4">
-                           <label for="InputName" class="form-label small-text2">Custom Terms</label>
-                           <textarea class="form-control body-1 netural-100" id="exampleFormControlTextarea1" placeholder="Type here" rows="10"></textarea>
+                           <label for="customterms" class="form-label small-text2">Custom Terms</label>
+                           <textarea class="form-control body-1 netural-100" id="customterms" placeholder="Type here" rows="10"></textarea>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Wet Weather Option</label>
-                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="weather" class="form-label small-text2">Wet Weather Option</label>
+                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="weather">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Getting there</label>
-                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="gettingthere" class="form-label small-text2">Getting there</label>
+                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="gettingthere">
                         </div>
                         <div class="col-md-12 mb-4">
-                           <input class="form-check-input me-2" type="checkbox" name="location" id="location"  autocomplete="off">
-                           <label class="form-check-label body-1" for="location">
+                           <input class="form-check-input me-2" type="checkbox" name="customlocation" id="location"  autocomplete="off">
+                           <label class="form-check-label body-1" for="customlocation">
                            Is this a Custom Location?
                            </label>
                         </div>
@@ -180,7 +185,7 @@
                            </a>
                         </div>
                         <div class="col-12 mt-3">
-                           <a class="theme-btn primary-btn ">Save</a>
+                        <button class="theme-btn primary-btn" type="submit">Save</button>
                         </div>
                      </form>
                   </div>
@@ -190,4 +195,26 @@
       </div>
    </div>
 </div>
+<script>
+   // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
 @endsection

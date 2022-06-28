@@ -11,7 +11,7 @@
             <div class="col-md-8 col-xl-9 d-flex align-self-center">
                <div class="dropdown">
                   <a class="btn filtertoggle-btn">
-                  <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
+                  <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon" >
                   </a>
                   <div class="select-with-checkbox">
                      <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input form-control" >
