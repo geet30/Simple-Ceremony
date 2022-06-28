@@ -9,7 +9,7 @@
             </ol>
          </nav>
       </div>
-      <div class="col-4 d-sm-none">
+      <div class="col-4 d-sm-none align-self-center">
 <a>  <img src="/images/admin/login-logo.svg" alt="Logo" class="img-fluid"></a>
       </div>
       <div class="col-8 col-sm-6 d-flex justify-content-end">

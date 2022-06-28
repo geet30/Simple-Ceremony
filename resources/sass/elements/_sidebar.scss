@@ -4,15 +4,37 @@
 #sidebarMenu{
     background: #fff;
     border-radius: 0px 12px 12px 0px;
+    .nav-item{
+        @include media-breakpoint-down(md) {
+            margin-bottom:20px;
+          }   
+    }
     .nav-link{
         border-radius: 6px;
-        color: #62CBC9;
+        color: $turquoise-100;
+        
         padding: 15px 25px;
+        svg{
+            @include media-breakpoint-down(md) {
+              margin:0 auto;
+            } 
+        }
+        @include media-breakpoint-down(md) {
+            padding: 5px 8px;
+        }
         &.active{
-            background: #62CBC9;
+            background: $turquoise-100;
             color: #FFFFFF;
+            box-shadow: 0px 2px 10px #C1F2F1;
         svg path {
             fill: #fff;
+        }
+        }
+        &:hover{
+            background: $turquoise-20;
+            fill: $turquoise-100;
+        svg path {
+            fill: $turquoise-100;
         }
         }
     }
