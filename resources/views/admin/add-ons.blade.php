@@ -112,7 +112,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -131,7 +131,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -150,7 +150,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -169,7 +169,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -188,7 +188,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -207,7 +207,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -226,7 +226,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -245,7 +245,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -264,7 +264,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -283,7 +283,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                            </tbody>
                            <tfoot>
@@ -336,7 +336,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -355,7 +355,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -374,7 +374,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -393,7 +393,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -412,7 +412,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -431,7 +431,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -450,7 +450,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -469,7 +469,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -488,7 +488,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -507,7 +507,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                            </tbody>
                            <tfoot>
@@ -560,7 +560,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -579,7 +579,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -598,7 +598,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -617,7 +617,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -636,7 +636,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -655,7 +655,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -674,7 +674,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -693,7 +693,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -712,7 +712,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -731,7 +731,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                            </tbody>
                            <tfoot>
@@ -784,7 +784,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -803,7 +803,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -822,7 +822,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -841,7 +841,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -860,7 +860,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -879,7 +879,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -898,7 +898,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -917,7 +917,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -936,7 +936,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>
@@ -955,7 +955,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">See feedback</a> <a href="#" class="table-link">View info</a></td>
+                                 <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> <a href="/admin/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                            </tbody>
                            <tfoot>
@@ -979,9 +979,68 @@
                   </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="celebrants" role="tabpanel" aria-labelledby="celebrants-tab">editing</div>
+            <div class="tab-pane fade" id="celebrants" role="tabpanel" aria-labelledby="celebrants-tab">
+               <a href="#" class="theme-btn primary-btn d-inline-block mb-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasaddons" aria-controls="offcanvasaddons"><img class="me-2" src="/images/admin/add-ons/white-plus.svg" alt="Add">Create new add-ons</a>
+               <div class="card panel-card">
+                  <div class="card-body">
+                     <ul class="add-on-setting-ul list-unstyled p-0 m-0">
+                        <li class="d-flex flex-wrap mb-4">
+                           <label class="small-text2">Add-on 1</label>
+                           <span class="body-1 neutral-100 me-4 mb-3">Chair & decoration</span>
+                           <div class="d-flex">
+                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                           </div>
+                        </li>
+                        <li class="d-flex flex-wrap mb-4">
+                           <label class="small-text2">Add-on 2</label>
+                           <span class="body-1 neutral-100 me-4 mb-3">Photograper</span>
+                           <div class="d-flex">
+                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                           </div>
+                        </li>
+                        <li class="d-flex flex-wrap mb-4">
+                           <label class="small-text2">Add-on 3</label>
+                           <span class="body-1 neutral-100 me-4 mb-3">Ring</span>
+                           <div class="d-flex">
+                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                           </div>
+                        </li>
+                        <li class="d-flex flex-wrap mb-4">
+                           <label class="small-text2">Add-on 4</label>
+                           <span class="body-1 neutral-100 me-4 mb-3">Car rent</span>
+                           <div class="d-flex">
+                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                           </div>
+                        </li>
+                        <li class="d-flex flex-wrap mb-4">
+                           <label class="small-text2">Add-on 5</label>
+                           <span class="body-1 neutral-100 me-4 mb-3">Venue to celebraten</span>
+                           <div class="d-flex">
+                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                           </div>
+                        </li>
+                        <li class="d-flex flex-wrap mb-4">
+                           <label class="small-text2">Add-on 6</label>
+                           <span class="body-1 neutral-100 me-4 mb-3">Flower</span>
+                           <div class="d-flex">
+                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
          </div>
         </div>
     </div>
 </div>
+@include('elements.admin-add-ons-add')
+@include('elements.admin-add-ons-edit')
+@include('elements.admin-add-ons-feedback')
 @endsection
