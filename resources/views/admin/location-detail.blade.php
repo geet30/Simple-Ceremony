@@ -5,7 +5,7 @@
 <div class="col-2 col-md-3 col-lg-2 px-0">
    @include('elements.admin-sidebar')
 </div>
-<div class="col-10 col-md-9 col-lg-10">
+<div class="col-10 col-md-9 col-lg-10 px-4">
 @include('elements.panel-header')
    <div class="row">
       <div class="col-12 mb-30">
@@ -174,46 +174,46 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <td style="min-width:260px">Michael</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2" class="body-2">Michael</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px">Joe</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2">Joe</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px">David</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2">David</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px">John</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2">John</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px">Chloe</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2">Chloe</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px">Tony</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2">Tony</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px">Richard</td>
-                           <td  style="min-width:200px">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link">See availability</a></td>
-                           <td  style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
+                           <td style="min-width:260px" class="body-2">Richard</td>
+                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
+                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
+                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
                         </tr>
                      </tbody>
                      <tfoot>
