@@ -2,10 +2,10 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-md-3 col-lg-2">
+      <div class="col-2 col-md-3 col-lg-2 px-0">
          @include('elements.admin-sidebar')
       </div>
-      <div class="col-md-9 col-lg-10">
+      <div class="col-10 col-md-9 col-lg-10">
       @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
