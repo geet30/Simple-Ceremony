@@ -168,7 +168,7 @@
                            <div class="row">
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select partner</label>
-                                 <select name="partnerstatus" id="partnerstatus" class="js-placeholder-single-input form-control">
+                                 <select name="partnerstatus" class="js-placeholder-single-input form-control">
                                     <option value="" disabled="" selected="" hidden="">Select partner here</option>
                                     <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
@@ -182,7 +182,7 @@
                               </div>
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select Package</label>
-                                 <select name="partnerstatus" id="partnerstatus" class="js-placeholder-single-input form-control">
+                                 <select name="partnerstatus" class="js-placeholder-single-input form-control">
                                     <option value="" disabled="" selected="" hidden="">Select package here</option>
                                     <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>

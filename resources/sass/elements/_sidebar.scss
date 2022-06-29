@@ -12,7 +12,6 @@
     .nav-link{
         border-radius: 6px;
         color: $turquoise-100;
-        
         padding: 15px 25px;
         svg{
             @include media-breakpoint-down(md) {
@@ -26,6 +25,12 @@
             background: $turquoise-100;
             color: #FFFFFF;
             box-shadow: 0px 2px 10px #C1F2F1;
+        &:hover{
+            background: $turquoise-100;
+            svg path {
+                fill: #fff;
+            }
+        }
         svg path {
             fill: #fff;
         }
