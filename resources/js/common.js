@@ -20,32 +20,6 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
-//js for select 2
-$('.js-placeholder-single-input').select2({
-  minimumResultsForSearch: -1
-});
-
-//////// Select 2 Js with checkbox
-$(".js-select2").select2({
-  closeOnSelect : false,
-  placeholder : "Placeholder",
-  // allowHtml: true,
-  allowClear: false,
-  tags: true 
-});
-$(document).ready(function() {
-  $('.js-example-basic-multiple').select2();
-});
-//////// Select 2 Js with search
-$(".js-example-placeholder-single").select2({
-  placeholder: "Insert name of location",
-  allowClear: false
-});
-
-$('.js-example-placeholder-single').select2().on('select2:open', function(e){
-  $('.select2-search__field').attr('placeholder', 'Type here....');
-})
-
 
 /////// calander Js
 function selectDate(date) {
@@ -74,20 +48,24 @@ $("#sidebarMenu li a").click(function() {
   $(this).addClass('active');
 });
 
-/////// top navbar
-$('.navbar-nav a').removeClass('active')
-var current = location.pathname;
-if(current=='/'){
-  $('.navbar-nav a').first().addClass('active');
-}else{
-  $('.navbar-nav a').each(function(){
-    var $this = $(this);
-    // if the current path is like this link, make it active
-    if($this.attr('href').indexOf(current) !== -1){
-        $this.addClass('active');
-    }
-})
-}
+// /////// top navbar
+// $('.navbar-nav a').removeClass('active')
+// var current = location.pathname;
+// if(current=='/'){
+//   $('.navbar-nav a').first().addClass('active');
+// }else{
+//   $('.navbar-nav a').each(function(){
+//     var $this = $(this);
+//     // if the current path is like this link, make it active
+//     if($this.attr('href').indexOf(current) !== -1){
+//         $this.addClass('active');
+//     }
+// })
+// }
+
+
+///// image uploader Js
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -222,8 +200,6 @@ function ImgUpload() {
 }
 // 
 
-
-jQuery.noConflict();
 
 (function( $ ) {
 

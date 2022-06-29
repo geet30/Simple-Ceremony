@@ -6,7 +6,8 @@
             @include('elements.admin-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-         <ul class="add-on-list-nav row nav nav-pills mb-3" id="pills-tab" role="tablist">
+         @include('elements.panel-header')
+         <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <li class="nav-item col-12 col-md-6 col-lg-3 mb-3" role="presentation">
               <button class="nav-link active w-100" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
                <div class="add-ons-nav d-flex">

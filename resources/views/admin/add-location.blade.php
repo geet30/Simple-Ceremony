@@ -149,7 +149,7 @@
                         <div class="col-12">
                            <div class="row">
                               <div class="col-md-5 mb-4">
-                                 <label for="age" class="form-label small-text2">Select partner</label>
+                                 <label for="partner" class="form-label small-text2">Select partner</label>
                                  <select class="js-placeholder-single-input form-control">
                                     <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
@@ -161,7 +161,7 @@
                                  </select>
                               </div>
                               <div class="col-md-5 mb-4">
-                                 <label for="age" class="form-label small-text2">Select Package</label>
+                                 <label for="package" class="form-label small-text2">Select Package</label>
                                  <select class="js-placeholder-single-input form-control">
                                     <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
                                     <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
@@ -195,26 +195,4 @@
       </div>
    </div>
 </div>
-<script>
-   // Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
-</script>
 @endsection
