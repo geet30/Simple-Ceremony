@@ -62,9 +62,9 @@
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                            </div>
                         </div>
-                        <div class="col-md-5 mb-4">
+                        <div class="col-md-5 mb-4 ">
                            <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
-                           <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
+                           <select class="js-placeholder-single-input js-select2 form-control" name="states[]" multiple="multiple">
                               <option value="O1" data-badge="">Peter</option>
                               <option value="O2" data-badge="">Lux</option>
                               <option value="O3" data-badge="">Michael</option>
@@ -136,7 +136,7 @@
                         <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
                         <div class="col-md-5 mb-4">
                            <label for="age" class="form-label small-text2">Filter criteria</label>
-                           <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
+                           <select name="filter_by_categorie1s" id="selectinput1" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
                               <option value="O1" data-badge="">Park</option>
                               <option value="O2" data-badge="">Harbour</option>
                               <option value="O3" data-badge="">River</option>
