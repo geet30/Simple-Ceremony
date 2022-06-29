@@ -1,6 +1,7 @@
 //js for select 2
 $('.js-placeholder-single-input').select2({
-  minimumResultsForSearch: -1
+  minimumResultsForSearch: -1,
+  placeholder: "Select a state"
 });
 
 ////// Select 2 Js with checkbox
@@ -26,3 +27,7 @@ $(".js-example-placeholder-single").select2({
 $('.js-example-placeholder-single').select2().on('select2:open', function(e){
   $('.select2-search__field').attr('placeholder', 'Type here....');
 })
+
+$(".js-example-placeholder-multiple").select2({
+  placeholder: "Select a state"
+});

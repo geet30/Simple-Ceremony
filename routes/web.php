@@ -100,11 +100,6 @@ Route::get('advice-after-first-year', function () {
 Route::get('quiz', function () {
     return view('pages.quiz');
 });
-Route::group(['prefix' => 'user'], function () {
-    Route::get('index', function () {
-        return view('user.index');
-    });
-});
 Route::group(['prefix' => 'admin'], function () {
     Route::get('location', function () {
         return view('admin.location');
@@ -138,6 +133,21 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('admin-add-ons-gallery', function () {
         return view('admin.admin-add-ons-gallery');
+    });
+});
+Route::group(['prefix' => 'user'], function () {
+    Route::get('index', function () {
+        return view('user.index');
+    });
+});
+Route::group(['prefix' => 'partner'], function () {
+    Route::get('all-partners', function () {
+        return view('partner.all-partners');
+    });
+});
+Route::group(['prefix' => 'partner'], function () {
+    Route::get('add-new-partner', function () {
+        return view('partner.add-new-partner');
     });
 });
 Auth::routes();
