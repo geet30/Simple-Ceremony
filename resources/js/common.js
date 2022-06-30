@@ -12,8 +12,6 @@ $('.slider-for').slick({
   focusOnSelect: true
 });
 
-
-
 // popover JS
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
@@ -219,3 +217,26 @@ $('#celebrants-tab').click(function(){
 });
 
 })(jQuery);
+
+
+
+
+// video player js
+const video = document.getElementById("video");
+const circlePlayButton = document.getElementById("circle-play-b");
+
+function togglePlay() {
+	if (video.paused || video.ended) {
+		video.play();
+	} else {
+		video.pause();
+	}
+}
+
+circlePlayButton.addEventListener("click", togglePlay);
+video.addEventListener("playing", function () {
+	circlePlayButton.style.opacity = 0;
+});
+video.addEventListener("pause", function () {
+	circlePlayButton.style.opacity = 1;
+});

@@ -59,6 +59,19 @@
                                  </select>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner type is required</div>
                               </div>
+                              <div class="col-md-12 mb-4">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <label for="InputName" class="form-label small-text2">Upload avatar image</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                       <input class="form-control body-1 netural-100" id="formFileLg" type="file">
+                                    </div>
+                                    <div class="col-md-4">
+                                       <label role="button" for="formFileLg" class="form-label small-text2 mb-0 theme-btn primary-btn">Choose imagee</label>
+                                    </div>
+                                 </div>
+                              </div>
                               <div class="col-md-6 mb-4">
                                  <label for="InputName" class="form-label small-text2">ABN number *</label>
                                  <input type="text" placeholder="Type your ABN number here" class="form-control body-1 netural-100" name="name" id="InputName" required>
@@ -113,7 +126,7 @@
                               <div class="col-md-12 mb-4 mt-4 add-ons-detail">
                                  <div class="d-flex">
                                     <div class="numberCircle align-self-center">1</div>
-                                    <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 1</p>
+                                    <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 1 <a role="button" class="cross-icon ms-2 top-0"><img src="/images/icons/cross.svg" class="img-fluid"></a></p>
                                  </div>
                               </div>
                               <div class="col-md-6 mb-4">
@@ -180,11 +193,30 @@
                                           <input type="file" multiple="" data-max_length="20" class="upload__inputfile">
                                        </label>
                                     </div>
-                                    <div class="upload__img-wrap"></div>
+                                    <div class="upload__img-wrap">
+                                       <div class="upload__img-box">
+                                          <div class="video-wrapper">
+                                             <div class="video-container" id="video-container">
+                                                <video controls width="100%" height="300px" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
+                                                   <source src="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4" type="video/mp4">
+                                                </video>
+                                                <div class="upload__img-close"></div>
+                                                <div class="play-button-wrapper">
+                                                   <div title="Play video" class="play-gif" id="circle-play-b">
+                                                      <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
                                  </div>
                               </div>
                               <div class="col-12">
-                                 <button type="submit" id="submit_button" class="theme-btn primary-btn border-0">Send request</button>
+                                 <div class="d-flex ">
+                                 <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 me-4">Save</button>
+                                 <a role="button" id="add_more-package" class="theme-btn primary-btn-border d-flex pe-auto"><img style="filter:none;" class="me-2" src="/images/admin/partner/plus-icon.svg" alt="Add">Add more packages</a>
+                              </div>
                               </div>
                            </div>
                         </div>

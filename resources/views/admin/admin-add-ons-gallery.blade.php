@@ -25,9 +25,17 @@
                            <img src="/images/add-ons/add-ons-details/right-3.jpg" alt="addons-photos" class="img-fluid gallery-img">
                         </div>
                         <div class="col-md-5 mb-3">
-                           <div class="position-relative">
-                              <img src="/images/add-ons/add-ons-details/right-4.jpg" class="img-fluid gallery-img " alt="add-ons-image " >
-                              <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
+                           <div class="video-wrapper">
+                              <div class="video-container" id="video-container">
+                                 <video controls width="100%" height="300px" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
+                                    <source src="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4" type="video/mp4">
+                                 </video>
+                                 <div class="play-button-wrapper">
+                                    <div title="Play video" class="play-gif" id="circle-play-b">
+                                       <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
+                                    </div>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                         <div class="col-md-5 mb-3">
