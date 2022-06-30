@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('pages.home');
 });
@@ -103,34 +105,29 @@ Route::get('quiz', function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('location', function () {
         return view('admin.location');
-    });
-});
-Route::group(['prefix' => 'admin'], function () {
+    })->name('admin-locations');
+
     Route::get('add-location', function () {
         return view('admin.add-location');
     });
-});
-Route::group(['prefix' => 'admin'], function () {
+
     Route::get('add-ons', function () {
         return view('admin.add-ons');
     });
-});
-Route::group(['prefix' => 'admin'], function () {
+
     Route::get('location-detail', function () {
         return view('admin.location-detail');
     });
-});
-Route::group(['prefix' => 'admin'], function () {
+
     Route::get('edit-location', function () {
         return view('admin.edit-location');
     });
-});
-Route::group(['prefix' => 'admin'], function () {
+
     Route::get('admin-add-ons-details', function () {
         return view('admin.admin-add-ons-details');
     });
-});
-Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('admin-add-ons-gallery', function () {
         return view('admin.admin-add-ons-gallery');
     });
