@@ -108,6 +108,7 @@ class RoleController extends Controller
         return $this->successResponse([], 'Role deleted successfully.');
     }
 
+
     public function save_permission(Request $request)
     {
         $permissions = $request->input('permissions');
