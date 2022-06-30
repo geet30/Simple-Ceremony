@@ -13,6 +13,7 @@ require('./common');
 require('./select2');
 require('./validation');
 require('./tel-number');
+require('./video-player');
 require('./admin-header');
 
 

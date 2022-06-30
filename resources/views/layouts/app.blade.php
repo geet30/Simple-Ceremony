@@ -13,6 +13,7 @@
       <link href="/custom-css/slick.css" rel="stylesheet">
       <link href="https://intl-tel-input.com/node_modules/intl-tel-input/build/css/intlTelInput.css?1549804213570" rel="stylesheet">
       <link href="/custom-css/calendar.css" rel="stylesheet">
+      <link href="/custom-css/video-player.css" rel="stylesheet">
       <link href="/fonts/stylesheet.css" rel="stylesheet">
    </head>
    <body class="dashboard-bg antialiased" data-barba="wrapper">
@@ -27,9 +28,4 @@
    <script src="https://intl-tel-input.com/node_modules/intl-tel-input/build/js/intlTelInput.js?1549804213570"></script>
    <script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
    <script src="/js/app.js" defer></script>
-<script>
-   $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-});
-</script>
   </html>
