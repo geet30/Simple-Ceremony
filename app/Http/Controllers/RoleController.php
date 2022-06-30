@@ -109,6 +109,7 @@ class RoleController extends Controller
     }
 
 
+
     public function save_permission(Request $request)
     {
         $permissions = $request->input('permissions');
