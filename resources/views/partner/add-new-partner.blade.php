@@ -169,7 +169,12 @@
                               </div>
                               <div class="col-md-3 mb-4">
                                  <label for="InputName" class="form-label small-text2">Total fee</label>
-                                 <input type="text" placeholder="$" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                                 <div class="d-flex align-items-center">
+                                    <input type="text" placeholder="$" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                                    <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Fill the deposit field first, after that simulation total deposit can appear">
+                                       <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
+                                    </span>
+                                 </div>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
                               </div>
                               <div class="col-md-12 mb-4">
@@ -197,7 +202,7 @@
                                        <div class="upload__img-box">
                                           <div class="video-wrapper">
                                              <div class="video-container" id="video-container">
-                                                <video controls width="100%" height="300px" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
+                                                <video controls width="100%" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
                                                    <source src="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4" type="video/mp4">
                                                 </video>
                                                 <div class="upload__img-close"></div>

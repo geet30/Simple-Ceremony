@@ -6,15 +6,17 @@
 
 //require('./bootstrap');
 // require('./imgae-uploder');
-require('./password');
+
 require('./navbar');
 require('./like-unlike-functionlaity');
 require('./common');
+require('./password');
 require('./select2');
 require('./validation');
 require('./tel-number');
 require('./video-player');
 require('./admin-header');
+
 
 
 window.Vue = require('vue').default;
