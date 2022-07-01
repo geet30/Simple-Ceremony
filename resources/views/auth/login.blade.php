@@ -22,7 +22,7 @@
                      <div class="row mb-3">
                         <label for="email" class="form-label small-text2 col-12 mb-2">{{ __('Email') }}</label>
                         <div class="col-md-12">
-                           <input id="email" type="email" class="form-control  body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required   autocomplete="off">
+                           <input  type="email" class="form-control emailInput body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required   autocomplete="off">
                            @error('email')
                            <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>
@@ -34,8 +34,8 @@
                         <label for="password" class="col-md-12 form-label small-text2 mb-2">{{ __('Password') }}</label>
                         <div class="col-md-12">
                            <div class=" theme-input-group">
-                              <input id="password" type="password" placeholder="Type your password here" class="form-control  body-1 netural-100 @error('password') is-invalid @enderror" name="password" required  autocomplete="off">
-                              <i class="fas fa-eye-slash right-icon turquoise-100" id="eye" ></i>
+                              <input type="password" placeholder="Type your password here" class="passwordInput form-control  body-1 netural-100 @error('password') is-invalid @enderror" name="password" required  autocomplete="off">
+                              <i class="fas fa-eye-slash right-icon turquoise-100 eyeIcon" ></i>
                               @error('password')
                               <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
                      <div class="row mb-3">
                         <label for="email" class="form-label small-text2 col-12 mb-2">{{ __('Email') }}</label>
                         <div class="col-md-12">
-                           <input id="email" type="email" class="form-control  body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required   autocomplete="off">
+                           <input type="email" class="form-control emailInput body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required   autocomplete="off">
                            @error('email')
                            <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>
@@ -95,8 +95,8 @@
                         <label for="password" class="col-md-12 form-label small-text2 mb-2">{{ __('Password') }}</label>
                         <div class="col-md-12">
                            <div class=" theme-input-group">
-                              <input id="password" type="password" placeholder="Type your password here" class="form-control  body-1 netural-100 @error('password') is-invalid @enderror" name="password" required  autocomplete="off">
-                              <i class="fas fa-eye-slash right-icon turquoise-100" id="eye" ></i>
+                              <input type="password" placeholder="Type your password here" class="form-control passwordInput body-1 netural-100 @error('password') is-invalid @enderror" name="password" required  autocomplete="off">
+                              <i class="fas fa-eye-slash right-icon turquoise-100 eyeIcon"  ></i>
                               @error('password')
                               <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -114,6 +114,7 @@
                               </label>
                            </div>
                         </div>
+                        <input type="hidden" name="route_name" value="{{ Route::current()->getName() }}">
                         <div class="col-md-6 d-flex justify-content-end">
                            @if (Route::has('password.request'))
                            <a class="small-text2 forgot-password-link" href="{{ route('password.request') }}">
