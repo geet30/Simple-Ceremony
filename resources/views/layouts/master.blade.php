@@ -29,4 +29,5 @@
    <script src="https://intl-tel-input.com/node_modules/intl-tel-input/build/js/intlTelInput.js?1549804213570"></script>
    <script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
    <script src="js/app.js" defer></script>
+   <script src="js/add-more.js" defer></script>
   </html>
