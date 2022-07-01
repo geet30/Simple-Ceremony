@@ -264,6 +264,7 @@
         background-color: $turquoise-20;
     }
 }
+
 .py-40 {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -272,90 +273,120 @@
         padding-bottom: 30px;
     }
 }
+
 .pb-40 {
     padding-bottom: 40px;
     @include media-breakpoint-down(lg) {
         padding-bottom: 30px;
     }
 }
+
 .pb-80 {
     padding-bottom: 80px;
     @include media-breakpoint-down(lg) {
         padding-bottom: 40px;
     }
 }
+
 .bg-turquoise-100 {
     background-color: $turquoise-100;
 }
+
 .gray-gray-800 {
     color: $gray-gray-800;
 }
+
 .gray-gray-900 {
     color: $gray-gray-900;
 }
+
 .intel-font {
     font-family: $inter-font;
 }
+
 .mb-32 {
     margin-bottom: 32px;
 }
+
 .mb-38 {
     margin-bottom: 38px;
 }
+
 .h-100vh {
     height: 100vh;
 }
+
 .mt-144 {
     margin-top: 144px;
 }
+
 .mb-30 {
     margin-bottom: 30px;
 }
+
 .mt-34 {
     margin-top: 34px;
 }
+
 .mt-20 {
     margin-top: 20px;
 }
+
 .mb-20 {
     margin-bottom: 20px;
 }
+
 .mr-6 {
     margin-right: 6px;
 }
+
 .admin-pt-92 {
     padding-top: 20px;
     @include media-breakpoint-up(lg) {
         padding-top: 92px;
     }
 }
+
 .pt-92 {
     padding-top: 92px;
     @include media-breakpoint-down(lg) {
         padding-top: 40px;
     }
 }
+
 .pb-60 {
     padding-bottom: 60px;
     @include media-breakpoint-down(lg) {
         padding-bottom: 40px;
     }
 }
+
 .dark-blue-100 {
     color: $dark-blue-100;
 }
+
 .text-decoration {
     text-decoration: underline;
 }
+
 .cursor-pointer {
     cursor: pointer;
 }
+
 .offcanvas-backdrop.show {
     opacity: 0.3 !important;
 }
+
 .bg-accent-blue-100 {
     background-color: $accent-blue-100;
 }
-.mb-2px{
-    margin-bottom:2px;
+
+.mb-2px {
+    margin-bottom: 2px;
+}
+
+@include media-breakpoint-down(md) {
+    .mt-xs-10 {
+        margin-top: 10px !important;
+    }
 }

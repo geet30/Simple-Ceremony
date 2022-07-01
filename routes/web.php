@@ -144,10 +144,11 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('all-partners', function () {
         return view('partner.all-partners');
     });
-});
-Route::group(['prefix' => 'partner'], function () {
     Route::get('add-new-partner', function () {
         return view('partner.add-new-partner');
+    });
+    Route::get('edit-package', function () {
+        return view('partner.edit-package');
     });
 });
 Auth::routes();
