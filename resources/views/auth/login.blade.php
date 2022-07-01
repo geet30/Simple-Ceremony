@@ -77,7 +77,7 @@
             <div class="col-md-10 col-xl-8 mx-auto">
             <div class="card card-login">
                <div class="card-body">
-                  <h1 class="mb-32">Sign in to your account</h1>
+                  <h1 class="mb-32" onclick="appendHtml('keyAdvantage', 'advantage')">Sign in to your account</h1>
                   <form method="POST" action="{{ route('login') }}">
                      @csrf
                      <div class="row mb-3">

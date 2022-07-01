@@ -7,15 +7,11 @@
 //require('./bootstrap');
 // require('./imgae-uploder');
 
-require('./navbar');
-require('./like-unlike-functionlaity');
 require('./common');
-require('./password');
 require('./select2');
 require('./validation');
+require('./add-more');
 require('./tel-number');
-require('./video-player');
-require('./admin-header');
 
 
 

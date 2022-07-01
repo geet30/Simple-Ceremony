@@ -15,6 +15,12 @@
           event.stopPropagation();
         }
         form.classList.add('was-validated');
+        window.setTimeout(function () {
+            var errors = $('.invalid-feedback:visible:first').prev();
+            if (errors.length) {
+                $('html, body').animate({ scrollTop: errors.offset().top - 10 }, 500);
+            }
+        }, 0);
       }, false);
     });
   }, false);
