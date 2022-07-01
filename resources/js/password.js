@@ -1,3 +1,4 @@
+
 $('.eyeIcon').click(function(){
       if($(this).hasClass('fa-eye-slash')){   
         $(this).removeClass('fa-eye-slash');          
@@ -9,3 +10,4 @@ $('.eyeIcon').click(function(){
         $('.passwordInput').attr('type','password');
       }
   });
+
