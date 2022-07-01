@@ -1,6 +1,7 @@
 $(function(){
   
   $('#eye').click(function(){
+    alert("jhj")
        
         if($(this).hasClass('fa-eye-slash')){
            
