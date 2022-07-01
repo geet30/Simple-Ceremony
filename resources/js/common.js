@@ -217,7 +217,6 @@ function ImgUpload() {
 })(jQuery);
 
 $('.eyeIcon').click(function(){
-  alert("kjn")
       if($(this).hasClass('fa-eye-slash')){   
         $(this).removeClass('fa-eye-slash');          
         $(this).addClass('fa-eye');         
