@@ -200,45 +200,34 @@ function ImgUpload() {
 
 
 (function( $ ) {
-
-$('#information-tab').click(function(){
-    $('.addmarriage').addClass("d-none");
-    $('.addmarriage').removeClass("d-block");
-    $('.editinformation').addClass("d-block");
-    $('.editinformation').removeClass("d-none");
-   
-});
-$('#celebrants-tab').click(function(){
-    $('.addmarriage').removeClass("d-none");
-    $('.editinformation').removeClass("d-block");
-    $('.editinformation').addClass("d-none");
-    $('.addmarriage').addClass("d-block");
-   
-});
+  $('#information-tab').click(function(){
+      $('.addmarriage').addClass("d-none");
+      $('.addmarriage').removeClass("d-block");
+      $('.editinformation').addClass("d-block");
+      $('.editinformation').removeClass("d-none");
+     
+  });
+  $('#celebrants-tab').click(function(){
+      $('.addmarriage').removeClass("d-none");
+      $('.editinformation').removeClass("d-block");
+      $('.editinformation').addClass("d-none");
+      $('.addmarriage').addClass("d-block");
+     
+  });
 })(jQuery);
 
-
-
-
-// video player js
-const video = document.getElementById("video");
-const circlePlayButton = document.getElementById("circle-play-b");
-
-function togglePlay() {
-	if (video.paused || video.ended) {
-		video.play();
-	} else {
-		video.pause();
-	}
-}
-
-circlePlayButton.addEventListener("click", togglePlay);
-video.addEventListener("playing", function () {
-	circlePlayButton.style.opacity = 0;
-});
-video.addEventListener("pause", function () {
-	circlePlayButton.style.opacity = 1;
-});
+$('.eyeIcon').click(function(){
+  alert("kjn")
+      if($(this).hasClass('fa-eye-slash')){   
+        $(this).removeClass('fa-eye-slash');          
+        $(this).addClass('fa-eye');         
+        $('.passwordInput').attr('type','text');          
+      }else{
+        $(this).removeClass('fa-eye');
+        $(this).addClass('fa-eye-slash');  
+        $('.passwordInput').attr('type','password');
+      }
+  });
 
 
 
