@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-//require('./bootstrap');
-// require('./imgae-uploder');
 
+
+require('./datepicker');
 require('./navbar');
 require('./like-unlike-functionlaity');
 require('./common');
@@ -16,7 +16,7 @@ require('./validation');
 require('./tel-number');
 require('./video-player');
 require('./admin-header');
-
+require('./datepicker');
 
 
 window.Vue = require('vue').default;
