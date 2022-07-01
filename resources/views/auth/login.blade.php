@@ -14,7 +14,7 @@
             <div class="col-12 text-center"><h1 class=" intel-font body-regular-20 neutral-100 mb-38">Sign in to your account</h1></div>
            </div>
          </div>
-         <div class="d-md-none login-mobile-card">
+        <!--  <div class="d-md-none login-mobile-card">
          <div class="card card-login">
                <div class="card-body">
                   <form method="POST" action="{{ route('login') }}">
@@ -69,7 +69,7 @@
                   </form>
                </div>
             </div>
-         </div>
+         </div> -->
          <div class="col-md-6 right  position-relative d-flex justify-content-center d-none d-md-block">
             <img src="/images/admin/login/top.png" class="img-fluid top" alt="Login">
             <img src="/images/admin/login/bottom.png" class="img-fluid bottom" alt="Login">
