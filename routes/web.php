@@ -103,31 +103,34 @@ Route::get('quiz', function () {
     return view('pages.quiz');
 });
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('location', function () {
-        return view('admin.location');
-    })->name('admin-locations');
+    Route::resource('locations', App\Http\Controllers\LocationsController::class);
+    // Route::get('location', function () {
+    //     return view('admin.location');
+    // })->name('admin-locations');
 
-    Route::get('add-location', function () {
-        return view('admin.add-location');
-    });
+    // Route::get('add-location', function () {
+    //     return view('admin.add-location');
+    // });
 
     Route::get('add-ons', function () {
         return view('admin.add-ons');
     });
 
-    Route::get('location-detail', function () {
-        return view('admin.location-detail');
-    });
+    // Route::get('location-detail', function () {
+    //     return view('admin.location-detail');
+    // });
 
-    Route::get('edit-location', function () {
-        return view('admin.edit-location');
-    });
+    // Route::get('edit-location', function () {
+    //     return view('admin.edit-location');
+    // });
 
     Route::get('admin-add-ons-details', function () {
         return view('admin.admin-add-ons-details');
     });
 
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+
+
     Route::get('admin-add-ons-gallery', function () {
         return view('admin.admin-add-ons-gallery');
     });
@@ -141,10 +144,11 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('all-partners', function () {
         return view('partner.all-partners');
     });
-});
-Route::group(['prefix' => 'partner'], function () {
     Route::get('add-new-partner', function () {
         return view('partner.add-new-partner');
+    });
+    Route::get('edit-package', function () {
+        return view('partner.edit-package');
     });
 });
 Route::group(['prefix' => 'marriage-celebrant'], function () {

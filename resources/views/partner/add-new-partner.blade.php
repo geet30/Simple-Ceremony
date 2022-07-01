@@ -13,7 +13,7 @@
                   <h1 class="h3 netural-100 mb-4">Add new partner</h1>
                   <form class="needs-validation" method="POST" novalidate>
                      <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-lg-12 col-xl-10 col-xxl-8">
                            <div class="row">
                               <div class="col-md-6 mb-4">
                                  <label for="InputName" class="form-label small-text2">Business name *</label>
@@ -219,9 +219,9 @@
                               </div>
                               <div class="col-12">
                                  <div class="d-flex ">
-                                 <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 me-4">Save</button>
-                                 <a role="button" id="add_more-package" class="theme-btn primary-btn-border d-flex pe-auto"><img style="filter:none;" class="me-2" src="/images/admin/partner/plus-icon.svg" alt="Add">Add more packages</a>
-                              </div>
+                                    <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 me-4">Save</button>
+                                    <a role="button" id="add_more-package" class="theme-btn primary-btn-border d-flex pe-auto"><img style="filter:none;" class="me-2" src="/images/admin/partner/plus-icon.svg" alt="Add">Add more packages</a>
+                                 </div>
                               </div>
                            </div>
                         </div>

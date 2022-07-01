@@ -46,22 +46,6 @@ $("#sidebarMenu li a").click(function() {
   $(this).addClass('active');
 });
 
-// /////// top navbar
-// $('.navbar-nav a').removeClass('active')
-// var current = location.pathname;
-// if(current=='/'){
-//   $('.navbar-nav a').first().addClass('active');
-// }else{
-//   $('.navbar-nav a').each(function(){
-//     var $this = $(this);
-//     // if the current path is like this link, make it active
-//     if($this.attr('href').indexOf(current) !== -1){
-//         $this.addClass('active');
-//     }
-// })
-// }
-
-
 ///// image uploader Js
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
@@ -137,6 +121,10 @@ function updateThumbnail(dropZoneElement, file) {
 }
 // 
 $(document).ready(function () {
+  if($(".alert").is(":visible")){
+     $('html, body').animate({ scrollTop: $('.alert:first').offset().top - 10 }, 500);
+  }
+  $(".alert").slideDown(300).delay(3000).slideUp(300);
   ImgUpload();
 });
 
@@ -226,7 +214,11 @@ $('.eyeIcon').click(function(){
         $(this).addClass('fa-eye-slash');  
         $('.passwordInput').attr('type','password');
       }
-  });
+});
+$(".heart.fa-heart").click(function() {
+  $(this).toggleClass(" fa-regular fa-solid ");
+});
+
 
 
 

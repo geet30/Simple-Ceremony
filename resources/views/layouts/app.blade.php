@@ -29,5 +29,5 @@
    <script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
    <script src="/js/app.js" defer></script>
-
+   <script src="/js/add-more.js"></script>
   </html>
