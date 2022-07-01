@@ -136,7 +136,7 @@ function updateThumbnail(dropZoneElement, file) {
   }
 }
 // 
-jQuery(document).ready(function () {
+$(document).ready(function () {
   ImgUpload();
 });
 
@@ -202,20 +202,19 @@ function ImgUpload() {
 (function( $ ) {
 
 $('#information-tab').click(function(){
-  $('.addmarriage').addClass("d-none");
-  $('.addmarriage').removeClass("d-block");
-  $('.editinformation').addClass("d-block");
-  $('.editinformation').removeClass("d-none");
+    $('.addmarriage').addClass("d-none");
+    $('.addmarriage').removeClass("d-block");
+    $('.editinformation').addClass("d-block");
+    $('.editinformation').removeClass("d-none");
    
 });
 $('#celebrants-tab').click(function(){
-  $('.addmarriage').removeClass("d-none");
-  $('.editinformation').removeClass("d-block");
-  $('.editinformation').addClass("d-none");
+    $('.addmarriage').removeClass("d-none");
+    $('.editinformation').removeClass("d-block");
+    $('.editinformation').addClass("d-none");
     $('.addmarriage').addClass("d-block");
    
 });
-
 })(jQuery);
 
 
@@ -240,3 +239,6 @@ video.addEventListener("playing", function () {
 video.addEventListener("pause", function () {
 	circlePlayButton.style.opacity = 1;
 });
+
+
+
