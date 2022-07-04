@@ -1,0 +1,30 @@
+.upcomming-marriage-top {
+    a {
+        &:after {
+            content: "";
+            width: 49px;
+            height: 51px;
+            background: url("/images/icons/arrow-up.svg") no-repeat;
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.collapsed {
+            &:after {
+                content: "";
+                width: 49px;
+                height: 51px;
+                background: url("/images/icons/arrow-down.svg") no-repeat;
+
+                position: absolute;
+                display: inline-block;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+}

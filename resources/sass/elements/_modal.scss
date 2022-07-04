@@ -3,9 +3,10 @@
         .modal-content {
             background: #ffffff;
             border-radius: 10px;
+
             .modal-body {
                 padding: 62px 84px;
-                @include media-breakpoint-down(lg){
+                @include media-breakpoint-down(lg) {
                     padding: 30px;
                 }
             }
@@ -13,7 +14,17 @@
     }
 }
 @include media-breakpoint-down(md) {
-    .w-100-sm{
-        width:100%;
+    .w-100-sm {
+        width: 100%;
     }
- }
+}
+.theme-modal {
+    .modal-content {
+        border: none !important;
+        background: #ffffff;
+        border-radius: 10px;
+        .modal-body {
+            padding: 30px 47px;
+        }
+    }
+}
