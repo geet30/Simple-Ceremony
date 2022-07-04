@@ -154,6 +154,11 @@ Route::group(['prefix' => 'partner'], function () {
         return view('partner.partner-details');
     });
 });
+Route::group(['prefix' => 'marriage-celebrant'], function () {
+    Route::get('upcomming', function () {
+        return view('marriage-celebrant.upcomming.listing');
+    });
+});
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
