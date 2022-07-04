@@ -147,6 +147,9 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('edit-package', function () {
         return view('partner.edit-package');
     });
+    Route::get('partner-details', function () {
+        return view('partner.partner-details');
+    });
 });
 Auth::routes();
 
