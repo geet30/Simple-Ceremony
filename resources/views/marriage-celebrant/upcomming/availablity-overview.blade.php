@@ -10,6 +10,16 @@
       <div class="col-12">
       <a href="./upcomming" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
       </div>
+      <div class="col-12">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="d-flex">
+                  <
+               </div>
+            </div>
+            <div class="col-md-6">1</div>
+         </div>
+      </div>
          <div class="row mb-4 pt-32">
             <div class="col-md-7 col-xl-8 d-flex align-self-center">
                <div class="dropdown">
