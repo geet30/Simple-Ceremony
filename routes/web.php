@@ -184,6 +184,12 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('all-upcoming', function () {
         return view('partner.upcoming.all-upcoming');
     });
+    Route::get('order-details', function () {
+        return view('partner.upcoming.order-details');
+    });
+    Route::get('all-invoices', function () {
+        return view('partner.invoices.all-invoices');
+    });
     
 });
 Route::group(['prefix' => 'marriage-celebrant'], function () {
