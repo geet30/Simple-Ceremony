@@ -33,7 +33,7 @@
                         <p class="body-3 mb-0 mt-3"><span class="body-1">Criteria : </span>Available on Blues Point Reserve, Bradfield Park</p>
                      </div>
                      <div class="col-md-4 align-self-start d-flex justify-content-md-end mt-3 mt-md-0">
-                        <a href="#" class="theme-btn primary-btn me-3"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit">Edit</a>
+                        <a href="./edit-package" class="theme-btn primary-btn me-3"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit">Edit</a>
                         <a href="#" class="theme-btn primary-btn me-3 d-none">Confirm</a>
                         <a href="#" class="theme-btn primary-btn-border d-none">See profile partner</a>
                      </div>

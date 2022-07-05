@@ -142,7 +142,7 @@ Route::group(['prefix' => 'admin'], function () {
         return view('admin.partner.add-new-partner');
     });
     Route::get('edit-package', function () {
-        return view('admin,partner.edit-package');
+        return view('admin.partner.edit-package');
     });
     Route::get('partner-details', function () {
         return view('admin.partner.partner-details');
@@ -180,6 +180,9 @@ Route::group(['prefix' => 'partner'], function () {
     });
     Route::get('package-gallery', function () {
         return view('partner.package-gallery');
+    });
+    Route::get('all-upcoming', function () {
+        return view('partner.upcoming.all-upcoming');
     });
     
 });
