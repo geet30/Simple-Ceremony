@@ -18,7 +18,6 @@
                 width: 49px;
                 height: 51px;
                 background: url("/images/icons/arrow-down.svg") no-repeat;
-
                 position: absolute;
                 display: inline-block;
                 top: 50%;
@@ -27,4 +26,154 @@
             }
         }
     }
+}
+.availablity-overview-scrollbar {
+    float: left;
+    height: 50vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .force-overflow {
+        min-height: 450px;
+        @include media-breakpoint-down(sm) {
+            min-height: 200px;
+        }
+    }
+}
+#availablity-overview-style::-webkit-scrollbar-track {
+    background: $turquoise-50;
+    border-radius: 25px;
+}
+
+#availablity-overview-style::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 25px;
+    background-color: $turquoise-50;
+}
+
+#availablity-overview-style::-webkit-scrollbar-thumb {
+    background: $turquoise-100;
+    border-radius: 25px;
+}
+.attach-document-box {
+    background: $turquoise-20;
+    border: 1.53725px dashed $turquoise-100;
+    border-radius: 6.14902px;
+    height: 196px;
+    // padding: 25px 16px;
+    .fileupload {
+        width: 100%;
+        opacity: 0;
+        height: 196px;
+        z-index: 999;
+        position: relative;
+    }
+    .inner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        .document-text {
+            font-weight: 700;
+            font-size: 13.0667px;
+            line-height: 18px;
+            color: $neutral-100;
+        }
+        .text {
+            font-weight: 400;
+            font-size: 7.68627px;
+            line-height: 12px;
+            color: #000000;
+        }
+        .darg {
+            font-weight: 700;
+            font-size: 10.7608px;
+            line-height: 15px;
+        }
+    }
+    &.progress-box {
+        background: $turquoise-50 !important;
+        position: absolute;
+        width: 90%;
+        top: 0px;
+        .progress-content {
+            position: absolute;
+            width: 88%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            #progress {
+                display: block;
+                width: 100%;
+                background: #ffffff;
+                border-radius: 29px;
+                height: 4px;
+                .bar {
+                    height: 4px;
+                    width: 0%;
+                    background: $turquoise-100;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    &.uploaded-box {
+        position: absolute;
+        width: 90%;
+        top: 0px;
+        padding: 14px 16px;
+        .created-date {
+            position: absolute;
+            bottom: 7px;
+            left: 0;
+            right: 0px;
+            text-align: center;
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 16px;
+            color: $gray-500;
+            border-top: 1.45px solid $gray-50;
+            padding-top: 10px;
+        }
+    }
+}
+.text-decoration-underline {
+    text-decoration: underline;
+}
+.delete-icon {
+    &:hover {
+        filter: invert(98%) sepia(35%) saturate(3461%) hue-rotate(150deg) brightness(88%) contrast(78%);
+    }
+}
+.border-none {
+    border: none !important;
+}
+.events {
+    &.activity-history {
+        li {
+            .step-point {
+                &:after {
+                    top: 0px !important;
+                }
+            }
+            .steps-information {
+                .steps-information-details {
+                    padding:0px 0px 30px 0px !important;
+                    margin-bottom: 0px !important;
+
+                    &:before {
+                        top: 0px !important;
+                    }
+                    .activity-answer {
+                        background: #ffffff;
+                        border: 1px solid $turquoise-50;
+                        border-radius: 10px;
+                        padding: 13px 17px;
+                    }
+                }
+            }
+        }
+    }
+}
+.activity-history-card {
 }
