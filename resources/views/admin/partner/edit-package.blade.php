@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 col-lg-2 p-0">
-         @include('elements.partner-sidebar')
+            @include('elements.admin-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
             @include('elements.panel-header')
@@ -20,9 +20,9 @@
                                  <input type="text" value="The corona pack" placeholder="Type your product name here" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Product name is required</div>
                               </div>
-                              <div class="col-md-12 col-lg-6 mb-4">
+                              <div class="col-md-6 mb-4">
                                  <div class="row align-items-end">
-                                    <div class="col-md-9 mb-3 mb-md-0">
+                                    <div class="col-md-9">
                                        <label class="form-label small-text2">Locations</label>
                                        <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple" required="">
                                           <option value="L1">location1</option>
@@ -101,12 +101,12 @@
                                  </div>
                                  <div class="col-xl-10 col-xxl-7 mb-4">
                                     <div class="row">
-                                       <div class="col-md-4 mb-4">
+                                       <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">Partner fee</label>
                                           <input type="text" value="$ 120" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner fee is required</div>
                                        </div>
-                                       <div class="col-md-4 mb-4">
+                                       <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">SC admin fee</label>
                                           <input type="text" value="10%" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin fee is required</div>
@@ -120,21 +120,21 @@
                                  </div>
                                  <div class="col-md-12">
                                     <div class="row">
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Deposit (optional)</label>
                                           <input type="text" value="10%" class="form-control body-1 netural-100" name="name" id="InputName">
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Simulation partner fee</label>
                                           <input type="text" value="$ 10,8" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation partner fee is required</div>
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Simulation admin fee</label>
                                           <input type="text" value="$ 1,8" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation admin fee is required</div>
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Total fee</label>
                                           <div class="d-flex align-items-center">
                                              <input type="text" value="$ 11,16" class="form-control body-1 netural-100" name="name" id="InputName" required>
@@ -214,12 +214,12 @@
                                  </div>
                                  <div class="col-xl-10 col-xxl-7 mb-4">
                                     <div class="row">
-                                       <div class="col-md-4 mb-4">
+                                       <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">Partner fee</label>
                                           <input type="text" value="$ 120" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner fee is required</div>
                                        </div>
-                                       <div class="col-md-4 mb-4">
+                                       <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">SC admin fee</label>
                                           <input type="text" value="10%" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin fee is required</div>
@@ -233,21 +233,21 @@
                                  </div>
                                  <div class="col-md-12">
                                     <div class="row">
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Deposit (optional)</label>
                                           <input type="text" value="10%" class="form-control body-1 netural-100" name="name" id="InputName">
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Simulation partner fee</label>
                                           <input type="text" value="$ 10,8" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation partner fee is required</div>
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Simulation admin fee</label>
                                           <input type="text" value="$ 1,8" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation admin fee is required</div>
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Total fee</label>
                                           <div class="d-flex align-items-center">
                                              <input type="text" value="$ 11,16" class="form-control body-1 netural-100" name="name" id="InputName" required>
@@ -327,12 +327,12 @@
                                  </div>
                                  <div class="col-xl-10 col-xxl-7 mb-4">
                                     <div class="row">
-                                       <div class="col-md-4 mb-4">
+                                       <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">Partner fee</label>
                                           <input type="text" value="$ 120" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner fee is required</div>
                                        </div>
-                                       <div class="col-md-4 mb-4">
+                                       <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">SC admin fee</label>
                                           <input type="text" value="10%" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin fee is required</div>
@@ -346,21 +346,21 @@
                                  </div>
                                  <div class="col-md-12">
                                     <div class="row">
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Deposit (optional)</label>
                                           <input type="text" value="10%" class="form-control body-1 netural-100" name="name" id="InputName">
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Simulation partner fee</label>
                                           <input type="text" value="$ 10,8" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation partner fee is required</div>
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Simulation admin fee</label>
                                           <input type="text" value="$ 1,8" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation admin fee is required</div>
                                        </div>
-                                       <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
+                                       <div class="col-md-3 mb-4">
                                           <label for="InputName" class="form-label small-text2">Total fee</label>
                                           <div class="d-flex align-items-center">
                                              <input type="text" value="$ 11,16" class="form-control body-1 netural-100" name="name" id="InputName" required>

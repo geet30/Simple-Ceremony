@@ -134,6 +134,19 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('admin-add-ons-gallery', function () {
         return view('admin.admin-add-ons-gallery');
     });
+
+    Route::get('all-partners', function () {
+        return view('admin.partner.all-partners');
+    });
+    Route::get('add-new-partner', function () {
+        return view('admin.partner.add-new-partner');
+    });
+    Route::get('edit-package', function () {
+        return view('admin.partner.edit-package');
+    });
+    Route::get('partner-details', function () {
+        return view('admin.partner.partner-details');
+    });
 });
 Route::group(['prefix' => 'user'], function () {
     Route::get('index', function () {
@@ -141,6 +154,9 @@ Route::group(['prefix' => 'user'], function () {
     });
 });
 Route::group(['prefix' => 'partner'], function () {
+    Route::get('sign-up', function () {
+        return view('partner.sign-up');
+    });
     Route::get('all-partners', function () {
         return view('partner.all-partners');
     });
@@ -153,6 +169,22 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('partner-details', function () {
         return view('partner.partner-details');
     });
+    Route::get('add-ons', function () {
+        return view('partner.add-ons');
+    });
+    Route::get('add-new-package', function () {
+        return view('partner.add-new-package');
+    });
+    Route::get('package-details', function () {
+        return view('partner.package-details');
+    });
+    Route::get('package-gallery', function () {
+        return view('partner.package-gallery');
+    });
+    Route::get('all-upcoming', function () {
+        return view('partner.upcoming.all-upcoming');
+    });
+    
 });
 Route::group(['prefix' => 'marriage-celebrant'], function () {
     Route::get('upcomming', function () {
