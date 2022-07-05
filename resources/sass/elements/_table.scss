@@ -78,7 +78,7 @@
                             background-color:none !important;
                             &:hover {
                                 color: $turquoise-100;
-                                background-color: none;
+                                background-color: transparent !important;
                             }
                         }
                     }

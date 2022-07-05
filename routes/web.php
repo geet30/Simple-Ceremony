@@ -158,6 +158,9 @@ Route::group(['prefix' => 'marriage-celebrant'], function () {
     Route::get('upcomming', function () {
         return view('marriage-celebrant.upcomming.listing');
     });
+    Route::get('availablity-overview', function () {
+        return view('marriage-celebrant.upcomming.availablity-overview');
+    });
 });
 Auth::routes();
 
