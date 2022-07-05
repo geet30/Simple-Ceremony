@@ -10,57 +10,95 @@
                 font-size: 14px;
                 line-height: 19px;
                 color: #ffffff;
-                padding:7px  10px 11px 44px;
-                &:last-child{
-                    padding:7px  44px 11px 44px
-                   }
+                padding: 7px 10px 11px 44px;
+                &:last-child {
+                    padding: 7px 44px 11px 44px;
+                }
             }
-        
         }
     }
-    tbody{
-        tr{
-            td{
-                padding:10px  10px 19px 48px;
-                border-bottom: 1px solid #EDEDF0;
-                border-top:none;
-                
-               a{
-                &.table-link{
+    tbody {
+        tr {
+            td {
+                padding: 10px 10px 19px 48px;
+                border-bottom: 1px solid #ededf0;
+                border-top: none;
+
+                a {
+                    &.table-link {
+                        font-weight: 700;
+                        font-size: 14px;
+                        line-height: 19px;
+                        color: $turquoise-100;
+                        text-decoration: none;
+                        cursor: pointer;
+                        &:hover {
+                            color: $turquoise-100;
+                        }
+                    }
+                }
+                &:last-child {
+                    padding: 10px 38px 19px 48px;
+                    td {
+                        border-bottom: none;
+                        border-top: none;
+                    }
+                }
+                .edit-btn {
                     font-weight: 700;
                     font-size: 14px;
                     line-height: 19px;
                     color: $turquoise-100;
-                    text-decoration: none;
-                    &:hover{
+                    background-color: none;
+                    padding: 0px !important;
+                    border: none !important;
+                    &:hover {
+                        background-color: none;
                         color: $turquoise-100;
+                        border: none !important;
+                    }
+                    &.dropdown-toggle {
+                        &:after {
+                            border: none !important;
+                        }
                     }
                 }
-               }
-               &:last-child{
-                padding:10px  38px 19px 48px;
-                td{
-                    border-bottom: none;
-                border-top:none;
+                .edit-btn-dropdown-menu {
+                    background: $turquoise-20;
+                    border: 1px solid #e2f3f2;
+                    box-shadow: 0px 2px 16px #e8f9f7;
+                    border-radius: 6px;
+                    padding: 15px 14px;
+                    li {
+                        .dropdown-item{
+                            font-weight: 700;
+                            font-size: 14px;
+                            line-height: 22px;
+                            color: $turquoise-100;
+                            background-color:none !important;
+                            &:hover {
+                                color: $turquoise-100;
+                                background-color: transparent !important;
+                            }
+                        }
+                    }
                 }
-               }
             }
         }
     }
-    tfoot{
+    tfoot {
         background-color: $turquoise-100;
         border-radius: 0px 0px 8px 8px;
-        tr{
+        tr {
             border-radius: 0px 0px 8px 8px;
-            td{
+            td {
                 border-radius: 0px 0px 8px 8px;
                 color: #ffffff;
-                padding:7px  74px 11px 44px;
+                padding: 7px 74px 11px 44px;
             }
         }
- 
     }
 }
-.table-responsive{
+.table-responsive {
     border-radius: 8px;
 }

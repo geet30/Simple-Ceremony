@@ -6,7 +6,6 @@
 
 
 
-require('./datepicker');
 require('./navbar');
 require('./like-unlike-functionlaity');
 require('./common');

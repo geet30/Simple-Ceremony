@@ -2,15 +2,15 @@
     border: none;
     background-color: transparent;
     text-decoration: none;
-    .card-img-top{
+    .card-img-top {
         border-radius: 9.31818px;
     }
     .card-body {
         padding-top: 30px;
         padding-bottom: 30px;
-        &.py-20{
+        &.py-20 {
             padding-top: 20px;
-        padding-bottom: 20px; 
+            padding-bottom: 20px;
         }
         padding-left: 0px;
         padding-right: 0px;
@@ -54,24 +54,24 @@
             width: 17px;
         }
     }
-    &.admin-location-card{
-        .card-img-top{
+    &.admin-location-card {
+        .card-img-top {
             height: 210px;
             object-fit: cover;
             aspect-ratio: 1 / 1;
             @include media-breakpoint-down(md) {
-                height: 400px; 
+                height: 400px;
             }
         }
     }
 }
 
 .rating-card {
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 10px;
     border: none;
     height: 100%;
-    filter: drop-shadow(0px 2px 16px #E8F9F7);
+    filter: drop-shadow(0px 2px 16px #e8f9f7);
     .card-body {
         padding: 26px;
     }
@@ -85,33 +85,43 @@
         .card-body {
             padding: 26px 36px;
             @include media-breakpoint-down(md) {
-                padding: 30px 20px !important;     
+                padding: 30px 20px !important;
             }
             h1 {
                 font-weight: 500;
                 font-size: 20px;
                 line-height: 24px;
                 letter-spacing: 0.01em;
-                color:$gray-gray-900;
-               
-                font-family:$inter-font;
-                &.mb-32{
-                    margin-bottom:32px;
+                color: $gray-gray-900;
+
+                font-family: $inter-font;
+                &.mb-32 {
+                    margin-bottom: 32px;
                 }
             }
         }
     }
 }
-.panel-card{
-    background: #FFFFFF;
-     box-shadow: 0px 2px 16px #E8F9F7;
+.panel-card {
+    background: #ffffff;
+    box-shadow: 0px 2px 16px #e8f9f7;
     border-radius: 10px;
-    padding:30px 45px;
-    border:none;
-    .card-title{
+    padding: 30px 45px;
+    border: none;
+    .card-title {
         padding-bottom: 35px;
     }
-    .card-body{
-        padding:0px;
+    .card-body {
+        padding: 0px;
+    }
+}
+.card {
+    &.card-turquoise-20 {
+        background: $turquoise-20;
+        border: none;
+        border-radius: 5px;
+        .card-body{
+            padding: 25px;;
+        }
     }
 }
