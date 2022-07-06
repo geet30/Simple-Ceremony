@@ -1,9 +1,8 @@
-
 .form-control {
     background: $turquoise-20;
     border: 1px solid $turquoise-50;
     border-radius: 6px;
-    &.pl-30{
+    &.pl-30 {
         padding-left: 30px;
     }
 }
@@ -11,7 +10,7 @@
 .form-control:focus {
     color: $turquoise-100;
     background: $white;
-    box-shadow: 0px 2px 16px #E8F9F7;
+    box-shadow: 0px 2px 16px #e8f9f7;
     border: 1px solid $turquoise-100;
     outline-style: solid;
     outline-color: $turquoise-50;
@@ -38,24 +37,27 @@
     outline: 0;
     box-shadow: unset;
 }
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .form-control:valid,
+.form-control.is-valid {
     background-image: none;
-    border-color:$turquoise-50;
-  }
-  .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label{
+    border-color: $turquoise-50;
+}
+.was-validated .form-check-input:valid ~ .form-check-label,
+.form-check-input.is-valid ~ .form-check-label {
     color: #000000 !important;
-  }
-  .was-validated .form-check-input:valid, .form-check-input.is-valid {
+}
+.was-validated .form-check-input:valid,
+.form-check-input.is-valid {
     border-color: $turquoise-100 !important;
 }
-  .has-search {
+.has-search {
     .form-control {
         padding-left: 2.375rem;
         background: $gray-0;
         border: 1px solid $gray-50;
         border-radius: 6px;
         color: $gray-500;
-        &:focus{
+        &:focus {
             outline: 0;
         }
         &::placeholder {
@@ -83,26 +85,26 @@ input:-webkit-autofill:active {
     border: 1px solid $turquoise-50;
     border-radius: 6px;
 }
-.theme-input-group{
+.theme-input-group {
     position: relative;
-   .right-icon{
-    position: absolute;
-    top: 0px;
-    padding: 0.7rem 0.75rem;
-   right: 0px;
- }
- .left-icon{
-    position: absolute;
-    top: 0px;
-    padding: 0.7rem 0.75rem;
-   left: 0px;
- }
+    .right-icon {
+        position: absolute;
+        top: 0px;
+        padding: 0.7rem 0.75rem;
+        right: 0px;
+    }
+    .left-icon {
+        position: absolute;
+        top: 0px;
+        padding: 0.7rem 0.75rem;
+        left: 0px;
+    }
 }
-.forgot-password-link{
-    color:$accent-blue-100;
-    text-decoration:none;
-    &:hover{
-        color:$accent-blue-100;
+.forgot-password-link {
+    color: $accent-blue-100;
+    text-decoration: none;
+    &:hover {
+        color: $accent-blue-100;
     }
 }
 .form-control[readonly] {
@@ -113,4 +115,110 @@ input:-webkit-autofill:active {
         outline: 0 !important;
         color: #212529 !important;
     }
+}
+// switch
+
+.switch {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 85px;
+    height: 40px;
+    // padding: 3px 4px;
+}
+
+.switch-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.switch-label {
+    position: relative;
+    display: block;
+    height: inherit;
+    font-weight: 700;
+    font-size: 9.85507px;
+    line-height: 14px;
+    text-transform: uppercase;
+    -webkit-transition: 0.15s ease-out;
+    -moz-transition: 0.15s ease-out;
+    -o-transition: 0.15s ease-out;
+    transition: 0.15s ease-out;
+    -webkit-transition-property: opacity background;
+    -moz-transition-property: opacity background;
+    -o-transition-property: opacity background;
+    transition-property: opacity background;
+    background: #f7fcfc;
+    border: 0.57971px solid $turquoise-100;
+    border-radius: 22.8986px;
+    color: $turquoise-100;
+}
+.switch-label:before,
+.switch-label:after {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+    line-height: 1;
+    -webkit-transition: inherit;
+    -moz-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+}
+.switch-label:before {
+    content: attr(data-off);
+    right: 11px;
+    color: $turquoise-100;
+    font-weight: 700;
+    font-size: 9.85507px;
+}
+.switch-label:after {
+    content: attr(data-on);
+    left: 11px;
+    color: white;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+    background: #ffeded;
+    border: 0.57971px solid #d81919;
+}
+.switch-input:checked ~ .switch-label {
+    &:after {
+        font-weight: 700;
+        font-size: 9.85507px;
+        color: #ff4545;
+    }
+   
+}
+
+.switch-input:checked ~ .switch-label:before {
+    opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+    opacity: 1;
+}
+
+.switch-handle {
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 33px;
+    height: 33px;
+    background: $turquoise-100;
+    border-radius: 50px;
+    -webkit-transition: left 0.15s ease-out;
+    -moz-transition: left 0.15s ease-out;
+    -o-transition: left 0.15s ease-out;
+    transition: left 0.15s ease-out;
+}
+
+.switch-input:checked ~ .switch-handle {
+    left: 48px;
+    background:#ff4545;
+}
+
+.switch-green > .switch-input:checked ~ .switch-label {
+    background: #4fb845;
 }

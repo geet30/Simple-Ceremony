@@ -3,7 +3,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-         @include('elements.admin-sidebar')
+         @include('elements.marraige-celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.panel-header')
@@ -75,7 +75,7 @@
             </li>
          </ul>
          <div class="collapse" id="collapseExample">
-            <ul class="add-on-list-nav marriage-celebrant-list-nav row nav nav-pills mb-3 mt-3 upcomming-marriage-pills" id="pills-tab" role="tablist">
+            <ul class="add-on-list-nav marriage-celebrant-list-nav row nav nav-pills  upcomming-marriage-pills" id="pills-tab" role="tablist">
                <li class="col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                   <button class="nav-link  w-100" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
                      <div class="add-ons-nav d-flex">

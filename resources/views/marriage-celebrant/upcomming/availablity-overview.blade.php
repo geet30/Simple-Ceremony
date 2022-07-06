@@ -3,7 +3,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-         @include('elements.admin-sidebar')
+         @include('elements.marraige-celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.panel-header')
@@ -19,7 +19,7 @@
          <div class="col-md-6 col-xxl-5 align-self-center">
             <h1 class="h3 neutral-100 mb-0">Wedding details </h1>
          </div>
-        <div class="col-md-6 col-xxl-7  d-flex align-self-center mt-3 mt-md-0 w-100">
+        <div class="col-md-6 col-xxl-7  d-flex align-self-center mt-2 mt-md-0 w-100">
         <div class="progress theme-progress body-1 w-40 align-self-center">
             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
          </div>
@@ -52,7 +52,7 @@
                </ul>
             </div>
          </div>
-         <div class="align-self-center ms-3 mt-3 mt-md-0">
+         <div class="align-self-center ms-3 mt-3 mt-md-0 d-none d-md-block">
          <span class="status registered ">30 days till marriage</span>
          </div>
       </div>
@@ -82,9 +82,17 @@
             <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
             @include('elements.availablity-overview.information')
             </div>
-            <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">2</div>
-            <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">3</div>
-            <div class="tab-pane fade" id="reminders" role="tabpanel" aria-labelledby="reminders-tab">4</div>
+            <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
+             @include('elements.availablity-overview.docs-noim')
+             @include('elements.availablity-overview.feedback')
+            </div>
+            <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
+            @include('elements.availablity-overview.documents-signed')
+            @include('elements.availablity-overview.viewmessage')
+            </div>
+            <div class="tab-pane fade" id="reminders" role="tabpanel" aria-labelledby="reminders-tab">
+            @include('elements.availablity-overview.reminder')
+            </div>
          </div>
          <!-- tab content -->
    </div>

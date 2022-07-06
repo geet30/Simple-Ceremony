@@ -11,6 +11,9 @@
     .progress-bar {
         background-color: $turquoise-100;
     }
+    @include media-breakpoint-down(md) {
+        height: 16px;
+    }
 }
 .theme-tip {
     position: relative;
@@ -31,7 +34,7 @@
             background: $turquoise-20;
             border: 1px solid #e2f3f2;
             &:before {
-               content: "";
+                content: "";
                 position: absolute;
                 left: -9px;
                 height: 0.8rem;
