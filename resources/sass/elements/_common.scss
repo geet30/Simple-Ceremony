@@ -440,6 +440,27 @@
             background-color: #ff4545;
         }
     }
+    &.accents-blue {
+        color: #449dee;
+        background: #edf6ff;
+        &::before {
+            background-color: #449dee;
+        }
+    }
+    &.finalised {
+        color: #595378;
+        background: #f1eeff;
+        &::before {
+            background-color: #595378;
+        }
+    }
+    &.refunded {
+        color: #ff4545;
+        background: #ffeded;
+        &::before {
+            background-color: #ff4545;
+        }
+    }
 }
 .theme-avtar {
     width: 28.57px;
@@ -478,7 +499,7 @@
     border-radius: 6px;
     padding: 16px 20px;
     opacity: 0;
-    margin-top:20px;
+    margin-top: 20px;
     &:before {
         content: "";
         position: absolute;
@@ -513,12 +534,67 @@
         }
     }
 }
-.pb-32{
+.pb-32 {
     padding-bottom: 32px;
 }
-.pt-32{
+.pt-32 {
     padding-top: 32px;
 }
-.pt-20{
+.pt-20 {
     padding-top: 20px;
+}
+
+.theme-dropdown {
+    .dropdown-toggle {
+        padding: 8px 31px 8px 12px !important;
+        &:after {
+            border: none;
+            content: "";
+            width: 49px;
+            height: 51px;
+            background: url(/images/icons/down-black.svg) no-repeat;
+            position: absolute;
+            display: inline-block;
+        }
+        &.show {
+            background: #ffffff;
+            border: 1px solid $turquoise-100 !important;
+            box-shadow: 1px 1px 0px 6px rgba(226, 243, 242, 1);
+            border-radius: 9 !important;
+            &:after {
+                background: url(/images/icons/up-theme.svg) no-repeat;
+            }
+        }
+    }
+    .dropdown-menu {
+        background: #ffffff;
+        box-shadow: 0px 2px 16px #e8f9f7;
+        border-radius: 6px;
+        padding: 26px 21px;
+        border: none;
+        li {
+            a {
+                padding: 0px;
+                margin-bottom: 15px;
+                &:hover {
+                    background-color: transparent !important;
+                }
+            }
+            &:last-child {
+                a {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+.py-31 {
+    padding-top: 31px;
+    padding-bottom: 31px;
+}
+.w-97 {
+    width: 97%;
+}
+.ps-05 {
+    padding-left: 0.5rem !important;
 }

@@ -1,0 +1,85 @@
+.w-40 {
+    width: 40%;
+    @include media-breakpoint-down(md) {
+        width: 90%;
+    }
+}
+.theme-progress {
+    background-color: $turquoise-50;
+    border-radius: 84px;
+    height: 22px;
+    .progress-bar {
+        background-color: $turquoise-100;
+    }
+}
+.theme-tip {
+    position: relative;
+    span {
+        border-radius: 6px;
+        color: #1c1c1c;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        @include media-breakpoint-up(xl) {
+            display: none;
+            position: absolute;
+            top: -5px;
+            left: 30px;
+            width: 188px;
+            padding: 7px 18px;
+            z-index: 100;
+            background: $turquoise-20;
+            border: 1px solid #e2f3f2;
+            &:before {
+               content: "";
+                position: absolute;
+                left: -9px;
+                height: 0.8rem;
+                width: 0.8rem;
+                background-color: $turquoise-20;
+                border-top: 1px solid transparent;
+                border-left: 1px solid #e2f3f2;
+                border-right: 1px solid transparent;
+                border-bottom: 1px solid #e2f3f2;
+                transform: rotate(45deg);
+                z-index: 98;
+                opacity: 1;
+                transition-delay: 0.3s;
+                top: 12px;
+            }
+        }
+        @include media-breakpoint-down(xl) {
+            display: none;
+            position: absolute;
+            z-index: 99;
+            background: $turquoise-20;
+            border: 1px solid #e2f3f2;
+            border-radius: 6px;
+            padding: 7px 18px;
+            margin-top: 2px;
+            width: 188px;
+            right: 0px;
+            &:before {
+                content: "";
+                position: absolute;
+                top: -6px;
+                left: 10rem;
+                height: 1rem;
+                width: 1rem;
+                background-color: $turquoise-20;
+                border-top: 1px solid #e2f3f2;
+                border-left: 1px solid #e2f3f2;
+                transform: rotate(45deg);
+                z-index: 98;
+                opacity: 1;
+                transition-delay: 0.3s;
+            }
+        }
+    }
+
+    &:hover {
+        span {
+            display: block;
+        }
+    }
+}

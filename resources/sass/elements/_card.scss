@@ -120,8 +120,32 @@
         background: $turquoise-20;
         border: none;
         border-radius: 5px;
-        .card-body{
-            padding: 25px;;
+        .card-body {
+            padding: 25px;
+        }
+    }
+    &.simple-card {
+        background: #ffffff;
+        border: 1px solid $turquoise-50;
+        border-radius: 10px;
+        .card-body {
+            padding: 21px 17px;
+        }
+    }
+    &.activity-history-card {
+        border-right: none !important;
+        border-top: none !important;
+        border-bottom: none !important;
+        border-left: 1px solid $turquoise-50;
+        box-shadow: -1px 0px 0px #5ac1bf;
+        background-color: rgba(226, 243, 242, 0.2);
+        border-radius: 0px !important;
+        .card-header {
+            background: none !important;
+            border: none !important;
+        }
+        .card-body {
+            padding: 1rem !important;
         }
     }
 }

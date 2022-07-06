@@ -8,6 +8,7 @@
 
 require('./navbar');
 require('./like-unlike-functionlaity');
+require('./attach-document');
 require('./common');
 require('./select2');
 require('./validation');
