@@ -105,3 +105,12 @@ input:-webkit-autofill:active {
         color:$accent-blue-100;
     }
 }
+.form-control[readonly] {
+    background-color: #f7fcfc !important;
+    &:focus {
+        background-color: #f7fcfc !important;
+        border: 1px solid #e2f3f2 !important;
+        outline: 0 !important;
+        color: #212529 !important;
+    }
+}
