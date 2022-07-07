@@ -491,15 +491,19 @@
 .mb-60 {
     margin-bottom: 60px;
 }
+.share-content-up{
+    padding-top: 20px; 
+}
 .share-content {
     position: absolute;
     z-index: 99;
-    background: $turquoise-20;
+    background: #F7FCFC;
     border: 1px solid #e2f3f2;
     border-radius: 6px;
-    padding: 16px 20px;
-    opacity: 0;
-    margin-top: 20px;
+    padding: 16px 20px 0 16px;
+    margin-top: 0;
+    white-space: nowrap;
+    visibility: hidden;
     &:before {
         content: "";
         position: absolute;
@@ -513,7 +517,6 @@
         transform: rotate(45deg);
         z-index: 98;
         opacity: 1;
-        transition-delay: 0.3s;
     }
     ul {
         padding-left: 0px;
@@ -530,7 +533,7 @@
 .share-icon {
     &:hover {
         .share-content {
-            opacity: 1;
+            visibility: visible;
         }
     }
 }

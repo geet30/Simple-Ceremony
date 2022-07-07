@@ -32,55 +32,57 @@
                               <div class="align-self-center">Joe & Jessica</div>
                            </div>
                            <p class="small-text2 neutral-100 mb-3">Created on</p>
-                           <div class="d-md-flex">
+                           <div class="align-items-baseline d-flex">
                               <div class="theme-tag-blue d-flex me-0 mb-3 mb-md-0 me-md-2 justify-content-center justify-content-md-start">
                                  <div class="align-self-center "><img src="/images/icons/calendar-blue.svg" class="img-fluid calender-icon" alt="calendar"></div>
                                  <div class="align-self-center">May 20, 2022</div>
                               </div>
-                              <div class="postion-relative share-icon ">
+                              <div class="position-relative share-icon ">
                                  <div class="theme-tag-blue d-flex justify-content-center justify-content-md-start">
                                     <div class="align-self-center"><img src="/images/icons/share.svg" class="img-fluid " alt="share"></div>
                                     <div class="align-self-center">4 Share</div>
                                  </div>
-                                 <div class="share-content">
-                                    <ul>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Michael</p>
-                                                <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                 <div class="share-content-up">
+                                    <div class="share-content">
+                                       <ul>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Michael</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
-                                                <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                    </ul>
+                                          </li>
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -98,55 +100,57 @@
                               <div class="align-self-center">Joe & Jessica</div>
                            </div>
                            <p class="small-text2 neutral-100 mb-3">Created on</p>
-                           <div class="d-md-flex">
+                           <div class="align-items-baseline d-flex">
                               <div class="theme-tag-blue d-flex me-0 mb-3 mb-md-0 me-md-2 justify-content-center justify-content-md-start">
                                  <div class="align-self-center "><img src="/images/icons/calendar-blue.svg" class="img-fluid calender-icon" alt="calendar"></div>
                                  <div class="align-self-center">May 20, 2022</div>
                               </div>
-                              <div class="postion-relative share-icon ">
+                              <div class="position-relative share-icon ">
                                  <div class="theme-tag-blue d-flex justify-content-center justify-content-md-start">
                                     <div class="align-self-center"><img src="/images/icons/share.svg" class="img-fluid " alt="share"></div>
                                     <div class="align-self-center">4 Share</div>
                                  </div>
-                                 <div class="share-content">
-                                    <ul>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Michael</p>
-                                                <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                 <div class="share-content-up">
+                                    <div class="share-content">
+                                       <ul>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Michael</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
-                                                <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                    </ul>
+                                          </li>
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -164,55 +168,57 @@
                               <div class="align-self-center">Joe & Jessica</div>
                            </div>
                            <p class="small-text2 neutral-100 mb-3">Created on</p>
-                           <div class="d-md-flex">
+                           <div class="align-items-baseline d-flex">
                               <div class="theme-tag-blue d-flex me-0 mb-3 mb-md-0 me-md-2 justify-content-center justify-content-md-start">
                                  <div class="align-self-center "><img src="/images/icons/calendar-blue.svg" class="img-fluid calender-icon" alt="calendar"></div>
                                  <div class="align-self-center">May 20, 2022</div>
                               </div>
-                              <div class="postion-relative share-icon ">
+                              <div class="position-relative share-icon ">
                                  <div class="theme-tag-blue d-flex justify-content-center justify-content-md-start">
                                     <div class="align-self-center"><img src="/images/icons/share.svg" class="img-fluid " alt="share"></div>
                                     <div class="align-self-center">4 Share</div>
                                  </div>
-                                 <div class="share-content">
-                                    <ul>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Michael</p>
-                                                <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                 <div class="share-content-up">
+                                    <div class="share-content">
+                                       <ul>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Michael</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
-                                                <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                    </ul>
+                                          </li>
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            </div>
@@ -230,55 +236,57 @@
                               <div class="align-self-center">Joe & Jessica</div>
                            </div>
                            <p class="small-text2 neutral-100 mb-3">Created on</p>
-                           <div class="d-md-flex">
+                           <div class="align-items-baseline d-flex">
                               <div class="theme-tag-blue d-flex me-0 mb-3 mb-md-0 me-md-2 justify-content-center justify-content-md-start">
                                  <div class="align-self-center "><img src="/images/icons/calendar-blue.svg" class="img-fluid calender-icon" alt="calendar"></div>
                                  <div class="align-self-center">May 20, 2022</div>
                               </div>
-                              <div class="postion-relative share-icon ">
+                              <div class="position-relative share-icon ">
                                  <div class="theme-tag-blue d-flex justify-content-center justify-content-md-start">
                                     <div class="align-self-center"><img src="/images/icons/share.svg" class="img-fluid " alt="share"></div>
                                     <div class="align-self-center">4 Share</div>
                                  </div>
-                                 <div class="share-content">
-                                    <ul>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center ps-1">
-                                                <p class="body-2-semi-bold neutral-100 mb-0">Michael</p>
-                                                <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                 <div class="share-content-up">
+                                    <div class="share-content">
+                                       <ul>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/michael.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center ps-1">
+                                                   <p class="body-2-semi-bold neutral-100 mb-0">Michael</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Marriage Celebrant</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/nathan.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Nathan decorat...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
-                                                <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/avtar/luxury.png" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Luxury Photogr...</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Partner</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                       <li>
-                                          <div class="d-flex mb-11">
-                                             <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
-                                             <div class="align-self-center  ps-1">
-                                                <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
-                                                <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                          </li>
+                                          <li>
+                                             <div class="d-flex mb-11">
+                                                <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                <div class="align-self-center  ps-1">
+                                                   <p class="body-2-semi-bold  neutral-100 mb-0">Admin</p>
+                                                   <p class="small-text3 neutral-100 mb-0">Simple ceremonies</p>
+                                                </div>
                                              </div>
-                                          </div>
-                                       </li>
-                                    </ul>
+                                          </li>
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            </div>
