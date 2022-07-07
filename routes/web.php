@@ -190,6 +190,15 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('all-invoices', function () {
         return view('partner.invoices.all-invoices');
     });
+    Route::get('create-tax-invoice', function () {
+        return view('partner.invoices.create-tax-invoice');
+    });
+    Route::get('create-notes', function () {
+        return view('partner.notes.create-notes');
+    });
+    Route::get('all-notes', function () {
+        return view('partner.notes.all-notes');
+    });
     
 });
 Route::group(['prefix' => 'marriage-celebrant'], function () {

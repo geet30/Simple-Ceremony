@@ -16,3 +16,4 @@ yarn-error.log
 /public/css/app.css
 /.history
 .DS_Store
+/public/images/admin/.DS_Store

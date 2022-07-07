@@ -41,7 +41,7 @@
               </a>
             </li>
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center" href="#">
+                <a class="body-1 nav-link d-flex align-items-center" href="./all-invoices">
                   <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.547 6.04399V0.5H0.874954V22.148H19.355V6.04399H13.547ZM16.7149 19.772H3.25091V18.452H16.7149V19.772ZM16.7149 14.756H3.25091V13.436H16.7149V14.756ZM16.7149 9.73999H3.25091V8.41999H16.7149V9.73999Z" fill="#62CBC9"></path>
                   </svg>
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item">
-              <a class="body-1 nav-link d-flex align-items-center" href="#">
+              <a class="body-1 nav-link d-flex align-items-center" href="./create-notes">
                 <svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.68431 12.8315L1.99425 10.1387L0.500061 11.6328L4.68436 15.8173L10.5899 9.91411L9.09829 8.41992L4.68431 12.8315Z" fill="#62CBC9"></path>
                   <path d="M11.9915 11.0625H22.7391V13.1746H11.9915V11.0625Z" fill="#62CBC9"></path>

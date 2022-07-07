@@ -1,0 +1,24 @@
+.add-more-items-invoice {
+  border: 1px solid #E2F3F2;
+  border-radius: 10px;
+  padding: 18px;
+  position: relative;
+  .add-more-invoice {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+}
+.create-notes{
+  min-height: calc(100vh - 180px);
+  @include media-breakpoint-down(md) {
+    min-height: calc(100vh - 160px);
+  }
+}
+.notes-card {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 16px #E8F9F7;
+  border-radius: 5px;
+  padding: 15px;
+  border-bottom: 5px solid #62CBC9;
+}
