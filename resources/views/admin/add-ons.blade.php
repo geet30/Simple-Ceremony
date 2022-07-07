@@ -2,10 +2,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 col-lg-2 p-0">
+        <div class="col-2 col-md-3 col-lg-2 px-0">
             @include('elements.admin-sidebar')
         </div>
-        <div class="col-md-9 col-lg-10 px-md-4">
+        <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.panel-header')
          <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <li class="nav-item col-12 col-md-6 col-lg-3 mb-3" role="presentation">
