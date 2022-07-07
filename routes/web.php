@@ -199,6 +199,9 @@ Route::group(['prefix' => 'marriage-celebrant'], function () {
     Route::get('availablity-overview', function () {
         return view('marriage-celebrant.upcomming.availablity-overview');
     });
+    Route::get('locations', function () {
+        return view('marriage-celebrant.locations.listing');
+    });
 });
 Auth::routes();
 
