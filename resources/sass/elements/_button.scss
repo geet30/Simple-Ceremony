@@ -13,7 +13,7 @@
         padding:4px 9px !important;
     }
     &.primary-btn {
-        background: #62cbc9;
+        background: $turquoise-100;
         color: #ffffff;
         border: none;
         &:hover {
@@ -31,11 +31,19 @@
                 filter: invert(90%) sepia(16%) saturate(232%) hue-rotate(136deg) brightness(90%) contrast(86%);
             }
         }
+        &.disabled{
+            color:$neutral-50 !important;
+            background: $turquoise-20 !important;
+            border: 1px solid $turquoise-50 !important;
+            &:hover {
+                box-shadow:none !important;
+            }
+        }
     }
     &.primary-btn-border {
-        color: #62cbc9;
+        color: $turquoise-100;
         background: transparent;
-        border: 1px solid #62cbc9;
+        border: 1px solid $turquoise-100;
         &:hover {
             color: #5fe1df;
             border: 1px solid #5fe1df;
@@ -109,6 +117,17 @@
         font-size: 14px;
         line-height: 23px;
         padding: 10px 26px;
+        @include media-breakpoint-down(sm){
+            padding: 4px 6px;
+        }
+    }
+    &.black-btn {
+        background: $neutral-100;
+        color: #ffffff;
+        &:hover {
+             box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.2);
+             color: #ffffff;
+        }
     }
 }
 

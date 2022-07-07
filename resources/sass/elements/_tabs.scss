@@ -1,17 +1,28 @@
 .theme-tabs {
-    border-bottom:1px solid #D2D5DC;
+    border-bottom: 1px solid #d2d5dc;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
     .nav-item {
+        @include media-breakpoint-down(lg) {
+            white-space: nowrap;
+        }
         .nav-link {
             font-weight: 600;
             font-size: 14px;
             line-height: 18px;
             color: $neutral-100;
+            @include media-breakpoint-down(lg) {
+                font-weight: 600;
+                font-size: 13px;
+                line-height: 20px;
+            }
             span {
                 color: $neutral-70;
             }
-            &.active{
-                color:$turquoise-100;
-                border-bottom:2px solid $turquoise-100;
+            &.active {
+                color: $turquoise-100;
+                border-bottom: 2px solid $turquoise-100;
                 span {
                     color: $turquoise-100;
                 }

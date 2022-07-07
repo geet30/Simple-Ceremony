@@ -222,3 +222,8 @@ $(".heart.fa-heart").click(function() {
 
 
 
+$(document).ready(function() {
+  $('.show-footer').click(function() {
+    $('.hidden-footer').slideToggle("slow");
+  });
+});

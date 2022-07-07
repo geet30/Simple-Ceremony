@@ -40,7 +40,7 @@
                   <label for="time" class="form-label small-text2 ps-2">Time</label>
                   <input type="text" value="11:30 - 12.30 PM" class="form-control body-1 netural-100" name="name" id="time">
                </div>
-               <div class="col-12 mb-4">
+               <div class="col-12 mb-4 d-flex justify-content-center justify-content-md-start">
                   <a class="theme-btn primary-btn">Confirm the data is complete</a>
                </div>
                <div class="col-md-12 mb-4">
@@ -95,7 +95,7 @@
                                     </div>
                                     <!--  -->
                                  </div>
-                                 <div class="col-lg-4 col-xxl-3 align-self-end ">
+                                 <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0">
                                     <a class=" d-inline-flex delete-icon">
                                     <img src="/images/icons/delete-black.svg" class="img-fluid" alt="delete">
                                     </a>
@@ -148,7 +148,7 @@
                                     </div>
                                     <!--  -->
                                  </div>
-                                 <div class="col-lg-4 col-xxl-3 align-self-end ">
+                                 <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0">
                                     <a class=" d-inline-flex delete-icon">
                                     <img src="/images/icons/delete-black.svg" class="img-fluid" alt="delete">
                                     </a>
@@ -164,7 +164,7 @@
                   </div>
                   <!-- simple-card-->
                </div>
-               <div class="col-12 mb-4">
+               <div class="col-12 mb-4 d-flex justify-content-center justify-content-md-start">
                   <a class="theme-btn primary-btn">Send</a>
                </div>
             </div>
@@ -174,13 +174,13 @@
    </div>
    <!-- right -->
    <div class="col-xl-6  ">
-      <div class="card activity-history-card py-31 primary-border-left">
+      <div class="card activity-history-card pt-31 primary-border-left">
          <div class="card-header">
             <h2 class="h3 neutral-100 ">Activity history</h2>
          </div>
          <div class="card-body">
-            <form class="availablity-overview-scrollbar w-100 ps-05" method="POST" id="availablity-overview-style">
-               <div  class="force-overflow  w-97">
+            <form class="availablity-overview-scrollbar w-100 ps-05 h-36" method="POST" id="availablity-overview-style">
+               <div  class="force-overflow  w-97 ">
                   <div  class="row">
                      <div class="col-12">
                         <ul class="events p-0 activity-history">
@@ -238,10 +238,60 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <ul>
-                                      <li>1</li>
-                                      <li>1</li>
+                                    <ul class="tree position-relative mt-2">
+                                       <li>
+                                          <span class="tree-label position-relative">
+                                             <div class="activity-answer ms-3">
+                                                <div class="row">
+                                                   <div class="col-md-6 ">
+                                                      <p class="body-3-medium  text-black mb-0">Johny</p>
+                                                      <p class="small-text3 text-black mb-0">Couples</p>
+                                                   </div>
+                                                   <div class="col-md-6  neutral-75 small-text2 d-flex justify-content-end">March, 03 2022 at 13.00</div>
+                                                   <div class="col-12">
+                                                      <p class="body-3-regular neutral-100 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus arcu ac leo accumsan dignissim. Phasellus vulputate neque </p>
+                                                      <div class="d-flex justify-content-end">
+                                                         <a href="" class="me-2 d-flex"><img src="/images/icons/delete.svg" alt="Delete" class="img-fluid"></a>
+                                                         <a href="" class="d-flex"><img src="/images/icons/edit-primary.svg" alt="Edit" class="img-fluid"></a>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </span>
+                                       </li>
+                                       <li>
+                                          <span class="tree-label position-relative">
+                                             <div class="activity-answer ms-3">
+                                                <div class="row">
+                                                   <div class="col-md-6 ">
+                                                      <div class="d-flex">
+                                                         <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="rounded-circle theme-avtar" alt="Created"></div>
+                                                         <div class="align-self-center  ms-2">
+                                                            <p class="body-3-medium  text-black mb-0">Dave</p>
+                                                            <p class="small-text3 text-black mb-0">Admin Simple ceremonies</p>
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                   <div class="col-md-6  neutral-75 small-text2 d-flex justify-content-end">March, 03 2022 at 13.00</div>
+                                                   <div class="col-12">
+                                                      <p class="body-3-regular neutral-100 mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus arcu ac leo accumsan dignissim. Phasellus vulputate neque at urna interdum, sed dignissim est consectetur. Pellentesque consequat </p>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </span>
+                                       </li>
+                                       <li>
+                                          <span class="tree-label position-relative w-100">
+                                             <div class="ms-3 ">
+                                                <input type="text" value="Add" class="form-control body-1 netural-100" name="name" id="preferredname2" autofocus>
+                                             </div>
+                                          </span>
+                                       </li>
                                     </ul>
+                                 </div>
+                                 <div class="d-flex justify-content-lg-end   justify-content-center mb-4">
+                                    <a class="theme-btn primary-btn me-2  cursor-pointer">Send</a>
+                                    <a class="theme-btn primary-btn-border  cursor-pointer">Cancel</a>
                                  </div>
                               </div>
                            </li>
@@ -306,7 +356,16 @@
                </div>
             </form>
          </div>
-         <div class="card-footer">1</div>
+         <div class="bg-turquoise-50 hidden-footer">
+            <textarea class="form-control body-1 netural-100" autofocus id="ceremonyplace" placeholder="Type here" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus arcu ac leo accumsan dignissim. Phasellus vulputate neque at urna interdum, sed dignissim est consectetur. Pellentesque consequat velit a nisi iaculis facilisis in et tortor. Sed lobortis nisi sodales purus sollicitudin, nec finibus velit pellentesque. Integer at lacus vel nunc pulvinar mollis. Proin semper aliquam ultrices. Curabitur ut lorem eget tellus vehicula consequat vitae eget ante. Suspendisse egestas mauris augue, eu porttitor orci efficitur in. Nam erat orci, congue efficitur ex nec, fermentum vulputate nunc. Ut dignissim justo bibendum sagittis tincidunt. Curabitur efficitur porta tellus pulvinar venenatis.</textarea>
+            <div class="d-flex justify-content-lg-end   justify-content-center mt-4 ">
+               <a class="theme-btn primary-btn me-2 show-footer  cursor-pointer">Send</a>
+               <a class="theme-btn primary-btn-border show-footer  cursor-pointer">Cancel</a>
+            </div>
+         </div>
+         <div class="card-footer bg-turquoise-50 d-flex justify-content-center custom-footer">
+            <a class="theme-btn black-btn show-footer cursor-pointer" >Create new thread <img class="ms-2" src="/images/icons/chat.svg" alt="Chat Icon"></a>
+         </div>
       </div>
    </div>
    <!-- comman row -->

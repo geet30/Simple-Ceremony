@@ -136,8 +136,7 @@
         border-right: none !important;
         border-top: none !important;
         border-bottom: none !important;
-        border-left: 1px solid $turquoise-50;
-        box-shadow: -1px 0px 0px #5ac1bf;
+        border-left: 1px solid #e2f3f2;
         background-color: rgba(226, 243, 242, 0.2);
         border-radius: 0px !important;
         .card-header {
@@ -146,6 +145,10 @@
         }
         .card-body {
             padding: 1rem !important;
+        }
+        .card-footer {
+            border: none;
+            padding: 22px 12px;
         }
     }
 }
