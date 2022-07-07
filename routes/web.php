@@ -199,7 +199,13 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('all-notes', function () {
         return view('partner.notes.all-notes');
     });
-    
+    Route::get('all-reports', function () {
+        return view('partner.financial-report.all-reports');
+    });
+    Route::get('reports-location', function () {
+        return view('partner.financial-report.reports-location');
+    });
+
 });
 Route::group(['prefix' => 'marriage-celebrant'], function () {
     Route::get('upcomming', function () {
