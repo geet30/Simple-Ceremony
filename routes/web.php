@@ -212,6 +212,20 @@ Route::group(['prefix' => 'marriage-celebrant'], function () {
         return view('marriage-celebrant.locations.listing');
     });
 });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('locations', function () {
+        return view('admin.locations.listing');
+    });
+    Route::get('single', function () {
+        return view('admin.locations.single');
+    });
+    Route::get('create', function () {
+        return view('admin.locations.create');
+    });
+    Route::get('edit', function () {
+        return view('admin.locations.edit');
+    });
+});
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
