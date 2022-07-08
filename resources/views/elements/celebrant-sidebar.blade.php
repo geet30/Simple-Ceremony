@@ -1,24 +1,19 @@
-
 <nav id="sidebarMenu" class="sticky-top top-0 px-3">
    <div class="pt-5 pb-100">
       <div class="d-flex justify-content-center mb-4">
          <img src="/images/user/sidebar-main-logo.svg" alt="Logo" class="img-fluid d-none d-md-block">
          <img src="/images/icons/mobile-logo.svg" alt="Mobile Logo"  class="img-fluid d-md-none">
       </div>
-      <!-- <div class="form-check form-switch form-switch-md">
-  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-  <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
-</div> -->
-<div class="switch-padding text-center">
-<label class="switch">
-      <input type="checkbox" class="switch-input">
-      <span class="switch-label" data-on="Off" data-off="On"></span>
-      <span class="switch-handle"></span>
-    </label>
-</div>
+      <div class="switch-padding text-center">
+         <label class="switch">
+         <input type="checkbox" class="switch-input">
+         <span class="switch-label" data-on="Off" data-off="On"></span>
+         <span class="switch-handle"></span>
+         </label>
+      </div>
       <ul class="nav flex-column">
          <li class="nav-item">
-            <a class="body-1 nav-link d-flex align-items-center active" aria-current="page" href="./upcomming">
+            <a class="body-1 nav-link d-flex align-items-center active" aria-current="page" href="/celebrant/upcomming">
                <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.69019 6.48087C9.90141 6.34883 10.139 6.21679 10.3765 6.11128L8.92449 4.65923C8.47572 4.21045 8.18529 3.62963 8.10614 3.04883H5.28124C2.8788 3.04883 0.925339 5.00248 0.925339 7.40474V25.2775C0.925339 25.6208 1.1629 25.9639 1.50614 26.0167C1.95492 26.0959 2.32449 25.7527 2.32449 25.3304V13.9784C2.32449 12.2625 3.19569 10.6784 4.62124 9.75429L9.69019 6.48087Z" fill="#62CBC9"/>
                   <path d="M19.5902 3.04712H16.7653C16.6861 3.65427 16.422 4.18223 15.9732 4.63121L14.4949 6.10957C14.7324 6.21509 14.97 6.34713 15.1812 6.47916L20.2237 9.75281C21.6492 10.6769 22.5204 12.2873 22.5204 13.9769V25.2497C22.5204 25.593 22.758 25.9361 23.1012 25.9889C23.55 26.0681 23.9196 25.7248 23.9196 25.3026L23.9197 7.37648C23.9461 4.97422 21.9924 3.04688 19.5901 3.04688L19.5902 3.04712Z" fill="#62CBC9"/>
@@ -31,7 +26,7 @@
                   <path d="M8.55499 15.1135C8.55499 15.3951 8.13254 15.3951 8.13254 15.1135C8.13254 14.8319 8.55499 14.8319 8.55499 15.1135Z" fill="#62CBC9"/>
                   <path d="M8.55499 15.7465C8.55499 16.028 8.13254 16.028 8.13254 15.7465C8.13254 15.4647 8.55499 15.4647 8.55499 15.7465Z" fill="#62CBC9"/>
                </svg>
-               <span class="ms-3 d-none d-md-block">Upcoming</span>
+               <span class="ms-3 d-none d-md-block">Upcoming1</span>
             </a>
          </li>
          <li class="nav-item">
@@ -44,7 +39,7 @@
                <span class="ms-3  d-none d-md-block">Calendar</span>
             </a>
          </li>
-         <li class="nav-item">
+         <li class="nav-item" href="/celebrant/locations">
             <a class="body-1 nav-link d-flex align-items-center" href="">
                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="27" viewBox="0 0 19 27" fill="none">
                   <path d="M2.47661 12.7044V13.3026C7.12975 12.8901 8.74237 7.62656 9.12611 5.97656C7.35717 6.00253 5.66903 6.72217 4.42526 7.98051C3.18168 9.2388 2.48189 10.9352 2.47656 12.7042L2.47661 12.7044Z" fill="#62CBC9"/>
@@ -58,7 +53,7 @@
                <span class="ms-3  d-none d-md-block" >Locations</span>
             </a>
          </li>
-         <li class="nav-item">
+         <li class="nav-item " href="/celebrant/total-fee">
             <a class="body-1 nav-link d-flex align-items-center" href="#">
                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="25" viewBox="0 0 21 25" fill="none">
                   <path d="M10.0547 14.2129H10.8797V17.1004H10.0547V14.2129Z" fill="#62CBC9"/>
@@ -70,7 +65,7 @@
                <span class="ms-3  d-none d-md-block">Total fee</span>
             </a>
          </li>
-         <li class="nav-item">
+         <li class="nav-item"  href="/celebrant/invoices">
             <a class="body-1 nav-link d-flex align-items-center" href="#">
                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="27" viewBox="0 0 22 27" fill="none">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M0.929688 0.867188H15.8113L21.9653 7.02357V26.2692H0.929688V0.867188ZM11.8065 23.4024C11.4422 23.4024 11.1439 23.1067 11.1439 22.7424C11.1439 22.3782 11.4422 22.0824 11.8065 22.0824H18.4989C18.8659 22.0824 19.1615 22.3782 19.1615 22.7424C19.1615 23.1067 18.8657 23.4024 18.4989 23.4024H11.8065ZM4.3961 8.46285C4.02909 8.46285 3.73351 8.1671 3.73351 7.80025C3.73351 7.436 4.02926 7.14025 4.3961 7.14025H9.11652C9.48077 7.14025 9.77911 7.436 9.77911 7.80025C9.77911 8.16727 9.48079 8.46285 9.11652 8.46285H4.3961ZM4.3961 11.8104C4.02909 11.8104 3.73351 11.512 3.73351 11.1478C3.73351 10.7835 4.02926 10.4878 4.3961 10.4878H18.4989C18.8659 10.4878 19.1615 10.7835 19.1615 11.1478C19.1615 11.512 18.8657 11.8104 18.4989 11.8104H4.3961ZM4.3961 15.1553C4.02909 15.1553 3.73351 14.8595 3.73351 14.4953C3.73351 14.131 4.02926 13.8353 4.3961 13.8353H18.4989C18.8659 13.8353 19.1615 14.131 19.1615 14.4953C19.1615 14.8595 18.8657 15.1553 18.4989 15.1553H4.3961ZM4.3961 18.5028C4.02909 18.5028 3.73351 18.2071 3.73351 17.8428C3.73351 17.4758 4.02926 17.1802 4.3961 17.1802H18.4989C18.8659 17.1802 19.1615 17.476 19.1615 17.8428C19.1615 18.2071 18.8657 18.5028 18.4989 18.5028H4.3961Z" fill="#62CBC9"/>

@@ -74,6 +74,9 @@
 
 ///admin css
 .add-on-list-nav {
+    .nav-item{
+        list-style: none;;
+    }
     .nav-link {
         border: 0;
         background: #FFFFFF;
@@ -81,6 +84,7 @@
         border-radius: 10px;
         padding: 40px 25px;
         height: 100%;
+      
         @include media-breakpoint-down(md) {
             padding: 15px 15px;
         }

@@ -1,0 +1,28 @@
+#signature-pad{
+  
+    cursor: url(/images/icons/edit-black.svg), auto;
+}
+.signature-box{
+    background: #ffffff;
+    border: 1px solid $turquoise-50;
+    border-radius: 10px;
+    .drop-zone{
+        border: none !important;
+        background-color: transparent !important;
+        .png-logo{
+            height: 55px;;
+        }
+    }
+}
+#clear{
+    border: none;
+    background: none;
+    color:$turquoise-100;
+    
+}
+.btn-reset{
+    position: absolute;
+    bottom: 8px;
+    right: 0px;
+
+}

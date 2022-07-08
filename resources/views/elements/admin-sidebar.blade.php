@@ -42,7 +42,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="body-1 nav-link d-flex align-items-center" href="/admin/listing">
+              <a class="body-1 nav-link d-flex align-items-center" href="/admin/locations">
               <svg width="19" height="27" viewBox="0 0 19 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.47856 12.7044V13.3026C7.1317 12.8901 8.74432 7.62656 9.12806 5.97656C7.35912 6.00253 5.67098 6.72217 4.42721 7.98051C3.18363 9.2388 2.48384 10.9352 2.47852 12.7042L2.47856 12.7044Z" fill="#62CBC9"/>
                 <path d="M9.31348 5.9767C9.7013 7.62671 11.3101 12.8982 15.963 13.3107V12.7043C15.9587 10.9348 15.2593 9.23786 14.0154 7.97919C12.7716 6.72071 11.0828 6.00141 9.31348 5.97656V5.9767Z" fill="#62CBC9"/>
