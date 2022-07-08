@@ -8,7 +8,7 @@
                <div class="col-md-1 col-lg-2"></div>
                <div class="col-md-10 col-lg-9 text-center text-md-start">
                   <div class="pb-4 d-none d-md-block">
-                     <a href="/login" class="theme-btn secondary-btn d-inline-flex back-btn">
+                     <a href="./login" class="theme-btn secondary-btn d-inline-flex back-btn">
                      <img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">
                      Back to login</a>
                   </div>

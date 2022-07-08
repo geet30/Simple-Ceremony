@@ -154,6 +154,12 @@ Route::group(['prefix' => 'user'], function () {
     });
 });
 Route::group(['prefix' => 'partner'], function () {
+    Route::get('login', function () {
+        return view('partner.login');
+    });
+    Route::get('password-reset', function () {
+        return view('partner.password-reset');
+    });
     Route::get('sign-up', function () {
         return view('partner.sign-up');
     });
