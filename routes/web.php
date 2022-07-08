@@ -213,7 +213,7 @@ Route::group(['prefix' => 'marriage-celebrant'], function () {
     });
 });
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('locations', function () {
+    Route::get('listing', function () {
         return view('admin.locations.listing');
     });
     Route::get('single', function () {
@@ -224,6 +224,9 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::get('edit', function () {
         return view('admin.locations.edit');
+    });
+    Route::get('view', function () {
+        return view('admin.locations.view');
     });
 });
 Auth::routes();
