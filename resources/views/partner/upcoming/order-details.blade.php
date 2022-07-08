@@ -42,7 +42,7 @@
                      <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
                         <label class="form-label small-text2 d-none d-md-block"></label>
                         <div class="d-flex">
-                           <a href="#" class="button-1 turquoise-100 text-decoration-none faq-link">See add-ons</a>
+                           <a href="./order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-ons</a>
                            <span class="thread-notificaton small-text1 p-1 px-3 d-inline-block text-decoration-none mb-0 ms-3">You got new thread!</span>
                         </div>
                      </div>
