@@ -6,14 +6,12 @@
 
 
 
-require('./navbar');
-require('./like-unlike-functionlaity');
-require('./attach-document');
 require('./common');
 require('./select2');
 require('./validation');
 require('./add-more');
 require('./tel-number');
+require('./attach-document');
 
 
 window.Vue = require('vue').default;
