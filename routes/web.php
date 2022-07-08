@@ -187,6 +187,9 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('order-details', function () {
         return view('partner.upcoming.order-details');
     });
+    Route::get('order-add-ons', function () {
+        return view('partner.upcoming.order-add-ons');
+    });
     Route::get('all-invoices', function () {
         return view('partner.invoices.all-invoices');
     });
@@ -204,6 +207,12 @@ Route::group(['prefix' => 'partner'], function () {
     });
     Route::get('reports-location', function () {
         return view('partner.financial-report.reports-location');
+    });
+    Route::get('account-details', function () {
+        return view('partner.account.account-details');
+    });
+    Route::get('account-edit', function () {
+        return view('partner.account.account-edit');
     });
 
 });
