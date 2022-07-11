@@ -256,6 +256,12 @@ Route::group(['prefix' => 'celebrant'], function () {
     Route::get('create', function () {
         return view('celebrant.invoices.create');
     });
+    Route::get('financial-report', function () {
+        return view('celebrant.financial-report.listing');
+    });
+    Route::get('location', function () {
+        return view('celebrant.financial-report.location');
+    });
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('locations', function () {
