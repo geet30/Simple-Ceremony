@@ -14,7 +14,7 @@
     }
     &.primary-btn {
         background: $turquoise-100;
-        color: #ffffff;
+        color: $white;
         border: none;
         &:hover {
             background: #5fe2e0;
@@ -62,7 +62,7 @@
     }
     &.secondary-btn {
         background: $neutral-100;
-        color: #ffffff;
+        color: $white;
         border: none;
         &:hover {
             background: #5fe2e0;

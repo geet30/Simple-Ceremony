@@ -140,7 +140,7 @@
                                  </div>
                               </div>
                            </div>
-                           <div class="col-md-12 mb-4">
+                           <div class="col-md-12 mb-4 sticky-footer text-start">
                               <div class="row">
                                  <div class="col-md-6">
                                  </div>
