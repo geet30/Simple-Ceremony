@@ -225,15 +225,36 @@ Route::group(['prefix' => 'partner'], function () {
     });
 
 });
-Route::group(['prefix' => 'marriage-celebrant'], function () {
+Route::group(['prefix' => 'celebrant'], function () {
     Route::get('upcomming', function () {
-        return view('marriage-celebrant.upcomming.listing');
+        return view('celebrant.upcomming.listing');
     });
     Route::get('availablity-overview', function () {
-        return view('marriage-celebrant.upcomming.availablity-overview');
+        return view('celebrant.upcomming.availablity-overview');
     });
     Route::get('locations', function () {
-        return view('marriage-celebrant.locations.listing');
+        return view('celebrant.locations.listing');
+    });
+    Route::get('availablity-upcoming-docs', function () {
+        return view('celebrant.upcomming.availablity-upcoming-docs');
+    });
+    Route::get('add', function () {
+        return view('celebrant.locations.add');
+    });
+    Route::get('open', function () {
+        return view('celebrant.locations.open');
+    });
+    Route::get('edit', function () {
+        return view('celebrant.locations.edit');
+    });
+    Route::get('total-fee', function () {
+        return view('celebrant.total-fee.listing');
+    });
+    Route::get('invoices', function () {
+        return view('celebrant.invoices.listing');
+    });
+    Route::get('create', function () {
+        return view('celebrant.invoices.create');
     });
 });
 Route::group(['prefix' => 'admin'], function () {
@@ -248,6 +269,9 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::get('edit', function () {
         return view('admin.locations.edit');
+    });
+    Route::get('view', function () {
+        return view('admin.locations.view');
     });
 });
 Auth::routes();

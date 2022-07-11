@@ -140,7 +140,7 @@
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Notice of Intended Marriage form</h3>
-                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -163,7 +163,7 @@
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Official Certificate of Marriage</h3>
-                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -186,7 +186,7 @@
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Declaration of No legal Impediment</h3>
-                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -208,8 +208,8 @@
          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card doument-box">
                <div class="card-body text-center">
-                  <h3 class="button-1 neutral-100 title ">Certificate of Marriage - Form 15</h3>
-                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <h3 class="button-1 neutral-100 title ">Certificate of Marriage -Form 15</h3>
+                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -221,7 +221,7 @@
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Certificate of Faithful performance of Interpreter</h3>
-                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">

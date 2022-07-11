@@ -3,13 +3,13 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-         @include('elements.marraige-celebrant-sidebar')
+         @include('elements.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.panel-header')
-         <ul class="add-on-list-nav marriage-celebrant-list-nav row nav nav-pills mb-3 mt-3 " id="pills-tab" role="tablist">
+         <ul class="row add-on-list-nav  mb-3 mt-3 ps-0" id="pills-tab" role="tablist">
             <li class="col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
-               <button class="nav-link active w-100" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/marriage-celebrant/icons/wedding.svg" alt="All add-ons">
@@ -19,10 +19,10 @@
                         <p class="subheader-2">All marriages</p>
                      </div>
                   </div>
-               </button>
+               </div>
             </li>
             <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-               <button class="nav-link w-100" id="Waiting-for-approval-tab" data-bs-toggle="pill" data-bs-target="#Waiting-for-approval" type="button" role="tab" aria-controls="Waiting-for-approval" aria-selected="false">
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/marriage-celebrant/icons/waiting.svg" alt="">
@@ -32,10 +32,10 @@
                         <p class="subheader-2">Pending</p>
                      </div>
                   </div>
-               </button>
+               </div>
             </li>
             <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-               <button class="nav-link w-100" id="add-on-approved-tab" data-bs-toggle="pill" data-bs-target="#add-on-approved" type="button" role="tab" aria-controls="add-on-approved" aria-selected="false">
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/marriage-celebrant/icons/booking.svg" alt="">
@@ -45,10 +45,10 @@
                         <p class="subheader-2">Booked</p>
                      </div>
                   </div>
-               </button>
+               </div>
             </li>
             <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-               <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/marriage-celebrant/icons/lodged.svg" alt="">
@@ -58,10 +58,10 @@
                         <p class="subheader-2">Lodged</p>
                      </div>
                   </div>
-               </button>
+               </div>
             </li>
             <li class="col-lg-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
-               <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/marriage-celebrant/icons/document.svg" alt="">
@@ -71,13 +71,13 @@
                         <p class="subheader-2">Lodged pending</p>
                      </div>
                   </div>
-               </button>
+               </div>
             </li>
          </ul>
          <div class="collapse" id="collapseExample">
-            <ul class="add-on-list-nav marriage-celebrant-list-nav row nav nav-pills  upcomming-marriage-pills" id="pills-tab" role="tablist">
+            <ul class="row add-on-list-nav  upcomming-marriage-pills" id="pills-tab" role="tablist">
                <li class="col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
-                  <button class="nav-link  w-100" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
+                  <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
                            <img src="/images/marriage-celebrant/icons/married.svg" alt="All add-ons">
@@ -87,10 +87,10 @@
                            <p class="subheader-2">Married</p>
                         </div>
                      </div>
-                  </button>
+                  </div>
                </li>
                <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-                  <button class="nav-link w-100" id="Waiting-for-approval-tab" data-bs-toggle="pill" data-bs-target="#Waiting-for-approval" type="button" role="tab" aria-controls="Waiting-for-approval" aria-selected="false">
+                  <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
                            <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
@@ -100,10 +100,10 @@
                            <p class="subheader-2">Registered</p>
                         </div>
                      </div>
-                  </button>
+                  </div>
                </li>
                <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-                  <button class="nav-link w-100" id="add-on-approved-tab" data-bs-toggle="pill" data-bs-target="#add-on-approved" type="button" role="tab" aria-controls="add-on-approved" aria-selected="false">
+                  <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
                            <img src="/images/marriage-celebrant/icons/finalised.svg" alt="">
@@ -113,10 +113,10 @@
                            <p class="subheader-2">Finalised</p>
                         </div>
                      </div>
-                  </button>
+                  </div>
                </li>
                <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-                  <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+                  <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
                            <img src="/images/marriage-celebrant/icons/cancelled.svg" alt="">
@@ -126,10 +126,10 @@
                            <p class="subheader-2">Cancelled</p>
                         </div>
                      </div>
-                  </button>
+                  </div>
                </li>
                <li class="col-lg-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
-                  <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+                  <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
                            <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
@@ -139,7 +139,7 @@
                            <p class="subheader-2">Refunded</p>
                         </div>
                      </div>
-                  </button>
+                  </div>
                </li>
             </ul>
          </div>
@@ -191,7 +191,7 @@
                   <table class="table align-middle theme-table">
                      <thead>
                         <tr>
-                           <th>Name couple</th>
+                           <th>Name couplngghe</th>
                            <th>Location</th>
                            <th>Wedding date</th>
                            <th>Time</th>

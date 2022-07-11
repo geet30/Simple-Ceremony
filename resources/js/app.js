@@ -12,7 +12,7 @@ require('./validation');
 require('./add-more');
 require('./tel-number');
 require('./attach-document');
-
+// require('./signature');
 
 window.Vue = require('vue').default;
 

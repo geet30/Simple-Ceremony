@@ -3,18 +3,18 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-         @include('elements.admin-sidebar')
+         @include('elements.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
-               <a href="single" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a href="/celebrant/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
-               <div class="card panel-card">
+               <form class="card panel-card needs-validation"  method="POST" novalidate>
                   <div class="card-body">
-                     <form class="needs-validation row" method="POST" novalidate>
+                     <div class="row">
                         <div class="col-md-5 mb-4">
                            <label for="InputName" class="form-label small-text2">Location</label>
                            <input type="text" value="Tench Reserve" class="form-control body-1 netural-100" name="name" id="InputName">
@@ -152,7 +152,6 @@
                            </label>
                         </div>
                         <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
-                      
                         <div class="col-md-5 mb-4">
                            <label for="age" class="form-label small-text2">Filter criteria</label>
                            <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
@@ -170,29 +169,49 @@
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select partner</label>
                                  <select name="partnerstatus" class="js-placeholder-single-input form-control">
-                                    <option value="" disabled="" selected="" hidden="">Select partner here</option>
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="5">Other</option>
+                                    <option value="O1" data-badge="" selected>Prisillia decoration</option>
+                                    <option value="O2" data-badge="" >Picture framing</option>
+                                    <option value="O3" data-badge="" >Sarah jewelry</option>
+                                    <option value="O4" data-badge="">Flower by joelle</option>
+                                    <option value="O4" data-badge="">Alan rent</option>
                                  </select>
                               </div>
                               <div class="col-md-5 mb-4">
                                  <label for="age" class="form-label small-text2">Select Package</label>
                                  <select name="partnerstatus" class="js-placeholder-single-input form-control">
-                                    <option value="" disabled="" selected="" hidden="">Select package here</option>
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="5">Other</option>
+                                    <option value="O1" data-badge="" selected>Silver package  $120</option>
+                                    <option value="O2" data-badge=""> Gold package  $230</option>
+                                    <option value="O3" data-badge=""> Silver package  $320</option>
+                                    <option value="O4" data-badge=""> Gold package  $350</option>
+                                    <option value="O5" data-badge="">  Silver package  $452</option>
+                                 </select>
+                              </div>
+                              <div class="col-2 ">
+                                 <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
+                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="row">
+                              <div class="col-md-5 mb-4">
+                                 <label for="age" class="form-label small-text2">Select partner</label>
+                                 <select name="partnerstatus" class="js-placeholder-single-input form-control">
+                                    <option value="O1" data-badge="">Prisillia decoration</option>
+                                    <option value="O2" data-badge="" selected>Picture framing</option>
+                                    <option value="O3" data-badge="" >Sarah jewelry</option>
+                                    <option value="O4" data-badge="">Flower by joelle</option>
+                                    <option value="O4" data-badge="">Alan rent</option>
+                                 </select>
+                              </div>
+                              <div class="col-md-5 mb-4">
+                                 <label for="age" class="form-label small-text2">Select Package</label>
+                                 <select name="partnerstatus" class="js-placeholder-single-input form-control">
+                                    <option value="O1" data-badge="" >Silver package  $120</option>
+                                    <option value="O2" data-badge="" selected> Gold package  $230</option>
+                                    <option value="O3" data-badge=""> Silver package  $320</option>
+                                    <option value="O4" data-badge=""> Gold package  $350</option>
+                                    <option value="O5" data-badge="">  Silver package  $452</option>
                                  </select>
                               </div>
                               <div class="col-2 ">
@@ -210,9 +229,12 @@
                         <div class="col-12 mt-3">
                            <a class="theme-btn primary-btn ">Save</a>
                         </div>
-                     </form>
+                     </div>
                   </div>
-               </div>
+                  <div class="card-footer sticky-footer">
+                  <a href="/celebrant/locations" class="theme-btn primary-btn ">Save</a>
+                  </div>
+               </form>
             </div>
          </div>
       </div>

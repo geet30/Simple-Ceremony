@@ -461,6 +461,13 @@
             background-color: #ff4545;
         }
     }
+    &.inactive {
+        color: #D81919;
+        background: #FFEDED;
+        &::before {
+            background-color: #D81919;
+        }
+    }
 }
 .theme-avtar {
     width: 28.57px;
@@ -618,4 +625,13 @@
 }
 .gray-500{
     color:$gray-500
+}
+.mb-47{
+    margin-bottom: 47px;
+}
+.color-green{
+    color:#3AA03A;
+}
+.color-red{
+    color:#FF4545;
 }
