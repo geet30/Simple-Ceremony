@@ -262,6 +262,12 @@ Route::group(['prefix' => 'celebrant'], function () {
     Route::get('location', function () {
         return view('celebrant.financial-report.location');
     });
+    Route::get('calendar', function () {
+        return view('celebrant.calendar.availability');
+    });
+    Route::get('add', function () {
+        return view('celebrant.calendar.add');
+    });
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('locations', function () {
@@ -279,6 +285,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('view', function () {
         return view('admin.locations.view');
     });
+    
 });
 Auth::routes();
 

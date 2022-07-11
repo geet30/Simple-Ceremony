@@ -9,16 +9,8 @@
          @include('elements.panel-header')
          <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
-              <button class="nav-link active w-100" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
-               <div class="add-ons-nav d-flex">
-                  <div class="add-ons-nav-image me-4">
-                     <img src="/images/admin/add-ons/message-icon.svg" alt="All add-ons">
-                  </div>
-                  <div class="add-ons-nav-data text-start ">
-                     <h3 class="h3">60</h3>
-                     <p class="subheader-2">All upcoming</p>
-                  </div>
-               </div>
+              <button class="nav-link active theme-btn primary-btn d-flex justify-content-center" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
+              Rolling  Repeat form
               </button>
             </li>
             <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
