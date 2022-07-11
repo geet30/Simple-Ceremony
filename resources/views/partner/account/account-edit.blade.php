@@ -90,7 +90,7 @@
                                  </ul>
                               </div>
                            </div>
-                           <div class="col-md-12 mb-4 text-center">
+                           <div class="col-md-12 mb-4 sticky-footer">
                               <input type="submit" value="Save" class="d-inline-flex theme-btn primary-btn justify-content-center sticky-bottom">
                            </div>
                         </div>
