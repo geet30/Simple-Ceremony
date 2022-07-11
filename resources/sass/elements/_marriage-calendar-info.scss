@@ -1,0 +1,16 @@
+.marriage-calendar-details {
+    padding: 12px 15px;
+    background: #F7FCFC;
+    border-radius: 10px;
+    .numberCircle {
+        width: 41px;
+        height: 41px;
+        line-height: 41px;
+        border-radius: 50%;
+        text-align: center;
+        background: $turquoise-100;
+        font-weight: 700;
+        font-size: 30px;
+        color: $white;
+    }
+}

@@ -92,7 +92,7 @@
                         <textarea class="form-control small-text1 netural-100" rows="10" readonly>Type here</textarea>
                      </div>
                   </div>
-                  <div class="row align-items-center">
+                  <div class="row align-items-center sticky-footer">
                      <div class="col-12">
                         <div class="d-flex flex-column flex-lg-row">
                            <button type="submit" id="submit_button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-lg-0 border-0">Create invoice</button>

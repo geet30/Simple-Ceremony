@@ -229,8 +229,8 @@
 }
 
 .theme-hr {
-    background-color: #cdcdcd;
-    border-top: 1px solid #cdcdcd;
+    background-color: $neutral-50;
+    border-top: 1px solid $neutral-50;
     margin: 0px;
     opacity: 1;
 }
@@ -634,4 +634,7 @@
 }
 .color-red{
     color:#FF4545;
+}
+.h-40{
+    height: 40px;
 }

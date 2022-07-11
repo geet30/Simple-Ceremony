@@ -243,7 +243,6 @@ $partnerRoutes = function() {
         Route::get('overview', function () {
             return view('partner.calendar.overview');
         });
-
     });
 };
 $celebrantRoutes = function() {
@@ -284,7 +283,6 @@ $celebrantRoutes = function() {
 Route::group(array('domain' => env('PARTNER')), $partnerRoutes);
 Route::group(array('domain' => env('CELEBRANT')), $celebrantRoutes);
 Route::group(array('domain' => env('ADMIN')), $adminRoutes);
-
 Auth::routes();
 
 
