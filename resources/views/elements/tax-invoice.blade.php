@@ -1,65 +1,132 @@
 <div class="modal fade" id="tax_invoice_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
       <div class="modal-content border-0 rounded-0">
-         <div class="modal-body p-0">
-            <table style="max-width:800px;margin: 26px auto 10px;background-color:#fff;">
-               <thead>
-                  <tr>
-                     <th style="text-align:left;"> <img src="/images/tax-invoice.svg" alt=""> </th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <tr>
-                     <td style="height:35px;"></td>
-                  </tr>
-                  <tr>
-                     <td colspan="2" style="border: solid 1px #ddd; padding:10px 20px;">
-                        <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:inline-block;min-width:150px">Order status</span><b style="color:green;font-weight:normal;margin:0">Success</b></p>
-                        <p style="font-size:14px;margin:0 0 6px 0;"><span style="font-weight:bold;display:inline-block;min-width:146px">Transaction ID</span> abcd1234567890</p>
-                        <p style="font-size:14px;margin:0 0 0 0;"><span style="font-weight:bold;display:inline-block;min-width:146px">Order amount</span> Rs. 6000.00</p>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td style="height:35px;"></td>
-                  </tr>
-                  <tr>
-                     <td style="width:50%;padding:20px;vertical-align:top">
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px">Name</span> Palash Basak</p>
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">Email</span> palash@gmail.com</p>
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">Phone</span> +91-1234567890</p>
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">ID No.</span> 2556-1259-9842</p>
-                     </td>
-                     <td style="width:50%;padding:20px;vertical-align:top">
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">Address</span> Khudiram Pally, Malbazar, West Bengal, India, 735221</p>
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">Number of gusets</span> 2</p>
-                        <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span style="display:block;font-weight:bold;font-size:13px;">Duration of your vacation</span> 25/04/2017 to 28/04/2017 (3 Days)</p>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td colspan="2" style="font-size:20px;padding:30px 15px 0 15px;">Items</td>
-                  </tr>
-                  <tr>
-                     <td colspan="2" style="padding:15px;">
-                        <p style="font-size:14px;margin:0;padding:10px;border:solid 1px #ddd;font-weight:bold;">
-                           <span style="display:block;font-size:13px;font-weight:normal;">Homestay with fooding & lodging</span> Rs. 3500 <b style="font-size:12px;font-weight:300;"> /person/day</b>
-                        </p>
-                        <p style="font-size:14px;margin:0;padding:10px;border:solid 1px #ddd;font-weight:bold;"><span style="display:block;font-size:13px;font-weight:normal;">Pickup & Drop</span> Rs. 2000 <b style="font-size:12px;font-weight:300;"> /person/day</b></p>
-                        <p style="font-size:14px;margin:0;padding:10px;border:solid 1px #ddd;font-weight:bold;"><span style="display:block;font-size:13px;font-weight:normal;">Local site seeing with guide</span> Rs. 800 <b style="font-size:12px;font-weight:300;"> /person/day</b></p>
-                        <p style="font-size:14px;margin:0;padding:10px;border:solid 1px #ddd;font-weight:bold;"><span style="display:block;font-size:13px;font-weight:normal;">Tea tourism with guide</span> Rs. 500 <b style="font-size:12px;font-weight:300;"> /person/day</b></p>
-                        <p style="font-size:14px;margin:0;padding:10px;border:solid 1px #ddd;font-weight:bold;"><span style="display:block;font-size:13px;font-weight:normal;">River side camping with guide</span> Rs. 1500 <b style="font-size:12px;font-weight:300;"> /person/day</b></p>
-                        <p style="font-size:14px;margin:0;padding:10px;border:solid 1px #ddd;font-weight:bold;"><span style="display:block;font-size:13px;font-weight:normal;">Trackking and hiking with guide</span> Rs. 1000 <b style="font-size:12px;font-weight:300;"> /person/day</b></p>
-                     </td>
-                  </tr>
-               </tbody>
-               <tfoot>
-                  <tr>
-                     <td colspan="2" style="font-size:14px;padding:50px 15px 0 15px;">
-                        <strong style="display:block;margin:0 0 10px 0;">Regards</strong> Bachana Tours<br> Gorubathan, Pin/Zip - 735221, Darjeeling, West bengal, India<br><br>
-                        <b>Phone:</b> 03552-222011<br>
-                        <b>Email:</b> contact@bachanatours.in
-                     </td>
-                  </tr>
-               </tfoot>
+         <div class="modal-body p-0"  style="min-height:94vh">
+            <table style=";max-width:800px;background-color:#fff; font-family: 'Montserrat', sans-serif;" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" >
+               <tr>
+                  <td>
+                     <table style="">
+                        <tr>
+                           <td> &nbsp; </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <table cellpadding="0" cellspacing="0" style="width:100% ; background-color: #F7FCFC;">
+                        <tr>
+                           <td style="width:50%"> <img src="/images/invoice-left.png"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;"> </td>
+                           <td style="width:50%"> <img src="/images/invoice-right.png"  cellpadding="0" cellspacing="0" alt="" style="    width: 50%;max-width: 100%;height: auto;float: right;padding-right: 21px;"> </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <table style="width:100%"  cellpadding="20" >
+                        <tr>
+                           <td>
+                              <table style="width:100%"  >
+                                 <tr>
+                                    <td style="width:50%">
+                                       <table style="width:100%" >
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Date</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;">: Feb 21, 2022</td>
+                                          </tr>
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Invoice from</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : Daniels</td>
+                                          </tr>
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">ABN number</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : 090909090</td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                    <td style="width:50%">
+                                       <table style="width:100%;  justify-content: end;   display: flex; " >
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
+                                          </tr>
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Invoice to </td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : Simple ceremony</td>
+                                          </tr>
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">ABN number</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : 090909090</td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <table style="width:100%" cellpadding="18">
+                                 <thead style="background-color: #62CBC9;">
+                                    <tr>
+                                       <th></th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;">Item description</th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;">Amount</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr style="border-bottom:1px solid #62CBC9;">
+                                       <td style="min-width:30px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C; ">1</td>
+                                       <td style="min-width:400px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
+                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$123</td>
+                                    </tr>
+                                    <tr style="background: #F7FCFC; border-bottom:1px solid #62CBC9;">
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">2</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$30</td>
+                                    </tr>
+                                 </tbody>
+                                 <tfoot>
+                                    <tr>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;float: right;">Total :</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$ 153</td>
+                                    </tr>
+                                 </tfoot>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <table cellpadding="0" cellspacing="0" style="width:100% ;    position: absolute;    bottom: 0px;width: 100%; ">
+                        <tr>
+                           <td>
+                              <table style="width:100%;" cellpadding="20">
+                                 <tr>
+                                    <td><img src="/images/authorised-sign.png" style="float:right;    width: 20%;"></td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td style="height:20px">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <table style="width:100%;background-color: #F7FCFC;">
+                                 <tr>
+                                    <td><img src="/images/invoicefooter-left.png"></td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                  </td>
+               </tr>
             </table>
          </div>
       </div>

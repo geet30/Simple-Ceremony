@@ -111,7 +111,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -126,7 +126,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -141,7 +141,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;"></td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -156,7 +156,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -171,7 +171,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -186,7 +186,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -201,7 +201,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -216,7 +216,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;"></td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
@@ -231,7 +231,7 @@
                            </td>
                            <td class="body-2 neutral-100" style="min-width:180px;">Mar 20, 2022</td>
                            <td style="min-width:100px;">
-                              <a href="#" class="table-link">View</a>
+                              <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
                            </td>
                            <td style="min-width:100px;">
                               <a href="#" class="table-link">Download</a>
