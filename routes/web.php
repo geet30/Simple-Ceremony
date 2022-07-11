@@ -111,176 +111,172 @@ Route::group(['prefix' => 'user'], function () {
 
 $adminRoutes = function() {
     Route::group(['prefix' => 'admin'], function () {
-        echo request()->getHost();
-        // Route::resource('locations', App\Http\Controllers\LocationsController::class);
-        // // Route::get('location', function () {
-        // //     return view('admin.location');
-        // // })->name('admin-locations');
+        Route::resource('locations', App\Http\Controllers\LocationsController::class);
+        // Route::get('location', function () {
+        //     return view('admin.location');
+        // })->name('admin-locations');
 
-        // // Route::get('add-location', function () {
-        // //     return view('admin.add-location');
-        // // });
-
-        // Route::get('add-ons', function () {
-        //     return view('admin.add-ons');
+        // Route::get('add-location', function () {
+        //     return view('admin.add-location');
         // });
 
-        // // Route::get('location-detail', function () {
-        // //     return view('admin.location-detail');
-        // // });
+        Route::get('add-ons', function () {
+            return view('admin.add-ons');
+        });
 
-        // // Route::get('edit-location', function () {
-        // //     return view('admin.edit-location');
-        // // });
-
-        // Route::get('admin-add-ons-details', function () {
-        //     return view('admin.admin-add-ons-details');
+        // Route::get('location-detail', function () {
+        //     return view('admin.location-detail');
         // });
 
-        // Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-
-
-        // Route::get('admin-add-ons-gallery', function () {
-        //     return view('admin.admin-add-ons-gallery');
+        // Route::get('edit-location', function () {
+        //     return view('admin.edit-location');
         // });
 
-        // Route::get('all-partners', function () {
-        //     return view('admin.partner.all-partners');
-        // });
-        // Route::get('add-new-partner', function () {
-        //     return view('admin.partner.add-new-partner');
-        // });
-        // Route::get('edit-package', function () {
-        //     return view('admin.partner.edit-package');
-        // });
-        // Route::get('partner-details', function () {
-        //     return view('admin.partner.partner-details');
-        // });
-        // Route::get('locations', function () {
-        //     return view('admin.locations.listing');
-        // });
-        // Route::get('single', function () {
-        //     return view('admin.locations.single');
-        // });
-        // Route::get('create', function () {
-        //     return view('admin.locations.create');
-        // });
-        // Route::get('edit', function () {
-        //     return view('admin.locations.edit');
-        // });
-        // Route::get('view', function () {
-        //     return view('admin.locations.view');
-        // });
+        Route::get('admin-add-ons-details', function () {
+            return view('admin.admin-add-ons-details');
+        });
+
+        Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+
+
+        Route::get('admin-add-ons-gallery', function () {
+            return view('admin.admin-add-ons-gallery');
+        });
+
+        Route::get('all-partners', function () {
+            return view('admin.partner.all-partners');
+        });
+        Route::get('add-new-partner', function () {
+            return view('admin.partner.add-new-partner');
+        });
+        Route::get('edit-package', function () {
+            return view('admin.partner.edit-package');
+        });
+        Route::get('partner-details', function () {
+            return view('admin.partner.partner-details');
+        });
+        Route::get('locations', function () {
+            return view('admin.locations.listing');
+        });
+        Route::get('single', function () {
+            return view('admin.locations.single');
+        });
+        Route::get('create', function () {
+            return view('admin.locations.create');
+        });
+        Route::get('edit', function () {
+            return view('admin.locations.edit');
+        });
+        Route::get('view', function () {
+            return view('admin.locations.view');
+        });
     });
 };
 $partnerRoutes = function() {
     Route::group(['prefix' => 'partner'], function () {
-         
-        // Route::get('login', function () {
-        //     return view('partner.login');
-        // });
-        // Route::get('password-reset', function () {
-        //     return view('partner.password-reset');
-        // });
-        // Route::get('sign-up', function () {
-        //     return view('partner.sign-up');
-        // });
-        // Route::get('all-partners', function () {
-        //     return view('partner.all-partners');
-        // });
-        // Route::get('add-new-partner', function () {
-        //     return view('partner.add-new-partner');
-        // });
-        // Route::get('edit-package', function () {
-        //     return view('partner.edit-package');
-        // });
-        // Route::get('partner-details', function () {
-        //     return view('partner.partner-details');
-        // });
-        // Route::get('add-ons', function () {
-        //     return view('partner.add-ons');
-        // });
-        // Route::get('add-new-package', function () {
-        //     return view('partner.add-new-package');
-        // });
-        // Route::get('package-details', function () {
-        //     return view('partner.package-details');
-        // });
-        // Route::get('package-gallery', function () {
-        //     return view('partner.package-gallery');
-        // });
-        // Route::get('all-upcoming', function () {
-        //     return view('partner.upcoming.all-upcoming');
-        // });
-        // Route::get('order-details', function () {
-        //     return view('partner.upcoming.order-details');
-        // });
-        // Route::get('order-add-ons', function () {
-        //     return view('partner.upcoming.order-add-ons');
-        // });
-        // Route::get('all-invoices', function () {
-        //     return view('partner.invoices.all-invoices');
-        // });
-        // Route::get('create-tax-invoice', function () {
-        //     return view('partner.invoices.create-tax-invoice');
-        // });
-        // Route::get('create-notes', function () {
-        //     return view('partner.notes.create-notes');
-        // });
-        // Route::get('all-notes', function () {
-        //     return view('partner.notes.all-notes');
-        // });
-        // Route::get('all-reports', function () {
-        //     return view('partner.financial-report.all-reports');
-        // });
-        // Route::get('reports-location', function () {
-        //     return view('partner.financial-report.reports-location');
-        // });
-        // Route::get('account-details', function () {
-        //     return view('partner.account.account-details');
-        // });
-        // Route::get('account-edit', function () {
-        //     return view('partner.account.account-edit');
-        // });
-        // Route::get('overview', function () {
-        //     return view('partner.calendar.overview');
-        // });
+        Route::get('login', function () {
+            return view('partner.login');
+        });
+        Route::get('password-reset', function () {
+            return view('partner.password-reset');
+        });
+        Route::get('sign-up', function () {
+            return view('partner.sign-up');
+        });
+        Route::get('all-partners', function () {
+            return view('partner.all-partners');
+        });
+        Route::get('add-new-partner', function () {
+            return view('partner.add-new-partner');
+        });
+        Route::get('edit-package', function () {
+            return view('partner.edit-package');
+        });
+        Route::get('partner-details', function () {
+            return view('partner.partner-details');
+        });
+        Route::get('add-ons', function () {
+            return view('partner.add-ons');
+        });
+        Route::get('add-new-package', function () {
+            return view('partner.add-new-package');
+        });
+        Route::get('package-details', function () {
+            return view('partner.package-details');
+        });
+        Route::get('package-gallery', function () {
+            return view('partner.package-gallery');
+        });
+        Route::get('all-upcoming', function () {
+            return view('partner.upcoming.all-upcoming');
+        });
+        Route::get('order-details', function () {
+            return view('partner.upcoming.order-details');
+        });
+        Route::get('order-add-ons', function () {
+            return view('partner.upcoming.order-add-ons');
+        });
+        Route::get('all-invoices', function () {
+            return view('partner.invoices.all-invoices');
+        });
+        Route::get('create-tax-invoice', function () {
+            return view('partner.invoices.create-tax-invoice');
+        });
+        Route::get('create-notes', function () {
+            return view('partner.notes.create-notes');
+        });
+        Route::get('all-notes', function () {
+            return view('partner.notes.all-notes');
+        });
+        Route::get('all-reports', function () {
+            return view('partner.financial-report.all-reports');
+        });
+        Route::get('reports-location', function () {
+            return view('partner.financial-report.reports-location');
+        });
+        Route::get('account-details', function () {
+            return view('partner.account.account-details');
+        });
+        Route::get('account-edit', function () {
+            return view('partner.account.account-edit');
+        });
+        Route::get('overview', function () {
+            return view('partner.calendar.overview');
+        });
     });
 };
 $celebrantRoutes = function() {
-   
     Route::group(['prefix' => 'celebrant'], function () {
-        echo request()->getHost();
-    //     Route::get('upcomming', function () {
-    //         return view('celebrant.upcomming.listing');
-    //     });
-    //     Route::get('availablity-overview', function () {
-    //         return view('celebrant.upcomming.availablity-overview');
-    //     });
-    //     Route::get('locations', function () {
-    //         return view('celebrant.locations.listing');
-    //     });
-    //     Route::get('availablity-upcoming-docs', function () {
-    //         return view('celebrant.upcomming.availablity-upcoming-docs');
-    //     });
-    //     Route::get('add', function () {
-    //         return view('celebrant.locations.add');
-    //     });
-    //     Route::get('open', function () {
-    //         return view('celebrant.locations.open');
-    //     });
-    //     Route::get('edit', function () {
-    //         return view('celebrant.locations.edit');
-    //     });
-    //     Route::get('total-fee', function () {
-    //         return view('celebrant.total-fee.listing');
-    //     });
-    //     Route::get('invoices', function () {
-    //         return view('celebrant.invoices.listing');
-    //     });
-    //     Route::get('create', function () {
-    //         return view('celebrant.invoices.create');
-    //     });
+        Route::get('upcomming', function () {
+            return view('celebrant.upcomming.listing');
+        });
+        Route::get('availablity-overview', function () {
+            return view('celebrant.upcomming.availablity-overview');
+        });
+        Route::get('locations', function () {
+            return view('celebrant.locations.listing');
+        });
+        Route::get('availablity-upcoming-docs', function () {
+            return view('celebrant.upcomming.availablity-upcoming-docs');
+        });
+        Route::get('add', function () {
+            return view('celebrant.locations.add');
+        });
+        Route::get('open', function () {
+            return view('celebrant.locations.open');
+        });
+        Route::get('edit', function () {
+            return view('celebrant.locations.edit');
+        });
+        Route::get('total-fee', function () {
+            return view('celebrant.total-fee.listing');
+        });
+        Route::get('invoices', function () {
+            return view('celebrant.invoices.listing');
+        });
+        Route::get('create', function () {
+            return view('celebrant.invoices.create');
+        });
     });
 };
 
