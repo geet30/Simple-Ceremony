@@ -5,7 +5,7 @@
       <div class="col-2 col-md-3 col-lg-2 px-0">
          @include('elements.celebrant-sidebar')
       </div>
-      <div class="col-10 col-md-9 col-lg-10 px-4">
+      <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.panel-header')
          <div class="row pt-31">
             <div class="col-md-8 col-xl-9 d-flex align-self-center">

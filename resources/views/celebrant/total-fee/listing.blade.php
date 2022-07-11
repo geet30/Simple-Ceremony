@@ -20,10 +20,10 @@
                         <p class="mb-0"><span class="p5 color-green">20%</span><span class="small-text4 neutral-70"> increase compared to last month</span></p>
                      </div>
                   </div>
-</div>
+               </div>
             </li>
             <li class="col-lg-6  col-xl-4  nav-item  mb-3" >
-            <div class="nav-link w-100" >
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
                         <img src="/images/marriage-celebrant/icons/revenue.svg" alt="Revenue">
@@ -34,13 +34,13 @@
                         <p class="mb-0"><span class="p5 color-green">25%</span><span class="small-text4 neutral-70"> increase compared to last month</span></p>
                      </div>
                   </div>
-</div>
+               </div>
             </li>
             <li class="col-lg-6  col-xl-4  nav-item  mb-3" >
-            <div class="nav-link w-100" >
+               <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
-                     <img src="/images/marriage-celebrant/icons/total-maariages.svg" alt="All add-ons">
+                        <img src="/images/marriage-celebrant/icons/total-maariages.svg" alt="All add-ons">
                      </div>
                      <div class="add-ons-nav-data text-start ">
                         <h2 class="h3">1234</h2>
@@ -48,10 +48,9 @@
                         <p class="mb-0"><span class="p5 color-red">20%</span ><span class="small-text4 neutral-70"> increase compared to last month</span></p>
                      </div>
                   </div>
-</div>
+               </div>
             </li>
          </ul>
-      
          <div class="row mb-4 pt-32">
             <div class="col-md-7 col-xl-8 d-flex align-self-center">
                <div class="dropdown">
@@ -81,30 +80,30 @@
                @include('elements.calander')
             </div>
          </div>
-       <!--  -->
-       <div class="row">
-   <div class="col-12">
-      <ul class="nav theme-tabs">
-            <li class="nav-item">
-               <a class="nav-link active" id="week-tab" data-bs-toggle="tab" data-bs-target="#week" href="#">Week</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" href="#">Month</a>
-            </li>
-          </ul>
-         <!-- tab content -->
-         <div class="tab-content" id="tabContent">
-            <div class="tab-pane fade show active" id="week" role="tabpanel" aria-labelledby="week-tab">
-            @include('elements.celebrant.location.listing')
-            </div>
-            <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
-            @include('elements.celebrant.location.packages')
+         <!--  -->
+         <div class="row">
+            <div class="col-12">
+               <ul class="nav theme-tabs">
+                  <li class="nav-item">
+                     <a class="nav-link active" id="week-tab" data-bs-toggle="tab" data-bs-target="#week" href="#">Week</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" href="#">Month</a>
+                  </li>
+               </ul>
+               <!-- tab content -->
+               <div class="tab-content" id="tabContent">
+                  <div class="tab-pane fade show active" id="week" role="tabpanel" aria-labelledby="week-tab">
+                     @include('elements.celebrant.location.listing')
+                  </div>
+                  <div class="tab-pane fade" id="month" role="tabpanel" aria-labelledby="month-tab">
+                     @include('elements.celebrant.location.packages')
+                  </div>
+               </div>
+               <!-- tab content -->
             </div>
          </div>
-         <!-- tab content -->
-   </div>
-</div>
-       <!--  -->
+         <!--  -->
       </div>
    </div>
 </div>

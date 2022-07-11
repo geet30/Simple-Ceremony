@@ -26,7 +26,7 @@
                   <path d="M8.55499 15.1135C8.55499 15.3951 8.13254 15.3951 8.13254 15.1135C8.13254 14.8319 8.55499 14.8319 8.55499 15.1135Z" fill="#62CBC9"/>
                   <path d="M8.55499 15.7465C8.55499 16.028 8.13254 16.028 8.13254 15.7465C8.13254 15.4647 8.55499 15.4647 8.55499 15.7465Z" fill="#62CBC9"/>
                </svg>
-               <span class="ms-3 d-none d-md-block">Upcoming1</span>
+               <span class="ms-3 d-none d-md-block">Upcoming</span>
             </a>
          </li>
          <li class="nav-item">
