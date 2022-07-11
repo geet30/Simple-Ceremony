@@ -220,6 +220,9 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('account-edit', function () {
         return view('partner.account.account-edit');
     });
+    Route::get('overview', function () {
+        return view('partner.calendar.overview');
+    });
 
 });
 Route::group(['prefix' => 'marriage-celebrant'], function () {
