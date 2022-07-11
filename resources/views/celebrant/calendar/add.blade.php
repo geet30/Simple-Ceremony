@@ -37,21 +37,44 @@
       </div>
       <div class="row pt-31">
          <div class="col-12">
-            <div class="card d panel-card ">
-               <div class="card-body">
-               <div class="tab-content" id="pills-tabContent">
+             <div class="tab-content" id="pills-tabContent">
                <div class="tab-pane fade show active" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
-<div class="row">
-   <div class="col-md-4">1</div>
-   <div class="col-md-4">2</div>
-   <div class="col-md-4">3</div>
-</div>
+<form class="row">
+   <div class="col-md-4">
+   <div class="card  panel-card ">
+      <div class="card-body">
+         <h2 class="h4 neutral-100 mb-4">Step 1 - Choose time(s) range</h2>
+         <div class="col-md-12 mb-4">
+                        <label for="gender" class="form-label small-text2">Start date</label>
+                        <select name="gender" id="gender" class="js-placeholder-single-input form-control">
+                           <option value="" disabled="" selected="" hidden="">Choose date</option>
+                           <option value="1">1 month from today</option>
+                           <option value="2">60 days from today</option>
+                        </select>
+                     </div>
+                     <h2 class="h4 neutral-100 mb-4">Until</h2>
+                     <div class="col-md-12 mb-4">
+                        <label for="gender" class="form-label small-text2">End date</label>
+                        <select name="gender" id="gender" class="js-placeholder-single-input form-control">
+                           <option value="" disabled="" selected="" hidden="">Choose date</option>
+                           <option value="1">180 days</option>
+                           <option value="2">360 days</option>
+                        </select>
+                     </div>
+                     <div class="col-12 d-md-flex">
+                        <a class="theme-btn primary-btn d-flex justify-content-center me-md-2">Apply</a>
+                        <a class="theme-btn primary-btn-border d-flex justify-content-center">Cancel</a>
+                     </div>
+      </div>
+   </div>
+   </div>
+   <div class="col-md-5">2</div>
+   <div class="col-md-3">3</div>
+</form>
                </div>
                <!-- override -->
                <div class="tab-pane fade" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="1">3</div>
                </div>
-               </div>
-            </div>
          </div>
       </div>
    </div>
