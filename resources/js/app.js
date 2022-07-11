@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
+
 require('./common');
 require('./select2');
 require('./validation');

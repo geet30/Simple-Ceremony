@@ -2,10 +2,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 col-lg-2 p-0">
+      <div class="col-2 col-md-3 col-lg-2 px-0">
             @include('elements.admin-sidebar')
         </div>
-        <div class="col-md-9 col-lg-10 px-md-4">
+        <div class="col-10 col-md-9 col-lg-10 px-4">
             @include('elements.panel-header')
             <a href="./all-partners" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             <div class="card panel-card">
@@ -27,7 +27,7 @@
                      <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                         <div class="row">
                            <div class="col-lg-3">
-                              <a href="/admin/admin-add-ons-details" class="text-decoration-none">
+                              <a href="#" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/v5.png" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -38,7 +38,7 @@
                               </a>
                            </div>
                            <div class="col-lg-3">
-                              <a href="/admin/admin-add-ons-details" class="text-decoration-none">
+                              <a href="#" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/package2/right-2.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -49,7 +49,7 @@
                               </a>
                            </div>
                            <div class="col-lg-3">
-                              <a href="/admin/admin-add-ons-details" class="text-decoration-none">
+                              <a href="#" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/left.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">

@@ -154,6 +154,12 @@ Route::group(['prefix' => 'user'], function () {
     });
 });
 Route::group(['prefix' => 'partner'], function () {
+    Route::get('login', function () {
+        return view('partner.login');
+    });
+    Route::get('password-reset', function () {
+        return view('partner.password-reset');
+    });
     Route::get('sign-up', function () {
         return view('partner.sign-up');
     });
@@ -187,6 +193,9 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('order-details', function () {
         return view('partner.upcoming.order-details');
     });
+    Route::get('order-add-ons', function () {
+        return view('partner.upcoming.order-add-ons');
+    });
     Route::get('all-invoices', function () {
         return view('partner.invoices.all-invoices');
     });
@@ -199,7 +208,19 @@ Route::group(['prefix' => 'partner'], function () {
     Route::get('all-notes', function () {
         return view('partner.notes.all-notes');
     });
-    
+    Route::get('all-reports', function () {
+        return view('partner.financial-report.all-reports');
+    });
+    Route::get('reports-location', function () {
+        return view('partner.financial-report.reports-location');
+    });
+    Route::get('account-details', function () {
+        return view('partner.account.account-details');
+    });
+    Route::get('account-edit', function () {
+        return view('partner.account.account-edit');
+    });
+
 });
 Route::group(['prefix' => 'celebrant'], function () {
     Route::get('upcomming', function () {
