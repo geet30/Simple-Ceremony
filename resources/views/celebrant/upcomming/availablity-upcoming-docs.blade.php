@@ -17,7 +17,7 @@
             <div class="card-footer sticky-footer">
                <div class="d-lg-flex justify-content-center">
                   <div class="me-lg-2">   <a class="theme-btn primary-btn  d-inline-flex" role="button" data-bs-toggle="modal" data-bs-target="#signature">Create signature</a></div>
-                  <div class=" mt-3 mt-lg-0">   <a class="theme-btn primary-btn-border d-inline-flex" role="button" >Give feedback</a></div>
+                  <div class=" mt-3 mt-lg-0">   <a class="theme-btn primary-btn-border d-inline-flex" role="button" >Save</a></div>
                </div>
             </div>
          </div>

@@ -8,7 +8,7 @@
 }
 
 .modal-open .select2-container {
-    z-index: 1055;
+    z-index: 1000;
 }
 
 .select2-container .select2-selection--single {
