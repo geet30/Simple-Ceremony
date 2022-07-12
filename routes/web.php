@@ -136,42 +136,30 @@ $adminRoutes = function() {
             return view('admin.admin-add-ons-details');
         });
 
-        Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
 
-
-        Route::get('admin-add-ons-gallery', function () {
-            return view('admin.admin-add-ons-gallery');
-        });
-
-        Route::get('all-partners', function () {
-            return view('admin.partner.all-partners');
-        });
-        Route::get('add-new-partner', function () {
-            return view('admin.partner.add-new-partner');
-        });
-        Route::get('edit-package', function () {
-            return view('admin.partner.edit-package');
-        });
-        Route::get('partner-details', function () {
-            return view('admin.partner.partner-details');
-        });
-        Route::get('locations', function () {
-            return view('admin.locations.listing');
-        });
-        Route::get('single', function () {
-            return view('admin.locations.single');
-        });
-        Route::get('create', function () {
-            return view('admin.locations.create');
-        });
-        Route::get('edit', function () {
-            return view('admin.locations.edit');
-        });
-        Route::get('view', function () {
-            return view('admin.locations.view');
-        });
+    Route::get('all-partners', function () {
+        return view('admin.partner.all-partners');
     });
+    Route::get('add-new-partner', function () {
+        return view('admin.partner.add-new-partner');
+    });
+    Route::get('edit-package', function () {
+        return view('admin.partner.edit-package');
+    });
+    Route::get('partner-details', function () {
+        return view('admin.partner.partner-details');
+    });
+});
+
 };
+Route::group(['prefix' => 'user'], function () {
+    Route::get('index', function () {
+        return view('user.index');
+    });
+    Route::get('add-ons', function () {
+        return view('user.add-ons');
+    });
+});
 $partnerRoutes = function() {
     Route::group(['prefix' => 'partner'], function () {
         Route::get('login', function () {
