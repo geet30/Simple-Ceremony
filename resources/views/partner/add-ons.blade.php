@@ -6,7 +6,7 @@
          @include('elements.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-            @include('elements.panel-header')
+            @include('elements.partner-panel-header')
             <a class="theme-btn primary-btn d-inline-block mb-4" href="/partner/add-new-package">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add new packages

@@ -6,12 +6,20 @@
             @include('elements.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.partner-panel-header')
          <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
-              <button class="nav-link active theme-btn primary-btn d-flex justify-content-center" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
-              Rolling  Repeat form
-              </button>
+                <button class="nav-link w-100 active" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
+                <div class="add-ons-nav d-flex">
+                    <div class="add-ons-nav-image me-4">
+                        <img src="/images/admin/add-ons/message-icon.svg" alt="All add-ons">
+                    </div>
+                    <div class="add-ons-nav-data text-start ">
+                        <h3 class="h3">60</h3>
+                        <p class="subheader-2">All add-ons</p>
+                    </div>
+                </div>
+                </button>
             </li>
             <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
               <button class="nav-link w-100" id="Waiting-for-approval-tab" data-bs-toggle="pill" data-bs-target="#Waiting-for-approval" type="button" role="tab" aria-controls="Waiting-for-approval" aria-selected="false">

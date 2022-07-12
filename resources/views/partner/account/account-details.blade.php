@@ -6,7 +6,7 @@
          @include('elements.partner-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
-         @include('elements.panel-header')
+         @include('elements.partner-panel-header')
          <div class="card panel-card mt-4">
             <div class="card-body">
                <h1 class="h4 netural-100 mb-4">My account</h1>
