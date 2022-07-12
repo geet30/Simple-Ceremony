@@ -6,7 +6,7 @@
          @include('elements.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.partner-panel-header')
          <div class="row mb-4 mt-3">
             <div class="col-md-8 col-xl-9 d-flex align-self-center">
             <div class="form-group has-search w-100 position-relative">

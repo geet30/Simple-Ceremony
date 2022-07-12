@@ -6,7 +6,7 @@
          @include('elements.partner-sidebar')
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.partner-panel-header')
          <div class="card panel-card">
             <div class="card-body">
                <div class="align-items-center d-flex justify-content-center create-notes">
