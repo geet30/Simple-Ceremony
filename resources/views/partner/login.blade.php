@@ -21,7 +21,7 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                           <form method="POST" action="http://127.0.0.1:8000/login">
+                           <form method="POST" action="login">
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Sign in to your account</h1>
@@ -61,9 +61,12 @@
                                           <a href="./sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
                                        </div>
                                        <div class="col-6">
-                                          <button type="submit" class="theme-btn primary-btn w-100">
+                                          {{-- <button type="submit" class="theme-btn primary-btn w-100">
                                           Login
-                                          </button>
+                                          </button> --}}
+                                          <a href="./all-upcoming" class="theme-btn primary-btn w-100 d-block">
+                                             Login
+                                          </a>
                                        </div>
                                     </div>
                                  </div>

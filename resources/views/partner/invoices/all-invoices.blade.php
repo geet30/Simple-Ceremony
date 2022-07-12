@@ -6,7 +6,7 @@
             @include('elements.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.partner-panel-header')
          <ul class="row add-on-list-nav p-0 mb-0 list-unstyled ">
             <li class="col-md-6 col-lg-4 col-xl-4 col-xxl-4 mb-3">
                <div class="nav-link">

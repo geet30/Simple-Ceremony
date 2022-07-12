@@ -53,11 +53,7 @@
                                           </tr>
                                           <tr>
                                              <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Invoice to </td>
-                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : Simple ceremony</td>
-                                          </tr>
-                                          <tr>
-                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">ABN number</td>
-                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : 090909090</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : David</td>
                                           </tr>
                                        </table>
                                     </td>
@@ -72,19 +68,18 @@
                                     <tr>
                                        <th></th>
                                        <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;">Item description</th>
-                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;">Amount</th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;">Amount</th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;">Qt</th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;">Total</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr style="border-bottom:1px solid #62CBC9;">
                                        <td style="min-width:30px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C; ">1</td>
                                        <td style="min-width:400px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
-                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$123</td>
-                                    </tr>
-                                    <tr style="background: #F7FCFC; border-bottom:1px solid #62CBC9;">
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">2</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$30</td>
+                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">$300</td>
+                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">1</td>
+                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">$300</td>
                                     </tr>
                                  </tbody>
                                  <tfoot>
