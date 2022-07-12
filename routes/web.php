@@ -152,6 +152,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('index', function () {
         return view('user.index');
     });
+    Route::get('add-ons', function () {
+        return view('user.add-ons');
+    });
 });
 Route::group(['prefix' => 'partner'], function () {
     Route::get('login', function () {
