@@ -227,3 +227,20 @@ $(document).ready(function() {
     $('.hidden-footer').slideToggle("slow");
   });
 });
+function selectDateClass(date) {
+  $('.calendar-wrapper').updateCalendarOptions({
+    date: date
+  });
+  console.log(calendar.getSelectedDate());
+}
+
+var defaultConfigClass = {
+  weekDayLength: 2,
+  date: '08/05/2021',
+  onClickDate: selectDateClass,
+  showYearDropdown: true,
+  startOnMonday: true,
+};
+
+var calendar = $('.calendar-wrapper').calendar(defaultConfigClass);
+console.log(calendar.getSelectedDate());

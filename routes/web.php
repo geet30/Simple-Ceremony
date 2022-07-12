@@ -268,6 +268,21 @@ Route::group(['prefix' => 'celebrant'], function () {
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });
+    Route::get('profile', function () {
+        return view('celebrant.profile.setting');
+    });
+    Route::get('edit', function () {
+        return view('celebrant.profile.edit');
+    });
+    Route::get('/', function () {
+        return view('celebrant.login');
+    });
+    Route::get('password-reset', function () {
+        return view('celebrant.password-reset');
+    });
+    Route::get('sign-up', function () {
+        return view('celebrant.sign-up');
+    });
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('locations', function () {

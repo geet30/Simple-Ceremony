@@ -1,5 +1,8 @@
 .turquoise-100 {
     color: $turquoise-100;
+    &:hover{
+        color: $turquoise-100;
+    }
 }
 
 .turquoise-50 {
@@ -637,4 +640,21 @@
 }
 .h-40{
     height: 40px;
+}
+.dot-status{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.bg-neutral-50 {
+    background-color: $neutral-50;
+}
+.no-border-calander{
+    .calendar-box{
+        border: none;;
+    }
+}
+.dark-blue-100{
+    color:$dark-blue-100;
 }
