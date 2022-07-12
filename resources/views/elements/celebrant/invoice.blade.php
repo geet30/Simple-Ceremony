@@ -17,7 +17,7 @@
                      <table cellpadding="0" cellspacing="0" style="width:100% ; background-color: #F7FCFC;">
                         <tr>
                            <td style="width:50%"> <img src="/images/invoice-left.png"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;"> </td>
-                           <td style="width:50%"> <img src="/images/invoice-right.png"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;float: right;padding-right: 21px;"> </td>
+                           <td style="width:50%"> <img src="/images/invoice-right.png"  cellpadding="0" cellspacing="0" alt="" style="    width: 50%;max-width: 100%;height: auto;float: right;padding-right: 21px;"> </td>
                         </tr>
                      </table>
                   </td>
@@ -100,6 +100,33 @@
                      </table>
                   </td>
                </tr>
+              <tr>
+               <td>
+               <table cellpadding="0" cellspacing="0" style="width:100% ;    position: absolute;    bottom: 0px;width: 100%; ">
+                        <tr>
+                           <td>
+                           <table style="width:100%;" cellpadding="20">
+                                 <tr>
+                                    <td><img src="/images/authorised-sign.png" style="float:right;    width: 20%;"></td>
+                                 </tr>
+                              </table>
+                              </td>
+                        </tr>
+                        <tr>
+                           <td style="height:20px">&nbsp;</td>
+                        </tr>
+                        <tr>
+                           <td>
+                              <table style="width:100%;background-color: #F7FCFC;">
+                                 <tr>
+                                    <td><img src="/images/invoicefooter-left.png"></td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table> 
+               </td>
+              </tr>
             </table>
          </div>
       </div>
