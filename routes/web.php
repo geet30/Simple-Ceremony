@@ -111,27 +111,31 @@ Route::group(['prefix' => 'user'], function () {
 
 $adminRoutes = function() {
     Route::group(['prefix' => 'admin'], function () {
-        Route::resource('locations', App\Http\Controllers\LocationsController::class);
+        // Route::resource('locations', App\Http\Controllers\LocationsController::class);
         // Route::get('location', function () {
         //     return view('admin.location');
         // })->name('admin-locations');
-
-        // Route::get('add-location', function () {
-        //     return view('admin.add-location');
-        // });
+        Route::get('locations', function () {
+            return view('admin.locations.listing');
+        });
+        Route::get('single', function () {
+            return view('admin.locations.single');
+        });
+        Route::get('create', function () {
+            return view('admin.locations.create');
+        });
+        Route::get('edit', function () {
+            return view('admin.locations.edit');
+        });
+        Route::get('view', function () {
+            return view('admin.locations.view');
+        });
 
         Route::get('add-ons', function () {
             return view('admin.add-ons');
         });
 
-        // Route::get('location-detail', function () {
-        //     return view('admin.location-detail');
-        // });
-
-        // Route::get('edit-location', function () {
-        //     return view('admin.edit-location');
-        // });
-
+       
         Route::get('admin-add-ons-details', function () {
             return view('admin.admin-add-ons-details');
         });
@@ -148,6 +152,15 @@ $adminRoutes = function() {
     });
     Route::get('partner-details', function () {
         return view('admin.partner.partner-details');
+    });
+    Route::get('/', function () {
+        return view('admin.login');
+    });
+    Route::get('sign-up', function () {
+        return view('admin.sign-up');
+    });
+    Route::get('password-reset', function () {
+        return view('admin.password-reset');
     });
 });
 
@@ -273,6 +286,33 @@ $celebrantRoutes = function() {
         });
         Route::get('create', function () {
             return view('celebrant.invoices.create');
+        });
+        Route::get('financial-report', function () {
+            return view('celebrant.financial-report.listing');
+        });
+        Route::get('location', function () {
+            return view('celebrant.financial-report.location');
+        });
+        Route::get('calendar', function () {
+            return view('celebrant.calendar.availability');
+        });
+        Route::get('add', function () {
+            return view('celebrant.calendar.add');
+        });
+        Route::get('profile', function () {
+            return view('celebrant.profile.setting');
+        });
+        Route::get('edit', function () {
+            return view('celebrant.profile.edit');
+        });
+        Route::get('/', function () {
+            return view('celebrant.login');
+        });
+        Route::get('password-reset', function () {
+            return view('celebrant.password-reset');
+        });
+        Route::get('sign-up', function () {
+            return view('celebrant.sign-up');
         });
     });
 };

@@ -24,7 +24,7 @@
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         <a href="#" class="theme-btn primary-btn me-3">Confirm</a>
-                        <a href="#" class="theme-btn primary-btn-border">See profile partner</a>
+                        <a href="/admin/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
                   </div>
                </section>

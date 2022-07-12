@@ -6,7 +6,7 @@
         @include('elements.celebrant-sidebar')
         </div>
         <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.celebrant.panel-header')
         
          <div class="row mb-3">
             <div class="col-12">

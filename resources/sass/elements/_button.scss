@@ -13,8 +13,8 @@
         padding:4px 9px !important;
     }
     &.primary-btn {
-        background: $turquoise-100;
-        color: $white;
+        background-color: $turquoise-100;
+        color: #ffffff;
         border: none;
         &:hover {
             background-color: #5fe2e0;
@@ -218,13 +218,18 @@
                     }
                     &.primary-btn-border{
                         background-color: transparent;
+                        color: $turquoise-100;
                         &:hover{
-                            background-color: transparent !important;
+                            color: #62CBC9;
+                            background-color: transparent;
                         }
                     }
                 }
             }
         }
     }
+
+}
+.btn-link{
 
 }
