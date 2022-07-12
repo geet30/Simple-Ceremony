@@ -173,7 +173,7 @@
                                           <div class="col-md-6">
                                           </div>
                                           <div class="col-md-5">
-                                             <a class="theme-btn primary-btn justify-content-center">
+                                             <a href="/admin/edit-package" class="theme-btn primary-btn justify-content-center">
                                                 <img class="me-2" src="/images/admin/partner/edit.svg" alt="Edit">
                                                 Edit information
                                              </a>

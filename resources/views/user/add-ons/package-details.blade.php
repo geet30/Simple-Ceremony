@@ -2,66 +2,45 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-2 col-md-3 col-lg-2 px-0">
-            @include('elements.admin-sidebar')
+      <div class="col-md-3 col-lg-2 p-0">
+        @include('elements.user-sidebar')
       </div>
-      <div class="col-10 col-md-9 col-lg-10 px-4">
-         @include('elements.panel-header')
+      <div class="col-md-9 col-lg-10 px-md-4">
+        @include('elements.user-header')
          <a href="./add-ons" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
                   <div class="row">
-                     <div class="col-md-6 align-self-center">
-                        <div class="table-dropdown d-flex align-items-center">
-                           <h1 class="h3 neutral-100 mb-0">Corona Pack</h1>
-                           <a class="waiting-approval p-1 px-3 d-inline text-decoration-none ms-3">Waiting Approval</a>
-                           <a class="approved p-1 px-3 d-inline text-decoration-none ms-3 d-none">Approve</a>
-                           <a class="rejected p-1 px-3 d-inline text-decoration-none ms-3 d-none">Rejected</a>
+                     <div class="col-md-8 align-self-center">
+                        <div class="table-dropdown d-flex align-items-lg-center flex-column flex-lg-row">
+                           <h1 class="h3 neutral-100 mb-3 mb-lg-0">The Corona Pack</h1>
                         </div>
-                        <p class="body-3 mb-0 mt-3"><span class="body-1">Criteria : </span>Available on Blues Point Reserve, Bradfield Park</p>
+                        <p class="body-3 mb-0 mt-3"><img src="/images/location.svg" class="me-1 img-fluid" alt="Location"> Blues point reserve</p>
                      </div>
-                     <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
-                        <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
-                        <a href="#" class="theme-btn primary-btn me-3">Confirm</a>
-                        <a href="/admin/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
+                     <div class="col-md-4 align-self-start d-flex justify-content-md-end mt-3 mt-md-0">
+                        <a role="button" class="theme-btn primary-btn" data-bs-toggle="offcanvas" data-bs-target="#contact_partner" aria-controls="offcanvasRight">Contact partner</a>
                      </div>
                   </div>
                </section>
-               <div class="row pb-5 d-none">
-                  <div class="col-md-12">
-                     <div class="feedback-data">
-                        <p class="button-1 mb-0">Feedback</p>
-                        <p class="body-3-medium mb-0">Some packages do not have a price. please give a price and submit it to us again</p>
-                     </div>
-                  </div>
-               </div>
                <section class="pt-40 add-ons-detail">
                   <div class="row pb-60">
-                     <div class="col-md-3 col-lg-3 col-xl-2 ">
+                     <div class="col-lg-3 col-xl-2">
                         <div class="d-flex">
                            <div class="numberCircle align-self-center">1</div>
                            <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 1</p>
                         </div>
                      </div>
-                     <div class="col-md-9 col-xl-10 mt-3 mt-md-0">
+                     <div class="col-lg-9 col-xl-10 mt-3 mt-md-0">
                         <div class="row">
-                           <div class="col-lg-12 d-md-flex justify-content-between">
-                              <div class="align-self-center">
-                                 <h2 class="h3 neutral-100">The corona pack bronze • $ 120</h2>
+                           <div class="col-lg-12 d-xl-flex justify-content-between">
+                              <div class="align-self-center mb-3 mt-3 mt-lg-0 mb-xl-0">
+                                 <h2 class="h3 neutral-100">The corona pack bronze • $ 199</h2>
                               </div>
-                           </div>
-                           <div class="col-12">
-                              <div class="add-ons-discount d-flex mt-4 mb-3">
-                                 <div class="add-ons-discount-offer text-center me-4">
-                                    <p class="mb-1 small-text2 neutral-100">AC admin fee</p>
-                                    <h3 class="h3 mb-0 neutral-100">10%</h3>
-                                 </div>
-                                 <div class="add-ons-after-discount-price text-center">
-                                    <p class="mb-1 small-text2 neutral-100">Total fee <br>partners get</p>
-                                    <h3 class="h3 mb-0 neutral-100">$ 108</h3>
-                                 </div>
-                              </div>
+                              <a role="button" class="theme-btn primary-btn" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding">
+                                <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
+                                Add to my wedding
+                             </a>
                            </div>
                            <div class="col-12 image-block pt-3">
                               <div class="row">
@@ -70,7 +49,7 @@
                                        <img src="/images/add-ons/add-ons-details/left.jpg" class="img-fluid  left-img "
                                           alt="add-ons-image ">
                                        <div class="all-pictures-btn">
-                                          <a href="/admin/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
+                                          <a href="./package-gallery" class="theme-btn primary-btn d-inline-flex">
                                              <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                 alt="shopping-icon">
                                              See all pictures
@@ -122,30 +101,22 @@
                      </div>
                   </div>
                   <div class="row pb-60">
-                     <div class="col-md-3 col-lg-3  col-xl-2 ">
+                     <div class="col-lg-3 col-xl-2">
                         <div class="d-flex">
                            <div class="numberCircle align-self-center">2</div>
                            <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 2</p>
                         </div>
                      </div>
-                     <div class="col-md-9 col-xl-10 mt-3 mt-md-0">
+                     <div class="col-lg-9 col-xl-10 mt-3 mt-md-0">
                         <div class="row">
-                           <div class="col-lg-12 d-md-flex justify-content-between">
-                              <div class="align-self-center">
+                           <div class="col-lg-12 d-xl-flex justify-content-between">
+                            <div class="align-self-center mb-3 mt-3 mt-lg-0 mb-xl-0">
                                  <h2 class="h3 neutral-100">The corona pack silver • $299</h2>
                               </div>
-                           </div>
-                           <div class="col-12">
-                              <div class="add-ons-discount d-flex mt-4 mb-3">
-                                 <div class="add-ons-discount-offer text-center me-4">
-                                    <p class="mb-1 small-text2 neutral-100">AC admin fee</p>
-                                    <h3 class="h3 mb-0 neutral-100">10%</h3>
-                                 </div>
-                                 <div class="add-ons-after-discount-price text-center">
-                                    <p class="mb-1 small-text2 neutral-100">Total fee <br>partners get</p>
-                                    <h3 class="h3 mb-0 neutral-100">$ 269,1</h3>
-                                 </div>
-                              </div>
+                              <a role="button" class="theme-btn primary-btn" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding">
+                                <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
+                                Add to my wedding
+                             </a>
                            </div>
                            <div class="col-12 image-block pt-3">
                               <div class="row">
@@ -154,7 +125,7 @@
                                        <img src="/images/add-ons/add-ons-details/package2/left.jpg" class="img-fluid  left-img "
                                           alt="add-ons-image ">
                                        <div class="all-pictures-btn">
-                                          <a href="/admin/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
+                                          <a href="./package-gallery" class="theme-btn primary-btn d-inline-flex">
                                              <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                 alt="shopping-icon">
                                              See all pictures
@@ -203,30 +174,22 @@
                      </div>
                   </div>
                   <div class="row">
-                     <div class="col-md-3 col-lg-3  col-xl-2 ">
+                     <div class="col-lg-3 col-xl-2">
                         <div class="d-flex">
                            <div class="numberCircle align-self-center">3</div>
                            <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 3</p>
                         </div>
                      </div>
-                     <div class="col-md-9 col-xl-10 mt-3 mt-md-0">
+                     <div class="col-lg-9 col-xl-10 mt-3 mt-md-0">
                         <div class="row">
-                           <div class="col-lg-12 d-md-flex justify-content-between">
-                              <div class="align-self-center">
+                           <div class="col-lg-12 d-xl-flex justify-content-between">
+                            <div class="align-self-center mb-3 mt-3 mt-lg-0 mb-xl-0">
                                  <h2 class="h3 neutral-100">The corona pack gold • $399</h2>
                               </div>
-                           </div>
-                           <div class="col-12">
-                              <div class="add-ons-discount d-flex mt-4 mb-3">
-                                 <div class="add-ons-discount-offer text-center me-4">
-                                    <p class="mb-1 small-text2 neutral-100">AC admin fee</p>
-                                    <h3 class="h3 mb-0 neutral-100">10%</h3>
-                                 </div>
-                                 <div class="add-ons-after-discount-price text-center">
-                                    <p class="mb-1 small-text2 neutral-100">Total fee <br>partners get</p>
-                                    <h3 class="h3 mb-0 neutral-100">$ 359,1</h3>
-                                 </div>
-                              </div>
+                              <a role="button" class="theme-btn primary-btn" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding">
+                                <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
+                                Add to my wedding
+                             </a>
                            </div>
                            <div class="col-12 image-block pt-3">
                               <div class="row">
@@ -235,7 +198,7 @@
                                        <img src="/images/add-ons/add-ons-details/package3/left.jpg" class="img-fluid  left-img "
                                           alt="add-ons-image ">
                                        <div class="all-pictures-btn">
-                                          <a href="/admin/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
+                                          <a href="./package-gallery" class="theme-btn primary-btn d-inline-flex">
                                              <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                 alt="shopping-icon">
                                              See all pictures
@@ -266,6 +229,12 @@
                                     <p class="body-3-medium text-black">Combine with the "Corona Pack bronze & silver " you can
                                        also get a photo & video package
                                     </p>
+                                    <h4 class="h4">Add title terms here</h4>
+                                    <p class="body-3-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris quis neque in erat maximus vulputate a sit amet ipsum. Quisque placerat, arcu at pellentesque fermentum, nunc nisl condimentum mi, eu tristique nibh leo non ante. Praesent nec rhoncus mi, eu faucibus risus. Cras tristique a arcu ut aliquet. Praesent eu bibendum magna, sed congue nisl. Praesent consequat tortor eget justo dignissim, eget vehicula sapien blandit.</p>
+                                    <ul class="addons-list">
+                                       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                       <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                    </ul>
                                  </div>
                               </div>
                            </div>
@@ -278,4 +247,6 @@
       </div>
    </div>
 </div>
+@include('elements.contact-partner')
+@include('elements.user.add-my-wedding-popup')
 @endsection

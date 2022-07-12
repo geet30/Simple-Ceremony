@@ -14,11 +14,11 @@
       <div class="row">
          <div class="col-md-6 align-self-center">
             <h1 class="h3 neutral-100">The Corona Pack</h1>
-            <p class="small-text2 mb-1  neutral-100"><img src="images/location.svg" class="me-1 img-fluid" alt="Location"> Blues point
+            <p class="small-text2 mb-1  neutral-100"><img src="/images/location.svg" class="me-1 img-fluid" alt="Location"> Blues point
                reserve</p>
          </div>
          <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
-            <a class="theme-btn primary-btn-border" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightcontact" aria-controls="offcanvasRight">Contact partner</a>
+            <a class="theme-btn primary-btn-border" data-bs-toggle="offcanvas" data-bs-target="#contact_partner" aria-controls="offcanvasRight">Contact partner</a>
          </div>
       </div>
    </div>
@@ -41,7 +41,7 @@
                   <div class="align-self-center">
                      <a class="theme-btn primary-btn d-inline-flex" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">
-                        <img class="me-2" src="images/shopping-icon.svg" alt="shopping-icon">
+                        <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
                         Add to my wedding
                      </a>
                   </div>
@@ -50,11 +50,11 @@
                   <div class="row">
                      <div class="col-md-6 mb-3 mb-md-0">
                         <div class=" position-relative">
-                           <img src="images/add-ons/add-ons-details/left.jpg" class="img-fluid  left-img "
+                           <img src="/images/add-ons/add-ons-details/left.jpg" class="img-fluid  left-img "
                               alt="add-ons-image ">
                            <div class="all-pictures-btn">
                               <a href="add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
-                                 <img class="me-2" src="images/add-ons/add-ons-details/photo-icon.svg"
+                                 <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                     alt="shopping-icon">
                                  See all pictures
                               </a>
@@ -64,18 +64,18 @@
                      <div class="col-md-6 right-img  ">
                         <div class="row">
                            <div class="col-sm-6">
-                              <img src="images/add-ons/add-ons-details/right-1.jpg" class="img-fluid mb-3 photo"
+                              <img src="/images/add-ons/add-ons-details/right-1.jpg" class="img-fluid mb-3 photo"
                                  alt="add-ons-image ">
-                              <img src="images/add-ons/add-ons-details/right-2.jpg"
+                              <img src="/images/add-ons/add-ons-details/right-2.jpg"
                                  class="img-fluid photo mb-3 mb-sm-0 " alt="add-ons-image ">
                            </div>
                            <div class="col-sm-6">
-                              <img src="images/add-ons/add-ons-details/right-3.jpg" class="img-fluid mb-3 photo"
+                              <img src="/images/add-ons/add-ons-details/right-3.jpg" class="img-fluid mb-3 photo"
                                  alt="add-ons-image ">
                               <div class="position-relative">
-                                 <img src="images/add-ons/add-ons-details/right-4.jpg" class="img-fluid photo "
+                                 <img src="/images/add-ons/add-ons-details/right-4.jpg" class="img-fluid photo "
                                     alt="add-ons-image ">
-                                 <img src="images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
+                                 <img src="/images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
                               </div>
                            </div>
                         </div>
@@ -113,7 +113,7 @@
                   </div>
                   <div class="align-self-center">
                      <a class="theme-btn primary-btn d-inline-flex">
-                        <img class="me-2" src="images/shopping-icon.svg" alt="shopping-icon">
+                        <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
                         Add to my wedding
                      </a>
                   </div>
@@ -122,11 +122,11 @@
                   <div class="row">
                      <div class="col-md-6 mb-3 mb-md-0">
                         <div class=" position-relative">
-                           <img src="images/add-ons/add-ons-details/package2/left.jpg" class="img-fluid  left-img "
+                           <img src="/images/add-ons/add-ons-details/package2/left.jpg" class="img-fluid  left-img "
                               alt="add-ons-image ">
                            <div class="all-pictures-btn">
                               <a href="add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
-                                 <img class="me-2" src="images/add-ons/add-ons-details/photo-icon.svg"
+                                 <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                     alt="shopping-icon">
                                  See all pictures
                               </a>
@@ -136,18 +136,18 @@
                      <div class="col-md-6 right-img ">
                         <div class="row">
                            <div class="col-sm-6">
-                              <img src="images/add-ons/add-ons-details/package2/right-1.jpg"
+                              <img src="/images/add-ons/add-ons-details/package2/right-1.jpg"
                                  class="img-fluid mb-3 photo" alt="add-ons-image ">
-                              <img src="images/add-ons/add-ons-details/package2/right-2.jpg"
+                              <img src="/images/add-ons/add-ons-details/package2/right-2.jpg"
                                  class="img-fluid photo  mb-3 mb-sm-0" alt="add-ons-image ">
                            </div>
                            <div class="col-sm-6">
-                              <img src="images/add-ons/add-ons-details/package2/right-3.jpg"
+                              <img src="/images/add-ons/add-ons-details/package2/right-3.jpg"
                                  class="img-fluid mb-3 photo" alt="add-ons-image ">
                               <div class="position-relative">
-                                 <img src="images/add-ons/add-ons-details/package2/right-4.jpg" class="img-fluid photo "
+                                 <img src="/images/add-ons/add-ons-details/package2/right-4.jpg" class="img-fluid photo "
                                     alt="add-ons-image ">
-                                 <img src="images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
+                                 <img src="/images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
                               </div>
                            </div>
                         </div>
@@ -188,7 +188,7 @@
                   </div>
                   <div class="align-self-center">
                      <a class="theme-btn primary-btn d-inline-flex">
-                        <img class="me-2" src="images/shopping-icon.svg" alt="shopping-icon">
+                        <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
                         Add to my wedding
                      </a>
                   </div>
@@ -197,11 +197,11 @@
                   <div class="row">
                      <div class="col-md-6 mb-3 mb-md-0">
                         <div class=" position-relative">
-                           <img src="images/add-ons/add-ons-details/package3/left.jpg" class="img-fluid  left-img "
+                           <img src="/images/add-ons/add-ons-details/package3/left.jpg" class="img-fluid  left-img "
                               alt="add-ons-image ">
                            <div class="all-pictures-btn">
                               <a class="theme-btn primary-btn d-inline-flex">
-                                 <img class="me-2" src="images/add-ons/add-ons-details/photo-icon.svg"
+                                 <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                     alt="shopping-icon">
                                  See all pictures
                               </a>
@@ -211,18 +211,18 @@
                      <div class="col-md-6 right-img ">
                         <div class="row">
                            <div class="col-md-6">
-                              <img src="images/add-ons/add-ons-details/package3/right-1.jpg"
+                              <img src="/images/add-ons/add-ons-details/package3/right-1.jpg"
                                  class="img-fluid mb-3 photo" alt="add-ons-image ">
-                              <img src="images/add-ons/add-ons-details/package3/right-2.jpg"
+                              <img src="/images/add-ons/add-ons-details/package3/right-2.jpg"
                                  class="img-fluid photo mb-3 mb-sm-0" alt="add-ons-image ">
                            </div>
                            <div class="col-md-6">
-                              <img src="images/add-ons/add-ons-details/package3/right-3.jpg"
+                              <img src="/images/add-ons/add-ons-details/package3/right-3.jpg"
                                  class="img-fluid mb-3 photo" alt="add-ons-image ">
                               <div class="position-relative">
-                                 <img src="images/add-ons/add-ons-details/package3/right-4.jpg" class="img-fluid photo "
+                                 <img src="/images/add-ons/add-ons-details/package3/right-4.jpg" class="img-fluid photo "
                                     alt="add-ons-image ">
-                                 <img src="images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
+                                 <img src="/images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
                               </div>
                            </div>
                         </div>
