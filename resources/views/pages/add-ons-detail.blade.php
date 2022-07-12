@@ -18,7 +18,7 @@
                reserve</p>
          </div>
          <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
-            <a class="theme-btn primary-btn-border" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightcontact" aria-controls="offcanvasRight">Contact partner</a>
+            <a class="theme-btn primary-btn-border" data-bs-toggle="offcanvas" data-bs-target="#contact_partner" aria-controls="offcanvasRight">Contact partner</a>
          </div>
       </div>
    </div>

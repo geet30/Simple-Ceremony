@@ -6,7 +6,7 @@
          @include('elements.user-sidebar')
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.user-header')
          <div class="col-md-9 mt-3 mb-4 d-flex">
             <div class="dropdown">
                <a class="btn">
@@ -27,7 +27,7 @@
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
                <span class="fa fa-search form-control-feedback"></span>
-               <input type="text" class="form-control" placeholder="Search">
+               <input type="text" class="form-control" placeholder="Search package">
             </div>
          </div>
          <div class="card panel-card">
@@ -37,7 +37,7 @@
                      <div class="col-md-12">
                         <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
                      </div>
-                     @include('elements.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addOns' => [
+                     @include('elements.user.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addOns' => [
                      [
                      'image' => '/images/add-ons/v1.png',
                      'tag' => 'Photographer',
@@ -82,7 +82,7 @@
                      <div class="col-md-12 ">
                         <h2 class="pb-20 h3 netural-100">  All add-ons </h2>
                      </div>
-                     @include('elements.all-add-ons', ['title' => 'All add-ons', '' => '', 'allAddOns' => [
+                     @include('elements.user.all-add-ons', ['title' => 'All add-ons', '' => '', 'allAddOns' => [
                      [
                      'image' => '/images/add-ons/v5.png',
                      'tag' => 'Chair & decoration',

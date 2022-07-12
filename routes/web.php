@@ -154,10 +154,19 @@ $adminRoutes = function() {
 };
 Route::group(['prefix' => 'user'], function () {
     Route::get('index', function () {
-        return view('user.index');
+        return view('user.overview.index');
     });
     Route::get('add-ons', function () {
-        return view('user.add-ons');
+        return view('user.add-ons.add-ons');
+    });
+    Route::get('package-details', function () {
+        return view('user.add-ons.package-details');
+    });
+    Route::get('package-gallery', function () {
+        return view('user.add-ons.package-gallery');
+    });
+    Route::get('all-invoices', function () {
+        return view('user.invoices.all-invoices');
     });
 });
 $partnerRoutes = function() {
