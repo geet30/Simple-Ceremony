@@ -181,6 +181,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('all-invoices', function () {
         return view('user.invoices.all-invoices');
     });
+    Route::get('notes', function () {
+        return view('user.notes.lisiting');
+    });
+    Route::get('lisiting-to-do', function () {
+        return view('user.notes.lisiting-to-do');
+    });
 });
 $partnerRoutes = function() {
     Route::group(['prefix' => 'partner'], function () {

@@ -19,14 +19,62 @@
                      </a>
                   </div>
                </div>
-               <div class="row">
-                  <div class="col-md-6 col-lg-4 mb-3">1</div>
-                  <div class="col-md-6 col-lg-4 mb-3">1</div>
-                  <div class="col-md-6 col-lg-4 mb-3">1</div>
+               <div class="row mt-4">
+                     @include('elements.user.notes.list', ['title' => 'locations', '' => '', 'notes' => [
+                           [
+                            'title' => ' Title of the note',
+                            'date' => ' June 20, 2022',
+                            'share' => ' 2',
+                            'info' => ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis, enim id egestas dapibus, justo enim molestie urna, quis euismod mauris nulla quis dui. Etiam dapibus nunc nec porta...',
+                            'attachment' => ' 3',
+
+                           ],
+                           [
+                            'title' => ' Title of the note',
+                            'date' => ' June 20, 2022',
+                            'share' => ' 2',
+                            'info' => ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis, enim id egestas dapibus, justo enim molestie urna, quis euismod mauris nulla quis dui. Etiam dapibus nunc nec porta...',
+                            'attachment' => '0',
+
+                           ],
+                           [
+                            'title' => ' Title of the note',
+                            'date' => ' June 20, 2022',
+                            'share' => ' 2',
+                            'info' => ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis, enim id egestas dapibus, justo enim molestie urna, quis euismod mauris nulla quis dui. Etiam dapibus nunc nec porta...',
+                            'attachment' => '2',
+
+                           ],
+                           [
+                            'title' => ' Title of the note',
+                            'date' => ' June 20, 2022',
+                            'share' => ' 2',
+                            'info' => ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis, enim id egestas dapibus, justo enim molestie urna, quis euismod mauris nulla quis dui. Etiam dapibus nunc nec porta...',
+                            'attachment' => '4',
+
+                           ],
+                           [
+                            'title' => ' Title of the note',
+                            'date' => ' June 20, 2022',
+                            'share' => ' 2',
+                            'info' => ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis, enim id egestas dapibus, justo enim molestie urna, quis euismod mauris nulla quis dui. Etiam dapibus nunc nec porta...',
+                            'attachment' => '2',
+
+                           ],
+                           [
+                            'title' => ' Title of the note',
+                            'date' => ' June 20, 2022',
+                            'share' => ' 2',
+                            'info' => ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque iaculis, enim id egestas dapibus, justo enim molestie urna, quis euismod mauris nulla quis dui. Etiam dapibus nunc nec porta...',
+                            'attachment' => '5',
+
+                           ],
+                     ]])
+      
+                  </div>
                </div>
             </div>
          </div>
       </div>
    </div>
-</div>
-@endsection
+   @endsection
