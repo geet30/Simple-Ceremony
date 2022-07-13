@@ -190,7 +190,6 @@ input:-webkit-autofill:active {
         font-size: 9.85507px;
         color: #ff4545;
     }
-   
 }
 
 .switch-input:checked ~ .switch-label:before {
@@ -216,9 +215,13 @@ input:-webkit-autofill:active {
 
 .switch-input:checked ~ .switch-handle {
     left: 48px;
-    background:#ff4545;
+    background: #ff4545;
 }
 
 .switch-green > .switch-input:checked ~ .switch-label {
     background: #4fb845;
+}
+.form-check-input {
+    width: 20px !important;
+    height: 20px !important;
 }

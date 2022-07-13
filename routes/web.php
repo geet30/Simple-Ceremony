@@ -110,6 +110,9 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 $adminRoutes = function() {
+    Route::get('/', function () {
+        return view('admin.login');
+    });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);
         // Route::get('location', function () {
@@ -153,9 +156,7 @@ $adminRoutes = function() {
     Route::get('partner-details', function () {
         return view('admin.partner.partner-details');
     });
-    Route::get('/', function () {
-        return view('admin.login');
-    });
+   
     Route::get('sign-up', function () {
         return view('admin.sign-up');
     });
@@ -180,6 +181,33 @@ Route::group(['prefix' => 'user'], function () {
     });
     Route::get('all-invoices', function () {
         return view('user.invoices.all-invoices');
+    });
+    Route::get('notes', function () {
+        return view('user.notes.lisiting');
+    });
+    Route::get('lisiting-to-do', function () {
+        return view('user.notes.lisiting-to-do');
+    });
+    Route::get('create', function () {
+        return view('user.notes.create');
+    });
+    Route::get('edit', function () {
+        return view('user.notes.edit');
+    });
+    Route::get('detail', function () {
+        return view('user.notes.detail');
+    });
+    Route::get('list', function () {
+        return view('user.list.lisiting-empty');
+    });
+    Route::get('lisiting', function () {
+        return view('user.list.lisiting');
+    });
+    Route::get('activity-history', function () {
+        return view('user.activity-history.lisiting');
+    });
+    Route::get('add', function () {
+        return view('user.activity-history.add');
     });
 });
 $partnerRoutes = function() {
@@ -305,15 +333,16 @@ $celebrantRoutes = function() {
         Route::get('edit', function () {
             return view('celebrant.profile.edit');
         });
-        Route::get('/', function () {
-            return view('celebrant.login');
-        });
+       
         Route::get('password-reset', function () {
             return view('celebrant.password-reset');
         });
         Route::get('sign-up', function () {
             return view('celebrant.sign-up');
         });
+    });
+    Route::get('/', function () {
+        return view('celebrant.login');
     });
 };
 
