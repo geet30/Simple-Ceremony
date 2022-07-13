@@ -244,3 +244,13 @@ var defaultConfigClass = {
 
 var calendar = $('.calendar-wrapper').calendar(defaultConfigClass);
 console.log(calendar.getSelectedDate());
+
+
+(function( $ ) {
+  $('.reply-btn').click(function(){
+      $('.reply-content').addClass("d-block");
+      $('.reply-btn').addClass("d-none");
+     
+  });
+ 
+})(jQuery);

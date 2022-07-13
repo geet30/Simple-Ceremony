@@ -47,9 +47,7 @@
         &:hover {
             color: #5fe1df;
             border: 1px solid #5fe1df;
-            img {
-                filter: invert(89%) sepia(75%) saturate(616%) hue-rotate(146deg) brightness(89%) contrast(99%);
-            }
+         
         }
         & .disable {
             border: 1px solid #b6ced0;

@@ -12,9 +12,9 @@
                <div class="col-9 col-md-6 col-xl-4 col-xxl-3 mx-auto text-center empty-content">
                   <img src="/images/emplty-folder.png" class="img-fluid" alt="emplty-folder">
                   <div class="align-self-center  mt-5  ">
-                     <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="./create">
+                     <a class="theme-btn primary-btn d-inline-flex justify-content-center" data-bs-toggle="offcanvas" data-bs-target="#add" aria-controls="add">
                      <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
-                     Create note
+                     Create list to do
                      </a>
                   </div>
                </div>
@@ -23,4 +23,5 @@
       </div>
    </div>
 </div>
+@include('elements.user.list.add')
 @endsection
