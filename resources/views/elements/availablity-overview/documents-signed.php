@@ -8,8 +8,8 @@
       </div>
       <div class=" col-lg-9 col-xl-9 mt-3 mt-lg-0">
          <div class="row">
-            <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
-               <div class="attach-document-box position-relative ">
+            <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+               <div class="attach-document-box position-relative  d-none">
                   <input id="fileupload" class="fileupload" type="file" name="files[]">
                   <div class="inner-content">
                      <p class="document-text mb-4">Attach document</p>
@@ -26,7 +26,7 @@
                   </div>
                </div>
                <!-- progress-box -->
-               <div class="attach-document-box progress-box text-center d-none">
+               <div class="attach-document-box progress-box text-center  d-none">
                   <div class="progress-content">
                      <p class="h4 neutral-100">Uploading 0%</p>
                      <div id="progress" class="progress">
@@ -36,22 +36,22 @@
                </div>
                <!--  -->
                <!--uploaded-box  -->
-               <div class="attach-document-box uploaded-box d-none">
+               <div class="attach-document-box uploaded-box ">
                   <div class="d-flex form-check justify-content-end">
                      <input class="form-check-input" type="checkbox" name="remember" id="remember" autocomplete="off">
                   </div>
-                  <div class="uploaded-content">
+                  <div class="uploaded-content mt-3">
                      <p id="filename" class="h4 neutral-100 mb-4">Notice of Intended Marriage form</p>
                      <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                      <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
-                     <a><img src="/images/icons/uploading/delete.svg" class="img-fluid " alt="delete"></a>
+                     <!-- <a><img src="/images/icons/uploading/delete.svg" class="img-fluid " alt="delete"></a> -->
                   </div>
                   <div class="created-date">Created Feb 29, 2022</div>
                </div>
                <!--  -->
             </div>
             <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
-               <div class="attach-document-box position-relative">
+               <div class="attach-document-box position-relative d-none">
                   <input id="fileupload" class="fileupload" type="file" name="files[]">
                   <div class="inner-content">
                      <p class="document-text mb-4">Attach document</p>
@@ -78,15 +78,15 @@
                </div>
                <!--  -->
                <!--uploaded-box  -->
-               <div class="attach-document-box uploaded-box  d-none">
+               <div class="attach-document-box uploaded-box ">
                   <div class="d-flex form-check justify-content-end">
                      <input class="form-check-input" type="checkbox" name="remember" id="remember" autocomplete="off">
                   </div>
-                  <div class="uploaded-content">
-                     <p id="filename" class="h4 neutral-100 mb-4"></p>
+                  <div class="uploaded-content mt-3">
+                     <p id="filename" class="h4 neutral-100 mb-4">Notice of Intended Marriage form</p>
                      <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                      <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
-                     <a><img src="/images/icons/uploading/delete.svg" class="img-fluid " alt="delete"></a>
+                     <!-- <a><img src="/images/icons/uploading/delete.svg" class="img-fluid " alt="delete"></a> -->
                   </div>
                   <div class="created-date">Created Feb 29, 2022</div>
                </div>

@@ -1,0 +1,32 @@
+.document-box{
+    background: #F7FCFC;
+    border: 1.53725px dashed #62CBC9;
+    border-radius: 6.14902px;
+    height: 26vh;
+    padding: 14px 16px;
+    display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  .uploaded-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26vh;
+    flex-direction: column;
+  }
+   .created-date {
+        // position: absolute;
+        // bottom: 7px;
+        // left: 0;
+        // right: 0px;
+        flex: none;
+        text-align: center;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 16px;
+        color: #687182;
+        border-top: 1.45px solid #EDEDF0;
+        padding-top: 10px;
+        
+    }
+}
