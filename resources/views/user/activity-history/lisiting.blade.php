@@ -15,7 +15,7 @@
             </div>
             <div class="col-sm-6 text-sm-end mt-3 mt-sm-0"> <a class="theme-btn primary-btn d-inline-flex justify-content-center"  data-bs-toggle="offcanvas" data-bs-target="#add" aria-controls="add">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
-               Create list to do
+               Create thread
                </a>
             </div>
          </div>
@@ -54,6 +54,7 @@
                      </div>
                   </li>
                   <li>
+                  <span class="step-point"></span>
                      <div class="steps-information  ">
                         <div class="steps-information-details custom-padding border-none">
                            <div class="activity-answer">
@@ -133,9 +134,9 @@
                               </li>
                               
                            </ul>
-                           <div class="d-flex justify-content-lg-end   justify-content-center mb-4">
-                           <a class="theme-btn primary-btn me-2  cursor-pointer">Send</a>
-                           <a class="theme-btn primary-btn-border  cursor-pointer">Cancel</a>
+                           <div class="d-flex justify-content-lg-end   justify-content-center mt-4">
+                           <a class="theme-btn primary-btn me-2  cursor-pointer cancel-btn">Send</a>
+                           <a class="theme-btn primary-btn-border  cursor-pointer cancel-btn">Cancel</a>
                         </div>
 </div>
                         </div>
@@ -148,5 +149,5 @@
       </div>
    </div>
 </div>
-@include('elements.user.list.edit')
+@include('elements.user.activity-history.add')
 @endsection

@@ -206,15 +206,16 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('activity-history', function () {
         return view('user.activity-history.lisiting');
     });
-    Route::get('add', function () {
-        return view('user.activity-history.add');
+    Route::get('documents', function () {
+        return view('user.documents.lisiting');
     });
 });
 $partnerRoutes = function() {
+    Route::get('login', function () {
+        return view('partner.login');
+    });
     Route::group(['prefix' => 'partner'], function () {
-        Route::get('login', function () {
-            return view('partner.login');
-        });
+  
         Route::get('password-reset', function () {
             return view('partner.password-reset');
         });

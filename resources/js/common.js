@@ -250,7 +250,10 @@ console.log(calendar.getSelectedDate());
   $('.reply-btn').click(function(){
       $('.reply-content').addClass("d-block");
       $('.reply-btn').addClass("d-none");
-     
   });
+  $('.cancel-btn').click(function(){
+    $('.reply-content').removeClass("d-block");
+    $('.reply-btn').removeClass("d-none");
+});
  
 })(jQuery);
