@@ -111,8 +111,8 @@ $websiteRoutes = function() {
 };
 $adminRoutes = function() {
     
-    Route::get('/login', function () {
-        return json_decode("klkjkjkl");
+    Route::get('/', function () {
+        return view('admin.login');
     });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);

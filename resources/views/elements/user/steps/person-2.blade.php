@@ -84,19 +84,9 @@
       </div>
    </div>
    <div class="col-12 mt-4">
-      <div class="card card-turquoise-noim">
-         <div class="card-body p-4">
-            <div class="d-flex justify-content-center">
-               <div class="align-self-center me-3"><img src=" /images/icons/info.svg" class="img-fluid" alt="infoss-icon"> </div>
-               <div class="button-1 text-black align-self-center ">Please use English character and don't use umlauts and accents</div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-12 mt-4">
       <div class="row">
          <div class="col-md-6 mb-4 align-self-top">
-            <label for="description" class="form-label small-text2">Description of person 1</label>
+            <label for="description" class="form-label small-text2">Description of person 2</label>
             <select name="description" id="description" class="js-placeholder-single-input form-control">
                <option value="0">Select answer here</option>
                <option value="1">Partner</option>
@@ -110,7 +100,7 @@
             <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
-            <label for="description" class="form-label small-text2">Person 1 First Name</label>
+            <label for="description" class="form-label small-text2">Person 2 First Name</label>
             <input type="text" value="Geoff" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
