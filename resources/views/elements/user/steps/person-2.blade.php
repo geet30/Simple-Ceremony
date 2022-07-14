@@ -96,16 +96,16 @@
          </div>
          <div class="col-md-6 mb-4 align-self-top">
             <label for="description" class="form-label small-text2">Your family name</label>
-            <input type="text" value="SMITH" class="form-control body-1 netural-100" name="name" id="description" required>
+            <input type="text" value="HAMMOND" class="form-control body-1 netural-100" name="name" id="description" required>
             <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
             <label for="description" class="form-label small-text2">Person 2 First Name</label>
-            <input type="text" value="Geoff" class="form-control body-1 netural-100" name="name" id="description" required>
+            <input type="text" value="Maria" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
             <label for="description" class="form-label small-text2">Other given name(s)</label>
-            <input type="text" value="George" class="form-control body-1 netural-100" name="name" id="description" required>
+            <input type="text" value="Natalie" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
          <div class="col-md-12 mb-4 align-self-top">
             <label for="description" class="form-label small-text2">Combination of your name</label>
@@ -113,8 +113,8 @@
          </div>
          <div class="col-12 mb-4">
             <div class="form-check">
-               <input class="form-check-input" type="checkbox" name="remember" id="remember" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember">
+               <input class="form-check-input" type="checkbox" name="remember4" id="remember4" autocomplete="off">
+               <label class="form-check-label text-black small-text2 mt-2" for="remember4">
                Does this name exactly match with your passport or drivers licence? 
                </label>
             </div>
@@ -123,15 +123,15 @@
             <label for="gender" class="form-label small-text2">Gender (Optional)</label>
             <select name="gender" id="gender" class="js-placeholder-single-input form-control">
                <option value="0" >Select gender here</option>
-               <option value="1">Female</option>
-               <option value="2" selected="">Male</option>
+               <option value="1" selected=""> Female</option>
+               <option value="2" >Male</option>
                <option value="3">Non-binary</option>
                <option value="4">X</option>
             </select>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
             <label for="description" class="form-label small-text2">Usual occupation</label>
-            <input type="text" value="Architect" class="form-control body-1 netural-100" name="name" id="description" required>
+            <input type="text" value="Accountant" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
             <label for="residence" class="form-label small-text2">Usual place of residence</label>
@@ -145,7 +145,7 @@
          <div class="col-md-6"></div>
          <div class="col-md-6 mb-4 ">
             <label for="description" class="form-label small-text2">Address line 1</label>
-            <input type="text" value="98 Shirley Street" class="form-control body-1 netural-100" name="name" id="description" required>
+            <input type="text" value="21 Ramsey street" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
          <div class="col-md-6 mb-4 ">
             <label for="description" class="form-label small-text2">Address line 2</label>
@@ -153,7 +153,7 @@
          </div>
          <div class="col-md-6 mb-4 ">
             <label for="description" class="form-label small-text2">Suburb/Town/City</label>
-            <input type="text" value="PIMPAMA QLD" class="form-control body-1 netural-100" name="name" id="description" required>
+            <input type="text" value="Erinsburgh" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
             <label for="state" class="form-label small-text2">State/Territory/Province</label>
@@ -172,8 +172,8 @@
             <label for="conjugal" class="form-label small-text2">Conjugal status</label>
             <select name="conjugal" id="conjugal" class="js-placeholder-single-input form-control">
                <option value="0" >Select country here</option>
-               <option value="1" selected="">Never validly married</option>
-               <option value="2">Add other country names here</option>
+               <option value="1" >Never validly married</option>
+               <option value="2" selected="">Divorced</option>
                <option value="3">Add other country names here</option>
             </select>
          </div>
@@ -245,8 +245,8 @@
          </div>
          <div class="col-12 mb-4">
             <div class="form-check">
-               <input class="form-check-input" type="checkbox" name="remember2" id="remember2" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember2">
+               <input class="form-check-input" type="checkbox" name="remember7" id="remember7" autocomplete="off">
+               <label class="form-check-label text-black small-text2 mt-2" for="remember7">
                Have you uploaded the above documents to this site & checked all data entered is identical to these documents?
                </label>
             </div>

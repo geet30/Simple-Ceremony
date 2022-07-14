@@ -312,62 +312,64 @@ $partnerRoutes = function() {
     });
 };
 $celebrantRoutes = function() {
+    Route::get('upcomming', function () {
+        return view('celebrant.upcomming.listing');
+    });
+    Route::get('availablity-overview', function () {
+        return view('celebrant.upcomming.availablity-overview');
+    });
+    Route::get('locations', function () {
+        return view('celebrant.locations.listing');
+    });
+    Route::get('availablity-upcoming-docs', function () {
+        return view('celebrant.upcomming.availablity-upcoming-docs');
+    });
+    Route::get('add', function () {
+        return view('celebrant.locations.add');
+    });
+    Route::get('open', function () {
+        return view('celebrant.locations.open');
+    });
+    Route::get('edit', function () {
+        return view('celebrant.locations.edit');
+    });
+    Route::get('total-fee', function () {
+        return view('celebrant.total-fee.listing');
+    });
+    Route::get('invoices', function () {
+        return view('celebrant.invoices.listing');
+    });
+    Route::get('create', function () {
+        return view('celebrant.invoices.create');
+    });
+    Route::get('financial-report', function () {
+        return view('celebrant.financial-report.listing');
+    });
+    Route::get('location', function () {
+        return view('celebrant.financial-report.location');
+    });
+    Route::get('calendar', function () {
+        return view('celebrant.calendar.availability');
+    });
+    Route::get('add', function () {
+        return view('celebrant.calendar.add');
+    });
+    Route::get('profile', function () {
+        return view('celebrant.profile.setting');
+    });
+    Route::get('edit', function () {
+        return view('celebrant.profile.edit');
+    });
+   
+    Route::get('password-reset', function () {
+        return view('celebrant.password-reset');
+    });
+    Route::get('sign-up', function () {
+        return view('celebrant.sign-up');
+    });
     Route::group(['prefix' => 'celebrant'], function () {
-        Route::get('upcomming', function () {
-            return view('celebrant.upcomming.listing');
-        });
-        Route::get('availablity-overview', function () {
-            return view('celebrant.upcomming.availablity-overview');
-        });
-        Route::get('locations', function () {
-            return view('celebrant.locations.listing');
-        });
-        Route::get('availablity-upcoming-docs', function () {
-            return view('celebrant.upcomming.availablity-upcoming-docs');
-        });
-        Route::get('add', function () {
-            return view('celebrant.locations.add');
-        });
-        Route::get('open', function () {
-            return view('celebrant.locations.open');
-        });
-        Route::get('edit', function () {
-            return view('celebrant.locations.edit');
-        });
-        Route::get('total-fee', function () {
-            return view('celebrant.total-fee.listing');
-        });
-        Route::get('invoices', function () {
-            return view('celebrant.invoices.listing');
-        });
-        Route::get('create', function () {
-            return view('celebrant.invoices.create');
-        });
-        Route::get('financial-report', function () {
-            return view('celebrant.financial-report.listing');
-        });
-        Route::get('location', function () {
-            return view('celebrant.financial-report.location');
-        });
-        Route::get('calendar', function () {
-            return view('celebrant.calendar.availability');
-        });
-        Route::get('add', function () {
-            return view('celebrant.calendar.add');
-        });
-        Route::get('profile', function () {
-            return view('celebrant.profile.setting');
-        });
-        Route::get('edit', function () {
-            return view('celebrant.profile.edit');
-        });
+     
        
-        Route::get('password-reset', function () {
-            return view('celebrant.password-reset');
-        });
-        Route::get('sign-up', function () {
-            return view('celebrant.sign-up');
-        });
     });
     Route::get('/', function () {
         return view('celebrant.login');

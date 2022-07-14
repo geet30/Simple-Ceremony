@@ -35,7 +35,7 @@
                </div>
             </div>
             <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-               <a class="theme-btn primary-btn d-flex justify-content-center" href="/celebrant/add">
+               <a class="theme-btn primary-btn d-flex justify-content-center" href="/add">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Request new location
                </a>
@@ -66,8 +66,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -82,8 +82,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -98,8 +98,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -114,8 +114,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -130,8 +130,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -146,8 +146,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -162,8 +162,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -178,8 +178,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>
@@ -194,8 +194,8 @@
                            </td>
                            <td  style="min-width:300px;">
                               <ul class="mb-0 pl-0">
-                                 <a  href="/celebrant/open" class="table-link me-2">Open</a>
-                                 <a   href="/celebrant/edit" class="table-link me-2">Edit</a>
+                                 <a  href="/open" class="table-link me-2">Open</a>
+                                 <a   href="/edit" class="table-link me-2">Edit</a>
                                  <a   href="" role="button" class="table-link">Delete</a>
                               </ul>
                            </td>

@@ -58,10 +58,10 @@
                                  <div class="col-lg-12">
                                     <div class="row">
                                        <div class="col-6">
-                                          <a href="/celebrant/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
+                                          <a href="/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
                                        </div>
                                        <div class="col-6">
-                                          <a  href="/celebrant/upcomming" class="d-flex justify-content-center primary-btn theme-btn w-100">
+                                          <a  href="/upcomming" class="d-flex justify-content-center primary-btn theme-btn w-100">
                                           Login
 </a>
                                        </div>
