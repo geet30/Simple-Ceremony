@@ -167,8 +167,23 @@ $adminRoutes = function() {
 
 };
 Route::group(['prefix' => 'user'], function () {
+    Route::get('login', function () {
+        return view('user.login');
+    });
+    Route::get('password-reset', function () {
+        return view('user.password-reset');
+    });
+    Route::get('create-password', function () {
+        return view('user.create-password');
+    });
     Route::get('index', function () {
         return view('user.overview.index');
+    });
+    Route::get('account-details', function () {
+        return view('user.account.account-details');
+    });
+    Route::get('account-edit', function () {
+        return view('user.account.account-edit');
     });
     Route::get('add-ons', function () {
         return view('user.add-ons.add-ons');
