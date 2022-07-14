@@ -110,8 +110,9 @@ $websiteRoutes = function() {
     });
 };
 $adminRoutes = function() {
-    Route::get('/', function () {
-        return view('admin.login');
+    
+    Route::get('/login', function () {
+        return json_decode("klkjkjkl");
     });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);
@@ -142,6 +143,7 @@ $adminRoutes = function() {
         Route::get('admin-add-ons-details', function () {
             return view('admin.admin-add-ons-details');
         });
+        
         Route::get('all-partners', function () {
             return view('admin.partner.all-partners');
         });
@@ -154,7 +156,6 @@ $adminRoutes = function() {
         Route::get('partner-details', function () {
             return view('admin.partner.partner-details');
         });
-       
         Route::get('sign-up', function () {
             return view('admin.sign-up');
         });
@@ -165,7 +166,7 @@ $adminRoutes = function() {
 
 };
 Route::group(['prefix' => 'user'], function () {
-    Route::get('login', function () {
+    Route::get('user', function () {
         return view('user.login');
     });
     Route::get('password-reset', function () {
