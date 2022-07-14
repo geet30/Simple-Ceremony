@@ -13,7 +13,7 @@
                   <div class="col-md-6">
                      <h1 class="h3 neutral-100">Notes</h1>
                   </div>
-                  <div class="col-md-6 text-md-end"> <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="./create">
+                  <div class="col-md-6 text-md-end"> <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="/user/create">
                      <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                      Create new note
                      </a>

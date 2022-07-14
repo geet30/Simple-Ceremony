@@ -21,7 +21,7 @@
                            <td  style="min-width:70px" class="body-2 neutral-100">2061</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">Blues Point Rd, North Sydney NSW 2060, Australia</td>
                             <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100">Wade Warren</td>
@@ -30,7 +30,7 @@
                            <td  class="body-2 neutral-100">695581</td>
                            <td  class="body-2 neutral-100">Jamisontown NSW 2750, Australia</td>
                            <td><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td ><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td ><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100">Jacob Jones</td>
@@ -39,7 +39,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  class="body-2 neutral-100">Middle Harbour NSW 2087, Australia</td>
                            <td><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td ><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td ><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100">Jane Cooper</td>
@@ -48,7 +48,7 @@
                            <td  class="body-2 neutral-100">2026</td>
                            <td  class="body-2 neutral-100">Bondi Beach Sydney, New South Wales</td>
                            <td><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td ><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td ><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100">Bessie Cooper</td>
@@ -57,7 +57,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  class="body-2 neutral-100">Alfred St S, Milsons Point NSW 2061, Australia</td>
                            <td><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td ><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td ><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td style="min-width:150px" class="body-2 neutral-100">Robertson</td>
@@ -66,7 +66,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">Blues Point Rd, North Sydney NSW 2060, Australia</td>
                             <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td style="min-width:150px" class="body-2 neutral-100">Annette Black</td>
@@ -75,7 +75,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">Sydney CBD,Australia</td>
                             <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td style="min-width:150px" class="body-2 neutral-100">Floyd Miles</td>
@@ -84,7 +84,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">13 Main Rd, Bakery Hill VIC 3350, Australia</td>
                             <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td style="min-width:150px" class="body-2 neutral-100">Kristin Watson</td>
@@ -93,7 +93,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">Blues Point Rd, North Sydney NSW 2060, Australia</td>
                             <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td style="min-width:150px" class="body-2 neutral-100">Dianne Russell</td>
@@ -102,7 +102,7 @@
                            <td  class="body-2 neutral-100">09090</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">Raberaba Cct, Hermannsburg NT 0872, Australia</td>
                             <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/admin/view"> View info</a> </td>
+                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                      </tbody>
                      <tfoot>

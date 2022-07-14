@@ -46,8 +46,8 @@
                            <img src="/images/icons/three-dots.svg" class="img-fluid" alt="dropdown-icon">
                            </button>
                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#edit" aria-controls="edit">Edit</a></li>
-                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                              <li><a class="dropdown-item cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#edit" aria-controls="edit">Edit</a></li>
+                              <li><a class="dropdown-item cursor-pointer" href="#">Delete</a></li>
                            </ul>
                         </div>
                      </div>
@@ -80,8 +80,8 @@
                            <img src="/images/icons/three-dots.svg" class="img-fluid" alt="dropdown-icon">
                            </button>
                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#edit" aria-controls="edit">Edit</a></li>
-                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                              <li><a class="dropdown-item cursor-pointer"  data-bs-toggle="offcanvas" data-bs-target="#edit" aria-controls="edit">Edit</a></li>
+                              <li><a class="dropdown-item cursor-pointer" href="#">Delete</a></li>
                            </ul>
                         </div>
                      </div>
@@ -114,8 +114,8 @@
                            <img src="/images/icons/three-dots.svg" class="img-fluid" alt="dropdown-icon">
                            </button>
                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                              <li><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#edit" aria-controls="edit">Edit</a></li>
-                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                              <li><a class="dropdown-item cursor-pointer" data-bs-toggle="offcanvas" data-bs-target="#edit" aria-controls="edit">Edit</a></li>
+                              <li><a class="dropdown-item cursor-pointer" href="#">Delete</a></li>
                            </ul>
                         </div>
                      </div>
@@ -127,4 +127,5 @@
    </div>
 </div>
 @include('elements.user.list.edit')
+@include('elements.user.list.add')
 @endsection

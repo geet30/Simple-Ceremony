@@ -106,8 +106,8 @@
          </div>
          <div class="col-12 mb-4">
             <div class="form-check">
-               <input class="form-check-input" type="checkbox" name="remember" id="remember" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember">
+               <input class="form-check-input" type="checkbox" name="remember3" id="remember3" autocomplete="off">
+               <label class="form-check-label text-black small-text2 mt-2" for="remember3">
                Does this name exactly match with your passport or drivers licence? 
                </label>
             </div>
@@ -166,7 +166,7 @@
             <select name="conjugal" id="conjugal" class="js-placeholder-single-input form-control">
                <option value="0" >Select country here</option>
                <option value="1" selected="">Never validly married</option>
-               <option value="2">Add other country names here</option>
+               <option value="2">Divorced</option>
                <option value="3">Add other country names here</option>
             </select>
          </div>

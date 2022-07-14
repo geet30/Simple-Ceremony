@@ -10,8 +10,8 @@
          <div class="card panel-card ">
             <div class="card-body">
                <div class="row mb-5">
-                  <div class="col-6"><a href="./lisiting-to-do" class="theme-btn primary-btn d-inline-flex"><img class="me-3" src="/images/icons/back-white.svg" alt="Back Icon">Back</a></div>
-                  <div class="col-6 text-end "><a href="./edit" class="theme-btn primary-btn-border d-inline-flex "><img class="me-2" src="/images/icons/edit-primary.svg" alt="Back Icon">Edit</a></div>
+                  <div class="col-6"><a href="/user/lisiting-to-do" class="theme-btn primary-btn d-inline-flex"><img class="me-3" src="/images/icons/back-white.svg" alt="Back Icon">Back</a></div>
+                  <div class="col-6 text-end "><a href="/user/edit" class="theme-btn primary-btn-border d-inline-flex "><img class="me-2" src="/images/icons/edit-primary.svg" alt="Back Icon">Edit</a></div>
                </div>
                <div class="row">
                   <div class="col-12">

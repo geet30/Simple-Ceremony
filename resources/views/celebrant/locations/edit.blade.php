@@ -9,7 +9,7 @@
          @include('elements.celebrant.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
-               <a href="/celebrant/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a href="/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
                <form class="card panel-card needs-validation"  method="POST" novalidate>
@@ -232,7 +232,7 @@
                      </div>
                   </div>
                   <div class="card-footer sticky-footer">
-                  <a href="/celebrant/locations" class="theme-btn primary-btn ">Save</a>
+                  <a href="/locations" class="theme-btn primary-btn ">Save</a>
                   </div>
                </form>
             </div>

@@ -103,7 +103,7 @@
                         <!-- <span><img src="/images/icons/header-logo.svg" class="img-fluid"></span> <span  class="align-self-center"><span class="body-2 text-black mb-0">Damian</span><span class="small-text3 mb-0 text-black">Admin SC</span></span> -->
                      </a>
                      <ul class="dropdown-menu  admin-profile-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="/celebrant/profile"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a></li>
+                        <li><a class="dropdown-item" href="/profile"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a></li>
                       <li><a class="dropdown-item" href="#"><img src="/images/icons/logout.svg" class="img-fluid">Log out</a></li>
                      </ul>
                   </li>

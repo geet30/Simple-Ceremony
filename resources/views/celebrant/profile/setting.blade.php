@@ -100,7 +100,7 @@
                               <input type="password" value="************" class="form-control body-1 netural-100" name="name" id="InputName" required="">
                            </div>
                            <div class="col-md-12 mb-4">
-                              <a href="/celebrant/edit" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
+                              <a href="/edit" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
                               <img class="me-2" src="/images/admin/partner/edit.svg" alt="Edit">
                               Edit information
                               </a>

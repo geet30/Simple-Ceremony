@@ -3,7 +3,7 @@
       <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
          <div class="booking-process-bar d-flex align-items-center">
             <div class="align-self-center me-3">
-               <a href="./NoIM" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn "><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a  href="/user/NoIM" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn "><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="progress body-1 w-75 align-self-center">
                <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
