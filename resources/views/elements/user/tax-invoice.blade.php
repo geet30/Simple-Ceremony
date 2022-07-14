@@ -76,17 +76,19 @@
                                  <tbody>
                                     <tr style="border-bottom:1px solid #62CBC9;">
                                        <td style="min-width:30px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C; ">1</td>
-                                       <td style="min-width:400px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
+                                       <td style="min-width:250px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
                                        <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">$300</td>
                                        <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">1</td>
-                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">$300</td>
+                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$300</td>
                                     </tr>
                                  </tbody>
                                  <tfoot>
                                     <tr>
                                        <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;float: right;">Total :</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$ 153</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Total :</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$ 300</td>
                                     </tr>
                                  </tfoot>
                               </table>
