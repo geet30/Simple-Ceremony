@@ -1,0 +1,89 @@
+.note-alert {
+    background: #d6e3e4;
+    border-radius: 10px;
+    padding: 21px 43px;
+}
+.authorised-steps {
+    .steps {
+        background: $turquoise-20;
+        border: 1px solid $turquoise-50;
+        border-radius: 10px;
+        border-radius: 10px;
+        // padding: 30px 25px;
+        padding-top: 35px;
+        position: relative;
+        height: 100%;
+        top: 0;
+        transition: ease 0.7s;
+        .step-icon {
+            background: #ffffff;
+            box-shadow: 4px 10px 16px #4bbbb9;
+            border-radius: 10px;
+            height: 57px;
+            width: 57px;
+            position: relative;
+        }
+        .step-counter {
+            // position: absolute;
+            // left: 0;
+            background: $turquoise-100;
+            border-radius: 0px 10px 10px 0px;
+            padding: 8px 25px;
+        }
+        .step-description {
+            padding: 30px 35px 35px 35px;
+            ul {
+                li {
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: $neutral-100;
+                    margin-bottom: 10px;
+                    &:last-child {
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+.text-accents-red {
+    color: rgba(216, 25, 25, 1) !important;
+}
+.noim-step-counter {
+    background: $turquoise-100;
+    border-radius: 0px 10px 10px 0px;
+    padding: 13px 30px;
+}
+.haze-alert {
+    background: $haze-20;
+    border: 1px solid $haze-50;
+    border-radius: 10px;
+    padding: 32px 37px;
+    color: #1c1c1c;
+}
+.attach-document-box {
+    &.noim-document-box {
+        background: $turquoise-50 !important;
+        border: 1px dashed $turquoise-100 !important;
+        border-radius: 7px !important;
+        height: 112px !important;
+        width: 100%;
+        padding:0px !important;
+        .fileupload {
+            height: 112px !important;
+        }
+        .inner-content {
+            padding: 19px 25px;
+            .text-1 {
+                font-weight: 700;
+                font-size: 8px;
+                line-height: 9px;
+            }
+        }
+        .uploaded-content{
+            height: 112px !important;
+            align-items: center;
+        }
+    }
+}

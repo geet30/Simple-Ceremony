@@ -232,6 +232,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('NoIM', function () {
         return view('user.NoIM.view');
     });
+    Route::get('steps', function () {
+        return view('user.NoIM.steps');
+    });
 });
 
 $partnerRoutes = function() {
