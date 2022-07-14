@@ -110,8 +110,9 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 $adminRoutes = function() {
-    Route::get('/', function () {
-        return view('admin.login');
+    
+    Route::get('/login', function () {
+        return json_decode("klkjkjkl");
     });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);
@@ -144,30 +145,30 @@ $adminRoutes = function() {
         });
 
 
-    Route::get('all-partners', function () {
-        return view('admin.partner.all-partners');
+        Route::get('all-partners', function () {
+            return view('admin.partner.all-partners');
+        });
+        Route::get('add-new-partner', function () {
+            return view('admin.partner.add-new-partner');
+        });
+        Route::get('edit-package', function () {
+            return view('admin.partner.edit-package');
+        });
+        Route::get('partner-details', function () {
+            return view('admin.partner.partner-details');
+        });
+    
+        Route::get('sign-up', function () {
+            return view('admin.sign-up');
+        });
+        Route::get('password-reset', function () {
+            return view('admin.password-reset');
+        });
     });
-    Route::get('add-new-partner', function () {
-        return view('admin.partner.add-new-partner');
-    });
-    Route::get('edit-package', function () {
-        return view('admin.partner.edit-package');
-    });
-    Route::get('partner-details', function () {
-        return view('admin.partner.partner-details');
-    });
-   
-    Route::get('sign-up', function () {
-        return view('admin.sign-up');
-    });
-    Route::get('password-reset', function () {
-        return view('admin.password-reset');
-    });
-});
 
 };
 Route::group(['prefix' => 'user'], function () {
-    Route::get('login', function () {
+    Route::get('user', function () {
         return view('user.login');
     });
     Route::get('password-reset', function () {
@@ -235,7 +236,8 @@ Route::group(['prefix' => 'user'], function () {
     });
 });
 $partnerRoutes = function() {
-    Route::get('login', function () {
+    Route::get('/login', function () {
+
         return view('partner.login');
     });
     Route::group(['prefix' => 'partner'], function () {
