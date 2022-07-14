@@ -152,19 +152,53 @@
         }
     }
 }
-.calander-table{
-    thead{
-        tr{
-            th{
+.calander-table {
+    thead {
+        tr {
+            th {
                 border-bottom: none;
             }
         }
     }
-    tbody{
-        tr{
-            td{
+    tbody {
+        tr {
+            td {
                 border-bottom: none;
             }
+        }
+    }
+}
+.noim-card {
+    background: $white;
+    box-shadow: 0px 2px 16px #e8f9f7;
+    border-radius: 10px;
+    border: none;
+    padding: 30px 45px;
+    @include media-breakpoint-up(xl) {
+        padding: 62px 190px;
+    }
+    @include media-breakpoint-only(lg) {
+        padding: 62px 80px;
+    }
+    @include media-breakpoint-only(md) {
+        padding: 62px 62px;
+    }
+    @include media-breakpoint-only(sm) {
+        padding: 62px 30px;
+    }
+    .card-title {
+        padding-bottom: 35px;
+    }
+}
+.card-turquoise-noim{
+    background-color: $turquoise-20;
+    border:1px solid  $turquoise-50;
+    border-radius: 10px;
+    padding:0px !important;
+    .card-body{
+       padding: 53px 65px;
+         @include media-breakpoint-down(sm) {
+            padding:30px;
         }
     }
 }

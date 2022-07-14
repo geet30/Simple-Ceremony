@@ -59,6 +59,9 @@
 
 .neutral-100 {
     color: $neutral-100;
+    &:hover{
+        color: $neutral-100 !important;
+    }
 }
 
 .neutral-70 {
@@ -660,4 +663,9 @@
 }
 .profile-image{
     border-radius: 10px;
+}
+.w-md-25{
+    @include media-breakpoint-up(xl) {
+        width: 25%;
+    }
 }
