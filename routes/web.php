@@ -209,6 +209,15 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('documents', function () {
         return view('user.documents.lisiting');
     });
+    Route::get('signature', function () {
+        return view('user.documents.signature');
+    });
+    Route::get('edit-signature', function () {
+        return view('user.documents.edit-signature');
+    });
+    Route::get('NoIM', function () {
+        return view('user.NoIM.view');
+    });
 });
 $partnerRoutes = function() {
     Route::get('login', function () {
