@@ -1,0 +1,16 @@
+.overview-add-ons {
+  background: $turquoise-20;
+  border: 1px solid $turquoise-50;
+  border-radius: 10px;
+  padding: 10px;
+  .overview-add-ons-details {
+    background: $white;
+    border: 1px solid $turquoise-50;
+    border-radius: 10px;
+    padding: 13px 12px;
+    .thread {
+      border-radius: 6px;
+      padding: 8px 15px;
+  }
+}
+}
