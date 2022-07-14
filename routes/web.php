@@ -14,101 +14,101 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::get('/', function () {
-    return view('pages.home');
-});
-Route::get('location', function () {
-    return view('pages.location');
-});
-Route::get('single-location', function () {
-    return view('pages.single-location');
-});
-Route::get('request-custom-location', function () {
-    return view('pages.request-custom-location');
-});
-Route::get('book-custom-location', function () {
-    return view('pages.book-custom-location');
-});
-Route::get('book-your-location', function () {
-    return view('pages.book-your-location');
-});
-Route::get('voucher', function () {
-    return view('pages.voucher');
-});
-Route::get('voucher-details', function () {
-    return view('pages.voucher-details');
-});
-Route::get('contact-us', function () {
-    return view('pages.contact-us');
-});
-Route::get('how-it-works', function () {
-    return view('pages.how-it-works');
-});
-Route::get('team', function () {
-    return view('pages.team');
-});
-Route::get('team-detail', function () {
-    return view('pages.team-detail');
-});
-Route::get('faq', function () {
-    return view('pages.faq');
-});
-Route::get('married-checklist', function () {
-    return view('pages.married-checklist');
-});
-Route::get('add-ons', function () {
-    return view('pages.add-ons');
-});
-Route::get('why-sc', function () {
-    return view('pages.why-sc');
-});
-Route::get('your-ceremony', function () {
-    return view('pages.your-ceremony');
-});
-Route::get('sample-ceremony', function () {
-    return view('pages.sample-ceremony');
-});
-Route::get('marriage-certificate', function () {
-    return view('pages.marriage-certificate');
-});
-Route::get('complete-paperwork', function () {
-    return view('pages.complete-paperwork');
-});
-Route::get('add-ons-detail', function () {
-    return view('pages.add-ons-detail');
-});
-Route::get('add-ons-gallery', function () {
-    return view('pages.add-ons-gallery');
-});
-Route::get('term-and-condition', function () {
-    return view('pages.term-and-condition');
-});
-Route::get('authorised-person', function () {
-    return view('pages.authorised-person');
-});
-Route::get('current-restrictions', function () {
-    return view('pages.current-restrictions');
-});
-Route::get('shortening-of-time', function () {
-    return view('pages.shortening-of-time');
-});
-Route::get('reschedule-correction', function () {
-    return view('pages.reschedule-correction');
-});
-Route::get('advice-after-first-year', function () {
-    return view('pages.advice-after-first-year');
-});
-Route::get('quiz', function () {
-    return view('pages.quiz');
-});
-
-Route::group(['prefix' => 'user'], function () {
-    Route::get('index', function () {
-        return view('user.index');
+$websiteRoutes = function() {
+    Route::get('/', function () {
+        return view('pages.home');
     });
-});
+    Route::get('location', function () {
+        return view('pages.location');
+    });
+    Route::get('single-location', function () {
+        return view('pages.single-location');
+    });
+    Route::get('request-custom-location', function () {
+        return view('pages.request-custom-location');
+    });
+    Route::get('book-custom-location', function () {
+        return view('pages.book-custom-location');
+    });
+    Route::get('book-your-location', function () {
+        return view('pages.book-your-location');
+    });
+    Route::get('voucher', function () {
+        return view('pages.voucher');
+    });
+    Route::get('voucher-details', function () {
+        return view('pages.voucher-details');
+    });
+    Route::get('contact-us', function () {
+        return view('pages.contact-us');
+    });
+    Route::get('how-it-works', function () {
+        return view('pages.how-it-works');
+    });
+    Route::get('team', function () {
+        return view('pages.team');
+    });
+    Route::get('team-detail', function () {
+        return view('pages.team-detail');
+    });
+    Route::get('faq', function () {
+        return view('pages.faq');
+    });
+    Route::get('married-checklist', function () {
+        return view('pages.married-checklist');
+    });
+    Route::get('add-ons', function () {
+        return view('pages.add-ons');
+    });
+    Route::get('why-sc', function () {
+        return view('pages.why-sc');
+    });
+    Route::get('your-ceremony', function () {
+        return view('pages.your-ceremony');
+    });
+    Route::get('sample-ceremony', function () {
+        return view('pages.sample-ceremony');
+    });
+    Route::get('marriage-certificate', function () {
+        return view('pages.marriage-certificate');
+    });
+    Route::get('complete-paperwork', function () {
+        return view('pages.complete-paperwork');
+    });
+    Route::get('add-ons-detail', function () {
+        return view('pages.add-ons-detail');
+    });
+    Route::get('add-ons-gallery', function () {
+        return view('pages.add-ons-gallery');
+    });
+    Route::get('term-and-condition', function () {
+        return view('pages.term-and-condition');
+    });
+    Route::get('authorised-person', function () {
+        return view('pages.authorised-person');
+    });
+    Route::get('current-restrictions', function () {
+        return view('pages.current-restrictions');
+    });
+    Route::get('shortening-of-time', function () {
+        return view('pages.shortening-of-time');
+    });
+    Route::get('reschedule-correction', function () {
+        return view('pages.reschedule-correction');
+    });
+    Route::get('advice-after-first-year', function () {
+        return view('pages.advice-after-first-year');
+    });
+    Route::get('quiz', function () {
+        return view('pages.quiz');
+    });
 
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('index', function () {
+            return view('user.index');
+        });
+    });
+};
 $adminRoutes = function() {
     Route::get('/', function () {
         return view('admin.login');
@@ -142,28 +142,26 @@ $adminRoutes = function() {
         Route::get('admin-add-ons-details', function () {
             return view('admin.admin-add-ons-details');
         });
-
-
-    Route::get('all-partners', function () {
-        return view('admin.partner.all-partners');
+        Route::get('all-partners', function () {
+            return view('admin.partner.all-partners');
+        });
+        Route::get('add-new-partner', function () {
+            return view('admin.partner.add-new-partner');
+        });
+        Route::get('edit-package', function () {
+            return view('admin.partner.edit-package');
+        });
+        Route::get('partner-details', function () {
+            return view('admin.partner.partner-details');
+        });
+       
+        Route::get('sign-up', function () {
+            return view('admin.sign-up');
+        });
+        Route::get('password-reset', function () {
+            return view('admin.password-reset');
+        });
     });
-    Route::get('add-new-partner', function () {
-        return view('admin.partner.add-new-partner');
-    });
-    Route::get('edit-package', function () {
-        return view('admin.partner.edit-package');
-    });
-    Route::get('partner-details', function () {
-        return view('admin.partner.partner-details');
-    });
-   
-    Route::get('sign-up', function () {
-        return view('admin.sign-up');
-    });
-    Route::get('password-reset', function () {
-        return view('admin.password-reset');
-    });
-});
 
 };
 Route::group(['prefix' => 'user'], function () {
@@ -234,8 +232,9 @@ Route::group(['prefix' => 'user'], function () {
         return view('user.NoIM.view');
     });
 });
+
 $partnerRoutes = function() {
-    Route::get('login', function () {
+    Route::get('/', function () {
         return view('partner.login');
     });
     Route::group(['prefix' => 'partner'], function () {
@@ -374,6 +373,7 @@ $celebrantRoutes = function() {
 Route::group(array('domain' => env('PARTNER')), $partnerRoutes);
 Route::group(array('domain' => env('CELEBRANT')), $celebrantRoutes);
 Route::group(array('domain' => env('ADMIN')), $adminRoutes);
+Route::group(array('domain' => env('WEBSITE')), $websiteRoutes);
 Auth::routes();
 
 
