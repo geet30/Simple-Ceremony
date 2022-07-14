@@ -51,7 +51,7 @@
          <div class="row mb-3">
             <div class="col-12">
                <div class="d-flex align-items-center">
-                  <a class="theme-btn primary-btn d-inline-block mt-2 mb-2" href="./create-tax-invoice">
+                  <a class="theme-btn primary-btn d-inline-block mt-2 mb-2" href="/create-tax-invoice">
                   <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                   Create invoice
                   </a>

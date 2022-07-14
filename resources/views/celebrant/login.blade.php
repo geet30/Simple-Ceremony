@@ -49,7 +49,7 @@
                                        </div>
                                        <input type="hidden" name="route_name" value="admin-login">
                                        <div class="col-6 d-flex justify-content-end text-end">
-                                          <a class="small-text2 forgot-password-link" href="./password-reset">
+                                          <a class="small-text2 forgot-password-link" href="/password-reset">
                                           Forgot Your Password?
                                           </a>
                                        </div>

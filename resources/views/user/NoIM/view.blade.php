@@ -17,7 +17,7 @@
                      <h1 class="h3  netural-100 mb-3">Watch this video</h1>
                      <p class="body-3-medium neutral-100">for a summary of what's involved in completing your NoIM on-line & also have your signature witnessed on-line.</p>
                      <div class="d-lg-flex">
-                        <a href="./steps" class="theme-btn primary-btn d-flex me-lg-4 mb-3 mb-lg-0 justify-content-center">Start or update your NoIM</a>
+                        <a href="/user/steps" class="theme-btn primary-btn d-flex me-lg-4 mb-3 mb-lg-0 justify-content-center">Start or update your NoIM</a>
                         <a href="" class="theme-btn primary-btn-border  d-flex  justify-content-center">Read detail information</a>
                      </div>
                   </div>

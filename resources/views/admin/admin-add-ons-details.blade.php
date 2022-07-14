@@ -7,7 +7,7 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.panel-header')
-         <a href="./add-ons" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/add-ons" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
@@ -24,7 +24,7 @@
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         <a href="#" class="theme-btn primary-btn me-3">Confirm</a>
-                        <a href="/admin/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
+                        <a href="/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
                   </div>
                </section>
@@ -70,7 +70,7 @@
                                        <img src="/images/add-ons/add-ons-details/left.jpg" class="img-fluid  left-img "
                                           alt="add-ons-image ">
                                        <div class="all-pictures-btn">
-                                          <a href="/admin/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
+                                          <a href="/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
                                              <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                 alt="shopping-icon">
                                              See all pictures
@@ -154,7 +154,7 @@
                                        <img src="/images/add-ons/add-ons-details/package2/left.jpg" class="img-fluid  left-img "
                                           alt="add-ons-image ">
                                        <div class="all-pictures-btn">
-                                          <a href="/admin/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
+                                          <a href="/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
                                              <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                 alt="shopping-icon">
                                              See all pictures
@@ -235,7 +235,7 @@
                                        <img src="/images/add-ons/add-ons-details/package3/left.jpg" class="img-fluid  left-img "
                                           alt="add-ons-image ">
                                        <div class="all-pictures-btn">
-                                          <a href="/admin/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
+                                          <a href="/admin-add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
                                              <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                 alt="shopping-icon">
                                              See all pictures

@@ -9,7 +9,7 @@
       @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
-               <a href="/admin/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a href="/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
                <div class="card panel-card">

@@ -67,7 +67,7 @@
                            <div class="col-md-12 mb-4 sticky-footer text-start">
                               <div class="row">
                                  <div class="col-md-12">
-                                    <a href="./account-edit" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
+                                    <a href="/user/account-edit" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
                                     <img class="me-2" src="/images/admin/partner/edit.svg" alt="Edit">
                                     Edit information
                                     </a>

@@ -8,11 +8,6 @@
             <div class="numberCircle align-self-center">3</div>
             <h2 class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Details of parent's details</h2>
          </div>
-         <div class="ms-md-5 mt-3 mt-md-0 w-md-25">
-            <label for="InputName" class="form-label small-text2">Person 1 Preferred name</label>
-            <input type="text" value="Jeffy" class="form-control body-1 netural-100" name="name" id="InputName" required>
-            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Title is required</div>
-         </div>
       </div>
    </div>
    <div class="col-12 mt-4">

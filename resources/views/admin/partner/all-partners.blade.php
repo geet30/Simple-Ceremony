@@ -15,7 +15,7 @@
             </div>
          </div>
             <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-               <a class="theme-btn primary-btn d-flex justify-content-center" href="./add-new-partner">
+               <a class="theme-btn primary-btn d-flex justify-content-center" href="/add-new-partner">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add new partner
                </a>
@@ -39,7 +39,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Kate@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -48,7 +48,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Antony@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -57,7 +57,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Sarah@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -66,7 +66,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Simon@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -75,7 +75,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">William@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -84,7 +84,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Gary@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -93,7 +93,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Adam@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -102,7 +102,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Kim@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -111,7 +111,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Alan@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                   <tr>
@@ -120,7 +120,7 @@
                      <td  style="min-width:180px" class="body-2">+61 0909 090 090</td>
                      <td  style="min-width:180px" class="body-2">Wayne@gmail.com</td>
                      <td  style="min-width:180px">
-                        <a class="table-link body-2" href="./partner-details">View info</a>
+                        <a class="table-link body-2" href="/partner-details">View info</a>
                      </td>
                   </tr>
                </tbody>

@@ -217,7 +217,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -239,7 +239,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -261,7 +261,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -283,7 +283,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -305,7 +305,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -337,7 +337,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -359,7 +359,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -381,7 +381,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
@@ -403,7 +403,7 @@
                                  </button>
                                  <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="./availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
                                     <li><a class="dropdown-item" href="#">Approve</a></li>
                                     <li><a class="dropdown-item" href="#">Reject</a></li>
                                  </ul>
