@@ -111,6 +111,7 @@
                <span class="button-1 position-relative">Filter by categories</span>
                <div class="select-with-checkbox">
                   <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
+                     <optgroup label="Categories">
                      <option value="O1" data-badge="">All</option>
                      <option value="O2" data-badge="">Harbour</option>
                      <option value="O3" data-badge="">Beach</option>
@@ -119,6 +120,7 @@
                      <option value="O6" data-badge="">Outdoors</option>
                      <option value="O7" data-badge="">Indoors</option>
                      <option value="O7" data-badge="">Unique</option>
+                  </optgroup>
                   </select> 
                </div>
             </div>
