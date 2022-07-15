@@ -179,6 +179,9 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('index', function () {
         return view('user.overview.index');
     });
+    Route::get('order-add-ons', function () {
+        return view('user.overview.order-add-ons');
+    });
     Route::get('account-details', function () {
         return view('user.account.account-details');
     });
