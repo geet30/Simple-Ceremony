@@ -76,11 +76,11 @@
         padding: 26px;
     }
 }
+
 .card {
     &.card-login {
         background: $white;
-        box-shadow: 0px 10px 20px rgba(139, 152, 177, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.08),
-            0px 0px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 10px 20px rgba(139, 152, 177, 0.25), 0px 5px 10px rgba(0, 0, 0, 0.08), 0px 0px 2px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         .card-body {
             padding: 26px 36px;
@@ -93,7 +93,6 @@
                 line-height: 24px;
                 letter-spacing: 0.01em;
                 color: $gray-gray-900;
-
                 font-family: $inter-font;
                 &.mb-32 {
                     margin-bottom: 32px;
@@ -102,6 +101,7 @@
         }
     }
 }
+
 .panel-card {
     background: $white;
     box-shadow: 0px 2px 16px #e8f9f7;
@@ -115,6 +115,7 @@
         padding: 0px;
     }
 }
+
 .card {
     &.card-turquoise-20 {
         background: $turquoise-20;
@@ -152,6 +153,7 @@
         }
     }
 }
+
 .calander-table {
     thead {
         tr {
@@ -168,14 +170,15 @@
         }
     }
 }
+
 .noim-card {
     background: $white;
-    box-shadow: 0px 2px 16px #e8f9f7;
+    box-shadow: 0px 2px 16px #E8F9F7;
     border-radius: 10px;
     border: none;
     padding: 30px 45px;
     @include media-breakpoint-up(xl) {
-        padding: 62px 190px;
+        padding: 62px 110px;
     }
     @include media-breakpoint-only(lg) {
         padding: 62px 80px;
@@ -190,15 +193,16 @@
         padding-bottom: 35px;
     }
 }
-.card-turquoise-noim{
+
+.card-turquoise-noim {
     background-color: $turquoise-20;
-    border:1px solid  $turquoise-50;
+    border: 1px solid $turquoise-50;
     border-radius: 10px;
-    padding:0px !important;
-    .card-body{
-       padding: 53px 65px;
-         @include media-breakpoint-down(sm) {
-            padding:30px;
+    padding: 0px !important;
+    .card-body {
+        padding: 53px;
+        @include media-breakpoint-down(sm) {
+            padding: 30px;
         }
     }
 }

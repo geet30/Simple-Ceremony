@@ -1,6 +1,6 @@
 .turquoise-100 {
     color: $turquoise-100;
-    &:hover{
+    &:hover {
         color: $turquoise-100;
     }
 }
@@ -59,7 +59,7 @@
 
 .neutral-100 {
     color: $neutral-100;
-    &:hover{
+    &:hover {
         color: $neutral-100 !important;
     }
 }
@@ -396,6 +396,7 @@
         margin-top: 10px !important;
     }
 }
+
 .status {
     font-weight: 700;
     font-size: 14px;
@@ -475,10 +476,12 @@
         }
     }
 }
+
 .theme-avtar {
     width: 28.57px;
     height: 28.57px;
 }
+
 .theme-tag-blue {
     padding: 6px;
     font-weight: 700;
@@ -495,20 +498,24 @@
         padding-right: 6px;
     }
 }
+
 .mb-11 {
     margin-bottom: 11px;
 }
+
 .pt-30 {
     padding-top: 30px;
 }
+
 .mb-60 {
     margin-bottom: 60px;
 }
+
 // .share-content-up{
 //     padding-top: 20px; 
 // }
 .share-content {
-    margin-top: 20px; 
+    margin-top: 20px;
     position: absolute;
     z-index: 99;
     background: #F7FCFC;
@@ -543,6 +550,7 @@
         }
     }
 }
+
 .share-icon {
     &:hover {
         .share-content {
@@ -550,12 +558,15 @@
         }
     }
 }
+
 .pb-32 {
     padding-bottom: 32px;
 }
+
 .pt-32 {
     padding-top: 32px;
 }
+
 .pt-20 {
     padding-top: 20px;
 }
@@ -604,67 +615,87 @@
         }
     }
 }
+
 .py-31 {
     padding-top: 31px;
     padding-bottom: 31px;
 }
+
 .w-97 {
     width: 97%;
 }
+
 .ps-05 {
     padding-left: 0.5rem !important;
 }
+
 .pt-31 {
     padding-top: 31px;
 }
-.border-turquoise-50{
-    border:1px solid $turquoise-50;
+
+.border-turquoise-50 {
+    border: 1px solid $turquoise-50;
 }
-.br-10{
+
+.br-10 {
     border-radius: 10px;
 }
-.pt-52{
+
+.pt-52 {
     padding-top: 52px;
 }
+
 .pb-31 {
     padding-bottom: 31px;
 }
-.gray-500{
-    color:$gray-500
+
+.gray-500 {
+    color: $gray-500
 }
-.mb-47{
+
+.mb-47 {
     margin-bottom: 47px;
 }
-.color-green{
-    color:#3AA03A;
+
+.color-green {
+    color: #3AA03A;
 }
-.color-red{
-    color:#FF4545;
+
+.color-red {
+    color: #FF4545;
 }
-.h-40{
+
+.h-40 {
     height: 40px;
 }
-.dot-status{
+
+.dot-status {
     height: 25px;
     width: 25px;
     border-radius: 50%;
     display: inline-block;
 }
+
 .bg-neutral-50 {
     background-color: $neutral-50;
 }
-.no-border-calander{
-    .calendar-box{
-        border: none;;
+
+.no-border-calander {
+    .calendar-box {
+        border: none;
+        ;
     }
 }
-.dark-blue-100{
-    color:$dark-blue-100;
+
+.dark-blue-100 {
+    color: $dark-blue-100;
 }
-.profile-image{
+
+.profile-image {
     border-radius: 10px;
 }
-.w-md-25{
+
+.w-md-25 {
     @include media-breakpoint-up(xl) {
         width: 25%;
     }

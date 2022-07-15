@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row pt-4">
    <div class="col-12">
       <div class="d-md-flex w-100">
          <div class="d-flex add-ons-detail ">
@@ -114,7 +114,7 @@
          <div class="col-12 mb-4">
             <div class="form-check">
                <input class="form-check-input" type="checkbox" name="remember4" id="remember4" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember4">
+               <label class="form-check-label text-black small-text2" for="remember4">
                Does this name exactly match with your passport or drivers licence? 
                </label>
             </div>
@@ -178,8 +178,8 @@
             </select>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
-            <label for="birthplace" class="form-label small-text2">Birth place</label>
-            <select name="birthplace" id="birthplace" class="js-placeholder-single-input form-control">
+            <label for="birthplace4" class="form-label small-text2">Birth place</label>
+            <select name="birthplace4" id="birthplace4" class="js-placeholder-single-input form-control">
                <option value="0" >Select country here</option>
                <option value="1" selected="">Australia</option>
                <option value="2">Add other country names here</option>
@@ -213,8 +213,8 @@
             </select>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
-            <label for="birthplace" class="form-label small-text2">State/territory</label>
-            <select name="birthplace" id="birthplace" class="js-placeholder-single-input form-control">
+            <label for="birthplace3" class="form-label small-text2">State/territory</label>
+            <select name="birthplace3" id="birthplace3" class="js-placeholder-single-input form-control">
                <option value="0" >Select your state/territory here</option>
                <option value="1" >NSW</option>
                <option value="2">VIC</option>
@@ -243,10 +243,10 @@
             <label for="description" class="form-label small-text2">How are they related </label>
             <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
-         <div class="col-12 mb-4">
+         <div class="col-12 ">
             <div class="form-check">
                <input class="form-check-input" type="checkbox" name="remember7" id="remember7" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember7">
+               <label class="form-check-label text-black small-text2 " for="remember7">
                Have you uploaded the above documents to this site & checked all data entered is identical to these documents?
                </label>
             </div>
