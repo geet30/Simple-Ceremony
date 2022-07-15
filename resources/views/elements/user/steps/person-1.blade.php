@@ -107,7 +107,7 @@
          <div class="col-12 mb-4">
             <div class="form-check">
                <input class="form-check-input" type="checkbox" name="remember3" id="remember3" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember3">
+               <label class="form-check-label text-black small-text2" for="remember3">
                Does this name exactly match with your passport or drivers licence? 
                </label>
             </div>
@@ -171,8 +171,8 @@
             </select>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
-            <label for="birthplace" class="form-label small-text2">Birth place</label>
-            <select name="birthplace" id="birthplace" class="js-placeholder-single-input form-control">
+            <label for="birthplace2" class="form-label small-text2">Birth place</label>
+            <select name="birthplace2" id="birthplace2" class="js-placeholder-single-input form-control">
                <option value="0" >Select country here</option>
                <option value="1" selected="">Australia</option>
                <option value="2">Add other country names here</option>
@@ -206,8 +206,8 @@
             </select>
          </div>
          <div class="col-md-6 mb-4 align-self-top">
-            <label for="birthplace" class="form-label small-text2">State/territory</label>
-            <select name="birthplace" id="birthplace" class="js-placeholder-single-input form-control">
+            <label for="birthplace1" class="form-label small-text2">State/territory</label>
+            <select name="birthplace1" id="birthplace1" class="js-placeholder-single-input form-control">
                <option value="0" >Select your state/territory here</option>
                <option value="1" >NSW</option>
                <option value="2">VIC</option>
@@ -236,10 +236,10 @@
             <label for="description" class="form-label small-text2">How are they related </label>
             <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="description" required>
          </div>
-         <div class="col-12 mb-4">
+         <div class="col-12 ">
             <div class="form-check">
                <input class="form-check-input" type="checkbox" name="remember2" id="remember2" autocomplete="off">
-               <label class="form-check-label text-black small-text2 mt-2" for="remember2">
+               <label class="form-check-label text-black small-text2" for="remember2">
                Have you uploaded the above documents to this site & checked all data entered is identical to these documents?
                </label>
             </div>

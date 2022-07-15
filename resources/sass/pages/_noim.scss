@@ -3,6 +3,7 @@
     border-radius: 10px;
     padding: 21px 43px;
 }
+
 .authorised-steps {
     .steps {
         background: $turquoise-20;
@@ -47,14 +48,17 @@
         }
     }
 }
+
 .text-accents-red {
     color: rgba(216, 25, 25, 1) !important;
 }
+
 .noim-step-counter {
     background: $turquoise-100;
     border-radius: 0px 10px 10px 0px;
     padding: 13px 30px;
 }
+
 .haze-alert {
     background: $haze-20;
     border: 1px solid $haze-50;
@@ -62,6 +66,7 @@
     padding: 32px 37px;
     color: #1c1c1c;
 }
+
 .attach-document-box {
     &.noim-document-box {
         background: $turquoise-50 !important;
@@ -69,7 +74,7 @@
         border-radius: 7px !important;
         height: 112px !important;
         width: 100%;
-        padding:0px !important;
+        padding: 0px !important;
         .fileupload {
             height: 112px !important;
         }
@@ -81,9 +86,16 @@
                 line-height: 9px;
             }
         }
-        .uploaded-content{
+        .uploaded-content {
             height: 112px !important;
             align-items: center;
         }
     }
+}
+
+.haze-50-alert {
+    background: $haze-50;
+    border-radius: 10px;
+    padding: 34px 22px;
+    color: $neutral-100;
 }
