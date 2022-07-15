@@ -2,11 +2,12 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-2 col-md-3 col-lg-2 p-0">
-         @include('elements.partner-sidebar')
+
+      <div class="col-2 col-md-3 col-lg-2 px-0">
+         @include('elements.user-sidebar')
       </div>
-      <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.partner-panel-header')
+      <div class="col-10 col-md-9 col-lg-10 px-4">
+         @include('elements.user-header')
          <div class="card panel-card mt-4">
             <div class="card-body">
                <h1 class="h4 netural-100 mb-4">My account</h1>

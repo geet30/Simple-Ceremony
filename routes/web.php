@@ -122,6 +122,15 @@ $websiteRoutes = function() {
         Route::get('index', function () {
             return view('user.overview.index');
         });
+        Route::get('order-add-ons', function () {
+            return view('user.overview.order-add-ons');
+        });
+        Route::get('add-ons-gallery', function () {
+            return view('user.overview.add-ons-gallery');
+        });
+        Route::get('order-add-ons-details', function () {
+            return view('user.overview.order-add-ons-details');
+        });
         Route::get('account-details', function () {
             return view('user.account.account-details');
         });
@@ -256,11 +265,6 @@ $partnerRoutes = function() {
     Route::get('all-partners', function () {
         return view('partner.all-partners');
     });
-
-    Route::get('order-add-ons', function () {
-        return view('user.overview.order-add-ons');
-    });
-
     Route::get('account-details', function () {
         return view('user.account.account-details');
     });
