@@ -260,9 +260,10 @@ $partnerRoutes = function() {
     Route::get('order-add-ons', function () {
         return view('user.overview.order-add-ons');
     });
+
     Route::get('account-details', function () {
         return view('user.account.account-details');
-
+    });
     Route::get('add-new-partner', function () {
         return view('partner.add-new-partner');
 
