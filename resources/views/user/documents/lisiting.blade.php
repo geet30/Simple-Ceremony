@@ -10,7 +10,7 @@
          <div class="card panel-card ">
             <div class="card-body">
                <div class="row">
-                  <div class="col-md-12 text-md-end"> <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="./create">
+                  <div class="col-md-12 text-md-end"> <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="/user/create">
                      <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
                      Edit
                      </a>
@@ -22,7 +22,7 @@
                               <div class="uploaded-content ">
                                  <p id="filename" class="h4 neutral-100 mb-3">Notice of Intended Marriage form.pdf</p>
                                  <div>
-                                    <a class="me-2" href="./signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                    <a class="me-2" href="/user/signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                     <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                                  </div>
                               </div>
@@ -34,7 +34,7 @@
                               <div class="uploaded-content">
                                  <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of Marriage</p>
                                  <div>
-                                    <a class="me-2" href="./signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                    <a class="me-2" href="/user/signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                     <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                                  </div>
                               </div>
@@ -46,7 +46,7 @@
                               <div class="uploaded-content ">
                                  <p id="filename" class="h4 neutral-100 mb-3">Declaration of No legal Impediment</p>
                                  <div>
-                                    <a class="me-2" href="./signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                    <a class="me-2" href="/user/signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                     <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                                  </div>
                               </div>
@@ -58,7 +58,7 @@
                               <div class="uploaded-content ">
                                  <p id="filename" class="h4 neutral-100 mb-3">Certificate of Faithful performance of Interpreter</p>
                                  <div>
-                                    <a class="me-2" href="./signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                    <a class="me-2" href="/user/signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                     <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                                  </div>
                               </div>
@@ -70,7 +70,7 @@
                               <div class="uploaded-content">
                                  <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of Marriage</p>
                                  <div>
-                                    <a class="me-2" href="./signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                    <a class="me-2" href="/user/signature"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                     <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                                  </div>
                               </div>

@@ -58,7 +58,7 @@
                      <div class="col-md-12 mb-4">
                         <label for="InputName" class="form-label small-text2">First Name *</label>
                         <input type="text" placeholder="Type your first name here" class="form-control body-1 netural-100" name="name" id="InputName" required="">
-                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Preferred names is required</div>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Name is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
                         <label for="phone" class="form-label small-text2">Phone number *</label>

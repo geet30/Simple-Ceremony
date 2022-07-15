@@ -12,7 +12,7 @@
          </div>
        
          <div class="d-lg-flex mt-5">
-            <a href="./activity-history" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Send </a>
+            <a href="/user/activity-history" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Send </a>
          </div>
       </form>
    </div>

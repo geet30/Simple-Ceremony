@@ -3,14 +3,14 @@
    <div class="notes">
       <div class="d-flex justify-content-between">
          <div class="align-self-center">
-            <h2 class="mb-0"><a href="./detail" class="h4 neutral-100 text-decoration-none"> {{ $note['title'] }}</a></h2>
+            <h2 class="mb-0"><a href="/user/detail" class="h4 neutral-100 text-decoration-none"> {{ $note['title'] }}</a></h2>
          </div>
          <div class="dropdown align-self-center info-dropdown">
             <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="/images/icons/three-dots.svg" class="img-fluid" alt="dropdown-icon">
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-               <li><a class="dropdown-item" href="./edit">Edit</a></li>
+               <li><a class="dropdown-item" href="/user/edit">Edit</a></li>
                <li><a class="dropdown-item" href="#">Delete</a></li>
             </ul>
          </div>

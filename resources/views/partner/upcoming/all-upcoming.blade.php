@@ -104,7 +104,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -125,7 +125,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -144,7 +144,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -164,7 +164,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -183,7 +183,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -205,7 +205,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#edit_note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -224,7 +224,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -244,7 +244,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -263,7 +263,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -283,7 +283,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                        </tbody>
@@ -340,7 +340,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -359,7 +359,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -378,7 +378,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -398,7 +398,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -417,7 +417,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -437,7 +437,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -456,7 +456,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -476,7 +476,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -495,7 +495,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -515,7 +515,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                        </tbody>
@@ -572,7 +572,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -591,7 +591,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -612,7 +612,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -634,7 +634,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#edit_note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -653,7 +653,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -675,7 +675,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -694,7 +694,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -716,7 +716,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#edit_note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -737,7 +737,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -759,7 +759,7 @@
                                 <a class="table-link" data-bs-toggle="modal" data-bs-target="#note">Note</a>
                             </td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                        </tbody>
@@ -816,7 +816,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -835,7 +835,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -854,7 +854,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -874,7 +874,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -893,7 +893,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -913,7 +913,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -932,7 +932,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -952,7 +952,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -971,7 +971,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                         <tr>
@@ -991,7 +991,7 @@
                             </td>
                             <td style="min-width:100px;"></td>
                             <td style="min-width:180px;">
-                                <a href="./order-details" class="table-link">View info</a>
+                                <a href="/order-details" class="table-link">View info</a>
                             </td>
                         </tr>
                        </tbody>

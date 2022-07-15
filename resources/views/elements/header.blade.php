@@ -28,7 +28,7 @@
             <span class="cart-item-counting">3</span>
           </a>
           <a href="/location" class="theme-btn primary-btn w-full w-lg-auto me-lg-4 mb-3 mb-lg-0">Make a booking</a>
-          <a href="#" class="theme-btn primary-btn-border w-full w-lg-auto">Login</a>
+          <a href="/login" class="theme-btn primary-btn-border w-full w-lg-auto">Login</a>
         </div>
       </div>
     </div>

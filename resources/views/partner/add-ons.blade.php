@@ -7,7 +7,7 @@
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
             @include('elements.partner-panel-header')
-            <a class="theme-btn primary-btn d-inline-block mb-4" href="/partner/add-new-package">
+            <a class="theme-btn primary-btn d-inline-block mb-4" href="/add-new-package">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add new packages
             </a>
@@ -17,7 +17,7 @@
                      <div class="col-md-12 col-lg-12 col-xl-10 col-xxl-9">
                         <div class="row partners-details">
                            <div class="col-sm-6 col-md-6 col-lg-4 mb-5">
-                              <a href="./package-details" class="text-decoration-none">
+                              <a href="/package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/v5.png" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -28,7 +28,7 @@
                               </a>
                            </div>
                            <div class="col-sm-6 col-md-6 col-lg-4 mb-5">
-                              <a href="./package-details" class="text-decoration-none">
+                              <a href="/package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/package2/right-2.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -40,7 +40,7 @@
                               </a>
                            </div>
                            <div class="col-sm-6 col-md-6 col-lg-4 mb-5">
-                              <a href="./package-details" class="text-decoration-none">
+                              <a href="/package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/left.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -52,7 +52,7 @@
                               </a>
                            </div>
                            <div class="col-sm-6 col-md-6 col-lg-4 mb-5">
-                              <a href="./package-details" class="text-decoration-none">
+                              <a href="/package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/left.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">

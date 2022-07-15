@@ -1,0 +1,86 @@
+.overview-add-ons {
+  background: $turquoise-20;
+  border: 1px solid $turquoise-50;
+  border-radius: 10px;
+  padding: 10px;
+  .overview-add-ons-details {
+    background: $white;
+    border: 1px solid $turquoise-50;
+    border-radius: 10px;
+    padding: 13px 12px;
+    .thread {
+      border-radius: 6px;
+      padding: 8px 15px;
+  }
+}
+}
+.booking-process-ul {
+  li{
+    .step-point {
+      position: relative;
+      &::after{
+        content: "";
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        top: 7px;
+        transform: translateX(50%);
+        border-radius: 50%;
+        background: #62CBC9;
+        border: 1px #62CBC9 solid;
+        width: 11px;
+        height: 11px;
+      }
+    }
+    .steps-information {
+      position: relative;
+      width: 100%;
+      .steps-information-details {
+        padding-left: 30px;
+        padding-bottom: 25px;
+        span {
+          font-weight: 600;
+          font-size: 17px;
+          line-height: 24px;
+          color: #707070;
+        }
+        &::before{
+          content: "";
+          position: absolute;
+          z-index: 1;
+          top: 7px;
+          left: 0;
+          height: 100%;
+          border-left: 1px #62CBC9 solid;
+        }
+      }
+    }
+    &.active{
+      .steps-information-details {
+        span {
+          color: #1C1C1C;
+        }
+      }
+    }
+    &:last-child{
+      .steps-information-details::before{
+          display: none;
+      }
+    }
+  }
+}
+.create-invitation {
+  padding: 60px 50px;
+  background: #F7FCFC;
+  border: 1px solid #E2F3F2;
+  border-radius: 10px;
+  max-width: 350px;
+  img {
+    width: 100px;
+    margin: 0 auto 30px auto;
+  }
+  .theme-btn {
+    width: 200px;
+    margin: 0 auto;
+  }
+}

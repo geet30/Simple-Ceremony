@@ -7,7 +7,7 @@
         </div>
         <div class="col-10 col-md-9 col-lg-10 px-4">
             @include('elements.panel-header')
-            <a href="./all-partners" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+            <a href="/all-partners" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             <div class="card panel-card">
                <div class="card-body">
                   <h1 class="h3 netural-100 mb-4">Partner details </h1>
@@ -173,7 +173,7 @@
                                           <div class="col-md-6">
                                           </div>
                                           <div class="col-md-5">
-                                             <a href="/admin/edit-package" class="theme-btn primary-btn justify-content-center">
+                                             <a href="/edit-package" class="theme-btn primary-btn justify-content-center">
                                                 <img class="me-2" src="/images/admin/partner/edit.svg" alt="Edit">
                                                 Edit information
                                              </a>

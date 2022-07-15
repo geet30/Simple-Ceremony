@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
          @include('elements.partner-panel-header')
-         <a href="./all-upcoming" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/all-upcoming" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
@@ -42,7 +42,7 @@
                      <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
                         <label class="form-label small-text2 d-none d-md-block"></label>
                         <div class="d-flex">
-                           <a href="./order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-ons</a>
+                           <a href="/order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-ons</a>
                            <span class="thread-notificaton small-text1 p-1 px-3 d-inline-block text-decoration-none mb-0 ms-3">You got new thread!</span>
                         </div>
                      </div>
@@ -59,7 +59,7 @@
                      <div class="col-md-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
                         <label class="form-label small-text2 d-none d-md-block"></label>
                         <div class="d-flex">
-                           <a href="./order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-ons</a>
+                           <a href="/order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-ons</a>
                         </div>
                      </div>
                   </div>

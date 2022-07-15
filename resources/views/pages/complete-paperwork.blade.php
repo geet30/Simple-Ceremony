@@ -1,6 +1,5 @@
 @extends('layouts.master') @section('content')
 
-
 <section class="niom pt-50 pb-100">
    <div class="container">
       <div class="row">

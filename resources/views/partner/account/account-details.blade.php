@@ -145,7 +145,7 @@
                                  <div class="col-md-6">
                                  </div>
                                  <div class="col-md-6">
-                                    <a href="./account-edit" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
+                                    <a href="/account-edit" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
                                     <img class="me-2" src="/images/admin/partner/edit.svg" alt="Edit">
                                     Edit information
                                     </a>
