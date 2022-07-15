@@ -9,7 +9,7 @@
 @include('elements.panel-header')
    <div class="row">
       <div class="col-12 mb-30">
-         <a href="/admin/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
       </div>
       <div class="col-12 mb-30">
          <div class="row">
@@ -24,7 +24,7 @@
                </ul>
             </div>
             <div class="col-lg-4 col-xl-3 editinformation d-block">
-               <a href="/admin/edit-location" class="theme-btn primary-btn d-flex justify-content-center ">
+               <a href="/edit-location" class="theme-btn primary-btn d-flex justify-content-center ">
                <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
                Edit information
                </a>

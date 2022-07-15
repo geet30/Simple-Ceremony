@@ -1,7 +1,7 @@
 @foreach ($locations as $location)
 
          <div class="col-md-6 col-lg-4 col-xl-3 mb-2">
-            <a class="card image-card admin-location-card" href="/admin/single">
+            <a class="card image-card admin-location-card" href="/single">
                <img src="{{ $location['image'] }}" class="card-img-top img-fluid" alt="location-1">
                <div class="card-body py-20">
                   <p class="paragraph netural-100 align-self-center mb-1">{{ $location['price'] }}</p> 

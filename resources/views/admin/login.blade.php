@@ -49,7 +49,7 @@
                                        </div>
                                        <input type="hidden" name="route_name" value="admin-login">
                                        <div class="col-6 d-flex justify-content-end text-end">
-                                          <a class="small-text2 forgot-password-link" href="./password-reset">
+                                          <a class="small-text2 forgot-password-link" href="/password-reset">
                                           Forgot Your Password?
                                           </a>
                                        </div>
@@ -58,10 +58,10 @@
                                  <div class="col-lg-12">
                                     <div class="row">
                                        <div class="col-6">
-                                          <a href="/admin/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
+                                          <a href="/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
                                        </div>
                                        <div class="col-6">
-                                          <a  href="/admin/locations" class="d-flex justify-content-center primary-btn theme-btn w-100">
+                                          <a  href="/locations" class="d-flex justify-content-center primary-btn theme-btn w-100">
                                           Login
 </a>
                                        </div>

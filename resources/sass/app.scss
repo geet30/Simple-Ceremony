@@ -22,6 +22,8 @@ body {
 .poppin-font {
     font-family: 'Poppins', sans-serif;
 }
-// ::placeholder {
-//     color: #aaa !important;
-// }
+.form-control::placeholder {
+    color: $gray-500;
+    opacity: 1;
+    font-weight: 400;
+}

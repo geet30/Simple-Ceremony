@@ -15,7 +15,7 @@
                         <img src="/images/admin/partner/create-notes.svg" alt="Create Notes" class="img-fluid">
                     </div>
                     <div class="col-12 text-center">
-                        <a class="theme-btn primary-btn d-inline-block mt-5 mb-2" href="./create-tax-invoice" data-bs-toggle="offcanvas" data-bs-target="#partner_create_note_sidebar">
+                        <a class="theme-btn primary-btn d-inline-block mt-5 mb-2" href="/create-tax-invoice" data-bs-toggle="offcanvas" data-bs-target="#partner_create_note_sidebar">
                             <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                             Create notes
                         </a>

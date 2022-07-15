@@ -49,7 +49,7 @@
                                        </div>
                                        <input type="hidden" name="route_name" value="admin-login">
                                        <div class="col-6 d-flex justify-content-end text-end">
-                                          <a class="small-text2 forgot-password-link" href="./password-reset">
+                                          <a class="small-text2 forgot-password-link" href="/user/password-reset">
                                           Forgot Your Password?
                                           </a>
                                        </div>
@@ -61,7 +61,7 @@
                                           {{-- <button type="submit" class="theme-btn primary-btn w-100">
                                           Login
                                           </button> --}}
-                                          <a href="./index" class="theme-btn primary-btn w-100 d-block">
+                                          <a href="/user/index" class="theme-btn primary-btn w-100 d-block">
                                           Login
                                           </a>
                                        </div>
@@ -69,7 +69,7 @@
                                  </div>
                                  <div class="col-lg-12">
                                     <p class="body-3-regular mt-4">Have you made an order and payment but don't have a password?</p>
-                                    <a class="small-text2 forgot-password-link" href="./create-password">
+                                    <a class="small-text2 forgot-password-link" href="/user/create-password">
                                         Create a password
                                     </a>
                                  </div>

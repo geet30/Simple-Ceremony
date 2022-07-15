@@ -21,7 +21,7 @@
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Title is required</div>
          </div>
          <div class="d-lg-flex mt-5">
-            <a href="./lisiting" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Create </a>
+            <a href="/user/lisiting" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Create </a>
          </div>
       </form>
    </div>

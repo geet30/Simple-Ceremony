@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
          @include('elements.partner-panel-header')
-         <a href="./all-invoices" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/all-invoices" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">

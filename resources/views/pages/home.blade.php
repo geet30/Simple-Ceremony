@@ -18,7 +18,7 @@
    <div class="container">
       <div class="row">
          <div class="col-12">
-            <h2 class="h3 text-white text-center mb-0">Incredibly simple, simply incredible</h2>
+            <h2 class="h3 text-white text-center mb-0 font-weight-600">Incredibly simple, simply incredible</h2>
          </div>
       </div>
    </div>
@@ -81,7 +81,7 @@
       <div class="row">
          <div class="col-12  col-lg-9 col-xxl-6">
             <h2 class="pb-80 ">
-               <p class="paragraph netural-100 mb-0">Book your marriage ceremony</p>
+               <p class="paragraph netural-100 mb-0 font-weight-300">Book your marriage ceremony</p>
                <p class="h2 netural-100 mb-0">Slide down for locations & their available dates</p>
             </h2>
          </div>

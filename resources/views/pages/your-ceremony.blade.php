@@ -213,7 +213,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-12">
-            <h2 class="h2 mb-75 neutral-100 text-center">On arrival at your wedding ceremony</h2>
+            <h2 class="h2 mb-75 neutral-100 text-center">After your Ceremony</h2>
          </div>
          <div class="col-lg-4 mb-4">
             <div class="steps">

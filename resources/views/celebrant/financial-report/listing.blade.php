@@ -86,7 +86,7 @@
                      <tbody>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Bradfield Park</a>
+                              <a href="/location" role="button" class="table-link">Bradfield Park</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$248,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$242,492</td>
@@ -98,7 +98,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Tench Park</a>
+                              <a href="/location" role="button" class="table-link">Tench Park</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$212,669</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$209,492</td>
@@ -110,7 +110,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Blues Point Reserve</a>
+                              <a href="/location" role="button" class="table-link">Blues Point Reserve</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$258,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$242,492</td>
@@ -122,7 +122,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Hunter Valley</a>
+                              <a href="/location" role="button" class="table-link">Hunter Valley</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$148,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$144,492</td>
@@ -134,7 +134,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Baulkham Hills</a>
+                              <a href="/location" role="button" class="table-link">Baulkham Hills</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$168,498</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$168,492</td>
@@ -146,7 +146,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Mort Bay - Balmain</a>
+                              <a href="/location" role="button" class="table-link">Mort Bay - Balmain</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$328,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$320,492</td>
@@ -158,7 +158,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Merewether - Newca...</a>
+                              <a href="/location" role="button" class="table-link">Merewether - Newca...</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$248,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$242,492</td>
@@ -170,7 +170,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Bondi Beach</a>
+                              <a href="/location" role="button" class="table-link">Bondi Beach</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$258,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$242,492</td>
@@ -182,7 +182,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Little vintage</a>
+                              <a href="/location" role="button" class="table-link">Little vintage</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$148,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$144,492</td>
@@ -194,7 +194,7 @@
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100" style="min-width:250px;">
-                              <a href="/celebrant/location" role="button" class="table-link">Hunter valley</a>
+                              <a href="/location" role="button" class="table-link">Hunter valley</a>
                            </td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$248,492</td>
                            <td class="body-2 neutral-100" style="min-width:150px;">$242,492</td>
