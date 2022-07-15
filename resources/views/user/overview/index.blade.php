@@ -14,7 +14,7 @@
                      <h3 class="h3 neutral-100 mb-md-4">Detail order</h3>
                      <div class="row">
                         <div class="col-md-12 col-lg-6 mb-4 mb-md-0 mb-lg-4">
-                           <label class="form-label small-text2">Wedding location <a href="#" class="ms-2 button-3 turquoise-100">See information</a></label>
+                           <label class="form-label small-text2">Wedding location <a href="/user/order-add-ons-details" class="ms-2 button-3 turquoise-100">See information</a></label>
                            <input type="text" value="Booking" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 col-lg-6 mb-4">
@@ -230,7 +230,7 @@
                         </ul>
                      </div>
                      <div class="create-invitation d-flex flex-column">
-                        <img src="/images/admin/user/create-invitation.svg" alt="Create invitation">
+                        <img src="/images/user/create-invitation.svg" alt="Create invitation">
                         <a role="button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0 w-100">Create invitation</a>
                      </div>
                   </div>

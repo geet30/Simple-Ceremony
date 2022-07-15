@@ -128,6 +128,9 @@ $websiteRoutes = function() {
         Route::get('add-ons-gallery', function () {
             return view('user.overview.add-ons-gallery');
         });
+        Route::get('order-add-ons-details', function () {
+            return view('user.overview.order-add-ons-details');
+        });
         Route::get('account-details', function () {
             return view('user.account.account-details');
         });

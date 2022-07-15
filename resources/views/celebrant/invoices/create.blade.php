@@ -145,7 +145,8 @@
                   <div class="row align-items-center sticky-footer">
                      <div class="col-12">
                         <div class="d-flex flex-column flex-lg-row">
-                           <button type="submit" id="submit_button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-lg-0 border-0">Create invoice</button>
+                           {{-- <button type="submit" id="submit_button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-lg-0 border-0">Create invoice</button> --}}
+                           <a href="/invoices" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-lg-0 border-0">Create invoice</a>
                            <a role="button" id="add_more-package" class="theme-btn primary-btn-border d-flex pe-auto justify-content-center">Save as draft</a>
                         </div>
                      </div>
