@@ -1,10 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
     <div class="row">
         <div class="col-2 col-md-3 col-lg-2 px-0">
             @include('elements.admin-sidebar')
         </div>
+       
         <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.panel-header')
          <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
@@ -75,7 +76,9 @@
             <div class="col-lg-4 col-xl-3">
                <div class="form-group has-search w-100 position-relative">
                   <span class="fa fa-search form-control-feedback"></span>
-                  <input type="text" class="form-control" placeholder="Search add-ons">
+                 
+                  <input type="text" class="form-control" onkeyup="SearchRecords('search-addon',this.value)" placeholder="Search add-ons">
+                 
                </div>
             </div>
          </div>
@@ -984,55 +987,25 @@
                <a href="#" class="theme-btn primary-btn d-inline-block mb-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasaddons" aria-controls="offcanvasaddons"><img class="me-2" src="/images/admin/add-ons/white-plus.svg" alt="Add">Create new add-ons</a>
                <div class="card panel-card">
                   <div class="card-body">
-                     <ul class="add-on-setting-ul list-unstyled p-0 m-0">
-                        <li class="d-flex flex-wrap mb-4">
-                           <label class="small-text2">Add-on 1</label>
-                           <span class="body-1 neutral-100 me-4 mb-3">Chair & decoration</span>
-                           <div class="d-flex">
-                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
-                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
-                           </div>
-                        </li>
-                        <li class="d-flex flex-wrap mb-4">
-                           <label class="small-text2">Add-on 2</label>
-                           <span class="body-1 neutral-100 me-4 mb-3">Photograper</span>
-                           <div class="d-flex">
-                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
-                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
-                           </div>
-                        </li>
-                        <li class="d-flex flex-wrap mb-4">
-                           <label class="small-text2">Add-on 3</label>
-                           <span class="body-1 neutral-100 me-4 mb-3">Ring</span>
-                           <div class="d-flex">
-                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
-                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
-                           </div>
-                        </li>
-                        <li class="d-flex flex-wrap mb-4">
-                           <label class="small-text2">Add-on 4</label>
-                           <span class="body-1 neutral-100 me-4 mb-3">Car rent</span>
-                           <div class="d-flex">
-                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
-                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
-                           </div>
-                        </li>
-                        <li class="d-flex flex-wrap mb-4">
-                           <label class="small-text2">Add-on 5</label>
-                           <span class="body-1 neutral-100 me-4 mb-3">Venue to celebraten</span>
-                           <div class="d-flex">
-                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
-                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
-                           </div>
-                        </li>
-                        <li class="d-flex flex-wrap mb-4">
-                           <label class="small-text2">Add-on 6</label>
-                           <span class="body-1 neutral-100 me-4 mb-3">Flower</span>
-                           <div class="d-flex">
-                              <a href="#" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
-                              <a href="#" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
-                           </div>
-                        </li>
+                     <ul class="add-on-setting-ul list-unstyled p-0 m-0" id="addon_list">
+                     @if(count($data)>0)
+                        @foreach($data as $counter=>$addon)
+                           <li class="d-flex flex-wrap mb-4">
+                              <label class="small-text2">Add-on {{ $counter+1}}</label>
+                              <span class="body-1 neutral-100 me-4 mb-3">{{ ucfirst($addon->name) }}</span>
+                              <div class="d-flex">
+                                 <a href="{{ route('admin.addons.destroy', $addon->id) }}" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                                 <a class="edit-addon" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditaddons" data-name="{{$addon->name }}" data-id="{{$addon->id}}" aria-controls="offcanvaseditaddons"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
+                              
+                             
+                              </div>
+                           </li>
+                        @endforeach
+                     @else
+                        <li><center>No record found </center></li>
+                     @endIf
+                        
+                       
                      </ul>
                   </div>
                </div>
@@ -1041,7 +1014,9 @@
         </div>
     </div>
 </div>
-@include('elements.admin-add-ons-add')
-@include('elements.admin-add-ons-edit')
-@include('elements.admin-add-ons-feedback')
+
+@include('admin.addons.add')
+@include('admin.addons.js')
+@include('admin.addons.edit')
+@include('admin.addons.feedback')
 @endsection

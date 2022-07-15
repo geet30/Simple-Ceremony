@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="theme-color" content="#E5E5E5">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon//apple-touch-icon.png">
       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon/favicon-96x96.png">
@@ -17,7 +18,8 @@
       <link href="/fonts/stylesheet.css" rel="stylesheet">
       <link href="/custom-css/style.css" rel="stylesheet">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script src="/js/app.js" defer></script>
+      <script src="/custom-js/admin/formsubmit.js"></script>
+      
    </head>
    <body class="dashboard-bg antialiased" data-barba="wrapper">
       <main>
@@ -33,7 +35,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.fileupload.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.iframe-transport.js"></script>
-   <script src="/js/signature.js"></script>
    
 
   </html>
+  

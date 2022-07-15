@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AddonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +58,8 @@ Route::get('faq', function () {
 Route::get('married-checklist', function () {
     return view('pages.married-checklist');
 });
-Route::get('add-ons', function () {
-    return view('pages.add-ons');
-});
+
+
 Route::get('why-sc', function () {
     return view('pages.why-sc');
 });
@@ -102,7 +102,9 @@ Route::get('advice-after-first-year', function () {
 Route::get('quiz', function () {
     return view('pages.quiz');
 });
-
+  Route::get('add-ons', function () {
+    return view('pages.add-ons');
+});
 Route::group(['prefix' => 'user'], function () {
     Route::get('index', function () {
         return view('user.index');
@@ -134,20 +136,22 @@ $adminRoutes = function() {
             return view('admin.locations.view');
         });
 
-        Route::get('add-ons', function () {
-            return view('admin.add-ons');
-        });
-
-       
+        // Route::get('add-ons', function () {
+        //     return view('admin.add-ons');
+        // });
+      
+        Route::get('add-ons',[AddonsController::class, 'index'])->name('admin.addons');
+        Route::post('/submit-addon',[AddonsController::class, 'store']);
+        Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('admin.addons.destroy');
+        Route::post('/update-addon',[AddonsController::class, 'update']);
+        Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
         Route::get('admin-add-ons-details', function () {
             return view('admin.admin-add-ons-details');
         });
-
-
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
     });
-    Route::get('add-new-partner', function () {
+    Route::get('add-new-partner', function (){
         return view('admin.partner.add-new-partner');
     });
     Route::get('edit-package', function () {
