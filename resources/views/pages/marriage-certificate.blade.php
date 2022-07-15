@@ -1,5 +1,4 @@
 @extends('layouts.master') @section('content')
-
 <section class="mt-4 pb-100">
    <div class="container">
       <div class="row align-items-center">
@@ -96,7 +95,7 @@
          </div>
          <div class="col-md-4 offset-md-1">
             <div class="certificate-type">
-               <img src="images/sample-standard-marriage-certificate" alt="Sample Certificate" class="img-fluid">
+               <img src="images/sample-standard-marriage-certificate.png" alt="Sample Certificate" class="img-fluid">
             </div>
          </div>
       </div>
