@@ -1,18 +1,6 @@
 <header class="panel-header">
    <div class="row m-0">
-      <div class="col-sm-6 align-self-center d-none d-sm-block">
-         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item "><a href="#">All location packages</a></li>
-               <li class="breadcrumb-item"><a href="#">Library</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Data</li>
-            </ol>
-         </nav>
-      </div>
-      <div class="col-4 d-sm-none align-self-center">
-         <a>  <img src="/images/admin/login-logo.svg" alt="Logo" class="img-fluid"></a>
-      </div>
-      <div class="col-8 col-sm-6 d-flex justify-content-end">
+      <div class="col-12 col-sm-6 d-flex justify-content-end order-md-2">
          <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
             <div class=" navbar-collapse" id="navbarScroll">
                <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -115,5 +103,15 @@
             </div>
          </nav>
       </div>
+      <div class="col-sm-6 align-self-center order-md-1">
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item "><a href="#">All location packages</a></li>
+               <li class="breadcrumb-item"><a href="#">Library</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+         </nav>
+      </div>
+    
    </div>
 </header>

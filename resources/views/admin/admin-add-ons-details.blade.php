@@ -13,18 +13,27 @@
                <section class="pb-40">
                   <div class="row">
                      <div class="col-md-6 align-self-center">
-                        <div class="table-dropdown d-flex align-items-center">
+                        <div class="table-dropdown d-md-flex align-items-center">
+                           <div>
                            <h1 class="h3 neutral-100 mb-0">Corona Pack</h1>
-                           <a class="waiting-approval p-1 px-3 d-inline text-decoration-none ms-3">Waiting Approval</a>
-                           <a class="approved p-1 px-3 d-inline text-decoration-none ms-3 d-none">Approve</a>
-                           <a class="rejected p-1 px-3 d-inline text-decoration-none ms-3 d-none">Rejected</a>
+                           </div>
+                           <div class="ms-3">
+                           <a class="waiting-approval p-1 px-3 d-inline text-decoration-none ">Waiting Approval</a>
+                           <a class="approved p-1 px-3 d-inline text-decoration-none d-none">Approve</a>
+                           <a class="rejected p-1 px-3 d-inline text-decoration-none d-none">Rejected</a></div>
                         </div>
                         <p class="body-3 mb-0 mt-3"><span class="body-1">Criteria : </span>Available on Blues Point Reserve, Bradfield Park</p>
                      </div>
-                     <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
-                        <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
-                        <a href="#" class="theme-btn primary-btn me-3">Confirm</a>
-                        <a href="/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
+                     <div class="col-md-6 align-self-center d-md-flex justify-content-md-end ">
+                        <div class="me-md-3 mt-3 mt-md-0  align-self-center d-none">
+                        <a href="#" class="theme-btn primary-btn "> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
+                        </div>
+                        <div class="me-md-3 mt-3 mt-md-0 align-self-center">
+                        <a href="#" class="theme-btn primary-btn  d-inline-flex">Confirm</a>
+                        </div>
+                        <div class=" mt-3 mt-md-0 align-self-center">
+                        <a href="/partner-details" class="theme-btn primary-btn-border d-md-inline-flex">See profile partner</a>
+                        </div>
                      </div>
                   </div>
                </section>
