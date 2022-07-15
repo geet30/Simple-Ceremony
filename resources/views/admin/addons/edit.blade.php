@@ -5,7 +5,7 @@
   </div>
   <div class="offcanvas-body">
   <div class="message"></div>
-  <form method="post" id="update-addons" action="{{url('admin/update-addon')}}" name="postform">
+  <form method="post" id="update-addons" action="{{url('update-addon')}}" name="postform">
    @csrf
     <div class="col-md-9 mb-4">
       <label for="InputName" class="form-label small-text2">Add name add-on</label>

@@ -214,7 +214,7 @@ $adminRoutes = function() {
 
     Route::get('add-ons',[AddonsController::class, 'index'])->name('admin.addons');
     Route::post('/submit-addon',[AddonsController::class, 'store']);
-    Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('admin.addons.destroy');
+    Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
     Route::post('/update-addon',[AddonsController::class, 'update']);
     Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
 
