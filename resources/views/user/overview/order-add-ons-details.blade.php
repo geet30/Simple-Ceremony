@@ -20,39 +20,33 @@
                            </div>
                            <div class="col-12 image-block pt-3">
                               <div class="row">
-                                 <div class="col-md-6 mb-3 mb-md-0">
+                                 <div class="col-md-12 col-lg-6 mb-3 mb-lg-0">
                                     <div class=" position-relative">
-                                       <img src="/images/user/add-ons-1.png" class="img-fluid  left-img "
-                                          alt="add-ons-image ">
+                                       <img src="/images/user/add-ons-1.png" class="img-fluid  left-img " alt="add-ons-image ">
                                        <div class="all-pictures-btn">
                                           <a href="/user/add-ons-gallery" class="theme-btn primary-btn d-inline-flex">
-                                          <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
-                                             alt="shopping-icon">
+                                          <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg" alt="shopping-icon">
                                           See all pictures
                                           </a>
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-md-6 right-img  ">
+                                 <div class="col-md-12 col-lg-6 right-img  ">
                                     <div class="row">
                                        <div class="col-sm-6">
-                                          <img src="/images/user/add-ons-2.png" class="img-fluid mb-3 photo"
-                                             alt="add-ons-image ">
-                                          <img src="/images/user/add-ons-3.png"
-                                             class="img-fluid photo mb-3 mb-sm-0 " alt="add-ons-image ">
+                                          <img src="/images/user/add-ons-2.png" class="img-fluid mb-3 photo" alt="add-ons-image ">
+                                          <img src="/images/user/add-ons-3.png" class="img-fluid photo mb-3 mb-sm-0 " alt="add-ons-image ">
                                        </div>
                                        <div class="col-sm-6">
-                                          <img src="/images/user/add-ons-4.png" class="img-fluid mb-3 photo"
-                                             alt="add-ons-image ">
+                                          <img src="/images/user/add-ons-4.png" class="img-fluid mb-3 photo" alt="add-ons-image ">
                                           <div class="position-relative">
-                                             <img src="/images/user/add-ons-5.png" class="img-fluid photo "
-                                                alt="add-ons-image ">
+                                             <img src="/images/user/add-ons-5.png" class="img-fluid photo " alt="add-ons-image ">
                                              <img src="/images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
                                           </div>
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-md-9 mt-5 mb-5">
+                                 <div class="col-md-12 col-lg-12 col-xl-9 mt-5 mb-5">
                                     <div class="row mb-3">
                                        <div class="col-12">
                                           <h3 class="h3 neutral-100">Facilities</h3>
@@ -60,39 +54,39 @@
                                        </div>
                                     </div>
                                     <div class="row gy-3">
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
-                                       <div class="col-md-4 d-flex align-items-start">
+                                       <div class="col-md-6 col-lg-4 d-flex align-items-start">
                                           <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
                                           <p class="body-3 text-black mb-0">Add name facilities here</p>
                                        </div>
@@ -104,7 +98,7 @@
                                           <h3 class="h3 neutral-100 mb-5">Why have your marriage ceremony at Kissing Point Park?</h3>
                                           <p class="body-3">The name says it all "Kissing Point" will be on your marriage certificate ;-).<br><br>
                                              With a number of spots right down on the Parramatta River, Kissing Point Park offers a water side wedding location in a unique Sydney riverside setting, with the tranquility of the river with kayaks, motorboats and the sailing boats from the Concord Sailing Club right next door.<br><br>
-                                             The park offers a number of vantage points for your wedding location, all with views across the water.  The Riverside walking & bicycle track runs through it, connecting the park through to Meadowbank and beyond. There’s a playground for the kids, plus BBQ areas and numerous shady spots.<br><br>
+                                             The park offers a number of vantage points for your wedding location, all with views across the water.  The Riverside walking &amp; bicycle track runs through it, connecting the park through to Meadowbank and beyond. There’s a playground for the kids, plus BBQ areas and numerous shady spots.<br><br>
                                              Nearby cafes in Putney Village offer options for a celebration afterwards, or Top Ryde Shopping Village is a short 5 minute drive away.   Consider a photo opportunity and lunch, take the ferry direct from Kissing Point Wharf to Sydney Rowing Club at Abbotsford, just 13 minutes away or to Eat Street Parramatta, just 35 minutes up the river.<br><br>
                                              You can have up to 20 people (the 2 of you and 18 guests) at your ceremony. This can not be increased.<br><br>
                                              Rain. Now it doesn't happen often, but when it does you will need to shelter under trees or bring umbrellas - how romantic. There are also several small undercover areas along the river. These spaces do not require a booking - it’s simply first in, best dressed!
