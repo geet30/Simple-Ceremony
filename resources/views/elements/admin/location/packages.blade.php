@@ -19,7 +19,7 @@
       </div>
    </div>
    <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-      <a class="theme-btn primary-btn d-flex justify-content-center" href="/admin/create">
+      <a class="theme-btn primary-btn d-flex justify-content-center" href="/create">
       <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
       Add new location
       </a>

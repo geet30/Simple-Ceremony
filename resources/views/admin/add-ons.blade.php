@@ -100,8 +100,8 @@
                                  <td class="body-2 neutral-100" style="min-width:200px;">Corona pack</td>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Chair & decoration</td>
                                  <td class="body-3 neutral-100" style="min-width:250px; max-width:250px;">At Simple C we have created a simple package so your ceremony still feels special. Create a beautiful backdrop for you and your virtual guests if you are planning on live streaming across the globe.</td>
-                                 <td class="body-2 neutral-100">Picture framing</td>
-                                 <td style="min-width:200px;">
+                                 <td style="min-width:200px;" class="body-2 neutral-100">Picture framing</td>
+                                 <td style="min-width:20px;">
                                     <div class="dropdown table-dropdown">
                                        <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                           Waiting for approval
@@ -132,7 +132,7 @@
                                        </ul>
                                      </div>
                                  </td>
-                                 <td style="min-width:230px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin-add-ons-details" class="table-link">View info</a></td>
+                                 <td style="min-width:280px;"><a href="#" class="table-link me-3">Confirm</a> <a href="/admin-add-ons-details" class="table-link">View info</a></td>
                               </tr>
                               <tr>
                                  <td class="body-2 neutral-100" style="min-width:200px;">Name add-ons</td>

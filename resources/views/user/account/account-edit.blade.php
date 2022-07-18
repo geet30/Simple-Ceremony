@@ -2,6 +2,7 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
+
       <div class="col-2 col-md-3 col-lg-2 px-0">
          @include('elements.user-sidebar')
       </div>

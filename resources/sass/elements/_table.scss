@@ -3,16 +3,18 @@
     thead {
         background-color: $turquoise-100;
         border-radius: 8px 8px 0px 0px;
-
         tr {
             th {
                 font-weight: 700;
                 font-size: 14px;
                 line-height: 19px;
                 color: #ffffff;
-                padding: 7px 10px 11px 44px;
+                &:first-child {
+                    padding-left: 25px;
+                }
+                padding:7px 10px 14px 10px;
                 &:last-child {
-                    padding: 7px 44px 11px 44px;
+                    padding-right: 25px;
                 }
             }
         }
@@ -20,10 +22,15 @@
     tbody {
         tr {
             td {
-                padding: 10px 10px 19px 48px;
+                &:first-child {
+                    padding-left: 25px;
+                }
+                padding:10px 10px 10px 10px;
+                &:last-child {
+                    padding-right: 25px;
+                }
                 border-bottom: 1px solid #ededf0;
                 border-top: none;
-
                 a {
                     &.table-link {
                         font-weight: 700;
@@ -70,12 +77,12 @@
                     border-radius: 6px;
                     padding: 15px 14px;
                     li {
-                        .dropdown-item{
+                        .dropdown-item {
                             font-weight: 700;
                             font-size: 14px;
                             line-height: 22px;
                             color: $turquoise-100;
-                            background-color:none !important;
+                            background-color: none !important;
                             &:hover {
                                 color: $turquoise-100;
                                 background-color: transparent !important;
@@ -99,6 +106,7 @@
         }
     }
 }
+
 .table-responsive {
     border-radius: 8px;
 }

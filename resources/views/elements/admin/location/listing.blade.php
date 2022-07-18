@@ -15,13 +15,13 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <td style="min-width:150px" class="body-2 neutral-100 neutral-100">Kathryn Murphy</td>
-                           <td  style="min-width:200px" class="body-2 neutral-100">Blues point</td>
-                           <td style="min-width:200px" class="body-2 neutral-100" >Milsons point</td>
+                           <td style="min-width:200px" class="body-2 neutral-100 neutral-100">Kathryn Murphy</td>
+                           <td  style="min-width:150px" class="body-2 neutral-100">Blues point</td>
+                           <td style="min-width:150px" class="body-2 neutral-100" >Milsons point</td>
                            <td  style="min-width:70px" class="body-2 neutral-100">2061</td>
                            <td  style="min-width:300px" class="body-2 neutral-100">Blues Point Rd, North Sydney NSW 2060, Australia</td>
-                            <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                           <td  style="min-width:150px"><a class="table-link button-1"  href="/view"> View info</a> </td>
+                            <td  style="min-width:60px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
+                           <td  style="min-width:160px"><a class="table-link button-1"  href="/view"> View info</a> </td>
                         </tr>
                         <tr>
                            <td class="body-2 neutral-100">Wade Warren</td>
