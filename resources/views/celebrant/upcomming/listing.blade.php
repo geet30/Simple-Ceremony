@@ -2,13 +2,13 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-2 col-md-3 col-lg-2 px-0">
+      <div class="col-2 col-md-3 col-lg-2 px-0 d-none d-md-block">
          @include('elements.celebrant-sidebar')
       </div>
-      <div class="col-10 col-md-9 col-lg-10 px-md-4">
+      <div class="col-12 col-md-9 col-lg-10 px-md-4">
          @include('elements.celebrant.panel-header')
          <ul class="row add-on-list-nav  mb-3 mt-3 ps-0" id="pills-tab" role="tablist">
-            <li class="col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+            <li class="col-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
@@ -16,12 +16,14 @@
                      </div>
                      <div class="add-ons-nav-data text-start ">
                         <h2 class="h3">465</h2>
-                        <p class="subheader-2">All marriages</p>
+                        <p class="subheader-2 d-none d-md-block">All marriages</p>
                      </div>
+                     
                   </div>
+                  <p class="body-3-regular  d-md-none mb-0 mt-3">All marriages</p>
                </div>
             </li>
-            <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
+            <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
                <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
@@ -29,12 +31,13 @@
                      </div>
                      <div class="add-ons-nav-data text-start ">
                         <h2 class="h3">50</h2>
-                        <p class="subheader-2">Pending</p>
+                        <p class="subheader-2 d-none d-md-block">Pending</p>
                      </div>
                   </div>
+                  <p class="body-3-regular  d-md-none mb-0 mt-3">Pending</p>
                </div>
             </li>
-            <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
+            <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
                <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
@@ -42,12 +45,13 @@
                      </div>
                      <div class="add-ons-nav-data text-start ">
                         <h2 class="h3">50</h2>
-                        <p class="subheader-2">Booked</p>
+                        <p class="subheader-2 d-none d-md-block">Booked</p>
                      </div>
                   </div>
+                  <p class="body-3-regular  d-md-none mb-0 mt-3">Booked</p>
                </div>
             </li>
-            <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
+            <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
                <div class="nav-link w-100" >
                   <div class="add-ons-nav d-flex">
                      <div class="add-ons-nav-image me-4">
@@ -55,9 +59,10 @@
                      </div>
                      <div class="add-ons-nav-data text-start ">
                         <h2 class="h3">20</h2>
-                        <p class="subheader-2">Lodged</p>
+                        <p class="subheader-2 d-none d-md-block">Lodged</p>
                      </div>
                   </div>
+                  <p class="body-3-regular  d-md-none mb-0 mt-3">Lodged</p>
                </div>
             </li>
             <li class="col-lg-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
@@ -68,15 +73,16 @@
                      </div>
                      <div class="add-ons-nav-data text-start ">
                         <h2 class="h3">10</h2>
-                        <p class="subheader-2">Lodged pending</p>
+                        <p class="subheader-2 d-none d-md-block">Lodged pending</p>
                      </div>
                   </div>
+                  <p class="body-3-regular  d-md-none mb-0 mt-3">Lodged pending</p>
                </div>
             </li>
          </ul>
          <div class="collapse" id="collapseExample">
-            <ul class="row add-on-list-nav  upcomming-marriage-pills" id="pills-tab" role="tablist">
-               <li class="col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+            <ul class="row add-on-list-nav  upcomming-marriage-pills px-0" id="pills-tab" role="tablist">
+               <li class="col-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                   <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
@@ -84,12 +90,13 @@
                         </div>
                         <div class="add-ons-nav-data text-start ">
                            <h2 class="h3">190</h2>
-                           <p class="subheader-2">Married</p>
+                           <p class="subheader-2  d-none d-md-block">Married</p>
                         </div>
                      </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3">Married</p>
                   </div>
                </li>
-               <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
+               <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
                   <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
@@ -97,12 +104,13 @@
                         </div>
                         <div class="add-ons-nav-data text-start ">
                            <h2 class="h3">80</h2>
-                           <p class="subheader-2">Registered</p>
+                           <p class="subheader-2 d-none d-md-block">Registered</p>
                         </div>
                      </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3">Registered</p>
                   </div>
                </li>
-               <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
+               <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
                   <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
@@ -110,12 +118,13 @@
                         </div>
                         <div class="add-ons-nav-data text-start ">
                            <h2 class="h3">50</h2>
-                           <p class="subheader-2">Finalised</p>
+                           <p class="subheader-2  d-none d-md-block">Finalised</p>
                         </div>
                      </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3">Finalised</p>
                   </div>
                </li>
-               <li class="col-lg-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
+               <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
                   <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
@@ -123,12 +132,13 @@
                         </div>
                         <div class="add-ons-nav-data text-start ">
                            <h2 class="h3">10</h2>
-                           <p class="subheader-2">Cancelled</p>
+                           <p class="subheader-2 d-none d-md-block" >Cancelled</p>
                         </div>
                      </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3">Cancelled</p>
                   </div>
                </li>
-               <li class="col-lg-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
+               <li class="col-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
                   <div class="nav-link w-100" >
                      <div class="add-ons-nav d-flex">
                         <div class="add-ons-nav-image me-4">
@@ -136,9 +146,10 @@
                         </div>
                         <div class="add-ons-nav-data text-start ">
                            <h2 class="h3">5</h2>
-                           <p class="subheader-2">Refunded</p>
+                           <p class="subheader-2 d-none d-md-block">Refunded</p>
                         </div>
                      </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3">Refunded</p>
                   </div>
                </li>
             </ul>
@@ -210,8 +221,9 @@
                            <td  style="min-width:180px" class="body-2">+61-123456789</td>
                            <td  style="min-width:180px" class="body-2"><span class="status booked">Booked</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <td  style="min-width:160px">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -233,7 +245,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status pending">Pending</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -255,7 +268,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status lodged">Lodged</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -277,7 +291,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status lodged">Lodged (Pending)</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -299,7 +314,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -320,7 +336,20 @@
                            <td  style="min-width:180px" class="body-2">+61-123456789</td>
                            <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px"><a class="table-link button-2">View info</a></td>
+                           <td  style="min-width:100px">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
+                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                 View info
+                                 </button>
+                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
+                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
+                                    <li><a class="dropdown-item" href="#">Approve</a></li>
+                                    <li><a class="dropdown-item" href="#">Reject</a></li>
+                                 </ul>
+                              </div>
+                           </td>
                         </tr>
                         <tr>
                            <td style="min-width:200px" class="body-2">Matt & Zoe</td>
@@ -331,7 +360,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status pending">Pending</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -353,7 +383,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status cancelled">Cancelled</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -375,7 +406,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
@@ -397,7 +429,8 @@
                            <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
                            <td  style="min-width:100px">
-                              <div class="dropdown">
+                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                              <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
                                  </button>
