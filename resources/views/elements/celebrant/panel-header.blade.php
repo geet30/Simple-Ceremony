@@ -1,6 +1,6 @@
 <header class="panel-header">
    <div class="row m-0">
-      <div class="col-sm-6 align-self-center d-none d-sm-block">
+      <div class="col-sm-6 align-self-center d-none d-md-block">
          <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                <li class="breadcrumb-item "><a href="#">All location packages</a></li>
@@ -9,15 +9,15 @@
             </ol>
          </nav>
       </div>
-      <div class="col-4 d-sm-none align-self-center">
+      <div class="col-4 d-md-none align-self-center">
 <a>  <img src="/images/admin/login-logo.svg" alt="Logo" class="img-fluid"></a>
       </div>
-      <div class="col-8 col-sm-6 d-flex justify-content-end">
+      <div class="col-8 col-md-6 d-flex justify-content-end">
        
          <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
             <div class=" navbar-collapse" id="navbarScroll">
                <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
-                  <li class="nav-item dropdown align-self-center me-3">
+                  <li class="nav-item dropdown align-self-center me-3 d-none d-md-block">
                     <a type="button" class="nav-link dropdown-toggle notification"  href="#" id="notification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg xmlns="http://www.w3.org/2000/svg" class="notification-img" width="18" height="22" viewBox="0 0 18 22" >
                            <path d="M8.9769 21.0855C10.5715 21.0855 11.8641 19.7929 11.8641 18.1983C11.8641 18.1713 11.8637 18.1443 11.863 18.1174C11.8566 17.8846 11.6546 17.7152 11.4217 17.7125L6.54364 17.6572C6.3107 17.6546 6.10494 17.8193 6.09333 18.052C6.09091 18.1005 6.08968 18.1492 6.08968 18.1983C6.08968 19.7929 7.38233 21.0855 8.9769 21.0855Z" fill="#B6CED0"/>
