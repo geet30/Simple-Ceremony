@@ -61,13 +61,13 @@
                               </div>
                               <div class="col-md-12 mb-4">
                                  <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 mb-2 mb-md-0">
                                        <label for="InputName" class="form-label small-text2">Upload avatar image</label>
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7 col-lg-8 mb-3 mb-md-0">
                                        <input class="form-control body-1 netural-100" id="formFileLg" type="file">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-5 col-lg-4">
                                        <label role="button" for="formFileLg" class="form-label small-text2 mb-0 theme-btn primary-btn">Choose imagee</label>
                                     </div>
                                  </div>
@@ -77,11 +77,11 @@
                                  <input type="text" placeholder="Type your ABN number here" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>ABN number is required</div>
                               </div>
-                              <div class="col-md-6 mb-4">
+                              <div class="col-md-6 mb-4 d-none d-md-block">
                               </div>
-                              <div class="col-md-6 mb-4">
+                              <div class="col-md-12 col-lg-6 mb-4">
                                  <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-9 mb-4 mb-md-0">
                                        <label class="form-label small-text2">Bank</label>
                                        <select required="" name="customer_type" class="js-placeholder-single-input form-control">
                                           <option value="" disabled="" selected="" hidden="">Westparc</option>
@@ -129,19 +129,19 @@
                                     <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 1 <a role="button" class="cross-icon ms-2 top-0"><img src="/images/icons/cross.svg" class="img-fluid"></a></p>
                                  </div>
                               </div>
-                              <div class="col-md-6 mb-4">
+                              <div class="col-md-12 col-lg-6 mb-4">
                                  <label for="InputName" class="form-label small-text2">Package name</label>
                                  <input type="text" placeholder="Add name package here" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Package name is required</div>
                               </div>
-                              <div class="col-md-6 mb-4">
+                              <div class="col-md-12 col-lg-6 mb-4">
                                  <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-4 mb-md-0">
                                        <label for="InputName" class="form-label small-text2">Partner fee</label>
                                        <input type="text" placeholder="$" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner fee is required</div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mb-4 mb-md-0">
                                        <label for="InputName" class="form-label small-text2">SC admin fee</label>
                                        <input type="text" placeholder="$ 120" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin fee is required</div>
@@ -218,9 +218,9 @@
                                  </div>
                               </div>
                               <div class="col-12">
-                                 <div class="d-flex ">
-                                    <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 me-4">Save</button>
-                                    <a role="button" id="add_more-package" class="theme-btn primary-btn-border d-flex pe-auto"><img style="filter:none;" class="me-2" src="/images/admin/partner/plus-icon.svg" alt="Add">Add more packages</a>
+                                 <div class="d-flex flex-column flex-lg-row">
+                                    <button type="submit" id="submit_button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-lg-0 border-0">Save</button>
+                                    <a role="button" id="add_more-package" class="theme-btn primary-btn-border d-flex pe-auto justify-content-center"><img style="filter:none;" class="me-2" src="/images/admin/partner/plus-icon.svg" alt="Add">Add more packages</a>
                                  </div>
                               </div>
                            </div>
