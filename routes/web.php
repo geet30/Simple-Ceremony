@@ -217,12 +217,12 @@ $adminRoutes = function() {
     Route::get('add-ons', function () {
         return view('admin.add-ons');
     });
-
-   
     Route::get('admin-add-ons-details', function () {
         return view('admin.admin-add-ons-details');
     });
-    
+    Route::get('admin-add-ons-gallery', function () {
+        return view('admin.admin-add-ons-gallery');
+    });
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
     });
@@ -240,6 +240,27 @@ $adminRoutes = function() {
     });
     Route::get('partner-edit', function () {
         return view('admin.partner.partner-edit');
+    });
+    Route::get('all-reports', function () {
+        return view('admin.financial-report.all-reports');
+    });
+    Route::get('reports-location', function () {
+        return view('admin.financial-report.reports-location');
+    });
+    Route::get('all-referrers', function () {
+        return view('admin.referrers.all-referrers');
+    });
+    Route::get('create-new-referrers', function () {
+        return view('admin.referrers.create-new-referrers');
+    });
+    Route::get('edit-referrers', function () {
+        return view('admin.referrers.edit-referrers');
+    });
+    Route::get('referrers-details', function () {
+        return view('admin.referrers.referrers-details');
+    });
+    Route::get('pending-referrers-details', function () {
+        return view('admin.referrers.pending-referrers-details');
     });
     Route::get('sign-up', function () {
         return view('admin.sign-up');
