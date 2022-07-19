@@ -27,7 +27,7 @@
                      <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                         <div class="row">
                            <div class="col-lg-3">
-                              <a href="#" class="text-decoration-none">
+                              <a href="package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/v5.png" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -38,7 +38,7 @@
                               </a>
                            </div>
                            <div class="col-lg-3">
-                              <a href="#" class="text-decoration-none">
+                              <a href="package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/package2/right-2.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
@@ -49,7 +49,7 @@
                               </a>
                            </div>
                            <div class="col-lg-3">
-                              <a href="#" class="text-decoration-none">
+                              <a href="package-details" class="text-decoration-none">
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/left.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
