@@ -232,6 +232,9 @@ $adminRoutes = function() {
     Route::get('edit-package', function () {
         return view('admin.partner.edit-package');
     });
+    Route::get('package-details', function () {
+        return view('admin.partner.package-details');
+    });
     Route::get('partner-details', function () {
         return view('admin.partner.partner-details');
     });
