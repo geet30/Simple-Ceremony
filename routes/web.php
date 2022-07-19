@@ -235,6 +235,9 @@ $adminRoutes = function() {
     Route::get('partner-details', function () {
         return view('admin.partner.partner-details');
     });
+    Route::get('partner-edit', function () {
+        return view('admin.partner.partner-edit');
+    });
     Route::get('sign-up', function () {
         return view('admin.sign-up');
     });
