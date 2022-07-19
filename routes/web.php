@@ -192,10 +192,10 @@ $websiteRoutes = function() {
     });
 };
 $adminRoutes = function() {
-    
-    Route::get('/', function () {
-        return view('admin.login');
-    });
+    Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+    // Route::get('/', function () {
+    //     return view('admin.login');
+    // });
     Route::get('locations', function () {
         return view('admin.locations.listing');
     });
@@ -253,9 +253,10 @@ $adminRoutes = function() {
 
 
 $partnerRoutes = function() {
-    Route::get('/', function () {
-        return view('partner.login');
-    });
+    Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
+    // Route::get('/', function () {
+    //     return view('partner.login');
+    // });
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });
@@ -278,9 +279,11 @@ $partnerRoutes = function() {
     Route::get('partner-details', function () {
         return view('partner.partner-details');
     });
-    Route::get('add-ons', function () {
-        return view('partner.add-ons');
-    });
+    // Route::get('add-ons', function () {
+    //     return view('partner.add-ons');
+    // })->name('admin-add-ons');
+    Route::get('add-ons',[App\Http\Controllers\Partner\AddonsController::class, 'index'])->name('partner-addons');
+
     Route::get('add-new-package', function () {
         return view('partner.add-new-package');
     });

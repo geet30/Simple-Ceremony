@@ -21,7 +21,14 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                           <form method="POST" action="{{ route('login') }}">
+                           @if(session()->has('message'))
+                              <div class="alert alert-success">
+                                 <button type="button" class="close" data-dismiss="alert">×</button> 
+                                 {{ session()->get('message') }}
+                              </div>
+                            @endif               
+                           <form class="needs-validation row" method="POST" action="{{ route('login') }}" novalidate>
+                              @csrf
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Sign in to your account</h1>
@@ -74,11 +81,22 @@
                                        <div class="col-12 d-none">
                                           <a href="#" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
                                        </div>
+                                       @if(Route::current()->getName() == 'partner-login')
+                                       <div class="col-6">
+                                          <a href="/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
+                                       </div>
+                                       <div class="col-6">
+                                          <button type="submit" class="theme-btn primary-btn w-100">
+                                             {{ __('Login') }}
+                                          </button>
+                                       </div>
+                                       @else
                                        <div class="col-12">
                                           <button type="submit" class="theme-btn primary-btn w-100">
                                              {{ __('Login') }}
                                           </button>
                                        </div>
+                                       @endIf
                                     </div>
                                  </div>
                               </div>
