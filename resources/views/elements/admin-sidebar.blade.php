@@ -108,7 +108,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="body-1 nav-link d-flex align-items-center" href="#">
+              <a class="body-1 nav-link d-flex align-items-center" href="all-enquiries">
                 <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0.875 16.915H3.26354V20.9902L8.37262 16.915H20.125L20.1248 0.875H0.875005L0.875 16.915ZM4.0851 4.88515H12.1048V6.49032L4.0851 6.49009V4.88515ZM4.0851 8.08983H16.92V9.69499L4.0851 9.69477V8.08983ZM4.0851 11.2999H16.92V12.9051L4.0851 12.9049V11.2999Z" fill="#62CBC9"/>
                 </svg>
