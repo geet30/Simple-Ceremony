@@ -198,6 +198,23 @@ $adminRoutes = function() {
     Route::get('/', function () {
         return view('admin.login');
     });
+    Route::get('sign-up', function () {
+        return view('admin.sign-up');
+    });
+    Route::get('password-reset', function () {
+        return view('admin.password-reset');
+    });
+
+    Route::get('account-details', function () {
+        return view('admin.account.account-details');
+    });
+    Route::get('edit-account-details', function () {
+        return view('admin.account.edit-account-details');
+    });
+    Route::get('role', function () {
+        return view('admin.account.role');
+    });
+
     Route::get('locations', function () {
         return view('admin.locations.listing');
     });
@@ -215,14 +232,15 @@ $adminRoutes = function() {
     });
 
     Route::get('add-ons', function () {
-        return view('admin.add-ons');
+        return view('admin.add-ons.add-ons');
     });
     Route::get('admin-add-ons-details', function () {
-        return view('admin.admin-add-ons-details');
+        return view('admin.add-ons.admin-add-ons-details');
     });
     Route::get('admin-add-ons-gallery', function () {
-        return view('admin.admin-add-ons-gallery');
+        return view('admin.add-ons.admin-add-ons-gallery');
     });
+
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
     });
@@ -241,12 +259,14 @@ $adminRoutes = function() {
     Route::get('partner-edit', function () {
         return view('admin.partner.partner-edit');
     });
+
     Route::get('all-reports', function () {
         return view('admin.financial-report.all-reports');
     });
     Route::get('reports-location', function () {
         return view('admin.financial-report.reports-location');
     });
+
     Route::get('all-referrers', function () {
         return view('admin.referrers.all-referrers');
     });
@@ -262,11 +282,18 @@ $adminRoutes = function() {
     Route::get('pending-referrers-details', function () {
         return view('admin.referrers.pending-referrers-details');
     });
-    Route::get('sign-up', function () {
-        return view('admin.sign-up');
+
+    Route::get('all-enquiries', function () {
+        return view('admin.enquiries.all-enquiries');
     });
-    Route::get('password-reset', function () {
-        return view('admin.password-reset');
+    Route::get('enquiries-details', function () {
+        return view('admin.enquiries.enquiries-details');
+    });
+    Route::get('create-enquiry', function () {
+        return view('admin.enquiries.create-enquiry');
+    });
+    Route::get('edit-enquiry', function () {
+        return view('admin.enquiries.edit-enquiry');
     });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);

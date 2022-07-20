@@ -9,7 +9,7 @@
          @include('elements.panel-header')
          <a href="/all-referrers" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                <div class="card panel-card">
                   <div class="card-body">
                      <div class="row mb-3">
@@ -142,7 +142,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                <div class="card panel-card">
                   <div class="card-body">
                      <div class="row mb-4">
