@@ -215,6 +215,17 @@ $adminRoutes = function() {
         return view('admin.account.role');
     });
 
+    Route::get('calander-overview', function () {
+        return view('admin.calander.calander-overview');
+    });
+
+    Route::get('marriage-celebrants-list', function () {
+        return view('admin.marriage-celebrants.marriage-celebrants-list');
+    });
+    Route::get('marriage-celebrants-details', function () {
+        return view('admin.marriage-celebrants.marriage-celebrants-details');
+    });
+
     Route::get('locations', function () {
         return view('admin.locations.listing');
     });
