@@ -71,16 +71,83 @@
                         <table class="table align-middle">
                            <thead>
                              <tr>
-                               <th scope="col h4" style="color:black">Permission</th>
-                               <th scope="col h4">Couples</th>
-                               <th scope="col h4">Marriage celebrants</th>
-                               <th scope="col h4">Partners</th>
-                               <th scope="col h4">Admin Simple Ceremonies</th>
+                               <th class="h4" scope="col" style="color:black">Permission</th>
+                               <th class="button-1 gray-900 text-center" scope="col">Couples</th>
+                               <th class="button-1 gray-900 text-center" scope="col">Marriage celebrants</th>
+                               <th class="button-1 gray-900 text-center" scope="col">Partners</th>
+                               <th class="button-1 gray-900 text-center" scope="col">Admin Simple Ceremonies</th>
                              </tr>
                            </thead>
                            <tbody>
                               <tr>
-                                 <td class="button-1 gray-900">Create bookings</td>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">Create bookings</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">View specific bookings</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox" checked></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">Delete specific bookings</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">View booking from all couples</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox" checked></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">Create add-ons</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">View spesific add-ons</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox" checked></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">Delete spesific add-ons</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox" checked></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">Create locations</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox"></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">View spesific locations</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox" checked></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox" checked></td>
+                              </tr>
+                              <tr>
+                                 <td class="button-1 gray-900" style="min-width: 330px;padding: 20px;">Delete spesific locations</td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 200px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 100px;"><input class="form-check-input" type="checkbox"></td>
+                                 <td class="text-center" style="min-width: 250px;"><input class="form-check-input" type="checkbox" checked></td>
                               </tr>
                            </tbody>
                          </table>

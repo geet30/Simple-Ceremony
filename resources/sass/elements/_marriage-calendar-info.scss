@@ -27,3 +27,28 @@
         }
     }
 }
+
+
+.marriage-calendar-overview {
+    background: #F7FCFC;
+    border: 1px solid #E2F3F2;
+    border-radius: 10px;
+    padding: 20px;
+    .numberCircle {
+        width: 27px;
+        height: 27px;
+        line-height: 24px;
+        border-radius: 50%;
+        text-align: center;
+        background: #62CBC9;
+        font-weight: 700;
+        font-size: 17px;
+        color: #FFFFFF;
+    }
+}
+.reason-details {
+    background: #FFFFFF;
+    border: 1px solid #E2F3F2;
+    border-radius: 10px;
+    padding: 15px 28px;
+}
