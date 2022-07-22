@@ -23,4 +23,17 @@ class PartnerPackages extends Model
         'title_term',
         'terms',
     ];
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+    public function gallery()
+    {
+        return $this->hasMany('App\Models\PackageImages','package_id','id');
+    }
+    // public function product()
+    // {
+    //     return $this->belongsTo('App\Models\PartnerProducts','product_id','id');
+    // }
+   
 }

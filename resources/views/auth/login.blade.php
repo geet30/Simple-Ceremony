@@ -36,24 +36,21 @@
                                  <div class="col-lg-12 mb-4">
                                     <label for="email" class="form-label small-text2">{{ __('Email') }} *</label>
                                     <input type="email" placeholder="Type your email here" class="form-control emailInput body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="off">
-                                    @error('email')
+                                   
+                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
+                                     {{--@error('email')
                                        <div class="invalid-feedback">
                                           <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>
                                           {{ $message }}
                                        </div>
-                                    @enderror
+                                    @enderror--}}
                                  </div>
                                  <div class="col-lg-12 mb-4">
                                     <label for="password" class="form-label small-text2">{{ __('Password') }} *</label>
                                     <div class="password-with-eye">
                                        <input type="password" placeholder="Type your password here" class="form-control passwordInput body-1 netural-100 @error('password') is-invalid @enderror" name="password" required  autocomplete="off">
                                        <i class="fas fa-eye-slash right-icon turquoise-100 eyeIcon"></i>
-                                       @error('password')
-                                          <div class="invalid-feedback">
-                                             <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>
-                                             {{ $message }}
-                                          </div>
-                                       @enderror
+                                       <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Password is required</div>
                                     </div>
                                  </div>
                                  <div class="col-lg-12 mb-4">

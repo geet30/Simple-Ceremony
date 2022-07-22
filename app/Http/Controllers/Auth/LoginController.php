@@ -45,7 +45,7 @@ class LoginController extends Controller
     {
         if ($request->route_name=='admin-login') {
             $role = 'Admin';
-            $redirection = 'admin-locations';
+            $redirection = 'locations';
         }
         else if ($request->route_name=='partner-login') {
             $role = 'Partner';

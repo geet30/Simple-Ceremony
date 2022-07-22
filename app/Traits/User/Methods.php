@@ -11,10 +11,11 @@ trait Methods
    
 
     static function createPartner ($data) {
+        // dd($data);
       
         $user_inputs = $data['user'];
         $user_inputs['password'] = Hash::make(Str::random(8));
-        if($data['user']['image']){
+        if(!empty($data['user']['image'])){
             $user_inputs['image'] = uploadImage($data['user']['image'], 'user');
         }
        
@@ -34,20 +35,26 @@ trait Methods
         }
         
       
-
-        $partner_packages_inputs = $data['partner_packages'];
-        $partner_packages_inputs['product_id'] = $PartnerProducts->id;
-        $partner_packages_inputs['user_id'] = $user->id;
-        $PartnerPackages = PartnerPackages::create($partner_packages_inputs);
-
-        
-        
-        foreach($data['package_images']['image_name'] as $file){
-            $package_images_inputs['image_name'] = uploadImage($file, 'package');
-            $package_images_inputs['package_id'] = $PartnerPackages->id;
-            $package_images_inputs['user_id'] = $user->id;
-            $PackageImages = PackageImages::create($package_images_inputs);
-        }   
+        if(!empty($data['partner_packages'])){
+            foreach($data['partner_packages'] as $packages){
+                $partner_packages_inputs = $packages;
+                $partner_packages_inputs['product_id'] = $PartnerProducts->id;
+                $partner_packages_inputs['user_id'] = $user->id;
+                $PartnerPackages = PartnerPackages::create($partner_packages_inputs);
+                foreach($packages['package_images']['image_name'] as $file){
+                    $package_images_inputs['image_name'] = uploadImage($file, 'package');
+                    $package_images_inputs['package_id'] = $PartnerPackages->id;
+                    $package_images_inputs['user_id'] = $user->id;
+                    $PackageImages = PackageImages::create($package_images_inputs);
+                }   
+            }
+            
+    
+            
+            
+            
+        }
+      
         
        
         return true;

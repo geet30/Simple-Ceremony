@@ -10,4 +10,21 @@ class PartnerProducts extends Model
     use HasFactory;
     protected $fillable = ['user_id','product_name','business_category', 'status'];
 
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+    public function addon()
+    {
+        return $this->belongsTo('App\Models\Addons', 'business_category','id');
+    }
+    public function package()
+    {
+        return $this->hasMany('App\Models\PartnerPackages','product_id','id');
+    }
+   
+    public function product_location()
+    {
+        return $this->hasMany('App\Models\PackageLocations','product_id','id');
+    }
 }

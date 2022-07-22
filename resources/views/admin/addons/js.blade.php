@@ -16,8 +16,6 @@ $(document).ready(function(){
         var action = $(this).attr("action"); 
         var method = $(this).attr("method");
         var formData = new FormData();
-        console.log(action);
-        console.log(method);
         formData.append('id', $('#addon-edit-id').val());
         formData.append('name', $('#addon-edit-name').val());
         formData.append('_token',  $("input[name=_token]").val() );

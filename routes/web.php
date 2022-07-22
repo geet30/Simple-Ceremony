@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AddonsController;
+use App\Http\Controllers\User\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,21 +20,27 @@ $websiteRoutes = function() {
     Route::get('/', function () {
         return view('pages.home');
     });
+    Route::get('booking',[BookingController::class, 'index'])->name('user.booking');
+    Route::get('single-location/{id}',[BookingController::class, 'detail'])->name('user.booking.detail');
     Route::get('location', function () {
         return view('pages.location');
     });
-    Route::get('single-location', function () {
-        return view('pages.single-location');
-    });
+    Route::get('get-booking-location-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
+    // Route::post('post-booking-location-calender',[BookingController::class, 'postBookingLocationCalender'])->name('booking.postlocationCalender');
+
+
+    Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm'])->name('booking.postlocationBooking');
+
+    // Route::get('get-booking-location-detail',[BookingController::class, 'getBookingLocationUserDetail'])->name('booking.getlocationUserDetail');
+    // Route::post('post-booking-location-calender',[BookingController::class, 'postBookingLocationUserDetail'])->name('booking.postlocationUserDetail');
+
     Route::get('request-custom-location', function () {
         return view('pages.request-custom-location');
     });
     Route::get('book-custom-location', function () {
         return view('pages.book-custom-location');
     });
-    Route::get('book-your-location', function () {
-        return view('pages.book-your-location');
-    });
+   
     Route::get('voucher', function () {
         return view('pages.voucher');
     });
@@ -217,11 +224,11 @@ $adminRoutes = function() {
     Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
     Route::post('/update-addon',[AddonsController::class, 'update']);
     Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
-
+    Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
+    Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('addons.gallery');
+    Route::post('/change-status',[AddonsController::class, 'changeStatus']);
    
-    Route::get('admin-add-ons-details', function () {
-        return view('admin.admin-add-ons-details');
-    });
+    
     
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
@@ -250,8 +257,6 @@ $adminRoutes = function() {
     });
 
 };
-
-
 $partnerRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
     // Route::get('/', function () {

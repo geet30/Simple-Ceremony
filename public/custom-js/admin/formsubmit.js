@@ -5,30 +5,49 @@ $(document).ready(function(){
         }
       });
     window.SearchRecords = function(url,keyword=null){
-        // if(keyword!='') {
-            $.ajax({
-                type: "post",
-                url: url,
-                data: {
-                    'search': keyword,
-                    
-                },
-                dataType: 'html',
-                cache: false,
-                beforeSend: function(html) 
-                {
-                    // $('#loading').show();
-                },
-                success: function(response)
-                {
-                    // setTimeout(() => {
-                    //     // $('#loading').hide();
-                    // }, 500);
-                    $("#addon_list").html(response);
-                    // $("#flash").hide();
-                }
-            });
-        // } return false;
+        
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                'search': keyword,
+                
+            },
+            dataType: 'html',
+            cache: false,
+            beforeSend: function(html) 
+            {
+                // $('#loading').show();
+            },
+            success: function(response)
+            {
+                // setTimeout(() => {
+                //     // $('#loading').hide();
+                // }, 500);
+                $("#addon_list").html(response);
+                // $("#flash").hide();
+            }
+        });
+    }
+    window.changeStatus = function(url,id,status){ 
+             
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                'id': id,'status':status,
+                
+            },
+            dataType: 'json',
+            cache: false,
+            success: function(response)
+            {
+                $('#dropdownMenuButton1-'+id).removeAttr('class');
+                $('#dropdownMenuButton1-'+id).addClass('btn dropdown-toggle '+response.data.class);
+                $("#change_status-"+id).html(response.data.status);
+                
+            }
+        });
     }
 
     window.submitform = function(id,action,method,formData,form){
