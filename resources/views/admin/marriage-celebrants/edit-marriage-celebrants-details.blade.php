@@ -143,30 +143,8 @@
                                         <input type="text" value="$ 50" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>ABN Number is required</div>
                                      </div>
-                                    <div class="col-md-12 mb-4">
-                                       <a href="/edit-marriage-celebrants-details" role="button" class="d-inline-flex theme-btn primary-btn justify-content-center">
-                                       <img class="me-2" src="/images/admin/partner/edit.svg" alt="Edit">
-                                       Edit information
-                                       </a>
-                                    </div>
-                                    <div class="col-md-12 col-lg-6 mb-4">
-                                       <div class="row">
-                                        <div class="col-md-12 mb-3 mt-4">
-                                            <div class="d-flex flex-column flex-md-row">
-                                               <span class="body-2 netural-100 me-4">Locations list</span>
-                                               <a role="button" class="mt-2 mt-md-0 button-1 turquoise-100 text-decoration-none faq-link" data-bs-toggle="offcanvas" data-bs-target="#celebrant_addlocation" aria-controls="celebrant_addlocation">Add new location</a>
-                                            </div>
-                                         </div>
-                                          <div class="col-12 mb-4">
-                                             <input type="text" value="Bradfield park" class="form-control body-1 netural-100" name="name" id="InputName">
-                                          </div>
-                                          <div class="col-12 mb-4">
-                                            <input type="text" value="Tench park, penrith" class="form-control body-1 netural-100" name="name" id="InputName">
-                                         </div>
-                                          <div class="col-12">
-                                             <input type="text" value="Blues point" class="form-control body-1 netural-100" name="name" id="InputName">
-                                          </div>
-                                       </div>
+                                     <div class="col-md-12 mb-4">
+                                       <input type="submit" value="Save" class="d-inline-flex theme-btn primary-btn justify-content-center sticky-bottom">
                                     </div>
                                  </div>
                               </form>

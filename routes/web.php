@@ -225,6 +225,29 @@ $adminRoutes = function() {
     Route::get('marriage-celebrants-details', function () {
         return view('admin.marriage-celebrants.marriage-celebrants-details');
     });
+    Route::get('edit-marriage-celebrants-details', function () {
+        return view('admin.marriage-celebrants.edit-marriage-celebrants-details');
+    });
+    Route::get('add-new-celebrant', function () {
+        return view('admin.marriage-celebrants.add-new-celebrant');
+    });
+
+    Route::get('all-triggers-and-emails', function () {
+        return view('admin.triggers-and-emails.all-triggers-and-emails');
+    });
+    Route::get('create-trigger', function () {
+        return view('admin.triggers-and-emails.create-trigger');
+    });
+    Route::get('booking-confirmation', function () {
+        return view('admin.triggers-and-emails.booking-confirmation');
+    });
+    Route::get('edit-booking-confirmation', function () {
+        return view('admin.triggers-and-emails.edit-booking-confirmation');
+    });
+
+    Route::get('payments-overview', function () {
+        return view('admin.payments.payments-overview');
+    });
 
     Route::get('locations', function () {
         return view('admin.locations.listing');
