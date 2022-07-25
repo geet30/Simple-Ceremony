@@ -85,7 +85,7 @@
          <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="all-ads-on" role="tabpanel" aria-labelledby="all-ads-on-tab" tabindex="0">
+                  <div class="tab-pane fade" id="all-ads-on" role="tabpanel" aria-labelledby="all-ads-on-tab" tabindex="0">
                      @include('elements.admin.addons.listing')
                  
                   </div>

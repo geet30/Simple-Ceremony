@@ -1,29 +1,17 @@
 $(window).on('load', function () {
-    // console.log('load');
     $('ul.add-on-list-nav').find('li button').removeClass('active').removeClass('show');
     if (window.location.href.indexOf("add-on-approved-tab") > -1) {
-        console.log('tt');
-        $('ul.add-on-list-nav').find('li button').removeClass('active').removeClass('show');
-        // $('ul.add-on-list-nav').find('li button#add-on-approved-tab').addClass("active");
         $('ul.add-on-list-nav').find('li button#add-on-approved-tab').click();
-        // $('#add-on-approved').
-        // $('#add-on-approved-tab').click();
-    
     }
     if (window.location.href.indexOf("Waiting-for-approval-tab") > -1) {
         $('ul.add-on-list-nav').find('li button#Waiting-for-approval-tab').click();
-        // $('#Waiting-for-approval-tab').click();
     } 
     if (window.location.href.indexOf("all-ads-on-tab") > -1) {
-    
         $('ul.add-on-list-nav').find('li button#all-ads-on-tab').click();
-        // $('#Waiting-for-approval-tab').click();
     
     } 
     if (window.location.href.indexOf("add-on-reject-tab") > -1) {
-    
-        $('ul.add-on-list-nav').find('li button#add-on-reject-tab').click();
-        // $('#Waiting-for-approval-tab').click();
+         $('ul.add-on-list-nav').find('li button#add-on-reject-tab').click();
     
     } 
 });
