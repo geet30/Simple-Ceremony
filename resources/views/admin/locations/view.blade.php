@@ -47,7 +47,7 @@
                   <div class="col-lg-6  mt-3 mt-lg-0">
                     <div class="d-flex justify-content-end mb-47">
                      <a href="single" class="theme-btn  primary-btn me-2">Confirm</a>
-                     <a href="listing" class="theme-btn  primary-btn-border me-2">Decline</a>
+                     <a href="locations" class="theme-btn  primary-btn-border me-2">Decline</a>
                      <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
                      Edit</a>
                     </div>

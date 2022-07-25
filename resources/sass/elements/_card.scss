@@ -189,6 +189,9 @@
     @include media-breakpoint-only(sm) {
         padding: 62px 30px;
     }
+    @include media-breakpoint-down(sm) {
+        padding: 20px;
+    }
     .card-title {
         padding-bottom: 35px;
     }

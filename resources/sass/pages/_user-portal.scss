@@ -11,14 +11,14 @@
     .thread {
       border-radius: 6px;
       padding: 8px 15px;
+    }
   }
 }
-}
 .booking-process-ul {
-  li{
+  li {
     .step-point {
       position: relative;
-      &::after{
+      &::after {
         content: "";
         position: absolute;
         z-index: 2;
@@ -26,8 +26,8 @@
         top: 7px;
         transform: translateX(50%);
         border-radius: 50%;
-        background: #62CBC9;
-        border: 1px #62CBC9 solid;
+        background: #62cbc9;
+        border: 1px #62cbc9 solid;
         width: 11px;
         height: 11px;
       }
@@ -44,35 +44,35 @@
           line-height: 24px;
           color: #707070;
         }
-        &::before{
+        &::before {
           content: "";
           position: absolute;
           z-index: 1;
           top: 7px;
           left: 0;
           height: 100%;
-          border-left: 1px #62CBC9 solid;
+          border-left: 1px #62cbc9 solid;
         }
       }
     }
-    &.active{
+    &.active {
       .steps-information-details {
         span {
-          color: #1C1C1C;
+          color: #1c1c1c;
         }
       }
     }
-    &:last-child{
-      .steps-information-details::before{
-          display: none;
+    &:last-child {
+      .steps-information-details::before {
+        display: none;
       }
     }
   }
 }
 .create-invitation {
   padding: 60px 50px;
-  background: #F7FCFC;
-  border: 1px solid #E2F3F2;
+  background: #f7fcfc;
+  border: 1px solid #e2f3f2;
   border-radius: 10px;
   max-width: 350px;
   img {
@@ -83,4 +83,89 @@
     width: 200px;
     margin: 0 auto;
   }
+}
+.invitation-card-popup {
+  .modal-content {
+    border-radius: 0;
+    .modal-body {
+      padding: 0;
+      .invitation-bottom {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+      .invitation-top {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .download-btn {
+        position: relative;
+        margin-top: 40px;
+        margin-right: 40px;
+      }
+      .invitation-content-data {
+        position: relative;
+        text-align: center;
+        color: #000;
+        padding-bottom: 60px;
+        .invitation-heading-wrapper {
+          position: relative;
+          margin-bottom: 80px;
+          .blur-wrapper {
+            position: absolute;
+            width: 365.64px;
+            height: 88.01px;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: 0 auto;
+            background: #ffffff;
+            filter: blur(40.8282px);
+            z-index: 0;
+          }
+          .invitation-heading {
+            font-size: 18.1459px;
+            line-height: 27px;
+            letter-spacing: 0.26em;
+            position: relative;
+            top: 30px;
+          }
+        }
+        .invitation-location-idea {
+          font-size: 13.9982px;
+          line-height: 21px;
+          margin-bottom: 30px;
+        }
+        .invitation-location-warning {
+          font-size: 12.5144px;
+          line-height: 19px;
+          margin-bottom: 0;
+        }
+        .invitation-location {
+          font-size: 18.1459px;
+          line-height: 27px;
+          margin-bottom: 10px;
+        }
+        .invitation-date {
+          font-size: 18.1459px;
+          line-height: 27px;
+          margin-bottom: 30px;
+        }
+        .invitation-sub-heading {
+          font-size: 18.1459px;
+          line-height: 27px;
+          letter-spacing: 0.15em;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+.warning-text {
+  background: #F7FCFC;
+  border: 1px solid #E2F3F2;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0px 30px;
 }

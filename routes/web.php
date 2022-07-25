@@ -138,6 +138,9 @@ $websiteRoutes = function() {
         Route::get('add-ons-gallery', function () {
             return view('user.overview.add-ons-gallery');
         });
+        Route::get('order-add-ons-details', function () {
+            return view('user.overview.order-add-ons-details');
+        });
         Route::get('account-details', function () {
             return view('user.account.account-details');
         });
@@ -205,6 +208,62 @@ $adminRoutes = function() {
     // Route::get('/', function () {
     //     return view('admin.login');
     // });
+
+    
+    Route::get('/', function () {
+        return view('admin.login');
+    });
+    Route::get('sign-up', function () {
+        return view('admin.sign-up');
+    });
+    Route::get('password-reset', function () {
+        return view('admin.password-reset');
+    });
+
+    Route::get('account-details', function () {
+        return view('admin.account.account-details');
+    });
+    Route::get('edit-account-details', function () {
+        return view('admin.account.edit-account-details');
+    });
+    Route::get('role', function () {
+        return view('admin.account.role');
+    });
+
+    Route::get('calander-overview', function () {
+        return view('admin.calander.calander-overview');
+    });
+
+    Route::get('marriage-celebrants-list', function () {
+        return view('admin.marriage-celebrants.marriage-celebrants-list');
+    });
+    Route::get('marriage-celebrants-details', function () {
+        return view('admin.marriage-celebrants.marriage-celebrants-details');
+    });
+    Route::get('edit-marriage-celebrants-details', function () {
+        return view('admin.marriage-celebrants.edit-marriage-celebrants-details');
+    });
+    Route::get('add-new-celebrant', function () {
+        return view('admin.marriage-celebrants.add-new-celebrant');
+    });
+
+    Route::get('all-triggers-and-emails', function () {
+        return view('admin.triggers-and-emails.all-triggers-and-emails');
+    });
+    Route::get('create-trigger', function () {
+        return view('admin.triggers-and-emails.create-trigger');
+    });
+    Route::get('booking-confirmation', function () {
+        return view('admin.triggers-and-emails.booking-confirmation');
+    });
+    Route::get('edit-booking-confirmation', function () {
+        return view('admin.triggers-and-emails.edit-booking-confirmation');
+    });
+
+    Route::get('payments-overview', function () {
+        return view('admin.payments.payments-overview');
+    });
+
     Route::get('locations', function () {
         return view('admin.locations.listing');
     });
@@ -232,6 +291,7 @@ $adminRoutes = function() {
    
     
     
+
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
     });
@@ -241,14 +301,50 @@ $adminRoutes = function() {
     Route::get('edit-package', function () {
         return view('admin.partner.edit-package');
     });
+    Route::get('package-details', function () {
+        return view('admin.partner.package-details');
+    });
     Route::get('partner-details', function () {
         return view('admin.partner.partner-details');
     });
-    Route::get('sign-up', function () {
-        return view('admin.sign-up');
+    Route::get('partner-edit', function () {
+        return view('admin.partner.partner-edit');
     });
-    Route::get('password-reset', function () {
-        return view('admin.password-reset');
+
+    Route::get('all-reports', function () {
+        return view('admin.financial-report.all-reports');
+    });
+    Route::get('reports-location', function () {
+        return view('admin.financial-report.reports-location');
+    });
+
+    Route::get('all-referrers', function () {
+        return view('admin.referrers.all-referrers');
+    });
+    Route::get('create-new-referrers', function () {
+        return view('admin.referrers.create-new-referrers');
+    });
+    Route::get('edit-referrers', function () {
+        return view('admin.referrers.edit-referrers');
+    });
+    Route::get('referrers-details', function () {
+        return view('admin.referrers.referrers-details');
+    });
+    Route::get('pending-referrers-details', function () {
+        return view('admin.referrers.pending-referrers-details');
+    });
+
+    Route::get('all-enquiries', function () {
+        return view('admin.enquiries.all-enquiries');
+    });
+    Route::get('enquiries-details', function () {
+        return view('admin.enquiries.enquiries-details');
+    });
+    Route::get('create-enquiry', function () {
+        return view('admin.enquiries.create-enquiry');
+    });
+    Route::get('edit-enquiry', function () {
+        return view('admin.enquiries.edit-enquiry');
     });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);

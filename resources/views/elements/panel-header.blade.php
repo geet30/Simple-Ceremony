@@ -1,18 +1,7 @@
+@include('elements.admin.account.admin-fee-sidebar')
 <header class="panel-header">
    <div class="row m-0">
-      <div class="col-sm-6 align-self-center d-none d-sm-block">
-         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item "><a href="#">All location packages</a></li>
-               <li class="breadcrumb-item"><a href="#">Library</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Data</li>
-            </ol>
-         </nav>
-      </div>
-      <div class="col-4 d-sm-none align-self-center">
-         <a>  <img src="/images/admin/login-logo.svg" alt="Logo" class="img-fluid"></a>
-      </div>
-      <div class="col-8 col-sm-6 d-flex justify-content-end">
+      <div class="col-12 col-sm-6 d-flex justify-content-end order-md-2">
          <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
             <div class=" navbar-collapse" id="navbarScroll">
                <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -105,14 +94,23 @@
                         <!-- <span><img src="/images/icons/header-logo.svg" class="img-fluid"></span> <span  class="align-self-center"><span class="body-2 text-black mb-0">Damian</span><span class="small-text3 mb-0 text-black">Admin SC</span></span> -->
                      </a>
                      <ul class="dropdown-menu  admin-profile-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a></li>
-                        <li><a class="dropdown-item" href="#"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li>
-                        <li><a class="dropdown-item" href="#"><img src="/images/icons/tax.svg" class="img-fluid">Setting admin tax</a></li>
-                        <li><a class="dropdown-item" href="#"><img src="/images/icons/logout.svg" class="img-fluid">Log out</a></li>
+                        <li><a class="dropdown-item" href="account-details"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a></li>
+                        <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li>
+                        <li><a role="button" class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax.svg" class="img-fluid">Setting admin tax</a></li>
+                        <li><a class="dropdown-item" href="/"><img src="/images/icons/logout.svg" class="img-fluid">Log out</a></li>
                      </ul>
                   </li>
                </ul>
             </div>
+         </nav>
+      </div>
+      <div class="col-sm-6 align-self-center order-md-1">
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item "><a href="#">All location packages</a></li>
+               <li class="breadcrumb-item"><a href="#">Library</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
          </nav>
       </div>
    </div>

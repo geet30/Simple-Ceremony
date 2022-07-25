@@ -14,14 +14,14 @@
                      <h3 class="h3 neutral-100 mb-md-4">Detail order</h3>
                      <div class="row">
                         <div class="col-md-12 col-lg-6 mb-4 mb-md-0 mb-lg-4">
-                           <label class="form-label small-text2">Wedding location <a href="#" class="ms-2 button-3 turquoise-100">See information</a></label>
+                           <label class="form-label small-text2">Wedding location <a href="/user/order-add-ons-details" class="ms-2 button-3 turquoise-100">See information</a></label>
                            <input type="text" value="Booking" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 col-lg-6 mb-4">
                            <label for="InputName" class="form-label small-text2 d-none d-md-inline-block"></label>
                            <div class="d-flex flex-column flex-md-row justify-content-md-between justify-content-lg-start">
-                              <a role="button" class="theme-btn primary-btn me-0 me-md-4 mb-3 mb-md-0 border-0 w-100">Reschedule</a>
-                              <a role="button" class="theme-btn primary-btn-border d-flex pe-auto justify-content-center w-100">Cancel</a>
+                              <a data-bs-toggle="modal" data-bs-target="#reschedule_ceremony_popup" role="button" class="theme-btn primary-btn me-0 me-md-4 mb-3 mb-md-0 border-0 w-100">Reschedule</a>
+                              <a  data-bs-toggle="modal" data-bs-target="#cancel_ceremony_popup" role="button" class="theme-btn primary-btn-border d-flex pe-auto justify-content-center w-100">Cancel</a>
                            </div>
                         </div>
                         <div class="col-md-12 mb-4">
@@ -71,7 +71,7 @@
                                         <div class="d-flex align-items-start align-items-md-center justify-content-between flex-column flex-md-row">
                                            <div class="d-flex align-items-start flex-column flex-lg-row mb-3 mb-md-0">
                                               <h3 class="h3 neutral-100 mb-0 me-3 mb-2 mb-lg-0">$ 120</h3>
-                                              <a role="button" class="theme-btn primary-btn me-3">Pay</a>
+                                              <a role="button" data-bs-toggle="modal" data-bs-target="#pay_ceremony_popup" class="theme-btn primary-btn me-3">Pay</a>
                                            </div>
                                            <span class="status registered thread">You got 1 comment in your thread!</span>
                                         </div>
@@ -185,7 +185,7 @@
                               <span class="step-point"></span>
                               <div class="steps-information">
                                  <div class="steps-information-details">
-                                    <span>Complete NoIM <a href="#" class="ms-2 button-3 turquoise-100">Click here</a></span><br><br>
+                                    <span>Complete NoIM <a href="/user/NoIM" class="ms-2 button-3 turquoise-100">Click here</a></span><br><br>
                                     <span>NoIM must be loaded no later than <br>Jul 30,2022</span>
                                  </div>
                               </div>
@@ -230,8 +230,8 @@
                         </ul>
                      </div>
                      <div class="create-invitation d-flex flex-column">
-                        <img src="/images/admin/user/create-invitation.svg" alt="Create invitation">
-                        <a role="button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0 w-100">Create invitation</a>
+                        <img src="/images/user/create-invitation.svg" alt="Create invitation">
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#invitation_card_popup" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0 w-100">Create invitation</a>
                      </div>
                   </div>
                </div>
@@ -240,4 +240,11 @@
       </div>
    </div>
 </div>
+@include('elements.user.invitation-card-popup')
+@include('elements.user.pay-ceremony-popup')
+@include('elements.user.reschedule-ceremony-popup')
+@include('elements.user.cancel-ceremony-popup')
+@include('elements.user.reschedule-ceremony-sidebar')
+@include('elements.user.calander')
+@include('elements.user.order-marriage-certificate')
 @endsection

@@ -50,12 +50,12 @@
                <div class="attach-document-box position-relative noim-document-box">
                   <input id="fileupload" class="fileupload" type="file" name="files[]">
                   <div class="inner-content">
-                     <div class="d-flex">
-                        <div>
-                           <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                           <p class="text-1 text-black">Compatible file .pdf .docx</p>
+                     <div class="d-md-flex ">
+                        <div class="d-flex d-md-block  justify-content-center justify-content-md-start">
+                           <img src="/images/icons/uploading.svg" class="img-fluid mb-2 align-self-center">
+                           <p class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">Compatible file .pdf .docx</p>
                         </div>
-                        <div class="align-self-center ms-3">
+                        <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
                            <p class="body-2 text-black mb-1">Upload your evidence of Date and Place of Birth here </p>
                            <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
                         </div>
@@ -183,13 +183,13 @@
             <div class="attach-document-box position-relative noim-document-box">
                <input id="fileupload" class="fileupload" type="file" name="files[]">
                <div class="inner-content">
-                  <div class="d-flex">
-                     <div>
-                        <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                        <p class="text-1 text-black">Compatible file .pdf .docx</p>
+                  <div class="d-md-flex ">
+                     <div class="d-flex d-md-block  justify-content-center justify-content-md-start">
+                        <img src="/images/icons/uploading.svg" class="img-fluid mb-2 align-self-center">
+                        <p class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">Compatible file .pdf .docx</p>
                      </div>
-                     <div class="align-self-center ms-3">
-                        <p class="body-2 text-black mb-1">Upload document </p>
+                     <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
+                        <p class="body-2 text-black mb-1">Upload your evidence of Date and Place of Birth here </p>
                         <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
                      </div>
                   </div>

@@ -8,7 +8,7 @@
    <div class="col-10 col-md-9 col-lg-10 px-md-4">
       @include('elements.user.steps.header')
       <div class="card noim-card mb-4">
-         <form class="card-body needs-validation pb-5"  method="POST" novalidate>
+         <form class="card-body needs-validation pb-5 px-0 pt-0"  method="POST" novalidate>
             <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100" class="scrollspy-example" tabindex="0" >
                <div id="person-1" >
                   @include('elements.user.steps.person-1')
@@ -33,7 +33,7 @@
                </div>
             </div>
             <div class="col-12">
-               <a href="/user/step-2" class="theme-btn primary-btn ">Save and continue to fill referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></a> 
+               <a href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to fill referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></a> 
             </div>
          </form>
       </div>

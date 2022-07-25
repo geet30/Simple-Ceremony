@@ -2,18 +2,18 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-md-3 col-lg-2 p-0">
-         @include('elements.user-sidebar')
+      <div class="col-2 col-md-3 col-lg-2 p-0">
+         @include('elements.user-sidebar') 
       </div>
-      <div class="col-md-9 col-lg-10 px-md-4">
+      <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.user-header')
          <div class="card panel-card">
             <div class="card-body niom">
                <div class="row">
-                  <div class="col-md-6 align-self-center">
+                  <div class="col-md-5 align-self-center">
                      <img src="/images/user/noim/video.png" alt="NoIM" class="img-fluid">
                   </div>
-                  <div class="col-md-6 align-self-center mt-3 mt-md-0 ">
+                  <div class="col-md-7 align-self-center mt-3 mt-md-0 ">
                      <h1 class="h3  netural-100 mb-3">Watch this video</h1>
                      <p class="body-3-medium neutral-100">for a summary of what's involved in completing your NoIM on-line & also have your signature witnessed on-line.</p>
                      <div class="d-lg-flex">

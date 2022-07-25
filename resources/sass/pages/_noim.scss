@@ -65,6 +65,9 @@
     border-radius: 10px;
     padding: 32px 37px;
     color: #1c1c1c;
+    @include media-breakpoint-down(md) {
+        padding: 20px;
+    }
 }
 
 .attach-document-box {
@@ -75,8 +78,14 @@
         height: 112px !important;
         width: 100%;
         padding: 0px !important;
+        @include media-breakpoint-down(md) {
+            height: 252px !important;
+        }
         .fileupload {
             height: 112px !important;
+            @include media-breakpoint-down(md) {
+                height: 252px !important;
+            }
         }
         .inner-content {
             padding: 19px 25px;
@@ -89,6 +98,9 @@
         .uploaded-content {
             height: 112px !important;
             align-items: center;
+            @include media-breakpoint-down(md) {
+                height: 252px !important;
+            }
         }
     }
 }
