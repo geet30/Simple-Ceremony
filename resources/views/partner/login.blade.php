@@ -21,7 +21,8 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                           <form method="POST" action="login">
+                           <form class="needs-validation row" method="POST" action="{{ route('login') }}" novalidate>
+                              @csrf
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Sign in to your account</h1>
@@ -47,7 +48,7 @@
                                              </label>
                                           </div>
                                        </div>
-                                       <input type="hidden" name="route_name" value="admin-login">
+                                       <!-- <input type="hidden" name="route_name" value="{{ Route::current()->getName() }}"> -->
                                        <div class="col-6 d-flex justify-content-end text-end">
                                           <a class="small-text2 forgot-password-link" href="/password-reset">
                                           Forgot Your Password?
@@ -61,12 +62,12 @@
                                           <a href="/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
                                        </div>
                                        <div class="col-6">
-                                          {{-- <button type="submit" class="theme-btn primary-btn w-100">
+                                          <button type="submit" class="theme-btn primary-btn w-100">
                                           Login
-                                          </button> --}}
-                                          <a href="/all-upcoming" class="theme-btn primary-btn w-100 d-block">
+                                          </button>
+                                          <!-- <a href="/all-upcoming" class="theme-btn primary-btn w-100 d-block">
                                              Login
-                                          </a>
+                                          </a> -->
                                        </div>
                                     </div>
                                  </div>

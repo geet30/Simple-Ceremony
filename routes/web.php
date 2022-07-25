@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AddonsController;
+use App\Http\Controllers\User\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,21 +20,29 @@ $websiteRoutes = function() {
     Route::get('/', function () {
         return view('pages.home');
     });
+    Route::get('booking',[BookingController::class, 'index'])->name('user.booking');
+    Route::get('single-location/{id}',[BookingController::class, 'detail'])->name('user.booking.detail');
     Route::get('location', function () {
         return view('pages.location');
     });
-    Route::get('single-location', function () {
-        return view('pages.single-location');
+    Route::get('get-booking-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
+
+
+    Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm']);
+    Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
+    
+    Route::post('/post-booking-user-payment',[BookingController::class, 'postBookingLocationPayment']);
+    Route::get('payment-success', function () {
+        return view('elements.user.booking.booking-step-three');
     });
+
     Route::get('request-custom-location', function () {
         return view('pages.request-custom-location');
     });
     Route::get('book-custom-location', function () {
         return view('pages.book-custom-location');
     });
-    Route::get('book-your-location', function () {
-        return view('pages.book-your-location');
-    });
+   
     Route::get('voucher', function () {
         return view('pages.voucher');
     });
@@ -194,6 +204,11 @@ $websiteRoutes = function() {
     });
 };
 $adminRoutes = function() {
+    Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+    // Route::get('/', function () {
+    //     return view('admin.login');
+    // });
+
     
     Route::get('/', function () {
         return view('admin.login');
@@ -265,20 +280,22 @@ $adminRoutes = function() {
         return view('admin.locations.view');
     });
 
-    Route::get('add-ons', function () {
-        return view('admin.add-ons.add-ons');
-    });
-    Route::get('admin-add-ons-details', function () {
-        return view('admin.add-ons.admin-add-ons-details');
-    });
-    Route::get('admin-add-ons-gallery', function () {
-        return view('admin.add-ons.admin-add-ons-gallery');
-    });
+    Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
+    Route::post('/submit-addon',[AddonsController::class, 'store']);
+    Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
+    Route::post('/update-addon',[AddonsController::class, 'update']);
+    Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
+    Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
+    Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('addons.gallery');
+    Route::post('/change-status',[AddonsController::class, 'changeStatus']);
+   
+    
+    
 
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
     });
-    Route::get('add-new-partner', function () {
+    Route::get('add-new-partner', function (){
         return view('admin.partner.add-new-partner');
     });
     Route::get('edit-package', function () {
@@ -338,12 +355,11 @@ $adminRoutes = function() {
     });
 
 };
-
-
 $partnerRoutes = function() {
-    Route::get('/', function () {
-        return view('partner.login');
-    });
+    Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
+    // Route::get('/', function () {
+    //     return view('partner.login');
+    // });
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });
@@ -366,9 +382,11 @@ $partnerRoutes = function() {
     Route::get('partner-details', function () {
         return view('partner.partner-details');
     });
-    Route::get('add-ons', function () {
-        return view('partner.add-ons');
-    });
+    // Route::get('add-ons', function () {
+    //     return view('partner.add-ons');
+    // })->name('admin-add-ons');
+    Route::get('add-ons',[App\Http\Controllers\Partner\AddonsController::class, 'index'])->name('partner-addons');
+
     Route::get('add-new-package', function () {
         return view('partner.add-new-package');
     });

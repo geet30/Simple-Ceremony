@@ -179,7 +179,7 @@
             </p>
             <p class="body-1 text-black mb-5"> One Stop - for your perfect wedding!</p>
             <div class="d-lg-flex"> 
-               <a href="/location" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
+               <a href="{{route('user.booking')}}" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a> 
                <a href="/married-checklist" class="theme-btn primary-btn-border d-flex justify-content-center">See checklist to get married</a>
             </div>
          </div>

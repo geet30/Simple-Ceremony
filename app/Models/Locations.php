@@ -42,4 +42,8 @@ class Locations extends Model
         'created_at',
         'updated_at',
     ];
+    public function location_images()
+    {
+        return $this->hasMany('App\Models\LocationImages','location_id','id');
+    }
 }

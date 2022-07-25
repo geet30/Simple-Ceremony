@@ -45,21 +45,28 @@ class LoginController extends Controller
     {
         if ($request->route_name=='admin-login') {
             $role = 'Admin';
-            $redirection = 'admin-locations';
+            $redirection = 'locations';
+        }
+        else if ($request->route_name=='partner-login') {
+            $role = 'Partner';
+            // $redirection = 'upcoming';
+            $redirection = 'add-ons';
         }
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            
+            return redirect($redirection);
             $user=Auth::user();
             if($role==$user->roles->first()->name){
-                return redirect('/admin/location');
+                return redirect($redirection);
             }else{
-                return Redirect::to('admin/login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
+                return Redirect::to('login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
             }
         }
-        return Redirect::to('admin/login')->withErrors([
+        return Redirect::to('login')->withErrors([
                 'email' => 'Credentials do not match our database.'
             ]);
     }

@@ -97,7 +97,7 @@
 				<p class="body-3 neutral-100 mb-4">Your wedding ceremony should be a very special moment in your lives. So our focus is on giving you, the perfect simple ceremony - with the best celebrants &amp; locations. We then streamline the rest - keeping it simple, fast and great value. Standard ceremonies from just $270. </p>
 				<p class="body-1 mb-4 turquoise-100">We also have add ons: chairs, decorations, photographer, flowers, wedding rings and a venue to celebrate! </p>
 				<p class="body-1 text-black mb-5"> One Stop - for your perfect wedding!</p>
-				<div class="d-lg-flex"> <a href="/location" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a></div>
+				<div class="d-lg-flex"> <a href="{{route('user.booking')}}" class="theme-btn primary-btn me-lg-4 d-flex justify-content-center mb-3 mb-lg-0">Make a booking</a></div>
 			</div>
 		</div>
 	</div>

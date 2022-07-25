@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\User;
+use App\Models\{User};
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
@@ -62,12 +63,26 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+   
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // dd($request->all());
+        try {
+            $response = User::createPartner($request->all());
+            if($response){
+                
+                return redirect('login')->with('message', 'User created successfully, to login please check your email');
+                //send email and redirect to login page
+
+            }
+            
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+            
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+            
+        }
+   
+        
     }
 }

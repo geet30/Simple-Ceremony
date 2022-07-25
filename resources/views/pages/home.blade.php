@@ -8,7 +8,7 @@
                <span class="h1 netural-100">Plan and book your wedding ceremonies</span>
             </h1>
             <p class="col-10 mx-auto text-center mb-4">Quicker, cheaper and a lot more fun than the government Marriage Registry Office. You can now book & complete all pre paperwork within 10minutes</p>
-            <div class="d-flex justify-content-center mb-4 "> <a href="/location" class="theme-btn primary-btn  me-4">Make a booking</a> <a href="/how-it-works" class="theme-btn primary-btn-border ">More information</a> </div>
+            <div class="d-flex justify-content-center mb-4 "> <a href="{{route('user.booking')}}" class="theme-btn primary-btn  me-4">Make a booking</a> <a href="/how-it-works" class="theme-btn primary-btn-border ">More information</a> </div>
             <img src="images/hero.png" class="img-fluid" alt="hero"> 
          </div>
       </div>
