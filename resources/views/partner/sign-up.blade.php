@@ -213,7 +213,7 @@
                                     <div class="upload__btn-box">
                                        <label class="theme-btn primary-btn ">
                                           <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
-                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" name="partner_packages[0][package_images][image_name][]">
+                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile" name="partner_packages[0][package_images][image_name][]">
                                        </label>
                                     </div>
                                     <div class="upload__img-wrap">

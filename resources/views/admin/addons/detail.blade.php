@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -7,6 +7,24 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.panel-header')
+         <?php 
+            $status_class = "waiting-approval";
+            if($data['status']==1)  {
+                $status = 'Approved';
+                $status_class = 'approved';
+            }  
+                
+            elseif($data['status']==2){
+                $status = 'Rejected';
+                $status_class = 'rejected';
+            }
+                
+            elseif($data['status']==0){
+                $status = 'Waiting For Approval'; 
+                $status_class = 'waiting-approval';
+            }
+                
+         ?>
          <a href="/add-ons" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
@@ -15,9 +33,9 @@
                      <div class="col-md-6 align-self-center">
                         <div class="table-dropdown d-flex align-items-center">
                            <h1 class="h3 neutral-100 mb-0">{{$data['product_name']}}</h1>
-                           <a class="waiting-approval p-1 px-3 d-inline text-decoration-none ms-3">Waiting Approval</a>
-                           <a class="approved p-1 px-3 d-inline text-decoration-none ms-3 d-none">Approve</a>
-                           <a class="rejected p-1 px-3 d-inline text-decoration-none ms-3 d-none">Rejected</a>
+                           <a class="{{$status_class}}  p-1 px-3 d-inline text-decoration-none ms-3" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
+                           <a class="{{$status_class}} p-1 px-3 d-inline text-decoration-none ms-3 d-none" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
+                           <a class="{{$status_class}} p-1 px-3 d-inline text-decoration-none ms-3 d-none" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
                         </div>
                         <p class="body-3 mb-0 mt-3"><span class="body-1">Criteria : </span>Available on 
                         <?php 
@@ -35,7 +53,7 @@
                      </div>
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
-                        <a href="#" class="theme-btn primary-btn me-3">Confirm</a>
+                        <a onclick="changeStatus('/change-status',{{$data['id']}},1)"  class="theme-btn primary-btn me-3">Confirm</a>
                         <a href="/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
                   </div>

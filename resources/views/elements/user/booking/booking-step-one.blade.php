@@ -1,7 +1,7 @@
 @extends('layouts.panels') 
-<form method="post" id="calendar_form" action="{{url('post-booking-location-form')}}" name="postform">
+<form  method="POST" novalidate id="calendar_form" name="postform">
     @csrf
-    <input type="hidden" name="locationId" value="{{$locationId}}">
+    <input type="hidden" name="locationId" id="locationId" value="{{$locationId}}">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
             <p class="paragraph Neutral/100">Step 1</p>
@@ -44,7 +44,7 @@
                     @foreach($time_array as $time)
                     <?php $count++;?>
                     <li class="me-3 mb-3">
-                        <input type="radio" class="btn-check" name="booking_time" id="btnradio{{$count}}" autocomplete="off" value="{{$time}}" checked>
+                        <input type="radio" class="btn-check booking_time" name="booking_time" id="btnradio{{$count}}" autocomplete="off" value="{{$time}}" checked>
                         <label class="radio-label body-2 text-center w-100" for="btnradio{{$count}}">{{$time}}</label>
                     </li>
                     @endforeach
@@ -55,7 +55,7 @@
         </div>
         <div class="col-md-12 text-end">
         
-        <button type="button" class="theme-btn primary-btn d-inline-flex" onClick="bookingSubmit('post-booking-location-form')">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button>
+        <button type="button" class="theme-btn primary-btn d-inline-flex" onClick="bookingSubmit('/post-booking-location-form','step-one','calendar_form')">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button>
             <!-- <a href="#" class="theme-btn primary-btn d-inline-flex">Next
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
             </a> -->

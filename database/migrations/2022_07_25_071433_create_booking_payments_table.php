@@ -13,14 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('booking_payments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('booking_date')->nullable();
-            $table->string('booking_time')->nullable();
-            $table->string('first_couple_name')->nullable();
-            $table->string('second_couple_name')->nullable();
-            $table->string('ceremony_type')->nullable();
+            $table->string('customerId')->nullable();
+            $table->string('payment_status')->nullable();
+            $table->string('payment_method_types')->nullable();
+            $table->string('status')->nullable();
+            $table->string('checkoutSessionID')->nullable();
+            $table->string('currency')->nullable();
+            $table->decimal('amount', 10, 2); 
+            
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); 
             $table->timestamps();
         });
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('booking_payments');
     }
 };

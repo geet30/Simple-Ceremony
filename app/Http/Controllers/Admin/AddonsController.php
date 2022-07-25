@@ -16,7 +16,7 @@ class AddonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($slug)
     {
         
         $data = Addons::all();
@@ -111,6 +111,7 @@ class AddonsController extends Controller
             // return response()->json(['status'=>true,"message"=>'Status changed successfully.','data'=>$status]);
             return $this->successResponse($data,'Status changed successfully.');
         }
+        // return redirect()->route('admin.addons',['slug' => 'all']);
         return response()->json(['status'=>false,"message"=>'something went wrong']);
         // return $this->errorResponse([], 'something went wrong', 400);
     }
@@ -184,13 +185,25 @@ class AddonsController extends Controller
     public function searchAddon(Request $request){
         
         $data = [];
+        
         if($request->has('search') && $request->filled('search')){
-            $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
+            if($request->table == 'partner_products'){
+                $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get(); 
+            }else{
+                $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
+            }
+           
         }else{
-            $data = Addons::orderBy('id', 'DESC')->get();
+            if($request->table == 'partner_products'){
+                $data = PartnerProducts::orderBy('id', 'DESC')->get();
+            }else{
+                $data = Addons::orderBy('id', 'DESC')->get();
+            }
+            
         }
+        // dd($data);
        
-        return View::make('admin.addons.searchList', ['addons' => $data]);
+        return View::make('admin.addons.searchList', ['addons' => $data,'table'=>$request->table]);
 
 
     }
@@ -205,6 +218,6 @@ class AddonsController extends Controller
 
         Addons::destroy($id);
         Session::flash('flash_message', 'Addon is deleted successfully.');
-        return redirect()->route('admin.addons');
+        return redirect()->route('admin.addons',['slug' => 'all']);
       }
 }

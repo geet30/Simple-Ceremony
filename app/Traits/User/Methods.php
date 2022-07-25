@@ -48,17 +48,9 @@ trait Methods
                     $PackageImages = PackageImages::create($package_images_inputs);
                 }   
             }
-            
-    
-            
-            
-            
         }
-      
-        
-       
         return true;
     }
-
+    
    
 }

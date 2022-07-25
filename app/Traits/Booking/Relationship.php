@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Traits\User;
+namespace App\Traits\Booking;
 
 use App\Models\{User};
 
 
 /**
- * User Relationship model.
+ * Booking Relationship model.
  * Author: Geetanjali Sharma
  */
 

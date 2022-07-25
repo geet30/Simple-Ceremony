@@ -25,14 +25,16 @@ $websiteRoutes = function() {
     Route::get('location', function () {
         return view('pages.location');
     });
-    Route::get('get-booking-location-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
-    // Route::post('post-booking-location-calender',[BookingController::class, 'postBookingLocationCalender'])->name('booking.postlocationCalender');
+    Route::get('get-booking-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
 
 
-    Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm'])->name('booking.postlocationBooking');
-
-    // Route::get('get-booking-location-detail',[BookingController::class, 'getBookingLocationUserDetail'])->name('booking.getlocationUserDetail');
-    // Route::post('post-booking-location-calender',[BookingController::class, 'postBookingLocationUserDetail'])->name('booking.postlocationUserDetail');
+    Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm']);
+    Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
+    
+    Route::post('/post-booking-user-payment',[BookingController::class, 'postBookingLocationPayment']);
+    Route::get('payment-success', function () {
+        return view('elements.user.booking.booking-step-three');
+    });
 
     Route::get('request-custom-location', function () {
         return view('pages.request-custom-location');
@@ -219,7 +221,7 @@ $adminRoutes = function() {
         return view('admin.locations.view');
     });
 
-    Route::get('add-ons',[AddonsController::class, 'index'])->name('admin.addons');
+    Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
     Route::post('/submit-addon',[AddonsController::class, 'store']);
     Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
     Route::post('/update-addon',[AddonsController::class, 'update']);

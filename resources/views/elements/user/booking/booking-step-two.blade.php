@@ -1,5 +1,5 @@
 @extends('layouts.panels') 
-<form method="POST">
+<form class="needs-validation" method="POST" novalidate id="userDetail">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
             <p class="paragraph Neutral/100">Step 2</p>
@@ -14,23 +14,27 @@
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="name" id="InputName">
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name" required>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your partner's preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="name" id="InputName">
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" required>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your email</label>
-            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="name" id="InputName">
+            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" required>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="phone" class="form-label small-text2">Your phone number</label>
-            <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 ">
+            <input class="form-control body-1 netural-100" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 " required>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone Number is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
-            <select name="customer_type" id="selectinput" class="js-placeholder-single-input form-control">
+            <select name="ceremony_type" id="selectinput" class="js-placeholder-single-input form-control" required>
                 <option value="" disabled="" selected="" hidden="">This ceremony is a</option>
                 <option value="1">Legal marriage ceremony</option>
                 <option value="2">A commitment ceremony</option>
@@ -38,6 +42,7 @@
                 <option value="4">A naming day</option>
                 <option value="5">A memorial ceremony</option>
             </select>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Type is required</div>
         </div>
 
         
@@ -63,10 +68,10 @@
             </div>
         </div>
         <div class="col-md-12 d-flex justify-content-end">
-            <a href="#" class="theme-btn primary-btn d-inline-flex me-3">
+            <a href="#list-home" class="theme-btn primary-btn d-inline-flex me-3 back_button" data-id="list-home-list">
                 <img class="me-2" src="/images/single-location/left-icon.svg" alt="Back Icon">Back
             </a>
-            <a href="#" class="theme-btn primary-btn d-inline-flex">Next
+            <button type="button" class="theme-btn primary-btn d-inline-flex submitBtn" onClick="bookingSubmit('/post-booking-user-detail','step-two','userDetail')">Next 
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
             </a>
         </div>

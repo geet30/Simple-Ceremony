@@ -9,7 +9,7 @@
                <a href="/location" class="theme-btn secondary-btn d-inline-flex back-btn"><img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">Back to home</a>
                <img class="d-block mt-4" style="max-width:227px;width: 100%;" src="/images/booking-form/sidebar-white-logo.svg"  alt="Logo">
                <h1 class="h3 text-white mt-4 mb-4">Follow these steps to complete your booking</h1>
-               <div class="list-group" id="list-tab" role="tablist">
+               <div class="list-group list-tab-group" id="list-tab" role="tablist">
                   <a class="h4 text-white d-flex align-items-center text-decoration-none mb-3 active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">
                      <img class="me-4" src="/images/booking-form/calander-icon.svg" alt="Calander Icon">
                      <span>Select date and time</span>

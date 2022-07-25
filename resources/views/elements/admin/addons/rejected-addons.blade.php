@@ -10,7 +10,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="add-on-reject-tab_searchList">
                   <?php $count = 0;?>
                   @foreach($rejected_addons  as $addon)
                    <?php $count++; 
@@ -42,13 +42,13 @@
                         <td class="body-2 neutral-100">Picture framing</td>
                         <td style="min-width:200px;">
                         <div class="dropdown table-dropdown">
-                            <button class="btn dropdown-toggle {{$status_class}}" type="button" id="dropdownMenuButton1-{{$addon->id}}" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn dropdown-toggle {{$status_class}}" type="button" id="add-on-reject-tab_{{$addon->id}}" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span id="change_status-{{$addon->id}}">{{$status}}</status>
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                <li><a class="dropdown-item waiting-approval" onClick="changeStatus('change-status',{{$addon->id}},0)">Waiting for approval</a></li>
-                                <li><a class="dropdown-item approved" onClick="changeStatus('change-status',{{$addon->id}},1)">Approved</a></li>
-                                <li><a class="dropdown-item rejected" onClick="changeStatus('change-status',{{$addon->id}},2)">Rejected</a></li>
+                                <li><a class="dropdown-item waiting-approval" onClick="changeStatus('/change-status',{{$addon->id}},0)">Waiting for approval</a></li>
+                                <li><a class="dropdown-item approved" onClick="changeStatus('/change-status',{{$addon->id}},1)">Approved</a></li>
+                                <li><a class="dropdown-item rejected" onClick="changeStatus('/change-status',{{$addon->id}},2)">Rejected</a></li>
                             </ul>
                             </div>
                         </td>

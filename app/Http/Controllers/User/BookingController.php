@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Locations;
-use App\Models\LocationImages;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use View;
 use DB;
+use Stripe\Stripe;
+use Illuminate\Support\Facades\Cache;
 class BookingController extends Controller
 {
     /**
@@ -60,6 +62,13 @@ class BookingController extends Controller
      */
     public function getBookingLocationCalender(Request $request,$locationId)
     {
+        // dd($request->all());
+        if(isset($request->session_id) && !empty($request->session_id)){
+            // dd(Cache::get('booking'));
+            // echo $request->session_id;die;
+            Booking::savePaymentDetail($request->session_id,$request->userId);
+
+        }
         $time_array = [
             '06.00'=>'06.00',
             '07.00'=>'07.00',
@@ -80,14 +89,14 @@ class BookingController extends Controller
 
 
         ];
-        $booking = $request->session()->get('booking');
+        $booking = Cache::get('booking');
         return view('user.booking.book-location',compact('booking','time_array','locationId'));
       
     }
 
    
    /**  
-     * Post Request to store step1 info in session
+     * Post Request to store step1 info in cache
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -95,94 +104,142 @@ class BookingController extends Controller
     
     public function postBookingLocationForm(Request $request)
     {
-        // 
-        dd($request->all());
-        $locationId = $request->locationId;
-        $validatedData = $request->validate([
-            'booking_date' => 'required',
-            'booking_time' => 'required|numeric',
-        ]);
-        
        
-        if(empty($request->session()->get('booking'))){
-            $booking = new \App\Models\Booking();
-            $booking->fill($validatedData);
+        $data = [
+            'booking_date' => $request->calendar_date,
+            'booking_time' => $request->booking_time,
+            // 'locationID' =>$request->locationId
+
+        ];
+        
+        if(Cache::has('booking')){
+            $booking = Cache::get('booking');
+            $booking->fill($data);
             $booking['locationId'] = $request->locationId;
-            $request->session()->put('booking', $booking);
+            Cache::put('booking',$booking);
+
+         
         }else{
-            $booking = $request->session()->get('booking');
-            $booking->fill($validatedData);
+            $booking = new \App\Models\Booking();
+            $booking->fill($data);
             $booking['locationId'] = $request->locationId;
-            $request->session()->put('booking', $booking);
+            Cache::put('booking', $booking);
         }
-        // dd($request->session()->get('booking')); 
-        return redirect()->route('booking.getlocationUserDetail');
+       return $this->successResponse([],'Date added successfully.');
     }
-    /**
-     * show bookinguserInfo page.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */  
-    // public function getBookingLocationUserDetail(Request $request){
-    //     // dd($request->session()->get('booking'));
-    //     die('tets');
-    //     $booking = $request->session()->get('booking');
-        
-    //     return view('user.booking.book-location',compact('booking'));
-    //     return view('elements.user.booking.booking-step-two',compact('booking'));
-       
-
-    // }
+ 
       /**  
-     * Post Request to store step2 info in session
+     * Post Request to store step2 info in cache
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function postBookingLocationUserDetail(Request $request)
+    public function postBookingLocationUserDetail(Request $request)
+    {
+        
+        $data = [
+            'first_couple_name' => $request->first_couple_name,
+            'second_couple_name' => $request->second_couple_name,
+            'ceremony_type' => $request->ceremony_type,
+        ];
+        if(Cache::has('booking')){
+            $booking = Cache::get('booking');
+            $booking->fill($data);
+            $booking['locationId'] = $request->locationId;
+            $booking['email'] = $request->email;
+            $booking['phone'] = $request->phone;
+            Cache::put('booking',$booking);
+
+        }else{
+            $booking = new \App\Models\Booking();
+            $booking->fill($data);
+            $booking['locationId'] = $request->locationId;
+            $booking['email'] = $request->email;
+            $booking['phone'] = $request->phone;
+            Cache::put('booking', $booking);
+           
+        }
+        return $this->successResponse([],'Date added successfully.');
+    }
+    
+         /**  
+     * Post Request to store step3 info 
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function postBookingLocationPayment(Request $request)
+    {
+
+        try {
+            
+           return  Booking::getLocationDetail();
+        }
+        catch (\Exception $ex) {
+            echo "<pre>";print_r($ex->getMessage());die;
+            return $ex->getMessage();
+        }
+ 
+    }
+    // public function postBookingLocationPayment(Request $request)
     // {
-    //     // dd($request->all());
-    //     $validatedData = $request->validate([
-    //         'first_couple_name' => 'required',
-    //         'second_couple_name' => 'required',
-    //         'ceremony_type' => 'required',
-    //     ]);
-    //     $validatedData['locationId'] = $request->locationId;
-    //     if(empty($request->session()->get('booking'))){
-    //         $booking = new \App\Models\Booking();
-    //         $booking->fill($validatedData);
-    //         $request->session()->put('booking', $booking);
-    //     }else{
-    //         $booking = $request->session()->get('booking');
-    //         $booking->fill($validatedData);
-    //         $request->session()->put('booking', $booking);
+    //     try {
+    //         $locationId = Cache::get('booking')->locationId;
+    //         $data = Locations::with([
+    //             'location_images' => function($query){
+    //                 $query->select('location_id','image');
+    //             }
+    //         ])->select('name','id','price')->where('id',$locationId)->first()->toArray();
+    //         $img ='';
+    //         if(isset($data['location_images']) && !empty($data['location_images']))  {
+    //             foreach($data['location_images'] as $images){
+                
+    //                 if(isset($images) && !empty($images))  {
+                    
+    //                     $img = asset('/uploads/images/locations/'.$images['image']);
+    //                 }
+    //             }
+    //         }
+    //         Stripe::setApiKey(env('STRIPE_SECRET'));
+    //         $DOMAIN = env('WEBSITE');
+            
+    //         $amount = bcmul($data['price'], 100);
+
+    //         $checkout_session = \Stripe\Checkout\Session::create([
+    //             'payment_method_types' => ['card'],
+    //             // 'line_items' => [[
+    //             //     'price' => 'price_1LOIzwSCoUv0RVM4lRLLH6k5',
+    //             //     'quantity' => 1,
+    //             // ]],
+    //             'line_items' => [[
+    //                 'price_data' => [
+    //                 'currency' => 'usd',
+    //                 'unit_amount' => $amount,
+    //                 'product_data' => [
+    //                     'name' => $data['name'],
+    //                     'description' => $data['name'],
+    //                     'images' => [$img],
+    //                 ]
+    //                 ],
+    //                 'quantity' => 1
+    //             ]],
+    //             'mode' => 'payment',
+                
+    //             'success_url' => $DOMAIN . '/get-booking-calender/1?session_id={CHECKOUT_SESSION_ID}',
+    //             // 'success_url' => $YOUR_DOMAIN . '/payment-success?session_id={CHECKOUT_SESSION_ID}',
+    //             'cancel_url' => $DOMAIN . '/cancel.html',
+    //         ]);
+
+    //         return redirect($checkout_session->url);
     //     }
-    //     return redirect()->route('booking.getlocationUserDetail');
+    //     catch (\Exception $ex) {
+    //         echo "<pre>";print_r($ex->getMessage());die;
+    //         return $ex->getMessage();
+    //     }
+ 
     // }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Locations  $locations
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Locations $locations)
-    {
-        return view('admin.locations.create');
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Locations  $locations
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $location = Locations::where('id', $id)->first();
-        return view('admin.locations.edit')->with('location', $location);
-    }
 
     /**
      * Update the specified resource in storage.

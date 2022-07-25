@@ -128,14 +128,19 @@ $(document).ready(function () {
   ImgUpload();
 });
 
-function ImgUpload() {
+function ImgUpload(counter=null) {
   
   var imgWrap = "";
   var imgArray = [];
+  let imgId = '#upload__inputfile';
+  if(counter != null){
+    imgId =  imgId + '-' +counter;
 
-  $('.upload__inputfile').each(function () {
+  }
+  $(imgId).each(function () {
    
     $(this).on('change', function (e) {
+      
       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
       var maxLength = $(this).attr('data-max_length');
 
@@ -163,8 +168,10 @@ function ImgUpload() {
             imgArray.push(f);
 
             var reader = new FileReader();
+            console.log('test');
             reader.onload = function (e) {
               var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              console.log(f.name);
               imgWrap.append(html);
               iterator++;
             }
@@ -174,6 +181,13 @@ function ImgUpload() {
       });
     });
   });
+
+  
+  // let imgCloseId = '#upload__img-close';
+  // if(counter != null){
+  //   imgCloseId =  imgCloseId + '-' +counter;
+
+  // }
 
   $('body').on('click', ".upload__img-close", function (e) {
     var file = $(this).parent().data("file");

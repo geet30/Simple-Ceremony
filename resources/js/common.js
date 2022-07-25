@@ -138,7 +138,7 @@ function ImgUpload() {
       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
       var maxLength = $(this).attr('data-max_length');
 
-      var files = e.target.files;
+      var files = e.target.files;//console.log(files);
       var filesArr = Array.prototype.slice.call(files);
       var iterator = 0;
       filesArr.forEach(function (f, index) {
@@ -164,6 +164,7 @@ function ImgUpload() {
             var reader = new FileReader();
             reader.onload = function (e) {
               var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              
               imgWrap.append(html);
               iterator++;
             }
@@ -258,3 +259,23 @@ console.log(calendar.getSelectedDate());
 });
  
 })(jQuery);
+
+//Make tabs selected on page reload
+// $(document).ready(function(){
+//     $('.list-group a').click(function(e) {
+     
+//       e.preventDefault();
+//       $(this).tab('show');
+//     });
+
+
+//     // store the currently selected tab in the hash value
+//     $(".list-group > a").on("shown.bs.tab", function(e) {
+//       var id = $(e.target).attr("href").substr(1);
+//       window.location.hash = id;
+//     });
+
+//     // on load of the page: switch to the currently selected tab
+//     var hash = window.location.hash;
+//     $('.list-group a[href="' + hash + '"]').tab('show');
+// });
