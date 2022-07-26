@@ -7,6 +7,7 @@ use App\Models\{User,Locations,Booking,BookingPayments};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
+use App\Mail\RegisterUserMail;
 trait Methods
 {
    static function getLocationDetail(){
@@ -56,10 +57,21 @@ trait Methods
         try{
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
-            $user_inputs['password'] = Hash::make(Str::random(8));
+            $random_password = Str::random(8);
+            $user_inputs['password'] = Hash::make($random_password );
         
         
             $user =User::create($user_inputs);
+            $when = now()->addMinutes(1);
+            $dataMail  = array(
+                'email' => $user_inputs['email'],
+                'password' => $random_password ,
+            );
+
+            $mail_id = $user_inputs['email'];
+            $sendMail = new RegisterUserMail($dataMail);
+            $mail = \Mail::to($mail_id)->later($when, $sendMail);
+
             $booking['userId'] = $user->id;
 
             if(Cache::has('booking')){
@@ -83,21 +95,12 @@ trait Methods
             return $ex->getMessage();
         }
 
-
-        // $booking_payment_inputs['user_id']  = $user->id; 
-        // $booking_payment_inputs['booking_date']  = $data->booking_date; 
-        // $booking_payment_inputs['booking_time']  = $data->booking_time; 
-        // BookingPayments::create($booking_payment_inputs);
-
-
-
-
     }
     static function savePaymentDetail($sessionId,$userId){
         
        
         $stripe = new \Stripe\StripeClient(
-            env('STRIPE_SECRET')
+            config('env.STRIPE_SECRET')
         );
         $response = $stripe->checkout->sessions->retrieve(
             $sessionId,
@@ -118,12 +121,13 @@ trait Methods
 
     }
     static function stripePayment($data) {
-        // dd($data);
         
      
-        try {
-            Stripe::setApiKey(env('STRIPE_SECRET'));
-            $DOMAIN = env('WEBSITE');
+        try { 
+            
+            Stripe::setApiKey(config('env.STRIPE_SECRET'));
+        
+            $DOMAIN = config('env.WEBSITE');
             $amount = bcmul($data['price'], 100);
 
 

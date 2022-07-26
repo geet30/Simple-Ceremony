@@ -1,3 +1,25 @@
+//sidebar menu active
+$(window).on('load', function () {
+  // $("#sidebarMenu li a").click(function() {
+  
+  //   $("#sidebarMenu li a").removeClass('active')
+  //   $(this).addClass('active');
+  // });
+
+  $("#sidebarMenu2 li a").each(function() {
+      $("#sidebarMenu2 li a").removeClass('active')
+      console.log($(this));
+      
+      if ($(this).attr("href") == location.pathname) {
+        
+        // $('#sidebarMenu > li > a[href="' + location.pathname + '"]').addClass('active');
+        // $(this)[0].addClass('active')
+        $(this).addClass('active');
+        // navItem.addClass("active");
+      }
+  });
+});
+
 // slick slider js
 $('.slider-for').slick({
   slidesToShow: 1,
@@ -259,7 +281,8 @@ var defaultConfigClass = {
 };
 
 var calendar = $('.calendar-wrapper').calendar(defaultConfigClass);
-console.log(calendar.getSelectedDate());
+// console.log(calendar.getSelectedDate());
+
 
 
 (function( $ ) {

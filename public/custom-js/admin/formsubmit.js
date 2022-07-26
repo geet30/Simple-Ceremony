@@ -1,5 +1,9 @@
 $(window).on('load', function () {
+   
     $('ul.add-on-list-nav').find('li button').removeClass('active').removeClass('show');
+    if (window.location.href.indexOf("all") > -1) {     
+        $('ul.add-on-list-nav').find('li button#all-ads-on-tab').click();
+    }
     if (window.location.href.indexOf("add-on-approved-tab") > -1) {
         $('ul.add-on-list-nav').find('li button#add-on-approved-tab').click();
     }
@@ -23,11 +27,22 @@ $(document).ready(function(){
         }
       });
     window.SearchRecords = function(url,keyword=null){
-        // alert('gfdg');
+        
         var tab_id = $("ul.theme-tabs li a.active").attr("id");
-        console.log(tab_id);
+       
         var sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
-        console.log(sub_tab_id);
+        var status ='';
+        if(sub_tab_id == 'Waiting-for-approval-tab'){
+            status = 0;
+
+        }else if(sub_tab_id == 'add-on-approved-tab'){
+            status = 1;
+        }
+        else if(sub_tab_id == 'add-on-reject-tab'){
+            status = 2;
+        }
+        
+       
         if(tab_id == 'information-tab'){
             var table = 'partner_products';
         }else if(tab_id == 'celebrants-tab'){
@@ -37,7 +52,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'search': keyword,'table':table
+                'search': keyword,'table':table,'status':status
                 
             },
             dataType: 'html',
@@ -48,18 +63,12 @@ $(document).ready(function(){
             },
             success: function(response)
             {
-                // setTimeout(() => {
-                //     // $('#loading').hide();
-                // }, 500);
+               
                 if(tab_id == 'information-tab'){
-                   
-                    // $(".searchList").html(response);
                     $('#'+sub_tab_id+'_searchList').html(response);
                 }else{
                     $("#addon_list").html(response);
                 }
-                
-                // $("#flash").hide();
             }
         });
     }
@@ -90,24 +99,12 @@ $(document).ready(function(){
          
                 $('#'+tab_id+'_'+id).find("#change_status-"+id).html(response.data.status);
                 window.location = tab_id;
-                // if(tab_id =='add-on-approved-tab'){
-                //     window.location = tab_id;
-                // }else if(tab_id == 'waiting-for-approval-tab'){
-
-                // }else if(tab_id =='add-on-reject-tab'){
-
-                // }
-                // else if(tab_id =='all-ads-on-tab'){
-                //     window.location = tab_id;
-                // }
-
-                //on change p status get krke compare krke usi tab p reload krana h
+                
                 
             }
         });
     }
-    // console.log('trr');
-    // console.log(window.location.href);
+    
     
     // window.addSlug = function(){
     //     var tab_id = $(this).find('li').find('button.active').attr("id");

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\{View, Storage, DB,Hash};
 use App\Models\{User,PartnerPackages,PackageLocations,PartnerProducts,PackageImages};
 use Carbon\Carbon;
 use Str;
+use App\Mail\RegisterUserMail;
 trait Methods
 {
    
@@ -14,12 +15,24 @@ trait Methods
         // dd($data);
       
         $user_inputs = $data['user'];
-        $user_inputs['password'] = Hash::make(Str::random(8));
+        $random_password = Str::random(8);
+        $user_inputs['password'] = Hash::make($random_password);
         if(!empty($data['user']['image'])){
             $user_inputs['image'] = uploadImage($data['user']['image'], 'user');
         }
        
         $user =User::create($user_inputs);
+        $when = now()->addMinutes(1);
+        $dataMail  = array(
+            'email' => $user_inputs['email'],
+            'password' => $random_password,
+        );
+
+        $mail_id = $user_inputs['email'];
+        $sendMail = new RegisterUserMail($dataMail);
+        $mail = \Mail::to($mail_id)->later($when, $sendMail);
+
+
        
         $partner_products_inputs = $data['partner_products'];
         $partner_products_inputs['user_id'] = $user->id;        

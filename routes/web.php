@@ -32,6 +32,7 @@ $websiteRoutes = function() {
     Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
     
     Route::post('/post-booking-user-payment',[BookingController::class, 'postBookingLocationPayment']);
+    Route::post('search-booking-location',[BookingController::class, 'searchBookingLocation']);
     Route::get('payment-success', function () {
         return view('elements.user.booking.booking-step-three');
     });
@@ -291,6 +292,7 @@ $adminRoutes = function() {
    
     
     
+    
 
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
@@ -363,9 +365,9 @@ $partnerRoutes = function() {
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });
-    Route::get('sign-up', function () {
-        return view('partner.sign-up');
-    });
+    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm');
+    
+   
     Route::get('all-partners', function () {
         return view('partner.all-partners');
     });
@@ -502,10 +504,10 @@ $celebrantRoutes = function() {
     });
 };
 
-Route::group(array('domain' => env('PARTNER')), $partnerRoutes);
-Route::group(array('domain' => env('CELEBRANT')), $celebrantRoutes);
-Route::group(array('domain' => env('ADMIN')), $adminRoutes);
-Route::group(array('domain' => env('WEBSITE')), $websiteRoutes);
+Route::group(array('domain' => config('env.PARTNER')), $partnerRoutes);
+Route::group(array('domain' => config('env.CELEBRANT')), $celebrantRoutes);
+Route::group(array('domain' => config('env.ADMIN')), $adminRoutes);
+Route::group(array('domain' => config('env.WEBSITE')), $websiteRoutes);
 Auth::routes();
 
 

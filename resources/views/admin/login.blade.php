@@ -48,7 +48,8 @@
                                              </label>
                                           </div>
                                        </div>
-                                       <input type="hidden" name="route_name" value="{{ Route::current()->getName() }}">
+                                      
+                                       <input type="hidden" name="route_name" id="route_name" value="{{ Route::current()->getName() }}">
                                        <div class="col-6 d-flex justify-content-end text-end">
                                           <a class="small-text2 forgot-password-link" href="/password-reset">
                                           Forgot Your Password?

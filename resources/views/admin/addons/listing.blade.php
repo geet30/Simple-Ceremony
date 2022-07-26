@@ -16,7 +16,7 @@
                      <img src="/images/admin/add-ons/message-icon.svg" alt="All add-ons">
                   </div>
                   <div class="add-ons-nav-data text-start ">
-                     <h3 class="h3">{{count($all_addons)}}</h3>
+                     <h3 class="h3">{{$all_addons->total()}}</h3>
                      <p class="subheader-2">All add-ons</p>
                   </div>
                </div>
@@ -29,7 +29,7 @@
                         <img src="/images/admin/add-ons/timer-icon.svg" alt="">
                      </div>
                      <div class="add-ons-nav-data text-start ">
-                        <h3 class="h3">{{count($pending_addons)}}</h3>
+                        <h3 class="h3">{{$pending_addons->total()}}</h3>
                         <p class="subheader-2">Waiting for approval</p>
                      </div>
                   </div>
@@ -42,7 +42,7 @@
                      <img src="/images/admin/add-ons/hands.svg" alt="">
                   </div>
                   <div class="add-ons-nav-data text-start ">
-                     <h3 class="h3">{{count($approved_addons)}}</h3>
+                     <h3 class="h3">{{$approved_addons->total()}}</h3>
                      <p class="subheader-2">Approved</p>
                   </div>
                </div>
@@ -55,7 +55,7 @@
                      <img src="/images/admin/add-ons/cross.svg" alt="">
                   </div>
                   <div class="add-ons-nav-data text-start ">
-                     <h3 class="h3">{{count($rejected_addons)}}</h3>
+                     <h3 class="h3">{{$rejected_addons->total()}}</h3>
                      <p class="subheader-2">Reject</p>
                   </div>
                </div>
@@ -82,6 +82,7 @@
                </div>
             </div>
          </div>
+      
          <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                <div class="tab-content" id="pills-tabContent">

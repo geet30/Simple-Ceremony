@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/locations';
 
     /**
      * Create a new controller instance.
@@ -43,24 +43,26 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        $redirection = '';
+   
         if ($request->route_name=='admin-login') {
             $role = 'Admin';
             $redirection = 'locations';
         }
         else if ($request->route_name=='partner-login') {
             $role = 'Partner';
-            // $redirection = 'upcoming';
             $redirection = 'add-ons';
         }
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
+         dd($request->route_name);die;
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             
-            return redirect($redirection);
+            // return redirect($redirection);
             $user=Auth::user();
-            if($role==$user->roles->first()->name){
+            if($role = $user->roles->first()->name){
                 return redirect($redirection);
             }else{
                 return Redirect::to('login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
@@ -69,5 +71,14 @@ class LoginController extends Controller
         return Redirect::to('login')->withErrors([
                 'email' => 'Credentials do not match our database.'
             ]);
+    }
+    public function logout() {
+        $user=Auth::user();
+        // $input['language'] = 'nl';
+        // $result = User::where('id', $user->id)->update($input);
+        // Auth::logoutCurrentDevice(); 
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();       
+        return redirect()->route('login');
     }
 }

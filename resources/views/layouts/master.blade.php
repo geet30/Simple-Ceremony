@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="theme-color" content="#E5E5E5">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <link rel="apple-touch-icon" sizes="180x180" href="images/favicon//apple-touch-icon.png">
       <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
@@ -14,6 +15,7 @@
       <link href="https://intl-tel-input.com/node_modules/intl-tel-input/build/css/intlTelInput.css?1549804213570" rel="stylesheet">
       <link href="custom-css/calendar.css" rel="stylesheet">
       <link href="fonts/stylesheet.css" rel="stylesheet">
+      
    </head>
    <body class="antialiased" data-barba="wrapper">
       <main>
@@ -29,5 +31,6 @@
    <script src="https://intl-tel-input.com/node_modules/intl-tel-input/build/js/intlTelInput.js?1549804213570"></script>
    <script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
    <script src="js/app.js" defer></script>
+   <script src="/custom-js/admin/formsubmit.js"></script>
    
   </html>

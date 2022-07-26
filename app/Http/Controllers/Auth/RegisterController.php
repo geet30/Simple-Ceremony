@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Models\{User};
+use App\Models\{User,Addons,Locations};
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
 class RegisterController extends Controller
 {
     /*
@@ -63,13 +62,18 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-   
+    public function showSignupForm(){
+        $addons = Addons::all();
+        $locations = Locations::all();
+        return view('partner.sign-up',compact('addons','locations'));
+    }
     public function register(Request $request)
     {
         // dd($request->all());
         try {
             $response = User::createPartner($request->all());
             if($response){
+             
                 
                 return redirect('login')->with('message', 'User created successfully, to login please check your email');
                 //send email and redirect to login page
@@ -77,7 +81,7 @@ class RegisterController extends Controller
             }
             
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            // dd($e->getMessage());
             
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             

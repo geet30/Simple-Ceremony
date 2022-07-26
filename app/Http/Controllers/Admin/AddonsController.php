@@ -30,10 +30,11 @@ class AddonsController extends Controller
             
         ])->select('product_name','id','status','business_category');
 
-        $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate(10, ['*'], 'page', 1);     
-        $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate(10, ['*'], 'page', 1);
-        $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate(10, ['*'], 'page', 1);
-        $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate(10, ['*'], 'page', 1);
+        $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');  
+       
+        $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');
+        $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');
+        $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');
         // dd(count($pending_addons));
         return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons']));
        
@@ -185,17 +186,29 @@ class AddonsController extends Controller
     public function searchAddon(Request $request){
         
         $data = [];
+       
         
         if($request->has('search') && $request->filled('search')){
             if($request->table == 'partner_products'){
-                $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get(); 
+                if($request->status != null){
+                    $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->where('status',$request->status)->orderBy('id', 'DESC')->get(); 
+                }else{
+                    $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get(); 
+                }
+                
             }else{
                 $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
             }
            
         }else{
             if($request->table == 'partner_products'){
-                $data = PartnerProducts::orderBy('id', 'DESC')->get();
+                
+                if($request->status != null){
+                    $data = PartnerProducts::orderBy('id', 'DESC')->where('status',$request->status)->get();
+                }else{
+                    $data = PartnerProducts::orderBy('id', 'DESC')->get();
+                }
+               
             }else{
                 $data = Addons::orderBy('id', 'DESC')->get();
             }

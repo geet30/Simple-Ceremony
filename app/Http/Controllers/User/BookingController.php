@@ -181,63 +181,53 @@ class BookingController extends Controller
         }
  
     }
-    // public function postBookingLocationPayment(Request $request)
-    // {
-    //     try {
-    //         $locationId = Cache::get('booking')->locationId;
-    //         $data = Locations::with([
-    //             'location_images' => function($query){
-    //                 $query->select('location_id','image');
-    //             }
-    //         ])->select('name','id','price')->where('id',$locationId)->first()->toArray();
-    //         $img ='';
-    //         if(isset($data['location_images']) && !empty($data['location_images']))  {
-    //             foreach($data['location_images'] as $images){
-                
-    //                 if(isset($images) && !empty($images))  {
+
+      /**
+     * search the specified location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Locations  $locations
+     * @return \Illuminate\Http\Response
+     * */
+
+    public function searchBookingLocation(Request $request)
+    {
+
+        dd($request->all());
+        try {
+            if($request->has('search') && $request->filled('search')){
+                if($request->table == 'partner_products'){
+                    if($request->status != null){
+                        $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->where('status',$request->status)->orderBy('id', 'DESC')->get(); 
+                    }else{
+                        $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get(); 
+                    }
                     
-    //                     $img = asset('/uploads/images/locations/'.$images['image']);
-    //                 }
-    //             }
-    //         }
-    //         Stripe::setApiKey(env('STRIPE_SECRET'));
-    //         $DOMAIN = env('WEBSITE');
-            
-    //         $amount = bcmul($data['price'], 100);
-
-    //         $checkout_session = \Stripe\Checkout\Session::create([
-    //             'payment_method_types' => ['card'],
-    //             // 'line_items' => [[
-    //             //     'price' => 'price_1LOIzwSCoUv0RVM4lRLLH6k5',
-    //             //     'quantity' => 1,
-    //             // ]],
-    //             'line_items' => [[
-    //                 'price_data' => [
-    //                 'currency' => 'usd',
-    //                 'unit_amount' => $amount,
-    //                 'product_data' => [
-    //                     'name' => $data['name'],
-    //                     'description' => $data['name'],
-    //                     'images' => [$img],
-    //                 ]
-    //                 ],
-    //                 'quantity' => 1
-    //             ]],
-    //             'mode' => 'payment',
+                }else{
+                    $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
+                }
+               
+            }else{
+                if($request->table == 'partner_products'){
+                    
+                    if($request->status != null){
+                        $data = PartnerProducts::orderBy('id', 'DESC')->where('status',$request->status)->get();
+                    }else{
+                        $data = PartnerProducts::orderBy('id', 'DESC')->get();
+                    }
+                   
+                }else{
+                    $data = Addons::orderBy('id', 'DESC')->get();
+                }
                 
-    //             'success_url' => $DOMAIN . '/get-booking-calender/1?session_id={CHECKOUT_SESSION_ID}',
-    //             // 'success_url' => $YOUR_DOMAIN . '/payment-success?session_id={CHECKOUT_SESSION_ID}',
-    //             'cancel_url' => $DOMAIN . '/cancel.html',
-    //         ]);
-
-    //         return redirect($checkout_session->url);
-    //     }
-    //     catch (\Exception $ex) {
-    //         echo "<pre>";print_r($ex->getMessage());die;
-    //         return $ex->getMessage();
-    //     }
+            }
+        }
+        catch (\Exception $ex) {
+            echo "<pre>";print_r($ex->getMessage());die;
+            return $ex->getMessage();
+        }
  
-    // }
+    }
 
 
 

@@ -1,5 +1,5 @@
 @extends('layouts.panels') 
-<form class="needs-validation" method="POST" novalidate id="userDetail">
+<form class="needs-validation" method="POST" name="userDetail" novalidate id="userDetail">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
             <p class="paragraph Neutral/100">Step 2</p>
@@ -14,12 +14,13 @@
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name" required>
-            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div>
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name">
+            <div class="invalid-feedback"></div>
+            <!-- <div class="invalid-feedback first_couple_name"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div> -->
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your partner's preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" required>
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name">
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
@@ -34,7 +35,7 @@
         </div>
         <div class="col-md-6 mb-4">
             <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
-            <select name="ceremony_type" id="selectinput" class="js-placeholder-single-input form-control" required>
+            <select name="ceremony_type" id="ceremony_type" class="js-placeholder-single-input form-control" required>
                 <option value="" disabled="" selected="" hidden="">This ceremony is a</option>
                 <option value="1">Legal marriage ceremony</option>
                 <option value="2">A commitment ceremony</option>
@@ -71,6 +72,7 @@
             <a href="#list-home" class="theme-btn primary-btn d-inline-flex me-3 back_button" data-id="list-home-list">
                 <img class="me-2" src="/images/single-location/left-icon.svg" alt="Back Icon">Back
             </a>
+            
             <button type="button" class="theme-btn primary-btn d-inline-flex submitBtn" onClick="bookingSubmit('/post-booking-user-detail','step-two','userDetail')">Next 
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
             </a>

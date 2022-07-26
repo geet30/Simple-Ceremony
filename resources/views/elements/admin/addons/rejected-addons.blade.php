@@ -73,18 +73,13 @@
         <tfoot>
             <tr>
                 <td colspan="6">
-                <div class="theme-pagination d-flex justify-content-end">
-                    <div class="align-self-center me-4 button-1">Rows per page: 10</div>
-                    <div class="align-self-center me-4 button-1 ">1-10 of 150</div>
-                    <div class="align-self-center">
-                        <a class="d-inline-flex me-4" href=""><img src="/images/pagination/left.svg"
-                            class="img-fluid"></a>
-                        <a class="d-inline-flex me-4" href=""><img src="/images/pagination/right.svg"
-                            class="img-fluid"> </a>
-                    </div>
-                </div>
+                <?php $data = array();?>
+                    @include('elements.admin.addons.pagination',array('data'=>$rejected_addons))
+               
+
                 </td>
             </tr>
+           
         </tfoot>
     </table>
 </div>

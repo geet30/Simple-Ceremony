@@ -55,13 +55,10 @@
                            <label class="form-label small-text2">Business category *</label>
                            <select required="" name="partner_products[business_category]" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">Choose category here</option>
-                              <option value="1">Photographer</option>
-                              <option value="2">Chair & decoration</option>
-                              <option value="3">Ring</option>
-                              <option value="4">Venue to celebrate</option>
-                              <option value="5">Flower</option>
-                              <option value="6">Car rent</option>
-                              <option value="7">Other</option>
+                              @foreach($addons as $addon)
+                              <option value="{{$addon->id}}">{{$addon->name }}</option>
+                              @endforeach
+                              
                            </select>
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Business category is required</div>
                         </div>
@@ -132,10 +129,9 @@
                         <div class="col-md-6 mb-4">
                            <label class="form-label small-text2">Locations</label>
                            <select class="js-example-basic-multiple form-control" name="package_locations[location][]" multiple="multiple" required="">
-                              <option value="1">location1</option>
-                              <option value="2">location2</option>
-                              <option value="3">location3</option>
-                              <option value="4">location4</option>
+                              @foreach($locations as $location)
+                              <option value="{{$location->id}}">{{$location->name }}</option>
+                              @endforeach
                            </select>
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Locations is required</div>
                         </div>

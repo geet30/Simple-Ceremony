@@ -35,8 +35,8 @@
                            </p>
                         </div>
                         <div class="col-lg-3">
-                           <a href="#" class="theme-btn primary-btn d-inline-flex">
-                              <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon">Search
+                           <a onclick="SearchRecords('search-booking-location',this.value)" class="theme-btn primary-btn d-inline-flex">
+                              <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon" >Search
                            </a>
                         </div>
                      </div>
@@ -143,7 +143,7 @@
                      </div>
                   </div>
                   <div class="d-flex justify-content-center">
-                     <button type="button" class="theme-btn primary-btn border-0 me-3">Save</button>
+                     <button type="button" class="theme-btn primary-btn border-0 me-3" data-bs-dismiss="modal">Save</button>
                      <button type="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal">Cancel</button>
                   </div>
                </div>
