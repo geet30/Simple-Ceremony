@@ -15,7 +15,7 @@
                            <p class="text-black button-1">Location</p>
                            <div class="search-location-with-icon d-flex">
                               <img class="me-2" src="images/location-page/location-icon.svg" alt="location-icon">
-                              <select class="js-example-placeholder-single js-states form-control">
+                              <select id="search_location" class="js-example-placeholder-single js-states form-control" name="location">
                                  <option value="" disabled="" selected="" hidden="">Insert name of location</option>
                                  @foreach($locations as $location)
                                  <optgroup>
@@ -35,7 +35,7 @@
                            </p>
                         </div>
                         <div class="col-lg-3">
-                           <a onclick="SearchRecords('search-booking-location',this.value)" class="theme-btn primary-btn d-inline-flex">
+                           <a onclick="SearchBookingRecords('search-booking-location')" class="theme-btn primary-btn d-inline-flex">
                               <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon" >Search
                            </a>
                         </div>
@@ -71,7 +71,10 @@
                </div>
             </div>
         </div>
-        @include('elements.user.location.location', ['title' => 'locations', '' => '', 'locations' => $locations])
+        <div id="searchResult" class="col-md-12">
+
+            @include('elements.user.location.location', ['title' => 'locations', '' => '', 'locations' => $locations])
+        </div>
         
     
       </div>
@@ -116,7 +119,8 @@
          <div class="container-fluid">
            <div class="row">
                <div class="col-md-12 col-lg-7 mb-lg-0 mb-4">
-                  <div class="calendar-wrapper" id="calendar-wrapper"></div>
+                  <div class="calendar-wrapper " id="calendar-wrapper"></div>
+                  <input type="hidden" name="booking_date" id="calendar_date">
                </div>
                <div class="col-md-12 col-lg-5">
                   <div class="calander-time mb-4">

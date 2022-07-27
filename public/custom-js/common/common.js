@@ -1,5 +1,6 @@
 //sidebar menu active
 $(window).on('load', function () {
+  
   // $("#sidebarMenu li a").click(function() {
   
   //   $("#sidebarMenu li a").removeClass('active')

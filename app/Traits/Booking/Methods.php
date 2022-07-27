@@ -53,7 +53,7 @@ trait Methods
         
     }
     static function addBookingDetailToDB($data){
-        // echo '123';
+       
         try{
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
@@ -62,6 +62,7 @@ trait Methods
         
         
             $user =User::create($user_inputs);
+            $user->assignRole('User');
             $when = now()->addMinutes(1);
             $dataMail  = array(
                 'email' => $user_inputs['email'],
@@ -82,6 +83,7 @@ trait Methods
             }
             // dd($data);
             $booking_inputs['user_id']  = $user->id; 
+            $booking_inputs['locationId']  = $data->locationId; 
             $booking_inputs['booking_date']  = $data->booking_date; 
             $booking_inputs['booking_time']  = $data->booking_time; 
             $booking_inputs['first_couple_name']  = $data->first_couple_name; 
@@ -153,7 +155,7 @@ trait Methods
                 
                 'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?userId='.$data["userId"].'&session_id={CHECKOUT_SESSION_ID}',
                 // 'success_url' => $YOUR_DOMAIN . '/payment-success?session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => $DOMAIN . '/cancel.html',
+                'cancel_url' => $DOMAIN . '/payment-cancel',
             ]);
             return redirect($checkout_session->url);
         }

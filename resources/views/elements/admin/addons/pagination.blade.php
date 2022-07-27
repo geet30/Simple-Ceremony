@@ -1,68 +1,74 @@
-<?php //dd($data);?>
-<div class="d-flex justify-content-end w-100 align-items-center">
-    @if (isset($data) && $data->lastPage() > 1)
-
-        <ul class="pagination">
-
-            <?php
-            $interval = isset($interval) ? abs(intval($interval)) : 3 ;
-            $from = $data->currentPage() - $interval;
-            if($from < 1){
-                $from = 1;
+<style>
+ </style>
+<div class="table-pagination col-12 text-right w-100">
+    <div class="d-flex justify-content-end w-100 align-items-center">
+    <?php $prev = $data->currentPage() - 1;
+            if($data->lastPage() > $data->currentPage()){
+                $next = $data->currentPage() + 1;
+            }else{
+                $next = $data->currentPage();
             }
+    ?>
+        <div class="align-self-center me-4 button-1">Rows per page: 10</div>
+        <input class="perPage" type="hidden" value="1">
+    
+    <div class="align-self-center me-4 button-1 ">{{$data->currentPage()}} of {{$data->total()}}</div>
+    
+    <div class="pg-page">
+    
+        <ul class="d-flex align-items-center list-styled-none m-0 p-0">  
+            <li>
+                <?php if($data->currentPage()==1){ ?>
+                    <a class="d-inline-flex me-4 disabled"><img src="/images/pagination/left.svg" class="img-fluid"></a>
+                <?php }else{?>
+                    <a  onclick="fetch_data('{{$prev}}', '')"  class="d-inline-flex me-4"><img src="/images/pagination/left.svg" class="img-fluid"></a>
+                <?php }?>
 
-            $to = $data->currentPage() + $interval;
-            if($to > $data->lastPage()){
-                $to = $data->lastPage();
-            }
-            ?>
-
-            <!-- first/previous -->
-            @if($data->currentPage() > 1)
-                <li>
-                    <a href="{{ $data->url(1) }}" aria-label="First">
-                    
-                    <span aria-hidden="true">First</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ $data->url($data->currentPage() - 1) }}" aria-label="Previous">
-                        <span aria-hidden="true">Previous</span>
-                        
-                    </a>
-                </li>
-            @endif
-
-            <!-- links -->
-            @for($i = $from; $i <= $to; $i++)
-                <?php 
-                $isCurrentPage = $data->currentPage() == $i;
-                ?>
-                <li class="{{ $isCurrentPage ? 'active' : '' }}">
-                    <a href="{{ !$isCurrentPage ? $data->url($i) : '#' }}">
-                        {{ $i }}
-                    </a>
-                </li>
-            @endfor
-
-            <!-- next/last -->
-            @if($data->currentPage() < $data->lastPage())
-                <li>
-                    <a href="{{ $data->url($data->currentPage() + 1) }}" aria-label="Next">
-                        <span aria-hidden="true">Next</span>
-                        
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ $data->url($data->lastpage()) }}" aria-label="Last">
-                    <span aria-hidden="true">Last</span>
-                    </a>
-                </li>
-            @endif
-
+            </li>
+            <li>
+                <?php if($data->currentPage()==$data->lastPage()){ ?>
+                    <a class="rd-inline-flex me-4 disabled"><img src="/images/pagination/right.svg" class="img-fluid"></a>
+                <?php }else{?>
+                    <a  onclick="fetch_data('{{$next}}', '')"  class="d-inline-flex me-4"><img src="/images/pagination/right.svg" class="img-fluid"></a>
+                <?php }?>
+            </li>
         </ul>
-
-    @endif
+    </div>  
+    </div>
 </div>
+<script type="text/javascript">
+
+function fetch_data(page, perpage) {
+    
+    if(perpage=='' || perpage==undefined){
+        perpage= $('.perPage').val();
+    }
+    
+    var route = window.location.pathname+'?page='+page;
+    var data = {'records':perpage};
+    $.ajax({
+        method:'GET',
+        data:data,
+        url:route,
+        success:function(response){
+            if(window.location.pathname.split('/')[2]  == 'all-ads-on-tab' || window.location.pathname.split('/')[2] =='all')
+            {
+                $("#all-ads-on").html(response);
+            } else if(window.location.pathname.split('/')[2]  == 'add-on-approved-tab'){
+                $("#add-on-approved").html(response);
+            }  
+            else if(window.location.pathname.split('/')[2]  == 'Waiting-for-approval-tab'){
+                $("#Waiting-for-approval").html(response);
+            }  
+            else if(window.location.pathname.split('/')[2]  == 'add-on-reject-tab'){
+                $("#add-on-reject").html(response);
+                
+            }      
+            
+            
+            // $('.perPage').val(perpage);
+        },
+    });
+}
+
+</script>

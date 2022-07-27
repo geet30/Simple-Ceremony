@@ -4,3 +4,8 @@
     font-weight: bold;
     margin-left: 5px;
 }
+.pg-page ul li {
+    list-style: none;
+}  .pg-page ul li a {
+    cursor: pointer;
+}

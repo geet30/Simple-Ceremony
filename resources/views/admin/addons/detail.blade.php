@@ -25,7 +25,7 @@
             }
                 
          ?>
-         <a href="/add-ons" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/add-ons/all" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
@@ -53,7 +53,7 @@
                      </div>
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
-                        <a onclick="changeStatus('/change-status',{{$data['id']}},1)"  class="theme-btn primary-btn me-3">Confirm</a>
+                        <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail')"  class="theme-btn primary-btn me-3">Confirm</a>
                         <a href="/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
                   </div>

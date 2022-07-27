@@ -1,5 +1,5 @@
 @extends('layouts.panels') 
-<form class="needs-validation" method="POST" name="userDetail" novalidate id="userDetail">
+<form class="needs-validation2" method="POST" name="userDetail" id="userDetail">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
             <p class="paragraph Neutral/100">Step 2</p>
@@ -13,35 +13,40 @@
             <h3 class="h3 Neutral/100 mt-4 mb-4">Fill in the order form</h3>
         </div>
         <div class="col-md-6 mb-4">
+            
             <label for="InputName" class="form-label small-text2">Your preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name">
-            <div class="invalid-feedback"></div>
-            <!-- <div class="invalid-feedback first_couple_name"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div> -->
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name" value="{{ cache('booking')['first_couple_name'] ?? ''}}" required>
+            
+       
+            <div class="invalid-feedback first_couple_name"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your partner's preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name">
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" value="{{ cache('booking')['second_couple_name'] ?? ''}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your email</label>
-            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" required>
+            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" value="{{ cache('booking')['email'] ?? '' }}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
         </div>
         <div class="col-md-6 mb-4">
+       
             <label for="phone" class="form-label small-text2">Your phone number</label>
-            <input class="form-control body-1 netural-100" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 " required>
+            <input class="form-control body-1 netural-100" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ cache('booking')['phone'] ?? '+61' }}"required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone Number is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
             <select name="ceremony_type" id="ceremony_type" class="js-placeholder-single-input form-control" required>
+            
+
                 <option value="" disabled="" selected="" hidden="">This ceremony is a</option>
-                <option value="1">Legal marriage ceremony</option>
-                <option value="2">A commitment ceremony</option>
-                <option value="3">A re-newal of vows</option>
-                <option value="4">A naming day</option>
-                <option value="5">A memorial ceremony</option>
+                <option value="1" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 1) ? 'selected' : '' }}>Legal marriage ceremony</option>
+                <option value="2" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 2) ? 'selected' : '' }}>A commitment ceremony</option>
+                <option value="3" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 3) ? 'selected' : '' }}>A re-newal of vows</option>
+                <option value="4" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 4) ? 'selected' : '' }}>A naming day</option>
+                <option value="5" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 5) ? 'selected' : '' }}>A memorial ceremony</option>
             </select>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Type is required</div>
         </div>
@@ -72,10 +77,13 @@
             <a href="#list-home" class="theme-btn primary-btn d-inline-flex me-3 back_button" data-id="list-home-list">
                 <img class="me-2" src="/images/single-location/left-icon.svg" alt="Back Icon">Back
             </a>
-            
-            <button type="button" class="theme-btn primary-btn d-inline-flex submitBtn" onClick="bookingSubmit('/post-booking-user-detail','step-two','userDetail')">Next 
+            <button type="button" class="theme-btn primary-btn d-inline-flex submitBtn"  id="second-form">Next 
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
-            </a>
+            </button>
+            
+            <!-- <button type="submit" class="theme-btn primary-btn d-inline-flex submitBtn" onSubmit="bookingSubmit('/post-booking-user-detail','step-two','userDetail')">Next 
+                <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
+            </button> -->
         </div>
     </div>
 </form>

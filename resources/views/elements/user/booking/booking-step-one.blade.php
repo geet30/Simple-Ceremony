@@ -44,6 +44,8 @@
                     @foreach($time_array as $time)
                     <?php $count++;?>
                     <li class="me-3 mb-3">
+                    
+
                         <input type="radio" class="btn-check booking_time" name="booking_time" id="btnradio{{$count}}" autocomplete="off" value="{{$time}}" checked>
                         <label class="radio-label body-2 text-center w-100" for="btnradio{{$count}}">{{$time}}</label>
                     </li>
@@ -54,8 +56,8 @@
             </div>
         </div>
         <div class="col-md-12 text-end">
-        
-        <button type="button" class="theme-btn primary-btn d-inline-flex" onClick="bookingSubmit('/post-booking-location-form','step-one','calendar_form')">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button>
+        <button type="button" class="theme-btn primary-btn d-inline-flex" id="first-form">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button>
+        <!-- <button type="button" class="theme-btn primary-btn d-inline-flex" id="first-form" onClick="sendFirstFormValues('/post-booking-location-form','step-one','calendar_form')">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button> -->
             <!-- <a href="#" class="theme-btn primary-btn d-inline-flex">Next
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
             </a> -->

@@ -87,24 +87,22 @@
             <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                <div class="tab-content" id="pills-tabContent">
                   <div class="tab-pane fade" id="all-ads-on" role="tabpanel" aria-labelledby="all-ads-on-tab" tabindex="0">
-                     @include('elements.admin.addons.listing')
-                 
+                     @include('elements.admin.addons.all-ads-on-tab')
                   </div>
                   
 
                   <div class="tab-pane fade" id="Waiting-for-approval" role="tabpanel" aria-labelledby="Waiting-for-approval-tab" tabindex="1">
-                    @include('elements.admin.addons.pending-addons')
+                      @include('elements.admin.addons.Waiting-for-approval-tab')
                   
                   </div>
 
                   <div class="tab-pane fade" id="add-on-approved" role="tabpanel" aria-labelledby="add-on-approved-tab" tabindex="2">
-                    @include('elements.admin.addons.approved-addons')
+                    @include('elements.admin.addons.add-on-approved-tab')
                    
                   </div>
 
                   <div class="tab-pane fade" id="add-on-reject" role="tabpanel" aria-labelledby="add-on-reject-tab" tabindex="3">
-                     @include('elements.admin.addons.rejected-addons')  
-                   
+                     @include('elements.admin.addons.add-on-reject-tab') 
                   </div>
 
                 </div>

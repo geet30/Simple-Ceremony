@@ -77,7 +77,7 @@
             <tr>
                 <td colspan="6">
                     <?php $data = array();?>
-                    @include('elements.admin.addons.pagination',array('data'=>$all_addons))
+                    @include('elements.admin.addons.pagination',array('data'=>$all_addons,'tab_name'=>'all-ads-on-tab'))
                
 
                 </td>

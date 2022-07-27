@@ -66,7 +66,7 @@ class BookingController extends Controller
         if(isset($request->session_id) && !empty($request->session_id)){
             // dd(Cache::get('booking'));
             // echo $request->session_id;die;
-            Booking::savePaymentDetail($request->session_id,$request->userId);
+            // Booking::savePaymentDetail($request->session_id,$request->userId);
 
         }
         $time_array = [
@@ -104,6 +104,7 @@ class BookingController extends Controller
     
     public function postBookingLocationForm(Request $request)
     {
+        // dd($request->all());
        
         $data = [
             'booking_date' => $request->calendar_date,
@@ -136,7 +137,7 @@ class BookingController extends Controller
      */
     public function postBookingLocationUserDetail(Request $request)
     {
-        
+       
         $data = [
             'first_couple_name' => $request->first_couple_name,
             'second_couple_name' => $request->second_couple_name,
@@ -159,6 +160,7 @@ class BookingController extends Controller
             Cache::put('booking', $booking);
            
         }
+        // dd(Cache::get('booking'));
         return $this->successResponse([],'Date added successfully.');
     }
     
@@ -193,34 +195,28 @@ class BookingController extends Controller
     public function searchBookingLocation(Request $request)
     {
 
-        dd($request->all());
+        // dd($request->all());
         try {
             if($request->has('search') && $request->filled('search')){
-                if($request->table == 'partner_products'){
-                    if($request->status != null){
-                        $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->where('status',$request->status)->orderBy('id', 'DESC')->get(); 
-                    }else{
-                        $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get(); 
+                $data = Locations::with([
+                    'location_images' => function($query){
+                        $query->select('location_id','image');
                     }
-                    
-                }else{
-                    $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
-                }
+                ])->where('id',$request->search)->select('name','id','price')->get();
+
+                
+                
                
             }else{
-                if($request->table == 'partner_products'){
-                    
-                    if($request->status != null){
-                        $data = PartnerProducts::orderBy('id', 'DESC')->where('status',$request->status)->get();
-                    }else{
-                        $data = PartnerProducts::orderBy('id', 'DESC')->get();
+                $data = Locations::with([
+                    'location_images' => function($query){
+                        $query->select('location_id','image');
                     }
-                   
-                }else{
-                    $data = Addons::orderBy('id', 'DESC')->get();
-                }
+                ])->select('name','id','price')->get();
+               
                 
             }
+            return View::make('elements.user.location.location', ['locations' => $data]);
         }
         catch (\Exception $ex) {
             echo "<pre>";print_r($ex->getMessage());die;

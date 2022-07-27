@@ -26,6 +26,43 @@ $(document).ready(function(){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
       });
+    $('.calendar-wrapper').calendar({
+
+        onClickDate:function (date) {
+
+            $('#calendar-wrapper').updateCalendarOptions({
+                date: date
+            });
+
+            $('#calendar_date').val(new Date(date).toLocaleDateString());
+
+        }
+    });
+    window.SearchBookingRecords = function(url){
+        var  location= $('#search_location').val();
+        var  calendar_date= $('#calendar_date').val();
+        // return false;
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                'search': location,'calendar_date':calendar_date
+                
+            },
+            dataType: 'html',
+            cache: false,
+            
+            success: function(response)
+            {
+                $("#searchResult").html(response);
+                // if(tab_id == 'information-tab'){
+                //     $('#'+sub_tab_id+'_searchList').html(response);
+                // }else{
+                //     $("#addon_list").html(response);
+                // }
+            }
+        });
+    }
     window.SearchRecords = function(url,keyword=null){
         
         var tab_id = $("ul.theme-tabs li a.active").attr("id");
@@ -75,10 +112,8 @@ $(document).ready(function(){
 
     
 
-    window.changeStatus = function(url,id,status){ 
+    window.changeStatus = function(url,id,status,detail){ 
         var tab_id = $("ul.add-on-list-nav li button.active").attr("id");
-        
-        
         $.ajax({
             type: "post",
             url: url,
@@ -92,13 +127,18 @@ $(document).ready(function(){
             {
                 $('#'+tab_id+'_'+id).removeAttr('class');
                 $('#'+tab_id+'_'+id).addClass('btn dropdown-toggle '+response.data.class);
-                
-                $('#detail_change_class-'+id).removeAttr('class');
-                $('#detail_change_class-'+id).addClass('p-1 px-3 d-inline text-decoration-none ms-3 d-none '+response.data.class);
-                // if(tab)
-         
+                // $('#detail_change_class-'+id).removeAttr('class');
+                // $('#detail_change_class-'+id).addClass('p-1 px-3 d-inline text-decoration-none ms-3 d-none '+response.data.class);
                 $('#'+tab_id+'_'+id).find("#change_status-"+id).html(response.data.status);
-                window.location = tab_id;
+                if(detail == 'detail'){
+                    window.location.reload();
+                }else{
+
+                    window.location = tab_id;
+                }
+                
+         
+              
                 
                 
             }

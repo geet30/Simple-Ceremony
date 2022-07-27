@@ -22,6 +22,7 @@ trait Methods
         }
        
         $user =User::create($user_inputs);
+        $user->assignRole('Partner');
         $when = now()->addMinutes(1);
         $dataMail  = array(
             'email' => $user_inputs['email'],

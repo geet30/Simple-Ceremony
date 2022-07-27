@@ -57,11 +57,12 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|string',
         ]);
-         dd($request->route_name);die;
+        //  dd($request->route_name);die;
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             
             // return redirect($redirection);
             $user=Auth::user();
+            // dd($user->roles->first());
             if($role = $user->roles->first()->name){
                 return redirect($redirection);
             }else{
@@ -74,9 +75,6 @@ class LoginController extends Controller
     }
     public function logout() {
         $user=Auth::user();
-        // $input['language'] = 'nl';
-        // $result = User::where('id', $user->id)->update($input);
-        // Auth::logoutCurrentDevice(); 
         request()->session()->invalidate();
         request()->session()->regenerateToken();       
         return redirect()->route('login');

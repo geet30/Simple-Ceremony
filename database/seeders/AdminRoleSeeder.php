@@ -30,13 +30,8 @@ class AdminRoleSeeder extends Seeder
             ]
     
         );
+        $role = Role::create(['name' => 'Admin']);
         
-        $role = Role::create(
-            ['name' => 'Admin'],
-            ['name' => 'Partner']
-            // 'name' =>'Celebrant',
-            // 'name' =>'user'
-        );
         
 
         $permissions = Permission::pluck('id','id')->all();

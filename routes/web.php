@@ -36,6 +36,9 @@ $websiteRoutes = function() {
     Route::get('payment-success', function () {
         return view('elements.user.booking.booking-step-three');
     });
+    Route::get('payment-cancel', function () {
+        return view('elements.user.booking.payment-cancel');
+    });
 
     Route::get('request-custom-location', function () {
         return view('pages.request-custom-location');
@@ -206,14 +209,7 @@ $websiteRoutes = function() {
 };
 $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-    // Route::get('/', function () {
-    //     return view('admin.login');
-    // });
-
-    
-    Route::get('/', function () {
-        return view('admin.login');
-    });
+   
     Route::get('sign-up', function () {
         return view('admin.sign-up');
     });
@@ -265,9 +261,10 @@ $adminRoutes = function() {
         return view('admin.payments.payments-overview');
     });
 
-    Route::get('locations', function () {
-        return view('admin.locations.listing');
-    });
+    // Route::get('locations', function () {
+    //     return view('admin.locations.listing');
+    // });
+    Route::resource('locations', App\Http\Controllers\LocationsController::class);
     Route::get('single', function () {
         return view('admin.locations.single');
     });

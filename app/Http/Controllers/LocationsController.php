@@ -6,6 +6,7 @@ use App\Models\Locations;
 use App\Models\LocationImages;
 use Illuminate\Http\Request;
 use View;
+use Illuminate\Support\Facades\Auth;
 
 class LocationsController extends Controller
 {
@@ -40,12 +41,13 @@ class LocationsController extends Controller
      */
     public function store(Request $request)
     {
+        // echo "<pre>";print_r(Auth::user()->id);die;
         $request->validate([
             'name' => 'required',
             'price' => 'required',
         ]);
         $input = $request->all();
-        $input['added_by'] = 2;
+        $input['added_by'] = Auth::user()->id;
         $checkEmail = Locations::where('name',$request->name)->first();
         if($checkEmail){
             $msg = 'Location already exists with this name.';
@@ -64,7 +66,7 @@ class LocationsController extends Controller
                 }   
             }
             $msg = 'Location added successfully.';
-            $route = '/admin/locations';
+            $route = '/locations';
             return redirect($route)->with('message', $msg);
         }
         return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);

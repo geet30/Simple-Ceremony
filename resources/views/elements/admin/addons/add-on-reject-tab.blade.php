@@ -74,7 +74,7 @@
             <tr>
                 <td colspan="6">
                 <?php $data = array();?>
-                    @include('elements.admin.addons.pagination',array('data'=>$rejected_addons))
+                    @include('elements.admin.addons.pagination',array('data'=>$rejected_addons,'tab_name'=>'add-on-reject-tab'))
                
 
                 </td>

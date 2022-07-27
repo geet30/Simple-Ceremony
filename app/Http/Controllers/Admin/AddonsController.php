@@ -16,10 +16,18 @@ class AddonsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
+    public function index(Request $request,$slug)
     {
         
         $data = Addons::all();
+        $req_page = 1;
+        $records = 1;
+        if($request->has('page')){
+            $req_page = $request->page; 
+        }
+        //  if($request->has('records')){
+        //     $records = $request->records; 
+        // }
         $products = PartnerProducts::with([
             'package' => function($query){
                 $query->select('user_id','location_description','product_id');
@@ -29,14 +37,40 @@ class AddonsController extends Controller
             },
             
         ])->select('product_name','id','status','business_category');
-
-        $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');  
        
-        $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');
-        $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');
-        $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate(1, ['*'], 'page');
+        
+        $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);  
+       
+        $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+        $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+        $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page',$req_page);
+
+       
+
+        $dataArray = array(
+            'all_addons' =>$all_addons,
+            'pending_addons' =>$pending_addons,
+            'approved_addons' => $approved_addons,
+            'rejected_addons' => $rejected_addons
+
+        
+        );
+       
+        if($request->ajax()){
+           
+            if($slug == 'all'){
+                $slug = 'all-ads-on-tab';
+            }
+            $viewurl = 'elements.admin.addons.'.$slug;
+            return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray,'all_addons'=> $all_addons,'pending_addons'=>$pending_addons,'approved_addons'=>$approved_addons,'rejected_addons'=>$rejected_addons]);
+
+           
+            // return view($viewurl,$dataArray)->render();
+
+            
+        }
         // dd(count($pending_addons));
-        return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons']));
+        return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons','dataArray']));
        
     }
 

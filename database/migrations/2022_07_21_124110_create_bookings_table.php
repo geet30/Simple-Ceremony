@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('locationId');
             $table->string('booking_date')->nullable();
             $table->string('booking_time')->nullable();
             $table->string('first_couple_name')->nullable();
             $table->string('second_couple_name')->nullable();
             $table->string('ceremony_type')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); 
+            $table->foreign('locationId')->references('id')->on('locations')->onDelete('cascade'); 
             $table->timestamps();
         });
     }
