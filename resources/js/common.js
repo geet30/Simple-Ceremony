@@ -11,13 +11,19 @@ $('.slider-for').slick({
   asNavFor: '.slider-for',
   focusOnSelect: true
 });
-
+$(function(){
+  $('.theme-datepicker').datepicker();
+});
 // popover JS
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
-
+$('.datetimepicker2').datepicker({
+  format: 'dd/mm/yyyy',
+  keyboardNavigation: false,
+     autoclose: true
+ });
 
 /////// calander Js
 function selectDate(date) {
@@ -255,5 +261,38 @@ console.log(calendar.getSelectedDate());
     $('.reply-content').removeClass("d-block");
     $('.reply-btn').removeClass("d-none");
 });
+ 
+})(jQuery);
+
+
+
+(function( $ ) {
+  $('#reply-text').click(function(){
+      $('.hidden-tree').addClass("d-block");
+      $('.hidden-tree').removeClass("d-none");
+      $('.reply-text').addClass("d-none");
+  });
+})(jQuery);
+
+(function( $ ) {
+  $('.reschedule-btn').click(function(){
+      $('.change-reschedule-1').addClass("d-none");
+      $('.change-reschedule-2').addClass("d-block");
+      $('.change-reschedule-2').removeClass("d-none");
+      $('.reschedulecancel-btn').addClass("d-block");
+      $('.reschedulecancel-btn').removeClass("d-none");
+      $('.reschedule-btn').addClass("d-none");
+  });
+  $('.reschedulecancel-btn').click(function(){
+    $('.change-reschedule-1').addClass("d-block");
+    $('.change-reschedule-1').removeClass("d-none");
+    $('.change-reschedule-2').addClass("d-none");
+    $('.change-reschedule-2').removeClass("d-block");
+    $('.reschedulecancel-btn').addClass("d-none");
+    $('.reschedulecancel-btn').removeClass("d-block");
+    $('.reschedule-btn').addClass("d-block");
+    $('.reschedule-btn').removeClass("d-none");
+});
+ 
  
 })(jQuery);
