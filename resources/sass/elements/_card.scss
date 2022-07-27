@@ -140,6 +140,9 @@
         border-left: 1px solid #e2f3f2;
         background-color: rgba(226, 243, 242, 0.2);
         border-radius: 0px !important;
+        @include media-breakpoint-down(xxl){
+            border: 1px solid #e2f3f2;
+        }
         .card-header {
             background: none !important;
             border: none !important;
@@ -207,5 +210,20 @@
         @include media-breakpoint-down(sm) {
             padding: 30px;
         }
+    }
+}
+.card-transparent{
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    .card-body{
+        padding: 0px;
+    }
+    .card-footer{
+        background-color: white;
+        border: none;
+        border-radius: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 }

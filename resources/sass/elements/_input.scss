@@ -5,6 +5,7 @@
     &.pl-30 {
         padding-left: 30px;
     }
+   
 }
 
 .form-control:focus {
@@ -87,6 +88,16 @@ input:-webkit-autofill:active {
 }
 .theme-input-group {
     position: relative;
+    &.left-input{
+            .form-control{
+                padding-left: 25px;
+            }
+    }
+    &.right-input{
+        .form-control{
+            padding-right: 25px;
+        }
+}
     .right-icon {
         position: absolute;
         top: 0px;
@@ -224,4 +235,11 @@ input:-webkit-autofill:active {
 .form-check-input {
     width: 20px !important;
     height: 20px !important;
+}
+.input-group{
+    border-radius: 6px;
+}
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu), .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3){
+    border-top-right-radius:6px;
+    border-bottom-right-radius: 6px;
 }
