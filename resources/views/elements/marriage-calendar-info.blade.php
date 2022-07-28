@@ -37,7 +37,7 @@
                                        <tr>
                                           <td class="p-0" style="min-width: 170px;">
                                              <div class="d-flex align-items-center">
-                                                <img src="/images/calendar/location.svg" alt="mobile">
+                                                <img src="/images/calendar/order-detail.svg" alt="mobile">
                                                 <p class="neutral-100 body-2 ms-3 mb-0">Order details (2) :</p>
                                              </div>
                                           </td>
@@ -45,7 +45,7 @@
                                              <p class="neutral-100 body-2 ms-3 mb-0">1. Corona package bronze :</p>
                                           </td>
                                           <td class="p-0" style="min-width: 300px;">
-                                             <ul>
+                                             <ul class="calander-popup-list">
                                                 <li class="neutral-100 body-2">Signing table and</li>
                                                 <li class="neutral-100 body-2">2 white padded folding chairs</li>
                                                 <li class="neutral-100 body-2">Ceremony frame</li>
@@ -59,7 +59,7 @@
                                              <p class="neutral-100 body-2 ms-3 mb-0">2. Corona package silver :</p>
                                           </td>
                                           <td class="p-0" style="min-width: 300px;">
-                                             <ul>
+                                             <ul class="calander-popup-list">
                                                 <li class="neutral-100 body-2">Zoom account pro</li>
                                                 <li class="neutral-100 body-2">Camera digital</li>
                                                 <li class="neutral-100 body-2">Recorder</li>
@@ -100,7 +100,7 @@
                                        <tr class="mt-4">
                                           <td class="p-0" style="min-width: 170px;">
                                              <div class="d-flex align-items-center">
-                                                <img src="/images/calendar/location.svg" alt="mobile">
+                                                <img src="/images/calendar/order-detail.svg" alt="mobile">
                                                 <p class="neutral-100 body-2 ms-3 mb-0">Order details (1) :</p>
                                              </div>
                                           </td>
@@ -108,7 +108,7 @@
                                              <p class="neutral-100 body-2 ms-3 mb-0">1. Corona package silver :</p>
                                           </td>
                                           <td class="p-0" style="min-width: 300px;">
-                                             <ul>
+                                             <ul class="calander-popup-list">
                                                 <li class="neutral-100 body-2">Zoom account pro</li>
                                                 <li class="neutral-100 body-2">Camera digital</li>
                                                 <li class="neutral-100 body-2">Recorder</li>

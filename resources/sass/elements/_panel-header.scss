@@ -32,6 +32,13 @@
                     &:after {
                         border: none !important;
                         display: none;
+                        border-color:transparent !important;
+                    }
+                    &.show{
+                        &:after {
+                            border: none !important;
+                            border-color:transparent !important;
+                        } 
                     }
                 }
                 .dropdown-menu {
@@ -194,4 +201,14 @@
 #style-3::-webkit-scrollbar-thumb {
     background: #C2C4C6;
     border-radius: 2px;
+}
+.dropdown-toggle::after{
+    display: none !important;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0 solid transparent;
+    border-left: 0.3em solid transparent;
 }

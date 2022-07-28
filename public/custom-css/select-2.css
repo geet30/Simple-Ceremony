@@ -98,6 +98,7 @@
     font-size: 14px;
     line-height: 22px;
     color: #2c1c1c;
+    text-transform: capitalize;
 }
 
 .select2-results__options b {
@@ -469,6 +470,7 @@
     font-weight: 600 !important;
     font-size: 14px !important;
     line-height: 18px !important;
+
 }
 
 .select2-container--default .select2-results__option .select2-results__option .select2-results__group {

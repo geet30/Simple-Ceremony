@@ -64,8 +64,8 @@
          <div class="row mb-3">
             <div class="col-lg-4 col-xl-3">
                <div class="form-group has-search w-100 position-relative">
-                  <span class="fa fa-search form-control-feedback"></span>
                   <input type="text" class="form-control" placeholder="Search couple">
+                  <span class="fa fa-search form-control-feedback"></span>
                </div>
             </div>
          </div>
@@ -77,10 +77,10 @@
                           <tr>
                              <th>Name couple</th>
                              <th>Location</th>
-                             <th>Wedding date</th>
+                             <th class="sort-by">Wedding date </th>
                              <th>Time</th>
                              <th>Order</th>
-                             <th>Days till marriage</th>
+                             <th class="sort-by">Days till marriage</th>
                              <th>Status</th>
                              <th></th>
                              <th></th>

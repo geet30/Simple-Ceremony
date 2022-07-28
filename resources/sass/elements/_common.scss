@@ -719,3 +719,21 @@
 .w-auto{
     width: auto !important;
 }
+// fixes safari
+ button, [type=button], [type=reset], [type=submit] {
+        -webkit-appearance: list-button !important;
+        }
+        .select2-results__options.select2-results__options--nested .select2-results__option{
+            text-transform: capitalize;
+        }
+        .calander-popup-list{
+            li{
+                margin-bottom: 7px;
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+        }
+        .panel-header .dropdown-toggle:focus {
+            outline: none;
+        }
