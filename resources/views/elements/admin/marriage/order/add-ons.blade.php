@@ -16,8 +16,7 @@
       <div class="input-div">   $250</div>
    </div>
    <div class="col-xl-12  col-xxl-4  align-self-center">
-      <label for="preferredname2" class="form-label small-text2 d-xxl-block d-none">&nbsp;</label>
-      <a href="/partner-details" class="add-link ">See Information about add-ons</a>
+     <a href="/partner-details" class="add-link ">See Information about add-ons</a>
    </div>
 </div>
 <div class="row mt-4 mt-">
@@ -38,7 +37,6 @@
       <div class="input-div">   $250</div>
    </div>
    <div class="col-xl-12  col-xxl-4   align-self-center">
-      <label for="preferredname2" class="form-label small-text2 ps-2 d-xxl-block d-none">&nbsp;</label>
       <a href="/partner-details" class="add-link ">See Information about add-ons</a>
    </div>
 </div>
@@ -60,7 +58,6 @@
       <div class="input-div">   $250</div>
    </div>
    <div class="col-xl-12  col-xxl-4   align-self-center">
-      <label for="preferredname2" class="form-label small-text2 ps-2 d-xxl-block d-none">&nbsp;</label>
-      <a href="/partner-details"  class="add-link ">See Information about add-ons</a>
+  <a href="/partner-details"  class="add-link ">See Information about add-ons</a>
    </div>
 </div>

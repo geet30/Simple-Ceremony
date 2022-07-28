@@ -141,7 +141,7 @@
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Notice of Intended Marriage form</h3>
                   <p class="mb-10"> <a href="https://drive.google.com/file/d/1k6S1ilqXQQS8_X9Ui6eeDQykzqKT3p6q/view" target="_blank" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
-                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
+                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/download.svg" class="img-fluid" alt="download-icon"></a> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/print.svg" class="img-fluid" alt="print-icon"></a></p>
                </div>
                <div class="card-footer  text-center">
                   <p class="small-text-3 gray-500 mb-0">Created Feb 29, 2022</p>
@@ -164,7 +164,7 @@
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Official Certificate of Marriage</h3>
                   <p class="mb-10"> <a href="https://drive.google.com/file/d/1k6S1ilqXQQS8_X9Ui6eeDQykzqKT3p6q/view" target="_blank" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
-                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
+                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/download.svg" class="img-fluid" alt="download-icon"></a> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/print.svg" class="img-fluid" alt="print-icon"></a></p>
                </div>
                <div class="card-footer  text-center">
                   <p class="small-text-3 gray-500 mb-0">Created Feb 29, 2022</p>
@@ -187,7 +187,7 @@
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Declaration of No legal Impediment</h3>
                   <p class="mb-10"> <a href="https://drive.google.com/file/d/1k6S1ilqXQQS8_X9Ui6eeDQykzqKT3p6q/view" target="_blank" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
-                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
+                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/download.svg" class="img-fluid" alt="download-icon"></a> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/print.svg" class="img-fluid" alt="print-icon"></a></p>
                </div>
                <div class="card-footer  text-center">
                   <p class="small-text-3 gray-500 mb-0">Created Feb 29, 2022</p>
@@ -210,7 +210,7 @@
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Certificate of Marriage -Form 15</h3>
                   <p class="mb-10"> <a href="https://drive.google.com/file/d/1k6S1ilqXQQS8_X9Ui6eeDQykzqKT3p6q/view" target="_blank" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
-                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
+                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/download.svg" class="img-fluid" alt="download-icon"></a> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/print.svg" class="img-fluid" alt="print-icon"></a></p>
                </div>
                <div class="card-footer  text-center">
                   <p class="small-text-3 gray-500 mb-0">Created Feb 29, 2022</p>
@@ -222,7 +222,7 @@
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Certificate of Faithful performance of Interpreter</h3>
                   <p class="mb-10"> <a href="https://drive.google.com/file/d/1k6S1ilqXQQS8_X9Ui6eeDQykzqKT3p6q/view" target="_blank" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
-                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
+                  <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/download.svg" class="img-fluid" alt="download-icon"></a> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"><img src="/images/icons/print.svg" class="img-fluid" alt="print-icon"></a></p>
                </div>
                <div class="card-footer  text-center">
                   <p class="small-text-3 gray-500 mb-0">Created Feb 29, 2022</p>
