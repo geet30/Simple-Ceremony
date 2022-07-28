@@ -7,9 +7,9 @@
     min-width: 100% !important;
 }
 
-.modal-open .select2-container {
+/* .modal-open .select2-container {
     z-index: 1055;
-}
+} */
 
 .select2-container .select2-selection--single {
     box-sizing: border-box;
@@ -302,14 +302,23 @@
 }
 
 .select2-container--default .select2-selection--multiple {
-    background-color: #fff;
-    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 0px 0px 1px rgb(89 96 120 / 16%), 0px 2px 5px rgb(89 96 120 / 10%);
+    background: #F7FCFC;
+    border: 1px solid #E2F3F2;
     border-radius: 6px;
-    outline: none;
     padding: 2px 0px;
+    outline: none;
     height: calc(1.625rem + 7px);
+    position: relative;
 }
-
+.select2-container--default .select2-selection--multiple:focus {
+    color: #62CBC9;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 16px #e8f9f7;
+    border: 1px solid #62CBC9;
+    outline-style: solid;
+    outline-color: #E2F3F2;
+    outline-width: thick;
+}
 .select2-container--default .select2-selection--multiple.select2-selection--clearable {
     padding-right: 25px
 }
@@ -326,12 +335,12 @@
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: #EDEDF0;
+    background-color: #E2F3F2;
     border-radius: 4px;
     box-sizing: border-box;
     display: inline-block;
     margin-left: 3px;
-    margin-top: 1px;
+    margin-top: 0px;
     padding: 3px 5px;
     padding-right: 20px;
     font-size: 14px;
@@ -356,7 +365,7 @@
     border-bottom-left-radius: 4px;
     color: #EDEDF0;
     border-radius: 50px;
-    background-color: #292D32;
+    background-color: #62CBC9;
     cursor: pointer;
     font-size: 12px;
     height: 13px;
@@ -370,7 +379,7 @@
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove span {
-    margin-top: -5px !important;
+    margin-top: -4px !important;
     margin-left: -0.4px !important;
     display: block;
     height: 14px;
@@ -408,8 +417,13 @@
 }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-    border: solid black 1px;
-    outline: 0
+    color: #62CBC9;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 16px #e8f9f7;
+    border: 1px solid #62CBC9;
+    outline-style: solid;
+    outline-color: #E2F3F2;
+    outline-width: thick;
 }
 
 .select2-container--default.select2-container--disabled .select2-selection--multiple {

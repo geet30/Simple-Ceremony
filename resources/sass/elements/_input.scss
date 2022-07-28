@@ -243,3 +243,10 @@ input:-webkit-autofill:active {
     border-top-right-radius:6px;
     border-bottom-right-radius: 6px;
 }
+.select2-container--default .select2-selection--multiple{
+    background: #F7FCFC;
+    border: 1px solid #E2F3F2;
+    border-radius: 6px;
+    padding: 0.375rem 0.75rem;
+    box-shadow: none;;
+}
