@@ -56,7 +56,7 @@
                               <div class="card image-card">
                                  <img src="/images/add-ons/add-ons-details/left.jpg" class="card-img-top mb-4" alt="location-1">
                                  <div class="card-body table-dropdown">
-                                    <p class="rejected p-1 px-3 d-inline-block text-decoration-none mb-0">Rejecte</p>
+                                    <p class="rejected p-1 px-3 d-inline-block text-decoration-none mb-0">Reject </p>
                                     <h2 class="h4 netural-100 mb-3 mb-lg-0 mt-3">Intimate pack</h2>
                                  </div>
                               </div>

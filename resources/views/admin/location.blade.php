@@ -28,8 +28,8 @@
                </div>
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
+              <input type="text" class="form-control" placeholder="Search">
                <span class="fa fa-search form-control-feedback"></span>
-               <input type="text" class="form-control" placeholder="Search">
             </div>
          </div>
             <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">

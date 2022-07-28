@@ -10,8 +10,8 @@
          <div class="row mb-4 mt-3">
             <div class="col-md-5 col-lg-7 col-xl-8 col-xxl-9 d-flex align-self-center">
             <div class="form-group has-search w-100 position-relative">
+            <input type="text" class="form-control" placeholder="Search marriage celebrants">
                <span class="fa fa-search form-control-feedback"></span>
-               <input type="text" class="form-control" placeholder="Search marriage celebrants">
             </div>
          </div>
             <div class="align-self-center col-md-7 col-lg-5 col-xl-4 col-xxl-3 d-grid mt-3 mt-md-0">

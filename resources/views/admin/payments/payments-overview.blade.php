@@ -23,8 +23,8 @@
             </div>
             <div class="col-lg-4 col-xl-3">
                <div class="form-group has-search w-100 position-relative">
-                  <span class="fa fa-search form-control-feedback"></span>
                   <input type="text" class="form-control" placeholder="Search invoice">
+                  <span class="fa fa-search form-control-feedback"></span>
                </div>
             </div>
          </div>

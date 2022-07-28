@@ -26,8 +26,8 @@
                </div>
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
-               <span class="fa fa-search form-control-feedback"></span>
                <input type="text" class="form-control" placeholder="Search package">
+               <span class="fa fa-search form-control-feedback"></span>
             </div>
          </div>
          <div class="card panel-card">
