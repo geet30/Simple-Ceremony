@@ -76,20 +76,20 @@
                      <!-- tab content -->
                      <div class="tab-content" id="tabContent">
                         <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
-                           @include('elements.marriage.order.information')
-                           @include('elements.marriage.order.choose-marriage-celebrant')
-                           @include('elements.marriage.order.reschedule')
-                           @include('elements.marriage.order.invoice')
+                           @include('elements.admin.marriage.order.information')
+                           @include('elements.admin.marriage.order.choose-marriage-celebrant')
+                           @include('elements.admin.marriage.order.reschedule')
+                           @include('elements.admin.marriage.order.invoice')
                         </div>
                         <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
-                           @include('elements.marriage.order.docs-noim')
-                           @include('elements.marriage.order.feedback')
+                           @include('elements.admin.marriage.order.docs-noim')
+                           @include('elements.admin.marriage.order.feedback')
                         </div>
                         <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
-                           @include('elements.marriage.order.add-ons')
+                           @include('elements.admin.marriage.order.add-ons')
                         </div>
                         <div class="tab-pane fade" id="reminders" role="tabpanel" aria-labelledby="reminders-tab">
-                           @include('elements.marriage.order.reminder')
+                           @include('elements.admin.marriage.order.reminder')
                         </div>
                      </div>
                      <!-- tab content -->
@@ -101,5 +101,5 @@
       </div>
    </div>
 </div>
-@include('elements.marriage.order.create-reminder')
+@include('elements.admin.marriage.order.create-reminder')
 @endsection
