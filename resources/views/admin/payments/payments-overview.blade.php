@@ -7,25 +7,29 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.panel-header')
-         <div class="row mb-3">
-            <div class="col-lg-8 col-xl-9 mb-3 mb-lg-0">
-               <ul class="nav theme-tabs">
-                  <li class="nav-item">
-                     <a class="nav-link active" id="invoice-of-couple-tab" data-bs-toggle="tab" data-bs-target="#invoice-of-couple" href="#">Invoice from couples</a>
+         <div class="row mb-3 align-items-center">
+            <div class="col-lg-12 col-xl-7 col-xxl-8 mb-3 mb-lg-0">
+               <ul class="nav theme-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                     <a class="nav-link active" id="invoice-of-couple-tab" data-bs-toggle="tab" data-bs-target="#invoice-of-couple" href="#" aria-selected="true" role="tab">Invoice from couples</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" id="invoice-of-celebrants-tab" data-bs-toggle="tab" data-bs-target="#invoice-of-celebrants" href="#">invoice of marriage celebrant</a>
+                  <li class="nav-item" role="presentation">
+                     <a class="nav-link" id="invoice-of-celebrants-tab" data-bs-toggle="tab" data-bs-target="#invoice-of-celebrants" href="#" aria-selected="false" tabindex="-1" role="tab">invoice of marriage celebrant</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" id="invoice-of-partners-tab" data-bs-toggle="tab" data-bs-target="#invoice-of-partners" href="#">invoice of partners</a>
+                  <li class="nav-item" role="presentation">
+                     <a class="nav-link" id="invoice-of-partners-tab" data-bs-toggle="tab" data-bs-target="#invoice-of-partners" href="#" aria-selected="false" tabindex="-1" role="tab">invoice of partners</a>
                   </li>
                </ul>
             </div>
-            <div class="col-lg-4 col-xl-3">
-               <div class="form-group has-search w-100 position-relative">
+            <div class="col-lg-12 col-xl-5 col-xxl-4 d-flex align-items-center flex-column flex-md-row">
+               <div class="form-group has-search w-100 position-relative me-0 me-md-4">
                   <span class="fa fa-search form-control-feedback"></span>
                   <input type="text" class="form-control" placeholder="Search invoice">
                </div>
+               <a class="theme-btn primary-btn d-inline-block mt-2 mb-2 w-100" href="/create-celebrants-invoice">
+                  <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
+                  Create invoice
+               </a>
             </div>
          </div>
          <div class="tab-content" id="tabContent">
@@ -926,4 +930,5 @@
       </div>
    </div>
 </div>
+@include('elements.tax-invoice')
 @endsection

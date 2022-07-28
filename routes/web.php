@@ -248,6 +248,12 @@ $adminRoutes = function() {
     Route::get('payments-overview', function () {
         return view('admin.payments.payments-overview');
     });
+    Route::get('create-celebrants-invoice', function () {
+        return view('admin.payments.create-celebrants-invoice');
+    });
+    Route::get('create-partners-invoice', function () {
+        return view('admin.payments.create-partners-invoice');
+    });
 
     Route::get('locations', function () {
         return view('admin.locations.listing');
