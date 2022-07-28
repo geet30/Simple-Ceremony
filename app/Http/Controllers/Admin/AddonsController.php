@@ -21,7 +21,7 @@ class AddonsController extends Controller
         
         $data = Addons::all();
         $req_page = 1;
-        $records = 1;
+        $records = 10;
         if($request->has('page')){
             $req_page = $request->page; 
         }
@@ -86,6 +86,9 @@ class AddonsController extends Controller
             'package' => function($query){
                 $query->select('id','user_id','location_description','product_id','partner_fee','admin_fee','total_fee','package_name','title_term');
             },
+            'package.gallery' => function($query){               
+                $query->select('image_name','id','package_id');
+            },
             'product_location' => function($query){
                 $query->select('location','id','product_id');
             },
@@ -97,7 +100,7 @@ class AddonsController extends Controller
             },
             
         ])->select('product_name','id','status','business_category')->where('id',$id)->first()->toArray();
-
+        // echo "<pre>";print_r($data);die;
         // dd($data);
         return view('admin.addons.detail',compact(['data']));
     }
@@ -266,5 +269,5 @@ class AddonsController extends Controller
         Addons::destroy($id);
         Session::flash('flash_message', 'Addon is deleted successfully.');
         return redirect()->route('admin.addons',['slug' => 'all']);
-      }
+    }
 }

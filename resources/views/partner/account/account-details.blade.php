@@ -161,5 +161,5 @@
       </div>
    </div>
 </div>
-@include('elements.partner-add-new-location')
+@include('elements.partner.add-new-location')
 @endsection

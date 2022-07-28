@@ -1,24 +1,14 @@
 //sidebar menu active
 $(window).on('load', function () {
   
-  // $("#sidebarMenu li a").click(function() {
   
-  //   $("#sidebarMenu li a").removeClass('active')
-  //   $(this).addClass('active');
-  // });
-
-  $("#sidebarMenu2 li a").each(function() {
-      $("#sidebarMenu2 li a").removeClass('active')
-      console.log($(this));
-      
-      if ($(this).attr("href") == location.pathname) {
-        
-        // $('#sidebarMenu > li > a[href="' + location.pathname + '"]').addClass('active');
-        // $(this)[0].addClass('active')
-        $(this).addClass('active');
-        // navItem.addClass("active");
-      }
-  });
+  $("#sidebarMenu li a").each(function() {
+	  var pageUrl = window.location.href.split(/[?#]/)[0];
+		if (this.href == pageUrl) {     
+			$(this).addClass("active");
+		
+		}
+	});
 });
 
 // slick slider js

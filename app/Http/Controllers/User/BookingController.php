@@ -51,6 +51,7 @@ class BookingController extends Controller
                 $query->select('location_id','image');
             }
         ])->select('name','id','price')->get();
+        
         return view('user.booking.single-location',compact(['data','locations']));
     }
     

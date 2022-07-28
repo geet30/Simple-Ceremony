@@ -32,5 +32,6 @@
    <script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
    <script src="js/app.js" defer></script>
    <script src="/custom-js/admin/formsubmit.js"></script>
+   <script src="/custom-js/admin/tab.js"></script>
    
   </html>

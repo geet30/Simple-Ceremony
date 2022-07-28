@@ -60,7 +60,6 @@ class LoginController extends Controller
         //  dd($request->route_name);die;
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             
-            // return redirect($redirection);
             $user=Auth::user();
             // dd($user->roles->first());
             if($role = $user->roles->first()->name){

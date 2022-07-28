@@ -20,6 +20,12 @@
          </div>
          <div class="col-md-8 col-lg-7 right">
             <h1 class="h3 netural-100 mb-4">Fill in the form</h1>
+            @if($errors->any())
+                     <div class="alert alert-danger mb-3 alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>  
+                        {{$errors->first()}}
+                     </div>
+            @endif
             @if(session()->has('msg'))
                <div class="alert alert-danger">
                   <button type="button" class="close" data-dismiss="alert">×</button> 
@@ -43,7 +49,7 @@
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="phone" class="form-label small-text2">Phone number *</label>
-                           <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 " name="user[phone]" required>
+                           <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="user[phone]" required>
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                         </div>
                         <div class="col-md-6 mb-4">

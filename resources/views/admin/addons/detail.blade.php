@@ -54,7 +54,7 @@
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail')"  class="theme-btn primary-btn me-3">Confirm</a>
-                        <a href="/partner-details" class="theme-btn primary-btn-border">See profile partner</a>
+                        <a href="{{ url('partner-details',$data['id'])}}" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
                   </div>
                </section>
@@ -101,8 +101,13 @@
                               <div class="row">
                                  <div class="col-md-6 mb-3 mb-md-0">
                                     <div class=" position-relative">
-                                       <img src="/images/add-ons/add-ons-details/left.jpg" class="img-fluid  left-img "
-                                          alt="add-ons-image ">
+                                    @foreach($data['package'] as $images)
+                                       @if ($loop->first)  
+                                          @if(isset($images['gallery'][0]) && !empty($images['gallery'][0]['image_name']))
+                                             <img src="{{ asset('/uploads/images/package/'.$images['gallery'][0]['image_name']) }}" alt="add-ons-image " class="img-fluid left-img">
+                                          @endif
+                                       @endif
+                                    @endforeach
                                        <div class="all-pictures-btn">
                                        
                                           <a href="{{ route('addons.gallery', $package['id']) }}" class="theme-btn primary-btn d-inline-flex">
@@ -113,23 +118,28 @@
                                        </div>
                                     </div>
                                  </div>
-                                 <div class="col-md-6 right-img  ">
+                                 <div class="col-md-6 right-img">
                                     <div class="row">
-                                       <div class="col-sm-6">
-                                          <img src="/images/add-ons/add-ons-details/right-1.jpg" class="img-fluid mb-3 photo"
-                                             alt="add-ons-image ">
-                                          <img src="/images/add-ons/add-ons-details/right-2.jpg"
-                                             class="img-fluid photo mb-3 mb-sm-0 " alt="add-ons-image ">
+                                       
+                                       
+                                       <?php $i = 0; ?>
+                                       @foreach($data['package'] as $images)
+                                       
+
+                                          @foreach($images['gallery'] as $images)
+                                             @if(isset($images) && !empty($images))
+                                                @if (($i % 4) === 0)
+                                                   <div class="col-sm-6">
+                                                      <img src="{{ asset('/uploads/images/package/'.$images['image_name']) }}" alt="add-ons-image" class="img-fluid mb-3 photo">
+                                                   </div>
+                                                @endif
+                                               
+                                             @endif
+                                          @endforeach
+                                       
+                                       @endforeach
                                        </div>
-                                       <div class="col-sm-6">
-                                          <img src="/images/add-ons/add-ons-details/right-3.jpg" class="img-fluid mb-3 photo"
-                                             alt="add-ons-image ">
-                                          <div class="position-relative">
-                                             <img src="/images/add-ons/add-ons-details/right-4.jpg" class="img-fluid photo "
-                                                alt="add-ons-image ">
-                                             <img src="/images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
-                                          </div>
-                                       </div>
+                                          
                                     </div>
                                  </div>
                                  <div class="col-12 pt-3">
