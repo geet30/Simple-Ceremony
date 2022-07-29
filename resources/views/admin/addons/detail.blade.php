@@ -53,11 +53,16 @@
                      </div>
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         
-                        @if($data['status'] == 0)
+                        @if($data['status'] == 0 || $data['status']==2)
                         <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail')"  class="theme-btn primary-btn me-3">Confirm</a>
                         
-                        <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail')"  class="theme-btn primary-btn-border">Reject</a>
-                        @else
+                        <!-- <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail')"  class="theme-btn primary-btn me-3">Reject</a> -->
+                        <a class="showaddonfeedback">Reject</a> 
+
+                        <!-- <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasgivefeedbackaddons" aria-controls="offcanvasgivefeedbackaddons" class="showaddonfeedback" style="display:none">Reject</a>  -->
+                        <!-- <a data-bs-toggle="offcanvas" data-bs-target="#offcanvasgivefeedbackaddons" aria-controls="offcanvasgivefeedbackaddons" class="theme-btn primary-btn-border">Reject</a> -->
+                        @endif
+                        @if($data['status'] == 1)
                         <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         @endif
                         <a href="{{ url('partner-details',$data['id'])}}" class="theme-btn primary-btn-border">See profile partner</a>
@@ -177,4 +182,23 @@
       </div>
    </div>
 </div>
+
+<div class="offcanvas offcanvas-end theme-offcanvas" tabindex="-1" id="offcanvasgivefeedbackaddons" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <p id="offcanvasRightLabel" class="h3 neutral-100">Feedback</p>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
+  </div>
+  <div class="offcanvas-body">
+    <form>
+        <div class="col-md-12 mb-4">
+          <textarea placeholder="Some packages do not have a price. please give a price and submit it to us again" class="form-control body-3 netural-100" id="exampleFormControlTextarea1" rows="8"></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" id="submit_button" class="theme-btn primary-btn border-0">Submit</button>
+        </div>
+   </form>
+  </div>
+</div>
+
+
 @endsection

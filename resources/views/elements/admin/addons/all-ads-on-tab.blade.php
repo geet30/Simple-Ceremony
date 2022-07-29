@@ -56,8 +56,12 @@
                     </div>
                 </td>
                 <td style="min-width:230px;">
-                
-                    <a onClick="changeStatus('/change-status',{{$addon->id}},1)" class="table-link me-3">Confirm</a>
+                    @if($addon->status == 0)
+                        <a onClick="changeStatus('/change-status',{{$addon->id}},1)" class="table-link me-3">Confirm</a>
+                    @endif
+                    @if($addon->status == 2)
+                        <a href="#" id="showaddonfeedback" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a>
+                    @endif
                     <a href="{{ route('addons.detail', $addon->id) }}"
                     class="table-link">View info</a>
                 </td>

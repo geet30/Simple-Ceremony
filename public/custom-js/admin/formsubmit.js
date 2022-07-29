@@ -71,11 +71,18 @@ $(document).ready(function(){
             }
         });
     }
+    $('.showaddonfeedback').click(function(){
+        alert('gfdg');
+        $(document).find('#offcanvasgivefeedbackaddons').show();
+    })
 
     window.changeStatus = function(url,id,status,detail){ 
         var tab_id = $("ul.add-on-list-nav li button.active").attr("id");
         
         if(status == 2){
+            // $($(this).data("target")).hide();
+
+            // $(document).find('#showaddonfeedback').click();
             // var offcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasExample"), {backdrop: false})
             // var offcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasfeedbackaddons")).show();
             // $('#offcanvasfeedbackaddons').show();
