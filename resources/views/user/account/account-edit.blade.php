@@ -78,7 +78,8 @@
                               <a href="#" class="button-1 turquoise-100 faq-link d-block" data-bs-toggle="offcanvas" data-bs-target="#user_change_password_sidebar">Change password</a>
                            </div>
                            <div class="col-md-12 mb-4 sticky-footer text-start">
-                              <input type="submit" value="Save" class="d-inline-flex theme-btn primary-btn sticky-bottom">
+                              {{-- <input type="submit" value="Save" class="d-inline-flex theme-btn primary-btn sticky-bottom"> --}}
+                              <a href="" class="d-inline-flex theme-btn primary-btn sticky-bottom">Save</a>
                            </div>
                         </div>
                      </form>
