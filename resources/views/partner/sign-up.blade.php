@@ -151,7 +151,7 @@
                               </div>
                               <div class="col-md-6 mb-4">
                                  <label for="InputName" class="form-label small-text2">Package name</label>
-                                 <input type="text" placeholder="Add name package here" class="form-control body-1 netural-100" name="partner_packages[0][package_name]" id="InputName" required>
+                                 <input type="text" placeholder="Add name package here" class="form-control body-1 netural-100" name="partner_packages[package_name]" id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Package name is required</div>
                               </div>
                               <div class="col-md-6 mb-4">

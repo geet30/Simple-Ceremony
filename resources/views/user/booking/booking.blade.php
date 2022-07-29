@@ -71,7 +71,7 @@
                </div>
             </div>
         </div>
-        <div id="searchResult" class="col-md-12">
+        <div id="searchResult" class="row">
 
             @include('elements.user.location.location', ['title' => 'locations', '' => '', 'locations' => $locations])
         </div>
