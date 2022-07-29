@@ -3,7 +3,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-         @include('elements.celebrant-sidebar')
+         @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.celebrant.panel-header')
@@ -107,5 +107,5 @@
       </div>
    </div>
 </div>
-@include('elements.celebrant-note-popup')
+@include('elements.celebrant.celebrant-note-popup')
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -20,10 +20,10 @@
          <!-- tab content -->
          <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
-            @include('elements.admin.location.listing')
+               @include('elements.admin.location.listing')
             </div>
             <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="packages-tab">
-            @include('elements.admin.location.packages')
+               @include('elements.admin.location.packages')
             </div>
          </div>
          <!-- tab content -->

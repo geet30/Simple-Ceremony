@@ -3,10 +3,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 col-lg-2 p-0">
-            @include('elements.partner-sidebar')
+            @include('elements.partner.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-         @include('elements.partner-panel-header')
+         @include('elements.partner.partner-panel-header')
          <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
             <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
                 <button class="nav-link w-100 active" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
@@ -1018,7 +1018,7 @@
         </div>
     </div>
 </div>
-@include('elements.partner-upcoming-note-popup')
-@include('elements.partner-upcoming-edit-popup')
-@include('elements.partner-upcoming-note-edit-sidebar')
+@include('elements.partner.partner-upcoming-note-popup')
+@include('elements.partner.partner-upcoming-edit-popup')
+@include('elements.partner.partner-upcoming-note-edit-sidebar')
 @endsection

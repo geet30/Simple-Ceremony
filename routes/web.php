@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
+use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\LocationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -260,11 +262,7 @@ $adminRoutes = function() {
     Route::get('payments-overview', function () {
         return view('admin.payments.payments-overview');
     });
-
-    // Route::get('locations', function () {
-    //     return view('admin.locations.listing');
-    // });
-    Route::resource('locations', App\Http\Controllers\LocationsController::class);
+    Route::resource('locations', LocationsController::class);
     Route::get('single', function () {
         return view('admin.locations.single');
     });
@@ -286,11 +284,9 @@ $adminRoutes = function() {
     Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
     Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('addons.gallery');
     Route::post('/change-status',[AddonsController::class, 'changeStatus']);
-   
-    
-    
-    
-
+    Route::get('partner-details/{id}',[PartnerController::class, 'partnerDetail']);
+    Route::post('partner-personal-data/{id}',[PartnerController::class, 'personalData'])->name('partner-personal-data');
+    Route::post('submit-location',[PartnerController::class, 'store']);
     Route::get('all-partners', function () {
         return view('admin.partner.all-partners');
     });
@@ -303,9 +299,7 @@ $adminRoutes = function() {
     Route::get('package-details', function () {
         return view('admin.partner.package-details');
     });
-    Route::get('partner-details', function () {
-        return view('admin.partner.partner-details');
-    });
+   
     Route::get('partner-edit', function () {
         return view('admin.partner.partner-edit');
     });
@@ -345,13 +339,7 @@ $adminRoutes = function() {
     Route::get('edit-enquiry', function () {
         return view('admin.enquiries.edit-enquiry');
     });
-    Route::group(['prefix' => 'admin'], function () {
-        // Route::resource('locations', App\Http\Controllers\LocationsController::class);
-        // Route::get('location', function () {
-        //     return view('admin.location');
-        // })->name('admin-locations');
-      
-    });
+    
 
 };
 $partnerRoutes = function() {
@@ -362,9 +350,7 @@ $partnerRoutes = function() {
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });
-    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm');
-    
-   
+    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm'); 
     Route::get('all-partners', function () {
         return view('partner.all-partners');
     });

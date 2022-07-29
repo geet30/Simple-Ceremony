@@ -1,24 +1,4 @@
-$(window).on('load', function () {
-   
-    $('ul.add-on-list-nav').find('li button').removeClass('active').removeClass('show');
-    if (window.location.href.indexOf("all") > -1) {     
-        $('ul.add-on-list-nav').find('li button#all-ads-on-tab').click();
-    }
-    if (window.location.href.indexOf("add-on-approved-tab") > -1) {
-        $('ul.add-on-list-nav').find('li button#add-on-approved-tab').click();
-    }
-    if (window.location.href.indexOf("Waiting-for-approval-tab") > -1) {
-        $('ul.add-on-list-nav').find('li button#Waiting-for-approval-tab').click();
-    } 
-    if (window.location.href.indexOf("all-ads-on-tab") > -1) {
-        $('ul.add-on-list-nav').find('li button#all-ads-on-tab').click();
-    
-    } 
-    if (window.location.href.indexOf("add-on-reject-tab") > -1) {
-         $('ul.add-on-list-nav').find('li button#add-on-reject-tab').click();
-    
-    } 
-});
+
 $(document).ready(function(){
  
     $.ajaxSetup({
@@ -26,22 +6,11 @@ $(document).ready(function(){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
       });
-    $('.calendar-wrapper').calendar({
-
-        onClickDate:function (date) {
-
-            $('#calendar-wrapper').updateCalendarOptions({
-                date: date
-            });
-
-            $('#calendar_date').val(new Date(date).toLocaleDateString());
-
-        }
-    });
+    
     window.SearchBookingRecords = function(url){
         var  location= $('#search_location').val();
         var  calendar_date= $('#calendar_date').val();
-        // return false;
+        
         $.ajax({
             type: "post",
             url: url,
@@ -55,11 +24,7 @@ $(document).ready(function(){
             success: function(response)
             {
                 $("#searchResult").html(response);
-                // if(tab_id == 'information-tab'){
-                //     $('#'+sub_tab_id+'_searchList').html(response);
-                // }else{
-                //     $("#addon_list").html(response);
-                // }
+                
             }
         });
     }
@@ -94,10 +59,7 @@ $(document).ready(function(){
             },
             dataType: 'html',
             cache: false,
-            beforeSend: function(html) 
-            {
-                // $('#loading').show();
-            },
+            
             success: function(response)
             {
                
@@ -109,8 +71,6 @@ $(document).ready(function(){
             }
         });
     }
-
-    
 
     window.changeStatus = function(url,id,status,detail){ 
         var tab_id = $("ul.add-on-list-nav li button.active").attr("id");
@@ -145,20 +105,6 @@ $(document).ready(function(){
         });
     }
     
-    
-    // window.addSlug = function(){
-    //     var tab_id = $(this).find('li').find('button.active').attr("id");
-    //     console.log(tab_id);
-    // }
-    $('ul.add-on-list-nav').click(function(){
-
-        var tab_id = $(this).find('li').find('button.active').attr("id");
-        history.pushState('', '', [tab_id])
-        // console.log(tab_id);
-    
-    });
-    
-
     window.submitform = function(id,action,method,formData,form){
         $('.form-error').html('');
         $('.message').html('');
