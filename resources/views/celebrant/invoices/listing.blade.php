@@ -23,7 +23,7 @@
                         <select required="" name="customer_type" class="js-placeholder-single-input form-control">
                            <optgroup label="Status">
                               <option value="O1" data-badge="">Paid</option>
-                              <option value="O2" data-badge="">unpaid</option>
+                              <option value="O2" data-badge="">Unpaid</option>
                            </optgroup>
                         </select>
                      </div>

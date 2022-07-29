@@ -12,13 +12,9 @@
       <link href="/custom-css/select-2.css" rel="stylesheet">
       <link href="/custom-css/slick.css" rel="stylesheet">
       <link href="https://intl-tel-input.com/node_modules/intl-tel-input/build/css/intlTelInput.css?1549804213570" rel="stylesheet">
-      <link href="/custom-css/calendar.css" rel="stylesheet">
       <link href="/custom-css/video-player.css" rel="stylesheet">
       <link href="/fonts/stylesheet.css" rel="stylesheet">
-      <link href="/custom-css/style.css" rel="stylesheet">
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script src="/js/app.js" defer></script>
-   </head>
+  </head>
    <body class="dashboard-bg antialiased" data-barba="wrapper">
       <main>
          @yield('content')
@@ -34,6 +30,10 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.fileupload.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.iframe-transport.js"></script>
    <script src="/js/signature.js"></script>
-   
+   <script src="/js/app.js" defer></script>
+   <script src="/js/add-more.js"></script>
+   <script>
 
-  </html>
+   </script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+ </html>

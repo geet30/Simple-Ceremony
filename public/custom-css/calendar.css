@@ -8,7 +8,7 @@
      cursor: pointer;
 }
  .week {
-     overflow: hidden;
+     overflow: hidden; 
 }
 .day {
     display: inline-block;

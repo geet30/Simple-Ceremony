@@ -202,7 +202,7 @@
                   <table class="table align-middle theme-table">
                      <thead>
                         <tr>
-                           <th>Name couplngghe</th>
+                           <th>Name couple</th>
                            <th>Location</th>
                            <th>Wedding date</th>
                            <th>Time</th>
@@ -214,15 +214,15 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <td style="min-width:200px" class="body-2">Joe & Vho</td>
-                           <td  style="min-width:200px" class="body-2">Blues point</td>
-                           <td style="min-width:200px" class="body-2" >Dec 11, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
+                           <td style="min-width:180px" class="body-2">Joe & Vho</td>
+                           <td  style="min-width:180px" class="body-2">Blues point</td>
+                           <td style="min-width:180px" class="body-2" >Dec 11, 2022</td>
+                           <td  style="min-width:100px" class="body-2">10:30</td>
                            <td  style="min-width:180px" class="body-2">+61-123456789</td>
                            <td  style="min-width:180px" class="body-2"><span class="status booked">Booked</span></td>
                            <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:160px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td  style="min-width:100px">
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -237,15 +237,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2"> John & Emma</td>
-                           <td  style="min-width:200px" class="body-2">Tench park</td>
-                           <td style="min-width:200px" class="body-2" >Dec 11, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status pending">Pending</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2"></a></td>
+                           <td  class="body-2"> John & Emma</td>
+                           <td  class="body-2">Tench park</td>
+                           <td  class="body-2" >Dec 11, 2022</td>
+                           <td  class="body-2">10:30</td>
+                           <td class="body-2">+61-123456789</td>
+                           <td  class="body-2"><span class="status pending">Pending</span></td>
+                           <td><a class="table-link button-2"></a></td>
                            <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -260,15 +260,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2"> Chloe & Amy</td>
-                           <td  style="min-width:200px" class="body-2">Blues point</td>
-                           <td style="min-width:200px" class="body-2" >Dec 11, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status lodged">Lodged</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2"> Chloe & Amy</td>
+                           <td  class="body-2">Blues point</td>
+                           <td class="body-2" >Dec 11, 2022</td>
+                           <td class="body-2">10:30</td>
+                           <td class="body-2">+61-123456789</td>
+                           <td  class="body-2"><span class="status lodged">Lodged</span></td>
+                           <td ><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
+                           <td >
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -283,15 +283,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2"> Sam & Sophie</td>
-                           <td  style="min-width:200px" class="body-2">Blues point</td>
-                           <td style="min-width:200px" class="body-2" >Dec 11, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status lodged">Lodged (Pending)</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2"> Sam & Sophie</td>
+                           <td  class="body-2">Blues point</td>
+                           <td class="body-2" >Dec 11, 2022</td>
+                           <td  class="body-2">10:30</td>
+                           <td  class="body-2">+61-123456789</td>
+                           <td  class="body-2"><span class="status lodged">Lodged (Pending)</span></td>
+                           <td ><a class="table-link button-2"></a></td>
+                           <td >
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -306,15 +306,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px" class="body-2"> Jorsey & Erin</td>
-                           <td  style="min-width:200px" class="body-2">Tench park</td>
-                           <td style="min-width:200px" class="body-2" >Mar 09, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td  class="body-2"> Jorsey & Erin</td>
+                           <td   class="body-2">Tench park</td>
+                           <td class="body-2" >Mar 09, 2022</td>
+                           <td   class="body-2">10:30</td>
+                           <td   class="body-2">+61-123456789</td>
+                           <td   class="body-2"><span class="status registered">Registered</span></td>
+                           <td ><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
+                           <td>
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -329,15 +329,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:260px" class="body-2"> Max & Jade</td>
-                           <td  style="min-width:200px" class="body-2">Bradfield park</td>
-                           <td style="min-width:200px" class="body-2" >Mar 09, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2"> Max & Jade</td>
+                           <td class="body-2">Bradfield park</td>
+                           <td  class="body-2" >Mar 09, 2022</td>
+                           <td  class="body-2">10:30</td>
+                           <td class="body-2">+61-123456789</td>
+                           <td class="body-2"><span class="status registered">Registered</span></td>
+                           <td><a class="table-link button-2"></a></td>
+                           <td>
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -352,15 +352,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2">Matt & Zoe</td>
-                           <td  style="min-width:200px" class="body-2">Tench park</td>
-                           <td style="min-width:200px" class="body-2" >Mar 07, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status pending">Pending</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2">Matt & Zoe</td>
+                           <td  class="body-2">Tench park</td>
+                           <td class="body-2" >Mar 07, 2022</td>
+                           <td class="body-2">10:30</td>
+                           <td class="body-2">+61-123456789</td>
+                           <td class="body-2"><span class="status pending">Pending</span></td>
+                           <td ><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
+                           <td>
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -375,15 +375,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2">Jack & Ella</td>
-                           <td  style="min-width:200px" class="body-2">Bradfield park</td>
-                           <td style="min-width:200px" class="body-2" >Mar 05, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status cancelled">Cancelled</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2">Jack & Ella</td>
+                           <td class="body-2">Bradfield park</td>
+                           <td class="body-2" >Mar 05, 2022</td>
+                           <td class="body-2">10:30</td>
+                           <td class="body-2">+61-123456789</td>
+                           <td class="body-2"><span class="status cancelled">Cancelled</span></td>
+                           <td><a class="table-link button-2"></a></td>
+                           <td>
+                           
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -398,15 +398,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2"> Tom & Jess</td>
-                           <td  style="min-width:200px" class="body-2">Tench park</td>
-                           <td style="min-width:200px" class="body-2" >Mar 06, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2"> Tom & Jess</td>
+                           <td  class="body-2">Tench park</td>
+                           <td class="body-2" >Mar 06, 2022</td>
+                           <td class="body-2">10:30</td>
+                           <td  class="body-2">+61-123456789</td>
+                           <td class="body-2"><span class="status registered">Registered</span></td>
+                           <td><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
+                           <td>
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info
@@ -421,15 +421,15 @@
                            </td>
                         </tr>
                         <tr>
-                           <td style="min-width:200px" class="body-2"> Joe & Jessica</td>
-                           <td  style="min-width:200px" class="body-2">Blues point</td>
-                           <td style="min-width:200px" class="body-2" >Mar 04, 2022</td>
-                           <td  style="min-width:200px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status registered">Registered</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                           <a href="/availablity-overview" class="table-link button-2 d-m-none"> View info</a>
+                           <td class="body-2"> Joe & Jessica</td>
+                           <td class="body-2">Blues point</td>
+                           <td class="body-2" >Mar 04, 2022</td>
+                           <td class="body-2">10:30</td>
+                           <td class="body-2">+61-123456789</td>
+                           <td class="body-2"><span class="status registered">Registered</span></td>
+                           <td><a class="table-link button-2"></a></td>
+                           <td>
+                         
                               <div class="dropdown d-none d-md-block">
                                  <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  View info

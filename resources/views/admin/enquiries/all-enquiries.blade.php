@@ -70,8 +70,8 @@
             </div>
             <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-6 mb-4 mb-lg-0">
                <div class="form-group has-search w-100 position-relative">
+                <input type="text" class="form-control" placeholder="Search">
                   <span class="fa fa-search form-control-feedback"></span>
-                  <input type="text" class="form-control" placeholder="Search">
                </div>
             </div>
             <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-3">

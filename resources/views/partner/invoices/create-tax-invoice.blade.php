@@ -40,8 +40,12 @@
                                  <input type="text" placeholder="Add name couple here" class="form-control body-1 netural-100" name="name">
                               </div>
                               <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-                                 <label class="form-label small-text2">Event date</label>
-                                 <input role="button" type="text" placeholder="Choose date here" class="form-control body-1 netural-100" name="name" readonly data-bs-toggle="modal" data-bs-target="#calendarmodal">
+                                 <label for="date"  class="form-label small-text2">Event date</label>
+                                 <div class="input-group date theme-datepicker">
+                                 <input role="button" type="text" class="form-control body-1 netural-100" id="date" placeholder="Choose date here"/>
+                                 <span class="input-group-append">
+                                 </span>
+                              </div>
                               </div>
                            </div>
                            <div class="row">
@@ -88,8 +92,8 @@
                   </div>
                   <div class="row align-items-center">
                      <div class="col-md-12 col-lg-8 col-xl-8 col-xxl-6 mb-4">
-                        <label class="form-label small-text2">Give note</label>
-                        <textarea class="form-control small-text1 netural-100" rows="10" readonly>Type here</textarea>
+                        <label class="form-label small-text1 neutral-100">Give note</label>
+                        <textarea class="form-control small-text1 netural-100" rows="10" placeholder="Type here" ></textarea>
                      </div>
                   </div>
                   <div class="row align-items-center sticky-footer">

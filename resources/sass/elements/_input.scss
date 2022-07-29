@@ -5,6 +5,7 @@
     &.pl-30 {
         padding-left: 30px;
     }
+   
 }
 
 .form-control:focus {
@@ -51,6 +52,7 @@
     border-color: $turquoise-100 !important;
 }
 .has-search {
+    position: relative;
     .form-control {
         padding-left: 2.375rem;
         background: $gray-0;
@@ -59,6 +61,13 @@
         color: $gray-500;
         &:focus {
             outline: 0;
+            color: $turquoise-100;
+            background: $white;
+            box-shadow: 0px 2px 16px #e8f9f7;
+            border: 1px solid $turquoise-100;
+            outline-style: solid;
+            outline-color: $turquoise-50;
+            outline-width: thick;
         }
         &::placeholder {
             color: $gray-500;
@@ -69,11 +78,8 @@
         position: absolute;
         z-index: 2;
         display: block;
-        width: 2.375rem;
-        height: 2.375rem;
-        line-height: 2.375rem;
-        text-align: center;
-        pointer-events: none;
+        top: 0px;
+        padding: 0.65rem 0.75rem;
         color: $gray-500;
     }
 }
@@ -87,6 +93,16 @@ input:-webkit-autofill:active {
 }
 .theme-input-group {
     position: relative;
+    &.left-input{
+            .form-control{
+                padding-left: 25px;
+            }
+    }
+    &.right-input{
+        .form-control{
+            padding-right: 25px;
+        }
+}
     .right-icon {
         position: absolute;
         top: 0px;
@@ -224,4 +240,22 @@ input:-webkit-autofill:active {
 .form-check-input {
     width: 20px !important;
     height: 20px !important;
+}
+.input-group{
+    border-radius: 6px;
+}
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu), .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3){
+    border-top-right-radius:6px;
+    border-bottom-right-radius: 6px;
+}
+.select2-container--default .select2-selection--multiple{
+    background: #F7FCFC;
+    border: 1px solid #E2F3F2;
+    border-radius: 6px;
+    padding: 0.375rem 0.75rem;
+    box-shadow: none;;
+}
+
+.has-search input:focus + .form-control-feedback{
+    color: $turquoise-100 !important;
 }

@@ -11,13 +11,24 @@ $('.slider-for').slick({
   asNavFor: '.slider-for',
   focusOnSelect: true
 });
-
+//datepicker
+$(function(){
+  $('.theme-datepicker').datepicker({
+    format: 'D, MM d, yyyy',
+    keyboardNavigation: false,
+       autoclose: true
+   });
+});
 // popover JS
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
-
+$('.datetimepicker2').datepicker({
+  format: 'D, MM d, yyyy',
+  keyboardNavigation: false,
+     autoclose: true
+ });
 
 /////// calander Js
 function selectDate(date) {
@@ -260,22 +271,35 @@ console.log(calendar.getSelectedDate());
  
 })(jQuery);
 
-//Make tabs selected on page reload
-// $(document).ready(function(){
-//     $('.list-group a').click(function(e) {
-     
-//       e.preventDefault();
-//       $(this).tab('show');
-//     });
 
 
-//     // store the currently selected tab in the hash value
-//     $(".list-group > a").on("shown.bs.tab", function(e) {
-//       var id = $(e.target).attr("href").substr(1);
-//       window.location.hash = id;
-//     });
+(function( $ ) {
+  $('#reply-text').click(function(){
+      $('.hidden-tree').addClass("d-block");
+      $('.hidden-tree').removeClass("d-none");
+      $('.reply-text').addClass("d-none");
+  });
+})(jQuery);
 
-//     // on load of the page: switch to the currently selected tab
-//     var hash = window.location.hash;
-//     $('.list-group a[href="' + hash + '"]').tab('show');
-// });
+(function( $ ) {
+  $('.reschedule-btn').click(function(){
+      $('.change-reschedule-1').addClass("d-none");
+      $('.change-reschedule-2').addClass("d-block");
+      $('.change-reschedule-2').removeClass("d-none");
+      $('.reschedulecancel-btn').addClass("d-block");
+      $('.reschedulecancel-btn').removeClass("d-none");
+      $('.reschedule-btn').addClass("d-none");
+  });
+  $('.reschedulecancel-btn').click(function(){
+    $('.change-reschedule-1').addClass("d-block");
+    $('.change-reschedule-1').removeClass("d-none");
+    $('.change-reschedule-2').addClass("d-none");
+    $('.change-reschedule-2').removeClass("d-block");
+    $('.reschedulecancel-btn').addClass("d-none");
+    $('.reschedulecancel-btn').removeClass("d-block");
+    $('.reschedule-btn').addClass("d-block");
+    $('.reschedule-btn').removeClass("d-none");
+});
+ 
+ 
+})(jQuery);

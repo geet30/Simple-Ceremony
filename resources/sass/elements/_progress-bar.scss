@@ -85,4 +85,29 @@
             display: block;
         }
     }
+    &.theme-tip-Rejected{
+        span{
+            width: 300px;
+            .white-box{
+                background: #FFFFFF;
+                border: 1px solid $turquoise-50;
+                border-radius: 10px;
+                padding: 5px 11px;
+                margin-top:20px;
+            }
+        }
+    }
+    &.red-theme-tip{
+        span{
+            color: #D81919 !important;
+            background: #FFEDED !important;
+            border: 1px solid #D81919 !important;
+            &:before {
+                background-color: #FFEDED !important;
+                border-left: 1px solid #D81919  !important;
+                border-bottom: 1px solid #D81919 !important; 
+                left: -7px !important;
+            }
+        }
+    }
 }

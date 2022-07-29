@@ -255,6 +255,13 @@ $adminRoutes = function() {
         return view('admin.payments.payments-overview');
     });
     Route::resource('locations', LocationsController::class);
+    Route::get('create-celebrants-invoice', function () {
+        return view('admin.payments.create-celebrants-invoice');
+    });
+    Route::get('create-partners-invoice', function () {
+        return view('admin.payments.create-partners-invoice');
+    });
+
     Route::get('single', function () {
         return view('admin.locations.single');
     });
@@ -331,7 +338,22 @@ $adminRoutes = function() {
     Route::get('edit-enquiry', function () {
         return view('admin.enquiries.edit-enquiry');
     });
-    
+    Route::get('marriages', function () {
+        return view('admin.marriages.view');
+    });
+    Route::get('order-details', function () {
+        return view('admin.marriages.order-details');
+    });
+    Route::get('booked-order-details', function () {
+        return view('admin.marriages.booked-order-details');
+    });
+    Route::group(['prefix' => 'admin'], function () {
+        // Route::resource('locations', App\Http\Controllers\LocationsController::class);
+        // Route::get('location', function () {
+        //     return view('admin.location');
+        // })->name('admin-locations');
+      
+    });
 
 };
 $partnerRoutes = function() {

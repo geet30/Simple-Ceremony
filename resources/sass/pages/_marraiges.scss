@@ -1,0 +1,27 @@
+.reply-number{
+    width: 21px;
+    line-height: 21px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    background: $turquoise-100;
+    color:white;
+}
+.text-decoration-none{
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+.input-div{
+    background: $turquoise-20;
+    border: 1px solid  $turquoise-50;
+    border-radius: 6px;
+    font-weight: 700;
+font-size: 14px;
+line-height: 22px;
+font-family: 'Montserrat', sans-serif;
+padding: 9px 16px;
+}
