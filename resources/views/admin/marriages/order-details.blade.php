@@ -13,16 +13,16 @@
          <div class=" card panel-card mb-4">
             <div class="card-body">
                <div class="col-12">
-                  <div class="row">
-                     <div class="col-xxl-6 ">
-                        <div class="d-flex">
-                           <div class="col-5 col-md-6 col-xxl-5 align-self-center">
+                  <div class="row align-items-center">
+                     <div class="col-xxl-6 col-lg-12 col-xl-6 col-12 ">
+                        <div class="d-flex flex-column flex-lg-row">
+                           <div class="col-12 col-md-6 col-xxl-5 align-self-start mb-2 mb-lg-0">
                               <h1 class="h3 neutral-100 mb-0">Order details  </h1>
                            </div>
-                           <div class="col-7 align-self-center text-end d-md-none ">
+                           <div class="col-12 align-self-start text-start d-block d-lg-none">
                               <span class="status registered  ">30 days till marriage</span>
                            </div>
-                           <div class="col-md-6 col-xxl-7  align-self-center mt-2 mt-md-0 w-100 d-none d-md-flex">
+                           <div class="col-md-6 col-xxl-7  align-self-center mt-2 mt-lg-0 w-100 d-flex">
                               <div class="progress theme-progress body-1 w-40 align-self-center">
                                  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
                               </div>
@@ -32,15 +32,15 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-xxl-6 text-xxl-end mt-3 mt-xxl-0">
-                        <div class="d-flex justify-content-xxl-end">
-                           <div class="d-flex align-self-center me-5">
+                     <div class=" col-lg-12 col-xxl-6 col-xl-6 col-12 text-xxl-end mt-3 mt-xxl-0">
+                        <div class="d-flex justify-content-start justify-content-md-between justify-content-xl-end flex-column flex-md-row">
+                           <div class="d-flex align-self-start me-0 me-xl-4 mb-4 mb-xl-0">
                               <div class="align-self-center me-2 body-2-semi-bold">Status</div>
                            <div class="dropdown table-dropdown align-self-center">
                                        <button class="btn dropdown-toggle approved" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                        Booking/Pending
                                        </button>
-                                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
                                        <li><a class="dropdown-item approved" href="#">Booking/Pending</a></li>
                                          <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                          <li><a class="dropdown-item status-turquoise-100" href="#">Lodged</a></li>
@@ -49,7 +49,7 @@
                                        </ul>
                                      </div>
                            </div>
-                           <div class=" align-self-center ">
+                           <div class=" align-self-start">
                             <a href="" class="theme-btn primary-btn-border d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#reminder"> Create reminder</a>
                            </div>
                         </div>

@@ -341,6 +341,9 @@ $adminRoutes = function() {
     Route::get('order-details', function () {
         return view('admin.marriages.order-details');
     });
+    Route::get('booked-order-details', function () {
+        return view('admin.marriages.booked-order-details');
+    });
     Route::group(['prefix' => 'admin'], function () {
         // Route::resource('locations', App\Http\Controllers\LocationsController::class);
         // Route::get('location', function () {
