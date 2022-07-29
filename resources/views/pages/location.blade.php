@@ -12,7 +12,7 @@
                   <div class="col-md-9 mx-auto location-search-data ">
                      <div class="row align-items-center">
                         <div class="col-lg-5 mb-4">
-                           <p class="text-black button-1">Location</p>
+                           <p class="text-black button-1" style="position: relative;top: 9px;">Location</p>
                            <div class="search-location-with-icon d-flex">
                               <img class="me-2" src="images/location-page/location-icon.svg" alt="location-icon">
                               <select class="js-example-placeholder-single js-states form-control">

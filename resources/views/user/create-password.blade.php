@@ -43,7 +43,7 @@
                                           {{-- <button type="submit" class="theme-btn primary-btn w-100">
                                           Login
                                           </button> --}}
-                                          <a href="/index" class="theme-btn primary-btn w-100 d-block">
+                                          <a href="/user/index" class="theme-btn primary-btn w-100 d-block">
                                              Create
                                           </a>
                                        </div>

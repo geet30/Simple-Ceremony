@@ -32,11 +32,11 @@
                <form>
                   <div class="tab-content" id="nav-tabContent">
                      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-                        <div class="row">
-                           <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
-                              <p class="paragraph Neutral/100">Step 1</p>
+                        <div class="row align-items-center">
+                           <div class="col-4 col-md-3 col-lg-3 col-xl-3">
+                              <p class="paragraph Neutral/100 mb-0">Step 1</p>
                            </div>
-                           <div class="col-8 col-md-9 col-lg-9 col-xl-10">
+                           <div class="col-8 col-md-9 col-lg-9 col-xl-9">
                               <div class="progress body-1">
                                  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
                               </div>
@@ -145,11 +145,11 @@
                      </div>
 
                      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-                        <div class="row">
-                           <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
-                              <p class="paragraph Neutral/100">Step 2</p>
+                        <div class="row align-items-center">
+                           <div class="col-4 col-md-3 col-lg-3 col-xl-3">
+                              <p class="paragraph Neutral/100 mb-0">Step 2</p>
                            </div>
-                           <div class="col-8 col-md-9 col-lg-9 col-xl-10">
+                           <div class="col-8 col-md-9 col-lg-9 col-xl-9">
                               <div class="progress body-1">
                                  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
                               </div>
@@ -219,11 +219,11 @@
                      </div>
 
                      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <div class="row">
-                           <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
-                              <p class="paragraph Neutral/100">Step 3</p>
+                        <div class="row align-items-center">
+                           <div class="col-4 col-md-3 col-lg-3 col-xl-3">
+                              <p class="paragraph Neutral/100 mb-0">Step 3</p>
                            </div>
-                           <div class="col-8 col-md-9 col-lg-9 col-xl-10">
+                           <div class="col-8 col-md-9 col-lg-9 col-xl-9">
                               <div class="progress body-1">
                                  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
                               </div>
