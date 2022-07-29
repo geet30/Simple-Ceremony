@@ -310,5 +310,5 @@
    </div>
 </section>
 @include('elements.basket')
-@include('elements.contact-partner')
+@include('elements.partner.contact-partner')
 @endsection

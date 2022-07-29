@@ -1,4 +1,4 @@
-@foreach ($addOns as $addon)
+@foreach ($addons as $addon)
 <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-md-0">
    <a class="card image-card" href="/user/package-details">
       <img src="{{ $addon['image'] }}" class="card-img-top" alt="add-on" title="add-on" >

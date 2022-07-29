@@ -132,11 +132,12 @@ function ImgUpload() {
   var imgArray = [];
 
   $('.upload__inputfile').each(function () {
+   
     $(this).on('change', function (e) {
       imgWrap = $(this).closest('.upload__box').find('.upload__img-wrap');
       var maxLength = $(this).attr('data-max_length');
 
-      var files = e.target.files;
+      var files = e.target.files;//console.log(files);
       var filesArr = Array.prototype.slice.call(files);
       var iterator = 0;
       filesArr.forEach(function (f, index) {
@@ -162,6 +163,7 @@ function ImgUpload() {
             var reader = new FileReader();
             reader.onload = function (e) {
               var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              
               imgWrap.append(html);
               iterator++;
             }
@@ -298,3 +300,4 @@ $(function(){
        autoclose: true
    });
 });
+

@@ -3,10 +3,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 col-lg-2 p-0">
-         @include('elements.partner-sidebar')
+         @include('elements.partner.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-            @include('elements.partner-panel-header')
+            @include('elements.partner.partner-panel-header')
             <a class="theme-btn primary-btn d-inline-block mb-4" href="/add-new-package">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add new packages

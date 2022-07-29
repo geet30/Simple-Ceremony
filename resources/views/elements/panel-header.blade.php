@@ -97,7 +97,11 @@
                         <li><a class="dropdown-item" href="account-details"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a></li>
                         <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li>
                         <li><a role="button" class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax.svg" class="img-fluid">Setting admin tax</a></li>
-                        <li><a class="dropdown-item" href="/"><img src="/images/icons/logout.svg" class="img-fluid">Log out</a></li>
+                        <li><a class="dropdown-item logout" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> <img src="/images/icons/logout.svg" class="img-fluid">{{__('translation.logout')}} </a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                           @csrf
+                        </form>
+                        <!-- <li><a class="dropdown-item" href="/"><img src="/images/icons/logout.svg" class="img-fluid">Log out</a></li> -->
                      </ul>
                   </li>
                </ul>
