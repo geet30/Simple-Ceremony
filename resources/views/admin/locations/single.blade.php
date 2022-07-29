@@ -239,5 +239,5 @@
       </div>
    </div>
 </div>
-@include('elements.addmarriage-celebrant')
+@include('elements.celebrant.addmarriage-celebrant')
 @endsection

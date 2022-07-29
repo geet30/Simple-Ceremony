@@ -40,5 +40,5 @@
 </div>
 @include('elements.partner.add-new-location')
 @include('admin.partner.js')
-@include('elements.partner-edit-location')
+@include('elements.partner.partner-edit-location')
 @endsection
