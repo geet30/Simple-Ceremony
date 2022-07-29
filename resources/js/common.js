@@ -11,24 +11,12 @@ $('.slider-for').slick({
   asNavFor: '.slider-for',
   focusOnSelect: true
 });
-//datepicker
-$(function(){
-  $('.theme-datepicker').datepicker({
-    format: 'D, MM d, yyyy',
-    keyboardNavigation: false,
-       autoclose: true
-   });
-});
+
 // popover JS
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
-})
-$('.datetimepicker2').datepicker({
-  format: 'D, MM d, yyyy',
-  keyboardNavigation: false,
-     autoclose: true
- });
+});
 
 /////// calander Js
 function selectDate(date) {
@@ -301,3 +289,12 @@ console.log(calendar.getSelectedDate());
  
  
 })(jQuery);
+
+//datepicker
+$(function(){
+  $('.theme-datepicker').datepicker({
+    format: 'D, MM d, yyyy',
+    keyboardNavigation: false,
+       autoclose: true
+   });
+});
