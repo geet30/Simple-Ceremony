@@ -18,15 +18,11 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //->$data = //DB::table('locations')->select('name','id')->get();//
-        
-        
         $data = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
             }
         ])->select('name','id','price')->get();
-        // dd($data);
         return View::make('user.booking.booking',[
             'locations' => $data
         ]);

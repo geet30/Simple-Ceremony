@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\LocationsController;
-
+use App\Http\Controllers\User\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,14 +19,13 @@ use App\Http\Controllers\Admin\LocationsController;
 
 
 $websiteRoutes = function() {
-    Route::get('/', function () {
-        return view('pages.home');
-    });
+    Route::get('/',[HomeController::class, 'index'])->name('index');
+
+    Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');
     Route::get('booking',[BookingController::class, 'index'])->name('user.booking');
     Route::get('single-location/{id}',[BookingController::class, 'detail'])->name('user.booking.detail');
-    Route::get('location', function () {
-        return view('pages.location');
-    });
+   
+    Route::get('location',[BookingController::class, 'index'])->name('user.booking');
     Route::get('get-booking-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
 
 
@@ -73,9 +72,7 @@ $websiteRoutes = function() {
     Route::get('married-checklist', function () {
         return view('pages.married-checklist');
     });
-    Route::get('add-ons', function () {
-        return view('pages.add-ons');
-    });
+  
     Route::get('why-sc', function () {
         return view('pages.why-sc');
     });
@@ -119,11 +116,6 @@ $websiteRoutes = function() {
         return view('pages.quiz');
     });
 
-    // Route::group(['prefix' => 'user'], function () {
-    //     Route::get('index', function () {
-    //         return view('user.index');
-    //     });
-    // });
     Route::get('login', function () {
         return view('user.login');
     });

@@ -72,11 +72,7 @@ class RegisterController extends Controller
        
         
         try {
-            $request->validate([
-                'user.email' => 'email',
-                'partner_packages.*' =>'required'
-            ]);
-            // echo "<pre>";print_r($request->all());die;
+           
             $response = User::createPartner($request->all());
             if($response){
              

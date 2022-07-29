@@ -74,6 +74,13 @@ $(document).ready(function(){
 
     window.changeStatus = function(url,id,status,detail){ 
         var tab_id = $("ul.add-on-list-nav li button.active").attr("id");
+        
+        if(status == 2){
+            // var offcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasExample"), {backdrop: false})
+            // var offcanvas = new bootstrap.Offcanvas(document.getElementById("offcanvasfeedbackaddons")).show();
+            // $('#offcanvasfeedbackaddons').show();
+        }
+        // return false;
         $.ajax({
             type: "post",
             url: url,
