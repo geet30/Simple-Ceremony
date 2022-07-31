@@ -13,6 +13,7 @@
         <tbody id="all-ads-on-tab_searchList">
             <?php $count = 0;?>
             @foreach($all_addons  as $addon)
+            <?php //echo "<pre>";print_r($addon->rejected);die;?>
             <?php $count++; 
             $status_class = "waiting-approval";
             if($addon->status==1)  {
@@ -60,7 +61,7 @@
                         <a onClick="changeStatus('/change-status',{{$addon->id}},1)" class="table-link me-3">Confirm</a>
                     @endif
                     @if($addon->status == 2)
-                        <a href="#" id="showaddonfeedback" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a>
+                        <a href="#" data-id="{{$addon->id}}" data-feedback="{{$addon->rejected->feedback}}" class="table-link me-3 showaddonfeedback" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a>
                     @endif
                     <a href="{{ route('addons.detail', $addon->id) }}"
                     class="table-link">View info</a>
@@ -89,3 +90,4 @@
         </tfoot>
     </table>
 </div>
+@include('admin.addons.give-feedback')

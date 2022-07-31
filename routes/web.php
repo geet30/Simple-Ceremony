@@ -283,6 +283,7 @@ $adminRoutes = function() {
     Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
     Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('addons.gallery');
     Route::post('/change-status',[AddonsController::class, 'changeStatus']);
+    Route::post('/submit-feedback',[AddonsController::class, 'submitFeedback']);
     Route::get('partner-details/{id}',[PartnerController::class, 'partnerDetail']);
     Route::post('partner-personal-data/{id}',[PartnerController::class, 'personalData'])->name('partner-personal-data');
     Route::post('submit-location',[PartnerController::class, 'store']);

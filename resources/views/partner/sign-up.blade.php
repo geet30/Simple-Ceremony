@@ -103,7 +103,7 @@
                               <div class="col-md-9">
                                  <label class="form-label small-text2">Bank</label>
                                  <select required="" name="user[bank]" class="js-placeholder-single-input form-control">
-                                    <option value="" disabled="" selected="" hidden="">Westparc</option>
+                                    <option value="" disabled="" selected="" hidden="">Select</option>
                                     <option value="1">ANZ</option>
                                     <option value="2">NAB</option>
                                     <option value="3">Westpac Bank</option>
@@ -111,6 +111,7 @@
                                     <option value="5">Macquarie Bank</option>
                                     <option value="6">Bendigo Bank</option>
                                     <option value="7">AMP Bank Ltd</option>
+                                    <option value="8">Westparc</option>
                                  </select>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
                               </div>
@@ -151,7 +152,7 @@
                               </div>
                               <div class="col-md-6 mb-4">
                                  <label for="InputName" class="form-label small-text2">Package name</label>
-                                 <input type="text" placeholder="Add name package here" class="form-control body-1 netural-100" name="partner_packages[package_name]" id="InputName" required>
+                                 <input type="text" placeholder="Add name package here" class="form-control body-1 netural-100" name="partner_packages[0][package_name]" id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Package name is required</div>
                               </div>
                               <div class="col-md-6 mb-4">
@@ -215,27 +216,16 @@
                                     <div class="upload__btn-box">
                                        <label class="theme-btn primary-btn ">
                                           <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
-                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile" name="partner_packages[0][package_images][image_name][]">
+                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile" name="partner_packages[0][package_images][image_name][]" required>
+                                          
                                        </label>
                                     </div>
+                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                                     <div class="upload__img-wrap">
-                                       <div class="upload__img-box">
-                                          <div class="video-wrapper">
-                                             <div class="video-container" id="video-container">
-                                                <video controls width="100%" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
-                                                   <source src="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4" type="video/mp4">
-                                                </video>
-                                                <div class="upload__img-close"></div>
-                                                <div class="play-button-wrapper">
-                                                   <div title="Play video" class="play-gif" id="circle-play-b">
-                                                      <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
+                                       
+                                    </div> 
                                  </div>
+                                 
                               </div>
                            </div>
                         </div>

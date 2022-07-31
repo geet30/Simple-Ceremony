@@ -52,7 +52,7 @@
                             </ul>
                             </div>
                         </td>
-                        <td style="min-width:230px;"><a href="#" class="table-link me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> 
+                        <td style="min-width:230px;"><a href="#" class="table-link me-3 showaddonfeedback" data-bs-toggle="offcanvas" data-feedback="{{$addon->rejected->feedback}}" data-id="{{$addon->id}}" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a> 
                          <a href="{{ route('addons.detail', $addon->id) }}"
                             class="table-link">View info</a></td>
                     </tr>

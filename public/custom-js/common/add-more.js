@@ -79,25 +79,10 @@ $(document).ready(function(){
                         <div class="upload__btn-box">
                            <label class="theme-btn primary-btn ">
                               <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
-                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile-${counter}" name="partner_packages[${counter}][package_images][image_name][]">
+                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile-${counter}" name="partner_packages[${counter}][package_images][image_name][]" required>
                            </label>
                         </div>
-                        <div class="upload__img-wrap">
-                           <div class="upload__img-box">
-                              <div class="video-wrapper">
-                                 <div class="video-container" id="video-container">
-                                    <video controls width="100%" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
-                                       <source src="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4" type="video/mp4">
-                                    </video>
-                                    <div class="upload__img-close"></div>
-                                    <div class="play-button-wrapper">
-                                       <div title="Play video" class="play-gif" id="circle-play-b">
-                                          <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
+                        <div class="upload__img-wrap">                          
                         </div>
                      </div>
                   </div>
@@ -123,7 +108,10 @@ $(document).ready(function(){
 
    //function to remove the elements
    window.remove = function(parentClass, el, packageContainer) { 
+     
       if(packageContainer!=''){
+         if($('.'+packageContainer).find('.'+parentClass).length == 1)
+         return false;
          $(el).closest('.'+parentClass).remove()
          package_count= $('.'+packageContainer).find('.'+parentClass).length
          $("."+parentClass).each(function(index,el) {

@@ -161,11 +161,10 @@ function ImgUpload(counter=null) {
       var filesArr = Array.prototype.slice.call(files);
       var iterator = 0;
       filesArr.forEach(function (f, index) {
-
-        if (!f.type.match('image.*')) {
+        if (!f.type.match('image.*') && !f.type.match('video.*')) {
+          // if (!f.type.match('image.*')) {
           return;
         }
-
         if (imgArray.length > maxLength) {
           return false
         } else {
@@ -183,8 +182,34 @@ function ImgUpload(counter=null) {
             var reader = new FileReader();
             console.log('test');
             reader.onload = function (e) {
-              var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
-              console.log(f.name);
+              if(f.type.match('video.*')){
+                console.log('gfdg');
+                var html = `<div class='upload__img-box'>
+                               
+                                    <video controls width="100%" data-number='${$(".upload__img-close").length}' data-file='${f.name}' class='img-bg'  id="video" preload="metadata" poster="${e.target.result}">
+                                      <source src="${e.target.result}" type="video/mp4">
+                                    </video>
+                                    <div class="upload__img-close"></div>
+                                    
+                            </div>`;
+                // var html = `<div class='upload__img-box'>
+                //                <div class="video-container" id="video-container" data-number='${$(".upload__img-close").length}' data-file='${f.name}'> 
+                //                     <video controls width="100%" data-number='${$(".upload__img-close").length}' data-file='${f.name}' id="video" preload="metadata" poster="${e.target.result}">
+                //                       <source src="${e.target.result}" type="video/mp4">
+                //                     </video>
+                //                     <div class="upload__img-close"></div>
+                //                     <div class="play-button-wrapper">
+                //                       <div title="Play video" class="play-gif" id="circle-play-b">
+                //                           <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image" >
+                //                       </div>
+                //                       </div>
+                //                   </div>
+                //             </div>`;
+                
+              }else{
+                var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+              }
+              
               imgWrap.append(html);
               iterator++;
             }
@@ -196,11 +221,7 @@ function ImgUpload(counter=null) {
   });
 
   
-  // let imgCloseId = '#upload__img-close';
-  // if(counter != null){
-  //   imgCloseId =  imgCloseId + '-' +counter;
-
-  // }
+  
 
   $('body').on('click', ".upload__img-close", function (e) {
     var file = $(this).parent().data("file");
