@@ -49,8 +49,12 @@
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="phone" class="form-label small-text2">Phone number *</label>
-                           <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="user[phone]" required>
-                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                           <input id="phone" type="tel" class="form-control body-1 netural-100" placeholder="Your phone number">
+                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div> 
+                           {{-- <span id="valid-msg" class="hide">Valid</span>
+                           <span id="error-msg" class="hide">Invalid number</span> --}}
+                           {{-- <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="user[phone]" required>--}}
+                           
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="InputName" class="form-label small-text2">Email *</label>
