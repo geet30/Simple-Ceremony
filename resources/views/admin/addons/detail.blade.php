@@ -53,12 +53,14 @@
                      </div>
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
                         
-                        @if($data['status'] == 0)
+                        @if($data['status'] == 0 )
                         <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail')"  class="theme-btn primary-btn me-3">Confirm</a>
                         
-                        <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail')"  class="theme-btn primary-btn-border">Reject</a>
-                        @else
-                        <a href="#" class="theme-btn primary-btn me-3 d-none"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
+                        <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail')"  class="theme-btn primary-btn-border me-3">Reject</a>
+
+                        @endif
+                        @if($data['status'] == 1)
+                        <a href="#" class="theme-btn primary-btn me-3"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         @endif
                         <a href="{{ url('partner-details',$data['id'])}}" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
@@ -177,4 +179,8 @@
       </div>
    </div>
 </div>
+
+
+@include('admin.addons.give-feedback')
+@include('admin.addons.js')
 @endsection

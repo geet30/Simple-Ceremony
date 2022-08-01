@@ -22,7 +22,11 @@ class PartnerProducts extends Model
     {
         return $this->hasMany('App\Models\PartnerPackages','product_id','id');
     }
-   
+
+    public function rejected()
+    {
+        return $this->belongsTo('App\Models\RejectedProducts','id','product_id');
+    }
     public function product_location()
     {
         return $this->hasMany('App\Models\PackageLocations','product_id','id');

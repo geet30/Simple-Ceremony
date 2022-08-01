@@ -2,8 +2,17 @@
 <script type="text/javascript">
 
     $(document).ready(function(){
-        $('#list-profile-list').attr("disabled","disabled");
-        $('#list-messages-list').attr("disabled","disabled");
+        
+        // $("#list-profile-list").off('click');
+        $('#list-profile-list').addClass("disable-click");
+        $('#list-messages-list').addClass("disable-click");
+        // $('#list-profile-list').on("click", function (e) {
+        
+        //     if ($(this).hasClass('disable-click')) {
+        //         return false;
+        //     }
+        // });
+        // $('#list-messages-list').attr("disabled","disabled");
         $('.calendar-wrapper').calendar({
 
             onClickDate:function (date) {
@@ -30,7 +39,6 @@
                 
              
                 data['booking_time'] = $('input[name="booking_time"]:checked').val();
-                // console.log(data);return false;
                 data['locationId']  =  $('#locationId').val();
                 var url = '/post-booking-location-form';
                 var step = 'step-one';
@@ -94,12 +102,11 @@
                 {
 
                     if(step=='step-one'){
-                        $('#list-profile-list').prop("disabled", false);
+                        $('#list-profile-list').removeClass("disable-click");
                         $('#list-profile-list')[0].click();
                     }
                     if(step=='step-two'){
-                    
-                        $('#list-messages-list').prop("disabled", false);
+                        $('#list-messages-list').removeClass("disable-click");
                         $('#list-messages-list')[0].click();
                     }
                     

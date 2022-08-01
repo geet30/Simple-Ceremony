@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Addons,PartnerProducts,PartnerPackages};
+use App\Models\{Addons,PartnerProducts,PartnerPackages,RejectedProducts};
 use Illuminate\Http\Request;
 use App\Http\Requests\AddonsRequest;
 use View;
@@ -35,6 +35,11 @@ class AddonsController extends Controller
             'addon' => function($query){
                 $query->select('name','id');
             },
+            'rejected' => function($query){
+                $query->select('feedback','id','product_id');
+            },
+            
+
             
         ])->select('product_name','id','status','business_category');
        
@@ -63,13 +68,8 @@ class AddonsController extends Controller
             }
             $viewurl = 'elements.admin.addons.'.$slug;
             return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray,'all_addons'=> $all_addons,'pending_addons'=>$pending_addons,'approved_addons'=>$approved_addons,'rejected_addons'=>$rejected_addons]);
-
-           
-            // return view($viewurl,$dataArray)->render();
-
-            
         }
-        // dd(count($pending_addons));
+        // dd($all_addons);
         return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons','dataArray']));
        
     }
@@ -180,6 +180,27 @@ class AddonsController extends Controller
        
     }
 
+    
+        /**
+     * Store a newly created feedback in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function submitFeedback(Request $request)
+    {
+      
+        $input = $request->all();
+       
+        $result = RejectedProducts::create($input);
+        if($result){
+            $msg = 'Feedback added successfully.';
+            return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
+            
+        }
+        return response()->json(['status'=>false,"message"=>'Something went wrong.']);
+       
+    }
     /**
      * Display the specified resource.
      *

@@ -46,10 +46,13 @@
                     <li class="me-3 mb-3">
                     
 
-                        <input type="radio" class="btn-check booking_time" name="booking_time" id="btnradio{{$count}}" autocomplete="off" value="{{$time}}" checked>
+                        <input type="radio" class="btn-check booking_time" name="booking_time" id="btnradio{{$count}}" autocomplete="off" value="{{$time}}" {{ (isset(cache('booking')['booking_time']) && cache('booking')['booking_time'] == $time) ? 'checked' : '' }} required>
+                        
                         <label class="radio-label body-2 text-center w-100" for="btnradio{{$count}}">{{$time}}</label>
+                        
                     </li>
                     @endforeach
+                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Time is required</div>
                     
                 </ul>
                 </div>

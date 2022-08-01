@@ -42,7 +42,7 @@ trait Methods
        
         foreach($data['package_locations']['location'] as $locationId=>$location){
           
-            $package_locations_inputs['location'] = $locationId;
+            $package_locations_inputs['location'] = $location;
             $package_locations_inputs['product_id'] = $PartnerProducts->id;
             $package_locations_inputs['user_id'] = $user->id;
             $PackageLocations = PackageLocations::create($package_locations_inputs);

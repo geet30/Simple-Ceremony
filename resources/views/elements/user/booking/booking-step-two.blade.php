@@ -15,25 +15,25 @@
         <div class="col-md-6 mb-4">
             
             <label for="InputName" class="form-label small-text2">Your preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name" value="{{ cache('booking')['first_couple_name'] ?? ''}}" required>
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name" value="{{ (isset(cache('booking')['first_couple_name']) ? cache('booking')['first_couple_name'] :'')}}" required>
             
        
             <div class="invalid-feedback first_couple_name"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your partner's preferred first name</label>
-            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" value="{{ cache('booking')['second_couple_name'] ?? ''}}" required>
+            <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" value="{{ (isset(cache('booking')['second_couple_name']) ? cache('booking')['second_couple_name'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Your email</label>
-            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" value="{{ cache('booking')['email'] ?? '' }}" required>
+            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" value="{{ (isset(cache('booking')['email']) ? cache('booking')['email'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
         </div>
         <div class="col-md-6 mb-4">
        
             <label for="phone" class="form-label small-text2">Your phone number</label>
-            <input class="form-control body-1 netural-100" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ cache('booking')['phone'] ?? '+61' }}"required>
+            <input class="form-control body-1 netural-100" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone Number is required</div>
         </div>
         <div class="col-md-6 mb-4">

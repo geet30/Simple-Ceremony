@@ -61,7 +61,6 @@ class LoginController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             
             $user=Auth::user();
-            // dd($user->roles->first());
             if($role = $user->roles->first()->name){
                 return redirect($redirection);
             }else{

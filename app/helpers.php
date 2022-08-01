@@ -27,14 +27,19 @@ function one_validation_message($validator){
   */
 
   function uploadImage($image, $folder){
+    
      $folderPath = 'uploads/images/'.$folder.'/';
      //Check if the directory already exists.
      if(!is_dir($folderPath)){
          //Directory does not exist, so lets create it.
         \File::makeDirectory(public_path().'/'.$folderPath,0777,true);
      }
-     $imageName = time().'.'.$image->getClientOriginalExtension();
+     $fileImageNameExtension=$image->getClientOriginalName();
+     $fileName=pathInfo($fileImageNameExtension, PATHINFO_FILENAME);
+     $imageName = $fileName.'-'.time().'.'.$image->getClientOriginalExtension();
+    //  $imageName = $image->getClientOriginalName().'_'. time().'.'.$image->getClientOriginalExtension();
      if($image->move(public_path('uploads/images/'.$folder), $imageName)){
+        // echo $imageName;
          return $imageName;
      }else{
          return false;
