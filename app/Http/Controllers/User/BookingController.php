@@ -63,8 +63,8 @@ class BookingController extends Controller
         if(isset($request->session_id) && !empty($request->session_id)){
             // dd(Cache::get('booking'));
             // echo $request->session_id;die;
-            // Booking::savePaymentDetail($request->session_id,$request->userId);
-
+            Booking::savePaymentDetail($request->session_id,$request->userId);
+            Cache::forget('booking');
         }
         $time_array = [
             '06.00'=>'06.00',

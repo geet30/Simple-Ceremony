@@ -203,7 +203,7 @@ $websiteRoutes = function() {
 };
 $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-   
+    Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm');
     Route::get('sign-up', function () {
         return view('admin.sign-up');
     });
@@ -348,20 +348,12 @@ $adminRoutes = function() {
     Route::get('booked-order-details', function () {
         return view('admin.marriages.booked-order-details');
     });
-    Route::group(['prefix' => 'admin'], function () {
-        // Route::resource('locations', App\Http\Controllers\LocationsController::class);
-        // Route::get('location', function () {
-        //     return view('admin.location');
-        // })->name('admin-locations');
-      
-    });
+   
 
 };
 $partnerRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
-    // Route::get('/', function () {
-    //     return view('partner.login');
-    // });
+    Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });

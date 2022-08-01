@@ -9,3 +9,6 @@
 }  .pg-page ul li a {
     cursor: pointer;
 }
+.disable-click{
+    pointer-events:none;
+}

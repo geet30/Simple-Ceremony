@@ -21,18 +21,18 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                           @if(session()->has('message'))
-                              <div class="alert alert-success">
-                                 <button type="button" class="close" data-dismiss="alert">×</button> 
-                                 {{ session()->get('message') }}
-                              </div>
-                            @endif               
+                       
+                                     
                            <form class="needs-validation row" method="POST" action="{{ route('login') }}" novalidate>
                               @csrf
+                              
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Sign in to your account</h1>
                                  </div>
+                                 @error('email')
+                                    <div class="alert alert-danger" v-if="showError">Email or Password is invalid.</div>
+                                 @enderror
                                  <div class="col-lg-12 mb-4">
                                     <label for="email" class="form-label small-text2">{{ __('Email') }} *</label>
                                     <input type="email" placeholder="Type your email here" class="form-control emailInput body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="off">
