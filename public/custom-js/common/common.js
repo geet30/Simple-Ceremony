@@ -184,12 +184,12 @@ function ImgUpload(counter=null) {
             reader.onload = function (e) {
               if(f.type.match('video.*')){
                 console.log('gfdg');
-                var html = `<div class='upload__img-box'>
+                var html = `<div class='upload__img-box position-relative'>
                                
-                                    <video controls width="100%" data-number='${$(".upload__img-close").length}' data-file='${f.name}' class='img-bg'  id="video" preload="metadata" poster="${e.target.result}">
+                                    <video controls width="100%" data-number='${$(".upload__img-close").length}' data-file='${f.name}' class=''  id="video" preload="metadata" poster="${e.target.result}">
                                       <source src="${e.target.result}" type="video/mp4">
                                     </video>
-                                    <div class="upload__img-close"></div>
+                                    <div class="upload__img-close" style="right:20px"></div>
                                     
                             </div>`;
                 // var html = `<div class='upload__img-box'>
