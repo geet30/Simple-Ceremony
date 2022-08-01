@@ -53,6 +53,10 @@ class LoginController extends Controller
             $role = 'Partner';
             $redirection = 'add-ons';
         }
+        else if ($request->route_name=='user-login') {
+            $role = 'User';
+            $redirection = 'user-add-ons';
+        }
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|string',

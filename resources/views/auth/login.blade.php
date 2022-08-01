@@ -87,6 +87,20 @@
                                              {{ __('Login') }}
                                           </button>
                                        </div>
+                                       @elseif(Route::current()->getName() == 'user-login')
+                                       <div class="col-6">
+                                          <button type="submit" class="theme-btn primary-btn w-100">
+                                             {{ __('Login') }}
+                                          </button>
+                                       </div>
+                                       <div class="col-lg-12">
+                                          <p class="body-3-regular mt-4">Have you made an order and payment but don't have a password?</p>
+                                          <a class="small-text2 forgot-password-link" href="/user/create-password">
+                                             Create a password
+                                          </a>
+                                       </div>
+
+
                                        @else
                                        <div class="col-12">
                                           <button type="submit" class="theme-btn primary-btn w-100">
