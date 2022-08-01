@@ -1,4 +1,6 @@
-@extends('layouts.master') @section('content')
+@extends('layouts.panels')
+
+ @section('content')
 <section class="pt-45 pb-40">
    <div class="container">
       <div class="row">

@@ -16,13 +16,23 @@ class AdminRoleSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name' => 'Simple Ceremony',
-            'email' => 'admin.sc@gmail.com',
-            'password' => bcrypt('adminSC@123.')
-        ]);
-
+        $user = User::create(
+            [
+                'name' => 'Simple Ceremony',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin@123')
+            ],
+            [
+              
+                'name' => 'Partner Ceremony',
+                'email' => 'partner@gmail.com',
+                'password' => bcrypt('partner@123'),
+            ]
+    
+        );
         $role = Role::create(['name' => 'Admin']);
+        
+        
 
         $permissions = Permission::pluck('id','id')->all();
 

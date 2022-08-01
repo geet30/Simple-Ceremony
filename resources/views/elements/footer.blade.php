@@ -18,7 +18,7 @@
               <ul class="list">
                 <li><a href="/">Home</a></li>
                 <li><a href="/location">Location</a></li>
-                <li><a href="/location">Make a booking</a></li>
+                <li><a href="{{route('user.booking')}}" >Make a booking</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3">

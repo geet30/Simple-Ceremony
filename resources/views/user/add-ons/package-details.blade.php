@@ -247,6 +247,6 @@
       </div>
    </div>
 </div>
-@include('elements.contact-partner')
+@include('elements.partner.contact-partner')
 @include('elements.user.add-my-wedding-popup')
 @endsection

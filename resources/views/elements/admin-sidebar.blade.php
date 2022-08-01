@@ -4,9 +4,9 @@
     <img src="/images/user/sidebar-main-logo.svg" alt="Logo" class="img-fluid d-none d-md-block">
       <img src="/images/icons/mobile-logo.svg" alt="Mobile Logo"  class="img-fluid d-md-none">
     </div>
-          <ul class="nav flex-column">
+          <ul class="nav flex-column" id="sidebar">
             <li class="nav-item">
-              <a class="body-1 nav-link d-flex align-items-center active" aria-current="page" href="/marriages">
+              <a class="body-1 nav-link d-flex align-items-center" aria-current="page" href="/marriages">
                 <svg width="24" height="27" viewBox="0 0 24 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.69019 6.48087C9.90141 6.34883 10.139 6.21679 10.3765 6.11128L8.92449 4.65923C8.47572 4.21045 8.18529 3.62963 8.10614 3.04883H5.28124C2.8788 3.04883 0.925339 5.00248 0.925339 7.40474V25.2775C0.925339 25.6208 1.1629 25.9639 1.50614 26.0167C1.95492 26.0959 2.32449 25.7527 2.32449 25.3304V13.9784C2.32449 12.2625 3.19569 10.6784 4.62124 9.75429L9.69019 6.48087Z" fill="#62CBC9"/>
                   <path d="M19.5902 3.04712H16.7653C16.6861 3.65427 16.422 4.18223 15.9732 4.63121L14.4949 6.10957C14.7324 6.21509 14.97 6.34713 15.1812 6.47916L20.2237 9.75281C21.6492 10.6769 22.5204 12.2873 22.5204 13.9769V25.2497C22.5204 25.593 22.758 25.9361 23.1012 25.9889C23.55 26.0681 23.9196 25.7248 23.9196 25.3026L23.9197 7.37648C23.9461 4.97422 21.9924 3.04688 19.5901 3.04688L19.5902 3.04712Z" fill="#62CBC9"/>
@@ -56,7 +56,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="body-1 nav-link d-flex align-items-center" href="/add-ons">
+             
+              <a class="body-1 nav-link d-flex align-items-center" href="/add-ons/all">
                 <svg width="18" height="25" viewBox="0 0 18 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.5308 9.68945L11.5197 11.0859C13.8851 11.8672 15.5959 14.0955 15.5959 16.7194C15.5959 19.9877 12.9347 22.6514 9.66624 22.6514C6.39259 22.6514 3.73142 19.9877 3.73142 16.7194C3.73142 14.0953 5.44478 11.8699 7.80763 11.0859L6.79387 9.68945C4.0246 10.8246 2.06827 13.5465 2.06827 16.7199C2.06827 20.9069 5.47377 24.315 9.66629 24.315C13.8508 24.315 17.2586 20.9067 17.2586 16.7199C17.2561 13.5466 15.3024 10.8218 12.5302 9.68945H12.5308Z" fill="#62CBC9"/>
                     <path d="M6.34286 7.53342L7.48056 9.10422L8.46004 10.4506L8.96169 11.145L9.66388 11.0975L10.3635 11.145L10.8651 10.4506L11.8446 9.10422L12.9825 7.53342L11.9159 6.21875H7.40678L6.34286 7.53342Z" fill="#62CBC9"/>

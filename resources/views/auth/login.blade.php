@@ -21,32 +21,36 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                           <form method="POST" action="{{ route('login') }}">
+                       
+                                     
+                           <form class="needs-validation row" method="POST" action="{{ route('login') }}" novalidate>
+                              @csrf
+                              
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Sign in to your account</h1>
                                  </div>
+                                 @error('email')
+                                    <div class="alert alert-danger" v-if="showError">Email or Password is invalid.</div>
+                                 @enderror
                                  <div class="col-lg-12 mb-4">
                                     <label for="email" class="form-label small-text2">{{ __('Email') }} *</label>
                                     <input type="email" placeholder="Type your email here" class="form-control emailInput body-1 netural-100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="off">
-                                    @error('email')
+                                   
+                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
+                                     {{--@error('email')
                                        <div class="invalid-feedback">
                                           <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>
                                           {{ $message }}
                                        </div>
-                                    @enderror
+                                    @enderror--}}
                                  </div>
                                  <div class="col-lg-12 mb-4">
                                     <label for="password" class="form-label small-text2">{{ __('Password') }} *</label>
                                     <div class="password-with-eye">
                                        <input type="password" placeholder="Type your password here" class="form-control passwordInput body-1 netural-100 @error('password') is-invalid @enderror" name="password" required  autocomplete="off">
                                        <i class="fas fa-eye-slash right-icon turquoise-100 eyeIcon"></i>
-                                       @error('password')
-                                          <div class="invalid-feedback">
-                                             <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>
-                                             {{ $message }}
-                                          </div>
-                                       @enderror
+                                       <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Password is required</div>
                                     </div>
                                  </div>
                                  <div class="col-lg-12 mb-4">
@@ -74,11 +78,22 @@
                                        <div class="col-12 d-none">
                                           <a href="#" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
                                        </div>
+                                       @if(Route::current()->getName() == 'partner-login')
+                                       <div class="col-6">
+                                          <a href="/sign-up" class="theme-btn primary-btn-border d-block w-100">Sign up</a>
+                                       </div>
+                                       <div class="col-6">
+                                          <button type="submit" class="theme-btn primary-btn w-100">
+                                             {{ __('Login') }}
+                                          </button>
+                                       </div>
+                                       @else
                                        <div class="col-12">
                                           <button type="submit" class="theme-btn primary-btn w-100">
                                              {{ __('Login') }}
                                           </button>
                                        </div>
+                                       @endIf
                                     </div>
                                  </div>
                               </div>

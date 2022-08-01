@@ -41,44 +41,7 @@
          <div class="col-md-12 pt-45">
             <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
          </div>
-         @include('elements.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addOns' => [
-         [
-         'image' => 'images/add-ons/v1.png',
-         'tag' => 'Photographer',
-         'price' => ' $125',
-         'packname' => ' Engagement pack',
-         'location' => 'Tench park, penrith',
-         'personimage' => 'images/ellipse1.jpg',
-         'personname' => 'By Capture photography',
-         ],
-         [
-         'image' => 'images/add-ons/v2.png',
-         'tag' => 'Flower',
-         'price' => ' $89',
-         'packname' => 'Simple pack',
-         'location' => 'Blues point reserve',
-         'personimage' => 'images/ellipse2.jpg',
-         'personname' => 'By Flower collection',
-         ],
-         [
-         'image' => 'images/add-ons/v3.png',
-         'tag' => 'Ring',
-         'price' => ' $299',
-         'packname' => 'Couples pack',
-         'location' => 'Tench park, penrith',
-         'personimage' => 'images/ellipse3.jpg',
-         'personname' => 'By Tiffany jewelry',
-         ],
-         [
-         'image' => 'images/add-ons/v4.png',
-         'tag' => 'Ring',
-         'price' => ' $199',
-         'packname' => 'Simple rings pack',
-         'location' => 'Blues point reserve',
-         'personimage' => 'images/ellipse4.jpg',
-         'personname' => 'By Beauty collection',
-         ],
-         ]])
+         @include('elements.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addons' => $addons])
       </div>
    </div>
 </section>

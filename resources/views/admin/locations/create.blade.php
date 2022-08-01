@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -9,7 +9,7 @@
       @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
-               <a href="/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a href="/admin/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
                <div class="card panel-card">
@@ -17,14 +17,14 @@
                      <h1 class="h3 neutral-100 mb-0">Add new location</h1>
                   </div>
                   <div class="card-body">
-                  <form class="row g-3 needs-validation" novalidate  method="POST"  enctype="multipart/form-data">
-                      <!-- @csrf
+                  <form class="row g-3 needs-validation" novalidate  method="POST" action="{{ route('locations.store') }}" enctype="multipart/form-data">
+                      @csrf
                         @if($errors->any())
                         <div class="alert alert-danger mb-3 alert-block">
                            <button type="button" class="close" data-dismiss="alert">×</button>  
                            {{$errors->first()}}
                         </div>
-                        @endif -->
+                        @endif
                         <div class="col-md-5 mb-4">
                            <label for="Location" class="form-label small-text2">Location *</label>
                            <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" id="Location" required>
