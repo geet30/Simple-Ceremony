@@ -12,7 +12,7 @@
       <link href="/css/app.css" rel="stylesheet">
       <link href="/custom-css/select-2.css" rel="stylesheet">
       <link href="/custom-css/slick.css" rel="stylesheet">
-      <link href="https://intl-tel-input.com/node_modules/intl-tel-input/build/css/intlTelInput.css?1549804213570" rel="stylesheet">
+      <link href="/custom-css/intl-tel-input.css" rel="stylesheet">
       <link href="/custom-css/calendar.css" rel="stylesheet">
       <link href="/custom-css/video-player.css" rel="stylesheet">
       <link href="/fonts/stylesheet.css" rel="stylesheet">
@@ -39,7 +39,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.fileupload.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.iframe-transport.js"></script>
-   <script src="https://intl-tel-input.com/node_modules/intl-tel-input/build/js/intlTelInput.js?1549804213570"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
    
  
    <script src="/custom-js/common/select2.js"></script>
