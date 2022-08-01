@@ -15,7 +15,7 @@
          <div class="col-md-6">
             <div class="slider slider-for mb-11 location-detail-slider">
             @foreach($data['location_images'] as $images)
-               <div>
+               <div class="slide-for-top">
                      <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
                </div>
             @endforeach
@@ -23,7 +23,7 @@
             </div>
             <div class="slider slider-nav">
             @foreach($data['location_images'] as $images)
-             <div>
+             <div class="slider-nav-bottom">
                <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
              </div>
            

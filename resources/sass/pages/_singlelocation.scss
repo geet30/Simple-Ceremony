@@ -12,3 +12,33 @@
 .single-location {
     background: $turquoise-20;
 }
+.slide-for-top {
+  display: block;
+  padding-top: 10%;
+  position: relative;
+  width: 100%;
+}
+.slide-for-top img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider-nav-bottom {
+  display: block;
+  padding-top: 5%;
+  position: relative;
+  width: 100%;
+}
+.slider-nav-bottom img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -51,6 +51,9 @@
 .form-check-input.is-valid {
     border-color: $turquoise-100 !important;
 }
+input[type="password"] {
+    background-image: none !important;
+}
 .has-search {
     position: relative;
     .form-control {

@@ -190,13 +190,15 @@
                               </div>
                               <div class="col-md-3 mb-4">
                                  <label for="InputName" class="form-label small-text2">Total fee</label>
-                                 <div class="d-flex align-items-center">
-                                    <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_total_fee]" id="InputName" required>
-                                    <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Fill the deposit field first, after that simulation total deposit can appear">
+                                 <div class="d-flex">
+                                    <div class="input-error">
+                                       <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_total_fee]" id="InputName" required>
+                                       <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
+                                    </div>
+                                    <span class="d-inline-block ms-2 align-self-start" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Fill the deposit field first, after that simulation total deposit can appear">
                                     <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
                                     </span>
                                  </div>
-                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
                               </div>
                               <div class="col-md-12 mb-4">
                                  <label class="form-label small-text2">Location description</label>
@@ -210,26 +212,23 @@
                                  <label class="form-label small-text2">Terms (*optional)</label>
                                  <textarea name="partner_packages[0][terms]" placeholder="Type terms here" class="form-control body-1 netural-100" rows="8"></textarea>
                               </div>
-                              <div class="col-md-12 mb-4 partner-gallery-upload-box">
+                              <div class="col-md-12 mb-5 partner-gallery-upload-box position-relative">
                                  <label for="gallery" class="form-label small-text2 mb-20">Upload gallery photos</label>
                                  <div class="upload__box">
                                     <div class="upload__btn-box">
                                        <label class="theme-btn primary-btn ">
                                           <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
                                           <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile" name="partner_packages[0][package_images][image_name][]" required>
-                                          
+                                          <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 40px;text-align: left;z-index: -1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                                        </label>
                                     </div>
-                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                                     <div class="upload__img-wrap">
-                                       
                                     </div> 
                                  </div>
-                                 
                               </div>
                            </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mb-5">
                            <div class="d-flex ">
                               <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 me-4">Save</button>
                               <a role="button" id="add_more-package" onclick="appendHtml('packageContainer', 'package')" class="theme-btn primary-btn-border d-flex pe-auto"><img style="filter:none;" class="me-2" src="/images/admin/partner/plus-icon.svg" alt="Add">Add more packages</a>
