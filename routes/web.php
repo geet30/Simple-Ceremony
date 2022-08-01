@@ -19,15 +19,10 @@ use App\Http\Controllers\User\HomeController;
 
 
 $websiteRoutes = function() {
-    // Route::get('login', function () {
-    //     return view('user.login');
-    // });
-    // Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
+    Route::get('/',[HomeController::class, 'index'])->name('index');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-add-ons');
-
-    // Route::get('user-add-ons', [HomeController::class, 'index'])->name('user-add-ons');
-    Route::get('/',[HomeController::class, 'index'])->name('index');
+  
 
     Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');
     Route::get('booking',[BookingController::class, 'index'])->name('user.booking');

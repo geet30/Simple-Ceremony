@@ -3,26 +3,15 @@
 
     $(document).ready(function(){
         
-        // $("#list-profile-list").off('click');
         $('#list-profile-list').addClass("disable-click");
         $('#list-messages-list').addClass("disable-click");
-        // $('#list-profile-list').on("click", function (e) {
-        
-        //     if ($(this).hasClass('disable-click')) {
-        //         return false;
-        //     }
-        // });
-        // $('#list-messages-list').attr("disabled","disabled");
         $('.calendar-wrapper').calendar({
-
             onClickDate:function (date) {
-
                 $('#calendar-wrapper').updateCalendarOptions({
                     date: date
                 });
 
                 $('#calendar_date').val(new Date(date).toLocaleDateString());
-
             }
         });
         
@@ -36,8 +25,6 @@
                 }else{
                     data['calendar_date'] = new Date().toLocaleDateString();
                 }
-                
-             
                 data['booking_time'] = $('input[name="booking_time"]:checked').val();
                 data['locationId']  =  $('#locationId').val();
                 var url = '/post-booking-location-form';
