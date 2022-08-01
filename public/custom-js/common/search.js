@@ -15,6 +15,17 @@ $(document).ready(function(){
                 $('#calendar_date').val(new Date(date).toLocaleDateString());
             }
         });
+        $('.set_date_time').click(function(){
+            if($('#calendar_date').val() !=''){
+                $('#set_date_time').html($('#calendar_date').val());
+            }else{
+                $('#set_date_time').html(new Date().toLocaleDateString());
+               
+            }
+
+            // $('#set_date_time').html(calendar_date);
+
+        })
     
     window.SearchBookingRecords = function(url){
         var  location= $('#search_location').val();
@@ -24,13 +35,18 @@ $(document).ready(function(){
         }else{
             var  calendar_date = new Date().toLocaleDateString();
         }
-        console.log(calendar_date);
+       
+        var time  = $('#time_hr').val();
+        console.log(time);
+        // return false;
+        
+    
         
         $.ajax({
             type: "post",
             url: url,
             data: {
-                'search': location,'calendar_date':calendar_date
+                'id': location,'booking_date':calendar_date,'time':time
                 
             },
             dataType: 'html',

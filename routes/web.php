@@ -22,6 +22,8 @@ $websiteRoutes = function() {
     Route::get('/',[HomeController::class, 'index'])->name('index');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-add-ons');
+    // Route::post('check-location-exist',[BookingController::class, 'checkIfBookingExist']);
+    // 
   
 
     Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');

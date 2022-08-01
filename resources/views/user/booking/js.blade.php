@@ -29,6 +29,7 @@
                 data['locationId']  =  $('#locationId').val();
                 var url = '/post-booking-location-form';
                 var step = 'step-one';
+                
                 bookingSubmit(url,step,data);
 
             }else{
@@ -88,6 +89,7 @@
                 success: function(response)
                 {
 
+                    
                     if(step=='step-one'){
                         $('#list-profile-list').removeClass("disable-click");
                         $('#list-profile-list')[0].click();
@@ -97,6 +99,12 @@
                         $('#list-messages-list')[0].click();
                     }
                     
+                },
+                error: function (error) {
+                   
+                    $(window).scrollTop(0);
+                    $(document).find('.message').html("<div class='alert alert-danger'>" + error.responseJSON.message + "</div>");
+                    return false;
                 },
                 
             }); 

@@ -109,6 +109,17 @@ class BookingController extends Controller
             // 'locationID' =>$request->locationId
 
         ];
+        $checkIfBookingExist =  self::checkIfBookingExist($data);
+        // echo "<pre>";print_r($checkIfBookingExist);die;
+        if($checkIfBookingExist){
+            // dd($checkIfBookingExist);
+            // return response()->json(['status'=>false,"message"=>'something went wrong']);
+            return $this->errorResponse([], 'Booking already exist', 400);
+
+           
+            return \Redirect::back()->withErrors(['msg' => 'Booking already exist']);
+        }
+
         
         if(Cache::has('booking')){
             $booking = Cache::get('booking');
@@ -194,26 +205,30 @@ class BookingController extends Controller
 
         // dd($request->all());
         try {
-            if($request->has('search') && $request->filled('search')){
-                $data = Locations::with([
-                    'location_images' => function($query){
-                        $query->select('location_id','image');
-                    }
-                ])->where('id',$request->search)->select('name','id','price')->get();
+            if($request->has('id') && $request->filled('id')){
 
                 
-                
-               
-            }else{
-                $data = Locations::with([
-                    'location_images' => function($query){
+                $data = Booking::with([
+                    'location' => function($query){
+                        $query->select('name','id','price');
+                    },
+                    'location.location_images' => function($query){
                         $query->select('location_id','image');
                     }
-                ])->select('name','id','price')->get();
-               
-                
+                ])->where('locationId',$request->id)->where('booking_date',$request->booking_date)->select('booking_date','id','locationId')->get();
+                            
+            }else{
+                $data = Booking::with([
+                    'location' => function($query){
+                        $query->select('name','id','price');
+                    },
+                    'location.location_images' => function($query){
+                        $query->select('location_id','image');
+                    }
+                ])->select('booking_date','id','locationId')->get();
+                              
             }
-            return View::make('elements.user.location.location', ['locations' => $data]);
+            return View::make('elements.user.booking.search-location', ['locations' => $data]);
         }
         catch (\Exception $ex) {
             echo "<pre>";print_r($ex->getMessage());die;
@@ -222,7 +237,20 @@ class BookingController extends Controller
  
     }
 
+    public function checkIfBookingExist($data){
+      
+        return Booking::with([
+            'location' => function($query){
+                $query->select('name','id','price');
+            },
+            'location.location_images' => function($query){
+                $query->select('location_id','image');
+            }
+        ])->where('booking_time',$data['booking_time'])->where('booking_date',$data['booking_date'])->select('booking_date','id','locationId')->first();
+       
+        
 
+    }
 
     /**
      * Update the specified resource in storage.

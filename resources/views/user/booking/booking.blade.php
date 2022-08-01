@@ -30,7 +30,7 @@
                            <p class="text-black button-1">Date & times</p>
                            <p class="body-2 m-0 d-flex gap-2">
                               <a class="d-flex neutral-100 text-decoration-none choose-date outline-0" data-bs-toggle="modal" data-bs-target="#calendarmodal">
-                                 <img class="me-3" src="images/location-page/calander-icon.svg" alt="calander-icon">Choose date
+                                 <img class="me-3" src="images/location-page/calander-icon.svg" alt="calander-icon"><span id="set_date_time">Choose date</span>
                               </a>
                            </p>
                         </div>
@@ -131,23 +131,23 @@
                         <div class="col-md-6 mb-4">
                            <select name="time_hr" id="time_hr" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">--:--</option>
-                              <option value="1">09:00</option>
-                              <option value="2">09:30</option>
-                              <option value="3">10:00</option>
+                              <option value="09:00">09:00</option>
+                              <option value="09:30">09:30</option>
+                              <option value="10:00">10:00</option>
                            </select>
                         </div>
                         <div class="col-md-6 mb-4">
                            <select name="time_min" id="time_min" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">--:--</option>
-                              <option value="1">09:00</option>
-                              <option value="2">09:30</option>
-                              <option value="3">10:00</option>
+                              <option value="9:00">09:00</option>
+                              <option value="09:30">09:30</option>
+                              <option value="10:00">10:00</option>
                            </select>
                         </div>
                      </div>
                   </div>
                   <div class="d-flex justify-content-center">
-                     <button type="button" class="theme-btn primary-btn border-0 me-3" data-bs-dismiss="modal">Save</button>
+                     <button type="button" class="theme-btn primary-btn border-0 me-3 set_date_time" data-bs-dismiss="modal">Save</button>
                      <button type="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal">Cancel</button>
                   </div>
                </div>

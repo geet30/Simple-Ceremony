@@ -1,6 +1,8 @@
 @extends('layouts.panels') 
 <form  method="POST" novalidate id="calendar_form" name="postform">
     @csrf
+    <div class="message"></div>
+    
     <input type="hidden" name="locationId" id="locationId" value="{{$locationId}}">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">

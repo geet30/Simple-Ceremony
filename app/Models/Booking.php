@@ -26,5 +26,9 @@ class Booking extends Model
         'created_at',
         'updated_at',
     ];
+    public function location()
+    {
+        return $this->belongsTo('App\Models\Locations', 'locationId','id');
+    }
    
 }
