@@ -21,7 +21,12 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                       
+                           @if(session()->has('message'))
+                              <div class="alert alert-success">
+                                 <button type="button" class="close" data-dismiss="alert">×</button> 
+                                 {{ session()->get('message') }}
+                              </div>
+                            @endif 
                                      
                            <form class="needs-validation row" method="POST" action="{{ route('login') }}" novalidate>
                               @csrf

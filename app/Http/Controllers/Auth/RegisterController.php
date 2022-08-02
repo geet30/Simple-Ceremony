@@ -69,10 +69,8 @@ class RegisterController extends Controller
     }
     public function register(Request $request)
     {
-    //    dd($request->all());
-        
         try {
-           
+         
             $response = User::createPartner($request->all());
             if($response){
              

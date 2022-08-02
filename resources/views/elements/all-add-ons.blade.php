@@ -1,18 +1,15 @@
 @foreach ($addons as $addon)
 <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-md-0">
-   <a class="card image-card" href="/add-ons-detail">
-      @foreach($addon['package'] as $images)
-         @foreach($images['gallery'] as $images)
-            @if(isset($images) && !empty($images))
-               @if ($loop->first)  
-                     <img src="{{ asset('/uploads/images/package/'.$images['image_name']) }}" alt="add-ons-image" class="card-img-top">
-               
+   <a class="card image-card" href="{{route('add-ons-detail',$addon['id'])}}">
+         @foreach($addon['package'] as $images)
+            @if ($loop->first)  
+               @if(isset($images['gallery'][0]) && !empty($images['gallery'][0]['image_name']))
+                  <img src="{{ asset('/uploads/images/package/'.$images['gallery'][0]['image_name']) }}" alt="add-ons-image " class="card-img-top">
                @endif
-               
             @endif
          @endforeach
-      
-      @endforeach
+
+     
    
       <div class="card-body">
          <div class="badge badge-primary d-inline-flex mb-17">
@@ -22,7 +19,8 @@
          <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting  ${{ (isset($addon['package'][0]['total_fee'])) ? $addon['package'][0]['total_fee']:'' }}</div>
         
          
-         <h3 class="h4 netural-100">{{ (isset($addon['package'][0]['package_name'])) ? $addon['package'][0]['package_name']:'' }}</h3>
+         <h3 class="h4 netural-100">{{ (isset($addon['product_name'])) ? $addon['product_name'] :''  }}</h3>
+         {{-- (isset($addon['package'][0]['package_name'])) ? $addon['package'][0]['package_name']:'' --}}
         
          <div class="d-flex  small-text2 mb-1 netural-100">
             <div class="align-self-center"><img src="/images/location.svg" class="img-fluid me-2" alt="Location"></div>

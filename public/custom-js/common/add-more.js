@@ -4,7 +4,24 @@ var package_count = 1;
 $(document).ready(function(){
    // ImgUpload();
    var advantage = '<div class="row mt-2 keyDiv"><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
-   
+    
+   function cart(data){
+      console.log(data);
+      return `<tr id="addon-delete" class="keyCart">
+               <td><input type="text" class="form-control body-1 netural-100" name="name"
+                  id="package_name" value="${data.package_name}" readonly></td>
+               <td><input type="text" value="1" class="form-control body-1 netural-100" name="quantity" id="InputName"
+                  readonly></td>
+               <td><input type="text" value="$ ${data.price}" class="form-control body-1 netural-100" name="prce" id="InputName"
+                  readonly></td>
+               <td><input type="text" value="$ ${data.price}" class="form-control body-1 netural-100" name="name" id="InputName"
+                  readonly></td>
+               <td onclick="remove('keyCart',this)">
+                  <img src="/images/item-delete.svg" class="img-fluid" alt="Delete">
+               </td>
+            </tr>
+            `;
+   }
    function package(counter,package_count){
       return `<div class="row mt-2 packageDiv">
                   <div class="col-md-12 mb-4 mt-4 add-ons-detail">
@@ -63,7 +80,7 @@ $(document).ready(function(){
                   </div>
                   <div class="col-md-12 mb-4">
                      <label class="form-label small-text2">Location description</label>
-                     <textarea name="partner_packages[${counter}][location_description]" placeholder="Type here" class="form-control body-1 netural-100" rows="12"></textarea>
+                     <textarea name="partner_packages[${counter}][location_description]" placeholder="Type here" class="form-control body-1 netural-100" rows="12" required></textarea>
                   </div>
                   <div class="col-md-12 mb-4">
                      <label class="form-label small-text2">Title term (*optional)</label>
@@ -89,8 +106,12 @@ $(document).ready(function(){
                </div>`;
      
    }
-   window.appendHtml = function(parentClass, type) { 
+   window.appendHtml = function(parentClass, type,data=Array()) { 
       var htmlCode = '';
+      if(type=='cart'){
+         
+         htmlCode=cart(data);
+      }
       if(type=='advantage'){
          htmlCode=advantage
       }
@@ -104,6 +125,7 @@ $(document).ready(function(){
       
       ImgUpload(counter);
    }
+  
   
 
    //function to remove the elements

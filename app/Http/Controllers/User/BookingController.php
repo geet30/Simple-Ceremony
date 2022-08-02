@@ -101,25 +101,16 @@ class BookingController extends Controller
     
     public function postBookingLocationForm(Request $request)
     {
-        // dd($request->all());
        
         $data = [
             'booking_date' => $request->calendar_date,
             'booking_time' => $request->booking_time,
-            // 'locationID' =>$request->locationId
 
         ];
         $checkIfBookingExist =  self::checkIfBookingExist($data);
-        // echo "<pre>";print_r($checkIfBookingExist);die;
         if($checkIfBookingExist){
-            // dd($checkIfBookingExist);
-            // return response()->json(['status'=>false,"message"=>'something went wrong']);
             return $this->errorResponse([], 'Booking already exist', 400);
-
-           
-            return \Redirect::back()->withErrors(['msg' => 'Booking already exist']);
         }
-
         
         if(Cache::has('booking')){
             $booking = Cache::get('booking');

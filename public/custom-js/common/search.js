@@ -23,8 +23,6 @@ $(document).ready(function(){
                
             }
 
-            // $('#set_date_time').html(calendar_date);
-
         })
     
     window.SearchBookingRecords = function(url){
@@ -39,9 +37,6 @@ $(document).ready(function(){
         var time  = $('#time_hr').val();
         console.log(time);
         // return false;
-        
-    
-        
         $.ajax({
             type: "post",
             url: url,
@@ -99,6 +94,25 @@ $(document).ready(function(){
                 }else{
                     $("#addon_list").html(response);
                 }
+            }
+        });
+    }
+    window.searchBookingAddon = function(url,keyword=null){
+
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                'search': keyword,
+                
+            },
+            dataType: 'html',
+            cache: false,
+            
+            success: function(response)
+            {
+                
+                $("#searchAddon").html(response);
             }
         });
     }

@@ -22,9 +22,10 @@ $websiteRoutes = function() {
     Route::get('/',[HomeController::class, 'index'])->name('index');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-add-ons');
-    // Route::post('check-location-exist',[BookingController::class, 'checkIfBookingExist']);
-    // 
-  
+    Route::post('search-booking-addon',[HomeController::class, 'searchBookingAddon']);
+   
+    
+    Route::get('add-ons-detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
 
     Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');
     Route::get('booking',[BookingController::class, 'index'])->name('user.booking');
@@ -32,8 +33,7 @@ $websiteRoutes = function() {
    
     Route::get('location',[BookingController::class, 'index'])->name('user.booking');
     Route::get('get-booking-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
-
-
+    Route::get('add-ons-gallery/{id}',[HomeController::class, 'gallery'])->name('addons.gallery');
     Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm']);
     Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
     
@@ -93,12 +93,8 @@ $websiteRoutes = function() {
     Route::get('complete-paperwork', function () {
         return view('pages.complete-paperwork');
     });
-    Route::get('add-ons-detail', function () {
-        return view('pages.add-ons-detail');
-    });
-    Route::get('add-ons-gallery', function () {
-        return view('pages.add-ons-gallery');
-    });
+   
+    
     Route::get('term-and-condition', function () {
         return view('pages.term-and-condition');
     });

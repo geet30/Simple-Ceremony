@@ -49,11 +49,12 @@
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="phone" class="form-label small-text2">Phone number *</label>
-                           <input id="phone" type="tel" class="form-control body-1 netural-100" placeholder="Your phone number">
+                           <input type="hidden"  id="code" name ="user[country_code]" value="1" >
+                           <input id="phone" type="tel" class="form-control body-1 netural-100" placeholder="Your phone number" name="user[phone]" required> 
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div> 
-                           {{-- <span id="valid-msg" class="hide">Valid</span>
-                           <span id="error-msg" class="hide">Invalid number</span> --}}
-                           {{-- <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="user[phone]" required>--}}
+                          <!-- <span id="valid-msg" class="hide">Valid</span>
+                           <span id="error-msg" class="hide">Invalid number</span>  -->
+                          
                            
                         </div>
                         <div class="col-md-6 mb-4">
@@ -206,7 +207,7 @@
                               </div>
                               <div class="col-md-12 mb-4">
                                  <label class="form-label small-text2">Location description</label>
-                                 <textarea name="partner_packages[0][location_description]" placeholder="Type here" class="form-control body-1 netural-100" rows="12"></textarea>
+                                 <textarea name="partner_packages[0][location_description]" placeholder="Type here" class="form-control body-1 netural-100" rows="12" required></textarea>
                               </div>
                               <div class="col-md-12 mb-4">
                                  <label class="form-label small-text2">Title term (*optional)</label>

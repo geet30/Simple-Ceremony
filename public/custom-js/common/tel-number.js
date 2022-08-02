@@ -1,34 +1,61 @@
-// International telephone format
-// $("#phone").intlTelInput();
-// get the country data from the plugin
-var countryData = window.intlTelInputGlobals.getCountryData(),
-  input = document.querySelector("#phone"),
-  addressDropdown = document.querySelector("#address-country");
+var telInput = $("#phone"),
+errorMsg = $("#error-msg"),
+validMsg = $("#valid-msg");
 
-// init plugin
-var iti = window.intlTelInput(input, {
-  hiddenInput: "full_phone",
-  utilsScript: "https://intl-tel-input.com/node_modules/intl-tel-input/build/js/utils.js?1549804213570" // just for formatting/placeholders etc
-});
 
-// populate the country dropdown
-for (var i = 0; i < countryData.length; i++) {
-  var country = countryData[i];
-  var optionNode = document.createElement("option");
-  optionNode.value = country.iso2;
-  var textNode = document.createTextNode(country.name);
-  optionNode.appendChild(textNode);
-  addressDropdown.appendChild(optionNode);
-}
-// set it's initial value
-addressDropdown.value = iti.getSelectedCountryData().iso2;
+// initialise plugin
+  telInput.intlTelInput({
 
-// listen to the telephone input for changes
-input.addEventListener('countrychange', function(e) {
-  addressDropdown.value = iti.getSelectedCountryData().iso2;
-});
+      allowExtensions: true,
+      formatOnDisplay: true,
+      autoFormat: true,
+      autoHideDialCode: true,
+      autoPlaceholder: true,
+      defaultCountry: "auto",
+      ipinfoToken: "yolo",
 
-// listen to the address dropdown for changes
-addressDropdown.addEventListener('change', function() {
-  iti.setCountry(this.value);
-});
+      nationalMode: false,
+      numberType: "MOBILE",
+      //onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+      preferredCountries: ['sa', 'ae', 'qa','om','bh','kw','ma'],
+      preventInvalidNumbers: true,
+      separateDialCode: true,
+      initialCountry: "auto",
+      geoIpLookup: function(callback) {
+        $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+          var countryCode = (resp && resp.country) ? resp.country : "";
+          // $("#code").val((countryCode));
+          callback(countryCode);
+        });
+      },
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"
+  });
+  // var countryData = $("#phone").intlTelInput("getSelectedCountryData");
+  // console.log(countryData);
+
+  var reset = function() {
+  telInput.removeClass("error");
+  errorMsg.addClass("hide");
+  validMsg.addClass("hide");
+  };
+  
+  // on blur: validate
+  telInput.blur(function() {
+    reset();
+    var getCode = telInput.intlTelInput('getSelectedCountryData').dialCode;
+    console.log(getCode);
+    $("#code").val((getCode));
+    if ($.trim(telInput.val())) {
+      if (telInput.intlTelInput("isValidNumber")) {
+        validMsg.removeClass("hide");
+        
+      } else {
+        telInput.addClass("error");
+        errorMsg.removeClass("hide");
+      }
+    }
+  });
+
+
+  // on keyup / change flag: reset
+  telInput.on("keyup change", reset);

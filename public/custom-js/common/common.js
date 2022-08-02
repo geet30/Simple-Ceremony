@@ -182,29 +182,16 @@ function ImgUpload(counter=null) {
             var reader = new FileReader();
             console.log('test');
             reader.onload = function (e) {
-              if(f.type.match('video.*')){
-                console.log('gfdg');
-                var html = `<div class='upload__img-box position-relative'>
-                               
+              if(f.type.match('video.*')){              
+                var html = `<div class='upload__img-box'>
+                                <div class="video-container" id="video-container" data-number='${$(".upload__img-close").length}' data-file='${f.name}'> 
                                     <video controls width="100%" data-number='${$(".upload__img-close").length}' data-file='${f.name}' class=''  id="video" preload="metadata" poster="${e.target.result}">
                                       <source src="${e.target.result}" type="video/mp4">
                                     </video>
                                     <div class="upload__img-close" style="right:20px"></div>
-                                    
+                                  </div>
                             </div>`;
-                // var html = `<div class='upload__img-box'>
-                //                <div class="video-container" id="video-container" data-number='${$(".upload__img-close").length}' data-file='${f.name}'> 
-                //                     <video controls width="100%" data-number='${$(".upload__img-close").length}' data-file='${f.name}' id="video" preload="metadata" poster="${e.target.result}">
-                //                       <source src="${e.target.result}" type="video/mp4">
-                //                     </video>
-                //                     <div class="upload__img-close"></div>
-                //                     <div class="play-button-wrapper">
-                //                       <div title="Play video" class="play-gif" id="circle-play-b">
-                //                           <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image" >
-                //                       </div>
-                //                       </div>
-                //                   </div>
-                //             </div>`;
+                
                 
               }else{
                 var html = "<div class='upload__img-box'><div style='background-image: url(" + e.target.result + ")' data-number='" + $(".upload__img-close").length + "' data-file='" + f.name + "' class='img-bg'><div class='upload__img-close'></div></div></div>";
