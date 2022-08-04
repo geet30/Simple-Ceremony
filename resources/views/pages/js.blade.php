@@ -1,21 +1,83 @@
 <script type="text/javascript">
-$(document).ready(function(){
+   
+    var getcookie = getCookie('myCart');
+    console.log(getcookie);
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    $(document).ready(function(){
+      
+        // localStorage.clear();
+        let flag = false;
+       
+       
+        $('.open-add-to-wedding').click(function(){
+            var listing = getCartData();
+            var cart_data = {};
+            
+            cart_data['price'] = $(this).data('price');
+            cart_data['package_id'] = $(this).data('id');
+            cart_data['terms'] = $(this).data('terms');
+            cart_data['package_name'] = $(this).data('package_name');
+            console.log('listing',listing);
+            listing.forEach(el => {
+                if (el.package_id == $(this).data('id')) {
+                    flag = true;
+                    return false;
+                }else{
+                    flag = false;
+                    return false;
+                }
+            })
+            console.log(flag);
+
+            if(flag == false){
+        
+                listing.push(cart_data);
+                saveCartData(listing);
+                appendHtml('keyCartBody', 'cart',listing);
+                setCookie('myCart', JSON.stringify(listing), 7);
+                
+            }else{
+                appendHtml('keyCartBody', 'cart',listing);
+                setCookie('myCart', JSON.stringify(listing), 7);
+            }
+                    
+          
+        })
+  
+        function getCartData() {
+            var data = localStorage.getItem('cart');
+            var cart = JSON.parse(data) || [];
+            return cart
+        }
+        $('.show-addon-basket').click(function(){
+            $('#termsModal').modal('hide');
+            
+            $("#agree_to_terms").prop("checked", false);
+        
+        })
+    });
+    window.saveCartData = function(data) { 
+        localStorage.setItem('cart', JSON.stringify(data));
+    }
     
-    $('.open-add-to-wedding').click(function(){
-        var data = {};
-        data['price'] = $(this).data('price');
-        data['package_id'] = $(this).data('id');
-        data['terms'] = $(this).data('terms');
-        data['package_name'] = $(this).data('package_name');
-        // $('.package_name').val(package_id);
-        appendHtml('keyCart', 'cart',data);
-       
-       
-   
-   })
-    $('.show-addon-basket').click(function(){
-        $('#termsModal').modal('hide');
-   
-   })
-});
 </script>

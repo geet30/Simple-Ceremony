@@ -38,6 +38,7 @@
                            <a onclick="SearchBookingRecords('search-booking-location')" class="theme-btn primary-btn d-inline-flex">
                               <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon" >Search
                            </a>
+                           <a href="{{route('user.booking')}}" class="btn btn-danger btn-sm">Reset</a>
                         </div>
                      </div>
                   </div>
@@ -131,17 +132,19 @@
                         <div class="col-md-6 mb-4">
                            <select name="time_hr" id="time_hr" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">--:--</option>
-                              <option value="09:00">09:00</option>
-                              <option value="09:30">09:30</option>
-                              <option value="10:00">10:00</option>
+                              @foreach($timeslot as $time)
+
+                                 <option value="{{$time}}">{{$time}}</option>
+                              @endforeach
                            </select>
                         </div>
                         <div class="col-md-6 mb-4">
                            <select name="time_min" id="time_min" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">--:--</option>
-                              <option value="9:00">09:00</option>
-                              <option value="09:30">09:30</option>
-                              <option value="10:00">10:00</option>
+                              @foreach($timeslot as $time)
+
+                                  <option value="{{$time}}">{{$time}}</option>
+                              @endforeach
                            </select>
                         </div>
                      </div>

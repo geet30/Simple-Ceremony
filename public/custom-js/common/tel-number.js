@@ -42,7 +42,8 @@ validMsg = $("#valid-msg");
   // on blur: validate
   telInput.blur(function() {
     reset();
-    var getCode = telInput.intlTelInput('getSelectedCountryData').dialCode;
+    var getCode =  $(document).find('#phone').intlTelInput('getSelectedCountryData').dialCode;
+    // var getCode = telInput.intlTelInput('getSelectedCountryData').dialCode;
     console.log(getCode);
     $("#code").val((getCode));
     if ($.trim(telInput.val())) {

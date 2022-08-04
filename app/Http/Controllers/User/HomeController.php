@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,Addons,PartnerProducts,User,PartnerPackages};
+use App\Models\{Locations,Addons,PartnerProducts,User,PartnerPackages,Booking};
 use Illuminate\Http\Request;
 use View;
 use DB;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth; 
+use Redirect;
+use Cookie;
 class HomeController extends Controller
 {
     public function index()
@@ -162,5 +165,41 @@ class HomeController extends Controller
             
         ])->select('id')->where('id',$id)->first()->toArray();
         return view('pages.add-ons-gallery',compact('data'));
+    }
+    public function addToCart(){
+        if (Auth::check()) {
+            if(Cookie::get('myCart')){
+                $cart = json_decode(Cookie::get('myCart'));
+                Booking::addtoCart($cart);
+                $cookie = Cookie::queue(Cookie::forget('myCart'));
+                // \Cookie::forget('myCart');
+                return redirect('user-add-ons')->withCookie($cookie);
+            }
+            
+        }else{
+
+            return redirect('login')->with('message', 'Please login to pay for your cart');
+        
+        }
+
+    }
+    public function contactUs(Request $request){
+        
+        try{
+            Booking::contactUsEmail($request->all());
+            return redirect('contact-us')->with('message', 'Message Sent Successfully');
+
+        }catch (\Exception $ex) {
+            echo "<pre>";print_r($ex->getMessage());die;
+            return $ex->getMessage();
+        }
+
+
+    }
+    public function showCart(Request $request){
+       
+        $data = Cart::where('user_id',Auth::user()->id)->get()->toArray();
+        echo "<pre>";print_r($data);die;
+
     }
 }

@@ -153,7 +153,7 @@
                   </div>
                   <div class="col-12 mb-3">
                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                        <input class="form-check-input agree_to_terms" type="checkbox" value="" id="agree_to_terms" required>
                         <label class="form-check-label body-1-medium text-black" for="invalidCheck2">
                            I’m agree with terms
                         </label>
@@ -168,7 +168,7 @@
                            aria-controls="offcanvasRight">Continue</a>
                      </div>
                      <div class="d-flex">
-                        <a class="theme-btn primary-btn-border w-100-sm">Cancel</a>
+                        <a class="theme-btn primary-btn-border w-100-sm" data-bs-dismiss="modal">Cancel</a>
                      </div>
                   </div>
                </div>

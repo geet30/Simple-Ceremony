@@ -23,9 +23,11 @@ $websiteRoutes = function() {
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-add-ons');
     Route::post('search-booking-addon',[HomeController::class, 'searchBookingAddon']);
-   
+    Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
     
     Route::get('add-ons-detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
+    
+    Route::post('contact-us',[HomeController::class, 'contactUs'])->name('contact-us');
 
     Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');
     Route::get('booking',[BookingController::class, 'index'])->name('user.booking');

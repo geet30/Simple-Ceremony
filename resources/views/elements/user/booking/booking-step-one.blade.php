@@ -40,23 +40,23 @@
         <div class="col-md-12 mb-3">
             <h3 class="h3 Neutral/100 mb-4">Select time</h3>
             <div class="row">
-                <div class="col-md-12">
-                <ul class="time-list list-unstyled d-flex flex-wrap">
-                    <?php $count =1;?>
-                    @foreach($time_array as $time)
-                    <?php $count++;?>
-                    <li class="me-3 mb-3">
-                    
+                 <div class="col-md-6 mb-4">
+                    <select name="time_hr" id="time_hr" class="form-control">
+                        <option value="" disabled="" selected="" hidden="">--:--</option>
+                        @foreach($timeslot as $time)
 
-                        <input type="radio" class="btn-check booking_time" name="booking_time" id="btnradio{{$count}}" autocomplete="off" value="{{$time}}" {{ (isset(cache('booking')['booking_time']) && cache('booking')['booking_time'] == $time) ? 'checked' : '' }} required>
-                        
-                        <label class="radio-label body-2 text-center w-100" for="btnradio{{$count}}">{{$time}}</label>
-                        
-                    </li>
-                    @endforeach
-                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Time is required</div>
-                    
-                </ul>
+                            <option value="{{$time}}">{{$time}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <select name="time_hr" id="time_hr" class="form-control">
+                        <option value="" disabled="" selected="" hidden="">--:--</option>
+                        @foreach($timeslot as $time)
+
+                            <option value="{{$time}}">{{$time}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>

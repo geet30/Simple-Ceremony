@@ -18,14 +18,20 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $data = Locations::with([
+        $start = new \DateTime('00:00');
+        $times = 24 * 2; // 24 hours * 30 mins in an hour
+        $timeslot = [];
+        for ($i = 0; $i < $times-1; $i++) {
+            $timeslot[] = $start->add(new \DateInterval('PT30M'))->format('H:i');
+        }
+      
+        $locations = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
             }
         ])->select('name','id','price')->get();
-        return View::make('user.booking.booking',[
-            'locations' => $data
-        ]);
+        return view('user.booking.booking',compact(['timeslot','locations']));
+
     }
 
     /**
@@ -61,33 +67,18 @@ class BookingController extends Controller
     {
         // dd($request->all());
         if(isset($request->session_id) && !empty($request->session_id)){
-            // dd(Cache::get('booking'));
-            // echo $request->session_id;die;
-            Booking::savePaymentDetail($request->session_id,$request->userId);
+            $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
+            // Booking::savePaymentDetail($request->session_id,$request->userId);
             Cache::forget('booking');
         }
-        $time_array = [
-            '06.00'=>'06.00',
-            '07.00'=>'07.00',
-            '08.00'=>'08.00',
-            '09.00'=>'09.00',
-            '10.00'=>'10.00',
-            '11.00'=>'11.00',
-            '12.00'=>'12.00',
-            '13.00'=>'13.00',
-            '14.00'=>'14.00',
-            '15.00'=>'15.00',
-            '16.00'=>'16.00',
-            '17.00'=>'17.00',
-            '18.00'=>'18.00',
-            '19.00'=>'19.00',
-            '20.00'=>'20.00',
-            '21.00'=>'21.00'
-
-
-        ];
+        $start = new \DateTime('00:00');
+        $times = 24 * 2; // 24 hours * 30 mins in an hour
+        $timeslot = [];
+        for ($i = 0; $i < $times-1; $i++) {
+            $timeslot[] = $start->add(new \DateInterval('PT30M'))->format('H:i');
+        }
         $booking = Cache::get('booking');
-        return view('user.booking.book-location',compact('booking','time_array','locationId'));
+        return view('user.booking.book-location',compact('booking','timeslot','locationId'));
       
     }
 
@@ -148,6 +139,7 @@ class BookingController extends Controller
             $booking['locationId'] = $request->locationId;
             $booking['email'] = $request->email;
             $booking['phone'] = $request->phone;
+            $booking['country_code'] = $request->country_code;
             Cache::put('booking',$booking);
 
         }else{
@@ -156,6 +148,7 @@ class BookingController extends Controller
             $booking['locationId'] = $request->locationId;
             $booking['email'] = $request->email;
             $booking['phone'] = $request->phone;
+            $booking['country_code'] = $request->country_code;
             Cache::put('booking', $booking);
            
         }

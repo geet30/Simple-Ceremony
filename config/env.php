@@ -8,6 +8,9 @@ return [
     'ADMIN'                        => env('ADMIN'),    
     'WEBSITE'                      => env('WEBSITE'),
     'FROM_EMAIL' => 'support@simpleceremonies.com.au',
+    'CONTACTUS_EMAIL' => 'support@simpleceremonies.com.au',
+    'CONTACTPAGE' =>'edo@simpleceremonies.com.au',
+    'CONTACTPHONE' =>'+61280033919',
 
 
 ];

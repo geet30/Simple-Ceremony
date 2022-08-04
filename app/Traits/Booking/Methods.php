@@ -3,11 +3,12 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB,Hash};
-use App\Models\{User,Locations,Booking,BookingPayments};
+use App\Models\{User,Locations,Booking,BookingPayments,Cart};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
-use App\Mail\RegisterUserMail;
+use App\Mail\{RegisterUserMail,ContactUsMail};
+use Illuminate\Support\Facades\Auth; 
 trait Methods
 {
    static function getLocationDetail(){
@@ -15,8 +16,6 @@ trait Methods
         try{
             // dd(Cache::get('booking'));
             $locationId = Cache::get('booking')->locationId;
-            
-            // dd(Cache::get('booking'));
             $data = Locations::with([
                 'location_images' => function($query){
                     $query->select('location_id','image');
@@ -32,18 +31,15 @@ trait Methods
                     }
                 }
             }
-            // dd('tewt');
-            $Booking= self::addBookingDetailToDB(Cache::get('booking'));
+            // $Booking= self::addBookingDetailToDB(Cache::get('booking'));
             $send_paramter = [
                 'name' => $data['name'],
                 'price' => $data['price'],
                 'img' => $img,
                 'locationId' => $locationId,
-                'userId' => Cache::get('booking')->userId,
+                // 'userId' => Cache::get('booking')->userId,
 
             ];
-           
-            // return $send_paramter;
             return self::stripePayment($send_paramter);
         }
         catch (\Exception $ex) {
@@ -52,11 +48,40 @@ trait Methods
         }
         
     }
-    static function addBookingDetailToDB($data){
+    static function contactUsEmail($data){
+      
+        $when = now()->addMinutes(1);
+        $dataMail  = array(
+            // 'email' => $data['email'],
+            'first_name' => $data['first_name'],
+            'phone' => $data['phone'],
+            'country_code' => $data['country_code'],
+            'description' => $data['description']
+        );
+        // dd($dataMail);
+
+        $mail_id = config('env.CONTACTUS_EMAIL');
+        $sendMail = new ContactUsMail($dataMail);
+        return \Mail::to($mail_id)->later($when, $sendMail);
+
+    }
+    static function addtoCart($data){
+      
+        foreach($data as $key=>$cart){
+          
+            $cart_inputs['name'] = $cart->package_name;
+            $cart_inputs['price'] = $cart->price;
+            $cart_inputs['package_id'] = $cart->package_id;
+            $cart_inputs['user_id'] = Auth::user()->id;
+            Cart::create($cart_inputs);
+        }
+    }
+    static function addBookingDetailToDB($sessionId,$data){
        
         try{
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
+            $user_inputs['country_code'] = $data->country_code;
             $random_password = Str::random(8);
             $user_inputs['password'] = Hash::make($random_password );
         
@@ -90,6 +115,8 @@ trait Methods
             $booking_inputs['second_couple_name']  = $data->second_couple_name; 
             $booking_inputs['ceremony_type']  = $data->ceremony_type;     
             $booking = Booking::create($booking_inputs);
+            self::savePaymentDetail($sessionId,$user->id);
+
             return true;
         }
         catch (\Exception $ex) {
@@ -123,22 +150,13 @@ trait Methods
 
     }
     static function stripePayment($data) {
-        
-     
         try { 
             
-            Stripe::setApiKey(config('env.STRIPE_SECRET'));
-        
+            Stripe::setApiKey(config('env.STRIPE_SECRET'));       
             $DOMAIN = config('env.WEBSITE');
             $amount = bcmul($data['price'], 100);
-
-
             $checkout_session = \Stripe\Checkout\Session::create([
                 'payment_method_types' => ['card'],
-                // 'line_items' => [[
-                //     'price' => 'price_1LOIzwSCoUv0RVM4lRLLH6k5',
-                //     'quantity' => 1,
-                // ]],
                 'line_items' => [[
                     'price_data' => [
                     'currency' => 'usd',
@@ -153,8 +171,8 @@ trait Methods
                 ]],
                 'mode' => 'payment',
                 
-                'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?userId='.$data["userId"].'&session_id={CHECKOUT_SESSION_ID}',
-                // 'success_url' => $YOUR_DOMAIN . '/payment-success?session_id={CHECKOUT_SESSION_ID}',
+                // 'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?userId='.$data["userId"].'&session_id={CHECKOUT_SESSION_ID}',
+                'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?session_id={CHECKOUT_SESSION_ID}',
                 'cancel_url' => $DOMAIN . '/payment-cancel',
             ]);
             return redirect($checkout_session->url);
