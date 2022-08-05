@@ -50,19 +50,14 @@ class AddonsController extends Controller
         $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
         $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page',$req_page);
 
-       
-
         $dataArray = array(
             'all_addons' =>$all_addons,
             'pending_addons' =>$pending_addons,
             'approved_addons' => $approved_addons,
-            'rejected_addons' => $rejected_addons
-
-        
+            'rejected_addons' => $rejected_addons       
         );
        
-        if($request->ajax()){
-           
+        if($request->ajax()){          
             if($slug == 'all'){
                 $slug = 'all-ads-on-tab';
             }

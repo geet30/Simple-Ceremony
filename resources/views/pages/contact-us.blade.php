@@ -69,15 +69,20 @@
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Name is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
+                        <label for="email" class="form-label small-text2">Email *</label>
+                        <input type="email" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" required="">
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
+                     </div>
+                     <div class="col-md-12 mb-4">
                         <label for="phone" class="form-label small-text2">Phone number *</label>
-                        <input type="hidden"  id="code" name ="country_code" value="1" >
+                        <input type="hidden"  id="code" name ="country_code" value="61" >
                         <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="phone" value="+61 " required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
                         <label for="description" class="form-label small-text2">Anything you would like us to know before we call? *</label>
-                        <textarea placeholder="Type here" class="form-control body-1 netural-100" id="description" rows="8" name="description"></textarea>
-                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>This field is required</div>
+                        <textarea placeholder="Type here" class="form-control body-1 netural-100" id="description" rows="8" name="description" required></textarea>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Description is required</div>
                      </div>
                      <div class="col-12">
                         <button type="submit" class="theme-btn primary-btn border-0">Submit</button>

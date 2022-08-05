@@ -20,7 +20,7 @@ validMsg = $("#valid-msg");
       preferredCountries: ['sa', 'ae', 'qa','om','bh','kw','ma'],
       preventInvalidNumbers: true,
       separateDialCode: true,
-      initialCountry: "auto",
+      // initialCountry: "auto",
       geoIpLookup: function(callback) {
         $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
           var countryCode = (resp && resp.country) ? resp.country : "";
@@ -38,14 +38,17 @@ validMsg = $("#valid-msg");
   errorMsg.addClass("hide");
   validMsg.addClass("hide");
   };
-  
+  $('.country-list li').click(function(){
+    // alert($(this).data('dial-code'));
+    $("#code").val(($(this).data('dial-code')));
+  })
   // on blur: validate
   telInput.blur(function() {
     reset();
-    var getCode =  $(document).find('#phone').intlTelInput('getSelectedCountryData').dialCode;
+   
     // var getCode = telInput.intlTelInput('getSelectedCountryData').dialCode;
-    console.log(getCode);
-    $("#code").val((getCode));
+    // console.log(getCode);
+    // $("#code").val((getCode));
     if ($.trim(telInput.val())) {
       if (telInput.intlTelInput("isValidNumber")) {
         validMsg.removeClass("hide");

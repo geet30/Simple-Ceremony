@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             
                 $table->string('name', 50)->nullable()->change();
+                $table->integer('country_code')->nullable()->unsigned();
         });
     }
 

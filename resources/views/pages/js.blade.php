@@ -1,7 +1,11 @@
 <script type="text/javascript">
    
     var getcookie = getCookie('myCart');
-    console.log(getcookie);
+    console.log('getCookie',getcookie);
+
+    if (!getcookie) {
+        localStorage.clear();
+    }
     function setCookie(cname, cvalue, exdays) {
         var d = new Date();
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -38,16 +42,23 @@
             cart_data['terms'] = $(this).data('terms');
             cart_data['package_name'] = $(this).data('package_name');
             console.log('listing',listing);
-            listing.forEach(el => {
-                if (el.package_id == $(this).data('id')) {
-                    flag = true;
-                    return false;
-                }else{
-                    flag = false;
-                    return false;
-                }
-            })
-            console.log(flag);
+            flag = false;
+            if (typeof listing != "undefined" 
+                        && listing != null 
+                        && listing.length != null 
+                        && listing.length > 0){
+                
+                listing.forEach(el => {
+                    if (el.package_id == $(this).data('id')) {
+                        flag = true;
+                        return false;
+                    }else{
+                        flag = false;
+                        return false;
+                    }
+                })
+            }
+            $('.paynow_text').css('visibility','visible');
 
             if(flag == false){
         
@@ -66,8 +77,17 @@
   
         function getCartData() {
             var data = localStorage.getItem('cart');
-            var cart = JSON.parse(data) || [];
+            console.log(data);
+            var cart = [];
+            if (typeof data != "undefined" 
+                        && data != null 
+                        && data.length != null 
+                        && data.length > 0){
+                cart = JSON.parse(data) || [];
+               
+            }
             return cart
+            
         }
         $('.show-addon-basket').click(function(){
             $('#termsModal').modal('hide');

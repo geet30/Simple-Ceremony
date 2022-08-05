@@ -18,7 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('locationId');
             $table->string('booking_date')->nullable();
-            $table->string('booking_time')->nullable();
+            $table->string('booking_start_time')->nullable();
+            $table->string('booking_end_time')->nullable();
+            $table->smallInteger('status')->comment('0 = pending, 1=approved')->default(0);
             $table->string('first_couple_name')->nullable();
             $table->string('second_couple_name')->nullable();
             $table->string('ceremony_type')->nullable();

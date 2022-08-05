@@ -10,12 +10,11 @@ use Stripe\Stripe;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth; 
 use Redirect;
-use Cookie;
 class HomeController extends Controller
 {
     public function index()
     {
-              
+        User::addToCart();  
         $locations = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
@@ -166,25 +165,47 @@ class HomeController extends Controller
         ])->select('id')->where('id',$id)->first()->toArray();
         return view('pages.add-ons-gallery',compact('data'));
     }
-    public function addToCart(){
-        if (Auth::check()) {
-            if(Cookie::get('myCart')){
-                $cart = json_decode(Cookie::get('myCart'));
-                Booking::addtoCart($cart);
-                $cookie = Cookie::queue(Cookie::forget('myCart'));
-                // \Cookie::forget('myCart');
-                return redirect('user-add-ons')->withCookie($cookie);
+    public function requestCustomLocation(){
+        $timeslot  = timeslots();
+        return view('user.booking.request-custom-location',compact('timeslot'));
+    }
+    public function postCustomLocation(Request $request){
+        try {
+            $response = Booking::requestLocation($request->all());
+
+            if($response){
+                Booking::requestLocationEmail($request->all());
+                return Redirect::back()->with('open_modal', 'yes');
             }
             
-        }else{
-
-            return redirect('login')->with('message', 'Please login to pay for your cart');
+         }
+         catch (\Exception $ex) {
+             echo "<pre>";print_r($ex->getMessage());die;
+             return $ex->getMessage();
+         }
         
-        }
 
+        
     }
-    public function contactUs(Request $request){
+    // public function addToCart(){
+    //     if (Auth::check()) {
+    //         if(Cookie::get('myCart')){
+    //             $cart = json_decode(Cookie::get('myCart'));
+    //             Booking::addtoCart($cart);
+    //             $cookie = Cookie::queue(Cookie::forget('myCart'));
+    //             // \Cookie::forget('myCart');
+    //             return redirect('user-add-ons')->withCookie($cookie);
+    //         }
+            
+    //     }else{
+
+    //         return redirect('login')->with('message', 'Please login to pay for your cart');
         
+    //     }
+
+    // }
+    public function contactUs(Request $request){
+        // dd($request->all());
         try{
             Booking::contactUsEmail($request->all());
             return redirect('contact-us')->with('message', 'Message Sent Successfully');

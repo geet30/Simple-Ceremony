@@ -3,18 +3,29 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB,Hash};
-use App\Models\{User,Locations,Booking,BookingPayments,Cart};
+use App\Models\{User,Locations,Booking,BookingPayments,Cart,RequestLocations};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
-use App\Mail\{RegisterUserMail,ContactUsMail};
+use Carbon\Carbon;
+use App\Mail\{RegisterUserMail,ContactUsMail,RequestLocationEmail};
 use Illuminate\Support\Facades\Auth; 
 trait Methods
 {
-   static function getLocationDetail(){
-  
+
+    static function calculateTimeslotsPrice(){
+        $booking_start_time = \Carbon\Carbon::parse(Cache::get('booking')->booking_start_time);
+        $booking_end_time = \Carbon\Carbon::parse(Cache::get('booking')->booking_end_time);
+        $interval = $booking_start_time->diff($booking_end_time);
+        $duration = $interval->format('%h') * 60 + $interval->format('%i');
+
+        $check_count_of_timeslots = $duration /30;
+        return $check_count_of_timeslots;
+       
+    }
+    static function getLocationDetail(){
         try{
-            // dd(Cache::get('booking'));
+         
             $locationId = Cache::get('booking')->locationId;
             $data = Locations::with([
                 'location_images' => function($query){
@@ -31,13 +42,16 @@ trait Methods
                     }
                 }
             }
+
+            $check_count_of_timeslots = self::calculateTimeslotsPrice();
+            $price = $data['price'] * $check_count_of_timeslots;
+          
             // $Booking= self::addBookingDetailToDB(Cache::get('booking'));
             $send_paramter = [
                 'name' => $data['name'],
-                'price' => $data['price'],
+                'price' => $price,
                 'img' => $img,
                 'locationId' => $locationId,
-                // 'userId' => Cache::get('booking')->userId,
 
             ];
             return self::stripePayment($send_paramter);
@@ -45,14 +59,22 @@ trait Methods
         catch (\Exception $ex) {
             echo "<pre>";print_r($ex->getMessage());die;
             return $ex->getMessage();
-        }
-        
+        }        
+    }
+    static function requestLocationEmail($data){
+        $when = now()->addMinutes(1);
+        $dataMail  = $data;
+        // dd($dataMail);
+
+        $mail_id = config('env.CONTACTUS_EMAIL');
+        $sendMail = new RequestLocationEmail($dataMail);
+        return \Mail::to($mail_id)->later($when, $sendMail); 
     }
     static function contactUsEmail($data){
       
         $when = now()->addMinutes(1);
         $dataMail  = array(
-            // 'email' => $data['email'],
+            'email' => $data['email'],
             'first_name' => $data['first_name'],
             'phone' => $data['phone'],
             'country_code' => $data['country_code'],
@@ -77,7 +99,6 @@ trait Methods
         }
     }
     static function addBookingDetailToDB($sessionId,$data){
-       
         try{
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
@@ -110,7 +131,8 @@ trait Methods
             $booking_inputs['user_id']  = $user->id; 
             $booking_inputs['locationId']  = $data->locationId; 
             $booking_inputs['booking_date']  = $data->booking_date; 
-            $booking_inputs['booking_time']  = $data->booking_time; 
+            $booking_inputs['booking_start_time']  = $data->booking_start_time; 
+            $booking_inputs['booking_end_time']  = $data->booking_end_time; 
             $booking_inputs['first_couple_name']  = $data->first_couple_name; 
             $booking_inputs['second_couple_name']  = $data->second_couple_name; 
             $booking_inputs['ceremony_type']  = $data->ceremony_type;     
@@ -150,6 +172,7 @@ trait Methods
 
     }
     static function stripePayment($data) {
+      
         try { 
             
             Stripe::setApiKey(config('env.STRIPE_SECRET'));       
@@ -182,6 +205,9 @@ trait Methods
             return $ex->getMessage();
         }
     }
-    
+    static function requestLocation($data){
+        return RequestLocations::create($data);
+
+    }
    
 }

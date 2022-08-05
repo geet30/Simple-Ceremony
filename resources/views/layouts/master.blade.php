@@ -47,5 +47,6 @@
    <script src="/custom-js/common/add-more.js"></script>
    <script src="/custom-js/admin/tab.js"></script>
    <script src="/custom-js/common/tel-number.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
    
   </html>

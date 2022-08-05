@@ -3,14 +3,24 @@
 namespace App\Traits\User;
 
 use Illuminate\Support\Facades\{View, Storage, DB,Hash};
-use App\Models\{User,PartnerPackages,PackageLocations,PartnerProducts,PackageImages};
+use App\Models\{User,PartnerPackages,PackageLocations,PartnerProducts,PackageImages,Booking};
 use Carbon\Carbon;
 use Str;
+use Cookie;
 use App\Mail\RegisterUserMail;
 trait Methods
 {
    
-
+    public static function addToCart(){
+        if(Cookie::get('myCart')){
+            
+            $cart = json_decode(Cookie::get('myCart'));            
+            Booking::addtoCart($cart);
+            $cookie = Cookie::queue(Cookie::forget('myCart'));
+            // \Cookie::forget('myCart');
+            return redirect('user-add-ons');
+        }
+    }
     static function createPartner ($data) {
         // dd($data);
       

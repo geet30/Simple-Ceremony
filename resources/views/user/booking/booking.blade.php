@@ -130,7 +130,7 @@
                            <p class="body-1">Choose times</p>
                         </div>
                         <div class="col-md-6 mb-4">
-                           <select name="time_hr" id="time_hr" class="js-placeholder-single-input form-control">
+                           <select name="booking_start_time" id="booking_start_time" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">--:--</option>
                               @foreach($timeslot as $time)
 
@@ -139,7 +139,7 @@
                            </select>
                         </div>
                         <div class="col-md-6 mb-4">
-                           <select name="time_min" id="time_min" class="js-placeholder-single-input form-control">
+                           <select name="booking_end_time" id="booking_end_time" class="js-placeholder-single-input form-control">
                               <option value="" disabled="" selected="" hidden="">--:--</option>
                               @foreach($timeslot as $time)
 

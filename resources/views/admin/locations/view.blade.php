@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
 <div class="row">
@@ -6,7 +6,7 @@
    @include('elements.admin-sidebar')
 </div>
 <div class="col-10 col-md-9 col-lg-10 px-4">
-@include('elements.panel-header')
+   @include('elements.panel-header')
    <div class="row">
       <div class="col-12 mb-30">
          <a href="/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
@@ -52,11 +52,18 @@
                      Edit</a>
                     </div>
                      <h1 class="mb-0 col-xl-10">
-                        <span class="h1 netural-100">Kissing Point Park, under the fish Yaralla Road, Putney</span>
+                        <span class="h1 netural-100">
+                           @if(isset($data->street_address) && !empty($data->street_address))
+                              {{$data->street_address}}
+                           @endif               
+                           @if(isset($data->suburb	) && !empty($data->suburb	))
+                              ,{{$data->suburb	}}
+                           @endif
+                        </span>
                      </h1>
                   </div>
                   <div class="col-12 admin-pt-92">
-                     <p class="body-3-medium  text-black">The name says it all "Kissing Point" will be on your marriage certificate ;-).</p>
+                     <p class="body-3-medium  text-black">The name says it all "{{ $data->location_name }}"will be on your marriage certificate ;-).</p>
                      <p class="body-3-medium  text-black">
                         With a number of spots right down on the Parramatta River, Kissing Point Park offers a water side wedding location in a unique Sydney riverside setting, with the tranquility of the river with kayaks, motorboats and the sailing boats from the Concord Sailing Club right next door.    
                      </p>

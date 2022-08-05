@@ -24,7 +24,9 @@
         </table>
       </div>
       <div class="d-lg-flex mt-50 paynow_text">
-        <a href="{{route('addToCart')}}" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0 cart_pay_now">Pay now</a>
+     
+     
+        <a href="{{route('user-login',['addToCart' => 'yes'])}}" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0 cart_pay_now">Pay now</a> 
         <a href="/add-ons" class="theme-btn primary-btn-border  d-flex justify-content-center">Continue choosing add-ons</a>
       </div>
     </form>

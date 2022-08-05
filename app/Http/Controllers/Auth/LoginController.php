@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Redirect;
 
+use App\Models\{User};
 class LoginController extends Controller
 {
     /*
@@ -29,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/locations';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -43,6 +44,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+       
         $redirection = '';
    
         if ($request->route_name=='admin-login') {
@@ -65,6 +67,7 @@ class LoginController extends Controller
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             
             $user=Auth::user();
+            User::addToCart();
             if($role = $user->roles->first()->name){
                 return redirect($redirection);
             }else{
@@ -75,6 +78,7 @@ class LoginController extends Controller
                 'email' => 'Credentials do not match our database.'
             ]);
     }
+  
     public function logout() {
         $user=Auth::user();
         request()->session()->invalidate();

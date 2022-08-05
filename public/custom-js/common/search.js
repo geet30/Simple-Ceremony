@@ -34,14 +34,15 @@ $(document).ready(function(){
             var  calendar_date = new Date().toLocaleDateString();
         }
        
-        var time  = $('#time_hr').val();
-        console.log(time);
+        var booking_start_time  = $('#booking_start_time').val();
+        var booking_end_time  = $('#booking_end_time').val();
+        
         // return false;
         $.ajax({
             type: "post",
             url: url,
             data: {
-                'id': location,'booking_date':calendar_date,'time':time
+                'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time
                 
             },
             dataType: 'html',

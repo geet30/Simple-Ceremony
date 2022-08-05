@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\EmailSetting;
 use Auth;
 
-class ContactUsMail extends Mailable
+class RequestLocationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -35,8 +35,8 @@ class ContactUsMail extends Mailable
        
         $from_mail = $this->data['email'];
        
-        return $this->from($from_mail)->subject('Contact Us')
-                    ->view('emails.contact-us')->with('data', $this->data);
+        return $this->from($from_mail)->subject('Request Custom Location')
+                    ->view('emails.request-location')->with('data', $this->data);
     }
 
 }

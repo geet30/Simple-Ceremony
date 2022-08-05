@@ -23,7 +23,7 @@ $websiteRoutes = function() {
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-add-ons');
     Route::post('search-booking-addon',[HomeController::class, 'searchBookingAddon']);
-    Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
+    // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
     
     Route::get('add-ons-detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
     
@@ -48,9 +48,8 @@ $websiteRoutes = function() {
         return view('elements.user.booking.payment-cancel');
     });
 
-    Route::get('request-custom-location', function () {
-        return view('pages.request-custom-location');
-    });
+    Route::get('request-custom-location',[HomeController::class, 'requestCustomLocation'])->name('request-custom-location');
+    Route::post('post-custom-location',[HomeController::class, 'postCustomLocation'])->name('post-custom-location');
     Route::get('book-custom-location', function () {
         return view('pages.book-custom-location');
     });
@@ -255,7 +254,15 @@ $adminRoutes = function() {
     Route::get('payments-overview', function () {
         return view('admin.payments.payments-overview');
     });
-    Route::resource('locations', LocationsController::class);
+    // Route::resource('locations', LocationsController::class);
+
+    Route::resource('locations', 'App\Http\Controllers\Admin\LocationsController', ['except' => [
+        'index'
+    ]]);
+   
+    Route::get('/locations-listing/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations');
+
+    Route::get('/locations-listing', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations');
     Route::get('create-celebrants-invoice', function () {
         return view('admin.payments.create-celebrants-invoice');
     });
@@ -272,10 +279,8 @@ $adminRoutes = function() {
     Route::get('edit', function () {
         return view('admin.locations.edit');
     });
-    Route::get('view', function () {
-        return view('admin.locations.view');
-    });
 
+    Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location/view');
     Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
     Route::post('/submit-addon',[AddonsController::class, 'store']);
     Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');

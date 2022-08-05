@@ -6,6 +6,7 @@ $(document).ready(function(){
    var advantage = '<div class="row mt-2 keyDiv"><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
    var html = "";
    var total_fee = 0;
+
    function cart(data){
       html = '';total_fee =0;
       $('#basket_table').find('tbody').empty();
@@ -164,20 +165,21 @@ $(document).ready(function(){
          return false;
          $(el).closest('.'+parentClass).remove()
          if(type=='cart'){
+            
             let storageProducts = JSON.parse(localStorage.getItem('cart'));
             let products = storageProducts.filter(product => product.package_id !== $(el).data('id') );
             localStorage.setItem('cart', JSON.stringify(products));
             let cart_count= JSON.parse(localStorage.getItem('cart')).length;
-            console.log('after delete',JSON.parse(localStorage.getItem('cart')));
+            console.log('after delete',cart_count);
             showTotals();
-
+            
             if(cart_count == 0){
                $('#grand-total').html(`
                <td><span>&nbsp;</span></td>
                <td colspan="2" class="total text-end">cart is empty</td>
                <td class="h4 neutral-100"></td>
                <td>&nbsp;</td>`)
-               $('.paynow_text').html('');
+               $('.paynow_text').css('visibility','hidden');
             }
          }
          package_count= $('.'+packageContainer).find('.'+parentClass).length

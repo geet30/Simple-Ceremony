@@ -27,6 +27,12 @@
                                  {{ session()->get('message') }}
                               </div>
                             @endif 
+                            @if(Request::get('addToCart')  && Request::get('addToCart') =='yes')
+                              <div class="alert alert-success">
+                                 <button type="button" class="close" data-dismiss="alert">×</button> 
+                                 Please login to pay for your cart
+                              </div>
+                            @endif
                                      
                            <form class="needs-validation row" method="POST" action="{{ route('login') }}" novalidate>
                               @csrf
