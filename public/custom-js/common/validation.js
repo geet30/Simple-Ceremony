@@ -15,6 +15,7 @@
           event.stopPropagation();
         }
         form.classList.add('was-validated');
+        
         window.setTimeout(function () {
             var errors = $('.invalid-feedback:visible:first').prev();
             if (errors.length) {

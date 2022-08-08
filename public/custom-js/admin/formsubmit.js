@@ -8,10 +8,10 @@ $(document).ready(function(){
       });
     
 
-    window.changeStatus = function(url,id,status,detail){ 
+    window.changeStatus = function(url,id,status,detail,tab_id,type){ 
        
        
-        if(status == 2){
+        if(status == 2 && type =='addon'){
 
             var secondoffcanvas = document.getElementById('offcanvasgivefeedbackaddons')
             var bsOffcanvas2 = new bootstrap.Offcanvas(secondoffcanvas)
@@ -28,7 +28,7 @@ $(document).ready(function(){
     
 
     window.changeStatusAjax = function(url,id,status,detail){
-       
+      
         var tab_id = $("ul.add-on-list-nav li button.active").attr("id");
         $.ajax({
             type: "post",

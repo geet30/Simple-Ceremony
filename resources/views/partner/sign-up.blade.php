@@ -52,8 +52,8 @@
                            <input type="hidden"  id="code" name ="user[country_code]" value="61" >
                            <input id="phone" type="tel" class="form-control body-1 netural-100" placeholder="Your phone number" name="user[phone]" required> 
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div> 
-                          <!-- <span id="valid-msg" class="hide">Valid</span>
-                           <span id="error-msg" class="hide">Invalid number</span>  -->
+                            <!-- <span id="valid-msg" class="hide">Valid</span>
+                           <span id="error-msg" class="hide">Invalid number</span> -->
                           
                            
                         </div>
@@ -208,6 +208,7 @@
                               <div class="col-md-12 mb-4">
                                  <label class="form-label small-text2">Location description</label>
                                  <textarea name="partner_packages[0][location_description]" placeholder="Type here" class="form-control body-1 netural-100" rows="12" required></textarea>
+                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Location Description is required</div>
                               </div>
                               <div class="col-md-12 mb-4">
                                  <label class="form-label small-text2">Title term (*optional)</label>
@@ -224,7 +225,7 @@
                                        <label class="theme-btn primary-btn ">
                                           <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
                                           <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile" name="partner_packages[0][package_images][image_name][]" required>
-                                          <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 40px;text-align: left;z-index: -1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
+                                          <div class="invalid-feedback" style="position: absolute;bottom: -24px;left: 40px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                                        </label>
                                     </div>
                                     <div class="upload__img-wrap">

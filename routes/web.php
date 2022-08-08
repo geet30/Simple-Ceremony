@@ -258,6 +258,7 @@ $adminRoutes = function() {
     Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations');
         
     Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
+    Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
     Route::get('create-celebrants-invoice', function () {
         return view('admin.payments.create-celebrants-invoice');
     });
@@ -268,13 +269,12 @@ $adminRoutes = function() {
     Route::get('single', function () {
         return view('admin.locations.single');
     });
-    Route::get('create', function () {
-        return view('admin.locations.create');
-    });
+   
     Route::get('edit', function () {
         return view('admin.locations.edit');
     });
-
+    
+    Route::post('/change-location-status',[LocationsController::class, 'changeStatus']);
     Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location.view');
     Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
     Route::post('/submit-addon',[AddonsController::class, 'store']);

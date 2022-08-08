@@ -97,6 +97,7 @@ $(document).ready(function(){
                   <div class="col-md-12 mb-4">
                      <label class="form-label small-text2">Location description</label>
                      <textarea name="partner_packages[${counter}][location_description]" placeholder="Type here" class="form-control body-1 netural-100" rows="12" required></textarea>
+                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Location Description is required</div>
                   </div>
                   <div class="col-md-12 mb-4">
                      <label class="form-label small-text2">Title term (*optional)</label>
@@ -106,13 +107,14 @@ $(document).ready(function(){
                      <label class="form-label small-text2">Terms (*optional)</label>
                      <textarea name="partner_packages[${counter}][terms]" placeholder="Type terms here" class="form-control body-1 netural-100" rows="8"></textarea>
                   </div>
-                  <div class="col-md-12 mb-4 partner-gallery-upload-box">
+                  <div class="col-md-12 mb-4 partner-gallery-upload-box position-relative">
                      <label for="gallery" class="form-label small-text2 mb-20">Upload gallery photos</label>
                      <div class="upload__box">
                         <div class="upload__btn-box">
                            <label class="theme-btn primary-btn ">
                               <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
                               <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile-${counter}" name="partner_packages[${counter}][package_images][image_name][]" required>
+                              <div class="invalid-feedback" style="position: absolute;bottom: -24px;left: 40px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                            </label>
                         </div>
                         <div class="upload__img-wrap">                          

@@ -50,15 +50,15 @@
                      <span id="change_status-{{$addon->id}}">{{$status}}</status>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item waiting-approval" onClick="changeStatus('/change-status',{{$addon->id}},0)">Waiting for approval</a></li>
-                        <li><a class="dropdown-item approved" onClick="changeStatus('/change-status',{{$addon->id}},1)">Approved</a></li>
-                        <li><a class="dropdown-item rejected" onClick="changeStatus('/change-status',{{$addon->id}},2)">Rejected</a></li>
+                        <li><a class="dropdown-item waiting-approval" onClick="changeStatus('/change-status',{{$addon->id}},0,'','tab_id','addon')">Waiting for approval</a></li>
+                        <li><a class="dropdown-item approved" onClick="changeStatus('/change-status',{{$addon->id}},1,'','tab_id','addon')">Approved</a></li>
+                        <li><a class="dropdown-item rejected" onClick="changeStatus('/change-status',{{$addon->id}},2,'','tab_id','addon')">Rejected</a></li>
                     </ul>
                     </div>
                 </td>
                 <td style="min-width:230px;">
                     @if($addon->status == 0)
-                        <a onClick="changeStatus('/change-status',{{$addon->id}},1)" class="table-link me-3">Confirm</a>
+                        <a onClick="changeStatus('/change-status',{{$addon->id}},1,'','tab_id','addon')" class="table-link me-3">Confirm</a>
                     @endif
                     @if($addon->status == 2)
                         <a href="#" data-id="{{$addon->id}}" data-feedback="{{$addon->rejected->feedback}}" class="table-link me-3 showaddonfeedback" data-bs-toggle="offcanvas" data-bs-target="#offcanvasfeedbackaddons" aria-controls="offcanvasfeedbackaddons">See feedback</a>

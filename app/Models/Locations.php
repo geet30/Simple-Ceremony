@@ -31,6 +31,8 @@ class Locations extends Model
         'weather_option',
         'getting_there',
         'custom_location',
+        'custom_location_id',
+        'status'
     ];
 
     /**

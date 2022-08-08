@@ -9,7 +9,7 @@
    @include('elements.panel-header')
    <div class="row">
       <div class="col-12 mb-30">
-         <a href="/locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/locations/all-requests" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
       </div>
    
       <div class="col-12">
@@ -46,8 +46,11 @@
                   </div>
                   <div class="col-lg-6  mt-3 mt-lg-0">
                     <div class="d-flex justify-content-end mb-47">
-                     <a href="single" class="theme-btn  primary-btn me-2">Confirm</a>
-                     <a href="locations" class="theme-btn  primary-btn-border me-2">Decline</a>
+                    @if(isset($data->status) && $data->status== 0)
+                     <a class="theme-btn  primary-btn me-2"  onClick="changeStatus('/change-location-status',{{$data->id}},1,'detail','tab_id','location')" href="single">Confirm</a>
+                   
+                     <a onClick="changeStatus('/change-location-status',{{$data->id}},2,'detail','tab_id','location')"  class="theme-btn  primary-btn-border me-2">Decline</a>
+                     @endif
                      <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
                      Edit</a>
                     </div>
@@ -63,7 +66,7 @@
                      </h1>
                   </div>
                   <div class="col-12 admin-pt-92">
-                     <p class="body-3-medium  text-black">The name says it all "{{ $data->location_name }}"will be on your marriage certificate ;-).</p>
+                     <p class="body-3-medium  text-black">The name says it all "{{ (isset($data->location_name)) ? $data->location_name:'' }}"will be on your marriage certificate ;-).</p>
                      <p class="body-3-medium  text-black">
                         With a number of spots right down on the Parramatta River, Kissing Point Park offers a water side wedding location in a unique Sydney riverside setting, with the tranquility of the river with kayaks, motorboats and the sailing boats from the Concord Sailing Club right next door.    
                      </p>

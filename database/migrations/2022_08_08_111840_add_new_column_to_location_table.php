@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            
-                $table->string('name', 50)->nullable()->change();
-                $table->integer('country_code')->nullable()->unsigned()->after('phone');
+        Schema::table('locations', function (Blueprint $table) {
+            $table->integer('custom_location_id')->nullable()->unsigned()->after('custom_location');
+            $table->smallInteger('status')->comment('0 = pending, 1=approved,2=rejected')->default(0)->after('custom_location_id');
         });
     }
 
@@ -27,7 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('locations', function (Blueprint $table) {
             //
         });
     }

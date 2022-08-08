@@ -1,4 +1,10 @@
 <div class="row py-31">
+@if(session()->has('message'))
+   <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">×</button> 
+      {{ session()->get('message') }}
+   </div>
+@endif 
    <div class="col-md-8 col-xl-9 d-flex align-self-center">
       <div class="dropdown ">
          <a class="btn" role="button">
@@ -19,73 +25,13 @@
       </div>
    </div>
    <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-      <a class="theme-btn primary-btn d-flex justify-content-center" href="/create">
+      <a class="theme-btn primary-btn d-flex justify-content-center" href="{{route('locations.create')}}">
       <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
       Add new location
       </a>
    </div>
 </div>
 <div class="row">
-   @include('elements.admin-location', ['title' => 'locations', '' => '', 'locations' => [
-   [
-   'image' => '/images/admin/location/v1.jpg',
-   'price' => ' $350',
-   'name' => ' Blues point reserve',
-   ],
-   [
-   'image' => '/images/admin/location/v2.jpg',
-   'price' => ' $350',
-   'name' => ' Bradfield park',
-   ],
-   [
-   'image' => '/images/admin/location/v3.jpg',
-   'price' => ' $350',
-   'name' => ' Tench park, penrith',
-   ],
-   [
-   'image' => '/images/admin/location/v2.jpg',
-   'price' => ' $350',
-   'name' => ' Bradfield park',
-   ],
-   [
-   'image' => '/images/admin/location/v1.jpg',
-   'price' => ' $350',
-   'name' => ' Blues point reserve',
-   ],
-   [
-   'image' => '/images/admin/location/v2.jpg',
-   'price' => ' $350',
-   'name' => ' Bradfield park',
-   ],
-   [
-   'image' => '/images/admin/location/v3.jpg',
-   'price' => ' $350',
-   'name' => ' Tench park, penrith',
-   ],
-   [
-   'image' => '/images/admin/location/v2.jpg',
-   'price' => ' $350',
-   'name' => ' Bradfield park',
-   ],
-   [
-   'image' => '/images/admin/location/v1.jpg',
-   'price' => ' $350',
-   'name' => ' Blues point reserve',
-   ],
-   [
-   'image' => '/images/admin/location/v2.jpg',
-   'price' => ' $350',
-   'name' => ' Bradfield park',
-   ],
-   [
-   'image' => '/images/admin/location/v3.jpg',
-   'price' => ' $350',
-   'name' => ' Tench park, penrith',
-   ],
-   [
-   'image' => '/images/admin/location/v2.jpg',
-   'price' => ' $350',
-   'name' => ' Bradfield park',
-   ],
-   ]])
+
+   @include('elements.admin.location.all-locations', ['title' => 'locations', '' => '', 'locations' => $locations])
 </div>
