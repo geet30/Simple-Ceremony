@@ -16,24 +16,18 @@
                         @foreach($data['gallery'] as $gallery)
                        
                            <div class="col-md-5 mb-3">
-                              <img src="{{ asset('/uploads/images/package/'.$gallery['image_name']) }}" alt="addons-photos" class="img-fluid gallery-img">
+                                 @if(preg_match('/^.*\.(mp4|mov|mpg|mpeg|wmv|mkv)$/i', $gallery['image_name'])) 
+                                       
+                                    <video controls width="100%" class="img-fluid gallery-img"  id="video" preload="metadata">
+                                       <source src="{{ asset('/uploads/images/package/'.$gallery['image_name']) }}" type="video/mp4">
+                                    </video>
+                                 @else
+                                    <img src="{{ asset('/uploads/images/package/'.$gallery['image_name']) }}" alt="add-ons-image " class="img-fluid gallery-img"> 
+                                 @endif
                            </div>
                         @endforeach
                         
-                        <div class="col-md-5 mb-3">
-                           <div class="video-wrapper">
-                              <div class="video-container" id="video-container">
-                                 <video controls width="100%" height="300px" id="video" preload="metadata" poster="/images/add-ons/add-ons-details/right-4.jpg">
-                                    <source src="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/video.mp4" type="video/mp4">
-                                 </video>
-                                 <div class="play-button-wrapper">
-                                    <div title="Play video" class="play-gif" id="circle-play-b">
-                                       <img src="/images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
+                        
                         
                      </div>
                </section>

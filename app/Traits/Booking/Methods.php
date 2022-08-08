@@ -3,20 +3,30 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB,Hash};
-use App\Models\{User,Locations,Booking,BookingPayments};
+use App\Models\{User,Locations,Booking,BookingPayments,Cart,RequestLocations};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
-use App\Mail\RegisterUserMail;
+use Carbon\Carbon;
+use App\Mail\{RegisterUserMail,ContactUsMail,RequestLocationEmail};
+use Illuminate\Support\Facades\Auth; 
 trait Methods
 {
-   static function getLocationDetail(){
-  
+
+    static function calculateTimeslotsPrice(){
+        $booking_start_time = \Carbon\Carbon::parse(Cache::get('booking')->booking_start_time);
+        $booking_end_time = \Carbon\Carbon::parse(Cache::get('booking')->booking_end_time);
+        $interval = $booking_start_time->diff($booking_end_time);
+        $duration = $interval->format('%h') * 60 + $interval->format('%i');
+
+        $check_count_of_timeslots = $duration /30;
+        return $check_count_of_timeslots;
+       
+    }
+    static function getLocationDetail(){
         try{
-            // dd(Cache::get('booking'));
+         
             $locationId = Cache::get('booking')->locationId;
-            
-            // dd(Cache::get('booking'));
             $data = Locations::with([
                 'location_images' => function($query){
                     $query->select('location_id','image');
@@ -32,31 +42,67 @@ trait Methods
                     }
                 }
             }
-            // dd('tewt');
-            $Booking= self::addBookingDetailToDB(Cache::get('booking'));
+
+            $check_count_of_timeslots = self::calculateTimeslotsPrice();
+            $price = $data['price'] * $check_count_of_timeslots;
+          
+            // $Booking= self::addBookingDetailToDB(Cache::get('booking'));
             $send_paramter = [
                 'name' => $data['name'],
-                'price' => $data['price'],
+                'price' => $price,
                 'img' => $img,
                 'locationId' => $locationId,
-                'userId' => Cache::get('booking')->userId,
 
             ];
-           
-            // return $send_paramter;
             return self::stripePayment($send_paramter);
         }
         catch (\Exception $ex) {
             echo "<pre>";print_r($ex->getMessage());die;
             return $ex->getMessage();
-        }
-        
+        }        
     }
-    static function addBookingDetailToDB($data){
-       
+    static function requestLocationEmail($data){
+        $when = now()->addMinutes(1);
+        $dataMail  = $data;
+        // dd($dataMail);
+
+        $mail_id = config('env.CONTACTUS_EMAIL');
+        $sendMail = new RequestLocationEmail($dataMail);
+        return \Mail::to($mail_id)->later($when, $sendMail); 
+    }
+    static function contactUsEmail($data){
+      
+        $when = now()->addMinutes(1);
+        $dataMail  = array(
+            'email' => $data['email'],
+            'first_name' => $data['first_name'],
+            'phone' => $data['phone'],
+            'country_code' => $data['country_code'],
+            'description' => $data['description']
+        );
+        // dd($dataMail);
+
+        $mail_id = config('env.CONTACTUS_EMAIL');
+        $sendMail = new ContactUsMail($dataMail);
+        return \Mail::to($mail_id)->later($when, $sendMail);
+
+    }
+    static function addtoCart($data){
+      
+        foreach($data as $key=>$cart){
+          
+            $cart_inputs['name'] = $cart->package_name;
+            $cart_inputs['price'] = $cart->price;
+            $cart_inputs['package_id'] = $cart->package_id;
+            $cart_inputs['user_id'] = Auth::user()->id;
+            Cart::create($cart_inputs);
+        }
+    }
+    static function addBookingDetailToDB($sessionId,$data){
         try{
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
+            $user_inputs['country_code'] = $data->country_code;
             $random_password = Str::random(8);
             $user_inputs['password'] = Hash::make($random_password );
         
@@ -85,11 +131,14 @@ trait Methods
             $booking_inputs['user_id']  = $user->id; 
             $booking_inputs['locationId']  = $data->locationId; 
             $booking_inputs['booking_date']  = $data->booking_date; 
-            $booking_inputs['booking_time']  = $data->booking_time; 
+            $booking_inputs['booking_start_time']  = $data->booking_start_time; 
+            $booking_inputs['booking_end_time']  = $data->booking_end_time; 
             $booking_inputs['first_couple_name']  = $data->first_couple_name; 
             $booking_inputs['second_couple_name']  = $data->second_couple_name; 
             $booking_inputs['ceremony_type']  = $data->ceremony_type;     
             $booking = Booking::create($booking_inputs);
+            self::savePaymentDetail($sessionId,$user->id);
+
             return true;
         }
         catch (\Exception $ex) {
@@ -123,22 +172,14 @@ trait Methods
 
     }
     static function stripePayment($data) {
-        
-     
+      
         try { 
             
-            Stripe::setApiKey(config('env.STRIPE_SECRET'));
-        
+            Stripe::setApiKey(config('env.STRIPE_SECRET'));       
             $DOMAIN = config('env.WEBSITE');
             $amount = bcmul($data['price'], 100);
-
-
             $checkout_session = \Stripe\Checkout\Session::create([
                 'payment_method_types' => ['card'],
-                // 'line_items' => [[
-                //     'price' => 'price_1LOIzwSCoUv0RVM4lRLLH6k5',
-                //     'quantity' => 1,
-                // ]],
                 'line_items' => [[
                     'price_data' => [
                     'currency' => 'usd',
@@ -153,8 +194,8 @@ trait Methods
                 ]],
                 'mode' => 'payment',
                 
-                'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?userId='.$data["userId"].'&session_id={CHECKOUT_SESSION_ID}',
-                // 'success_url' => $YOUR_DOMAIN . '/payment-success?session_id={CHECKOUT_SESSION_ID}',
+                // 'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?userId='.$data["userId"].'&session_id={CHECKOUT_SESSION_ID}',
+                'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?session_id={CHECKOUT_SESSION_ID}',
                 'cancel_url' => $DOMAIN . '/payment-cancel',
             ]);
             return redirect($checkout_session->url);
@@ -164,6 +205,9 @@ trait Methods
             return $ex->getMessage();
         }
     }
-    
+    static function requestLocation($data){
+        return RequestLocations::create($data);
+
+    }
    
 }

@@ -2,12 +2,13 @@
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand" href="/">
-        <img src="images/main-logo.svg" class="img-fluid" alt="Logo">
+      
+        <img src="{{asset('/images/main-logo.svg')}}" class="img-fluid" alt="Logo">
       </a>
       <!-- Mobile Cart Icon With Toggle-->
       <div class="d-flex mobile-toogle-with-cart align-items-center">
         <a class="nav-item nav-link align-self-lg-center cart-icon-header d-block d-lg-none position-relative me-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-          <img src="images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
+          <img src="{{asset('/images/cart-icon.svg')}}" lass="img-fluid" alt="Cart Icon">
           <span class="cart-item-counting">3</span>
         </a>
         <!-- Navbar toggle -->
@@ -24,7 +25,7 @@
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/how-it-works">How it works</a>
           <a class="nav-item nav-link align-self-lg-center me-lg-4" href="/contact-us">Contact us</a>
           <a class="nav-item nav-link align-self-lg-center cart-icon-header d-none d-lg-block me-lg-4 position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <img src="images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
+            <img src="{{asset('/images/cart-icon.svg')}}" lass="img-fluid" alt="Cart Icon">
             <span class="cart-item-counting">3</span>
           </a>
           <a href="{{route('user.booking')}}" class="theme-btn primary-btn w-full w-lg-auto me-lg-4 mb-3 mb-lg-0">Make a booking</a>

@@ -3,6 +3,15 @@ use App\Models\Users;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
+function timeslots(){
+   $start = new \DateTime('00:00');
+   $times = 24 * 2; // 24 hours * 30 mins in an hour
+   $timeslot = [];
+   for ($i = 0; $i < $times-1; $i++) {
+      $timeslot[] = $start->add(new \DateInterval('PT30M'))->format('H:i');
+   }
+   return $timeslot;
+}
 function one_validation_message($validator){
     // To get all the error messages.
     $validation_messages = $validator->getMessageBag()->toArray();

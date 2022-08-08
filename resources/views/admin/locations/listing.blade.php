@@ -20,7 +20,7 @@
          <!-- tab content -->
          <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
-               @include('elements.admin.location.listing')
+               @include('elements.admin.location.all-requests')
             </div>
             <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="packages-tab">
                @include('elements.admin.location.packages')

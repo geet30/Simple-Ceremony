@@ -18,14 +18,15 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $data = Locations::with([
+        $timeslot  = timeslots();
+      
+        $locations = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
             }
         ])->select('name','id','price')->get();
-        return View::make('user.booking.booking',[
-            'locations' => $data
-        ]);
+        return view('user.booking.booking',compact(['timeslot','locations']));
+
     }
 
     /**
@@ -34,9 +35,7 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function detail($id)
-    {
-      
+    public function detail($id){
         $data = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
@@ -50,48 +49,23 @@ class BookingController extends Controller
         
         return view('user.booking.single-location',compact(['data','locations']));
     }
-    
-       /**
+   
+    /**
      * show bookingLocation page.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getBookingLocationCalender(Request $request,$locationId)
-    {
-        // dd($request->all());
+    public function getBookingLocationCalender(Request $request,$locationId){
         if(isset($request->session_id) && !empty($request->session_id)){
-            // dd(Cache::get('booking'));
-            // echo $request->session_id;die;
-            Booking::savePaymentDetail($request->session_id,$request->userId);
+            $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
             Cache::forget('booking');
         }
-        $time_array = [
-            '06.00'=>'06.00',
-            '07.00'=>'07.00',
-            '08.00'=>'08.00',
-            '09.00'=>'09.00',
-            '10.00'=>'10.00',
-            '11.00'=>'11.00',
-            '12.00'=>'12.00',
-            '13.00'=>'13.00',
-            '14.00'=>'14.00',
-            '15.00'=>'15.00',
-            '16.00'=>'16.00',
-            '17.00'=>'17.00',
-            '18.00'=>'18.00',
-            '19.00'=>'19.00',
-            '20.00'=>'20.00',
-            '21.00'=>'21.00'
-
-
-        ];
+        $timeslot  = timeslots();
         $booking = Cache::get('booking');
-        return view('user.booking.book-location',compact('booking','time_array','locationId'));
+        return view('user.booking.book-location',compact('booking','timeslot','locationId'));
       
-    }
-
-   
+    }  
    /**  
      * Post Request to store step1 info in cache
      *
@@ -99,16 +73,17 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    public function postBookingLocationForm(Request $request)
-    {
-        // dd($request->all());
-       
+    public function postBookingLocationForm(Request $request){
         $data = [
             'booking_date' => $request->calendar_date,
-            'booking_time' => $request->booking_time,
-            // 'locationID' =>$request->locationId
+            'booking_start_time' => $request->booking_start_time,
+            'booking_end_time' => $request->booking_end_time,
 
         ];
+        $checkIfBookingExist =  self::checkIfBookingExist($data);
+        if($checkIfBookingExist){
+            return $this->errorResponse([], 'Booking already exist', 400);
+        }
         
         if(Cache::has('booking')){
             $booking = Cache::get('booking');
@@ -132,9 +107,7 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postBookingLocationUserDetail(Request $request)
-    {
-       
+    public function postBookingLocationUserDetail(Request $request){
         $data = [
             'first_couple_name' => $request->first_couple_name,
             'second_couple_name' => $request->second_couple_name,
@@ -146,6 +119,7 @@ class BookingController extends Controller
             $booking['locationId'] = $request->locationId;
             $booking['email'] = $request->email;
             $booking['phone'] = $request->phone;
+            $booking['country_code'] = $request->country_code;
             Cache::put('booking',$booking);
 
         }else{
@@ -154,6 +128,7 @@ class BookingController extends Controller
             $booking['locationId'] = $request->locationId;
             $booking['email'] = $request->email;
             $booking['phone'] = $request->phone;
+            $booking['country_code'] = $request->country_code;
             Cache::put('booking', $booking);
            
         }
@@ -170,8 +145,7 @@ class BookingController extends Controller
     public function postBookingLocationPayment(Request $request)
     {
 
-        try {
-            
+        try {           
            return  Booking::getLocationDetail();
         }
         catch (\Exception $ex) {
@@ -191,29 +165,29 @@ class BookingController extends Controller
 
     public function searchBookingLocation(Request $request)
     {
-
-        // dd($request->all());
         try {
-            if($request->has('search') && $request->filled('search')){
-                $data = Locations::with([
-                    'location_images' => function($query){
+            if($request->has('id') && $request->filled('id')){
+                $data = Booking::with([
+                    'location' => function($query){
+                        $query->select('name','id','price');
+                    },
+                    'location.location_images' => function($query){
                         $query->select('location_id','image');
                     }
-                ])->where('id',$request->search)->select('name','id','price')->get();
-
-                
-                
-               
+                ])->where('locationId',$request->id)->where('booking_date',$request->booking_date)->where('booking_start_time',$request->booking_start_time)->where('booking_end_time',$request->booking_end_time)->select('booking_date','id','locationId')->get();
+                            
             }else{
-                $data = Locations::with([
-                    'location_images' => function($query){
+                $data = Booking::with([
+                    'location' => function($query){
+                        $query->select('name','id','price');
+                    },
+                    'location.location_images' => function($query){
                         $query->select('location_id','image');
                     }
-                ])->select('name','id','price')->get();
-               
-                
+                ])->select('booking_date','id','locationId')->get();
+                              
             }
-            return View::make('elements.user.location.location', ['locations' => $data]);
+            return View::make('elements.user.booking.search-location', ['locations' => $data]);
         }
         catch (\Exception $ex) {
             echo "<pre>";print_r($ex->getMessage());die;
@@ -222,7 +196,20 @@ class BookingController extends Controller
  
     }
 
+    public function checkIfBookingExist($data){
+      
+        return Booking::with([
+            'location' => function($query){
+                $query->select('name','id','price');
+            },
+            'location.location_images' => function($query){
+                $query->select('location_id','image');
+            }
+        ])->where('booking_start_time',$data['booking_start_time'])->where('booking_end_time',$data['booking_end_time'])->where('booking_date',$data['booking_date'])->select('booking_date','id','locationId')->first();
+       
+        
 
+    }
 
     /**
      * Update the specified resource in storage.

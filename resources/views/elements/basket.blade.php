@@ -7,7 +7,7 @@
   <div class="offcanvas-body">
     <form>
       <div class="table-responsive">
-        <table class="table">
+        <table class="table" id="basket_table">
           <thead>
             <tr>
               <th class="col-5">Item</th>
@@ -17,51 +17,16 @@
               <th class="col-1"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><input type="text" value="Flower package 1" class="form-control body-1 netural-100" name="name"
-                  id="InputName" readonly></td>
-              <td><input type="text" value="1" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="$ 120" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="$ 120" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><img src="/images/item-delete.svg" class="img-fluid" alt="Delete"></td>
-            </tr>
-            <tr>
-              <td><input type="text" value="Gazebo" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="1" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="$ 130" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="$ 130" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><img src="/images/item-delete.svg" class="img-fluid" alt="Delete"></td>
-            </tr>
-            <tr>
-              <td><input type="text" value="Zoom streaming" class="form-control body-1 netural-100" name="name"
-                  id="InputName" readonly></td>
-              <td><input type="text" value="1" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="$ 150" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><input type="text" value="$ 150" class="form-control body-1 netural-100" name="name" id="InputName"
-                  readonly></td>
-              <td><img src="/images/item-delete.svg" class="img-fluid" alt="Delete"></td>
-            </tr>
-            <tr>
-              <td><span>&nbsp;</span></td>
-              <td colspan="2" class="total text-end">Grand total</td>
-              <td class="h4 neutral-100">$ 400</td>
-              <td>&nbsp;</td>
-            </tr>
+          <tbody class="keyCartBody">
+          
+            
           </tbody>
         </table>
       </div>
-      <div class="d-lg-flex mt-50">
-        <a href="#" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Pay now</a>
+      <div class="d-lg-flex mt-50 paynow_text">
+     
+     
+        <a href="{{route('user-login',['addToCart' => 'yes'])}}" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0 cart_pay_now">Pay now</a> 
         <a href="/add-ons" class="theme-btn primary-btn-border  d-flex justify-content-center">Continue choosing add-ons</a>
       </div>
     </form>

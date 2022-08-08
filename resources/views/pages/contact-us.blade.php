@@ -13,7 +13,7 @@
                      <div class="social-icon">
                         <img class="me-3" src="images/phone-icon.svg" alt="Phone Icon">
                      </div>
-                     <span>+61280033919</span>
+                     <span>{{ config('env.CONTACTPHONE') }}</span>
                   </a>
                </li>
                <li class="mb-4 pb-2">
@@ -21,7 +21,8 @@
                      <div class="social-icon">
                         <img class="me-3" src="images/mail-icon.svg" alt="Mail Icon">
                      </div>
-                     <span>wedo@simpleceremonies.com.au</span>
+                     
+                     <span>{{config('env.CONTACTPAGE')}}</span>
                   </a>
                </li>
                <li class="mb-4 pb-2">
@@ -51,27 +52,40 @@
             </ul>
          </div>
          <div class="col-md-6">
+            @if(session()->has('message'))
+               <div class="alert alert-success">
+                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                  {{ session()->get('message') }}
+               </div>
+            @endif 
             <div class="contact-form">
-               <form>
+            <form class="needs-validation row" method="POST" action="{{ route('contact-us') }}" novalidate>
+                  @csrf
                   <h2 class="h4">Fill in the form below and we will contact you</h2>
                   <div class="row">
                      <div class="col-md-12 mb-4">
-                        <label for="InputName" class="form-label small-text2">First Name *</label>
-                        <input type="text" placeholder="Type your first name here" class="form-control body-1 netural-100" name="name" id="InputName" required="">
+                        <label for="first_name" class="form-label small-text2">First Name *</label>
+                        <input type="text" placeholder="Type your first name here" class="form-control body-1 netural-100" name="first_name" id="first_name" required="">
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Name is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
+                        <label for="email" class="form-label small-text2">Email *</label>
+                        <input type="email" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" required="">
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
+                     </div>
+                     <div class="col-md-12 mb-4">
                         <label for="phone" class="form-label small-text2">Phone number *</label>
-                        <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="+61 " required>
+                        <input type="hidden"  id="code" name ="country_code" value="61" >
+                        <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="phone" value="+61 " required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                      </div>
                      <div class="col-md-12 mb-4">
-                        <label for="exampleFormControlTextarea1" class="form-label small-text2">Anything you would like us to know before we call? *</label>
-                        <textarea placeholder="Type here" class="form-control body-1 netural-100" id="exampleFormControlTextarea1" rows="8"></textarea>
-                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>This field is required</div>
+                        <label for="description" class="form-label small-text2">Anything you would like us to know before we call? *</label>
+                        <textarea placeholder="Type here" class="form-control body-1 netural-100" id="description" rows="8" name="description" required></textarea>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Description is required</div>
                      </div>
                      <div class="col-12">
-                        <button type="submit" id="submit_button" class="theme-btn primary-btn border-0">Submit</button>
+                        <button type="submit" class="theme-btn primary-btn border-0">Submit</button>
                      </div>
                   </div>
                </form>

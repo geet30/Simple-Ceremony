@@ -33,7 +33,8 @@
         <div class="col-md-6 mb-4">
        
             <label for="phone" class="form-label small-text2">Your phone number</label>
-            <input class="form-control body-1 netural-100" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" required>
+            <input type="hidden"  id="code" name ="country_code" value="61" >
+            <input class="form-control body-1 netural-100 phone" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone Number is required</div>
         </div>
         <div class="col-md-6 mb-4">

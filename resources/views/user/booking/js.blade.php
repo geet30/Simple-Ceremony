@@ -3,29 +3,28 @@
 
     $(document).ready(function(){
         
-        // $("#list-profile-list").off('click');
         $('#list-profile-list').addClass("disable-click");
         $('#list-messages-list').addClass("disable-click");
-        // $('#list-profile-list').on("click", function (e) {
-        
-        //     if ($(this).hasClass('disable-click')) {
-        //         return false;
-        //     }
-        // });
-        // $('#list-messages-list').attr("disabled","disabled");
         $('.calendar-wrapper').calendar({
-
             onClickDate:function (date) {
-
                 $('#calendar-wrapper').updateCalendarOptions({
                     date: date
                 });
 
                 $('#calendar_date').val(new Date(date).toLocaleDateString());
-
             }
         });
-        
+        $('#booking_start_time').change(function(e){
+
+            $("#booking_end_time option").removeAttr('disabled');
+            $("#booking_end_time option[value='"+ $(this).val() + "']").attr('disabled', true); 
+            $('#booking_end_time').val($('#booking_start_time option:selected').next().val())
+          
+        })
+        $('.country-list li').click(function(){
+            // alert($(this).data('dial-code'));
+            $("#code").val(($(this).data('dial-code')));
+        })
         $('#first-form').click(function(e){
             var form = document.getElementById('calendar_form');
             if (form.reportValidity()) { 
@@ -36,12 +35,13 @@
                 }else{
                     data['calendar_date'] = new Date().toLocaleDateString();
                 }
-                
-             
-                data['booking_time'] = $('input[name="booking_time"]:checked').val();
+                data['booking_start_time'] = $('#booking_start_time').val();
+                data['booking_end_time'] = $('#booking_end_time').val();
                 data['locationId']  =  $('#locationId').val();
+                // console.log('data',data);return false;
                 var url = '/post-booking-location-form';
                 var step = 'step-one';
+                
                 bookingSubmit(url,step,data);
 
             }else{
@@ -70,6 +70,7 @@
                 data['second_couple_name'] = $('#second_couple_name').val();
                 data['email']  = $('#email').val();
                 data['phone']  = $('#phone').val();
+                data['country_code']  = $('#code').val();
                 data['ceremony_type']  = $('#ceremony_type').val();
 
                 var url = '/post-booking-user-detail';
@@ -101,6 +102,7 @@
                 success: function(response)
                 {
 
+                    
                     if(step=='step-one'){
                         $('#list-profile-list').removeClass("disable-click");
                         $('#list-profile-list')[0].click();
@@ -110,6 +112,12 @@
                         $('#list-messages-list')[0].click();
                     }
                     
+                },
+                error: function (error) {
+                   
+                    $(window).scrollTop(0);
+                    $(document).find('.message').html("<div class='alert alert-danger'>" + error.responseJSON.message + "</div>");
+                    return false;
                 },
                 
             }); 

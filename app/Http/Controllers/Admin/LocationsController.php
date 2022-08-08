@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Locations;
-use App\Models\LocationImages;
+use App\Models\{Locations,RequestLocations,LocationImages};
 use Illuminate\Http\Request;
 use View;
 use Illuminate\Support\Facades\Auth;
@@ -15,14 +14,31 @@ class LocationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$slug=null)
     {
-        $data = Locations::all();
-        return View::make('admin.locations.listing',[
-            'locations' => $data
-        ]);
+        $records = $req_page = 1;
+        $locations = Locations::all();
+        
+        $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);  
+        if($request->ajax()){   
+            echo $slug;die('fdg');
+           
+            $viewurl = 'elements.admin.location.'.$slug;       
+            return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
+        }
+        
+        return view('admin.locations.listing',compact('locations','data'));
     }
+    /**
+     * View the detail of resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function view($id){
+        $data = RequestLocations::where('id',$id)->first();
+        return view('admin.locations.view',compact('data'));
 
+    }
     /**
      * Show the form for creating a new resource.
      *

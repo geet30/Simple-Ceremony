@@ -1,4 +1,4 @@
-@extends('layouts.panels')
+@extends('layouts.master')
 
  @section('content')
 <section class="pt-45 pb-40">
@@ -13,36 +13,22 @@
 <section class="pt-40  mb-5 add-ons-detail">
    <div class="container">
       <div class="row">
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/left.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/right-1.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/right-2.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/right-3.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <div class="position-relative">
-               <img src="images/add-ons/add-ons-details/right-4.jpg" class="img-fluid gallery-img " alt="add-ons-image " >
-               <img src="images/play-icon.svg" class="img-fluid  play-icon w-20" alt="add-ons-image " >
+         @foreach($data['gallery'] as $gallery)
+                       
+            <div class="col-md-4 mb-3">
+                  @if(preg_match('/^.*\.(mp4|mov|mpg|mpeg|wmv|mkv)$/i', $gallery['image_name'])) 
+                        
+                     <video controls width="100%" class="img-fluid gallery-img"  id="video" preload="metadata">
+                        <source src="{{ asset('/uploads/images/package/'.$gallery['image_name']) }}" type="video/mp4">
+                     </video>
+                  @else
+                     <img src="{{ asset('/uploads/images/package/'.$gallery['image_name']) }}" alt="add-ons-image " class="img-fluid gallery-img"> 
+                  @endif
             </div>
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/package2/right-3.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/package2/right-2.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/right-1.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
-         <div class="col-md-4 mb-3">
-            <img src="images/add-ons/add-ons-details/right-2.jpg" alt="addons-photos" class="img-fluid gallery-img">
-         </div>
+         @endforeach
+
+         
+        
       </div>
    </div>
 </section>

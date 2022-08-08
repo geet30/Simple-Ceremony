@@ -30,7 +30,7 @@
                <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
                   <li class="nav-item dropdown align-self-center me-3 user-header-login">
                      <a role="button" class="cart-icon-header position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                     <img src="/images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
+                     <img src="{{asset('/images/cart-icon.svg')}}" lass="img-fluid" alt="Cart Icon">
                      <span class="cart-item-counting">3</span>
                      </a>
                   </li>

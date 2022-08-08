@@ -35,13 +35,13 @@
             <h1 class="mb-5">
                <span class="paragraph netural-100">${{ $data->price}}</span><br>
                <span class="h1 netural-100">{{$data->name}}
-                    @if(isset($data->address) && !empty($data->address))
-                        ,{{$data->address}}
-                    @endif
-                    @if(isset($data->town) && !empty($data->town))
-                        ,{{$data->town}}
-                    @endif
-                    </span>
+                  @if(isset($data->address) && !empty($data->address))
+                     ,{{$data->address}}
+                  @endif
+                  @if(isset($data->town) && !empty($data->town))
+                     ,{{$data->town}}
+                  @endif
+               </span>
             </h1>
             <div class="d-lg-flex">
                <a href="{{route('booking.getlocationCalender',$data->id)}}" class="theme-btn primary-btn me-lg-4 mb-3 mb-lg-0 d-flex justify-content-center ">Continue booking</a>

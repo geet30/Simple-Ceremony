@@ -19,15 +19,15 @@ use App\Http\Controllers\User\HomeController;
 
 
 $websiteRoutes = function() {
-    // Route::get('login', function () {
-    //     return view('user.login');
-    // });
-    // Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
+    Route::get('/',[HomeController::class, 'index'])->name('index');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-add-ons');
-
-    // Route::get('user-add-ons', [HomeController::class, 'index'])->name('user-add-ons');
-    Route::get('/',[HomeController::class, 'index'])->name('index');
+    Route::post('search-booking-addon',[HomeController::class, 'searchBookingAddon']);
+    // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
+    
+    Route::get('add-ons-detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
+    
+    Route::post('contact-us',[HomeController::class, 'contactUs'])->name('contact-us');
 
     Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');
     Route::get('booking',[BookingController::class, 'index'])->name('user.booking');
@@ -35,8 +35,7 @@ $websiteRoutes = function() {
    
     Route::get('location',[BookingController::class, 'index'])->name('user.booking');
     Route::get('get-booking-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
-
-
+    Route::get('add-ons-gallery/{id}',[HomeController::class, 'gallery'])->name('addons.gallery');
     Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm']);
     Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
     
@@ -49,9 +48,8 @@ $websiteRoutes = function() {
         return view('elements.user.booking.payment-cancel');
     });
 
-    Route::get('request-custom-location', function () {
-        return view('pages.request-custom-location');
-    });
+    Route::get('request-custom-location',[HomeController::class, 'requestCustomLocation'])->name('request-custom-location');
+    Route::post('post-custom-location',[HomeController::class, 'postCustomLocation'])->name('post-custom-location');
     Route::get('book-custom-location', function () {
         return view('pages.book-custom-location');
     });
@@ -96,12 +94,8 @@ $websiteRoutes = function() {
     Route::get('complete-paperwork', function () {
         return view('pages.complete-paperwork');
     });
-    Route::get('add-ons-detail', function () {
-        return view('pages.add-ons-detail');
-    });
-    Route::get('add-ons-gallery', function () {
-        return view('pages.add-ons-gallery');
-    });
+   
+    
     Route::get('term-and-condition', function () {
         return view('pages.term-and-condition');
     });
@@ -260,7 +254,15 @@ $adminRoutes = function() {
     Route::get('payments-overview', function () {
         return view('admin.payments.payments-overview');
     });
-    Route::resource('locations', LocationsController::class);
+    // Route::resource('locations', LocationsController::class);
+
+    Route::resource('locations', 'App\Http\Controllers\Admin\LocationsController', ['except' => [
+        'index'
+    ]]);
+   
+    Route::get('/locations-listing/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations-listing');
+
+    Route::get('/locations-listing', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations-listing');
     Route::get('create-celebrants-invoice', function () {
         return view('admin.payments.create-celebrants-invoice');
     });
@@ -277,10 +279,8 @@ $adminRoutes = function() {
     Route::get('edit', function () {
         return view('admin.locations.edit');
     });
-    Route::get('view', function () {
-        return view('admin.locations.view');
-    });
 
+    Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location/view');
     Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
     Route::post('/submit-addon',[AddonsController::class, 'store']);
     Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');

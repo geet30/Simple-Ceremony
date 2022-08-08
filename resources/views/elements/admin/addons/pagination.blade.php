@@ -1,5 +1,3 @@
-<style>
- </style>
 <div class="table-pagination col-12 text-right w-100">
     <div class="d-flex justify-content-end w-100 align-items-center">
     <?php $prev = $data->currentPage() - 1;
@@ -9,8 +7,8 @@
                 $next = $data->currentPage();
             }
     ?>
-        <div class="align-self-center me-4 button-1">Rows per page: 10</div>
-        <input class="perPage" type="hidden" value="1">
+    <div class="align-self-center me-4 button-1">Rows per page: 10</div>
+    <input class="perPage" type="hidden" value="1">
     
     <div class="align-self-center me-4 button-1 ">{{$data->currentPage()}} of {{$data->total()}}</div>
     
