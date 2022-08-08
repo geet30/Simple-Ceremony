@@ -254,15 +254,10 @@ $adminRoutes = function() {
     Route::get('payments-overview', function () {
         return view('admin.payments.payments-overview');
     });
-    // Route::resource('locations', LocationsController::class);
-
-    Route::resource('locations', 'App\Http\Controllers\Admin\LocationsController', ['except' => [
-        'index'
-    ]]);
-   
-    Route::get('/locations-listing/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations-listing');
-
-    Route::get('/locations-listing', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations-listing');
+    
+    Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations');
+        
+    Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
     Route::get('create-celebrants-invoice', function () {
         return view('admin.payments.create-celebrants-invoice');
     });
@@ -280,7 +275,7 @@ $adminRoutes = function() {
         return view('admin.locations.edit');
     });
 
-    Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location/view');
+    Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location.view');
     Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
     Route::post('/submit-addon',[AddonsController::class, 'store']);
     Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');

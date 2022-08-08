@@ -17,7 +17,7 @@
                      <h1 class="h3 neutral-100 mb-0">Add new location</h1>
                   </div>
                   <div class="card-body">
-                  <form class="row g-3 needs-validation" novalidate  method="POST" action="{{ route('locations.store') }}" enctype="multipart/form-data">
+                  <form class="row g-3 needs-validation" novalidate  method="POST" action="{{url('store-location')}}" enctype="multipart/form-data">
                       @csrf
                         @if($errors->any())
                         <div class="alert alert-danger mb-3 alert-block">

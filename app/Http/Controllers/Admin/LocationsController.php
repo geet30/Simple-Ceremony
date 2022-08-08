@@ -16,13 +16,19 @@ class LocationsController extends Controller
      */
     public function index(Request $request,$slug=null)
     {
-        $records = $req_page = 1;
+    //    die('dfg');
+        $records = 1;$req_page = 1;
         $locations = Locations::all();
-        
+        if($request->has('page')){
+            $req_page = $request->page; 
+        }
         $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);  
-        if($request->ajax()){   
-            echo $slug;die('fdg');
-           
+        if($request->ajax()){  
+            if($slug == ''){
+                $slug = 'all-requests';
+            }
+         
+
             $viewurl = 'elements.admin.location.'.$slug;       
             return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
         }
@@ -82,7 +88,7 @@ class LocationsController extends Controller
                 }   
             }
             $msg = 'Location added successfully.';
-            $route = '/locations';
+            $route = 'locations/all-requests';
             return redirect($route)->with('message', $msg);
         }
         return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);

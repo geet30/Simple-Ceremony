@@ -20,15 +20,15 @@ $(window).on('load', function () {
     } 
 });
 $(document).ready(function(){
- 
+  
+    //add-ons top tab//
   
     $('ul.add-on-list-nav').click(function(){
-
         var tab_id = $(this).find('li').find('button.active').attr("id");
         history.pushState('', '', [tab_id])
-        // console.log(tab_id);
     
     });
+    //booking steps tab//
     $('.list-group a').click(function(e) {      
         e.preventDefault();
         $(this).tab('show');
@@ -42,24 +42,22 @@ $(document).ready(function(){
     var hash = window.location.hash;
     $('.list-group a[href="' + hash + '"]').tab('show');
 
-
-    $('ul.theme-tabs').click(function(){
+    //locations tab //
+    $('ul.location-tabs').click(function(){
 
         var tab_id = $(this).find('li').find('a.active').attr("id");
-        history.pushState('', '', [tab_id])
-        console.log(tab_id);
+        // var url = '/locations-listing/' +tab_id;
+        var url = '/locations/' +tab_id;
+        history.pushState('', '', [url])
     
     });
-    
+     // add on inner tabs////
     $('.theme-tabs >li > a').click(function(e) {     
         e.preventDefault();
         $(this).tab('show');
     });  
-    $(".theme-tabs > li > a").on("shown.bs.tab", function(e) {
-        // console.log($(e.target).attr("href"));
-        
+    $(".theme-tabs > li > a").on("shown.bs.tab", function(e) {        
         var id = $(e.target).attr("href").substr(1);
-        
         window.location.hash = id;
     });
     // on load of the page: switch to the currently selected tab
