@@ -28,7 +28,7 @@
             </div>
          </div>
          <div class="col-md-8 p-0">
-            <div class="right-part-sidebar pt-50 pb-100 pe-150 ps-30">
+            <div class="right-part-sidebar pt-50 pb-100 pe-5 ps-30">
              
                   <div class="tab-content" id="nav-tabContent">
                      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">

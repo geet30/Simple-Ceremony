@@ -76,8 +76,8 @@
                      <div class="col-md-12 mb-4">
                         <label for="phone" class="form-label small-text2">Phone number *</label>
                         <input type="hidden"  id="code" name ="country_code" value="61" >
-                        <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="phone" value="+61 " required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                        <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="phone" value="+61 " required>
                      </div>
                      <div class="col-md-12 mb-4">
                         <label for="description" class="form-label small-text2">Anything you would like us to know before we call? *</label>

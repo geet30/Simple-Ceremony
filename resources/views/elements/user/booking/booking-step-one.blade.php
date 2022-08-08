@@ -16,28 +16,33 @@
         <div class="col-md-12">
             <div class="row mt-4 mb-4">
                 
-                <div class="col-md-4 mb-4 mb-md-0">
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
                 <h2 class="h3 Neutral/100 mb-0">Choose date</h2>
                 </div>
-                <div class="col-md-8 col-xl-8 col-xxl-6">
-                <div class="d-flex justify-content-md-end">
-                    <div class="me-5">
+                <div class="col-md-12 col-lg-8">
+                <div class="d-flex justify-content-lg-end align-items-start align-items-md-center flex-md-row flex-column">
+                    <div class="me-3 mb-4 mb-md-0">
                         <img class="me-2" src="/images/booking-form/available-icon.svg" alt="Available Icon">
                         <span>Available</span>
                     </div>
-                    <div class="">
+                    <div class="me-3 mb-4 mb-md-0">
                         <img class="me-2" src="/images/booking-form/not-available-icon.svg" alt="Not Available Icon">
                         <span>Not available</span>
                     </div>
-                    <div class="">
-                    <a href="{{route('request-custom-location');}}" class="theme-btn primary-btn d-inline-flex">Contact Us</a>
+                    <div class="align-items-center d-flex">
+                        <div class="me-3">
+                            <span class="d-inline-block ms-2 align-self-start" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="if the date or place you want to select is not available, you can send a request to open the place and time">
+                                <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
+                            </span>
+                        </div>
+                        <a href="{{route('request-custom-location');}}" class="theme-btn primary-btn d-inline-flex">Contact Us</a>
                     </div>
                 </div>
                 </div>
             </div>
         </div>
         
-        <div class="col-xxl-10 col-xl-12 col-md-12 mb-4">
+        <div class="col-xxl-12 col-xl-12 col-md-12 mb-4">
             <!-- <div class="calendar-wrapper" id="calendar-wrapper" onChange="calenderSetting('calendar-wrapper','calender_date')"></div> -->
             <div class="calendar-wrapper" id="calendar-wrapper"></div>
             <input type="hidden" name="booking_date" id="calendar_date">
