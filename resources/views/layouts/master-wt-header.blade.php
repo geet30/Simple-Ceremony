@@ -12,7 +12,7 @@
       <link href="custom-css/select-2.css" rel="stylesheet">
       <link href="custom-css/slick.css" rel="stylesheet">
       <link href="https://intl-tel-input.com/node_modules/intl-tel-input/build/css/intlTelInput.css?1549804213570" rel="stylesheet">
-      <link href="custom-css/calendar.css" rel="stylesheet">
+      {{-- <link href="custom-css/calendar.css" rel="stylesheet"> --}} 
       <link href="fonts/stylesheet.css" rel="stylesheet">
    </head>
    <body class="antialiased" data-barba="wrapper">
