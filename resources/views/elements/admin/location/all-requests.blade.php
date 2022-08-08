@@ -16,13 +16,13 @@
             <tbody>
                @foreach($data as $request)
                   <tr>
-                     <td style="min-width:150px" class="body-2 neutral-100">{{ $request->name}}</td>
-                     <td  style="min-width:200px" class="body-2 neutral-100">{{ $request->location_name}}</td>
-                     <td  class="body-2 neutral-100" >{{$request->specific_location}}</td>
-                     <td  class="body-2 neutral-100">{{ $request->post_code}}</td>
-                     <td  style="min-width:300px" class="body-2 neutral-100">{{ $request->street_address}},{{$request->suburb}},{{$request->state}},</td>
-                        <td  style="min-width:100px"><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
-                     <td  style="min-width:150px"><a class="table-link button-1"  href="{{route('location/view',$request->id)}}"> View info</a> </td>
+                     <td class="body-2 neutral-100">{{ $request->name}}</td>
+                     <td class="body-2 neutral-100">{{ $request->location_name}}</td>
+                     <td class="body-2 neutral-100" >{{$request->specific_location}}</td>
+                     <td class="body-2 neutral-100">{{ $request->post_code}}</td>
+                     <td class="body-2 neutral-100">{{ $request->street_address}},{{$request->suburb}},{{$request->state}},</td>
+                     <td><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
+                     <td><a class="table-link button-1"  href="{{route('location.view',$request->id)}}"> View info</a> </td>
                   </tr>
                @endforeach
                

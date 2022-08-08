@@ -1,7 +1,7 @@
 //js for select 2
-$('.js-placeholder-single-input').select2({
-  minimumResultsForSearch: -1
-});
+// $('.js-placeholder-single-input').select2({
+//   minimumResultsForSearch: -1
+// });
 
 ////// Select 2 Js with checkbox
 $(".js-select2").select2({

@@ -9,21 +9,21 @@
       @include('elements.panel-header')
       <div class="row pt-32">
    <div class="col-12">
-      <ul class="nav theme-tabs">
+      <ul class="nav theme-tabs location-tabs">
             <li class="nav-item">
-               <a class="nav-link active" id="request-tab" data-bs-toggle="tab" data-bs-target="#request" href="#">All request</a>
+               <a class="nav-link active" id="all-requests" data-bs-toggle="tab" data-bs-target="#requests" href="#">All request</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" id="packages-tab" data-bs-toggle="tab" data-bs-target="#packages" href="#">All location packages</a>
+               <a class="nav-link" id="all-packages" data-bs-toggle="tab" data-bs-target="#packages" href="#">All location packages</a>
             </li>
           </ul>
          <!-- tab content -->
          <div class="tab-content" id="tabContent">
-            <div class="tab-pane fade show active" id="request" role="tabpanel" aria-labelledby="request-tab">
+            <div class="tab-pane fade show active" id="requests" role="tabpanel" aria-labelledby="requests-tab">
                @include('elements.admin.location.all-requests')
             </div>
             <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="packages-tab">
-               @include('elements.admin.location.packages')
+               @include('elements.admin.location.all-packages')
             </div>
          </div>
          <!-- tab content -->

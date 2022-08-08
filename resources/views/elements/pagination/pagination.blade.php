@@ -1,7 +1,7 @@
 
 <div class="table-pagination col-12 text-right w-100">
     <div class="d-flex justify-content-end w-100 align-items-center">
-        {{--@if(!empty($data))--}}
+       @if(count($data)>0)
         <?php 
        
             $prev = $data->currentPage() - 1;
@@ -36,7 +36,7 @@
                         </li>
                 </ul>
             </div>  
-           {{-- @endif--}} 
+           @endif
     </div>
 </div>
 <script type="text/javascript">
@@ -54,7 +54,7 @@ function fetch_data(page, perpage) {
         data:data,
         url:route,
         success:function(response){
-            $('#request').html(response);
+            $('#requests').html(response);
             // if(window.location.pathname.split('/')[2]  == 'all-ads-on-tab' || window.location.pathname.split('/')[2] =='all')
             // {
             //     $("#all-ads-on").html(response);
