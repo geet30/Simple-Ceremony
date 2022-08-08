@@ -42,6 +42,14 @@ $(document).ready(function(){
     var hash = window.location.hash;
     $('.list-group a[href="' + hash + '"]').tab('show');
 
+
+    $('ul.theme-tabs').click(function(){
+
+        var tab_id = $(this).find('li').find('a.active').attr("id");
+        history.pushState('', '', [tab_id])
+        console.log(tab_id);
+    
+    });
     
     $('.theme-tabs >li > a').click(function(e) {     
         e.preventDefault();

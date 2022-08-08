@@ -61,7 +61,7 @@
             <?php if($count==0){?>
             <tr>
                 <td colspan="6">
-                <center>{{__('translation.noRecord')}} </center>
+                <center>No Record Found</center>
                 </td>
             </tr>
             <?php } ?>

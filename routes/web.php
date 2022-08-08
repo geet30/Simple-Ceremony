@@ -260,9 +260,9 @@ $adminRoutes = function() {
         'index'
     ]]);
    
-    Route::get('/locations-listing/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations');
+    Route::get('/locations-listing/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations-listing');
 
-    Route::get('/locations-listing', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations');
+    Route::get('/locations-listing', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations-listing');
     Route::get('create-celebrants-invoice', function () {
         return view('admin.payments.create-celebrants-invoice');
     });

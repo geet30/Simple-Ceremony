@@ -14,15 +14,19 @@ class LocationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$slug)
+    public function index(Request $request,$slug=null)
     {
         $records = $req_page = 1;
         $locations = Locations::all();
+        
         $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);  
         if($request->ajax()){   
+            echo $slug;die('fdg');
+           
             $viewurl = 'elements.admin.location.'.$slug;       
             return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
         }
+        
         return view('admin.locations.listing',compact('locations','data'));
     }
     /**

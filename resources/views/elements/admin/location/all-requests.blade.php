@@ -30,8 +30,8 @@
             <tfoot>
                <tr>
                   <td colspan="8">
-                     <?php $data = array();?>
-                     @include('elements.pagination.pagination',array('data'=>$data))
+                    
+                     @include('elements.pagination.pagination', ['title' => 'All Requests', '' => '', 'data' => $data])
             
                   </td>
                </tr>
