@@ -14,27 +14,31 @@
                </tr>
             </thead>
             <tbody>
-               @foreach($data as $request)
-                  <tr>
-                     <td class="body-2 neutral-100">{{ $request->name}}</td>
-                     <td class="body-2 neutral-100">{{ $request->location_name}}</td>
-                     <td class="body-2 neutral-100" >{{$request->specific_location}}</td>
-                     <td class="body-2 neutral-100">{{ $request->post_code}}</td>
-                     <td class="body-2 neutral-100">{{ $request->street_address}},{{$request->suburb}},{{$request->state}},</td>
-                     @if($request->status == 0)
-                        <td><a class="table-link button-1"> <a class="btn edit-btn" href="{{route('locations.create',$request->id)}}">Confirm</a></td>
-                    @endif
-                    @if($request->status == 2)
-                    <td><a class="table-link button-1"> <a class="btn edit-btn"  href="#">Declined</a></td>
-                    @endif
-                    @if($request->status == 1)
-                    <td><a class="table-link button-1"> <a class="btn edit-btn"  href="
-                    #">Approved</a></td>
-                    @endif
-                    
-                     <td><a class="table-link button-1"  href="{{route('location.view',$request->id)}}"> View info</a> </td>
-                  </tr>
-               @endforeach
+               @if(count($data) > 0)
+                  @foreach($data as $request)
+                     <tr>
+                        <td class="body-2 neutral-100">{{ $request->name}}</td>
+                        <td class="body-2 neutral-100">{{ $request->location_name}}</td>
+                        <td class="body-2 neutral-100" >{{$request->specific_location}}</td>
+                        <td class="body-2 neutral-100">{{ $request->post_code}}</td>
+                        <td class="body-2 neutral-100">{{ $request->street_address}},{{$request->suburb}},{{$request->state}},</td>
+                        @if($request->status == 0)
+                           <td><a class="table-link button-1"> <a class="btn edit-btn" href="{{route('locations.create',$request->id)}}">Confirm</a></td>
+                     @endif
+                     @if($request->status == 2)
+                     <td><a class="table-link button-1"> <a class="btn edit-btn"  href="#">Declined</a></td>
+                     @endif
+                     @if($request->status == 1)
+                     <td><a class="table-link button-1"> <a class="btn edit-btn"  href="
+                     #">Approved</a></td>
+                     @endif
+                     
+                        <td><a class="table-link button-1"  href="{{route('location.view',$request->id)}}"> View info</a> </td>
+                     </tr>
+                  @endforeach
+               @else
+                  <td colspan="7"><center>No record found </center></td>
+               @endIf
                
             </tbody>
             <tfoot>

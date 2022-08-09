@@ -51,12 +51,14 @@
                         </div>
                         <div class="col-12">
                             <div class="overview-add-ons">
-                              @foreach($addons as $addon)
+                            {{-- @foreach($addon['package'] as $package) --}}
                                <div class="overview-add-ons-details mb-4">
                                   <div class="row">
                                      <div class="col-md-5 mb-4">
                                         <label for="InputName" class="form-label small-text2">Name package</label>
-                                        <input type="text" value="Corona pack" class="form-control body-1 netural-100" readonly="">
+                                        
+                                      
+                                         <input type="text" value="Corona pack" class="form-control body-1 netural-100" readonly=""> 
                                      </div>
                                      <div class="col-md-5 mb-4">
                                         <label for="InputName" class="form-label small-text2">Provider name</label>
@@ -86,12 +88,12 @@
                                               <span class="netural-100 small-text2 me-md-4 mb-2 mb-md-0">Status</span>
                                               <span class="status pending me-md-5 mb-3 mb-md-0">Pending</span>
                                            </div>
-                                           <a href="/user/order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>
+                                          {{--  <a href="{{route('add-ons.detail',$addon['id'])}}" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>--}}
                                         </div>
                                      </div>
                                   </div>
                                </div>
-                              @endforeach
+                             {{-- @endforeach --}} 
                                <!-- <div class="overview-add-ons-details mb-4">
                                   <div class="row">
                                      <div class="col-md-5 mb-4">

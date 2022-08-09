@@ -157,13 +157,13 @@ class HomeController extends Controller
 
     }
     public function gallery($id){
-        $data = PartnerPackages::with([
-            'gallery' => function($query){
-                $query->select('image_name','id','package_id');
-            }
+        try{
+            $data = User::addonPackageGallery($id);
+            return view('pages.add-ons-gallery',compact(['data']));
+        }catch (\Exception $e) {
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
-        ])->select('id')->where('id',$id)->first()->toArray();
-        return view('pages.add-ons-gallery',compact('data'));
+        }
     }
     public function requestCustomLocation(){
         $timeslot  = timeslots();
