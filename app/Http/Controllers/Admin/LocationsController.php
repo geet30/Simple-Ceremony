@@ -70,11 +70,10 @@ class LocationsController extends Controller
                 'price' => 'required',
             ]);         
             return  Locations::addData($request);
-         }
-         catch (\Exception $ex) {
-            // echo "<pre>";print_r($ex->getMessage());die;
+        }
+        catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);
-         }
+        }
   
     }
     /**

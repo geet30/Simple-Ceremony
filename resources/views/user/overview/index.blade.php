@@ -51,6 +51,7 @@
                         </div>
                         <div class="col-12">
                             <div class="overview-add-ons">
+                              @foreach($addons as $addon)
                                <div class="overview-add-ons-details mb-4">
                                   <div class="row">
                                      <div class="col-md-5 mb-4">
@@ -90,7 +91,8 @@
                                      </div>
                                   </div>
                                </div>
-                               <div class="overview-add-ons-details mb-4">
+                              @endforeach
+                               <!-- <div class="overview-add-ons-details mb-4">
                                   <div class="row">
                                      <div class="col-md-5 mb-4">
                                         <label for="InputName" class="form-label small-text2">Name package</label>
@@ -165,7 +167,7 @@
                                         </div>
                                      </div>
                                   </div>
-                               </div>
+                               </div> -->
                             </div>
                          </div>
                      </div>

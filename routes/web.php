@@ -119,8 +119,8 @@ $websiteRoutes = function() {
         return view('pages.quiz');
     });
     Route::middleware('auth')->group(function () {
-        Route::get('user-overview' , 'App\Http\Controllers\User\UserAddonController@index')->name('user-overview');
-        Route::get('user-add-ons' , 'App\Http\Controllers\User\UserAddonController@addons')->name('user-add-ons');
+        Route::get('user-overview' , 'App\Http\Controllers\User\UserController@index')->name('user-overview');
+        Route::get('user-add-ons' , 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
         // Route::group(['prefix' => 'user'], function () {
         
         Route::get('password-reset', function () {

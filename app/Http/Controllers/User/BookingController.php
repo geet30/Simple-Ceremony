@@ -136,7 +136,7 @@ class BookingController extends Controller
         return $this->successResponse([],'Date added successfully.');
     }
     
-         /**  
+    /**  
      * Post Request to store step3 info 
      *
      * @param  \Illuminate\Http\Request  $request
