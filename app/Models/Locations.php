@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Traits\Location\ { Methods,Relationship };
 class Locations extends Model
 {
-    use HasFactory;
+    use HasFactory,Methods,Relationship ;
 
     /**
      * The attributes that are mass assignable.

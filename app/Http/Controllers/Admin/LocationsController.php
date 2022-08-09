@@ -18,9 +18,6 @@ class LocationsController extends Controller
    
         $records = 1;$req_page = 1;
         $locations = Locations::all();
-    //    dd($locations);
-   
-
         if($request->has('page')){
             $req_page = $request->page; 
         }
@@ -29,8 +26,6 @@ class LocationsController extends Controller
             if($slug == ''){
                 $slug = 'all-requests';
             }
-         
-
             $viewurl = 'elements.admin.location.'.$slug;       
             return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
         }
@@ -58,7 +53,6 @@ class LocationsController extends Controller
         if($id){
             $data = RequestLocations::where('id',$id)->first();
         }
-        // echo "<pre>";print_r($data);die('dsf');
         return view('admin.locations.create',compact('data'));
     }
 
@@ -70,39 +64,18 @@ class LocationsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        // echo "<pre>";print_r(Auth::user()->id);die;
-        $request->validate([
-            'name' => 'required',
-            'price' => 'required',
-        ]);
-        $input = $request->all();
-        $input['added_by'] = Auth::user()->id;
-        $checkEmail = Locations::where('name',$request->name)->first();
-        if($checkEmail){
-            $msg = 'Location already exists with this name.';
-            return \Redirect::back()->withErrors(['msg' => $msg]);
-        }
-        if($request->hasFile('cover_image')){
-            $input['cover_image'] = uploadImage($request->cover_image, 'locations');
-        }
-        $result = Locations::create($input);
-
-        if($result){
-            if($request->has('location_images')){
-                foreach($request->location_images as $file){
-                    $image['location_id'] = $result->id;
-                    $image['image'] = uploadImage($file, 'locations');
-                    LocationImages::create($image);
-                }   
-            }
-            $status['status'] = 1;  
-            $result = RequestLocations::where('id', $request->custom_location_id)->update($status);
-            $msg = 'Location added successfully.';
-            $route = 'locations/all-packages';
-            return redirect($route)->with('message', $msg);
-        }
-        return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);
+        try {  
+            $request->validate([
+                'name' => 'required',
+                'price' => 'required',
+            ]);         
+            return  Locations::addData($request);
+         }
+         catch (\Exception $ex) {
+            // echo "<pre>";print_r($ex->getMessage());die;
+            return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);
+         }
+  
     }
     /**
      * Change Status of the specified resource.

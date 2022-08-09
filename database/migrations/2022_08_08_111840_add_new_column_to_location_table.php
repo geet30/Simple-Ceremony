@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::table('locations', function (Blueprint $table) {
             $table->integer('custom_location_id')->nullable()->unsigned()->after('custom_location');
+            $table->string('location_category')->nullable()->after('custom_location');
             $table->smallInteger('status')->comment('0 = pending, 1=approved,2=rejected')->default(0)->after('custom_location_id');
         });
     }

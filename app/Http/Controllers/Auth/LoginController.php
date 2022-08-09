@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
+use Config;
 
 use App\Models\{User};
 class LoginController extends Controller
@@ -44,12 +45,11 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-       
-        $redirection = '';
    
+        $redirection = '';
         if ($request->route_name=='admin-login') {
             $role = 'Admin';
-            $redirection = 'locations';
+            $redirection = 'locations/all-requests';
         }
         else if ($request->route_name=='partner-login') {
             $role = 'Partner';
@@ -57,7 +57,9 @@ class LoginController extends Controller
         }
         else if ($request->route_name=='user-login') {
             $role = 'User';
-            $redirection = 'user-add-ons';
+            $redirection = 'user-overview';
+        }else{
+
         }
         $request->validate([
             'email' => 'required|email',

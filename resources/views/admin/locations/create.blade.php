@@ -100,7 +100,8 @@
                                     <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload photos</p>
                                     <input type="file" multiple="" name="location_images[]" data-max_length="20" id="upload__inputfile" class="upload__inputfile" required>
                                     <div class="invalid-feedback" style="
-    font-size: 0.875em;font-weight: 400;position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
+                                       font-size: 0.875em;font-weight: 400;position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required
+                                    </div>
                                  </label>
                               </div>
                               <div class="upload__img-wrap"></div>
@@ -110,7 +111,8 @@
                            <label for="Key" class="form-label small-text2">Key advantages of site</label>
                            <div class="row">
                               <div class="col-10 col-sm-8 col-md-6 ">
-                                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="advantages[]" id="Key">
+                                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100" 
+                                 name="key_advantages[]" id="Key">
                               </div>
                               <!-- <div class="col-2 col-sm-4 col-md-6">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
