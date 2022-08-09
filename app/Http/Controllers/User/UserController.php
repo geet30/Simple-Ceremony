@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index(Request $request){
         // die('gfdg');
         try{
-            $addons = User::userAddons();
+            $addons = User::userPackages();
             // dd($addons);
             return view('user.overview.index',compact(['addons']));
         }catch (\Exception $e) {
@@ -44,6 +44,17 @@ class UserController extends Controller
             
         }   
        
+    }
+    public function addonDetail($id){
+        // echo $id;die;
+        try{
+            $data = User::userPackages($id);
+            dd($data);
+            return view('user.overview.order-add-ons',compact(['addons']));
+        }catch (\Exception $e) {
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+            
+        }   
     }
 }
 ?>

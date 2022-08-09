@@ -121,6 +121,8 @@ $websiteRoutes = function() {
     Route::middleware('auth')->group(function () {
         Route::get('user-overview' , 'App\Http\Controllers\User\UserController@index')->name('user-overview');
         Route::get('user-add-ons' , 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
+        Route::get('add-ons/detail/{id}' , 'App\Http\Controllers\User\UserController@addonDetail')->name('add-ons.detail');
+       
         // Route::group(['prefix' => 'user'], function () {
         
         Route::get('password-reset', function () {
@@ -130,9 +132,7 @@ $websiteRoutes = function() {
             return view('user.create-password');
         });
         
-        Route::get('order-add-ons', function () {
-            return view('user.overview.order-add-ons');
-        });
+      
         Route::get('add-ons-gallery', function () {
             return view('user.overview.add-ons-gallery');
         });
@@ -202,14 +202,14 @@ $websiteRoutes = function() {
 $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+    Route::get('sign-up', function () {
+        return view('admin.sign-up');
+    });
+    Route::get('password-reset', function () {
+        return view('admin.password-reset');
+    });
     Route::middleware('auth')->group(function () {
-        Route::get('sign-up', function () {
-            return view('admin.sign-up');
-        });
-        Route::get('password-reset', function () {
-            return view('admin.password-reset');
-        });
-
+        
         Route::get('account-details', function () {
             return view('admin.account.account-details');
         });
@@ -354,11 +354,13 @@ $adminRoutes = function() {
 $partnerRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
+    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm'); 
+    Route::get('password-reset', function () {
+        return view('partner.password-reset');
+    });
     Route::middleware('auth')->group(function () {
-        Route::get('password-reset', function () {
-            return view('partner.password-reset');
-        });
-        Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm'); 
+        
+       
         Route::get('all-partners', function () {
             return view('partner.all-partners');
         });
@@ -375,9 +377,6 @@ $partnerRoutes = function() {
         Route::get('partner-details', function () {
             return view('partner.partner-details');
         });
-        // Route::get('add-ons', function () {
-        //     return view('partner.add-ons');
-        // })->name('admin-add-ons');
         Route::get('add-ons',[App\Http\Controllers\Partner\AddonsController::class, 'index'])->name('partner-addons');
 
         Route::get('add-new-package', function () {
