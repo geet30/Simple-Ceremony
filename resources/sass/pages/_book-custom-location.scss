@@ -4,6 +4,7 @@
             a{
                 opacity: 0.5;
                 position: relative;
+                outline:none;
                 &.active{
                     opacity: 1; 
                 }

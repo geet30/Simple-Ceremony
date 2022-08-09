@@ -23,6 +23,7 @@
             &.active {
                 color: $turquoise-100;
                 border-bottom: 2px solid $turquoise-100;
+                outline: none;
                 span {
                     color: $turquoise-100;
                 }

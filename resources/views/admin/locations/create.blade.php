@@ -9,7 +9,7 @@
       @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
-               <a href="/admin/location" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a href="/locations/all-packages" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
                <div class="card panel-card">
@@ -19,6 +19,7 @@
                   <div class="card-body">
                   <form class="row g-3 needs-validation" novalidate  method="POST" action="{{url('store-location')}}" enctype="multipart/form-data">
                       @csrf
+                      <input type="hidden" name="custom_location_id" value="{{ isset($data['id']) ? $data['id'] : '' }}">
                         @if($errors->any())
                         <div class="alert alert-danger mb-3 alert-block">
                            <button type="button" class="close" data-dismiss="alert">×</button>  
@@ -27,22 +28,22 @@
                         @endif
                         <div class="col-md-5 mb-4">
                            <label for="Location" class="form-label small-text2">Location *</label>
-                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" id="Location" required>
+                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" value="{{ isset($data['location_name']) ? $data['location_name'] : '' }}" id="Location" required>
                            <div class="invalid-feedback">
                               Location name is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Address" class="form-label small-text2">Address</label>
-                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" id="Address">
+                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['street_address']) ? $data['street_address'] : '' }}" id="Address">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Town" class="form-label small-text2">Suburb/ Town</label>
-                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" name="town" id="Town">
+                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['suburb']) ? $data['suburb'] : '' }}"  name="town" id="Town">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Code" class="form-label small-text2">Post Code</label>
-                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" name="post_code" id="Code">
+                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : '' }}" name="post_code" id="Code">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Google coordinates</label>
@@ -80,23 +81,27 @@
                               <option value="O4" data-badge="">Johnson</option>
                            </select>
                         </div>
-                        <div class="col-md-12 mb-4 d-flex flex-column">
+                        <div class="col-md-12 mb-4 d-flex flex-column position-relative">
                            <label for="photos" class="form-label small-text2 mb-20">Upload cover photos</label>
                            <div class="drop-zone text-center">
                               <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
                               <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
                               <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
                               </span>
-                              <input type="file" name="cover_image" class="drop-zone__input">
+                              <input type="file" name="cover_image" class="drop-zone__input" required>
+                              <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cover photo is required.</div>
                            </div>
                         </div>
-                        <div class="col-md-12 mb-4 d-flex flex-column">
+                        <div class="col-md-12 mb-4 d-flex flex-column partner-gallery-upload-box position-relative">
                            <label for="gallery" class="form-label small-text2 mb-20">Upload gallery photos</label>
                            <div class="upload__box">
                               <div class="upload__btn-box">
                                  <label class="theme-btn primary-btn ">
                                     <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload photos</p>
-                                    <input type="file" multiple="" name="location_images[]" data-max_length="20" class="upload__inputfile">
+                                    <input type="file" multiple="" name="location_images[]" data-max_length="20" id="upload__inputfile" class="upload__inputfile" required>
+                                    <div class="invalid-feedback" style="
+                                       font-size: 0.875em;font-weight: 400;position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required
+                                    </div>
                                  </label>
                               </div>
                               <div class="upload__img-wrap"></div>
@@ -106,7 +111,8 @@
                            <label for="Key" class="form-label small-text2">Key advantages of site</label>
                            <div class="row">
                               <div class="col-10 col-sm-8 col-md-6 ">
-                                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="advantages[]" id="Key">
+                                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100" 
+                                 name="key_advantages[]" id="Key">
                               </div>
                               <!-- <div class="col-2 col-sm-4 col-md-6">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>

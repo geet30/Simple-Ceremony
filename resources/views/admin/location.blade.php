@@ -46,61 +46,9 @@
             'price' => ' $350',
             'name' => ' Blues point reserve',
             ],
-            [
-            'image' => '/images/admin/location/v2.jpg',
-            'price' => ' $350',
-            'name' => ' Bradfield park',
-            ],
-            [
-            'image' => '/images/admin/location/v3.jpg',
-            'price' => ' $350',
-            'name' => ' Tench park, penrith',
-            ],
-            [
-            'image' => '/images/admin/location/v2.jpg',
-            'price' => ' $350',
-            'name' => ' Bradfield park',
-            ],
-            [
-            'image' => '/images/admin/location/v1.jpg',
-            'price' => ' $350',
-            'name' => ' Blues point reserve',
-            ],
-            [
-            'image' => '/images/admin/location/v2.jpg',
-            'price' => ' $350',
-            'name' => ' Bradfield park',
-            ],
-            [
-            'image' => '/images/admin/location/v3.jpg',
-            'price' => ' $350',
-            'name' => ' Tench park, penrith',
-            ],
-            [
-            'image' => '/images/admin/location/v2.jpg',
-            'price' => ' $350',
-            'name' => ' Bradfield park',
-            ],
-            [
-            'image' => '/images/admin/location/v1.jpg',
-            'price' => ' $350',
-            'name' => ' Blues point reserve',
-            ],
-            [
-            'image' => '/images/admin/location/v2.jpg',
-            'price' => ' $350',
-            'name' => ' Bradfield park',
-            ],
-            [
-            'image' => '/images/admin/location/v3.jpg',
-            'price' => ' $350',
-            'name' => ' Tench park, penrith',
-            ],
-            [
-            'image' => '/images/admin/location/v2.jpg',
-            'price' => ' $350',
-            'name' => ' Bradfield park',
-            ],
+            
+           
+            
             ]])
          </div>
       </div>

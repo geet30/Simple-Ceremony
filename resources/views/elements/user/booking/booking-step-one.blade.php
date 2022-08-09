@@ -53,25 +53,25 @@
             <div class="row">
                  <div class="col-md-6 mb-4">
                     <select name="booking_start_time" id="booking_start_time" class="form-control" required>
-                        <option value="" disabled="" selected="" hidden="">--:--</option>
+                        <option value="" disabled="" selected="" hidden="">Select Start Time</option>
                         @foreach($timeslot as $time)
 
                             <option value="{{$time}}">{{$time}}</option>
                         @endforeach
                     </select>
                    <p style="font-size:12px;">The selected time is the start time of your Ceremony</p>
-                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Booking time is required</div>
+                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Booking start time is required</div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <select name="booking_end_time" id="booking_end_time" class="form-control" required>
-                        <option value="" disabled="" selected="" hidden="">--:--</option>
+                        <option value="" disabled="" selected="" hidden="">Select End Time</option>
                         @foreach($timeslot as $time)
 
                             <option value="{{$time}}">{{$time}}</option>
                         @endforeach
                     </select>
                     <p style="font-size:12px;">Selecting multiple timeframes will result in higher costs</p>
-                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Booking time is required</div>
+                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Booking end time is required</div>
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@ return new class extends Migration
             $table->string('coordinates')->nullable();
             $table->string('parking_details')->nullable();
             $table->decimal('parking_cost',10,2)->default(0);
-            $table->smallInteger('status')->comment('0 = pending, 1=approved')->default(0);
+            $table->smallInteger('status')->comment('0 = pending, 1=approved,2=rejected')->default(0);
             $table->timestamps();
         });
     }

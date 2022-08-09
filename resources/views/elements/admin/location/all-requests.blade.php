@@ -21,7 +21,17 @@
                      <td class="body-2 neutral-100" >{{$request->specific_location}}</td>
                      <td class="body-2 neutral-100">{{ $request->post_code}}</td>
                      <td class="body-2 neutral-100">{{ $request->street_address}},{{$request->suburb}},{{$request->state}},</td>
-                     <td><a class="table-link button-1"> <a class="btn edit-btn "  href="">Confirm</a></td>
+                     @if($request->status == 0)
+                        <td><a class="table-link button-1"> <a class="btn edit-btn" href="{{route('locations.create',$request->id)}}">Confirm</a></td>
+                    @endif
+                    @if($request->status == 2)
+                    <td><a class="table-link button-1"> <a class="btn edit-btn"  href="#">Declined</a></td>
+                    @endif
+                    @if($request->status == 1)
+                    <td><a class="table-link button-1"> <a class="btn edit-btn"  href="
+                    #">Approved</a></td>
+                    @endif
+                    
                      <td><a class="table-link button-1"  href="{{route('location.view',$request->id)}}"> View info</a> </td>
                   </tr>
                @endforeach

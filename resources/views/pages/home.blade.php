@@ -100,7 +100,7 @@
          <div class="col-md-12">
             <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
          </div>
-         @include('elements.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addons' => $addons])
+         @include('elements.addons.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addons' => $addons])
 
          <div class="col-12 mt-5 d-flex justify-content-center"> <a href="{{route('add-ons')}}" class="theme-btn primary-btn  ">See all add-ons</a> </div>
       </div>

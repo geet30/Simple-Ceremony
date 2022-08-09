@@ -270,8 +270,6 @@ class AddonsController extends Controller
         // dd($data);
        
         return View::make('admin.addons.searchList', ['addons' => $data,'table'=>$request->table]);
-
-
     }
 
     /**
