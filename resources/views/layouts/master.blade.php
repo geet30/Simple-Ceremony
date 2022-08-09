@@ -13,7 +13,7 @@
       <link href="/custom-css/select-2.css" rel="stylesheet">
       <link href="/custom-css/slick.css" rel="stylesheet">
       <link href="/custom-css/intl-tel-input.css" rel="stylesheet">
-      <link href="/custom-css/calendar.css" rel="stylesheet">
+      {{-- <link href="/custom-css/calendar.css" rel="stylesheet"> --}}
       <link href="/custom-css/video-player.css" rel="stylesheet">
       <link href="/fonts/stylesheet.css" rel="stylesheet">
       <link href="/custom-css/style.css" rel="stylesheet">

@@ -9,9 +9,9 @@
                      <p class="paragraph text-white">The best offer</p>
                      <h1 class="h2 text-white text-center mb-3">Check available location and time here</h1>
                   </h2>
-                  <div class="col-md-9 mx-auto location-search-data ">
+                  <div class="col-md-9 col-lg-11 col-xl-9 mx-auto location-search-data ">
                      <div class="row align-items-center">
-                        <div class="col-lg-5 mb-4">
+                        <div class="col-lg-4 col-xl-4 mb-4">
                            <p class="text-black button-1">Location</p>
                            <div class="search-location-with-icon d-flex">
                               <img class="me-2" src="images/location-page/location-icon.svg" alt="location-icon">
@@ -26,7 +26,7 @@
                               </select>
                            </div>
                         </div>
-                        <div class="col-lg-4 mb-4">
+                        <div class="col-lg-4 col-xl-4 mb-4">
                            <p class="text-black button-1">Date & times</p>
                            <p class="body-2 m-0 d-flex gap-2">
                               <a class="d-flex neutral-100 text-decoration-none choose-date outline-0" data-bs-toggle="modal" data-bs-target="#calendarmodal">
@@ -34,11 +34,11 @@
                               </a>
                            </p>
                         </div>
-                        <div class="col-lg-3">
-                           <a onclick="SearchBookingRecords('search-booking-location')" class="theme-btn primary-btn d-inline-flex">
+                        <div class="col-lg-4 col-xl-4 d-flex align-items-center justify-content-start">
+                           <a onclick="SearchBookingRecords('search-booking-location')" class="theme-btn primary-btn d-inline-flex px-3 me-3">
                               <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon" >Search
                            </a>
-                           <a href="{{route('user.booking')}}" class="btn btn-danger btn-sm">Reset</a>
+                           <a href="{{route('user.booking')}}" class="theme-btn primary-btn-border">Reset</a>
                         </div>
                      </div>
                   </div>
