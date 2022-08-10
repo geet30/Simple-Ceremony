@@ -18,10 +18,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        // die('gfdg');
         try{
             $addons = User::userPackages();
-            // dd($addons);
             return view('user.overview.index',compact(['addons']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
@@ -45,6 +43,12 @@ class UserController extends Controller
         }   
        
     }
+    /**  
+     * addon detail 
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function addonDetail($id){
         // echo $id;die;
         try{

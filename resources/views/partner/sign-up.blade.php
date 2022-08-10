@@ -47,14 +47,15 @@
                            <input type="text" placeholder="Type your contact name here" class="form-control body-1 netural-100" name="user[contact_name]" id="InputName" required>
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Contact name is required</div>
                         </div>
-                        <div class="col-md-6 mb-4">
+                        <div class="col-md-6 mb-4 phone_number">
                            <label for="phone" class="form-label small-text2">Phone number *</label>
                            <input type="hidden"  id="code" name ="user[country_code]" value="61" >
-                           <input id="phone" type="tel" class="form-control body-1 netural-100" placeholder="Your phone number" name="user[phone]" required> 
+                           <input id="phone" type="tel" class="form-control body-1 netural-100 tel-input" placeholder="Your phone number" name="user[phone]" required> 
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div> 
                             <!-- <span id="valid-msg" class="hide">Valid</span>
                            <span id="error-msg" class="hide">Invalid number</span> -->
-                          
+                           <div class="invalid-feedback phone_number_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                           <div class="invalid-feedback invalid-phone-number"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is invalid</div>
                            
                         </div>
                         <div class="col-md-6 mb-4">

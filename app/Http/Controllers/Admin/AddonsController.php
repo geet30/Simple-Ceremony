@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Addons,PartnerProducts,PartnerPackages,RejectedProducts};
+use App\Models\{Addons,PartnerProducts,User,RejectedProducts};
 use Illuminate\Http\Request;
 use App\Http\Requests\AddonsRequest;
 use View;
@@ -106,13 +106,13 @@ class AddonsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function gallery($id){
-        $data = PartnerPackages::with([
-            'gallery' => function($query){
-                $query->select('image_name','id','package_id');
-            }
+        try{
+            $data = User::addonPackageGallery($id);
+            return view('admin.addons.add-ons-gallery',compact('data'));
+        }catch (\Exception $e) {
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
-        ])->select('id')->where('id',$id)->first()->toArray();
-        return view('admin.addons.add-ons-gallery',compact('data'));
+        }
     }
      /**
      * Change status of packages.
@@ -141,12 +141,9 @@ class AddonsController extends Controller
         
         $result = PartnerProducts::where('id', $request->id)->update($input);
         if($result){
-            // return response()->json(['status'=>true,"message"=>'Status changed successfully.','data'=>$status]);
-            return $this->successResponse($data,'Status changed successfully.');
+             return $this->successResponse($data,'Status changed successfully.');
         }
-        // return redirect()->route('admin.addons',['slug' => 'all']);
         return response()->json(['status'=>false,"message"=>'something went wrong']);
-        // return $this->errorResponse([], 'something went wrong', 400);
     }
 
     /**
@@ -280,8 +277,11 @@ class AddonsController extends Controller
      */
     public function destroy($id){
 
-        Addons::destroy($id);
-        Session::flash('flash_message', 'Addon is deleted successfully.');
-        return redirect()->route('admin.addons',['slug' => 'all']);
+        $checkifExistInPackage =  Addons::checkifExistInPackage($id);
+        if(count($checkifExistInPackage)==0){
+            Addons::destroy($id);
+            return redirect()->back()->with(['message'=>'Addon deleted successfully','class'=>'alert-success']);
+        }
+        return redirect()->back()->with(['message'=>'This Addon exist in package','class'=>'alert-danger']);
     }
 }

@@ -275,10 +275,21 @@ $adminRoutes = function() {
         
         Route::post('/change-location-status',[LocationsController::class, 'changeStatus']);
         Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location.view');
+        
+        Route::post('get-packages',[LocationsController::class, 'getPackages']);
         Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
+        /** Addon Setting **/
         Route::post('/submit-addon',[AddonsController::class, 'store']);
         Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
         Route::post('/update-addon',[AddonsController::class, 'update']);
+         /** Addon Setting **/
+
+        /** Location Filter Setting **/
+        Route::post('/submit-filter',[LocationsController::class, 'saveFilter']);
+        Route::get('filter/destroy/{id}', [LocationsController::class, 'destroyFilter'])->name('filters.destroy');
+        Route::post('/update-filter',[LocationsController::class, 'updateFilter']);
+        /** Location Filter Setting **/
+
         Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
         Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
         Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('addons.gallery');

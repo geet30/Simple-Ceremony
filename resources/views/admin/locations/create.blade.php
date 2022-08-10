@@ -114,10 +114,7 @@
                                  <input type="text" placeholder="Type here" class="form-control body-1 netural-100" 
                                  name="key_advantages[]" id="Key">
                               </div>
-                              <!-- <div class="col-2 col-sm-4 col-md-6">
-                                 <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
-                              </div> -->
+                              
                            </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -151,40 +148,32 @@
                         <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
                         <div class="col-md-5 mb-4">
                            <label for="age" class="form-label small-text2">Filter criteria</label>
-                           <select name="filter_by_categorie1s" id="selectinput1" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
-                              <option value="O1" data-badge="">Park</option>
-                              <option value="O2" data-badge="">Harbour</option>
-                              <option value="O3" data-badge="">River</option>
-                              <option value="O4" data-badge="">Indoor</option>
-                              <option value="O4" data-badge="">Outdoor</option>
-                              <option value="O4" data-badge="">Beach</option>
-                              <option value="O4" data-badge="">Unique</option>
+                           <select name="location_category" id="selectinput1" class="js-placeholder-single-input form-control">
+                              <option value="" disabled="" selected="" hidden="">Select Filter</option>
+                              @foreach($filters as $filter)
+                                  <option value="{{$filter->id}}">{{$filter->name}}</option>
+
+                              @endforeach
                            </select>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 keyPartnerPackage">
                            <div class="row">
                               <div class="col-md-5 mb-4">
                                  <label for="partner" class="form-label small-text2">Select partner</label>
-                                 <select class="js-placeholder-single-input form-control">
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
+                                 <select class="js-placeholder-single-input form-control select_partner" id="select_partner" name="partners">
+                                    <option value="">Select Partner</option>
+                                    @foreach($partners as $partner)
+                                       <option value="{{$partner['user']['id']}}">{{$partner['user']['name']}}</option>
+
+                                    @endforeach
+                                   
                                  </select>
                               </div>
                               <div class="col-md-5 mb-4">
                                  <label for="package" class="form-label small-text2">Select Package</label>
-                                 <select class="js-placeholder-single-input form-control">
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
+                                 <select class="js-placeholder-single-input form-control select_packages" name="packages">
+                                 <option value="">Select Packages</option>
+                                   
                                  </select>
                               </div>
                               <div class="col-2 ">
@@ -194,7 +183,7 @@
                            </div>
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link">
+                           <a class="d-flex add-link" onclick="appendHtml('keyPartnerPackage', 'partnerpackage')">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add other partners</div>
                            </a>
@@ -210,15 +199,5 @@
       </div>
    </div>
 </div>
-<!-- <script type="text/javascript">
-   var advantage = '<div class="row "><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><label for="InputName" class="form-label small-text2 d-block">&nbsp;</label><a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
-
-   function appendHtml(parentClass, type) {
-      var htmlCode = '';
-      if(type=='advantage'){
-         htmlCode=advantage;
-      }
-      $(parentClass).append(htmlCode); 
-   }
-</script> -->
+@include('elements.admin.location.js')
 @endsection

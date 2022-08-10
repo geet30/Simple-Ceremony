@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,RequestLocations,LocationImages};
+use App\Models\{Locations,RequestLocations,LocationFilters,User};
 use Illuminate\Http\Request;
 use View;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +15,7 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request,$slug=null){
-   
+        $filters = LocationFilters::all();
         $records = 1;$req_page = 1;
         $locations = Locations::all();
         if($request->has('page')){
@@ -30,7 +30,7 @@ class LocationsController extends Controller
             return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
         }
         
-        return view('admin.locations.listing',compact('locations','data'));
+        return view('admin.locations.listing',compact('locations','data','filters'));
     }
     /**
      * View the detail of resource.
@@ -49,11 +49,31 @@ class LocationsController extends Controller
      */
     public function create(Request $request,$id=null)
     {
-       $data = array();
+        $filters = LocationFilters::all();
+        $partners = Locations::partners();
+        // dd($partner_package);
+        $data = array();
         if($id){
             $data = RequestLocations::where('id',$id)->first();
         }
-        return view('admin.locations.create',compact('data'));
+        return view('admin.locations.create',compact('data','filters','partners'));
+    }
+
+    
+    /**
+     * fetch  the packages.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getPackages(Request $request)
+    {
+      
+        $getPartnerPackages = Locations::getPartnerPackages($request->id);
+        if(!empty($getPartnerPackages)){
+            return $this->successResponse($getPartnerPackages,'data found successfully.');
+        }
+
+        return $this->errorResponse([], 'something went wrong', 400);
     }
 
     /**
@@ -75,6 +95,58 @@ class LocationsController extends Controller
             return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);
         }
   
+    }
+   /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function saveFilter(Request $request)
+    {
+      
+        $input = $request->all();
+        $LocationFilters = LocationFilters::where('name',$request->name)->first();
+        if($LocationFilters){
+            $msg = 'Filter already exists with this name.';
+            return response()->json(['status'=>false,"message"=>$msg]);
+        }
+        
+        $result = LocationFilters::create($input);
+        if($result){
+            $msg = 'Filter added successfully.';
+            return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
+            
+        }
+        return response()->json(['status'=>false,"message"=>'Something went wrong.']);
+       
+    }
+    /**
+     * Update a resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updateFilter(Request $request){
+        LocationFilters::where('id', $request->input('id'))->update(['name'=>$request->input('name')]);
+        $msg = 'Filter updated successfully.';
+        return response()->json(['status'=>true,"message"=>$msg]);
+    }
+    /**
+     * Destroy a resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyFilter($id){ 
+        
+        $checkifExistInLocation =  Locations::checkifExistInLocation($id);
+       
+        if(count($checkifExistInLocation)==0){
+            LocationFilters::destroy($id);
+            return redirect()->back()->with(['message'=>'Filter deleted successfully','class'=>'alert-success']);
+        }
+        return redirect()->back()->with(['message'=>'This filter exist in package','class'=>'alert-danger']);
     }
     /**
      * Change Status of the specified resource.

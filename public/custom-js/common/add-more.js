@@ -124,11 +124,41 @@ $(document).ready(function(){
                </div>`;
      
    }
+   function partnerpackage(data){
+        html = '';
+        html = `<div class="row">
+        <div class="col-md-5 mb-4">
+           <label for="partner" class="form-label small-text2">Select partner</label>
+           <select class="js-placeholder-single-input form-control select_partner" id="select_partner" name="partners">
+              <option value="">Select Partner</option>`;
+              $.each(data, function(key, value) {
+               html +=`<option value="${value['user']['id']}">${value['user']['name']}</option>`;
+
+              });
+             
+           html +=`</select>
+        </div>
+        <div class="col-md-5 mb-4">
+           <label for="package" class="form-label small-text2">Select Package</label>
+           <select class="js-placeholder-single-input form-control select_packages" name="packages">
+           <option value="">Select Packages</option>
+             
+           </select>
+        </div>
+        <div class="col-2 ">
+           <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
+           <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
+        </div>
+     </div>`;   
+     return html; 
+   }
    window.appendHtml = function(parentClass, type,data=Array()) { 
       var htmlCode = '';
       if(type=='cart'){  
          htmlCode=cart(data);
-         // console.log(htmlCode);
+      }
+      if(type=='partnerpackage'){  
+         htmlCode=partnerpackage(data);
       }
       if(type=='advantage'){
          htmlCode=advantage
@@ -156,7 +186,7 @@ $(document).ready(function(){
       });
       $('#total_fee').html('$ '+total_fee.toFixed(2));
       
-    }
+   }
 
    //function to remove the elements
    window.remove = function(parentClass, el, packageContainer,type) { 

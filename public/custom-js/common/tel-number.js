@@ -1,6 +1,6 @@
 var telInput = $("#phone"),
-errorMsg = $("#error-msg"),
-validMsg = $("#valid-msg");
+errorMsg = $("#invalid-phone-number");
+
 
 
 // initialise plugin
@@ -35,8 +35,7 @@ validMsg = $("#valid-msg");
 
   var reset = function() {
   telInput.removeClass("error");
-  errorMsg.addClass("hide");
-  validMsg.addClass("hide");
+  errorMsg.removeClass("d-block");
   };
   $('.country-list li').click(function(){
     // alert($(this).data('dial-code'));
@@ -45,18 +44,20 @@ validMsg = $("#valid-msg");
   // on blur: validate
   telInput.blur(function() {
     reset();
-   
     // var getCode = telInput.intlTelInput('getSelectedCountryData').dialCode;
     // console.log(getCode);
     // $("#code").val((getCode));
     if ($.trim(telInput.val())) {
+      $(this).parents('.phone_number').find('.phone_number_required').removeClass('d-block');
       if (telInput.intlTelInput("isValidNumber")) {
-        validMsg.removeClass("hide");
+        // $(this).parents('.phone_number').find('.invalid-phone-number').removeClass('d-block');
         
       } else {
-        telInput.addClass("error");
-        errorMsg.removeClass("hide");
+        // $(this).parents('.phone_number').find('.invalid-phone-number').addClass('d-block');
+        
       }
+    }else{
+      $(this).parents('.phone_number').find('.phone_number_required').addClass('d-block');
     }
   });
 

@@ -23,12 +23,12 @@
                         <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="name" id="name" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Preferred names is required</div>
                      </div>
-                     <div class="col-md-6 mb-4">
+                     <div class="col-md-6 mb-4 phone_number">
                         <input type="hidden"  id="code" name ="country_code" value="61" >
                         <label for="phone" class="form-label small-text2">Phone number *</label>
-                        <input class="form-control body-1 netural-100 phone" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" required>
-           
-                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                        <input class="form-control body-1 netural-100 tel-input" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" required>
+                        <div class="invalid-feedback phone_number_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                        <div class="invalid-feedback invalid-phone-number"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is invalid</div>
                      </div>
                      <div class="col-md-6 mb-4">
                         <label for="email" class="form-label small-text2">Your email *</label>
@@ -37,26 +37,27 @@
                      </div>
                      <div class="col-md-6">
                         <div class="row">
-                           <div class="col-md-6">
+                           <div class="col-md-6 event_date">
                               <label for="event_date" class="form-label small-text2">Event date</label>
                               <div class="input-group date theme-datepicker">
-                                 <input role="button" type="text" class="form-control body-1 netural-100" id="event_date" name="event_date"  placeholder="Choose date here"/>
+                                 <input role="button" type="text" class="form-control body-1 netural-100 event_date_input" id="event_date" name="event_date"  placeholder="Choose date here" required/>
                                  <span class="input-group-append">
                                  </span>
-                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event date is required</div>
+                                 <div class="invalid-feedback event_date_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event date is required</div>
                               </div>
 
                              
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="event_start_time" class="form-label small-text2 invisible">Event start time</label>
-                              <select required="" name="event_start_time" id="event_start_time" class="js-placeholder-single-input form-control">
+                              <select required="" name="event_start_time" id="event_start_time" class="js-placeholder-single-input form-control" required>
                                  <option value="" disabled="" selected="" hidden="">Event start time</option>
                                  @foreach($timeslot as $time)
 
                                     <option value="{{$time}}">{{$time}}</option>
                                  @endforeach
                               </select>
+                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event time is required</div>
                            </div>
                         </div>
                      </div>
@@ -102,7 +103,7 @@
                      </div>
                      <div class="col-md-4 mb-4">
                         <label for="parking_cost" class="form-label small-text2">Parking costs *</label>
-                        <input type="text" placeholder="Type parking costs here" class="form-control body-1 netural-100" name="parking_cost" id="parking_cost" required>
+                        <input type="number" placeholder="Type parking costs here" class="form-control body-1 netural-100" name="parking_cost" id="parking_cost" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Parking costs is required</div>
                      </div>
                      <div class="col-md-12 mb-5 mt-3">

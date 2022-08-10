@@ -15,10 +15,11 @@
             }
         });
         $('#booking_start_time').change(function(e){
-
+           
             $("#booking_end_time option").removeAttr('disabled');
             $("#booking_end_time option[value='"+ $(this).val() + "']").attr('disabled', true); 
-            $('#booking_end_time').val($('#booking_start_time option:selected').next().val())
+            var value = $('#booking_start_time option:selected').next().val();
+            $("#booking_end_time").val(value).trigger("change");
           
         })
         $('.country-list li').click(function(){

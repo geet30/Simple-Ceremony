@@ -82,7 +82,11 @@
                </div>
             </div>
          </div>
-      
+         @if (\Session::has('message'))
+               <div class="alert {{\Session::get('class')}}">
+                     <ul> <li>{!! \Session::get('message') !!}</li></ul>
+               </div>
+         @endif
          <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                <div class="tab-content" id="pills-tabContent">
@@ -108,6 +112,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="celebrants" role="tabpanel" aria-labelledby="celebrants-tab">
+            
                <a href="#" class="theme-btn primary-btn d-inline-block mb-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasaddons" aria-controls="offcanvasaddons"><img class="me-2" src="/images/admin/add-ons/white-plus.svg" alt="Add">Create new add-ons</a>
                <div class="card panel-card">
                   <div class="card-body">

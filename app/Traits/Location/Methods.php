@@ -2,7 +2,7 @@
 
 namespace App\Traits\Location;
 
-use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,Cart,RequestLocations};
+use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,Cart,RequestLocations,PartnerPackages,PartnerProducts};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Carbon\Carbon;
@@ -57,6 +57,31 @@ trait Methods
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
             return $ex->getMessage();
         }
+
+    }
+    static function checkifExistInLocation($id){
+        return Locations::where('location_category',$id)->get();
+    }
+    public static function partners($id=null){
+    
+        return  PartnerProducts::with([
+            'user' => function($query){               
+                $query->select('name','id');
+            }
+            
+        ])->select('id','user_id')->get()->toArray();
+        // return  PartnerPackages::with([
+        //     'user' => function($query){               
+        //         $query->select('name','id');
+        //     }
+            
+        // ])->select('id','user_id','package_name')->get()->toArray();
+
+    }
+    
+    public static function getPartnerPackages($id=null){
+    
+        return  PartnerPackages::where('user_id',$id)->select('id','package_name')->get()->toArray();
 
     }
   

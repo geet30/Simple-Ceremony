@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Traits\Addons\ { Methods,Relationship };
 class Addons extends Model
 {
-    use HasFactory;
+    use HasFactory,Methods,Relationship;
 
     /**
      * The attributes that are mass assignable.

@@ -1,4 +1,4 @@
-@extends('layouts.panels') 
+
 <form class="needs-validation2" method="POST" name="userDetail" id="userDetail">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
