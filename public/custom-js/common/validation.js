@@ -9,17 +9,29 @@
     // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function(form) {
       form.addEventListener('submit', function(event) {
-        $(".submitBtn").attr("disabled", false);
+
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
+        
         form.classList.add('was-validated');
         
+        $('.tel-input').each(function() {
+          let telInput = $(this).get(0);
+          if($(this).prop('required') && !telInput.checkValidity()) {
+            $(this).parents('.phone_number').find('.phone_number_required').addClass('d-block');
+          }else{
+            $(this).parents('.phone_number').find('.phone_number_required').removeClass('d-block');
+          }
+        });
+       
+       
         window.setTimeout(function () {
             var errors = $('.invalid-feedback:visible:first').prev();
             if (errors.length) {
-                $('html, body').animate({ scrollTop: errors.offset().top - 10 }, 500);
+                $(window).scrollTop(0);
+                // $('html, body').animate({ scrollTop: errors.offset().top - 10 }, 500);
             }
         }, 0);
       }, false);

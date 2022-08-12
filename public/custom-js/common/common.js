@@ -135,9 +135,10 @@ function updateThumbnail(dropZoneElement, file) {
 // 
 $(document).ready(function () {
   if($(".alert").is(":visible")){
-     $('html, body').animate({ scrollTop: $('.alert:first').offset().top - 10 }, 500);
+    //  $('html, body').animate({ scrollTop: $('.alert:first').offset().top - 10 }, 500);
+     $(".alert").slideDown(300).delay(3000).slideUp(300);
   }
-  $(".alert").slideDown(300).delay(3000).slideUp(300);
+  // $(".alert").slideDown(300).delay(3000).slideUp(300);
   ImgUpload();
 });
 
@@ -295,3 +296,42 @@ var calendar = $('.calendar-wrapper').calendar(defaultConfigClass);
 });
  
 })(jQuery);
+
+(function( $ ) {
+  $('#reply-text').click(function(){
+      $('.hidden-tree').addClass("d-block");
+      $('.hidden-tree').removeClass("d-none");
+      $('.reply-text').addClass("d-none");
+  });
+})(jQuery);
+
+(function( $ ) {
+  $('.reschedule-btn').click(function(){
+      $('.change-reschedule-1').addClass("d-none");
+      $('.change-reschedule-2').addClass("d-block");
+      $('.change-reschedule-2').removeClass("d-none");
+      $('.reschedulecancel-btn').addClass("d-block");
+      $('.reschedulecancel-btn').removeClass("d-none");
+      $('.reschedule-btn').addClass("d-none");
+  });
+  $('.reschedulecancel-btn').click(function(){
+    $('.change-reschedule-1').addClass("d-block");
+    $('.change-reschedule-1').removeClass("d-none");
+    $('.change-reschedule-2').addClass("d-none");
+    $('.change-reschedule-2').removeClass("d-block");
+    $('.reschedulecancel-btn').addClass("d-none");
+    $('.reschedulecancel-btn').removeClass("d-block");
+    $('.reschedule-btn').addClass("d-block");
+    $('.reschedule-btn').removeClass("d-none");
+});
+ 
+ 
+})(jQuery);
+
+$(function(){
+  $('.theme-datepicker').datepicker({
+    format: 'D, MM d, yyyy',
+    keyboardNavigation: false,
+       autoclose: true
+   });
+});

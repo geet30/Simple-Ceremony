@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\{User,Addons,PartnerProducts,PartnerPackages,RejectedProducts};
+use App\Models\{User};
 use Illuminate\Http\Request;
-use View;
-use Session;
-use DB;
 
 class UserController extends Controller
 {
@@ -18,10 +15,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        // die('gfdg');
+       
         try{
+            User::addToCart();
             $addons = User::userPackages();
-            // dd($addons);
             return view('user.overview.index',compact(['addons']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
@@ -45,6 +42,12 @@ class UserController extends Controller
         }   
        
     }
+    /**  
+     * addon detail 
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function addonDetail($id){
         // echo $id;die;
         try{

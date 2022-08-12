@@ -1,8 +1,9 @@
 <script type="text/javascript">
    
     var getcookie = getCookie('myCart');
-    console.log('getCookie',getcookie);
-
+    var count= getcookie.length;
+    console.log('getCookie',getcookie );
+    console.log('count',count );
     if (!getcookie) {
         localStorage.clear();
     }
@@ -32,7 +33,20 @@
         // localStorage.clear();
         let flag = false;
        
-       
+        
+        $('.show-addon-basket-header').click(function(){
+            var listing = getCartData();
+            if (typeof listing != "undefined" 
+                        && listing != null 
+                        && listing.length != null 
+                        && listing.length > 0){
+                $('.paynow_text').css('visibility','visible');
+            }else{
+                $('.paynow_text').css('visibility','hidden');
+            }
+            appendHtml('keyCartBody', 'cart',listing);
+
+        });
         $('.open-add-to-wedding').click(function(){
             var listing = getCartData();
             var cart_data = {};

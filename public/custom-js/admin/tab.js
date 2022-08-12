@@ -69,5 +69,9 @@ $(document).ready(function(){
         $('ul.location-tabs').find('li a#all-packages').click();
    
     } 
+    if (window.location.href.indexOf("location-filter") > -1) {
+        $('ul.location-tabs').find('li a#location-filter').click();
+   
+    }
    
 });

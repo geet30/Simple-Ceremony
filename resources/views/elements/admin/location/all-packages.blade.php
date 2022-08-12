@@ -1,10 +1,4 @@
 <div class="row py-31">
-@if(session()->has('message'))
-   <div class="alert alert-success">
-      <button type="button" class="close" data-dismiss="alert">×</button> 
-      {{ session()->get('message') }}
-   </div>
-@endif 
    <div class="col-md-8 col-xl-9 d-flex align-self-center">
       <div class="dropdown ">
          <a class="btn" role="button">

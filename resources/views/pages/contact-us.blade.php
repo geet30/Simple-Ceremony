@@ -52,8 +52,9 @@
             </ul>
          </div>
          <div class="col-md-6">
+         
             @if(session()->has('message'))
-               <div class="alert alert-success">
+               <div class="alert alert-success" role="alert">
                   <button type="button" class="close" data-dismiss="alert">×</button> 
                   {{ session()->get('message') }}
                </div>
@@ -73,11 +74,12 @@
                         <input type="email" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" required="">
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
                      </div>
-                     <div class="col-md-12 mb-4">
+                     <div class="col-md-12 mb-4 phone_number">
                         <label for="phone" class="form-label small-text2">Phone number *</label>
                         <input type="hidden"  id="code" name ="country_code" value="61" >
-                        <input class="form-control body-1 netural-100" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="phone" value="+61 " required>
-                        <div class="invalid-feedback phone_number_invalid"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                        <input class="form-control body-1 netural-100 tel-input" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="phone" required>
+                        <div class="invalid-feedback phone_number_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
+                        <div class="invalid-feedback invalid-phone-number"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is invalid</div>
                      </div>
                      <div class="col-md-12 mb-4">
                         <label for="description" class="form-label small-text2">Anything you would like us to know before we call? *</label>

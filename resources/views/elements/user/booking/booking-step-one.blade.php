@@ -1,4 +1,3 @@
-@extends('layouts.panels') 
 <form  method="POST" novalidate id="calendar_form" name="postform">
     @csrf
     <div class="message"></div>
@@ -52,7 +51,7 @@
             <h3 class="h3 Neutral/100 mb-4">Select time</h3>
             <div class="row">
                  <div class="col-md-6 mb-4">
-                    <select name="booking_start_time" id="booking_start_time" class="form-control" required>
+                    <select name="booking_start_time" id="booking_start_time" class="js-placeholder-single-input form-control" required>
                         <option value="" disabled="" selected="" hidden="">Select Start Time</option>
                         @foreach($timeslot as $time)
 
@@ -63,7 +62,7 @@
                   <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Booking start time is required</div>
                 </div>
                 <div class="col-md-6 mb-4">
-                    <select name="booking_end_time" id="booking_end_time" class="form-control" required>
+                    <select name="booking_end_time" id="booking_end_time" class="js-placeholder-single-input form-control" required>
                         <option value="" disabled="" selected="" hidden="">Select End Time</option>
                         @foreach($timeslot as $time)
 

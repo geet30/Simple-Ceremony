@@ -114,7 +114,6 @@ class AddonsController extends Controller
     public function destroy($id){
 
         Addons::destroy($id);
-        Session::flash('flash_message', 'Addon is deleted successfully.');
         return redirect()->route('admin.addons');
       }
 }

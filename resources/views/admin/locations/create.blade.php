@@ -1,5 +1,10 @@
 @extends('layouts.panels')
 @section('content')
+<script>
+
+   var partners = '<?php echo json_encode($partners);?>';
+
+</script>
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
@@ -34,16 +39,25 @@
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="Address" class="form-label small-text2">Address</label>
-                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['street_address']) ? $data['street_address'] : '' }}" id="Address">
+                           <label for="Address" class="form-label small-text2">Address *</label>
+                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['street_address']) ? $data['street_address'] : '' }}" id="Address" required>
+                           <div class="invalid-feedback">
+                              Address is required.
+                           </div>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="Town" class="form-label small-text2">Suburb/ Town</label>
-                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['suburb']) ? $data['suburb'] : '' }}"  name="town" id="Town">
+                           <label for="Town" class="form-label small-text2">Suburb/ Town *</label>
+                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['suburb']) ? $data['suburb'] : '' }}"  name="town" id="Town" required>
+                           <div class="invalid-feedback">
+                              Suburb is required.
+                           </div>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="Code" class="form-label small-text2">Post Code</label>
-                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : '' }}" name="post_code" id="Code">
+                           <label for="Code" class="form-label small-text2">Post Code *</label>
+                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : '' }}" name="post_code" id="Code" required>
+                           <div class="invalid-feedback">
+                              Post code is required.
+                           </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Google coordinates</label>
@@ -60,6 +74,7 @@
                         <div class="col-md-5 mb-4">
                            <label for="Locationnumber" class="form-label small-text2">Location number</label>
                            <input type="number" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber">
+                           
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Price" class="form-label small-text2">Price *</label>
@@ -82,7 +97,7 @@
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column position-relative">
-                           <label for="photos" class="form-label small-text2 mb-20">Upload cover photos</label>
+                           <label for="photos" class="form-label small-text2 mb-20">Upload cover photos *</label>
                            <div class="drop-zone text-center">
                               <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
                               <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
@@ -93,7 +108,7 @@
                            </div>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column partner-gallery-upload-box position-relative">
-                           <label for="gallery" class="form-label small-text2 mb-20">Upload gallery photos</label>
+                           <label for="gallery" class="form-label small-text2 mb-20">Upload gallery photos *</label>
                            <div class="upload__box">
                               <div class="upload__btn-box">
                                  <label class="theme-btn primary-btn ">
@@ -114,10 +129,7 @@
                                  <input type="text" placeholder="Type here" class="form-control body-1 netural-100" 
                                  name="key_advantages[]" id="Key">
                               </div>
-                              <!-- <div class="col-2 col-sm-4 col-md-6">
-                                 <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
-                              </div> -->
+                              
                            </div>
                         </div>
                         <div class="col-12 mb-4">
@@ -150,51 +162,52 @@
                         </div>
                         <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
                         <div class="col-md-5 mb-4">
-                           <label for="age" class="form-label small-text2">Filter criteria</label>
-                           <select name="filter_by_categorie1s" id="selectinput1" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
-                              <option value="O1" data-badge="">Park</option>
-                              <option value="O2" data-badge="">Harbour</option>
-                              <option value="O3" data-badge="">River</option>
-                              <option value="O4" data-badge="">Indoor</option>
-                              <option value="O4" data-badge="">Outdoor</option>
-                              <option value="O4" data-badge="">Beach</option>
-                              <option value="O4" data-badge="">Unique</option>
+                           <label for="age" class="form-label small-text2">Filter criteria *</label>
+                           <select name="location_category" id="selectinput1" class="js-placeholder-single-input form-control" required>
+                              <option value="" disabled="" selected="" hidden="">Select Filter</option>
+                              @foreach($filters as $filter)
+                                  <option value="{{$filter->id}}">{{$filter->name}}</option>
+
+                              @endforeach
                            </select>
+                           <div class="invalid-feedback">
+                             Filter is required.
+                           </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 keyPartnerPackage">
                            <div class="row">
                               <div class="col-md-5 mb-4">
-                                 <label for="partner" class="form-label small-text2">Select partner</label>
-                                 <select class="js-placeholder-single-input form-control">
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
+                                 <label for="partner" class="form-label small-text2">Select partner *</label>
+                                 <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('get-packages',this,'0')" id="partner-0" name="partners[0][partner_id]" required>
+                                    <option value="">Select Partner</option>
+                                    @foreach($partners as $partner)
+                                       <option value="{{$partner['user']['id']}}">{{$partner['user']['name']}}</option>
+
+                                    @endforeach
+                                   
                                  </select>
+                                 <div class="invalid-feedback">
+                                       Partner is required.
+                                 </div>
                               </div>
-                              <div class="col-md-5 mb-4">
-                                 <label for="package" class="form-label small-text2">Select Package</label>
-                                 <select class="js-placeholder-single-input form-control">
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
+                              <div class="col-md-5 mb-4 select_packages">
+                                 <label for="package" class="form-label small-text2">Select Package *</label>
+                                 <select class="js-placeholder-single-input form-control packages" name="partners[0][package_id]" id="package-0" required>
+                                 <option value="">Select Packages</option>
+                                   
                                  </select>
+                                 <div class="invalid-feedback">
+                                       Package is required.
+                                 </div>
                               </div>
-                              <div class="col-2 ">
+                              <!-- <div class="col-2 ">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
                                  <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
-                              </div>
+                              </div> -->
                            </div>
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link">
+                           <a class="d-flex add-link" onclick="appendHtml('keyPartnerPackage', 'partnerpackage',partners)">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add other partners</div>
                            </a>
@@ -210,15 +223,5 @@
       </div>
    </div>
 </div>
-<!-- <script type="text/javascript">
-   var advantage = '<div class="row "><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><label for="InputName" class="form-label small-text2 d-block">&nbsp;</label><a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
-
-   function appendHtml(parentClass, type) {
-      var htmlCode = '';
-      if(type=='advantage'){
-         htmlCode=advantage;
-      }
-      $(parentClass).append(htmlCode); 
-   }
-</script> -->
+@include('elements.admin.location.js')
 @endsection

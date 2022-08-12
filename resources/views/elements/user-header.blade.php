@@ -29,7 +29,7 @@
                 <li class="nav-item dropdown align-self-center me-3 user-header-login">
                   <a role="button" class="cart-icon-header position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <img src="/images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
-                    <span class="cart-item-counting">3</span>
+                    <span class="cart-item-counting">30</span>
                   </a>
                 </li>
                  <li class="nav-item dropdown align-self-center me-3">
