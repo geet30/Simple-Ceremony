@@ -54,7 +54,7 @@
             var listing = getCartData();
             var cart_data = {};
             
-            cart_data['price'] = $(this).data('price');
+            cart_data['price'] = parseInt($(this).data('price'));
             cart_data['package_id'] = $(this).data('id');
             cart_data['terms'] = $(this).data('terms');
             cart_data['package_name'] = $(this).data('package_name');
