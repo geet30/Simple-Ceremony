@@ -129,7 +129,7 @@ class HomeController extends Controller
         return View::make('elements.user.booking.search-addon', ['addons' => $addons]);
     }
     public function addonDetail($id){
-        
+        // echo $id;die;
         $data = PartnerProducts::with([
             'package' => function($query){
                 $query->select('id','user_id','location_description','product_id','partner_fee','admin_fee','total_fee','package_name','title_term');
@@ -149,14 +149,15 @@ class HomeController extends Controller
             
         ])->select('product_name','id','status','business_category')->where('id',$id)->first()->toArray();
         // echo "<pre>";print_r($data);die;
-        return view('pages.add-ons-detail',compact(['data']));
+        return view('pages.add-ons-detail',compact(['data','id']));
         // return view('admin.addons.detail',compact(['data']));
 
     }
-    public function gallery($id){
+    public function gallery($id,$addonid){
+       
         try{
             $data = User::addonPackageGallery($id);
-            return view('pages.add-ons-gallery',compact(['data']));
+            return view('pages.add-ons-gallery',compact(['data','addonid']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
