@@ -23,6 +23,9 @@
           </tbody>
         </table>
       </div>
+      <div class="d-lg-flex mt-50 no_items">
+        <p>No items in the cart</p>
+      </div>
       <div class="d-lg-flex mt-50 paynow_text">
      
      

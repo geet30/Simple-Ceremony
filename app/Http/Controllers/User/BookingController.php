@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\Locations;
+use App\Models\{LocationFilters,Locations};
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use View;
@@ -18,14 +18,15 @@ class BookingController extends Controller
      */
     public function index()
     {
+        
         $timeslot  = timeslots();
-      
+        $filters = LocationFilters::all();
         $locations = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
             }
         ])->select('name','id','price')->get();
-        return view('user.booking.booking',compact(['timeslot','locations']));
+        return view('user.booking.booking',compact(['timeslot','locations','filters']));
 
     }
 

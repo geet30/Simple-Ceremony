@@ -38,9 +38,11 @@
          <div class="d-flex">
             <?php 
 
-            $imgname = asset('/images/avtar/avatar-d.png');
+           
             if(isset($addon['user']['image']) && !empty($addon['user']['image'])){
                $imgname = asset('/uploads/images/user/'.$imgname);
+            }else{
+               $imgname = asset('/images/avtar/avatar-d.png');
             }
             ?>
          

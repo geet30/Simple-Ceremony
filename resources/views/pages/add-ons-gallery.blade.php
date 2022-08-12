@@ -5,7 +5,7 @@
    <div class="container">
       <div class="row">
          <div class="col-md-12 ">
-            <a href="/add-ons-detail" class="theme-btn secondary-btn d-inline-flex back-btn"><img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">Back</a>
+            <a href="/add-ons-detail/{{$addonid}}" class="theme-btn secondary-btn d-inline-flex back-btn"><img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">Back</a>
          </div>
       </div>
    </div>

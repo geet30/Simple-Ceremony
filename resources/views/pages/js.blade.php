@@ -29,22 +29,27 @@
         return "";
     }
     $(document).ready(function(){
-      
+        $('.no_items').css('visibility','hidden');
         // localStorage.clear();
         let flag = false;
-       
+        $('#basket_table').css('visibility','visible');
         
         $('.show-addon-basket-header').click(function(){
             var listing = getCartData();
+            console.log('list',listing);
             if (typeof listing != "undefined" 
                         && listing != null 
                         && listing.length != null 
                         && listing.length > 0){
                 $('.paynow_text').css('visibility','visible');
+                
+                appendHtml('keyCartBody', 'cart',listing);
             }else{
+                $('.no_items').css('visibility','visible');
+                $('#basket_table').css('visibility','hidden');  
                 $('.paynow_text').css('visibility','hidden');
             }
-            appendHtml('keyCartBody', 'cart',listing);
+            
 
         });
         $('.open-add-to-wedding').click(function(){
@@ -104,8 +109,12 @@
             
         }
         $('.show-addon-basket').click(function(){
+            var listing = getCartData();
+            console.log('jj',listing.length);
+            $('.show-addon-basket-header').find('.cart-item-counting').html(listing.length);
             $('#termsModal').modal('hide');
-            
+            $('#basket_table').css('visibility','visible');
+            $('.no_items').css('visibility','hidden');
             $("#agree_to_terms").prop("checked", false);
         
         })

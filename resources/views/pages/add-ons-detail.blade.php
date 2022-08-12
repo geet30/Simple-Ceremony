@@ -76,7 +76,7 @@
                               @endif
                            @endforeach
                            <div class="all-pictures-btn">
-                              <a href="{{ route('addons.gallery', $package['id']) }}" class="theme-btn primary-btn d-inline-flex">
+                              <a href="{{ route('addons.gallery', ['id' => $package['id'], 'addonid' => $id]) }}" class="theme-btn primary-btn d-inline-flex">
                                  <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                     alt="shopping-icon">
                                  See all pictures
@@ -177,7 +177,7 @@
       </div>
    </div>
 </section>
-@include('pages.js')
+{{-- @include('pages.js')--}}
 @include('elements.basket')
 @include('elements.partner.contact-partner')
 @endsection

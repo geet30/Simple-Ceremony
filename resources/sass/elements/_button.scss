@@ -17,6 +17,7 @@
         color: #ffffff;
         border: none;
         &:hover {
+            cursor: pointer;
             background-color: #5fe2e0;
             box-shadow: 0px 2px 11px rgba(95, 226, 224, 0.2);
             img {

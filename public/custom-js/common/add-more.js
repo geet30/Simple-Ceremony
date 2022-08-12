@@ -28,7 +28,6 @@ $(document).ready(function(){
          </tr>`;
 
       });
-      // console.log(total_fee);
       html +=  `<tr id="grand-total">
                   <td><span>&nbsp;</span></td>
                   <td colspan="2" class="total text-end">Grand total</td>
