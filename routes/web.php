@@ -292,7 +292,7 @@ $adminRoutes = function() {
 
         Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
         Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
-        Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('addons.gallery');
+        Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('admin.addons.gallery');
         Route::post('/change-status',[AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback',[AddonsController::class, 'submitFeedback']);
         Route::get('partner-details/{id}',[PartnerController::class, 'partnerDetail']);

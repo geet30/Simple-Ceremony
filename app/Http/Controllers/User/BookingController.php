@@ -168,14 +168,34 @@ class BookingController extends Controller
     {
         try {
             if($request->has('id') && $request->filled('id')){
-                $data = Booking::with([
+                $get_result = Booking::with([
                     'location' => function($query){
                         $query->select('name','id','price');
                     },
                     'location.location_images' => function($query){
                         $query->select('location_id','image');
                     }
-                ])->where('locationId',$request->id)->where('booking_date',$request->booking_date)->where('booking_start_time',$request->booking_start_time)->where('booking_end_time',$request->booking_end_time)->select('booking_date','id','locationId')->get();
+                ]);
+                $booking = (clone $get_result);
+               
+                if($request->has('id')){
+                    $booking->where('locationId',$request->id);
+                }
+                
+                if($request->has('booking_date') && $request->booking_date !=''){
+                  
+                    $booking->where('booking_date',$request->booking_date);
+                }
+                if($request->has('booking_start_time') && $request->booking_start_time !=''){
+                    $booking->where('booking_start_time',$request->booking_start_time);
+                }
+                if($request->has('booking_end_time') && $request->booking_end_time !=''){
+                    $booking->where('booking_end_time',$request->booking_end_time);
+                }
+               $data = $booking->select('booking_date','id','locationId')->get();
+            // $data = $booking->select('booking_date','id','locationId')->toSql();
+            // dd($data);
+
                             
             }else{
                 $data = Booking::with([

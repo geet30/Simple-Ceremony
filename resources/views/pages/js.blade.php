@@ -29,9 +29,8 @@
         return "";
     }
     $(document).ready(function(){
-        $('.no_items').css('visibility','hidden');
-        // localStorage.clear();
         let flag = false;
+        $('.no_items').css('visibility','hidden');
         $('#basket_table').css('visibility','visible');
         
         $('.show-addon-basket-header').click(function(){
@@ -42,7 +41,6 @@
                         && listing.length != null 
                         && listing.length > 0){
                 $('.paynow_text').css('visibility','visible');
-                
                 appendHtml('keyCartBody', 'cart',listing);
             }else{
                 $('.no_items').css('visibility','visible');

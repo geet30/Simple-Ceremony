@@ -27,11 +27,11 @@ $(document).ready(function(){
     
     window.SearchBookingRecords = function(url){
         var  location= $('#search_location').val();
-        
+        var calendar_date = '';
         if($('#calendar_date').val() !=''){
             var  calendar_date= $('#calendar_date').val();
         }else{
-            var  calendar_date = new Date().toLocaleDateString();
+            // var  calendar_date = new Date().toLocaleDateString();
         }
        
         var booking_start_time  = $('#booking_start_time').val();

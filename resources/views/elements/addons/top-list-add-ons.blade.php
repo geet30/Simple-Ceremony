@@ -1,6 +1,6 @@
 @foreach ($addons as $addon)
 <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-md-0">
-   <a class="card image-card" href="{{route('add-ons-detail',$addon['id'])}}">
+   <a class="card image-card top-list-addon" href="{{route('add-ons-detail',$addon['id'])}}">
       
 
          @foreach($addon['package'] as $images)
