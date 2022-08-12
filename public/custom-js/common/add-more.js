@@ -192,13 +192,10 @@ $(document).ready(function(){
    //function to remove the elements
    window.remove = function(parentClass, el, packageContainer,type) { 
 
-     
+    
       if(packageContainer!=''){
-         if($('.'+packageContainer).find('.'+parentClass).length == 1)
-         return false;
-         $(el).closest('.'+parentClass).remove()
+         
          if(type=='cart'){
-            
             let storageProducts = JSON.parse(localStorage.getItem('cart'));
             let products = storageProducts.filter(product => product.package_id !== $(el).data('id') );
             localStorage.setItem('cart', JSON.stringify(products));
@@ -216,7 +213,13 @@ $(document).ready(function(){
                <td>&nbsp;</td>`)
                $('.paynow_text').css('visibility','hidden');
             }
+         }else{
+            // alert($('.'+packageContainer).find('.'+parentClass).length);
+            if($('.'+packageContainer).find('.'+parentClass).length == 1)
+            return false;
          }
+        
+         $(el).closest('.'+parentClass).remove()
          package_count= $('.'+packageContainer).find('.'+parentClass).length
          
          $("."+parentClass).each(function(index,el) {

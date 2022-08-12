@@ -170,7 +170,7 @@
                         </select>
                      </div>
                      <div class="col-12 mt-4">
-                        <button type="submit" id="submit_button" class="theme-btn primary-btn border-0">Submit</button>
+                        <button type="button" id="submit_button" class="theme-btn primary-btn border-0">Submit</button>
                      </div>
                   </div>
                </form>
