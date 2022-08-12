@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\{Locations,RequestLocations,LocationFilters,User};
 use Illuminate\Http\Request;
 use View;
+use Redirect;
 use Illuminate\Support\Facades\Auth;
 
 class LocationsController extends Controller
@@ -15,22 +16,26 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request,$slug=null){
-        $filters = LocationFilters::all();
-        $records = 1;$req_page = 1;
-        $locations = Locations::all();
-        if($request->has('page')){
-            $req_page = $request->page; 
-        }
-        $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);  
-        if($request->ajax()){  
-            if($slug == ''){
-                $slug = 'all-requests';
+        try {
+            $filters = LocationFilters::all();
+            $records = 1;$req_page = 1;
+            $locations = Locations::all();
+            if($request->has('page')){
+                $req_page = $request->page; 
             }
-            $viewurl = 'elements.admin.location.'.$slug;       
-            return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
+            $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);  
+            if($request->ajax()){  
+                if($slug == ''){
+                    $slug = 'all-requests';
+                }
+                $viewurl = 'elements.admin.location.'.$slug;       
+                return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
+            }       
+            return view('admin.locations.listing',compact('locations','data','filters'));
         }
-        
-        return view('admin.locations.listing',compact('locations','data','filters'));
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }      
     }
     /**
      * View the detail of resource.
@@ -38,9 +43,13 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function view($id){
-        $data = RequestLocations::where('id',$id)->first();
-        return view('admin.locations.view',compact('data'));
-
+        try {
+            $data = RequestLocations::where('id',$id)->first();
+            return view('admin.locations.view',compact('data'));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
     }
     /**
      * Show the form for creating a new resource.
@@ -49,14 +58,19 @@ class LocationsController extends Controller
      */
     public function create(Request $request,$id=null)
     {
-        $filters = LocationFilters::all();
-        $partners = Locations::partners();
-        // dd($partners);
-        $data = array();
-        if($id){
-            $data = RequestLocations::where('id',$id)->first();
+        try {
+            $filters = LocationFilters::all();
+            $partners = Locations::partners();
+            $data = array();
+            if($id){
+                $data = RequestLocations::where('id',$id)->first();
+            }
+            return view('admin.locations.create',compact('data','filters','partners'));
         }
-        return view('admin.locations.create',compact('data','filters','partners'));
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+        
     }
 
     
@@ -67,13 +81,17 @@ class LocationsController extends Controller
      */
     public function getPackages(Request $request)
     {
-      
-        $getPartnerPackages = Locations::getPartnerPackages($request->id);
-        if(!empty($getPartnerPackages)){
-            return $this->successResponse($getPartnerPackages,'data found successfully.');
+        try {
+            $getPartnerPackages = Locations::getPartnerPackages($request->id);
+            if(!empty($getPartnerPackages)){
+                return $this->successResponse($getPartnerPackages,'data found successfully.');
+            }
+            return response()->json(['status'=>false,"message"=>'something went wrong']);
         }
-
-        return response()->json(['status'=>false,"message"=>'something went wrong']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+        
     }
 
     /**
@@ -84,7 +102,6 @@ class LocationsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         try {  
             $request->validate([
                 'name' => 'required',
@@ -105,21 +122,24 @@ class LocationsController extends Controller
      */
     public function saveFilter(Request $request)
     {
-      
-        $input = $request->all();
-        $LocationFilters = LocationFilters::where('name',$request->name)->first();
-        if($LocationFilters){
-            $msg = 'Filter already exists with this name.';
-            return response()->json(['status'=>false,"message"=>$msg]);
+        try {
+            $input = $request->all();
+            $LocationFilters = LocationFilters::where('name',$request->name)->first();
+            if($LocationFilters){
+                $msg = 'Filter already exists with this name.';
+                return response()->json(['status'=>false,"message"=>$msg]);
+            }           
+            $result = LocationFilters::create($input);
+            if($result){
+                $msg = 'Filter added successfully.';
+                return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);               
+            }
+            return response()->json(['status'=>false,"message"=>'Something went wrong.']);
         }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
         
-        $result = LocationFilters::create($input);
-        if($result){
-            $msg = 'Filter added successfully.';
-            return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
-            
-        }
-        return response()->json(['status'=>false,"message"=>'Something went wrong.']);
        
     }
     /**
@@ -129,9 +149,14 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function updateFilter(Request $request){
-        LocationFilters::where('id', $request->input('id'))->update(['name'=>$request->input('name')]);
-        $msg = 'Filter updated successfully.';
-        return response()->json(['status'=>true,"message"=>$msg]);
+        try {
+            LocationFilters::where('id', $request->input('id'))->update(['name'=>$request->input('name')]);
+            $msg = 'Filter updated successfully.';
+            return response()->json(['status'=>true,"message"=>$msg]);
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }    
     }
     /**
      * Destroy a resource in storage.
@@ -140,14 +165,18 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroyFilter($id){ 
-        
-        $checkifExistInLocation =  Locations::checkifExistInLocation($id);
-       
-        if(count($checkifExistInLocation)==0){
-            LocationFilters::destroy($id);
-            return redirect()->back()->with(['message'=>'Filter deleted successfully','class'=>'alert-success']);
+        try {
+            $checkifExistInLocation =  Locations::checkifExistInLocation($id);      
+            if(count($checkifExistInLocation)==0){
+                LocationFilters::destroy($id);
+                return redirect()->back()->with(['message'=>'Filter deleted successfully','class'=>'alert-success']);
+            }
+            return redirect()->back()->with(['message'=>'This filter exist in package','class'=>'alert-danger']);
         }
-        return redirect()->back()->with(['message'=>'This filter exist in package','class'=>'alert-danger']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+       
     }
     /**
      * Change Status of the specified resource.
@@ -156,28 +185,16 @@ class LocationsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function changeStatus(Request $request){
-       
-        $input['status'] = $request->status;  
-        if($request->status == 1){
-            $data['status'] = 'Approved';
-            $data['class'] = 'approved';
+        try {
+            $result =   Locations::changeStatus($request);
+            if($result){
+                return $this->successResponse($result,'Status changed successfully.');
+            }
+           return response()->json(['status'=>false,"message"=>'something went wrong']);
         }
-         
-        else if($request->status == 2){
-            $data['status'] = 'Rejected';
-            $data['class'] = 'rejected';
-        }
-          
-        else if($request->status == 0){
-            $data['status'] = 'pending';
-            $data['class'] = 'waiting-approval';
-        }
-        
-        $result = RequestLocations::where('id', $request->id)->update($input);
-        if($result){
-            return $this->successResponse($data,'Status changed successfully.');
-        }
-        return response()->json(['status'=>false,"message"=>'something went wrong']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }           
     }
     /**
      * Display the specified resource.
@@ -198,8 +215,13 @@ class LocationsController extends Controller
      */
     public function edit($id)
     {
-        $location = Locations::where('id', $id)->first();
-        return view('admin.locations.edit')->with('location', $location);
+        try {
+            $location = Locations::where('id', $id)->first();
+            return view('admin.locations.edit')->with('location', $location);
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }        
     }
 
     /**
