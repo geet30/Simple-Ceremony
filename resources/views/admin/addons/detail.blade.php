@@ -119,7 +119,7 @@
                                           @endforeach
                                           <div class="all-pictures-btn">
                                           
-                                             <a href="{{ route('addons.gallery', $package['id']) }}" class="theme-btn primary-btn d-inline-flex">
+                                             <a href="{{ route('admin.addons.gallery', $package['id']) }}" class="theme-btn primary-btn d-inline-flex">
                                                 <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                    alt="shopping-icon">
                                                 See all pictures

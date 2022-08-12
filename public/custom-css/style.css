@@ -17,3 +17,14 @@
     height: 420px;
     object-fit: cover;
 }
+
+.top-list-addon .img-fluid.left-img {
+    border-radius: 9.31818px;
+    height: 173px;
+    object-fit: cover;
+}
+.all-list-addon .card-img-top {
+    border-radius: 9.31818px;
+    height: 173px;
+    object-fit: cover;
+}

@@ -202,9 +202,11 @@ $(document).ready(function(){
             let storageProducts = JSON.parse(localStorage.getItem('cart'));
             let products = storageProducts.filter(product => product.package_id !== $(el).data('id') );
             localStorage.setItem('cart', JSON.stringify(products));
+            setCookie('myCart', JSON.stringify(products), 7);
             let cart_count= JSON.parse(localStorage.getItem('cart')).length;
             console.log('after delete',cart_count);
             showTotals();
+            $('.show-addon-basket-header').find('.cart-item-counting').html(cart_count);
             
             if(cart_count == 0){
                $('#grand-total').html(`
