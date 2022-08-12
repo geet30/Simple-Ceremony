@@ -223,8 +223,7 @@ trait Methods
            
             if($request->has('id')){
                 $booking->where('locationId',$request->id);
-            }
-            
+            }           
             if($request->has('booking_date') && $request->booking_date !=''){
                 $booking->where('booking_date',$request->booking_date);
             }
