@@ -38,12 +38,11 @@
          <div class="d-flex">
             <?php 
 
-           
+            $imgname = asset('/images/avtar/avatar-d.png');
             if(isset($addon['user']['image']) && !empty($addon['user']['image'])){
-               $imgname = asset('/uploads/images/user/'.$imgname);
-            }else{
-               $imgname = asset('/images/avtar/avatar-d.png');
+               $imgname = asset('/uploads/images/user/'.$addon['user']['image']);
             }
+           
             ?>
          
             <div class="align-self-center me-1"> <img src="{{ $imgname }}" alt="add-ons-image" class="img-fluid ellipse-1"> </div>
