@@ -1,6 +1,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+   
     $('.edit-filter').click(function(){
         
         var name = $(this).data('name');
@@ -38,52 +39,54 @@ $(document).ready(function(){
         submitform(id,action,method,formData,form);
                 
     });
-    $('.select_partner').change(function(e){
+    window.findPackage = function(url,that,id){
         
-        var userid = $(this).val();
+        var userid = $(that).val();
+        // console.log(id);
         $.ajax({
             type: 'post',
-            url: 'get-packages',
+            url: url,
             data: {
                 'id': userid
             },
-            dataType: 'json', // what to expect back from the server
+            dataType: 'json',
             cache: false,
             success: function(response) {
                
                 if (response.status) {
                     // console.log(response.data);
-                    var temp = $('.select_packages'); // cache it
+                   
+                    var temp =  $('#package-'+id);
                     temp.empty();
                     $.each(response.data, function (i, data) {      
                         $('<option>',
                         {
                             value: data.id,
                             text: data.package_name
-                        }).html(data.package_name).appendTo(".select_packages");
+                        }).html(data.package_name).appendTo("#package-"+id);
                     });
 
                 }
                 else{
-                    var temp = $('.select_packages'); // cache it
+                    var temp =  $('#package-'+id); // cache it
                     temp.empty();
                     $('<option>',
                     {
                         value: '',
                         text: 'Select package'
-                    }).html('Select package').appendTo(".select_packages");
+                    }).html('Select package').appendTo("#package-"+id);
  
                 }
             },
             error: function(response) { // handle the error
                 console.log(response.responseJSON.data);
-                var temp = $('.select_packages'); // cache it
+                var temp = $('#package-'+id);
                 temp.empty();
                 $('<option>',
                 {
                     value: '',
                     text: 'Select package'
-                }).html('Select package').appendTo(".select_packages");
+                }).html('Select package').appendTo("#package-"+id);
                 
 
             },
@@ -92,7 +95,8 @@ $(document).ready(function(){
         })
         
 
-    })
+    // })
+    }
 
  
 });

@@ -2,6 +2,7 @@ var counter =0;
 var package_count = 1;
 
 $(document).ready(function(){
+  
    // ImgUpload();
    var advantage = '<div class="row mt-2 keyDiv"><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="key_advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
    var html = "";
@@ -9,9 +10,7 @@ $(document).ready(function(){
 
    function cart(data){
       html = '';total_fee =0;
-      $('#basket_table').find('tbody').empty();
-      
-     
+      $('#basket_table').find('tbody').empty();    
       $.each(data, function(key, value) {
          total_fee += parseInt(value.price);
          html +=  `<tr class="keyCart">
@@ -125,31 +124,32 @@ $(document).ready(function(){
      
    }
    function partnerpackage(data){
+         
         html = '';
-        html = `<div class="row">
+        html = `<div class="row partnerpackageDiv">
         <div class="col-md-5 mb-4">
            <label for="partner" class="form-label small-text2">Select partner</label>
-           <select class="js-placeholder-single-input form-control select_partner" id="select_partner" name="partners">
+           <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('get-packages',this,'${counter}')" id="partner-${counter}" name="partners[${counter}][partner_id]" >
               <option value="">Select Partner</option>`;
-              $.each(data, function(key, value) {
-               html +=`<option value="${value['user']['id']}">${value['user']['name']}</option>`;
-
-              });
+               $.each(JSON.parse(data), function(key, value) {
+                  html +=`<option value="${value.user.id}">${value.user.name}</option>`;
+      
+               });
              
            html +=`</select>
-        </div>
-        <div class="col-md-5 mb-4">
-           <label for="package" class="form-label small-text2">Select Package</label>
-           <select class="js-placeholder-single-input form-control select_packages" name="packages">
-           <option value="">Select Packages</option>
-             
-           </select>
-        </div>
-        <div class="col-2 ">
-           <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-           <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
-        </div>
-     </div>`;   
+            </div>
+            <div class="col-md-5 mb-4 select_packages">
+               <label for="package" class="form-label small-text2">Select Package</label>
+               <select class="js-placeholder-single-input form-control packages" id="package-${counter}" name="partners[${counter}][package_id]">
+               <option value="">Select Packages</option>
+                  
+               </select>
+            </div>
+            <div class="col-2 ">
+               <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
+               <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this)"></a>
+            </div>
+         </div>`;   
      return html; 
    }
    window.appendHtml = function(parentClass, type,data=Array()) { 
@@ -158,6 +158,7 @@ $(document).ready(function(){
          htmlCode=cart(data);
       }
       if(type=='partnerpackage'){  
+         counter++;
          htmlCode=partnerpackage(data);
       }
       if(type=='advantage'){
@@ -170,7 +171,8 @@ $(document).ready(function(){
          
       }
       $('.'+parentClass).append(htmlCode); 
-      
+      $('.select_partner').select2();
+      $('.packages').select2();
       ImgUpload(counter);
    }
   

@@ -12,9 +12,11 @@ trait Methods
 {
    
     public static function addToCart(){
+       
         if(Cookie::get('myCart')){
             
-            $cart = json_decode(Cookie::get('myCart'));            
+            $cart = json_decode(Cookie::get('myCart'));  
+                
             Booking::addtoCart($cart);
             $cookie = Cookie::queue(Cookie::forget('myCart'));
             // \Cookie::forget('myCart');

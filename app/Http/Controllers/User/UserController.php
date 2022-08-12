@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\{User,Addons,PartnerProducts,PartnerPackages,RejectedProducts};
+use App\Models\{User};
 use Illuminate\Http\Request;
-use View;
-use Session;
-use DB;
 
 class UserController extends Controller
 {
@@ -18,7 +15,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
+       
         try{
+            User::addToCart();
             $addons = User::userPackages();
             return view('user.overview.index',compact(['addons']));
         }catch (\Exception $e) {

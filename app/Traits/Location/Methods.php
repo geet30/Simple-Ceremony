@@ -2,7 +2,7 @@
 
 namespace App\Traits\Location;
 
-use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,Cart,RequestLocations,PartnerPackages,PartnerProducts};
+use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,LocationPackages,RequestLocations,PartnerPackages,PartnerProducts};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Carbon\Carbon;
@@ -18,8 +18,8 @@ trait Methods
 
             $input = $data->all();
             $input['added_by'] = Auth::user()->id;
-            $checkEmail = Locations::where('name',$data->name)->first();
-            if($checkEmail){
+            $checkName = Locations::where('name',$data->name)->first();
+            if($checkName){
                 $msg = 'Location already exists with this name.';
                 return \Redirect::back()->withErrors(['msg' => $msg]);
             }
@@ -43,18 +43,27 @@ trait Methods
                         LocationKeyAdvantages::create($key_advantages);
                     }   
                 }
+                if($data->has('partners')){
+                    foreach($data->partners as $partner){
+                        $partner_packages['location_id'] = $result->id;
+                        $partner_packages['location_category'] = $data->location_category;
+                        $partner_packages['partner_id'] = $partner['partner_id'];
+                        $partner_packages['package_id'] = $partner['package_id'];
+                        LocationPackages::create($partner_packages);
+                    }   
+                }
                 if($data->has('custom_location_id') && $data->custom_location_id !='null'){
                     $status['status'] = 1;  
                     $result = RequestLocations::where('id', $data->custom_location_id)->update($status);
                 }
                 $msg = 'Location added successfully.';
                 $route = 'locations/all-packages';
-                return redirect($route)->with('message', $msg);
+                return redirect($route)->with(['message'=>$msg,'class'=>'alert-success']);
             }
             return true;
         }
         catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+            return \Redirect::back()->withErrors(['message' => $ex->getMessage()]);
             return $ex->getMessage();
         }
 
@@ -70,12 +79,6 @@ trait Methods
             }
             
         ])->select('id','user_id')->get()->toArray();
-        // return  PartnerPackages::with([
-        //     'user' => function($query){               
-        //         $query->select('name','id');
-        //     }
-            
-        // ])->select('id','user_id','package_name')->get()->toArray();
 
     }
     

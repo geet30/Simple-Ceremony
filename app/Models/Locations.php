@@ -32,6 +32,7 @@ class Locations extends Model
         'getting_there',
         'custom_location',
         'custom_location_id',
+        'location_category',
         'status'
     ];
 

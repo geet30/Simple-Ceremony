@@ -51,7 +51,7 @@ class LocationsController extends Controller
     {
         $filters = LocationFilters::all();
         $partners = Locations::partners();
-        // dd($partner_package);
+        // dd($partners);
         $data = array();
         if($id){
             $data = RequestLocations::where('id',$id)->first();
@@ -73,7 +73,7 @@ class LocationsController extends Controller
             return $this->successResponse($getPartnerPackages,'data found successfully.');
         }
 
-        return $this->errorResponse([], 'something went wrong', 400);
+        return response()->json(['status'=>false,"message"=>'something went wrong']);
     }
 
     /**
@@ -84,6 +84,7 @@ class LocationsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         try {  
             $request->validate([
                 'name' => 'required',

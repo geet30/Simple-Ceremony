@@ -5,16 +5,13 @@ use App\Http\Controllers\Controller;
 use App\Models\{Locations,Addons,PartnerProducts,User,PartnerPackages,Booking};
 use Illuminate\Http\Request;
 use View;
-use DB;
-use Stripe\Stripe;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth; 
 use Redirect;
+use Cookie;
 class HomeController extends Controller
 {
     public function index()
     {
-        User::addToCart();  
         $locations = Locations::with([
             'location_images' => function($query){
                 $query->select('location_id','image');
@@ -205,14 +202,12 @@ class HomeController extends Controller
 
     // }
     public function contactUs(Request $request){
-        // dd($request->all());
         try{
             Booking::contactUsEmail($request->all());
             return redirect('contact-us')->with('message', 'Message Sent Successfully');
 
         }catch (\Exception $ex) {
-            echo "<pre>";print_r($ex->getMessage());die;
-            return $ex->getMessage();
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
 
 
