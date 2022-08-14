@@ -206,12 +206,6 @@ $adminRoutes = function() {
     
     // Route::get('/', 'App\Http\Controllers\Admin\LocationsController@index')->name('marriages');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-    Route::get('sign-up', function () {
-        return view('admin.sign-up');
-    });
-    Route::get('password-reset', function () {
-        return view('admin.password-reset');
-    });
     Route::middleware('auth')->group(function () {
         
         Route::get('account-details', function () {

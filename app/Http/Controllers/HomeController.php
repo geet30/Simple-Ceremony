@@ -45,7 +45,7 @@ class HomeController extends Controller
         try {
             $locations = Locations::getLocations()->get(); 
             $addons =  Addons::products()->get()->toArray();
-            return View::make('pages.add-ons',compact(['locations' ,'addons'])); 
+            return View::make('pages.addons.listing',compact(['locations' ,'addons'])); 
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -73,7 +73,7 @@ class HomeController extends Controller
     public function addonDetail($id){
         try{
             $data = Addons::products()->where('id',$id)->first()->toArray();
-            return view('pages.add-ons-detail',compact(['data','id']));
+            return view('pages.addons.detail',compact(['data','id']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
@@ -149,7 +149,7 @@ class HomeController extends Controller
     public function gallery($id,$addonid){
         try{
             $data = Addons::packageGallery($id)->first()->toArray();
-            return view('pages.add-ons-gallery',compact(['data','addonid']));
+            return view('pages.addons.gallery',compact(['data','addonid']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
