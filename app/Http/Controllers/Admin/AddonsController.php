@@ -27,21 +27,7 @@ class AddonsController extends Controller
             //  if($request->has('records')){
             //     $records = $request->records; 
             // }
-            $products = PartnerProducts::with([
-                'package' => function($query){
-                    $query->select('user_id','location_description','product_id');
-                },
-                'addon' => function($query){
-                    $query->select('name','id');
-                },
-                'rejected' => function($query){
-                    $query->select('feedback','id','product_id');
-                },
-                
-
-                
-            ])->select('product_name','id','status','business_category');
-           
+            $products = Addons::productWithRejected();          
             $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);          
             $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
@@ -60,8 +46,7 @@ class AddonsController extends Controller
                 $viewurl = 'elements.admin.addons.'.$slug;
                 return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray,'all_addons'=> $all_addons,'pending_addons'=>$pending_addons,'approved_addons'=>$approved_addons,'rejected_addons'=>$rejected_addons]);
             }
-            return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons','dataArray']));
-        
+            return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons','dataArray']));        
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -240,9 +225,14 @@ class AddonsController extends Controller
             $checkifExistInPackage =  Addons::checkifExistInPackage($id);
             if(count($checkifExistInPackage)==0){
                 Addons::destroy($id);
-                return redirect()->back()->with(['message'=>'Addon deleted successfully','class'=>'alert-success']);
+                $msg = 'Addon deleted successfully';
+                $route = 'add-ons/all#addons-setting';
+                return redirect($route)->with(['message'=>$msg,'class'=>'alert-success']);
             }
-            return redirect()->back()->with(['message'=>'This Addon exist in package','class'=>'alert-danger']);
+            
+            $msg = 'This Addon exist in package';
+            $route = 'add-ons/all#addons-setting';
+            return redirect($route)->with(['message'=>$msg,'class'=>'alert-danger']);
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

@@ -203,6 +203,8 @@ $websiteRoutes = function() {
 };
 $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+    
+    // Route::get('/', 'App\Http\Controllers\Admin\LocationsController@index')->name('marriages');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('sign-up', function () {
         return view('admin.sign-up');

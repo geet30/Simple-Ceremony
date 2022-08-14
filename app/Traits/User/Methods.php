@@ -77,6 +77,23 @@ trait Methods
         }
         return true;
     }
+    static function redirectToRole($request){
+       
+        $redirection = '';
+        if ($request->route_name=='admin-login') {
+            $role = 'Admin';
+            $redirection = 'locations/all-requests';
+        }
+        else if ($request->route_name=='partner-login') {
+            $role = 'Partner';
+            $redirection = 'add-ons';
+        }
+        else if ($request->route_name=='user-login') {
+            $role = 'User';
+            $redirection = 'user-overview';
+        }
+        return array('role'=>$role,'redirection'=>$redirection);
+    }
    
  
 }

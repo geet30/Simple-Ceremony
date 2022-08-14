@@ -111,6 +111,19 @@ trait Methods
         PartnerProducts::where('id', $request->id)->update($input);
         return $data;
     }
-    
+
+    public static function productWithRejected(){
+        return PartnerProducts::with([
+            'package' => function($query){
+                $query->select('user_id','location_description','product_id');
+            },
+            'addon' => function($query){
+                $query->select('name','id');
+            },
+            'rejected' => function($query){
+                $query->select('feedback','id','product_id');
+            },
+        ])->select('product_name','id','status','business_category');
+    }
    
 }
