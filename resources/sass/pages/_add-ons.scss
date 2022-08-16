@@ -338,6 +338,7 @@
             }
         }
         .waiting-approval {
+            cursor: pointer;
             background: #FFF6DE;
             border-radius: 32px;
             border: 0;
@@ -362,6 +363,7 @@
         }
         .approved {
             background: #E0FCE0;
+            cursor: pointer;
             border-radius: 32px;
             border: 0;
             font-weight: 700;
@@ -385,6 +387,7 @@
         }
         .rejected {
             background: #FFEDED;
+            cursor: pointer;
             border-radius: 32px;
             border: 0;
             font-weight: 700;

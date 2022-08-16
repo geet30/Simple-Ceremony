@@ -27,8 +27,8 @@ aria-hidden="true">
             </div>
             <div class="col-12 mb-3">
                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                  <label class="form-check-label body-3-medium text-black" for="invalidCheck2">
+                  <input class="form-check-input agree_to_terms" type="checkbox" value="" id="agree_to_terms" required>
+                  <label class="form-check-label body-3-medium text-black" for="agree_to_terms">
                      I’m agree with terms
                   </label>
                </div>
@@ -37,7 +37,7 @@ aria-hidden="true">
          <div class="row">
             <div class="d-md-flex">
                <div class="d-flex">
-                  <a role="button" class="theme-btn primary-btn  me-md-4 mb-3 mb-lg-0 w-100-sm"
+                  <a role="button" class="theme-btn primary-btn  me-md-4 mb-3 mb-lg-0 w-100-sm show-addon-basket"
                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                      aria-controls="offcanvasRight">Continue</a>
                </div>

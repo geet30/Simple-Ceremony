@@ -1,4 +1,5 @@
 
+
 @extends('layouts.master')
 @section('content')
 <section class="pt-45 pb-40">
@@ -11,7 +12,6 @@
       </div>
    </div>
 </section>
-   
 <section class="pb-40 ">
    <div class="container">
       <div class="row">
@@ -54,7 +54,7 @@
             <div class="row">
                <div class="col-lg-12 d-md-flex justify-content-between">
                   <div class="align-self-center">
-                     <h2 class="h3 neutral-100">{{$package['package_name']}} • ${{$package['total_fee']}}</h2>
+                     <h2 class="h3 neutral-100">{{$package['package_name']}} • ${{number_format($package['total_fee'])}}</h2>
                   </div>
                   <div class="align-self-center">
                      <a class="theme-btn primary-btn d-inline-flex open-add-to-wedding" data-id="{{$package['id']}}" data-package_name="{{$package['package_name']}}" data-terms="{{$package['title_term']}}" data-price="{{$package['total_fee']}}" data-bs-toggle="modal"
@@ -154,7 +154,7 @@
                   <div class="col-12 mb-3">
                      <div class="form-check">
                         <input class="form-check-input agree_to_terms" type="checkbox" value="" id="agree_to_terms" required>
-                        <label class="form-check-label body-1-medium text-black" for="invalidCheck2">
+                        <label class="form-check-label body-1-medium text-black" for="agree_to_terms">
                            I’m agree with terms
                         </label>
                      </div>

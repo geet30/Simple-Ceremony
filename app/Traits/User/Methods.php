@@ -20,7 +20,7 @@ trait Methods
             Booking::addtoCart($cart);
             $cookie = Cookie::queue(Cookie::forget('myCart'));
             // \Cookie::forget('myCart');
-            return redirect('user-add-ons');
+            return redirect('user/add-ons');
         }
     }
     static function createPartner($data) {
@@ -90,7 +90,7 @@ trait Methods
         }
         else if ($request->route_name=='user-login') {
             $role = 'User';
-            $redirection = 'user-overview';
+            $redirection = 'user/overview';
         }
         return array('role'=>$role,'redirection'=>$redirection);
     }

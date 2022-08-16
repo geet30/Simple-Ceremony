@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -7,7 +7,7 @@
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
          @include('elements.user-header')
-         <a href="/user/index" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/user/add-ons" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <div class="row">
@@ -17,7 +17,7 @@
                            <div class="row">
                               <div class="col-lg-12 d-md-flex justify-content-between">
                                  <div class="align-self-center">
-                                    <h2 class="h3 neutral-100">The corona pack bronze • $ 199</h2>
+                                    <h2 class="h3 neutral-100">{{ucfirst($data['product_name'])}} • $ 199</h2>
                                  </div>
                               </div>
                               <div class="col-12 col-12 d-none">

@@ -39,7 +39,7 @@ class RedirectIfAuthenticated
                     return redirect('add-ons');
                 }
                 else if (Auth::user()->roles->first()->name == 'User') {
-                    return redirect('user-overview');
+                    return redirect('user/overview');
                 }
                 else{
                     return redirect('/');

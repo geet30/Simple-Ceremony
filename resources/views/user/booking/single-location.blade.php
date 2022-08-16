@@ -33,7 +33,7 @@
          </div>
          <div class="col-md-6">
             <h1 class="mb-5">
-               <span class="paragraph netural-100">${{ $data->price}}</span><br>
+               <span class="paragraph netural-100">${{ number_format($data->price)}}</span><br>
                <span class="h1 netural-100">{{$data->name}}
                   @if(isset($data->address) && !empty($data->address))
                      ,{{$data->address}}

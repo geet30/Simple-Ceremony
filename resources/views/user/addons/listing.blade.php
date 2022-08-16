@@ -1,6 +1,7 @@
 
 @extends('layouts.panels')
 @section('content')
+
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 p-0">
@@ -38,7 +39,7 @@
                      <div class="col-md-12">
                         <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
                      </div>
-                   @include('elements.addons.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addons' => $addons])
+                   @include('elements.addons.top-list-add-ons', ['title' => 'Top list add-ons', 'path' => 'user-addons-detail', 'addons' => $addons])
                      
                     
                   </div>
@@ -48,7 +49,7 @@
                      <div class="col-md-12 ">
                         <h2 class="pb-20 h3 netural-100">  All add-ons </h2>
                      </div>
-                     @include('elements.addons.all-add-ons', ['title' => 'All add-ons', '' => '', 'addons' => $addons])
+                     @include('elements.addons.all-add-ons', ['title' => 'All add-ons','path' => 'user-addons-detail',  'addons' => $addons])
                   </div>
                </section>
             </div>

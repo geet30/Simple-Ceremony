@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -14,9 +14,21 @@
                   <div class="row">
                      <div class="col-md-8 align-self-center">
                         <div class="table-dropdown d-flex align-items-lg-center flex-column flex-lg-row">
-                           <h1 class="h3 neutral-100 mb-3 mb-lg-0">The Corona Pack</h1>
+                           <h1 class="h3 neutral-100 mb-3 mb-lg-0">{{$data['product_name']}}</h1>
                         </div>
-                        <p class="body-3 mb-0 mt-3"><img src="/images/location.svg" class="me-1 img-fluid" alt="Location"> Blues point reserve</p>
+                        <p class="body-3 mb-0 mt-3"><img src="/images/location.svg" class="me-1 img-fluid" alt="Location"> 
+                        <?php 
+                           $location_name=[];
+                           foreach($data['product_location'] as $product_location){
+                              foreach($product_location['locations'] as $location){
+                                 $location_name[]= $location['name'];
+                              
+                              }
+                              
+                           }
+                           echo implode(',',$location_name);
+                        ?>   
+                     </p>
                      </div>
                      <div class="col-md-4 align-self-start d-flex justify-content-md-end mt-3 mt-md-0">
                         <a role="button" class="theme-btn primary-btn" data-bs-toggle="offcanvas" data-bs-target="#contact_partner" aria-controls="offcanvasRight">Contact partner</a>
@@ -24,20 +36,23 @@
                   </div>
                </section>
                <section class="pt-40 add-ons-detail">
+               <?php $count = 0;?>
+               @foreach($data['package'] as $package)
+               <?php $count++; ?>
                   <div class="row pb-60">
                      <div class="col-lg-3 col-xl-2">
                         <div class="d-flex">
-                           <div class="numberCircle align-self-center">1</div>
-                           <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages 1</p>
+                           <div class="numberCircle align-self-center">{{$count}}</div>
+                           <p class="subheader-3 neutral-100 align-self-center mb-0 ms-2">Packages {{$count}}</p>
                         </div>
                      </div>
                      <div class="col-lg-9 col-xl-10 mt-3 mt-md-0">
                         <div class="row">
                            <div class="col-lg-12 d-xl-flex justify-content-between">
                               <div class="align-self-center mb-3 mt-3 mt-lg-0 mb-xl-0">
-                                 <h2 class="h3 neutral-100">The corona pack bronze • $ 199</h2>
+                              <h2 class="h3 neutral-100">{{$package['package_name']}} • ${{number_format($package['total_fee'])}}</h2>
                               </div>
-                              <a role="button" class="theme-btn primary-btn" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding">
+                              <a role="button" class="theme-btn primary-btn open-add-to-wedding" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding" data-id="{{$package['id']}}" data-package_name="{{$package['package_name']}}" data-terms="{{$package['title_term']}}" data-price="{{$package['total_fee']}}">
                                 <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
                                 Add to my wedding
                              </a>
@@ -46,41 +61,46 @@
                               <div class="row">
                                  <div class="col-md-6 mb-3 mb-md-0">
                                     <div class=" position-relative">
-                                       <img src="/images/add-ons/add-ons-details/left.jpg" class="img-fluid  left-img "
-                                          alt="add-ons-image ">
+                                    @foreach($package['gallery'] as $images)
+                                       @if ($loop->first)  
+                                          @if(isset($images) && !empty($images['image_name']))
+                                             <img src="{{ asset('/uploads/images/package/'.$images['image_name']) }}" alt="add-ons-image " class="img-fluid left-img">
+                                          @endif
+                                       @endif
+                                    @endforeach
                                        <div class="all-pictures-btn">
-                                          <a href="/user/package-gallery" class="theme-btn primary-btn d-inline-flex">
-                                             <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
-                                                alt="shopping-icon">
-                                             See all pictures
-                                          </a>
+                                       <a href="{{ route('user.addons.gallery', ['id' => $package['id'], 'addonid' => $id]) }}" class="theme-btn primary-btn d-inline-flex">
+                                          <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
+                                             alt="shopping-icon">
+                                          See all pictures
+                                       </a>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-md-6 right-img  ">
-                                    <div class="row">
-                                       <div class="col-sm-6">
-                                          <img src="/images/add-ons/add-ons-details/right-1.jpg" class="img-fluid mb-3 photo"
-                                             alt="add-ons-image ">
-                                          <img src="/images/add-ons/add-ons-details/right-2.jpg"
-                                             class="img-fluid photo mb-3 mb-sm-0 " alt="add-ons-image ">
-                                       </div>
-                                       <div class="col-sm-6">
-                                          <img src="/images/add-ons/add-ons-details/right-3.jpg" class="img-fluid mb-3 photo"
-                                             alt="add-ons-image ">
-                                          <div class="position-relative">
-                                             <img src="/images/add-ons/add-ons-details/right-4.jpg" class="img-fluid photo "
-                                                alt="add-ons-image ">
-                                             <img src="/images/play-icon.svg" class="img-fluid  play-icon" alt="add-ons-image ">
+                                 <div class="row">
+                                    @foreach($package['gallery'] as $images)
+                                       @if(isset($images) && !empty($images['image_name']))
+                              
+                                          <div class="col-sm-6">
+                                          
+                                             @if(preg_match('/^.*\.(mp4|mov|mpg|mpeg|wmv|mkv)$/i', $images['image_name'])) 
+                                                
+                                                <video controls width="100%" class="img-fluid mb-3 photo"  id="video" preload="metadata">
+                                                   <source src="{{ asset('/uploads/images/package/'.$images['image_name']) }}" type="video/mp4">
+                                                </video>
+                                             @else
+                                                <img src="{{ asset('/uploads/images/package/'.$images['image_name']) }}" alt="add-ons-image " class="img-fluid mb-3 photo"> 
+                                             @endif
+
+                                             
                                           </div>
-                                       </div>
-                                    </div>
+                                       @endif
+                                    @endforeach
+                                  </div>
                                  </div>
                                  <div class="col-12 pt-3">
-                                    <p class="body-3-medium text-black">At Simple C we have created a simple package so your
-                                       ceremony still feels special. Create a beautiful backdrop for you and your virtual guests if
-                                       you are planning on live streaming across the globe.
-                                       Or, if you just want to make your photos even more special.
+                                    <p class="body-3-medium text-black">{{$package['location_description']}}
                                     </p>
                                     <ul class="addons-list">
                                        <li>Signing table and 2 white padded folding chairs </li>
@@ -100,7 +120,8 @@
                         </div>
                      </div>
                   </div>
-                  <div class="row pb-60">
+               @endforeach
+                  <!-- <div class="row pb-60">
                      <div class="col-lg-3 col-xl-2">
                         <div class="d-flex">
                            <div class="numberCircle align-self-center">2</div>
@@ -240,7 +261,7 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                </section>
             </div>
          </div>

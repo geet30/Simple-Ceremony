@@ -55,6 +55,22 @@ trait Methods
         return $partnerPackages;
         
     }
+    public static function userProductPackages($id=null){
+        $partnerPackages =   PartnerPackages::with([
+            'gallery' => function($query){
+                $query->select('image_name','id','package_id');
+            },
+            'user' => function($query){               
+                $query->select('name','id');
+            }
+            
+        ])->select('id','user_id','package_name');
+        if($id!=''){
+            $partnerPackages = $partnerPackages->where('user_id',$id);
+        }
+        return $partnerPackages;
+        
+    }
     public static function checkifExistInPackage($id){
         return PartnerProducts::where('business_category',$id)->get();
     }

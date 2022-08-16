@@ -18,7 +18,7 @@
                 <div class="dot align-self-center me-1"></div>
                 <div class="align-self-center"> {{ $addon['addon']['name'] }}</div>
             </div>
-            <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting  ${{ (isset($addon['package'][0]['total_fee'])) ? $addon['package'][0]['total_fee']:'' }}</div>
+            <div class="d-flex justify-content-between mb5 body-3 netural-100 ">Starting  ${{ (isset($addon['package'][0]['total_fee'])) ? number_format($addon['package'][0]['total_fee']):'' }}</div>
             
             
             <h3 class="h4 netural-100">{{ (isset($addon['product_name'])) ? $addon['product_name'] :''  }}</h3>

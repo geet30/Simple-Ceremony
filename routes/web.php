@@ -26,7 +26,7 @@ $websiteRoutes = function() {
     Route::post('search-booking-addon',[HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
     
-    Route::get('add-ons-detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
+    Route::get('addons/detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
     
     Route::post('contact-us',[HomeController::class, 'contactUs'])->name('contact-us');
 
@@ -120,26 +120,27 @@ $websiteRoutes = function() {
     Route::get('quiz', function () {
         return view('pages.quiz');
     });
+    Route::get('password-reset', function () {
+        return view('user.password-reset');
+    });
+    Route::get('create-password', function () {
+        return view('user.create-password');
+    });
     Route::middleware('auth')->group(function () {
-        Route::get('user-overview' , 'App\Http\Controllers\User\UserController@index')->name('user-overview');
-        Route::get('user-add-ons' , 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
-        Route::get('add-ons/detail/{id}' , 'App\Http\Controllers\User\UserController@addonDetail')->name('add-ons.detail');
+        Route::prefix('user')->group(function () {
+            Route::get('overview','App\Http\Controllers\User\UserController@index')->name('user-overview');
+            Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
+            Route::get('addons/detail/{id}','App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
+            Route::get('addons/gallery/{id}/{addonid}',[App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+        });
        
-        // Route::group(['prefix' => 'user'], function () {
-        
-        Route::get('password-reset', function () {
-            return view('user.password-reset');
-        });
-        Route::get('create-password', function () {
-            return view('user.create-password');
-        });
         
       
         Route::get('add-ons-gallery', function () {
-            return view('user.overview.add-ons-gallery');
+            return view('user.overview.addons.gallery');
         });
         Route::get('order-add-ons-details', function () {
-            return view('user.overview.order-add-ons-details');
+            return view('user.overview.addons.details');
         });
         Route::get('account-details', function () {
             return view('user.account.account-details');
@@ -147,11 +148,9 @@ $websiteRoutes = function() {
         Route::get('account-edit', function () {
             return view('user.account.account-edit');
         });
-        Route::get('package-details', function () {
-            return view('user.add-ons.package-details');
-        });
+       
         Route::get('package-gallery', function () {
-            return view('user.add-ons.package-gallery');
+            return view('user.addons.package-gallery');
         });
         Route::get('all-invoices', function () {
             return view('user.invoices.all-invoices');
@@ -203,8 +202,6 @@ $websiteRoutes = function() {
 };
 $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-    
-    // Route::get('/', 'App\Http\Controllers\Admin\LocationsController@index')->name('marriages');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
         
@@ -290,7 +287,8 @@ $adminRoutes = function() {
 
         Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
         Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
-        Route::get('add-ons-gallery/{id}',[AddonsController::class, 'gallery'])->name('admin.addons.gallery');
+        Route::get('add-ons-gallery/{id}/{addonid}',[AddonsController::class, 'gallery'])->name('admin.addons.gallery');
+       
         Route::post('/change-status',[AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback',[AddonsController::class, 'submitFeedback']);
         Route::get('partner-details/{id}',[PartnerController::class, 'partnerDetail']);

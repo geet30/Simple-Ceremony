@@ -90,18 +90,18 @@
                               <div class="col-lg-12 d-md-flex justify-content-between">
                                  <div class="align-self-center">
                               
-                                    <h2 class="h3 neutral-100">{{$package['package_name']}} • $ {{$package['total_fee']}}</h2>
+                                    <h2 class="h3 neutral-100">{{$package['package_name']}} • $ {{number_format($package['total_fee'])}}</h2>
                                  </div>
                               </div>
                               <div class="col-12">
                                  <div class="add-ons-discount d-flex mt-4 mb-3">
                                     <div class="add-ons-discount-offer text-center me-4">
                                        <p class="mb-1 small-text2 neutral-100">AC admin fee</p>
-                                       <h3 class="h3 mb-0 neutral-100">{{$package['admin_fee']}}%</h3>
+                                       <h3 class="h3 mb-0 neutral-100">{{number_format($package['admin_fee'])}}%</h3>
                                     </div>
                                     <div class="add-ons-after-discount-price text-center">
                                        <p class="mb-1 small-text2 neutral-100">Total fee <br>partners get</p>
-                                       <h3 class="h3 mb-0 neutral-100">$ {{$package['partner_fee']}}</h3>
+                                       <h3 class="h3 mb-0 neutral-100">$ {{number_format($package['partner_fee'])}}</h3>
                                     </div>
                                  </div>
                               </div>
@@ -119,7 +119,7 @@
                                           @endforeach
                                           <div class="all-pictures-btn">
                                           
-                                             <a href="{{ route('admin.addons.gallery', $package['id']) }}" class="theme-btn primary-btn d-inline-flex">
+                                             <a href="{{ route('admin.addons.gallery', ['id' => $package['id'], 'addonid' => $id]) }}" class="theme-btn primary-btn d-inline-flex">
                                                 <img class="me-2" src="/images/add-ons/add-ons-details/photo-icon.svg"
                                                    alt="shopping-icon">
                                                 See all pictures
