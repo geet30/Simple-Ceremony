@@ -83,7 +83,7 @@ trait Methods
     }
     
     public static function getPartnerPackages($id=null){
-      return  PartnerPackages::where('user_id',$id)->select('id','package_name')->get()->toArray();
+      return  PartnerPackages::where('user_id',$id)->select('id','package_name','total_fee')->get()->toArray();
     }
     public static function getLocations($id=null){
         $locations =  Locations::with([

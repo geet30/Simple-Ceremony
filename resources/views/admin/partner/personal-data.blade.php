@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-        <form class="needs-validation" method="POST" novalidate action="{{ route('partner-personal-data',$user_id) }}">
+        <form class="needs-validation" method="POST" novalidate action="{{ route('partner.personal-data',$user_id) }}">
             @csrf
             <div class="row">
             <div class="col-md-6 mb-4">

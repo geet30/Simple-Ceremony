@@ -272,7 +272,7 @@ $adminRoutes = function() {
         Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location.view');
         
         Route::post('get-packages',[LocationsController::class, 'getPackages']);
-        Route::get('add-ons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
+        Route::get('addons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
         /** Addon Setting **/
         Route::post('/submit-addon',[AddonsController::class, 'store']);
         Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
@@ -286,13 +286,13 @@ $adminRoutes = function() {
         /** Location Filter Setting **/
 
         Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
-        Route::get('detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
-        Route::get('add-ons-gallery/{id}/{addonid}',[AddonsController::class, 'gallery'])->name('admin.addons.gallery');
+        Route::get('addons/detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
+        Route::get('addons/gallery/{id}/{addonid}',[AddonsController::class, 'gallery'])->name('admin.addons.gallery');
        
         Route::post('/change-status',[AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback',[AddonsController::class, 'submitFeedback']);
-        Route::get('partner-details/{id}',[PartnerController::class, 'partnerDetail']);
-        Route::post('partner-personal-data/{id}',[PartnerController::class, 'personalData'])->name('partner-personal-data');
+        Route::get('partner/details/{id}',[PartnerController::class, 'partnerDetail']);
+        Route::post('partner/personal-data/{id}',[PartnerController::class, 'personalData'])->name('partner.personal-data');
         Route::post('submit-location',[PartnerController::class, 'store']);
         Route::get('all-partners', function () {
             return view('admin.partner.all-partners');

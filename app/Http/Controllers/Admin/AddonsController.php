@@ -227,12 +227,12 @@ class AddonsController extends Controller
             if(count($checkifExistInPackage)==0){
                 Addons::destroy($id);
                 $msg = 'Addon deleted successfully';
-                $route = 'add-ons/all#addons-setting';
+                $route = 'addons/all#addons-setting';
                 return redirect($route)->with(['message'=>$msg,'class'=>'alert-success']);
             }
             
             $msg = 'This Addon exist in package';
-            $route = 'add-ons/all#addons-setting';
+            $route = 'addons/all#addons-setting';
             return redirect($route)->with(['message'=>$msg,'class'=>'alert-danger']);
         }
         catch (\Exception $ex) {
