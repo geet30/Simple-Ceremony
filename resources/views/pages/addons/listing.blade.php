@@ -44,7 +44,7 @@
             <div class="col-md-12 pt-45">
                <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
             </div>
-               @include('elements.addons.top-list-add-ons', ['title' => 'Top list add-ons', '' => '', 'addons' => $addons])
+               @include('elements.addons.top-list-add-ons', ['title' => 'Top list add-ons', 'path' => 'add-ons-detail', 'addons' => $addons])
          </div>
       </div>
    </div>
@@ -56,7 +56,7 @@
             <h2 class="pb-20 h3 netural-100">  All add-ons </h2>
          </div>
          
-         @include('elements.addons.all-add-ons', ['title' => 'Top list add-ons', '' => '', 'addons' => $addons])
+         @include('elements.addons.all-add-ons', ['title' => 'All add-ons', 'path' => 'add-ons-detail', 'addons' => $addons])
         
       </div>
    </div>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\{User,Addons};
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth; 
 class UserController extends Controller
 {
 
@@ -15,10 +15,12 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-       
+        // $user_id = Auth::user()->id;
         try{
-            User::addToCart();
+            // User::addToCart();
             $addons = Addons::productPackages()->get()->toArray();
+            // $addons = Addons::userProductPackages($user_id)->get()->toArray();
+            // dd($addons);
             return view('user.overview.index',compact(['addons']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
@@ -35,7 +37,7 @@ class UserController extends Controller
     public function addons(Request $request){
         try{
             $addons = Addons::products()->get()->toArray();
-            return view('user.add-ons.listing',compact(['addons']));
+            return view('user.addons.listing',compact(['addons']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
@@ -48,14 +50,29 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function addonDetail($id){
-       
+      
         try{
-            $data = Addons::productPackages($id)->get()->toArray();
-            return view('user.overview.order-add-ons',compact(['addons']));
+            $data = Addons::products()->where('id',$id)->first()->toArray();
+            return view('user.addons.package-details',compact(['data','id']));
+           
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
         }   
+    }
+     /**
+     * Show User Package Gallery
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function gallery($id,$addonid){       
+        try{
+            $data = Addons::packageGallery($id)->first()->toArray();
+            return view('user.addons.package-gallery',compact(['data','addonid']));
+        }catch (\Exception $e) {
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+            
+        }
     }
 }
 ?>

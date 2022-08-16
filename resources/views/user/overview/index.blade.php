@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -46,7 +46,7 @@
                         <div class="col-12 mb-2">
                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row">
                               <h4 class="h4 neutral-100 mb-0">Add-ons</h4>
-                              <a href="user-add-ons" class="ms-0 ms-md-2 mt-2 mt-md-0 button-3 turquoise-100">View add-ons available at this site</a>
+                              <a href="add-ons" class="ms-0 ms-md-2 mt-2 mt-md-0 button-3 turquoise-100">View add-ons available at this site</a>
                            </div>
                         </div>
                         <div class="col-12">

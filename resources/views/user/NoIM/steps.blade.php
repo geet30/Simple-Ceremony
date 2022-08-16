@@ -9,7 +9,7 @@
       @include('elements.user.steps.header')
       <div class="card noim-card mb-4">
          <form class="card-body needs-validation pb-5 px-0 pt-0"  method="POST" novalidate>
-            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100" class="scrollspy-example" tabindex="0" >
+            <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100" class="scrollspy-example" tabindex="0">
                <div id="person-1" >
                   @include('elements.user.steps.person-1')
                </div>

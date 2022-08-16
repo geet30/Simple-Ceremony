@@ -52,7 +52,7 @@ class LoginController extends Controller
             $response = User::redirectToRole($request);
             if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {               
                 $user=Auth::user();
-                User::addToCart();
+                // User::addToCart();
                 if($response['role'] = $user->roles->first()->name){
                     return redirect($response['redirection']);
                 }else{

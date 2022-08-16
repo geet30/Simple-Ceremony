@@ -64,7 +64,7 @@ class AddonsController extends Controller
     {
         try {
             $data = Addons::products()->where('id',$id)->first()->toArray();       
-            return view('admin.addons.detail',compact(['data']));
+            return view('admin.addons.detail',compact(['data','id']));
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -77,15 +77,16 @@ class AddonsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function gallery($id){
+    public function gallery($id,$addonid){
         try{
             $data = Addons::packageGallery($id)->first()->toArray();
-            return view('admin.addons.add-ons-gallery',compact('data'));
+            return view('admin.addons.gallery',compact(['data','addonid']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
         }
     }
+   
      /**
      * Change status of packages.
      *

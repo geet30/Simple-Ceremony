@@ -111,11 +111,14 @@
             console.log('jj',listing.length);
             $('.show-addon-basket-header').find('.cart-item-counting').html(listing.length);
             $('#termsModal').modal('hide');
+            
+            $('#add_to_my_wedding').modal('hide');
             $('#basket_table').css('visibility','visible');
             $('.no_items').css('visibility','hidden');
             $("#agree_to_terms").prop("checked", false);
         
         })
+        
     });
     window.saveCartData = function(data) { 
         localStorage.setItem('cart', JSON.stringify(data));
