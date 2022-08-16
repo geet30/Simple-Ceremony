@@ -59,11 +59,12 @@ $(document).ready(function(){
                     var temp =  $('#package-'+id);
                     temp.empty();
                     $.each(response.data, function (i, data) {      
+                        var total_fee = parseInt(data.total_fee);
                         $('<option>',
                         {
                             value: data.id,
                             text: data.package_name
-                        }).html(data.package_name).appendTo("#package-"+id);
+                        }).html(data.package_name+' - $'+total_fee.toFixed(0)).appendTo("#package-"+id);
                     });
 
                 }

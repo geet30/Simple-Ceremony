@@ -25,7 +25,7 @@
             }
                 
          ?>
-         <a href="/add-ons/all" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="/addons/all" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
@@ -62,7 +62,7 @@
                         @if($data['status'] == 1)
                         <a href="#" class="theme-btn primary-btn me-3"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         @endif
-                        <a href="{{ url('partner-details',$data['id'])}}" class="theme-btn primary-btn-border">See profile partner</a>
+                        <a href="{{ url('partner/details',$data['id'])}}" class="theme-btn primary-btn-border">See profile partner</a>
                      </div>
                   </div>
                </section>

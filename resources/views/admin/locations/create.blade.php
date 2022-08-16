@@ -79,7 +79,7 @@
                         <div class="col-md-5 mb-4">
                            <label for="Price" class="form-label small-text2">Price *</label>
                            <div class=" theme-input-group">
-                              <input type="number" step="0.01" placeholder="Type general location here" class="form-control body-1 netural-100 pl-30" name="price" id="Price" required>
+                              <input type="number" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" name="price" id="Price" required>
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                               <div class="invalid-feedback">
                               Price is required.
@@ -89,7 +89,10 @@
                         </div>
                         <div class="col-md-5 mb-4 ">
                            <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
+                           
+
                            <select class="js-placeholder-single-input js-select2 form-control" name="marriage_celebrant[]" multiple="multiple">
+                              <!-- <option value="" disabled="" selected="" hidden="">Select</option> -->
                               <option value="O1" data-badge="">Peter</option>
                               <option value="O2" data-badge="">Lux</option>
                               <option value="O3" data-badge="">Michael</option>

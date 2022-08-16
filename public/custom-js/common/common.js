@@ -1,15 +1,14 @@
 //sidebar menu active
-$(window).on('load', function () {
-  
-  
-  $("#sidebarMenu li a").each(function() {
-	  var pageUrl = window.location.href.split(/[?#]/)[0];
-		if (this.href == pageUrl) {     
-			$(this).addClass("active");
-		
-		}
-	});
-});
+// $(window).on('load', function () { 
+//   $("#sidebarMenu li a").each(function() {  
+// 	  var pageUrl = window.location.href.split(/[?#]/)[0];
+//     console.log('pageUrl',pageUrl);
+//     console.log('href',this.href);
+// 		if (this.href == pageUrl) {     
+// 			$(this).addClass("active");	
+// 		}
+// 	});
+// });
 
 // slick slider js
 $('.slider-for').slick({
