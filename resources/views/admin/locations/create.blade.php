@@ -178,7 +178,7 @@
                            <div class="row">
                               <div class="col-md-5 mb-4">
                                  <label for="partner" class="form-label small-text2">Select partner *</label>
-                                 <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('get-packages',this,'0')" id="partner-0" name="partners[0][partner_id]" required>
+                                 <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,'0')" id="partner-0" name="partners[0][partner_id]" required>
                                     <option value="">Select Partner</option>
                                     @foreach($partners as $partner)
                                        <option value="{{$partner['user']['id']}}">{{$partner['user']['name']}}</option>

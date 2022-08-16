@@ -209,5 +209,53 @@ trait Methods
         return RequestLocations::create($data);
 
     }
+    static function searchBooking($request){             
+        if($request->has('id') && $request->filled('id')){
+            $get_result = Booking::with([
+                'location' => function($query){
+                    $query->select('name','id','price');
+                },
+                'location.location_images' => function($query){
+                    $query->select('location_id','image');
+                }
+            ]);
+            $booking = (clone $get_result);
+           
+            if($request->has('id')){
+                $booking->where('locationId',$request->id);
+            }           
+            if($request->has('booking_date') && $request->booking_date !=''){
+                $booking->where('booking_date',$request->booking_date);
+            }
+            if($request->has('booking_start_time') && $request->booking_start_time !=''){
+                $booking->where('booking_start_time',$request->booking_start_time);
+            }
+            if($request->has('booking_end_time') && $request->booking_end_time !=''){
+                $booking->where('booking_end_time',$request->booking_end_time);
+            }
+           return $booking->select('booking_date','id','locationId')->get();
+                            
+        }else{
+            return Booking::with([
+                'location' => function($query){
+                    $query->select('name','id','price');
+                },
+                'location.location_images' => function($query){
+                    $query->select('location_id','image');
+                }
+            ])->select('booking_date','id','locationId')->get();
+                          
+        }
+    }
+    static function checkIfBookingExist($data){
+        return Booking::with([
+            'location' => function($query){
+                $query->select('name','id','price');
+            },
+            'location.location_images' => function($query){
+                $query->select('location_id','image');
+            }
+        ])->where('booking_start_time',$data['booking_start_time'])->where('booking_end_time',$data['booking_end_time'])->where('booking_date',$data['booking_date'])->select('booking_date','id','locationId')->first();
+    }
    
 }

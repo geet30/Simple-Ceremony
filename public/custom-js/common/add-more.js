@@ -128,7 +128,7 @@ $(document).ready(function(){
         html = `<div class="row partnerpackageDiv">
         <div class="col-md-5 mb-4">
            <label for="partner" class="form-label small-text2">Select partner</label>
-           <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('get-packages',this,'${counter}')" id="partner-${counter}" name="partners[${counter}][partner_id]" >
+           <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,'${counter}')" id="partner-${counter}" name="partners[${counter}][partner_id]" >
               <option value="">Select Partner</option>`;
                $.each(JSON.parse(data), function(key, value) {
                   html +=`<option value="${value.user.id}">${value.user.name}</option>`;

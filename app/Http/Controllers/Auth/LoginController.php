@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Auth;
 use Redirect;
 use Config;
-
 use App\Models\{User};
 class LoginController extends Controller
 {
@@ -31,7 +30,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    // protected $redirectTo = '/';
+    
 
     /**
      * Create a new controller instance.
@@ -42,49 +42,43 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
     public function login(Request $request)
     {
-   
-        $redirection = '';
-        if ($request->route_name=='admin-login') {
-            $role = 'Admin';
-            $redirection = 'locations/all-requests';
-        }
-        else if ($request->route_name=='partner-login') {
-            $role = 'Partner';
-            $redirection = 'add-ons';
-        }
-        else if ($request->route_name=='user-login') {
-            $role = 'User';
-            $redirection = 'user-overview';
-        }else{
-
-        }
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-        //  dd($request->route_name);die;
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            
-            $user=Auth::user();
-            User::addToCart();
-            if($role = $user->roles->first()->name){
-                return redirect($redirection);
-            }else{
-                return Redirect::to('login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
-            }
-        }
-        return Redirect::to('login')->withErrors([
-                'email' => 'Credentials do not match our database.'
+        try {
+             $request->validate([
+                'email' => 'required|email',
+                'password' => 'required|string',
             ]);
+            $response = User::redirectToRole($request);
+            if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {               
+                $user=Auth::user();
+                User::addToCart();
+                if($response['role'] = $user->roles->first()->name){
+                    return redirect($response['redirection']);
+                }else{
+                    return Redirect::to('login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
+                }
+            }
+            return Redirect::to('login')->withErrors([
+                    'email' => 'Credentials do not match our database.'
+            ]);
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }  
+        
     }
   
     public function logout() {
-        $user=Auth::user();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();       
-        return redirect()->route('login');
+        try {
+            $user=Auth::user();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();       
+            return redirect()->route('login');
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }  
+       
     }
 }

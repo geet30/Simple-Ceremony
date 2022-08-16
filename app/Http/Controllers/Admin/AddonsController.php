@@ -6,8 +6,7 @@ use App\Models\{Addons,PartnerProducts,User,RejectedProducts};
 use Illuminate\Http\Request;
 use App\Http\Requests\AddonsRequest;
 use View;
-use Session;
-use DB;
+use Redirect;
 
 class AddonsController extends Controller
 {
@@ -18,54 +17,40 @@ class AddonsController extends Controller
      */
     public function index(Request $request,$slug)
     {
-        
-        $data = Addons::all();
-        $req_page = 1;
-        $records = 10;
-        if($request->has('page')){
-            $req_page = $request->page; 
-        }
-        //  if($request->has('records')){
-        //     $records = $request->records; 
-        // }
-        $products = PartnerProducts::with([
-            'package' => function($query){
-                $query->select('user_id','location_description','product_id');
-            },
-            'addon' => function($query){
-                $query->select('name','id');
-            },
-            'rejected' => function($query){
-                $query->select('feedback','id','product_id');
-            },
-            
-
-            
-        ])->select('product_name','id','status','business_category');
-       
-        
-        $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);  
-       
-        $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-        $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-        $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page',$req_page);
-
-        $dataArray = array(
-            'all_addons' =>$all_addons,
-            'pending_addons' =>$pending_addons,
-            'approved_addons' => $approved_addons,
-            'rejected_addons' => $rejected_addons       
-        );
-       
-        if($request->ajax()){          
-            if($slug == 'all'){
-                $slug = 'all-ads-on-tab';
+        try {
+            $data = Addons::all();
+            $req_page = 1;
+            $records = 10;
+            if($request->has('page')){
+                $req_page = $request->page; 
             }
-            $viewurl = 'elements.admin.addons.'.$slug;
-            return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray,'all_addons'=> $all_addons,'pending_addons'=>$pending_addons,'approved_addons'=>$approved_addons,'rejected_addons'=>$rejected_addons]);
+            //  if($request->has('records')){
+            //     $records = $request->records; 
+            // }
+            $products = Addons::productWithRejected();          
+            $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);          
+            $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+            $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+            $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page',$req_page);
+
+            $dataArray = array(
+                'all_addons' =>$all_addons,
+                'pending_addons' =>$pending_addons,
+                'approved_addons' => $approved_addons,
+                'rejected_addons' => $rejected_addons       
+            );        
+            if($request->ajax()){          
+                if($slug == 'all'){
+                    $slug = 'all-ads-on-tab';
+                }
+                $viewurl = 'elements.admin.addons.'.$slug;
+                return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray,'all_addons'=> $all_addons,'pending_addons'=>$pending_addons,'approved_addons'=>$approved_addons,'rejected_addons'=>$rejected_addons]);
+            }
+            return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons','dataArray']));        
         }
-        // dd($all_addons);
-        return view('admin.addons.listing', compact(['data','all_addons','pending_addons','approved_addons','rejected_addons','dataArray']));
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }  
        
     }
 
@@ -77,27 +62,14 @@ class AddonsController extends Controller
      */
     public function detail($id)
     {
-        $data = PartnerProducts::with([
-            'package' => function($query){
-                $query->select('id','user_id','location_description','product_id','partner_fee','admin_fee','total_fee','package_name','title_term');
-            },
-            'package.gallery' => function($query){               
-                $query->select('image_name','id','package_id');
-            },
-            'product_location' => function($query){
-                $query->select('location','id','product_id');
-            },
-            'product_location.locations' => function($query){
-                $query->select('name','id');
-            },
-            'addon' => function($query){
-                $query->select('name','id');
-            },
-            
-        ])->select('product_name','id','status','business_category')->where('id',$id)->first()->toArray();
-        // echo "<pre>";print_r($data);die;
-        // dd($data);
-        return view('admin.addons.detail',compact(['data']));
+        try {
+            $data = Addons::products()->where('id',$id)->first()->toArray();       
+            return view('admin.addons.detail',compact(['data']));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }  
+       
     }
      /**
      * show image gallery of packages.
@@ -107,7 +79,7 @@ class AddonsController extends Controller
      */
     public function gallery($id){
         try{
-            $data = User::addonPackageGallery($id);
+            $data = Addons::packageGallery($id)->first()->toArray();
             return view('admin.addons.add-ons-gallery',compact('data'));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
@@ -121,29 +93,16 @@ class AddonsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function changeStatus(Request $request){
-        // dd($request->all());die('fdsf');
-        
-        $input['status'] = $request->status;  
-        if($request->status == 1){
-            $data['status'] = 'Approved';
-            $data['class'] = 'approved';
+        try {
+            $result =   Addons::changeStatus($request);
+            if($result){
+                return $this->successResponse($result,'Status changed successfully.');
+            }
+           return response()->json(['status'=>false,"message"=>'something went wrong']);
         }
-         
-        else if($request->status == 2){
-            $data['status'] = 'Rejected';
-            $data['class'] = 'rejected';
-        }
-          
-        else if($request->status == 0){
-            $data['status'] = 'Waiting for approval';
-            $data['class'] = 'waiting-approval';
-        }
-        
-        $result = PartnerProducts::where('id', $request->id)->update($input);
-        if($result){
-             return $this->successResponse($data,'Status changed successfully.');
-        }
-        return response()->json(['status'=>false,"message"=>'something went wrong']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }         
     }
 
     /**
@@ -154,21 +113,26 @@ class AddonsController extends Controller
      */
     public function store(AddonsRequest $request)
     {
-      
-        $input = $request->all();
-        $checkAddons = Addons::where('name',$request->name)->first();
-        if($checkAddons){
-            $msg = 'Addons already exists with this name.';
-            return response()->json(['status'=>false,"message"=>$msg]);
-        }
-        
-        $result = Addons::create($input);
-        if($result){
-            $msg = 'Addons added successfully.';
-            return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
+        try {
+            $input = $request->all();
+            $checkAddons = Addons::where('name',$request->name)->first();
+            if($checkAddons){
+                $msg = 'Addons already exists with this name.';
+                return response()->json(['status'=>false,"message"=>$msg]);
+            }
             
+            $result = Addons::create($input);
+            if($result){
+                $msg = 'Addons added successfully.';
+                return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
+                
+            }
+            return response()->json(['status'=>false,"message"=>'Something went wrong.']);
         }
-        return response()->json(['status'=>false,"message"=>'Something went wrong.']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+       
        
     }
 
@@ -181,16 +145,19 @@ class AddonsController extends Controller
      */
     public function submitFeedback(Request $request)
     {
-      
-        $input = $request->all();
-       
-        $result = RejectedProducts::create($input);
-        if($result){
-            $msg = 'Feedback added successfully.';
-            return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
-            
+        try {
+            $input = $request->all();      
+            $result = RejectedProducts::create($input);
+            if($result){
+                $msg = 'Feedback added successfully.';
+                return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);                
+            }
+            return response()->json(['status'=>false,"message"=>'Something went wrong.']);
         }
-        return response()->json(['status'=>false,"message"=>'Something went wrong.']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+       
        
     }
     /**
@@ -226,47 +193,25 @@ class AddonsController extends Controller
      */
     public function update(Request $request)
     {
-    
-        $name = $request->input('name');
-        $id = $request->input('id');
-        Addons::where('id', $id )->update(['name'=>$name]);
-        $msg = 'Addons updated successfully.';
-        return response()->json(['status'=>true,"message"=>$msg]);
+        try{
+            $name = $request->input('name');
+            $id = $request->input('id');
+            Addons::where('id', $id )->update(['name'=>$name]);
+            $msg = 'Addons updated successfully.';
+            return response()->json(['status'=>true,"message"=>$msg]);
+        }catch (\Exception $e) {
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+            
+        }   
+       
     }
     public function searchAddon(Request $request){
-        
-        $data = [];
-       
-        
-        if($request->has('search') && $request->filled('search')){
-            if($request->table == 'partner_products'){
-                if($request->status != null){
-                    $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->where('status',$request->status)->orderBy('id', 'DESC')->get(); 
-                }else{
-                    $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get(); 
-                }
-                
-            }else{
-                $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
-            }
-           
-        }else{
-            if($request->table == 'partner_products'){
-                
-                if($request->status != null){
-                    $data = PartnerProducts::orderBy('id', 'DESC')->where('status',$request->status)->get();
-                }else{
-                    $data = PartnerProducts::orderBy('id', 'DESC')->get();
-                }
-               
-            }else{
-                $data = Addons::orderBy('id', 'DESC')->get();
-            }
-            
+        try{
+            $data = Addons::searchAdminAddon($request);
+            return View::make('admin.addons.searchList', ['addons' => $data,'table'=>$request->table]);
+        }catch (\Exception $e) {
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);           
         }
-        // dd($data);
-       
-        return View::make('admin.addons.searchList', ['addons' => $data,'table'=>$request->table]);
     }
 
     /**
@@ -276,12 +221,22 @@ class AddonsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-
-        $checkifExistInPackage =  Addons::checkifExistInPackage($id);
-        if(count($checkifExistInPackage)==0){
-            Addons::destroy($id);
-            return redirect()->back()->with(['message'=>'Addon deleted successfully','class'=>'alert-success']);
+        try {
+            $checkifExistInPackage =  Addons::checkifExistInPackage($id);
+            if(count($checkifExistInPackage)==0){
+                Addons::destroy($id);
+                $msg = 'Addon deleted successfully';
+                $route = 'add-ons/all#addons-setting';
+                return redirect($route)->with(['message'=>$msg,'class'=>'alert-success']);
+            }
+            
+            $msg = 'This Addon exist in package';
+            $route = 'add-ons/all#addons-setting';
+            return redirect($route)->with(['message'=>$msg,'class'=>'alert-danger']);
         }
-        return redirect()->back()->with(['message'=>'This Addon exist in package','class'=>'alert-danger']);
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+        
     }
 }

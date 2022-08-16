@@ -35,7 +35,7 @@
                            </p>
                         </div>
                         <div class="col-lg-4 col-xl-4 d-flex align-items-center justify-content-start">
-                           <a onclick="SearchBookingRecords('search-booking-location')" class="theme-btn primary-btn d-inline-flex px-3 me-3">
+                           <a onclick="SearchResults('search-booking')" class="theme-btn primary-btn d-inline-flex px-3 me-3">
                               <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon" >Search
                            </a>
                            <a href="{{route('user.booking')}}" class="theme-btn primary-btn-border">Reset</a>
@@ -57,18 +57,19 @@
                 </a>
                <span class="button-1 position-relative">Filter by categories</span>
                <div class="select-with-checkbox">
-                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
+                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control filter_by_categories" multiple="multiple">
                      <optgroup label="Categories">
                      
-                     <option value="" data-badge="">All</option>
+                     <option value="0" data-badge="">All</option>
                      @foreach($filters as $filter)
                          <option value="{{$filter->id}}">{{$filter->name}}</option>
                      @endforeach
                   </optgroup>
                   </select> 
-                 
+                  
                  
                </div>
+               <a onclick="SearchResults('search-location')" class="theme-btn primary-btn d-inline-flex px-3 me-3">Filter</a>
                
             </div>
         </div>

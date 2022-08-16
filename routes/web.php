@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\LocationsController;
-use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +41,9 @@ $websiteRoutes = function() {
     Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
     
     Route::post('/post-booking-user-payment',[BookingController::class, 'postBookingLocationPayment']);
-    Route::post('search-booking-location',[BookingController::class, 'searchBookingLocation']);
+    Route::post('search-booking',[BookingController::class, 'searchBooking']);
+    Route::post('search-location',[HomeController::class, 'searchLocation']);
+    
     Route::get('payment-success', function () {
         return view('elements.user.booking.booking-step-three');
     });
@@ -201,13 +203,9 @@ $websiteRoutes = function() {
 };
 $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+    
+    // Route::get('/', 'App\Http\Controllers\Admin\LocationsController@index')->name('marriages');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-    Route::get('sign-up', function () {
-        return view('admin.sign-up');
-    });
-    Route::get('password-reset', function () {
-        return view('admin.password-reset');
-    });
     Route::middleware('auth')->group(function () {
         
         Route::get('account-details', function () {

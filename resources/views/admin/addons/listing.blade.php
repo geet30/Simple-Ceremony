@@ -66,10 +66,10 @@
             <div class="col-lg-8 col-xl-9 mb-3 mb-lg-0">
                <ul class="nav theme-tabs">
                   <li class="nav-item">
-                     <a class="nav-link active" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" href="#">Add ons</a>
+                     <a class="nav-link active" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" href="#addons">Add ons</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#">Add-ons setting</a>
+                     <a class="nav-link" id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#addons-setting">Add-ons setting</a>
                   </li>
                </ul>
             </div>

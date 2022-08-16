@@ -83,8 +83,53 @@ trait Methods
     }
     
     public static function getPartnerPackages($id=null){
-    
-        return  PartnerPackages::where('user_id',$id)->select('id','package_name')->get()->toArray();
+      return  PartnerPackages::where('user_id',$id)->select('id','package_name')->get()->toArray();
+    }
+    public static function getLocations($id=null){
+        $locations =  Locations::with([
+            'location_images' => function($query){
+                $query->select('location_id','image');
+            }
+        ])->select('name','id','price','address','town','why_this_location');
+        if($id!=''){
+           $locations = $locations->where('id',$id);
+        }
+        return $locations;
+    }
+    public static function changeStatus($request){
+        $input['status'] = $request->status;  
+        if($request->status == 1){
+            $data['status'] = 'Approved';
+            $data['class'] = 'approved';
+        }
+         
+        else if($request->status == 2){
+            $data['status'] = 'Rejected';
+            $data['class'] = 'rejected';
+        }
+          
+        else if($request->status == 0){
+            $data['status'] = 'pending';
+            $data['class'] = 'waiting-approval';
+        }
+        
+        RequestLocations::where('id', $request->id)->update($input);
+        return $data;
+    }
+    public static function searchLocation($request){
+        $locations = self::getLocations();
+
+        if($request->has('filter') && !empty($request->filter)){
+            if(in_array('0',$request->filter)){
+                $data =$locations->get();
+            }else{
+                $data = $locations->whereIn('location_category',$request->filter)->get();
+            }
+            return $data;
+
+        }else{
+            return $locations->get();
+        }
 
     }
   

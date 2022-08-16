@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\{User,Addons,Locations};
 use Illuminate\Foundation\Auth\RegistersUsers;
-// use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 class RegisterController extends Controller
@@ -41,20 +40,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    // protected function validator(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string', 'max:255'],
-    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
-    //     ]);
-    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -63,27 +48,25 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     public function showSignupForm(){
-        $addons = Addons::all();
-        $locations = Locations::all();
-        return view('partner.sign-up',compact('addons','locations'));
+        try {
+            $addons = Addons::all();
+            $locations = Locations::all();
+            return view('partner.sign-up',compact('addons','locations'));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }        
     }
     public function register(Request $request)
     {
         try {
-         
             $response = User::createPartner($request->all());
             if($response){
              
                return redirect('login')->with('message', 'User created successfully, to login please check your email');
-            }
-            
-        } catch (\Exception $e) {
-            // dd($e->getMessage());
-            
-            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
-            
-        }
-   
-        
+            }    
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }   
     }
 }

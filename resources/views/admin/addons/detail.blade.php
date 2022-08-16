@@ -52,11 +52,11 @@
                      </p>
                      </div>
                      <div class="col-md-6 align-self-center d-flex justify-content-md-end mt-3 mt-md-0">
-                        
+                     
                         @if($data['status'] == 0 )
-                        <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail')"  class="theme-btn primary-btn me-3">Confirm</a>
+                        <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail','tab_id','addon')"  class="theme-btn primary-btn me-3">Confirm</a>
                         
-                        <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail')"  class="theme-btn primary-btn-border me-3">Reject</a>
+                        <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail','tab_id','addon')"  class="theme-btn primary-btn-border me-3">Reject</a>
 
                         @endif
                         @if($data['status'] == 1)
