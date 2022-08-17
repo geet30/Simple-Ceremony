@@ -27,14 +27,13 @@ class HomeController extends Controller
     public function index()
     { 
         try {
-            $locations = Locations::getLocations()->get();  
-            $addons =  Addons::products()->get()->toArray();
+            $locations = Locations::getLocations()->skip(0)->take(3)->get();  
+            $addons =  Addons::products()->skip(0)->take(4)->get()->toArray();
             return View::make('pages.home',compact(['locations' ,'addons' ]));
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }  
-        
+        }      
     }
     /**
      * Display a listing of the resource.
