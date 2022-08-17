@@ -57,25 +57,24 @@
                 </a>
                <span class="button-1 position-relative">Filter by categories</span>
                <div class="select-with-checkbox">
-                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control filter_by_categories" multiple="multiple">
+                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control location_categories_button filter_by_categories" multiple="multiple">
                      <optgroup label="Categories">
                      
-                     <option value="0" data-badge="">All</option>
-                     @foreach($filters as $filter)
-                         <option value="{{$filter->id}}">{{$filter->name}}</option>
-                     @endforeach
-                  </optgroup>
+                        <option value="0" data-badge="">All</option>
+                        @foreach($filters as $filter)
+                           <option value="{{$filter->id}}">{{$filter->name}}</option>
+                        @endforeach
+                     </optgroup>
                   </select> 
                   
                  
                </div>
-               <a onclick="SearchResults('search-location')" class="theme-btn primary-btn d-inline-flex px-3 me-3">Filter</a>
                
             </div>
         </div>
         <div id="searchResult" class="row">
 
-            @include('elements.user.location.location', ['title' => 'locations', '' => '', 'locations' => $locations])
+            @include('elements.user.location.index', ['title' => 'locations', '' => '', 'locations' => $locations])
         </div>
         
     

@@ -18,7 +18,8 @@ class LocationsController extends Controller
     public function index(Request $request,$slug=null){
         try {
             $filters = LocationFilters::all();
-            $records = 1;$req_page = 1;
+            $records = 10;
+            $req_page = 1;
             $locations = Locations::all();
             if($request->has('page')){
                 $req_page = $request->page; 
@@ -36,6 +37,22 @@ class LocationsController extends Controller
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }      
+    }
+    /**
+     * Search Location
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchAdminLocation(Request $request)
+    {
+        try {
+            $data =   Locations::searchAdminLocation($request);
+            return View::make('elements.admin.location.search-location', ['locations' => $data]);
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+ 
     }
     /**
      * View the detail of resource.

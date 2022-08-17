@@ -86,7 +86,7 @@
             </h2>
          </div>
          <div class=" col-lg-3 col-xxl-6"></div>
-         @include('elements.user.location.location', ['title' => 'locations', '' => '', 'locations' => $locations])
+         @include('elements.user.location.index', ['title' => 'locations', '' => '', 'locations' => $locations])
 
     
          <div class="col-12 mt-5 d-flex justify-content-center"> <a href="/location" class="theme-btn primary-btn  ">See all locations</a> </div>

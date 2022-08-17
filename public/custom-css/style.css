@@ -28,3 +28,8 @@
     height: 173px;
     object-fit: cover;
 }
+
+.search-location {
+        padding: 0px 20px;
+        margin-bottom: 15px;
+    }

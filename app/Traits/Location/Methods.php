@@ -90,7 +90,7 @@ trait Methods
             'location_images' => function($query){
                 $query->select('location_id','image');
             }
-        ])->select('name','id','price','address','town','why_this_location');
+        ])->select('name','id','price','address','town','why_this_location','cover_image');
         if($id!=''){
            $locations = $locations->where('id',$id);
         }
@@ -117,10 +117,10 @@ trait Methods
         return $data;
     }
     public static function searchLocation($request){
+     
         $locations = self::getLocations();
-
         if($request->has('filter') && !empty($request->filter)){
-            if(in_array('0',$request->filter)){
+            if(in_array('0',$request->filter)){             
                 $data =$locations->get();
             }else{
                 $data = $locations->whereIn('location_category',$request->filter)->get();
@@ -130,8 +130,27 @@ trait Methods
         }else{
             return $locations->get();
         }
-
     }
-  
+    public static function searchAdminLocation($request){
+     
+        $locations = self::getLocations();
+        if($request->has('filter') && $request->filter !=''){
+            if($request->has('search') && $request->search !=''){
+                $data = $locations->where('name', 'like', '%' . $request->search . '%')->get();
+            }
+            else if(($request->has('search') && $request->search !='') && ($request->has('filter') && $request->filter !='' && $request->filter !=0)){
+                $data = $locations->where('name', 'like', '%' . $request->search . '%')->where('location_category',$request->filter)->get();
+            }
+            
+            else if($request->filter == 0){             
+                $data =$locations->get();
+            }else{
+                $data = $locations->where('location_category',$request->filter)->get();
+            }
+            return $data;
+        }else{
+            return $locations->get();
+        }
+    } 
    
 }
