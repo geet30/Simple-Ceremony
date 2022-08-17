@@ -204,7 +204,7 @@ $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        
+        Route::post('search-location',[LocationsController::class, 'searchAdminLocation']);
         Route::get('account-details', function () {
             return view('admin.account.account-details');
         });
