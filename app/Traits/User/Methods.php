@@ -3,7 +3,7 @@
 namespace App\Traits\User;
 
 use Illuminate\Support\Facades\{View, Storage, DB,Hash};
-use App\Models\{User,PartnerPackages,PackageLocations,PartnerProducts,PackageImages,Booking};
+use App\Models\{User,PartnerPackages,PackageLocations,PartnerProducts,PackageImages,Booking,CelebrantDetail};
 use Carbon\Carbon;
 use Str;
 use Cookie;
@@ -24,8 +24,6 @@ trait Methods
         }
     }
     static function createPartner($data) {
-        // dd($data);
-      
         $user_inputs = $data['user'];
         $random_password = Str::random(8);
         $user_inputs['password'] = Hash::make($random_password);
@@ -45,8 +43,6 @@ trait Methods
         $sendMail = new RegisterUserMail($dataMail);
         $mail = \Mail::to($mail_id)->later($when, $sendMail);
 
-
-       
         $partner_products_inputs = $data['partner_products'];
         $partner_products_inputs['user_id'] = $user->id;        
         $PartnerProducts = PartnerProducts::create($partner_products_inputs);
@@ -77,6 +73,35 @@ trait Methods
         }
         return true;
     }
+
+    static function createCelebrant($data) {
+        
+        $userData = $data['user'];
+        $random_password = Str::random(8);
+        $userData['password'] = Hash::make($random_password);
+        if(!empty($data['user']['image'])){
+            $userData['image'] = uploadImage($data['user']['image'], 'user');
+        }
+        $user =User::create($userData);
+        $user->assignRole('Celebrant');
+
+        //Send login detail email to celebrant
+        $when = now()->addMinutes(1);
+        $dataMail  = array(
+            'email' => $userData['email'],
+            'password' => $random_password,
+        );
+        $mail_id = $userData['email'];
+        $sendMail = new RegisterUserMail($dataMail);
+        $mail = \Mail::to($mail_id)->later($when, $sendMail);
+
+        //Add extra detail of celebrant
+        $celebrant = $data['celebrant'];
+        $celebrant['celebrant_id'] = $user->id;        
+        CelebrantDetail::create($celebrant);
+        return true;
+    }
+
     static function redirectToRole($request){
        
         $redirection = '';

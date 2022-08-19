@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Location;
+namespace App\Traits\Celebrant;
 
 use App\Models\{User};
 

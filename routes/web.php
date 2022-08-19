@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\CelebrantsController;
 use App\Http\Controllers\Admin\LocationsController;
 use App\Http\Controllers\HomeController;
 /*
@@ -204,6 +205,7 @@ $adminRoutes = function() {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
+        Route::resource('celebrant', CelebrantsController::class);
         
         Route::get('account-details', function () {
             return view('admin.account.account-details');
@@ -355,6 +357,10 @@ $adminRoutes = function() {
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
+        Route::group(['prefix' => 'celebrant'], function () {
+     
+       
+        });
     });
 
 };
@@ -489,10 +495,7 @@ $celebrantRoutes = function() {
     Route::get('sign-up', function () {
         return view('celebrant.sign-up');
     });
-    Route::group(['prefix' => 'celebrant'], function () {
-     
-       
-    });
+   
     Route::get('/', function () {
         return view('celebrant.login');
     });
