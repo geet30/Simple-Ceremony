@@ -1,9 +1,7 @@
 @extends('layouts.panels')
 @section('content')
 <script>
-
    var partners = '<?php echo json_encode($partners);?>';
-
 </script>
 <div class="container-fluid">
    <div class="row">

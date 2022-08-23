@@ -12,9 +12,5 @@ use App\Models\{User};
 
 trait Relationship
 {
-    
-
-   
-
    
 }

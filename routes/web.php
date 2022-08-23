@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\CelebrantsController;
 use App\Http\Controllers\Admin\LocationsController;
 use App\Http\Controllers\HomeController;
 /*
@@ -18,32 +19,32 @@ use App\Http\Controllers\HomeController;
 */
 
 
-$websiteRoutes = function() {
-    Route::get('/',[HomeController::class, 'index'])->name('index');
-    Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
-   
-       
-    Route::post('search-booking-addon',[HomeController::class, 'searchBookingAddon']);
+$websiteRoutes = function () {
+    Route::get('/', [HomeController::class, 'index'])->name('index');
+    Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
+
+
+    Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
-    
-    Route::get('addons/detail/{id}',[HomeController::class, 'addonDetail'])->name('add-ons-detail');
-    
-    Route::post('contact-us',[HomeController::class, 'contactUs'])->name('contact-us');
+
+    Route::get('addons/detail/{id}', [HomeController::class, 'addonDetail'])->name('add-ons-detail');
+
+    Route::post('contact-us', [HomeController::class, 'contactUs'])->name('contact-us');
 
     Route::get('add-ons', [HomeController::class, 'allAddons'])->name('add-ons');
-    Route::get('booking',[BookingController::class, 'index'])->name('user.booking');
-    Route::get('single-location/{id}',[BookingController::class, 'detail'])->name('user.booking.detail');
+    Route::get('booking', [BookingController::class, 'index'])->name('user.booking');
+    Route::get('single-location/{id}', [BookingController::class, 'detail'])->name('user.booking.detail');
 
-    Route::get('location',[BookingController::class, 'index'])->name('user.booking');
-    Route::get('get-booking-calender/{locationId}',[BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
-    Route::get('add-ons-gallery/{id}/{addonid}',[HomeController::class, 'gallery'])->name('addons.gallery');
-    Route::post('/post-booking-location-form',[BookingController::class, 'postBookingLocationForm']);
-    Route::post('/post-booking-user-detail',[BookingController::class, 'postBookingLocationUserDetail']);
-    
-    Route::post('/post-booking-user-payment',[BookingController::class, 'postBookingLocationPayment']);
-    Route::post('search-booking',[BookingController::class, 'searchBooking']);
-    Route::post('search-location',[HomeController::class, 'searchLocation']);
-    
+    Route::get('location', [BookingController::class, 'index'])->name('user.booking');
+    Route::get('get-booking-calender/{locationId}', [BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
+    Route::get('add-ons-gallery/{id}/{addonid}', [HomeController::class, 'gallery'])->name('addons.gallery');
+    Route::post('/post-booking-location-form', [BookingController::class, 'postBookingLocationForm']);
+    Route::post('/post-booking-user-detail', [BookingController::class, 'postBookingLocationUserDetail']);
+
+    Route::post('/post-booking-user-payment', [BookingController::class, 'postBookingLocationPayment']);
+    Route::post('search-booking', [BookingController::class, 'searchBooking']);
+    Route::post('search-location', [HomeController::class, 'searchLocation']);
+
     Route::get('payment-success', function () {
         return view('elements.user.booking.booking-step-three');
     });
@@ -51,8 +52,8 @@ $websiteRoutes = function() {
         return view('elements.user.booking.payment-cancel');
     });
 
-    Route::get('request-custom-location',[HomeController::class, 'requestCustomLocation'])->name('request-custom-location');
-    Route::post('post-custom-location',[HomeController::class, 'postCustomLocation'])->name('post-custom-location');
+    Route::get('request-custom-location', [HomeController::class, 'requestCustomLocation'])->name('request-custom-location');
+    Route::post('post-custom-location', [HomeController::class, 'postCustomLocation'])->name('post-custom-location');
     Route::get('book-custom-location', function () {
         return view('pages.book-custom-location');
     });
@@ -98,7 +99,7 @@ $websiteRoutes = function() {
         return view('pages.complete-paperwork');
     });
 
-    
+
     Route::get('term-and-condition', function () {
         return view('pages.term-and-condition');
     });
@@ -128,14 +129,14 @@ $websiteRoutes = function() {
     });
     Route::middleware('auth')->group(function () {
         Route::prefix('user')->group(function () {
-            Route::get('overview','App\Http\Controllers\User\UserController@index')->name('user-overview');
+            Route::get('overview', 'App\Http\Controllers\User\UserController@index')->name('user-overview');
             Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
-            Route::get('addons/detail/{id}','App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
-            Route::get('addons/gallery/{id}/{addonid}',[App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+            Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
+            Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
         });
-       
-        
-      
+
+
+
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
         });
@@ -148,7 +149,7 @@ $websiteRoutes = function() {
         Route::get('account-edit', function () {
             return view('user.account.account-edit');
         });
-       
+
         Route::get('package-gallery', function () {
             return view('user.addons.package-gallery');
         });
@@ -197,14 +198,22 @@ $websiteRoutes = function() {
         Route::get('step-2', function () {
             return view('user.NoIM.step-2');
         });
-            // });
+        // });
     });
 };
-$adminRoutes = function() {
+$adminRoutes = function () {
+    Route::get('test', function () {
+        return view('test');
+    })->name('success');
+
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
-    Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
+    Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
+        Route::resource('celebrant', CelebrantsController::class);
+        //common function to make user active and inactive
+        Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
         Route::post('search-location',[LocationsController::class, 'searchAdminLocation']);
+
         Route::get('account-details', function () {
             return view('admin.account.account-details');
         });
@@ -220,16 +229,16 @@ $adminRoutes = function() {
         });
 
         Route::get('marriage-celebrants-list', function () {
-            return view('admin.marriage-celebrants.marriage-celebrants-list');
+            return view('admin.marriage-celebrants.listing');
         });
         Route::get('marriage-celebrants-details', function () {
-            return view('admin.marriage-celebrants.marriage-celebrants-details');
+            return view('admin.marriage-celebrants.detail');
         });
         Route::get('edit-marriage-celebrants-details', function () {
-            return view('admin.marriage-celebrants.edit-marriage-celebrants-details');
+            return view('admin.marriage-celebrants.edit');
         });
         Route::get('add-new-celebrant', function () {
-            return view('admin.marriage-celebrants.add-new-celebrant');
+            return view('admin.marriage-celebrants.create');
         });
 
         Route::get('all-triggers-and-emails', function () {
@@ -248,9 +257,9 @@ $adminRoutes = function() {
         Route::get('payments-overview', function () {
             return view('admin.payments.payments-overview');
         });
-        
+
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
-            
+
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
         Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
         Route::get('create-celebrants-invoice', function () {
@@ -263,41 +272,41 @@ $adminRoutes = function() {
         Route::get('single', function () {
             return view('admin.locations.single');
         });
-    
+
         Route::get('edit', function () {
             return view('admin.locations.edit');
         });
-        
-        Route::post('/change-location-status',[LocationsController::class, 'changeStatus']);
-        Route::get('location/view/{id}',[LocationsController::class, 'view'])->name('location.view');
-        
-        Route::post('get-packages',[LocationsController::class, 'getPackages']);
-        Route::get('addons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
+
+        Route::post('/change-location-status', [LocationsController::class, 'changeStatus']);
+        Route::get('location/view/{id}', [LocationsController::class, 'view'])->name('location.view');
+
+        Route::post('get-packages', [LocationsController::class, 'getPackages']);
+        Route::get('addons/{slug}', [AddonsController::class, 'index'])->name('admin.addons');
         /** Addon Setting **/
-        Route::post('/submit-addon',[AddonsController::class, 'store']);
+        Route::post('/submit-addon', [AddonsController::class, 'store']);
         Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
-        Route::post('/update-addon',[AddonsController::class, 'update']);
-         /** Addon Setting **/
+        Route::post('/update-addon', [AddonsController::class, 'update']);
+        /** Addon Setting **/
 
         /** Location Filter Setting **/
-        Route::post('/submit-filter',[LocationsController::class, 'saveFilter']);
+        Route::post('/submit-filter', [LocationsController::class, 'saveFilter']);
         Route::get('filter/destroy/{id}', [LocationsController::class, 'destroyFilter'])->name('filters.destroy');
-        Route::post('/update-filter',[LocationsController::class, 'updateFilter']);
+        Route::post('/update-filter', [LocationsController::class, 'updateFilter']);
         /** Location Filter Setting **/
 
-        Route::post('/search-addon',[AddonsController::class, 'searchAddon']);
-        Route::get('addons/detail/{id}',[AddonsController::class, 'detail'])->name('addons.detail');
-        Route::get('addons/gallery/{id}/{addonid}',[AddonsController::class, 'gallery'])->name('admin.addons.gallery');
-       
-        Route::post('/change-status',[AddonsController::class, 'changeStatus']);
-        Route::post('/submit-feedback',[AddonsController::class, 'submitFeedback']);
-        Route::get('partner/details/{id}',[PartnerController::class, 'partnerDetail']);
-        Route::post('partner/personal-data/{id}',[PartnerController::class, 'personalData'])->name('partner.personal-data');
-        Route::post('submit-location',[PartnerController::class, 'store']);
+        Route::post('/search-addon', [AddonsController::class, 'searchAddon']);
+        Route::get('addons/detail/{id}', [AddonsController::class, 'detail'])->name('addons.detail');
+        Route::get('addons/gallery/{id}/{addonid}', [AddonsController::class, 'gallery'])->name('admin.addons.gallery');
+
+        Route::post('/change-status', [AddonsController::class, 'changeStatus']);
+        Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
+        Route::get('partner/details/{id}', [PartnerController::class, 'partnerDetail']);
+        Route::post('partner/personal-data/{id}', [PartnerController::class, 'personalData'])->name('partner.personal-data');
+        Route::post('submit-location', [PartnerController::class, 'store']);
         Route::get('all-partners', function () {
             return view('admin.partner.all-partners');
         });
-        Route::get('add-new-partner', function (){
+        Route::get('add-new-partner', function () {
             return view('admin.partner.add-new-partner');
         });
         Route::get('edit-package', function () {
@@ -306,7 +315,7 @@ $adminRoutes = function() {
         Route::get('package-details', function () {
             return view('admin.partner.package-details');
         });
-    
+
         Route::get('partner-edit', function () {
             return view('admin.partner.partner-edit');
         });
@@ -355,19 +364,20 @@ $adminRoutes = function() {
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
+        Route::group(['prefix' => 'celebrant'], function () {
+        });
     });
-
 };
-$partnerRoutes = function() {
+$partnerRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
-    Route::get('login' , 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
-    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm'); 
+    Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
+    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm');
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });
     Route::middleware('auth')->group(function () {
-        
-       
+
+
         Route::get('all-partners', function () {
             return view('partner.all-partners');
         });
@@ -376,7 +386,6 @@ $partnerRoutes = function() {
         });
         Route::get('add-new-partner', function () {
             return view('partner.add-new-partner');
-
         });
         Route::get('edit-package', function () {
             return view('partner.edit-package');
@@ -384,7 +393,7 @@ $partnerRoutes = function() {
         Route::get('partner-details', function () {
             return view('partner.partner-details');
         });
-        Route::get('add-ons',[App\Http\Controllers\Partner\AddonsController::class, 'index'])->name('partner-addons');
+        Route::get('add-ons', [App\Http\Controllers\Partner\AddonsController::class, 'index'])->name('partner-addons');
 
         Route::get('add-new-package', function () {
             return view('partner.add-new-package');
@@ -433,7 +442,7 @@ $partnerRoutes = function() {
         });
     });
 };
-$celebrantRoutes = function() {
+$celebrantRoutes = function () {
     Route::get('upcomming', function () {
         return view('celebrant.upcomming.listing');
     });
@@ -482,17 +491,14 @@ $celebrantRoutes = function() {
     Route::get('edit', function () {
         return view('celebrant.profile.edit');
     });
-   
+
     Route::get('password-reset', function () {
         return view('celebrant.password-reset');
     });
     Route::get('sign-up', function () {
         return view('celebrant.sign-up');
     });
-    Route::group(['prefix' => 'celebrant'], function () {
-     
-       
-    });
+
     Route::get('/', function () {
         return view('celebrant.login');
     });
