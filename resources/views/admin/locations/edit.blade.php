@@ -1,5 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
+<script>
+   var partners ='<?php echo json_encode($partners);?>';
+</script>
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
@@ -9,54 +12,68 @@
          @include('elements.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
-               <a href="single" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+               <a href="{{route('locations.detail',$data->id)}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
+            @if (\Session::has('message'))
+               <div class="alert {{\Session::get('class')}}">
+                     <ul> <li>{!! \Session::get('message') !!}</li></ul>
+               </div>
+            @endif
                <div class="card panel-card">
                   <div class="card-body">
-                     <form class="needs-validation row" method="POST" novalidate>
+                     <form class="needs-validation row" novalidate method="POST" action="{{route('locations.update',$data->id)}}" enctype="multipart/form-data">
+                        @csrf
+                        @if($errors->any())
+                        <div class="alert alert-danger mb-3 alert-block">
+                           <button type="button" class="close" data-dismiss="alert">×</button>  
+                           {{$errors->first()}}
+                        </div>
+                        @endif
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Location</label>
-                           <input type="text" value="Tench Reserve" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="name" class="form-label small-text2">Location</label>
+                           <input type="text" value="{{ (isset($data->name)) ? $data->name : '' }}" class="form-control body-1 netural-100" name="name" id="name">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Address</label>
-                           <input type="text" value="Jamisontown NSW 2750, Australia" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="address" class="form-label small-text2">Address</label>
+                           <input type="text" value="{{ (isset($data->address)) ? $data->address : '' }}" class="form-control body-1 netural-100" name="address" id="address">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Suburb/ Town</label>
-                           <input type="text" value="Lorem ipsum dolor sit amet" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="town" class="form-label small-text2">Suburb/ Town</label>
+                           <input type="text" value="{{ (isset($data->town)) ? $data->town : '' }}" class="form-control body-1 netural-100" name="town" id="town">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Post Code</label>
-                           <input type="text" value="0000" class="form-control body-1 netural-100" name="name" id="InputName">
+                          
+                           <label for="post_code" class="form-label small-text2">Post Code</label>
+                           <input type="text" value="{{ (isset($data->post_code)) ? $data->post_code : '' }}" class="form-control body-1 netural-100" name="post_code" id="post_code">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Google coordinates</label>
-                           <input type="text" value="6MR9+85 Jamisontown, New South Wales, Australia" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="coordinates" class="form-label small-text2">Google coordinates</label>
+                           <input type="text" value="{{ (isset($data->coordinates)) ? $data->coordinates : '' }}" class="form-control body-1 netural-100" name="coordinates" id="coordinates">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Specific directions</label>
-                           <input type="text" value="lorem ipsum dolor sit amet consectetur adipiscing elit" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="direction" class="form-label small-text2">Specific directions</label>
+                           <input type="text" value="{{ (isset($data->direction)) ? $data->direction : '' }}" class="form-control body-1 netural-100" name="direction" id="direction">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">General location</label>
-                           <input type="text" value="lorem ipsum dolor sit amet consectetur adipiscing elit" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="general_location" class="form-label small-text2">General location</label>
+                           <input type="text" value="{{ (isset($data->general_location)) ? $data->general_location : '' }}" class="form-control body-1 netural-100" name="general_location" id="general_location">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Location number</label>
-                           <input type="text" value="090909090" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="loc_number" class="form-label small-text2">Location number</label>
+                           <input type="text" value="{{ (isset($data->loc_number)) ? $data->loc_number : '' }}" class="form-control body-1 netural-100" name="loc_number" id="loc_number">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Price</label>
+                           <label for="price" class="form-label small-text2">Price</label>
                            <div class=" theme-input-group">
-                              <input type="text" value="350" class="form-control body-1 netural-100 pl-30" name="name" id="InputName">
+                              <input type="text" value="{{ (isset($data->price)) ? $data->price : '' }}" class="form-control body-1 netural-100 pl-30" name="price" id="price">
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
-                           <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
+                           
+                           <select class="js-example-basic-multiple form-control" name="marriage_celebrant[]" multiple="multiple" >
                               <option value="O1" data-badge="">Peter</option>
                               <option value="O2" data-badge="">Lux</option>
                               <option value="O3" data-badge="">Michael</option>
@@ -66,11 +83,25 @@
                         <div class="col-md-12 mb-4 d-flex flex-column">
                            <label for="InputName" class="form-label small-text2 mb-20">Upload cover photos</label>
                            <div class="drop-zone text-center">
-                              <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
-                              <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
-                              <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
-                              </span>
-                              <input type="file" name="myFile" class="drop-zone__input">
+                             
+                                 @if($data->cover_image && !empty($data->cover_image))
+                                 <?php 
+                              
+                                    $path = asset('uploads/images/locations/'.$data->cover_image);
+                                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                                    $imgData = file_get_contents($path);
+                                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imgData);
+
+                                 ?>
+                                 <div class="drop-zone__thumb" data-label="{{$data->cover_image}}" style="background-image: url({{$base64}})"></div>
+                                 @else
+                                 <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
+                                    <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
+                                    <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
+                                 </span>
+                              @endif
+                              <input type="file" name="cover_image" class="drop-zone__input">
+                              <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cover photo is required.</div>
                            </div>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column">
@@ -79,74 +110,90 @@
                               <div class="upload__btn-box">
                                  <label class="theme-btn primary-btn ">
                                     <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
-                                    <input type="file" multiple="" data-max_length="20" class="upload__inputfile">
+                                    <input type="file" multiple="" name="location_images[]" data-max_length="20" id="upload__inputfile" class="upload__inputfile">
+                                   
+                                    <div class="invalid-feedback" style="
+                                       font-size: 0.875em;font-weight: 400;position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required
+                                    </div>
                                  </label>
                               </div>
-                              <div class="upload__img-wrap"></div>
-                           </div>
-                        </div>
-                        <div class="col-md-12 mb-4">
-                           <div class="row">
-                              <div class="col-10 col-sm-8 col-md-6 col-lg-4 ">
-                                 <label for="InputName" class="form-label small-text2">Key advantages of site</label>
-                                 <input type="text" value="Lorem ipsum dolor sit amet" class="form-control body-1 netural-100" name="name" id="InputName">
-                              </div>
-                              <div class="col-2 col-sm-4 col-md-6 col-lg-5">
-                                 <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-md-12 mb-4">
-                           <div class="row">
-                              <div class="col-10 col-sm-8 col-md-6 col-lg-4 ">
-                                 <label for="InputName" class="form-label small-text2">Key advantages of site</label>
-                                 <input type="text" value="Lorem ipsum dolor sit amet" class="form-control body-1 netural-100" name="name" id="InputName">
-                              </div>
-                              <div class="col-2 col-sm-4 col-md-6 col-lg-5">
-                                 <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
+                              <div class="upload__img-wrap">
+                                 @if($data->location_images && !empty($data->location_images))
+                                 <input type="hidden" name="image_id" id="image_id">
+                                 @foreach($data->location_images as $keys=>$images)
+                                 <?php 
+                              
+                                    $path = asset('uploads/images/locations/'.$images['image']);
+                                    $type = pathinfo($path, PATHINFO_EXTENSION);
+                                    $imgData = file_get_contents($path);
+                                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imgData);
+
+                                 ?>
+                                
+                                 <div class='upload__img-box'>
+                                    <div style='background-image: url({{$base64}})' data-number='{{$keys}}' data-file='{{$images["image"]}}' data-image_id="{{$images['id']}}" class='img-bg'><div class='upload__img-close'></div>
+                                    </div>
+                                 </div>
+                                 @endforeach
+                                 @else
+                                 <div class="upload__img-wrap"></div>
+                                 @endif
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-12 mb-4">
-                           <div class="row">
-                              <div class="col-10 col-sm-8 col-md-6 col-lg-4 ">
-                                 <label for="InputName" class="form-label small-text2">Key advantages of site</label>
-                                 <input type="text" value="Lorem ipsum dolor sit amet" class="form-control body-1 netural-100" name="name" id="InputName">
+                        <div class="col-md-12 mb-4 keyAdvantage">
+                          
+                        @if(count($data['location_advantages'])>0)
+                        
+                        <!-- <input type="hidden" name="advantage_id" id="advantage_id"> -->
+                           @foreach($data['location_advantages'] as $key=>$advantages)
+                           <div class="row keyDiv">
+                              <div class="col-10 col-sm-8 col-md-6 ">
+                                 <label for="Key" class="form-label small-text2">Key advantages of site</label>
+                                 <input type="text" placeholder="Type here" value="{{ (isset($advantages->key_advantages)) ? $advantages->key_advantages : '' }}" class="form-control body-1 netural-100" name="key_advantages[]" id="Key">
                               </div>
                               <div class="col-2 col-sm-4 col-md-6 col-lg-5">
-                                 <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
+                                 <label for="Key" class="form-label small-text2 d-block">&nbsp;</label>
+                                 <a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a>
                               </div>
+                           </div>
+                           @endforeach
+                        @else
+                        <div class="row ">
+                           <div class="col-10 col-sm-8 col-md-6  ">
+                              <label for="Key" class="form-label small-text2">Key advantages of site</label>
+                              <input type="text" placeholder="Type here" value="" class="form-control body-1 netural-100" name="key_advantages[]" id="Key">
+                           </div>
+                        </div>
+                           
+                        @endif
                            </div>
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link">
+                           <a class="d-flex add-link" onclick="appendHtml('keyAdvantage', 'advantage')">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add key advantages of site</div>
                            </a>
                         </div>
                         <div class="col-md-12 mb-4">
-                           <label for="InputName" class="form-label small-text2">Why have your ceremony at this place</label>
-                           <textarea class="form-control body-1 netural-100" id="exampleFormControlTextarea1" value="Type here" rows="10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque luctus ligula nec eleifend. Proin a nisi ante. Sed cursus leo sed vulputate rutrum. Nullam venenatis mollis erat euismod bibendum. Aliquam feugiat sit amet nisi in rutrum. Suspendisse auctor sem in augue laoreet, sit amet feugiat erat aliquet. Cras faucibus, ligula ut convallis malesuada, lacus neque pellentesque tortor, ut vehicula justo sem ac ante. Mauris cursus lacus at volutpat tempor. Vivamus pretium bibendum tristique. Nunc maximus elementum viverra.</textarea>
+                           <label for="why_this_location" class="form-label small-text2">Why have your ceremony at this place</label>
+                           <textarea class="form-control body-1 netural-100" id="why_this_location" name="why_this_location" rows="10">{{ (isset($data->why_this_location)) ? $data->why_this_location : '' }}</textarea>
                         </div>
                         <div class="col-md-12 mb-4">
-                           <label for="InputName" class="form-label small-text2">Custom Terms</label>
-                           <textarea class="form-control body-1 netural-100" id="exampleFormControlTextarea1" value="Type here" rows="10">
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pellentesque luctus ligula nec eleifend. Proin a nisi ante. Sed cursus leo sed vulputate rutrum. Nullam venenatis mollis erat euismod bibendum. Aliquam feugiat sit amet nisi in rutrum. Suspendisse auctor sem in augue laoreet, sit amet feugiat erat aliquet. Cras faucibus, ligula ut convallis malesuada, lacus neque pellentesque tortor, ut vehicula justo sem ac ante. Mauris cursus lacus at volutpat tempor. Vivamus pretium bibendum tristique. Nunc maximus elementum viverra.
+                           <label for="custom_terms" class="form-label small-text2">Custom Terms</label>
+                           <textarea class="form-control body-1 netural-100" id="custom_terms" rows="10" name="custom_terms">{{ (isset($data->custom_terms)) ? $data->custom_terms : '' }}
                            </textarea>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Wet Weather Option</label>
-                           <input type="text" value="Type here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="weather_option" class="form-label small-text2">Wet Weather Option</label>
+                           <input type="text" value="{{ (isset($data->weather_option)) ? $data->weather_option : '' }}" class="form-control body-1 netural-100" name="weather_option" id="weather_option">
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="InputName" class="form-label small-text2">Getting there</label>
-                           <input type="text" value="Type here" class="form-control body-1 netural-100" name="name" id="InputName">
+                           <label for="getting_there" class="form-label small-text2">Getting there</label>
+                           <input type="text" value="{{ (isset($data->getting_there)) ? $data->getting_there : '' }}" class="form-control body-1 netural-100" name="getting_there" id="getting_there">
                         </div>
                         <div class="col-md-12 mb-4">
-                           <input class="form-check-input me-2" type="checkbox" name="location" id="location"  autocomplete="off">
+                           <input class="form-check-input me-2" type="checkbox" name="custom_location" id="custom_location"  autocomplete="off" value="{{ (isset($data->custom_location)) ? $data->custom_location : '' }}" {{ $data->custom_location ? 'checked' : '' }}>
                            <label class="form-check-label body-1" for="location">
                            Is this a Custom Location?
                            </label>
@@ -155,60 +202,97 @@
                       
                         <div class="col-md-5 mb-4">
                            <label for="age" class="form-label small-text2">Filter criteria</label>
-                           <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
-                              <option value="O1" data-badge="">Park</option>
-                              <option value="O2" data-badge="">Harbour</option>
-                              <option value="O3" data-badge="">River</option>
-                              <option value="O4" data-badge="">Indoor</option>
-                              <option value="O4" data-badge="">Outdoor</option>
-                              <option value="O4" data-badge="">Beach</option>
-                              <option value="O4" data-badge="">Unique</option>
+                           <select name="location_category" id="selectinput1" class="js-placeholder-single-input form-control" required>
+                              <option value="" disabled="" selected="" hidden="">Select Filter</option>
+                              @foreach($filters as $filter)
+                                  <option value="{{$filter->id}}" {{ (isset($data['location_category']) && $data['location_category'] == $filter->id) ? 'selected' : '' }}>{{$filter->name}}</option>
+
+                              @endforeach
                            </select>
                         </div>
-                        <div class="col-12">
-                           <div class="row">
+                        <div class="col-12 partnerpackageContainer">
+                           @if(count($data['location_packages'])>0)
+                           
+                              @foreach($data['location_packages'] as $key=>$packages)
+                                 <div class="row partnerpackageDiv">
+                                    <div class="col-md-5 mb-4">
+                                       <label for="partner" class="form-label small-text2">Select partner *</label>
+                                       <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,{{$key}})" id="partner-{{$key}}" name="partners[{{$key}}][partner_id]" required>
+                                          <option value="">Select Partner</option>
+                                          @foreach($partners as $partner)
+                                             <option value="{{$partner['user']['id']}}" {{ (isset($packages['partner_id']) && $packages['partner_id'] == $partner['user']['id']) ? 'selected' : '' }}>{{$partner['user']['name']}}</option>
+
+                                          @endforeach
+                                       
+                                       </select>
+                                       <div class="invalid-feedback">
+                                             Partner is required.
+                                       </div>
+                                    </div>
+                                    <div class="col-md-5 mb-4 select_packages">
+                                       <label for="package" class="form-label small-text2">Select Package *</label>
+                                       <select class="js-placeholder-single-input form-control packages" name="partners[{{$key}}][package_id]" id="package-{{$key}}" required>
+                                       @foreach($partnerspackages as $partnerspackage)
+                                       @if ($packages['package_id'] == $partnerspackage['id'])
+
+                                          <option value="{{$partnerspackage['id']}}" {{ (isset($packages['package_id']) && $packages['package_id'] == $partnerspackage['id']) ? 'selected' : '' }}>{{$partnerspackage['package_name']}}</option>
+                                          @endif
+
+                                       @endforeach
+                                       </select>
+                                       
+                                       <div class="invalid-feedback">
+                                             Package is required.
+                                       </div>
+                                    </div>
+                                    <div class="col-2 ">
+                                       <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
+                                       <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer')"></a>
+                                    </div>
+                                 </div>
+                              @endforeach
+                           @else
+                           <div class="row partnerpackageDiv">
                               <div class="col-md-5 mb-4">
-                                 <label for="age" class="form-label small-text2">Select partner</label>
-                                 <select name="partnerstatus" class="js-placeholder-single-input form-control">
-                                    <option value="" disabled="" selected="" hidden="">Select partner here</option>
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="5">Other</option>
+                                 <label for="partner" class="form-label small-text2">Select partner *</label>
+                                 <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,'0')" id="partner-0" name="partners[0][partner_id]" required>
+                                    <option value="">Select Partner</option>
+                                    @foreach($partners as $partner)
+                                       <option value="{{$partner['user']['id']}}">{{$partner['user']['name']}}</option>
+
+                                    @endforeach
+                                 
                                  </select>
+                                 <div class="invalid-feedback">
+                                       Partner is required.
+                                 </div>
                               </div>
-                              <div class="col-md-5 mb-4">
-                                 <label for="age" class="form-label small-text2">Select Package</label>
-                                 <select name="partnerstatus" class="js-placeholder-single-input form-control">
-                                    <option value="" disabled="" selected="" hidden="">Select package here</option>
-                                    <option value="O1" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O2" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O3" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="O4" data-badge="">Lorem Ipsum is simply dummy text</option>
-                                    <option value="5">Other</option>
+                              <div class="col-md-5 mb-4 select_packages">
+                                 <label for="package" class="form-label small-text2">Select Package *</label>
+                                 <select class="js-placeholder-single-input form-control packages" name="partners[0][package_id]" id="package-0" required>
+                                 <option value="">Select Packages</option>
+                                 
                                  </select>
+                                 
+                                 <div class="invalid-feedback">
+                                       Package is required.
+                                 </div>
                               </div>
                               <div class="col-2 ">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid"></a>
+                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer')"></a>
                               </div>
                            </div>
+                           @endif
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link">
+                           <a class="d-flex add-link" onclick="appendHtml('partnerpackageContainer', 'locationpackage',partners)">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add other partners</div>
                            </a>
                         </div>
                         <div class="col-12 mt-3">
-                           <a class="theme-btn primary-btn ">Save</a>
+                        <button class="theme-btn primary-btn" type="submit">Save</button>
                         </div>
                      </form>
                   </div>
@@ -218,4 +302,6 @@
       </div>
    </div>
 </div>
+
+@include('elements.admin.location.js')
 @endsection

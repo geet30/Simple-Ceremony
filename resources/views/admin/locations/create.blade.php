@@ -15,6 +15,11 @@
                <a href="/locations/all-packages" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
+            @if (\Session::has('message'))
+               <div class="alert {{\Session::get('class')}}">
+                     <ul> <li>{!! \Session::get('message') !!}</li></ul>
+               </div>
+            @endif
                <div class="card panel-card">
                   <div class="card-title">
                      <h1 class="h3 neutral-100 mb-0">Add new location</h1>
@@ -31,53 +36,53 @@
                         @endif
                         <div class="col-md-5 mb-4">
                            <label for="Location" class="form-label small-text2">Location *</label>
-                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" value="{{ isset($data['location_name']) ? $data['location_name'] : '' }}" id="Location" required>
+                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" value="{{ isset($data['location_name']) ? $data['location_name'] : old('name') }}" id="Location" required>
                            <div class="invalid-feedback">
                               Location name is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Address" class="form-label small-text2">Address *</label>
-                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['street_address']) ? $data['street_address'] : '' }}" id="Address" required>
+                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['street_address']) ? $data['street_address'] : old('address') }}" id="Address" required>
                            <div class="invalid-feedback">
                               Address is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Town" class="form-label small-text2">Suburb/ Town *</label>
-                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['suburb']) ? $data['suburb'] : '' }}"  name="town" id="Town" required>
+                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['suburb']) ? $data['suburb'] : old('town') }}"  name="town" id="Town" required>
                            <div class="invalid-feedback">
                               Suburb is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Code" class="form-label small-text2">Post Code *</label>
-                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : '' }}" name="post_code" id="Code" required>
+                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : old('post_code') }}" name="post_code" id="Code" required>
                            <div class="invalid-feedback">
                               Post code is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Google coordinates</label>
-                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="coordinates" id="Google">
+                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="coordinates" id="Google" value="{{old('coordinates')}}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="directions" class="form-label small-text2">Specific directions</label>
-                           <input type="text" placeholder="Type specific directions here" class="form-control body-1 netural-100" name="direction" id="directions">
+                           <input type="text" placeholder="Type specific directions here" class="form-control body-1 netural-100" name="direction" id="directions" value="{{old('direction')}}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Generallocation" class="form-label small-text2">General location</label>
-                           <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100" name="general_location" id="Generallocation">
+                           <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100" name="general_location" id="Generallocation" value="{{old('general_location')}}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Locationnumber" class="form-label small-text2">Location number</label>
-                           <input type="number" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber">
+                           <input type="number" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber" value="{{old('loc_number')}}">
                            
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Price" class="form-label small-text2">Price *</label>
                            <div class=" theme-input-group">
-                              <input type="number" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" name="price" id="Price" required>
+                              <input type="number" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" value="{{old('price')}}" name="price" id="Price" required>
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                               <div class="invalid-feedback">
                               Price is required.
@@ -141,19 +146,19 @@
                         </div>
                         <div class="col-md-12 mb-4">
                            <label for="ceremonyplace" class="form-label small-text2">Why have your ceremony at this place</label>
-                           <textarea class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" name="why_this_location"></textarea>
+                           <textarea class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" name="why_this_location">{{old('why_this_location')}}</textarea>
                         </div>
                         <div class="col-md-12 mb-4">
                            <label for="customterms" class="form-label small-text2">Custom Terms</label>
-                           <textarea class="form-control body-1 netural-100" id="customterms" placeholder="Type here" name="custom_terms" rows="10"></textarea>
+                           <textarea class="form-control body-1 netural-100" id="customterms" placeholder="Type here" name="custom_terms" rows="10">{{old('custom_terms')}}</textarea>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="weather" class="form-label small-text2">Wet Weather Option</label>
-                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="weather_option" id="weather">
+                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="weather_option" id="weather" value="{{old('weather_option')}}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="gettingthere" class="form-label small-text2">Getting there</label>
-                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="getting_there" id="gettingthere">
+                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="getting_there" id="gettingthere" value="{{old('getting_there')}}">
                         </div>
                         <div class="col-md-12 mb-4">
                            <input class="form-check-input me-2" type="checkbox" name="custom_location" id="location" value="1"  autocomplete="off">
@@ -208,7 +213,7 @@
                            </div>
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link" onclick="appendHtml('keyPartnerPackage', 'partnerpackage',partners)">
+                           <a class="d-flex add-link" onclick="appendHtml('keyPartnerPackage', 'locationpackage',partners)">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add other partners</div>
                            </a>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
 <div class="row">
@@ -11,6 +11,11 @@
       <div class="col-12 mb-30">
          <a href="/locations/all-packages" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back </a>
       </div>
+      @if (\Session::has('message'))
+               <div class="alert {{\Session::get('class')}}">
+                     <ul> <li>{!! \Session::get('message') !!}</li></ul>
+               </div>
+         @endif
       <div class="col-12 mb-30">
          <div class="row">
             <div class="col-lg-8 col-xl-9 mb-3 mb-lg-0">
@@ -24,7 +29,7 @@
                </ul>
             </div>
             <div class="col-lg-4 col-xl-3 editinformation d-block">
-               <a href="/edit" class="theme-btn primary-btn d-flex justify-content-center ">
+               <a href="{{route('locations.edit',$data['id'])}}" class="theme-btn primary-btn d-flex justify-content-center ">
                <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
                Edit information
                </a>
@@ -43,57 +48,40 @@
                <div class="row align-items-center">
                   <div class="col-lg-6 col-xl-5 location-detail-slider">
                      <div class="slider slider-for mb-11 ">
-                        <div>
-                           <img src="/images/single-location/single-page-slider1.png" class="w-100 img-fluid" alt="slider Image">
+                     @foreach($data['location_images'] as $images)
+                        <div class="slide-for-top">
+                              <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
                         </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider2.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider3.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider4.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
+                     @endforeach
                      </div>
                      <div class="slider slider-nav">
+                     @foreach($data['location_images'] as $images)
                         <div>
-                           <img src="/images/single-location/single-page-slider1.png" class="w-100 img-fluid" alt="slider Image">
+                           <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
                         </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider2.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider3.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider4.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
+                  
+                     @endforeach
                      </div>
                   </div>
                   <div class="col-lg-6 col-xl-5 mt-3 mt-lg-0">
-                     <p class="paragraph netural-100">$350</p>
+                     <p class="paragraph netural-100">${{ number_format($data->price)}}</p>
                      <h1 class="mb-0">
-                        <span class="h1 netural-100">Kissing Point Park, under the fish Yaralla Road, Putney</span>
+                        <span class="h1 netural-100">{{$data->name}}
+                        @if(isset($data->address) && !empty($data->address))
+                           ,{{$data->address}}
+                        @endif
+                        @if(isset($data->town) && !empty($data->town))
+                           ,{{$data->town}}
+                        @endif
+                        </span>
                      </h1>
                   </div>
                   <div class="col-12 admin-pt-92">
-                     <p class="body-3-medium  text-black">The name says it all "Kissing Point" will be on your marriage certificate ;-).</p>
+                     <p class="body-3-medium  text-black">The name says it all "{{$data->name}}" will be on your marriage certificate ;-).</p>
                      <p class="body-3-medium  text-black">
-                        With a number of spots right down on the Parramatta River, Kissing Point Park offers a water side wedding location in a unique Sydney riverside setting, with the tranquility of the river with kayaks, motorboats and the sailing boats from the Concord Sailing Club right next door.    
+                        {{$data['why_this_location']}}   
                      </p>
-                     <p class="body-3-medium  text-black">
-                        The park offers a number of vantage points for your wedding location, all with views across the water.  The Riverside walking & bicycle track runs through it, connecting the park through to Meadowbank and beyond. There’s a playground for the kids, plus BBQ areas and numerous shady spots.
-                     </p>
-                     <p class="body-3-medium  text-black">
-                        Nearby cafes in Putney Village offer options for a celebration afterwards, or Top Ryde Shopping Village is a short 5 minute drive away.   Consider a photo opportunity and lunch, take the ferry direct from Kissing Point Wharf to Sydney Rowing Club at Abbotsford, just 13 minutes away or to Eat Street Parramatta, just 35 minutes up the river.
-                     </p>
-                     <p class="body-3-medium  text-black">
-                        You can have up to 20 people (the 2 of you and 18 guests) at your ceremony. This can not be increased.
-                     </p>
-                     <p class="body-3-medium  text-black">
-                        Rain. Now it doesn't happen often, but when it does you will need to shelter under trees or bring umbrellas - how romantic. There are also several small undercover areas along the river. These spaces do not require a booking - it’s simply first in, best dressed!
-                     </p>
+                     
                   </div>
                </div>
                <div class="col-12 pt-92">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\{Locations,RequestLocations,LocationFilters,User};
 use Illuminate\Http\Request;
+
+use App\Http\Requests\LocationRequest;
 use View;
 use Redirect;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +70,22 @@ class LocationsController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         } 
     }
+      /**
+     * View the detail of resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function detail($id){
+        try {
+            $columns = ['name','id','price','address','town','why_this_location','cover_image'];
+            $data = Locations::getLocations($id,$columns)->first();
+            return view('admin.locations.detail',compact('data'));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -86,10 +104,31 @@ class LocationsController extends Controller
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        } 
-        
+        }       
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Locations  $locations
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        try {
+            $filters = LocationFilters::all();
+            $partners = Locations::partners();
+           
+            $partnerspackages = Locations::getPartnerPackages();
+            $columns = '*';
+            $data = Locations::getLocations($id,$columns,'packages')->first();
+            //  dd($data);
+            return view('admin.locations.edit',compact('data','filters','partners','partnerspackages'));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }        
+    }
     
     /**
      * fetch  the packages.
@@ -120,16 +159,43 @@ class LocationsController extends Controller
     public function store(Request $request)
     {
         try {  
-            $request->validate([
-                'name' => 'required',
-                'price' => 'required',
-            ]);         
-            return  Locations::addData($request);
+            $locations = Locations::addData($request);
+            if($locations['status'] == false){
+                return redirect()->back()->with(['message'=>$locations['message'],'class'=>'alert-danger'])->withInput();
+            }else{
+                $route = 'locations/all-packages';
+                return redirect($route)->with(['message'=>$locations['message'],'class'=>'alert-success']);
+            }
+            
         }
         catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => 'Something went wrong.']);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
   
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Locations  $locations
+     * @return \Illuminate\Http\Response
+     */
+    public function update(LocationRequest $request, $id)
+    {
+        try {         
+            $locations = Locations::updateLocation($request,$id);
+            if($locations['status'] == false){
+                return redirect()->back()->with(['message'=>$locations['message'],'class'=>'alert-danger']);
+            }else{
+                $route = 'location/detail/'.$id;
+                return redirect($route)->with(['message'=>$locations['message'],'class'=>'alert-success']);
+            }            
+        }
+        catch (\Exception $ex) {
+           
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
    /**
      * Store a newly created resource in storage.
@@ -211,45 +277,9 @@ class LocationsController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }           
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Locations  $locations
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Locations $locations)
-    {
-        return view('admin.locations.create');
-    }
+  
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Locations  $locations
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        try {
-            $location = Locations::where('id', $id)->first();
-            return view('admin.locations.edit')->with('location', $location);
-        }
-        catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }        
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Locations  $locations
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Locations $locations)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

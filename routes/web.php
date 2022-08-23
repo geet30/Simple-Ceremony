@@ -261,7 +261,13 @@ $adminRoutes = function () {
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
-        Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
+       
+        Route::group(['prefix' => 'location'], function () {
+            Route::get('create/{id?}','App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
+            Route::get('detail/{id}','App\Http\Controllers\Admin\LocationsController@detail')->name('locations.detail');
+            Route::get('edit/{id}','App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
+            Route::post('update/{id}', 'App\Http\Controllers\Admin\LocationsController@update')->name('locations.update');
+        });
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
         });
@@ -269,19 +275,13 @@ $adminRoutes = function () {
             return view('admin.payments.create-partners-invoice');
         });
 
-        Route::get('single', function () {
-            return view('admin.locations.single');
-        });
-
-        Route::get('edit', function () {
-            return view('admin.locations.edit');
-        });
-
-        Route::post('/change-location-status', [LocationsController::class, 'changeStatus']);
-        Route::get('location/view/{id}', [LocationsController::class, 'view'])->name('location.view');
-
-        Route::post('get-packages', [LocationsController::class, 'getPackages']);
-        Route::get('addons/{slug}', [AddonsController::class, 'index'])->name('admin.addons');
+       
+        
+        Route::post('/change-location-status',[LocationsController::class, 'changeStatus']);
+        Route::get('locations/view/{id}',[LocationsController::class, 'view'])->name('location.view');
+        
+        Route::post('get-packages',[LocationsController::class, 'getPackages']);
+        Route::get('addons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
         /** Addon Setting **/
         Route::post('/submit-addon', [AddonsController::class, 'store']);
         Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
