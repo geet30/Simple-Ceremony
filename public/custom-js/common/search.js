@@ -1,11 +1,11 @@
 
 $(document).ready(function(){
- 
     $.ajaxSetup({
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
       });
+
       $('.calendar-wrapper').calendar({
             onClickDate:function (date) {
                 $('#calendar-wrapper').updateCalendarOptions({
@@ -19,26 +19,22 @@ $(document).ready(function(){
             if($('#calendar_date').val() !=''){
                 $('#set_date_time').html($('#calendar_date').val());
             }else{
-                $('#set_date_time').html(new Date().toLocaleDateString());
-               
+                $('#set_date_time').html(new Date().toLocaleDateString()); 
             }
 
         })
     
     window.SearchResults = function(url){
         var filter = $('.filter_by_categories').val()
-        
-        var  location= $('#search_location').val();
+        var location= $('#search_location').val();
         var calendar_date = '';
         if($('#calendar_date').val() !=''){
             var  calendar_date= $('#calendar_date').val();
         }else{
             // var  calendar_date = new Date().toLocaleDateString();
         }
-       
         var booking_start_time  = $('#booking_start_time').val();
         var booking_end_time  = $('#booking_end_time').val();
-        
         // return false;
         $.ajax({
             type: "post",
@@ -58,9 +54,7 @@ $(document).ready(function(){
         });
     }
     window.SearchRecords = function(url,keyword=null){
-        
         var tab_id = $("ul.theme-tabs li a.active").attr("id");
-       
         var sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
         var status ='';
         if(sub_tab_id == 'Waiting-for-approval-tab'){
@@ -72,7 +66,6 @@ $(document).ready(function(){
         else if(sub_tab_id == 'add-on-reject-tab'){
             status = 2;
         }
-        
        
         if(tab_id == 'information-tab'){
             var table = 'partner_products';
@@ -88,10 +81,8 @@ $(document).ready(function(){
             },
             dataType: 'html',
             cache: false,
-            
             success: function(response)
-            {
-               
+            {  
                 if(tab_id == 'information-tab'){
                     $('#'+sub_tab_id+'_searchList').html(response);
                 }else{
@@ -101,22 +92,34 @@ $(document).ready(function(){
         });
     }
     window.searchBookingAddon = function(url,keyword=null){
-
         $.ajax({
             type: "post",
             url: url,
             data: {
                 'search': keyword,
-                
             },
             dataType: 'html',
             cache: false,
-            
             success: function(response)
             {
-                
                 $("#searchAddon").html(response);
             }
+        });
+    }
+
+    window.searchWithoutTabs = function(url,keyword=null,cls, page){
+        console.log(url)
+        const route = url;
+        const data = {'page':page,'search':keyword};
+        $.ajax({
+            method:'GET',
+            data:data,
+            url:route,
+            beforeSend:function(){
+            },
+            success:function(response){
+                $("."+cls).html(response);
+            },
         });
     }
 });

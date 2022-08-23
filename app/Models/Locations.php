@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\Location\ { Methods,Relationship };
+use App\Traits\Location\{Methods, Relationship};
+
 class Locations extends Model
 {
-    use HasFactory,Methods,Relationship ;
+    use HasFactory, Methods, Relationship;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +48,6 @@ class Locations extends Model
     ];
     public function location_images()
     {
-        return $this->hasMany('App\Models\LocationImages','location_id','id');
+        return $this->hasMany('App\Models\LocationImages', 'location_id', 'id');
     }
 }

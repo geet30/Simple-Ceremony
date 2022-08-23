@@ -23,6 +23,11 @@ $(".js-example-placeholder-single").select2({
   allowClear: false
 });
 
+$(".select2Popup").select2({
+  dropdownParent: $("#celebrant_addlocation")
+});
+
+
 $('.js-example-placeholder-single').select2().on('select2:open', function(e){
   $('.select2-search__field').attr('placeholder', 'Type here....');
 })

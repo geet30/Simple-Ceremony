@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PackageLocations extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','product_id','location'];
+    protected $fillable = ['user_id', 'product_id', 'location'];
+
     public function user()
     {
         return $this->belongsTo('App\User', 'user_id');
     }
     public function locations()
     {
-        return $this->hasMany('App\Models\Locations','id','location');
+        return $this->hasMany('App\Models\Locations', 'id', 'location');
     }
     // public function product()
     // {

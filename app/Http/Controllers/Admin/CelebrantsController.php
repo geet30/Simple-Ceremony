@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\{User, Locations};
 use Illuminate\Http\Request;
@@ -15,9 +16,32 @@ class CelebrantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = [];
+        $req_page = 1;
+        $search = '';
+        $records = 10;
+        if ($request->has('page')) {
+            $req_page = $request->page;
+        }
+        if ($request->has('search')) {
+            $search = $request->search;
+        }
+        if ($request->has('search') && $request->filled('search')) {
+            $search = $request->search;
+            $data = User::role('Celebrant')->with(['celebrantLocations.location' => function ($query) {
+                $query->select('name', 'id');
+            }])->where('first_name', 'like', '%' . $request->search . '%')->orwhere('surname', 'like', '%' . $request->search . '%')->orwhere('email', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+        } else {
+            $data = User::role('Celebrant')->with(['celebrantLocations.location' => function ($query) {
+                $query->select('name', 'id');
+            }])->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+        }
+        if ($request->ajax()) {
+            return View::make('elements.admin.celebrant.listing', ['req_page' => $req_page, 'celebrants' => $data, 'search' => $search]);
+        }
+        return View::make('admin.marriage-celebrants.index', ['req_page' => $req_page, 'celebrants' => $data, 'search' => $search]);
     }
 
     /**
@@ -27,8 +51,8 @@ class CelebrantsController extends Controller
      */
     public function create()
     {
-        $locations = Locations::all();
-        return view('admin.marriage-celebrants.create',compact('locations'));
+        $allLocations = Locations::all();
+        return view('admin.marriage-celebrants.create', compact('allLocations'));
     }
 
     /**
@@ -40,19 +64,19 @@ class CelebrantsController extends Controller
     public function store(Request $request)
     {
         try {
-            $checkEmail = User::where('email',$request->email)->first();
-            if($checkEmail){
+            $checkEmail = User::where('email', $request->user['email'])->first();
+            if ($checkEmail) {
                 $role = $checkEmail->roles->first()->name;
-                $msg =$role.' already exists with this email address.';
+                $msg = 'Email already exists as a ' . $role;
                 return \Redirect::back()->withErrors(['msg' => $msg]);
             }
             $response = User::createCelebrant($request->all());
-            if($response){
-               return redirect('login')->with('message', 'Celebrant created successfully.');
-            }    
+            if ($response) {
+                return redirect('celebrant')->with('message', 'Celebrant created successfully.');
+            }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }  
+        }
     }
 
     /**
@@ -61,9 +85,17 @@ class CelebrantsController extends Controller
      * @param  \App\Models\Celebrants  $celebrants
      * @return \Illuminate\Http\Response
      */
-    public function show(Celebrants $celebrants)
+    public function show($id)
     {
-        //
+        try {
+            $allLocations = Locations::all();
+            $data = User::where('id', $id)->with(['celebrant', 'celebrantLocations.location' => function ($query) {
+                $query->select('name', 'id');
+            }])->first();
+            return view('admin.marriage-celebrants.detail', compact(['data', 'id', 'allLocations']));
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**
@@ -72,9 +104,8 @@ class CelebrantsController extends Controller
      * @param  \App\Models\Celebrants  $celebrants
      * @return \Illuminate\Http\Response
      */
-    public function edit(Celebrants $celebrants)
+    public function edit($id)
     {
-        //
     }
 
     /**
@@ -84,9 +115,16 @@ class CelebrantsController extends Controller
      * @param  \App\Models\Celebrants  $celebrants
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Celebrants $celebrants)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $response = User::updateCelebrant($request->all(), $id);
+            if ($response) {
+                return redirect('celebrant')->with('message', 'Celebrant updated successfully.');
+            }
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**
@@ -95,8 +133,32 @@ class CelebrantsController extends Controller
      * @param  \App\Models\Celebrants  $celebrants
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Celebrants $celebrants)
+    public function destroy($id)
     {
-        //
+        try {
+            $data = User::destroy($id);
+            return redirect('celebrant')->with('message', 'Celebrant deleted successfully.');
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
+
+    /**
+     * Change status of user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus(Request $request)
+    {
+        try {
+            $result =   User::changeStatus($request);
+            if ($result) {
+                return $this->successResponse($result, 'Status changed successfully.');
+            }
+            return response()->json(['status' => false, "message" => 'something went wrong']);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 }

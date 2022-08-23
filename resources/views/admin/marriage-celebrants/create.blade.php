@@ -7,9 +7,8 @@
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-4">
                 @include('elements.panel-header')
-                <a href="/marriage-celebrants-list"
-                    class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2"
-                        src="/images/icons/back.svg" alt="Back Icon">Back</a>
+                <a href="/celebrant" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img
+                        class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
                 <div class="card panel-card">
                     <div class="card-body">
                         <h1 class="h3 netural-100 mb-4">Add new celebrant</h1>
@@ -43,7 +42,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Password *</label>
-                                            <input type="text" placeholder="Type your password here"
+                                            <input type="password" placeholder="Type your password here"
                                                 class="form-control body-1 netural-100" name="user[password]" id="InputName"
                                                 required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -107,14 +106,13 @@
                                         <div class="col-md-6 mb-4">
                                             <label for="phone" class="form-label small-text2">Phone number *</label>
                                             <input class="form-control body-1 netural-100" name="user[phone]"
-                                                type="tel" id="phone" placeholder="e.g. +1 702 123 4567"
+                                                type="tel" id="phone" placeholder="Type your phone number here"
                                                 value="+61 " required>
                                             <div class="invalid-feedback"
-                                                style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;">
+                                                style="position: absolute;bottom: -30px;left: 20px;text-align: left; z-index: 1;">
                                                 <span><img class="me-2" src="/images/require-iocn.svg"
-                                                        alt="Require Icon"></span>Phone is required.</div>
-
-
+                                                        alt="Require Icon"></span>Phone is required.
+                                            </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Email *</label>
@@ -122,15 +120,15 @@
                                                 class="form-control body-1 netural-100" name="user[email]" id="InputName"
                                                 required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
-                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Email is
-                                                required</div>
+                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Please
+                                                enter a valid email</div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label class="form-label small-text2">Bank *</label>
                                             <select required="" name="user[bank]"
                                                 class="js-placeholder-single-input form-control">
                                                 <option value="" disabled="" selected="" hidden="">
-                                                    Westparc</option>
+                                                    Select</option>
                                                 <option value="1">ANZ</option>
                                                 <option value="2">NAB</option>
                                                 <option value="3">Westpac Bank</option>
@@ -145,7 +143,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">BSB *</label>
-                                            <input type="text" placeholder="_ _ _-_ _ _"
+                                            <input type="text" placeholder="Type your BSB here"
                                                 class="form-control body-1 netural-100" name="user[bsb]" id="InputName"
                                                 required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -204,43 +202,8 @@
                                             <textarea placeholder="Please describe yourself" class="form-control body-1 netural-100"
                                                 name="celebrant[description]" rows="2"></textarea>
                                         </div>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal">
-                                            Launch demo modal
-                                        </button>
-
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <select class="js-example-placeholder-single form-control">
-                                                            <option value="" disabled="" selected=""
-                                                                hidden="">Select location</option>
-                                                            @foreach ($locations as $location)
-                                                                <option value="{{ $location->id }}">{{ $location->name }}
-                                                                </option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save
-                                                            changes</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-lg-6 mb-4">
-                                            <div class="row">
+                                        <div class="col-md-12 col-lg-6 mb-4 celebrantLocation">
+                                            <div class="row ">
                                                 <div class="col-md-12 mb-3 mt-4">
                                                     <div class="d-flex flex-column flex-md-row">
                                                         <span class="body-2 netural-100 me-4">Locations list</span>
@@ -250,16 +213,6 @@
                                                             data-bs-target="#celebrant_addlocation"
                                                             aria-controls="celebrant_addlocation">Add new location</a>
                                                     </div>
-                                                </div>
-                                                <div class="col-12 mb-4">
-                                                    <input type="text" placeholder="Add location here"
-                                                        class="form-control body-1 netural-100" name="name"
-                                                        id="InputName">
-                                                </div>
-                                                <div class="col-12 mb-4">
-                                                    <input type="text" placeholder="Add location here"
-                                                        class="form-control body-1 netural-100" name="name"
-                                                        id="InputName">
                                                 </div>
                                             </div>
                                         </div>
