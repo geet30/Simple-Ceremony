@@ -5,16 +5,17 @@
          <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
          </a>
          <div class="select-with-checkbox">
-            <select required="" name="customer_type" class="js-placeholder-single-input form-control">
-               <option value="O1" data-badge="">Location</option>
-               <option value="O2" data-badge="">Park</option>
-               <option value="O3" data-badge="">Beach</option>
-               <option value="O4" data-badge="">Harbour</option>
+            
+            <select onchange="SearchResults('/search-location')" required="" name="filter_by_categories" class="js-placeholder-single-input form-control filter_by_categories">
+               <option value="0" data-badge="">All</option>
+               @foreach($filters as $filter)
+                  <option value="{{$filter->id}}">{{$filter->name}}</option>
+               @endforeach
             </select>
          </div>
       </div>
       <div class="form-group has-search w-100 ms-4 position-relative">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" onkeyup="SearchResults('/search-location',this.value)">
          <span class="fa fa-search form-control-feedback"></span>
       </div>
    </div>
@@ -25,7 +26,7 @@
       </a>
    </div>
 </div>
-<div class="row">
+<div id="searchResult" class="row">
 
    @include('elements.admin.location.all-locations', ['title' => 'locations', '' => '', 'locations' => $locations])
 </div>

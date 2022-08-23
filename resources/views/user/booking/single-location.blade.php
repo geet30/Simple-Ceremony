@@ -144,7 +144,7 @@
                <p class="h2 netural-100 mb-0">See others location</p>
             </h2>
          </div>
-         @include('elements.user.location.location', ['title' => 'locations', '' => '', 'locations' => $locations])
+         @include('elements.user.location.index', ['title' => 'locations', '' => '', 'locations' => $locations])
     
       </div>
    </div>

@@ -24,9 +24,12 @@ $(document).ready(function(){
 
         })
     
-    window.SearchResults = function(url){
+    window.SearchResults = function(url,keyword=null){
+        $("#selectinput").select2("close");
         var filter = $('.filter_by_categories').val()
+
         var location= $('#search_location').val();
+
         var calendar_date = '';
         if($('#calendar_date').val() !=''){
             var  calendar_date= $('#calendar_date').val();
@@ -40,7 +43,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter
+                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter
                 
             },
             dataType: 'html',

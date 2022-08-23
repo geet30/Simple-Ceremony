@@ -212,6 +212,7 @@ $adminRoutes = function () {
         Route::resource('celebrant', CelebrantsController::class);
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
+        Route::post('search-location',[LocationsController::class, 'searchAdminLocation']);
 
         Route::get('account-details', function () {
             return view('admin.account.account-details');
