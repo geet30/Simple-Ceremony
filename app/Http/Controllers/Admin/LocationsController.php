@@ -222,8 +222,6 @@ class LocationsController extends Controller
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         } 
-        
-       
     }
     /**
      * Update a resource in storage.

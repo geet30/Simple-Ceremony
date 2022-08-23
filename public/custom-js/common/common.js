@@ -260,9 +260,6 @@ $(".heart.fa-heart").click(function() {
   $(this).toggleClass(" fa-regular fa-solid ");
 });
 
-
-
-
 $(document).ready(function() {
   $('.show-footer').click(function() {
     $('.hidden-footer').slideToggle("slow");
