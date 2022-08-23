@@ -61,6 +61,7 @@ $("#sidebarMenu li a").click(function() {
 ///// image uploader Js
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+  
   const dropZoneElement = inputElement.closest(".drop-zone");
 
   dropZoneElement.addEventListener("click", (e) => {
@@ -68,6 +69,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   });
 
   inputElement.addEventListener("change", (e) => {
+    
     if (inputElement.files.length) {
       updateThumbnail(dropZoneElement, inputElement.files[0]);
     }
@@ -86,7 +88,6 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 
   dropZoneElement.addEventListener("drop", (e) => {
     e.preventDefault();
-
     if (e.dataTransfer.files.length) {
       inputElement.files = e.dataTransfer.files;
       updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
@@ -180,7 +181,6 @@ function ImgUpload(counter=null) {
             imgArray.push(f);
 
             var reader = new FileReader();
-            console.log('test');
             reader.onload = function (e) {
               if(f.type.match('video.*')){              
                 var html = `<div class='upload__img-box'>
@@ -208,10 +208,14 @@ function ImgUpload(counter=null) {
   });
 
   
-  
-
+  var image_id_array = [];
+  var x = 0;
+  // var image_id_array = {};//create an object
   $('body').on('click', ".upload__img-close", function (e) {
     var file = $(this).parent().data("file");
+    image_id_array[x] = $(this).parent().data("image_id");
+    x++;
+    $('#image_id').val(image_id_array);
     for (var i = 0; i < imgArray.length; i++) {
       if (imgArray[i].name === file) {
         imgArray.splice(i, 1);

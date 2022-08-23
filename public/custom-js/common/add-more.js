@@ -4,10 +4,9 @@ var package_count = 1;
 $(document).ready(function(){
   
    // ImgUpload();
-   var advantage = '<div class="row mt-2 keyDiv"><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="key_advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
+   var advantage = '<div class="row mt-2 keyDiv"><label for="Key" class="form-label small-text2">Key advantages of site</label><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="key_advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
    var html = "";
    var total_fee = 0;
-
    function cart(data){
       html = '';total_fee =0;
       $('#basket_table').find('tbody').empty();    
@@ -122,7 +121,7 @@ $(document).ready(function(){
                </div>`;
      
    }
-   function partnerpackage(data){
+   function adminlocationpackage(data){
          
         html = '';
         html = `<div class="row partnerpackageDiv">
@@ -146,7 +145,7 @@ $(document).ready(function(){
             </div>
             <div class="col-2 ">
                <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-               <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this)"></a>
+               <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer')"></a>
             </div>
          </div>`;   
      return html; 
@@ -156,9 +155,9 @@ $(document).ready(function(){
       if(type=='cart'){  
          htmlCode=cart(data);
       }
-      if(type=='partnerpackage'){  
+      if(type=='locationpackage'){  
          counter++;
-         htmlCode=partnerpackage(data);
+         htmlCode=adminlocationpackage(data);
       }
       if(type=='advantage'){
          htmlCode=advantage
@@ -174,13 +173,9 @@ $(document).ready(function(){
       $('.packages').select2();
       ImgUpload(counter);
    }
-  
-   function showTotals () {
-      total_fee =0;
-     
+   function showTotals(){
+      total_fee =0;    
       var listing = JSON.parse(localStorage.getItem('cart')) || [];
-     
-
       console.log(listing);
       $.each(listing, function(key, value) {
          total_fee += parseInt(value.price);
@@ -188,11 +183,8 @@ $(document).ready(function(){
       $('#total_fee').html('$ '+total_fee.toFixed(2));
       
    }
-
    //function to remove the elements
-   window.remove = function(parentClass, el, packageContainer,type) { 
-
-    
+   window.remove = function(parentClass, el, packageContainer,type) {   
       if(packageContainer!=''){
          
          if(type=='cart'){
@@ -214,7 +206,6 @@ $(document).ready(function(){
                $('.paynow_text').css('visibility','hidden');
             }
          }else{
-            // alert($('.'+packageContainer).find('.'+parentClass).length);
             if($('.'+packageContainer).find('.'+parentClass).length == 1)
             return false;
          }
@@ -230,6 +221,14 @@ $(document).ready(function(){
          $(el).closest('.'+parentClass).remove()
       }
    }
-
+   // var id_array = [];
+   // var x = 0;
+   // window.removeDiv = function(parentClass, el, id) {       
+   //    id_array[x] = id;
+   //    x++;
+   //    $('#advantage_id').val(id_array);
+   //    $(el).closest('.'+parentClass).remove()
+      
+   // }
 
 });

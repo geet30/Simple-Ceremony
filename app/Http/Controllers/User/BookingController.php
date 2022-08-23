@@ -161,11 +161,13 @@ class BookingController extends Controller
     public function searchBooking(Request $request)
     {
         try {
+            $columns = ['name','id','price','address','town','why_this_location','cover_image'];
+
             if($request->booking_date=='' && $request->booking_start_time=='' && $request->booking_end_time=='' && $request->id!=''){
-                $data = Locations::getLocations($request->id)->get();
+                $data = Locations::getLocations($request->id,$columns)->get();
                 return View::make('pages.home.search-location', ['locations' => $data]);
             }else{
-                $data =   Booking::searchBooking($request);
+                $data = Booking::searchBooking($request);
                 return View::make('pages.home.search-booking', ['locations' => $data]);
             }
         }

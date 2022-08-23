@@ -1,5 +1,5 @@
 <?php
-use App\Models\Users;
+use App\Models\{Users};
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 
@@ -12,6 +12,31 @@ function timeslots(){
    }
    return $timeslot;
 }
+function deleteRecords($id,$model){
+   try{
+      $imgIds = '';
+      if($id !=null){
+         $imgIds = explode(',',$id);
+      }
+      foreach($imgIds as $id){
+         $model::destroy($id);
+      }
+      return ['status' => true,'message'=>'Deleted']; 
+   }
+   catch (\Exception $ex) {
+      return ['status' => false,'message'=>$ex->getMessage()]; 
+   }
+}
+function deleteEntries($id,$model,$column){
+   try{
+      $model::where($column,'=',$id)->delete();
+      return ['status' => true,'message'=>'Deleted']; 
+   }
+   catch (\Exception $ex) {
+      return ['status' => false,'message'=>$ex->getMessage()]; 
+   }
+}
+
 function one_validation_message($validator){
     // To get all the error messages.
     $validation_messages = $validator->getMessageBag()->toArray();
