@@ -40,6 +40,9 @@ $(".js-example-placeholder-single").select2({
 $(".select2Popup").select2({
   dropdownParent: $("#celebrant_addlocation")
 });
+$(".select2partnerPopup").select2({
+  dropdownParent: $("#offcanvas_partner_addlocation")
+});
 
 
 $('.js-example-placeholder-single').select2().on('select2:open', function(e){

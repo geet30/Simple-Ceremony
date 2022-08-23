@@ -11,8 +11,8 @@
                           account?
                       </h4>
                       <div class="d-flex justify-content-center mt-3">
-                          <button type="submit" role="button" class="theme-btn primary-btn me-3">Continue</a>
-                              <a role="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal"
+                        <button type="submit" role="button" class="theme-btn primary-btn me-3">Continue</button>
+                        <a role="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal"
                                   aria-label="Close">Cancel</a>
                       </div>
                   </div>

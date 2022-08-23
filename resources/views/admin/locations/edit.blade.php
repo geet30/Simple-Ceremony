@@ -74,10 +74,9 @@
                            <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
                            
                            <select class="js-example-basic-multiple form-control" name="marriage_celebrant[]" multiple="multiple" >
-                              <option value="O1" data-badge="">Peter</option>
-                              <option value="O2" data-badge="">Lux</option>
-                              <option value="O3" data-badge="">Michael</option>
-                              <option value="O4" data-badge="">Johnson</option>
+                              @foreach($celebrants as $celebrant)
+                                 <option value="{{$celebrant['id']}}" data-badge="" data-select2-id="{{$celebrant['id']}}">{{$celebrant['first_name']}}</option>
+                              @endforeach
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column">
@@ -212,7 +211,7 @@
                         </div>
                         <div class="col-12 partnerpackageContainer">
                            @if(count($data['location_packages'])>0)
-                           
+                           <input type="hidden" id="deleted_count" value="{{count($data['location_packages'])}}">
                               @foreach($data['location_packages'] as $key=>$packages)
                                  <div class="row partnerpackageDiv">
                                     <div class="col-md-5 mb-4">
@@ -286,7 +285,7 @@
                            @endif
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link" onclick="appendHtml('partnerpackageContainer', 'locationpackage',partners)">
+                           <a class="d-flex add-link" onclick="appendHtml('partnerpackageContainer', 'locationpackage',partners,'partnerpackageDiv')">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add other partners</div>
                            </a>

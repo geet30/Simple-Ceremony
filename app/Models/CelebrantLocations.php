@@ -16,4 +16,8 @@ class CelebrantLocations extends Model
     {
         return $this->hasOne(Locations::class, 'id', 'location_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'celebrant_id', 'id');
+    }
 }
