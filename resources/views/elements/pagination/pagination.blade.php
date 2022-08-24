@@ -1,5 +1,6 @@
 <div class="table-pagination col-12 text-right w-100">
     <div class="d-flex justify-content-end w-100 align-items-center">
+     
         @if (count($data) > 0)
             <?php
             
@@ -43,6 +44,8 @@
     </div>
 </div>
 <script type="text/javascript">
+    var outer_id = <?php echo json_encode($id);?>;
+    console.log(outer_id);
     function fetch_data(page, perpage) {
 
         if (perpage == '' || perpage == undefined) {
@@ -58,7 +61,8 @@
             data: data,
             url: route,
             success: function(response) {
-                $('#requests').html(response);
+                // $('#requests').html(response);
+                $(outer_id).html(response);
             },
         });
     }

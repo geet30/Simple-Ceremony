@@ -8,6 +8,11 @@
         <div class="col-10 col-md-9 col-lg-10 px-4">
             @include('elements.panel-header')
             <a href="/all-partners" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+            @if (\Session::has('message'))
+               <div class="alert {{\Session::get('class')}}">
+                     <ul> <li>{!! \Session::get('message') !!}</li></ul>
+               </div>
+            @endif
             <div class="card panel-card">
                <div class="card-body">
                   <h1 class="h3 netural-100 mb-4">Partner details </h1>
@@ -38,7 +43,8 @@
         </div>
     </div>
 </div>
-@include('elements.partner.add-new-location')
+{{--@include('elements.admin.celebrant.celebrant-add-new-location')--}}
+{@include('elements.partner.add-new-location')
 @include('admin.partner.js')
 @include('elements.partner.partner-edit-location')
 @endsection

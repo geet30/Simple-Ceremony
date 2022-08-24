@@ -58,5 +58,11 @@ class Locations extends Model
     {
         return $this->hasMany('App\Models\LocationKeyAdvantages','location_id','id');
     }
+    public function location_celebrants()
+    {
+        return $this->hasMany('App\Models\CelebrantLocations','location_id','id');
+    }
+   
+    
     
 }

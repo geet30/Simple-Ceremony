@@ -95,11 +95,11 @@
                            
 
                            <select class="js-placeholder-single-input js-select2 form-control" name="marriage_celebrant[]" multiple="multiple">
-                              <!-- <option value="" disabled="" selected="" hidden="">Select</option> -->
-                              <option value="O1" data-badge="">Peter</option>
-                              <option value="O2" data-badge="">Lux</option>
-                              <option value="O3" data-badge="">Michael</option>
-                              <option value="O4" data-badge="">Johnson</option>
+                          
+                              @foreach($celebrants as $celebrant)
+                                 <option value="{{$celebrant['id']}}" data-badge="" data-select2-id="{{$celebrant['id']}}">{{$celebrant['first_name']}}</option>
+                              @endforeach
+
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column position-relative">

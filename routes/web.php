@@ -263,6 +263,9 @@ $adminRoutes = function () {
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
        
         Route::group(['prefix' => 'location'], function () {
+            
+            Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
+            Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
             Route::get('create/{id?}','App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
             Route::get('detail/{id}','App\Http\Controllers\Admin\LocationsController@detail')->name('locations.detail');
             Route::get('edit/{id}','App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
@@ -302,7 +305,6 @@ $adminRoutes = function () {
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
         Route::get('partner/details/{id}', [PartnerController::class, 'partnerDetail']);
         Route::post('partner/personal-data/{id}', [PartnerController::class, 'personalData'])->name('partner.personal-data');
-        Route::post('submit-location', [PartnerController::class, 'store']);
         Route::get('all-partners', function () {
             return view('admin.partner.all-partners');
         });

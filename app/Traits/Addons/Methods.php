@@ -14,7 +14,7 @@ trait Methods
     {
         return PartnerProducts::with([
             'user' => function ($query) {
-                $query->select('name', 'id', 'image');
+                $query->select('*');
             },
             'package' => function ($query) {
                 $query->select('id', 'user_id', 'location_description', 'product_id', 'partner_fee', 'admin_fee', 'total_fee', 'package_name', 'title_term');

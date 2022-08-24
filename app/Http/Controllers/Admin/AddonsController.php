@@ -132,8 +132,7 @@ class AddonsController extends Controller
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        } 
-       
+        }        
        
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Traits\Location;
 
-use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,LocationPackages,RequestLocations,PartnerPackages,PartnerProducts};
+use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,LocationPackages,RequestLocations,PartnerPackages,PartnerProducts,CelebrantLocations};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Carbon\Carbon;
@@ -14,7 +14,7 @@ trait Methods
   
     static function addData($data){    
         try{
-            
+            // dd($data->all());
            
             $input = $data->all();
             $input['added_by'] = Auth::user()->id;
@@ -48,6 +48,16 @@ trait Methods
                 LocationImages::create($image);
             }   
         }
+        if($data->has('marriage_celebrant') && !empty($data->marriage_celebrant)){
+            foreach($data->marriage_celebrant as $celebrant){
+                if($celebrant!=null){
+                    $marriage_celebrant['location_id'] = $id;
+                    $marriage_celebrant['celebrant_id'] =$celebrant;
+                    CelebrantLocations::create($marriage_celebrant);
+                }
+            }   
+        }
+        
         if($data->has('key_advantages') && !empty($data->key_advantages)){
             foreach($data->key_advantages as $advantage){
                 if($advantage!=null){
@@ -115,7 +125,20 @@ trait Methods
             }          
         ])->select('id','user_id')->get()->toArray();
     }
-    
+    public static function celebrants($id=null){ 
+        $data = User::role('Celebrant');
+        if($id != ''){
+            $data = CelebrantLocations::with([
+                
+                'user' => function ($query)  {
+                    $query->select('first_name','id','phone','country_code');
+                },
+            ])->select('location_id','id','celebrant_id')->where('location_id',$id);
+        }
+        
+        return  $data;
+    }
+      
     public static function getPartnerPackages($id=null){
         $getPartnerPackages = PartnerPackages::select('id','package_name','total_fee');
         if($id != ''){

@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name', 'last_name', 'phone', 'image', 'name', 'email', 'password', 'username', 'other_name', 'surname', 'contact_name', 'abn_number', 'a_number', 'bank', 'bsb', 'account_no', 'business_category', 'partner_type', 'country_code'
+        'first_name', 'last_name', 'phone', 'image', 'name', 'email', 'password', 'username', 'other_name', 'surname', 'contact_name', 'abn_number', 'a_number', 'bank', 'bsb', 'account_no', 'partner_type', 'country_code'
     ];
 
     /**
@@ -42,10 +42,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function addon()
-    {
-        return $this->belongsTo('App\Models\Addons', 'business_category', 'id');
-    }
+   
 
     public function celebrantLocations()
     {

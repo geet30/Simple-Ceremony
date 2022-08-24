@@ -1,5 +1,6 @@
 var counter =0;
 var package_count = 1;
+var location_package_counter = 0;
 
 $(document).ready(function(){
   
@@ -121,7 +122,7 @@ $(document).ready(function(){
                </div>`;
      
    }
-   function adminlocationpackage(data){
+   function adminlocationpackage(data,counter){
          
         html = '';
         html = `<div class="row partnerpackageDiv">
@@ -150,14 +151,26 @@ $(document).ready(function(){
          </div>`;   
      return html; 
    }
-   window.appendHtml = function(parentClass, type,data=Array()) { 
+   var first_time = false;
+   window.appendHtml = function(parentClass, type,data=Array(),childcontainer='') { 
       var htmlCode = '';
       if(type=='cart'){  
          htmlCode=cart(data);
       }
+      
       if(type=='locationpackage'){  
-         counter++;
-         htmlCode=adminlocationpackage(data);
+         if($('#deleted_count').val() !='' && first_time == false){
+            location_package_counter =$('#deleted_count').val();
+            first_time = true;
+         }
+         // if(childcontainer !='' && first_time == false){
+         //    location_package_counter = $('.'+parentClass).find('.'+childcontainer).length;
+         //    first_time = true;
+           
+         // }
+         location_package_counter++;
+         console.log('count',location_package_counter);
+         htmlCode=adminlocationpackage(data,location_package_counter);
       }
       if(type=='advantage'){
          htmlCode=advantage
@@ -221,6 +234,20 @@ $(document).ready(function(){
          $(el).closest('.'+parentClass).remove()
       }
    }
+   // window.removeOnEdit = function(parentClass, el, packageContainer) {   
+   //    if(packageContainer!=''){     
+   //       if($('.'+packageContainer).find('.'+parentClass).length == 1)
+   //       return false;
+   //       $(el).closest('.'+parentClass).remove()
+   //       deleted_count= $('.'+packageContainer).find('.'+parentClass).length
+   //       console.log('package_count',package_count);
+         
+        
+   //    }else{
+   //       $(el).closest('.'+parentClass).remove()
+   //    }
+   // }
+  
    // var id_array = [];
    // var x = 0;
    // window.removeDiv = function(parentClass, el, id) {       
