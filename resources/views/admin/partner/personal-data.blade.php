@@ -53,7 +53,7 @@
                 <select required="" name="business_category" class="js-placeholder-single-input form-control select2-hidden-accessible disabled" >
                     <option value="" disabled="" hidden="">Choose category here</option>
                     @foreach($addons as $addon)
-                    <option value="{{$addon->id}}" {{ (isset($partner_details['addon']['name']) && $partner_details['addon']['id'] == $addon->id) ? 'selected' : '' }}>{{$addon->name }}</option>
+                        <option value="{{$addon->id}}" {{ (isset($partner_details['addon']['name']) && $partner_details['addon']['id'] == $addon->id) ? 'selected' : '' }}>{{$addon->name }}</option>
                     @endforeach
                     
                 </select>

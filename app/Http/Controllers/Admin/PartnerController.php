@@ -29,7 +29,6 @@ class PartnerController extends Controller
             $columns = ['name','id','price','address','town','why_this_location','cover_image'];
             $allLocations = Locations::getLocations('',$columns)->get();
             $partner_locations = PackageLocations::with('locations')->where('user_id', $user_id)->where('product_id', $id)->get();
-            // dd($partner_details);
             return view('admin.partner.partner-details', compact('data', 'user_id', 'partner_details', 'addons','allLocations','product_id','partner_locations'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -42,7 +41,7 @@ class PartnerController extends Controller
      */
     public function personalData(Request $request, $partnerId)
     {
-        // dd($request->all());
+       
         try {
             $response = User::updatePartner($request->all(),$partnerId);
             if($response['status'] == false){

@@ -42,7 +42,6 @@ $(document).ready(function(){
     });
     window.findPackage = function(url,that,id){        
         var userid = $(that).val();
-        // console.log(id);
         $.ajax({
             type: 'post',
             url: url,
@@ -54,7 +53,6 @@ $(document).ready(function(){
             success: function(response) {
                
                 if (response.status) {
-                    // console.log(response.data);
                    
                     var temp =  $('#package-'+id);
                     temp.empty();

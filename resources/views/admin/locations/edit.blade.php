@@ -66,16 +66,24 @@
                         <div class="col-md-5 mb-4">
                            <label for="price" class="form-label small-text2">Price</label>
                            <div class=" theme-input-group">
-                              <input type="text" value="{{ (isset($data->price)) ? $data->price : '' }}" class="form-control body-1 netural-100 pl-30" name="price" id="price">
+                              <input type="text" value="{{ (isset($data->price)) ? number_format($data->price) : '' }}" class="form-control body-1 netural-100 pl-30" name="price" id="price">
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
+                           <?php 
+                              $selected_celebrants = [];
+                              foreach($data['location_celebrants'] as $key=>$locations_celebrant){
                            
+                                 $selected_celebrants[] = $locations_celebrant->celebrant_id;
+                              }      
+                           ?>                        
+                          
                            <select class="js-example-basic-multiple form-control" name="marriage_celebrant[]" multiple="multiple" >
+                          
                               @foreach($celebrants as $celebrant)
-                                 <option value="{{$celebrant['id']}}" data-badge="" data-select2-id="{{$celebrant['id']}}">{{$celebrant['first_name']}}</option>
+                                 <option value="{{$celebrant['id']}}" data-badge="" data-select2-id="{{$celebrant['id']}}"  {{ (in_array($celebrant['id'], $selected_celebrants)) ? 'selected' : '' }}>{{$celebrant['first_name']}}</option>
                               @endforeach
                            </select>
                         </div>
@@ -142,34 +150,33 @@
                         </div>
                         <div class="col-md-12 mb-4 keyAdvantage">
                           
-                        @if(count($data['location_advantages'])>0)
-                        
-                        <!-- <input type="hidden" name="advantage_id" id="advantage_id"> -->
-                           @foreach($data['location_advantages'] as $key=>$advantages)
-                           <div class="row keyDiv">
-                              <div class="col-10 col-sm-8 col-md-6 ">
-                                 <label for="Key" class="form-label small-text2">Key advantages of site</label>
-                                 <input type="text" placeholder="Type here" value="{{ (isset($advantages->key_advantages)) ? $advantages->key_advantages : '' }}" class="form-control body-1 netural-100" name="key_advantages[]" id="Key">
-                              </div>
-                              <div class="col-2 col-sm-4 col-md-6 col-lg-5">
-                                 <label for="Key" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a>
-                              </div>
-                           </div>
-                           @endforeach
-                        @else
-                        <div class="row ">
-                           <div class="col-10 col-sm-8 col-md-6  ">
-                              <label for="Key" class="form-label small-text2">Key advantages of site</label>
-                              <input type="text" placeholder="Type here" value="" class="form-control body-1 netural-100" name="key_advantages[]" id="Key">
-                           </div>
-                        </div>
+                              @if(count($data['location_advantages'])>0)
                            
-                        @endif
-                           </div>
+                                 <!-- <input type="hidden" name="advantage_id" id="advantage_id"> -->
+                                 @foreach($data['location_advantages'] as $key=>$advantages)
+                                 <div class="row keyDiv">
+                                    <div class="col-10 col-sm-8 col-md-6 ">
+                                       <label for="Key" class="form-label small-text2">Key advantages of site</label>
+                                       <input type="text" placeholder="Type here" value="{{ (isset($advantages->key_advantages)) ? $advantages->key_advantages : '' }}" class="form-control body-1 netural-100" name="key_advantages[]" id="Key">
+                                    </div>
+                                    <div class="col-2 col-sm-4 col-md-6 col-lg-5">
+                                       <label for="Key" class="form-label small-text2 d-block">&nbsp;</label>
+                                       <a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a>
+                                    </div>
+                                 </div>
+                                 @endforeach
+                              @else
+                                 <div class="row ">
+                                       <div class="col-10 col-sm-8 col-md-6  ">
+                                          <label for="Key" class="form-label small-text2">Key advantages of site</label>
+                                          <input type="text" placeholder="Type here" value="" class="form-control body-1 netural-100" name="key_advantages[]" id="Key">
+                                       </div>
+                                 </div>
+                              
+                              @endif
                         </div>
                         <div class="col-12 mb-4">
-                           <a class="d-flex add-link" onclick="appendHtml('keyAdvantage', 'advantage')">
+                              <a class="d-flex add-link" onclick="appendHtml('keyAdvantage', 'advantage')">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
                               <div class="align-self-center">Add key advantages of site</div>
                            </a>
@@ -197,18 +204,25 @@
                            Is this a Custom Location?
                            </label>
                         </div>
-                        <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
-                      
                         <div class="col-md-5 mb-4">
-                           <label for="age" class="form-label small-text2">Filter criteria</label>
-                           <select name="location_category" id="selectinput1" class="js-placeholder-single-input form-control" required>
-                              <option value="" disabled="" selected="" hidden="">Select Filter</option>
+                           <label for="age" class="form-label small-text2">Filter criteria *</label>
+                           <?php
+                              $selected_filter = [];
+                              foreach($data['location_criteria'] as $key=>$criteria){
+                           
+                                 $selected_filter[] = $criteria->location_category;
+                              }  
+                           ?>
+                           <select name="location_category[]" id="selectinput1" class="js-example-basic-multiple form-control" multiple required>
+
                               @foreach($filters as $filter)
-                                  <option value="{{$filter->id}}" {{ (isset($data['location_category']) && $data['location_category'] == $filter->id) ? 'selected' : '' }}>{{$filter->name}}</option>
+                                  <option value="{{$filter->id}}" {{ (in_array($filter->id, $selected_filter)) ? 'selected' : '' }}>{{$filter->name}}</option>
 
                               @endforeach
                            </select>
                         </div>
+
+                        <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
                         <div class="col-12 partnerpackageContainer">
                            @if(count($data['location_packages'])>0)
                            <input type="hidden" id="deleted_count" value="{{count($data['location_packages'])}}">
@@ -234,7 +248,7 @@
                                        @foreach($partnerspackages as $partnerspackage)
                                        @if ($packages['package_id'] == $partnerspackage['id'])
 
-                                          <option value="{{$partnerspackage['id']}}" {{ (isset($packages['package_id']) && $packages['package_id'] == $partnerspackage['id']) ? 'selected' : '' }}>{{$partnerspackage['package_name']}}</option>
+                                          <option value="{{$partnerspackage['id']}}" {{ (isset($packages['package_id']) && $packages['package_id'] == $partnerspackage['id']) ? 'selected' : '' }}>{{$partnerspackage['package_name']}} -  {{number_format($partnerspackage['total_fee'])}}</option>
                                           @endif
 
                                        @endforeach

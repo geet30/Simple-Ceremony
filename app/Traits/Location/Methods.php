@@ -2,7 +2,7 @@
 
 namespace App\Traits\Location;
 
-use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,LocationPackages,RequestLocations,PartnerPackages,PartnerProducts,CelebrantLocations};
+use App\Models\{User,Locations,LocationKeyAdvantages,LocationImages,LocationPackages,RequestLocations,PartnerPackages,PartnerProducts,CelebrantLocations,LocationFilterCriterias};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Carbon\Carbon;
@@ -48,6 +48,13 @@ trait Methods
                 LocationImages::create($image);
             }   
         }
+        if($data->has('location_category') && !empty($data->location_category)){
+            foreach($data->location_category as $category){
+                $location_category['location_id'] = $id;
+                $location_category['location_category'] = $category;
+                LocationFilterCriterias::create($location_category);
+            }   
+        }
         if($data->has('marriage_celebrant') && !empty($data->marriage_celebrant)){
             foreach($data->marriage_celebrant as $celebrant){
                 if($celebrant!=null){
@@ -70,7 +77,7 @@ trait Methods
         if($data->has('partners')){
             foreach($data->partners as $partner){
                 $partner_packages['location_id'] = $id;
-                $partner_packages['location_category'] = $data->location_category;
+                // $partner_packages['location_category'] = $data->location_category;
                 $partner_packages['partner_id'] = $partner['partner_id'];
                 $partner_packages['package_id'] = $partner['package_id'];
                 LocationPackages::create($partner_packages);
@@ -88,14 +95,19 @@ trait Methods
         try{
             
             $input = $data->all();
-            dd($data->all());   
+            // dd($data->all());   
             deleteRecords($data->image_id,'App\Models\LocationImages');  
             if($data->has('key_advantages') && !empty($data->key_advantages)){
                 deleteEntries($id,'App\Models\LocationKeyAdvantages','location_id'); 
             } 
             if($data->has('partners') && !empty($data->partners)){
-                // dd($data->all());
                 deleteEntries($id,'App\Models\LocationPackages','location_id'); 
+            }
+            if($data->has('location_category') && !empty($data->location_category)){
+                deleteEntries($id,'App\Models\LocationFilterCriterias','location_id'); 
+            } 
+            if($data->has('marriage_celebrant') && !empty($data->marriage_celebrant)){
+                deleteEntries($id,'App\Models\CelebrantLocations','location_id'); 
             }
            
             if($data->hasFile('cover_image')){
@@ -146,7 +158,6 @@ trait Methods
         }
         $getPartnerPackages =$getPartnerPackages->get();
         return $getPartnerPackages;
-    //   return  PartnerPackages::where('user_id',$id)->select('id','package_name','total_fee')->get()->toArray();
     }
     public static function getLocations($id=null,$columns=null,$packages=null){
         if($columns ==''){
@@ -166,6 +177,13 @@ trait Methods
                 },
                 'location_advantages'=>function($query){
                     $query->select('location_id','key_advantages','id');
+                },
+                'location_celebrants' => function($query){
+                    // $query->select('celebrant_id');
+                    $query->select('location_id','celebrant_id','id');
+                },
+                'location_criteria'=>function($query){
+                    $query->select('location_id','location_category','id');
                 },
             ]);
         }
@@ -202,7 +220,14 @@ trait Methods
             if(in_array('0',$request->filter)){             
                 $data =$locations->get();
             }else{
-                $data = $locations->whereIn('location_category',$request->filter)->get();
+                $id = $request->filter;
+                $data = $locations->whereHas('location_criteria', (function ($q) use ($id)
+                {
+                    $q->whereIn('location_category', $id);
+
+                }))->get();
+
+                // $data = $locations->whereIn('location_category',$request->filter)->get();
             }
             return $data;
 
@@ -211,20 +236,34 @@ trait Methods
         }
     }
     public static function searchAdminLocation($request){
-     
+    //  dd($request->all());
         $locations = self::getLocations();
         if($request->has('filter') && $request->filter !=''){
+            $id = $request->filter;
             if($request->has('search') && $request->search !=''){
                 $data = $locations->where('name', 'like', '%' . $request->search . '%')->get();
             }
             else if(($request->has('search') && $request->search !='') && ($request->has('filter') && $request->filter !='' && $request->filter !=0)){
-                $data = $locations->where('name', 'like', '%' . $request->search . '%')->where('location_category',$request->filter)->get();
+                // $data = $locations->where('name', 'like', '%' . $request->search . '%')->where('location_category',$request->filter)->get();
+                $data = $locations->where('name', 'like', '%' . $request->search . '%')->whereHas('location_criteria', (function ($q) use ($id)
+                {
+                    $q->where('location_category', '=', $id);
+
+                }
+                ))->get();
             }
             
             else if($request->filter == 0){             
                 $data =$locations->get();
             }else{
-                $data = $locations->where('location_category',$request->filter)->get();
+               
+                $data = $locations->whereHas('location_criteria', (function ($q) use ($id)
+                {
+                    $q->where('location_category', '=', $id);
+
+                }
+                ))->get();
+                // $data = $locations->where('location_category',$request->filter)->get();
             }
             return $data;
         }else{

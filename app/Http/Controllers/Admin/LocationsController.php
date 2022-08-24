@@ -182,12 +182,14 @@ class LocationsController extends Controller
             $partners = Locations::partners();
             $celebrants = Locations::celebrants()->get();
             $partnerspackages = Locations::getPartnerPackages();
+            $locations_celebrants = Locations::celebrants($id)->get(); 
             $columns = '*';
             $data = Locations::getLocations($id,$columns,'packages')->first();
-            //  dd($data);
-            return view('admin.locations.edit',compact('data','filters','partners','partnerspackages','celebrants'));
+            //  dd($data['location_celebrants']);
+            return view('admin.locations.edit',compact('data','filters','partners','partnerspackages','celebrants','locations_celebrants'));
         }
         catch (\Exception $ex) {
+            dd($ex->getMessage().'-'.$ex->getLine());
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }        
     }
@@ -227,8 +229,7 @@ class LocationsController extends Controller
             }else{
                 $route = 'locations/all-packages';
                 return redirect($route)->with(['message'=>$locations['message'],'class'=>'alert-success']);
-            }
-            
+            }            
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
