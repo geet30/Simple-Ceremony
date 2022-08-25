@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(CelebrantDetail::class, 'celebrant_id', 'id');
     }
+
+    public function taxDetail()
+    {
+        return $this->hasOne(AdminTax::class, 'admin_id', 'id');
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Traits\User;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, PartnerPackages, PackageLocations, PartnerProducts, PackageImages, Booking, CelebrantDetail, CelebrantLocations};
+use App\Models\{User, PartnerPackages, PackageLocations, PartnerProducts, PackageImages, Booking, CelebrantDetail, CelebrantLocations, AdminTax};
 use Carbon\Carbon;
 use Str;
 use Cookie;
@@ -82,8 +82,7 @@ trait Methods
     static function createCelebrant($data)
     {
         $userData = $data['user'];
-        $random_password = Str::random(8);
-        $userData['password'] = Hash::make($random_password);
+        $userData['password'] = Hash::make($userData['password']);
         if (!empty($data['user']['image'])) {
             $userData['image'] = uploadImage($data['user']['image'], 'user');
         }
@@ -94,7 +93,7 @@ trait Methods
         $when = now()->addMinutes(1);
         $dataMail  = array(
             'email' => $userData['email'],
-            'password' => $random_password,
+            'password' => $userData['password'],
         );
         $mail_id = $userData['email'];
         $sendMail = new RegisterUserMail($dataMail);
@@ -215,5 +214,26 @@ trait Methods
         }
         User::where('id', $request->id)->update($input);
         return $data;
+    }
+
+    //save admin profile detail
+    public static function saveProfileDetail($request, $id)
+    {
+        $userData = $request->except(['_token', 'current_password', 'confirm_password']);
+        if ($request->has('password')) {
+            $userData['password'] = Hash::make($request->password);
+        }
+        User::where('id', $id)->update($userData);
+        return true;
+    }
+
+    //save admin tax detail
+    public static function saveAdminTax($request, $id)
+    {
+        $tax = AdminTax::firstOrNew(array('admin_id' => $id));
+        $tax->celebrant_tax = $request->celebrant_tax;
+        $tax->partner_tax = $request->partner_tax;
+        $tax->save();
+        return true;
     }
 }

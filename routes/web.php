@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\CelebrantsController;
+use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\LocationsController;
 use App\Http\Controllers\HomeController;
 /*
@@ -210,35 +211,17 @@ $adminRoutes = function () {
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
         Route::resource('celebrant', CelebrantsController::class);
+        Route::resource('account', AccountController::class);
+        Route::group(['prefix' => 'account'], function () {
+            Route::post('save-tax', [AccountController::class, 'addAdminTax']);
+        });
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
-        Route::post('search-location',[LocationsController::class, 'searchAdminLocation']);
 
-        Route::get('account-details', function () {
-            return view('admin.account.account-details');
-        });
-        Route::get('edit-account-details', function () {
-            return view('admin.account.edit-account-details');
-        });
-        Route::get('role', function () {
-            return view('admin.account.role');
-        });
+        Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);
 
         Route::get('calander-overview', function () {
             return view('admin.calander.calander-overview');
-        });
-
-        Route::get('marriage-celebrants-list', function () {
-            return view('admin.marriage-celebrants.listing');
-        });
-        Route::get('marriage-celebrants-details', function () {
-            return view('admin.marriage-celebrants.detail');
-        });
-        Route::get('edit-marriage-celebrants-details', function () {
-            return view('admin.marriage-celebrants.edit');
-        });
-        Route::get('add-new-celebrant', function () {
-            return view('admin.marriage-celebrants.create');
         });
 
         Route::get('all-triggers-and-emails', function () {
@@ -261,8 +244,9 @@ $adminRoutes = function () {
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
-       
+
         Route::group(['prefix' => 'location'], function () {
+
             
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
@@ -278,13 +262,13 @@ $adminRoutes = function () {
             return view('admin.payments.create-partners-invoice');
         });
 
-       
-        
-        Route::post('/change-location-status',[LocationsController::class, 'changeStatus']);
-        Route::get('locations/view/{id}',[LocationsController::class, 'view'])->name('location.view');
-        
-        Route::post('get-packages',[LocationsController::class, 'getPackages']);
-        Route::get('addons/{slug}',[AddonsController::class, 'index'])->name('admin.addons');
+
+
+        Route::post('/change-location-status', [LocationsController::class, 'changeStatus']);
+        Route::get('locations/view/{id}', [LocationsController::class, 'view'])->name('location.view');
+
+        Route::post('get-packages', [LocationsController::class, 'getPackages']);
+        Route::get('addons/{slug}', [AddonsController::class, 'index'])->name('admin.addons');
         /** Addon Setting **/
         Route::post('/submit-addon', [AddonsController::class, 'store']);
         Route::get('addons/destroy/{id}', [AddonsController::class, 'destroy'])->name('addons.destroy');
