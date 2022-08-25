@@ -80,7 +80,7 @@ class BookingController extends Controller
                 'booking_start_time' => $request->booking_start_time,
                 'booking_end_time' => $request->booking_end_time,    
             ];
-            $checkIfBookingExist =  self::checkIfBookingExist($data);
+            $checkIfBookingExist =   Booking::checkIfBookingExist($data,$request->locationId);;
             if($checkIfBookingExist){
                 return $this->errorResponse([], 'Booking already exist', 400);
             }           
@@ -176,24 +176,7 @@ class BookingController extends Controller
         }
  
     }
-   /**
-     * Check if the specified booking exist in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     * */
-    public function checkIfBookingExist($data){
-        try {
-            $data =   Booking::checkIfBookingExist($data);
-            return View::make('pages.home.search-booking', ['locations' => $data]);
-           
-        }
-        catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
-       
-    }
+   
 
     /**
      * Update the specified resource in storage.
