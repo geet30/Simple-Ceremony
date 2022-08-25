@@ -95,11 +95,11 @@
                            
 
                            <select class="js-placeholder-single-input js-select2 form-control" name="marriage_celebrant[]" multiple="multiple">
-                              <!-- <option value="" disabled="" selected="" hidden="">Select</option> -->
-                              <option value="O1" data-badge="">Peter</option>
-                              <option value="O2" data-badge="">Lux</option>
-                              <option value="O3" data-badge="">Michael</option>
-                              <option value="O4" data-badge="">Johnson</option>
+                          
+                              @foreach($celebrants as $celebrant)
+                                 <option value="{{$celebrant['id']}}" data-badge="" data-select2-id="{{$celebrant['id']}}">{{$celebrant['first_name']}}</option>
+                              @endforeach
+
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column position-relative">
@@ -166,13 +166,12 @@
                            Is this a Custom Location?
                            </label>
                         </div>
-                        <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
                         <div class="col-md-5 mb-4">
                            <label for="age" class="form-label small-text2">Filter criteria *</label>
-                           <select name="location_category" id="selectinput1" class="js-placeholder-single-input form-control" required>
-                              <option value="" disabled="" selected="" hidden="">Select Filter</option>
+                           <select name="location_category[]" id="selectinput1" class="js-example-basic-multiple form-control" multiple required>
+                             
                               @foreach($filters as $filter)
-                                  <option value="{{$filter->id}}">{{$filter->name}}</option>
+                                  <option value="{{$filter->id}}" data-badge>{{$filter->name}}</option>
 
                               @endforeach
                            </select>
@@ -180,6 +179,8 @@
                              Filter is required.
                            </div>
                         </div>
+                        <h2 class="h3 neutral-100 mb-20">Combination Package</h2>
+                        
                         <div class="col-12 keyPartnerPackage">
                            <div class="row">
                               <div class="col-md-5 mb-4">

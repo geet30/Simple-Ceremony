@@ -133,7 +133,34 @@ trait Methods
         }
         return true;
     }
+   //function to update partner
+   static function updatePartner($data, $partnerid)
+   {
+        try{
 
+            $userData = $data['user'];
+            // dd($data['user']);
+            if (!empty($data['user']['image'])) {
+                $userData['image'] = uploadImage($data['user']['image'], 'user');
+            }
+            User::where('id', $partnerid)->update($userData);
+            $product_id = $data['product_id']; 
+            if (isset($data['business_category'])) {
+                PartnerProducts::where('id', $product_id )->update(['business_category'=>$data['business_category']]);
+            } 
+            if (isset($data['locations'])) {
+                self::savePartnerLocations($data['locations'], $partnerid,$product_id);
+            } 
+            else {
+                PackageLocations::where('user_id', $partnerid)->delete();
+            }
+            $msg = 'Partner Updated Successfully';
+            return ['status' => true,'message'=>$msg];   
+        }catch (\Exception $ex) {
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+     
+   }
     static function redirectToRole($request)
     {
 
@@ -150,7 +177,19 @@ trait Methods
         }
         return array('role' => $role, 'redirection' => $redirection);
     }
-
+    //common function to partner locations
+    static function savePartnerLocations($locations, $user_id,$product_id)
+    {
+        
+        PackageLocations::where('user_id', $user_id)->where('product_id', $product_id)->delete();
+        foreach ($locations as $location) {
+            $package_locations['location'] = $location;
+            $package_locations['product_id'] = $product_id;
+            $package_locations['user_id'] = $user_id;
+            PackageLocations::create($package_locations);
+        }
+        return true;
+    }
     //common function to celebrant locations
     static function saveCelebrantLocations($locations, $id)
     {

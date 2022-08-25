@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Locations, RequestLocations, LocationFilters, User};
+use App\Models\{Locations,RequestLocations,LocationFilters,User,CelebrantLocations};
 use Illuminate\Http\Request;
 
 use App\Http\Requests\LocationRequest;
@@ -24,13 +24,14 @@ class LocationsController extends Controller
             $filters = LocationFilters::all();
             $records = 10;
             $req_page = 1;
-            $locations = Locations::all();
-            if ($request->has('page')) {
-                $req_page = $request->page;
+            if($request->has('page')){
+                $req_page = $request->page; 
             }
-            $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);
-            if ($request->ajax()) {
-                if ($slug == '') {
+            $locations = Locations::all();
+            
+            $data = $allRequest = RequestLocations::paginate($records, ['*'], 'page', $req_page);  
+            if($request->ajax()){  
+                if($slug == ''){
                     $slug = 'all-requests';
                 }
                 $viewurl = 'elements.admin.location.' . $slug;
@@ -74,17 +75,78 @@ class LocationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail($id)
-    {
+
+    public function detail(Request $request,$id){
         try {
-            $columns = ['name', 'id', 'price', 'address', 'town', 'why_this_location', 'cover_image'];
-            $data = Locations::getLocations($id, $columns)->first();
-            return view('admin.locations.detail', compact('data'));
-        } catch (\Exception $ex) {
+            $records = 10;
+            $req_page = 1;
+            if($request->has('page')){
+                $req_page = $request->page; 
+            }
+              
+            $columns = ['name','id','price','address','town','why_this_location','cover_image'];
+            $data = Locations::getLocations($id,$columns)->first();
+            $celebrants = Locations::celebrants()->get();
+            $celebrants_locations = Locations::celebrants($id)->paginate($records, ['*'], 'page', $req_page); 
+            if($request->ajax()){  
+                $viewurl = 'elements.admin.location.location_celebrants';       
+                return View::make($viewurl, ['req_page' => $req_page, 'celebrants_locations' => $celebrants_locations]);
+            } 
+            // dd($celebrants_locations);
+            return view('admin.locations.detail',compact('data','celebrants_locations','celebrants','id'));
+        }
+        catch (\Exception $ex) {
+
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function storeCelebrant(Request $request)
+    {
+        try {
+            $input = $request->all();
+            $celebrantLocations = CelebrantLocations::where('celebrant_id',$request->celebrant_id)->where('location_id',$request->location_id)->first();
+            if($celebrantLocations){
+                $msg = 'Celebrants already exists with this location.';
+                return response()->json(['status'=>false,"message"=>$msg]);
+            }
+            
+            $result = CelebrantLocations::create($input);
+            if($result){
+                $msg = 'Celebrants added successfully.';
+                return response()->json(['status'=>true,"message"=>$msg,"data"=>$result]);
+                
+            }
+            return response()->json(['status'=>false,"message"=>'Something went wrong.']);
+        }
+        catch (\Exception $ex) {
+            return response()->json(['status'=>false,"message"=>$ex->getMessage()]);
+        }        
+       
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Celebrants  $celebrants
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyCelebrant(Request $request,$id)
+    {
+        try {
+            $data = CelebrantLocations::where('id','=',$request->id)->delete();
+            $route = 'location/detail/'.$id;
+            return redirect($route)->with(['message'=>'Celebrant location deleted successfully.','class'=>'alert-success']);
+            
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }  
     /**
      * Show the form for creating a new resource.
      *
@@ -95,12 +157,17 @@ class LocationsController extends Controller
         try {
             $filters = LocationFilters::all();
             $partners = Locations::partners();
+            $celebrants = Locations::celebrants()->get();
+            // dd($celebrants);
             $data = array();
             if ($id) {
                 $data = RequestLocations::where('id', $id)->first();
             }
-            return view('admin.locations.create', compact('data', 'filters', 'partners'));
-        } catch (\Exception $ex) {
+
+            return view('admin.locations.create',compact('data','filters','partners','celebrants'));
+        }
+        catch (\Exception $ex) {
+
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
@@ -117,12 +184,19 @@ class LocationsController extends Controller
             $filters = LocationFilters::all();
             $partners = Locations::partners();
 
+            $celebrants = Locations::celebrants()->get();
+
             $partnerspackages = Locations::getPartnerPackages();
+            $locations_celebrants = Locations::celebrants($id)->get(); 
             $columns = '*';
-            $data = Locations::getLocations($id, $columns, 'packages')->first();
-            //  dd($data);
-            return view('admin.locations.edit', compact('data', 'filters', 'partners', 'partnerspackages'));
-        } catch (\Exception $ex) {
+
+            $data = Locations::getLocations($id,$columns,'packages')->first();
+            //  dd($data['location_celebrants']);
+            return view('admin.locations.edit',compact('data','filters','partners','partnerspackages','celebrants','locations_celebrants'));
+        }
+        catch (\Exception $ex) {
+            dd($ex->getMessage().'-'.$ex->getLine());
+
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
@@ -159,9 +233,12 @@ class LocationsController extends Controller
                 return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
             } else {
                 $route = 'locations/all-packages';
-                return redirect($route)->with(['message' => $locations['message'], 'class' => 'alert-success']);
-            }
-        } catch (\Exception $ex) {
+
+                return redirect($route)->with(['message'=>$locations['message'],'class'=>'alert-success']);
+            }            
+        }
+        catch (\Exception $ex) {
+
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }

@@ -11,7 +11,7 @@
       <div class="col-12 mb-30">
          <a href="/locations/all-packages" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back </a>
       </div>
-      @if (\Session::has('message'))
+         @if (\Session::has('message'))
                <div class="alert {{\Session::get('class')}}">
                      <ul> <li>{!! \Session::get('message') !!}</li></ul>
                </div>
@@ -24,7 +24,7 @@
                      <a class="nav-link active" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" href="#">Information</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link " id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#"  >List of marriage celebrants <span>(12)</span></a>
+                     <a class="nav-link " id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants" href="#"  >List of marriage celebrants <span>({{count($celebrants_locations)}})</span></a>
                   </li>
                </ul>
             </div>
@@ -35,7 +35,7 @@
                </a>
             </div>
             <div class="col-lg-4 col-xl-3 addmarriage d-none">
-               <a  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="theme-btn primary-btn d-flex justify-content-center ">
+               <a  data-bs-toggle="offcanvas" data-bs-target="#offcanvaslocationcelebrants" aria-controls="offcanvaslocationcelebrants" class="theme-btn primary-btn d-flex justify-content-center ">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add marriage celebrants
                </a>
@@ -45,181 +45,11 @@
       <div class="col-12">
          <div class="tab-content" id="tabContent">
             <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
-               <div class="row align-items-center">
-                  <div class="col-lg-6 col-xl-5 location-detail-slider">
-                     <div class="slider slider-for mb-11 ">
-                     @foreach($data['location_images'] as $images)
-                        <div class="slide-for-top">
-                              <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                     @endforeach
-                     </div>
-                     <div class="slider slider-nav">
-                     @foreach($data['location_images'] as $images)
-                        <div>
-                           <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                  
-                     @endforeach
-                     </div>
-                  </div>
-                  <div class="col-lg-6 col-xl-5 mt-3 mt-lg-0">
-                     <p class="paragraph netural-100">${{ number_format($data->price)}}</p>
-                     <h1 class="mb-0">
-                        <span class="h1 netural-100">{{$data->name}}
-                        @if(isset($data->address) && !empty($data->address))
-                           ,{{$data->address}}
-                        @endif
-                        @if(isset($data->town) && !empty($data->town))
-                           ,{{$data->town}}
-                        @endif
-                        </span>
-                     </h1>
-                  </div>
-                  <div class="col-12 admin-pt-92">
-                     <p class="body-3-medium  text-black">The name says it all "{{$data->name}}" will be on your marriage certificate ;-).</p>
-                     <p class="body-3-medium  text-black">
-                        {{$data['why_this_location']}}   
-                     </p>
-                     
-                  </div>
-               </div>
-               <div class="col-12 pt-92">
-                  <div class="row">
-                     <div class=" col-lg-3 mb-3 mb-lg-0">
-                        <h2>
-                           <p class="h2 netural-100 mb-3">Facilities</p>
-                           <p class="body-3 text-black">We provide various facilities for you</p>
-                        </h2>
-                     </div>
-                     <div class="col-lg-9">
-                        <div class="row gy-3">
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6  col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                           <div class="col-md-6 col-lg-4 d-flex align-items-start">
-                              <img class="me-4" src="/images/single-location/check-icon.svg" alt="Check Icon">
-                              <p class="body-3 text-black mb-0">Add name facilities here</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-12 pt-92 pb-60">
-                  <div class="row align-items-center">
-                     <div class="col-md-5">
-                        <h2>
-                           <p class="h2 netural-100 mb-3">Location</p>
-                           <p class="body-3 text-black"><img class="me-2" src="/images/single-location/single-location-icon.svg" alt="Single Location Icon">87 Waterview St, Putney NSW 2112, Australia</p>
-                        </h2>
-                     </div>
-                     <div class="col-md-7">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3314.388273684139!2d151.1002113155478!3d-33.82809618066748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12a5044d5afde5%3A0xb820b3d4e25fe47!2s87%20Waterview%20St%2C%20Putney%20NSW%202112%2C%20Australia!5e0!3m2!1sen!2sin!4v1654588852420!5m2!1sen!2sin" width="100%" height="249" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                     </div>
-                  </div>
-               </div>
+               @include('elements.admin.location.location_information')
             </div>
             <!--  -->
             <div class="tab-pane fade" id="celebrants" role="tabpanel" aria-labelledby="celebrants-tab">
-               <div class="table-responsive">
-                  <table class="table align-middle theme-table">
-                     <thead>
-                        <tr>
-                           <th >Name marriage celebrant</th>
-                           <th>Contact</th>
-                           <th></th>
-                           <th></th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td style="min-width:260px" class="body-2" class="body-2">Michael</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td style="min-width:200px"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                        <tr>
-                           <td style="min-width:260px" class="body-2">Joe</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                        <tr>
-                           <td style="min-width:260px" class="body-2">David</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                        <tr>
-                           <td style="min-width:260px" class="body-2">John</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                        <tr>
-                           <td style="min-width:260px" class="body-2">Chloe</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                        <tr>
-                           <td style="min-width:260px" class="body-2">Tony</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                        <tr>
-                           <td style="min-width:260px" class="body-2">Richard</td>
-                           <td  style="min-width:200px" class="body-2">+61 000 000 000</td>
-                           <td  style="min-width:180px"><a class="table-link body-2">See availability</a></td>
-                           <td  style="min-width:200px" class="body-2"><a class="table-link">Remove <span class="d-none d-md-inline-block">from list</span></a></td>
-                        </tr>
-                     </tbody>
-                     <tfoot>
-                        <tr>
-                           <td colspan="4">
-                              <div class="theme-pagination d-flex justify-content-end">
-                                 <div class="align-self-center me-4 button-1">Rows per page: 10</div>
-                                 <div class="align-self-center me-4 button-1 ">1-10 of 12</div>
-                                 <div class="align-self-center">
-                                    <a class="d-inline-flex me-4" href=""><img src="/images/pagination/left.svg" class="img-fluid"></a>
-                                    <a class="d-inline-flex me-4" href=""><img src="/images/pagination/right.svg" class="img-fluid"> </a>
-                                 </div>
-                              </div>
-                           </td>
-                        </tr>
-                     </tfoot>
-                  </table>
-               </div>
+            @include('elements.admin.location.location_celebrants')
             </div>
             <div>
             </div>
@@ -227,5 +57,6 @@
       </div>
    </div>
 </div>
-@include('elements.celebrant.addmarriage-celebrant')
+@include('elements.admin.location.js')
+@include('elements.admin.location.addmarriage-celebrant')
 @endsection

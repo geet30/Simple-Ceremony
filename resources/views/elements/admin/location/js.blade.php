@@ -25,6 +25,7 @@ $(document).ready(function(){
         var form = $(this);
         submitform(id,action,method,formData,form);
     });
+    
     $("#add-filters").on("submit", function(e) { 
         e.preventDefault();
        
@@ -39,10 +40,8 @@ $(document).ready(function(){
         submitform(id,action,method,formData,form);
                 
     });
-    window.findPackage = function(url,that,id){
-        
+    window.findPackage = function(url,that,id){        
         var userid = $(that).val();
-        // console.log(id);
         $.ajax({
             type: 'post',
             url: url,
@@ -54,7 +53,6 @@ $(document).ready(function(){
             success: function(response) {
                
                 if (response.status) {
-                    // console.log(response.data);
                    
                     var temp =  $('#package-'+id);
                     temp.empty();
@@ -98,6 +96,28 @@ $(document).ready(function(){
 
     // })
     }
+    $(document).find("#add-celebrants").on("submit", function(e) { 
+        e.preventDefault();
+       
+        var id = $(this).attr("id");
+        var action = $(this).attr("action"); 
+        var method = $(this).attr("method");
+        var formData = new FormData();
+
+        formData.append('celebrant_id', $('#celebrant_id').val());
+        formData.append('location_id', $('#location_id').val());
+        
+        formData.append('_token',  $("input[name=_token]").val() );
+        var form = $(this);
+        submitform(id,action,method,formData,form);
+                
+    });
+    $('.remove_celebrant').click(function(){
+        
+        var id = $(this).data('id');
+        $('#delete_celebrant').find('input[name="id"]').val(id);
+
+    })
 
  
 });

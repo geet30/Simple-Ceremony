@@ -33,7 +33,6 @@ class Locations extends Model
         'getting_there',
         'custom_location',
         'custom_location_id',
-        'location_category',
         'status'
     ];
 
@@ -58,5 +57,15 @@ class Locations extends Model
     {
         return $this->hasMany('App\Models\LocationKeyAdvantages','location_id','id');
     }
+    public function location_celebrants()
+    {
+        return $this->hasMany('App\Models\CelebrantLocations','location_id','id');
+    }
+    public function location_criteria()
+    {
+        return $this->hasMany('App\Models\LocationFilterCriterias','location_id','id');
+    }
+   
+    
     
 }

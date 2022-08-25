@@ -68,9 +68,10 @@
          <tr>
              <td colspan="8">
                  @include('elements.pagination.pagination', [
-                     'title' => 'All Requests',
+                     'title' => 'All Celebrants',
                      '' => '',
                      'data' => $celebrants,
+                     'id'=>'#celebrantListing'
                  ])
              </td>
          </tr>

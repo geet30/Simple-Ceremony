@@ -1,5 +1,6 @@
 var counter =0;
 var package_count = 1;
+var location_package_counter = 0;
 
 $(document).ready(function(){
   
@@ -121,7 +122,8 @@ $(document).ready(function(){
                </div>`;
      
    }
-   function adminlocationpackage(data){
+   
+   function adminlocationpackage(data,counter){
          
         html = '';
         html = `<div class="row partnerpackageDiv">
@@ -150,14 +152,22 @@ $(document).ready(function(){
          </div>`;   
      return html; 
    }
-   window.appendHtml = function(parentClass, type,data=Array()) { 
+   var first_time = false;
+   window.appendHtml = function(parentClass, type,data=Array(),childcontainer='') { 
       var htmlCode = '';
       if(type=='cart'){  
          htmlCode=cart(data);
       }
-      if(type=='locationpackage'){  
-         counter++;
-         htmlCode=adminlocationpackage(data);
+      
+      if(type=='locationpackage'){ 
+         location_package_counter++; 
+         if($('#deleted_count').val() !='' && first_time == false){
+            location_package_counter =$('#deleted_count').val();
+            first_time = true;
+         }
+         
+         console.log('count',location_package_counter);
+         htmlCode=adminlocationpackage(data,location_package_counter);
       }
       if(type=='advantage'){
          htmlCode=advantage
@@ -221,14 +231,6 @@ $(document).ready(function(){
          $(el).closest('.'+parentClass).remove()
       }
    }
-   // var id_array = [];
-   // var x = 0;
-   // window.removeDiv = function(parentClass, el, id) {       
-   //    id_array[x] = id;
-   //    x++;
-   //    $('#advantage_id').val(id_array);
-   //    $(el).closest('.'+parentClass).remove()
-      
-   // }
+
 
 });

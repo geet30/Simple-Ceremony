@@ -34,7 +34,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="table-responsive celebrantListing">
+                <div class="table-responsive celebrantListing" id="celebrantListing">
                     @include('elements.admin.celebrant.listing')
                 </div>
             </div>
