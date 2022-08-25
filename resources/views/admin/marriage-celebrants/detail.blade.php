@@ -122,9 +122,10 @@
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName"
                                                         class="form-label small-text2 ms-2 ">Username</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         name="user[username]" id="InputName"
-                                                        value="{{ $data->username }}" required>
+                                                        value="{{ $data->username }}" required readonly>
                                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                                 src="/images/require-iocn.svg"
                                                                 alt="Require Icon"></span>Username is
@@ -134,30 +135,34 @@
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">First
                                                         name</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         id="InputName" value="{{ $data->first_name }}" required
-                                                        name="user[first_name]">
+                                                        name="user[first_name]" readonly>
 
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2 ms-2">Other
                                                         name</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         id="InputName" value="{{ $data->other_name }}" required
-                                                        name="user[other_name]">
+                                                        name="user[other_name]" readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName"
                                                         class="form-label small-text2 ms-2">Surname</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         value="{{ $data->surname }}" id="InputName" required
-                                                        name="user[surname]">
+                                                        name="user[surname]" readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="phone" class="form-label small-text2 ms-2">Phone
                                                         number</label>
-                                                    <input class="form-control body-1 netural-100" type="tel" required
-                                                        value="{{ $data->phone }}" name="user[phone]">
+                                                    <input class="form-control body-1 netural-100 readonlyInput"
+                                                        type="tel" required value="{{ $data->phone }}"
+                                                        name="user[phone]" readonly>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Email
@@ -169,18 +174,20 @@
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName"
                                                         class="form-label small-text2 ms-2">Address</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         id="InputName" required
                                                         value="{{ $data->celebrant->address ?? '' }}"
-                                                        name="celebrant[address]">
+                                                        name="celebrant[address]" readonly>
                                                 </div>
                                                 <div class="col-md-6"></div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">A
                                                         number</label>
-                                                    <input type="number" class="form-control body-1 netural-100"
+                                                    <input type="number"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         id="InputName" required value="{{ $data->a_number }}"
-                                                        name="user[a_number]">
+                                                        name="user[a_number]" readonly>
                                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                                 src="/images/require-iocn.svg"
                                                                 alt="Require Icon"></span>Business category is required
@@ -189,15 +196,17 @@
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">ABN
                                                         Number</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         id="InputName" required value="{{ $data->abn_number }}"
-                                                        name="user[abn_number]">
+                                                        name="user[abn_number]" readonly>
                                                 </div>
 
                                                 <div class="col-md-6 mb-4">
                                                     <label class="form-label small-text2">Bank *</label>
                                                     <select required="" name="user[bank]"
-                                                        class="js-placeholder-single-input form-control" required>
+                                                        class="js-placeholder-single-input form-control readonlyInput"
+                                                        required readonly>
 
                                                         <option value="1" {{ $data->bank == 1 ? ' selected' : '' }}>
                                                             ANZ</option>
@@ -226,9 +235,10 @@
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2">BSB *</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
                                                         name="user[bsb]" id="InputName" required
-                                                        value="{{ $data->bsb }}">
+                                                        value="{{ $data->bsb }}" readonly>
                                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                                 src="/images/require-iocn.svg"
                                                                 alt="Require Icon"></span>BSB is
@@ -238,31 +248,33 @@
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Account
                                                         number</label>
-                                                    <input type="text" class="form-control body-1 netural-100"
-                                                        id="InputName" name="user[account_no]" required
+                                                    <input type="text"
+                                                        class="form-control body-1 netural-100 readonlyInput"
+                                                        id="InputName" name="user[account_no]" readonly required
                                                         value="{{ $data->account_no }}">
                                                 </div>
                                                 <div class="col-md-12 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">About
                                                         me</label>
-                                                    <textarea class="form-control body-1 netural-100" id="ceremonyplace" rows="10" name="celebrant[description]">{{ $data->celebrant->description ?? '' }}</textarea>
+                                                    <textarea class="form-control body-1 netural-100 readonlyInput" id="ceremonyplace" rows="10" readonly
+                                                        name="celebrant[description]">{{ $data->celebrant->description ?? '' }}</textarea>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Standard
                                                         fee</label>
                                                     <input type="number" step="0.01"
-                                                        class="form-control body-1 netural-100" id="InputName"
-                                                        value="{{ $data->celebrant->standard_fee ?? '' }}"
-                                                        name="celebrant[standard_fee]">
+                                                        class="form-control body-1 netural-100 readonlyInput"
+                                                        id="InputName" value="{{ $data->celebrant->standard_fee ?? '' }}"
+                                                        name="celebrant[standard_fee]" readonly>
 
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Admin
                                                         fee</label>
                                                     <input type="number" step="0.01"
-                                                        class="form-control body-1 netural-100" id="InputName"
-                                                        value="{{ $data->celebrant->admin_fee ?? '' }}"
-                                                        name="celebrant[admin_fee]">
+                                                        class="form-control body-1 netural-100 readonlyInput"
+                                                        id="InputName" value="{{ $data->celebrant->admin_fee ?? '' }}"
+                                                        name="celebrant[admin_fee]" readonly>
                                                 </div>
                                                 <div class="col-md-12 col-lg-6 mb-4 celebrantLocation">
                                                     <div class="row">

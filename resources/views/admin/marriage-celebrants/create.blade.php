@@ -18,12 +18,6 @@
                                 {{ $errors->first() }}
                             </div>
                         @endif
-                        @if (session()->has('msg'))
-                            <div class="alert alert-danger">
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-                                {{ session()->get('msg') }}
-                            </div>
-                        @endif
                         <form class="needs-validation" method="POST" novalidate action="{{ route('celebrant.store') }}"
                             enctype="multipart/form-data">
                             @csrf
@@ -103,16 +97,23 @@
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Address
                                                 is required</div>
                                         </div>
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-6 mb-4 phone_number">
                                             <label for="phone" class="form-label small-text2">Phone number *</label>
-                                            <input class="form-control body-1 netural-100" name="user[phone]"
-                                                type="tel" id="phone" placeholder="Type your phone number here"
-                                                value="+61 " required>
-                                            <div class="invalid-feedback"
-                                                style="position: absolute;bottom: -30px;left: 20px;text-align: left; z-index: 1;">
-                                                <span><img class="me-2" src="/images/require-iocn.svg"
-                                                        alt="Require Icon"></span>Phone is required.
-                                            </div>
+                                            <input type="hidden" id="code" name="user[country_code]"
+                                                value="61">
+                                            <input id="phone" type="tel"
+                                                class="form-control body-1 netural-100 tel-input"
+                                                placeholder="Your phone number" name="user[phone]" required>
+                                            <div class="invalid-feedback"> <span><img class="me-2"
+                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Phone
+                                                number is required</div>
+                                            <div class="invalid-feedback phone_number_required"> <span><img class="me-2"
+                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Phone
+                                                number is required</div>
+                                            <div class="invalid-feedback invalid-phone-number"> <span><img class="me-2"
+                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Phone
+                                                number is invalid</div>
+
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Email *</label>

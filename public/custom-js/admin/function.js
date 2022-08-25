@@ -51,6 +51,7 @@ $(document).ready(function(){
         $('.'+ele).addClass('d-none');
         $('.'+cls).addClass('d-block');
         $('.'+cls).removeClass('d-none');
+        $('.readonlyInput').attr("readonly", false); 
     }
 
     //function to browse image
