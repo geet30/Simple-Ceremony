@@ -43,8 +43,6 @@ $(document).ready(function(){
             {
                 $('#'+tab_id+'_'+id).removeAttr('class');
                 $('#'+tab_id+'_'+id).addClass('btn dropdown-toggle '+response.data.class);
-                // $('#detail_change_class-'+id).removeAttr('class');
-                // $('#detail_change_class-'+id).addClass('p-1 px-3 d-inline text-decoration-none ms-3 d-none '+response.data.class);
                 $('#'+tab_id+'_'+id).find("#change_status-"+id).html(response.data.status);
                 if(detail == 'detail'){
                     window.location.reload();
@@ -68,7 +66,6 @@ $(document).ready(function(){
             processData: false,
             data: formData,
             success: function(response) {
-                // console.log(response.data);
                 if (response.status) {
                     form.trigger("reset");
                     $(document).find('.message').html("<div class='alert alert-success'>" + response.message + "</div>");
@@ -110,7 +107,6 @@ $(document).ready(function(){
             data: formData,
             type: method,
             success: function(response) {
-                // console.log(response.data);
                 if (response.status) {
                     form.trigger("reset");
                     $(document).find('.message').html("<div class='alert alert-success'>" + response.message + "</div>");

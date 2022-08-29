@@ -47,12 +47,12 @@
                   <div class="col-lg-6  mt-3 mt-lg-0">
                     <div class="d-flex justify-content-end mb-47">
                     @if(isset($data->status) && $data->status== 0)
-                     <a class="theme-btn  primary-btn me-2"  onClick="changeStatus('/change-location-status',{{$data->id}},1,'detail','tab_id','location')" href="single">Confirm</a>
+                     <a class="theme-btn  primary-btn me-2"  href="{{route('locations.create',$data->id)}}">Confirm</a>
                    
                      <a onClick="changeStatus('/change-location-status',{{$data->id}},2,'detail','tab_id','location')"  class="theme-btn  primary-btn-border me-2">Decline</a>
                      @endif
-                     <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
-                     Edit</a>
+                     <!-- <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
+                     Edit</a> -->
                     </div>
                      <h1 class="mb-0 col-xl-10">
                         <span class="h1 netural-100">

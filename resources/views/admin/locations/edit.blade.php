@@ -87,44 +87,48 @@
                               @endforeach
                            </select>
                         </div>
-                        <div class="col-md-12 mb-4 d-flex flex-column">
+                        <div class="col-md-12 mb-5 d-flex flex-column">
                            <label for="InputName" class="form-label small-text2 mb-20">Upload cover photos</label>
-                           <div class="drop-zone text-center">
-                             
+                           <div class="drop-zone text-center position-relative">
+                              <?php  $required = 'required'?>
                                  @if($data->cover_image && !empty($data->cover_image))
-                                 <?php 
-                              
-                                    $path = asset('uploads/images/locations/'.$data->cover_image);
-                                    $type = pathinfo($path, PATHINFO_EXTENSION);
-                                    $imgData = file_get_contents($path);
-                                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imgData);
+                                    <?php 
+                                 
+                                       $path = asset('uploads/images/locations/'.$data->cover_image);
+                                       $type = pathinfo($path, PATHINFO_EXTENSION);
+                                       $imgData = file_get_contents($path);
+                                       $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imgData);
+                                       $required = '';
 
-                                 ?>
-                                 <div class="drop-zone__thumb" data-label="{{$data->cover_image}}" style="background-image: url({{$base64}})"></div>
+                                    ?>
+                                    <div class="drop-zone__thumb" data-label="{{$data->cover_image}}" style="background-image: url({{$base64}})"></div>
                                  @else
-                                 <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
-                                    <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
-                                    <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
-                                 </span>
-                              @endif
-                              <input type="file" name="cover_image" class="drop-zone__input">
+                                  
+                                    <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
+                                       <img src="/images/icons/jpg-logo.svg" class="img-fluid jpg-icon">
+                                       <span class="dark-blue-100 h4 text-center">Drop your photos here, or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
+                                    </span>
+                                 @endif
+                              <input type="file" name="cover_image" class="drop-zone__input" {{$required}}>
                               <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cover photo is required.</div>
                            </div>
                         </div>
-                        <div class="col-md-12 mb-4 d-flex flex-column">
+                        <div class="col-md-12 mb-5 d-flex flex-column images_outer_div">
                            <label for="InputName" class="form-label small-text2 mb-20">Upload gallery photos</label>
-                           <div class="upload__box">
+                           <?php  $gallery_required = 'required'?>
+                           <div class="upload__box position-relative">
                               <div class="upload__btn-box">
                                  <label class="theme-btn primary-btn ">
                                     <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
                                     <input type="file" multiple="" name="location_images[]" data-max_length="20" id="upload__inputfile" class="upload__inputfile">
                                    
-                                    <div class="invalid-feedback" style="
+                                    <div class="invalid-feedback images_required" style="
                                        font-size: 0.875em;font-weight: 400;position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required
                                     </div>
                                  </label>
                               </div>
                               <div class="upload__img-wrap">
+                              
                                  @if($data->location_images && !empty($data->location_images))
                                  <input type="hidden" name="image_id" id="image_id">
                                  @foreach($data->location_images as $keys=>$images)
@@ -229,8 +233,8 @@
                               @foreach($data['location_packages'] as $key=>$packages)
                                  <div class="row partnerpackageDiv">
                                     <div class="col-md-5 mb-4">
-                                       <label for="partner" class="form-label small-text2">Select partner *</label>
-                                       <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,{{$key}})" id="partner-{{$key}}" name="partners[{{$key}}][partner_id]" required>
+                                       <label for="partner" class="form-label small-text2">Select partner</label>
+                                       <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,{{$key}})" id="partner-{{$key}}" name="partners[{{$key}}][partner_id]">
                                           <option value="">Select Partner</option>
                                           @foreach($partners as $partner)
                                              <option value="{{$partner['user']['id']}}" {{ (isset($packages['partner_id']) && $packages['partner_id'] == $partner['user']['id']) ? 'selected' : '' }}>{{$partner['user']['name']}}</option>
@@ -243,10 +247,10 @@
                                        </div>
                                     </div>
                                     <div class="col-md-5 mb-4 select_packages">
-                                       <label for="package" class="form-label small-text2">Select Package *</label>
-                                       <select class="js-placeholder-single-input form-control packages" name="partners[{{$key}}][package_id]" id="package-{{$key}}" required>
+                                       <label for="package" class="form-label small-text2">Select Package</label>
+                                       <select class="js-placeholder-single-input form-control packages" name="partners[{{$key}}][package_id]" id="package-{{$key}}">
                                        @foreach($partnerspackages as $partnerspackage)
-                                       @if ($packages['package_id'] == $partnerspackage['id'])
+                                          @if($packages['package_id'] == $partnerspackage['id'])
 
                                           <option value="{{$partnerspackage['id']}}" {{ (isset($packages['package_id']) && $packages['package_id'] == $partnerspackage['id']) ? 'selected' : '' }}>{{$partnerspackage['package_name']}} -  {{number_format($partnerspackage['total_fee'])}}</option>
                                           @endif
@@ -267,8 +271,8 @@
                            @else
                            <div class="row partnerpackageDiv">
                               <div class="col-md-5 mb-4">
-                                 <label for="partner" class="form-label small-text2">Select partner *</label>
-                                 <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,'0')" id="partner-0" name="partners[0][partner_id]" required>
+                                 <label for="partner" class="form-label small-text2">Select partner </label>
+                                 <select class="js-placeholder-single-input form-control select_partner" onchange="findPackage('/get-packages',this,'0')" id="partner-0" name="partners[0][partner_id]">
                                     <option value="">Select Partner</option>
                                     @foreach($partners as $partner)
                                        <option value="{{$partner['user']['id']}}">{{$partner['user']['name']}}</option>
@@ -281,9 +285,9 @@
                                  </div>
                               </div>
                               <div class="col-md-5 mb-4 select_packages">
-                                 <label for="package" class="form-label small-text2">Select Package *</label>
-                                 <select class="js-placeholder-single-input form-control packages" name="partners[0][package_id]" id="package-0" required>
-                                 <option value="">Select Packages</option>
+                                 <label for="package" class="form-label small-text2">Select Package</label>
+                                 <select class="js-placeholder-single-input form-control packages" name="partners[0][package_id]" id="package-0">
+                                    <option value="">Select Packages</option>
                                  
                                  </select>
                                  

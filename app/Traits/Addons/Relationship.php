@@ -6,7 +6,7 @@ use App\Models\{User};
 
 
 /**
- * User Relationship model.
+ * Addons Relationship model.
  * Author: Geetanjali Sharma
  */
 

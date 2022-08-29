@@ -22,12 +22,6 @@ class AdminRoleSeeder extends Seeder
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin@123')
             ],
-            [
-              
-                'name' => 'Partner Ceremony',
-                'email' => 'partner@gmail.com',
-                'password' => bcrypt('partner@123'),
-            ]
     
         );
         $role = Role::create(['name' => 'Admin']);

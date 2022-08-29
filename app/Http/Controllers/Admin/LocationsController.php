@@ -91,8 +91,7 @@ class LocationsController extends Controller
             if($request->ajax()){  
                 $viewurl = 'elements.admin.location.location_celebrants';       
                 return View::make($viewurl, ['req_page' => $req_page, 'celebrants_locations' => $celebrants_locations]);
-            } 
-            // dd($celebrants_locations);
+            }
             return view('admin.locations.detail',compact('data','celebrants_locations','celebrants','id'));
         }
         catch (\Exception $ex) {
@@ -158,7 +157,6 @@ class LocationsController extends Controller
             $filters = LocationFilters::all();
             $partners = Locations::partners();
             $celebrants = Locations::celebrants()->get();
-            // dd($celebrants);
             $data = array();
             if ($id) {
                 $data = RequestLocations::where('id', $id)->first();
@@ -183,19 +181,15 @@ class LocationsController extends Controller
         try {
             $filters = LocationFilters::all();
             $partners = Locations::partners();
-
             $celebrants = Locations::celebrants()->get();
-
             $partnerspackages = Locations::getPartnerPackages();
             $locations_celebrants = Locations::celebrants($id)->get(); 
             $columns = '*';
 
             $data = Locations::getLocations($id,$columns,'packages')->first();
-            //  dd($data['location_celebrants']);
             return view('admin.locations.edit',compact('data','filters','partners','partnerspackages','celebrants','locations_celebrants'));
         }
         catch (\Exception $ex) {
-            dd($ex->getMessage().'-'.$ex->getLine());
 
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

@@ -11,7 +11,7 @@ use App\Mail\RegisterUserMail;
 
 trait Methods
 {
-
+    #### Add to Cart ############
     public static function addToCart()
     {
 
@@ -25,9 +25,10 @@ trait Methods
             return redirect('user/add-ons');
         }
     }
-
+    ###### Create Parter ###########
     static function createPartner($data)
     {
+        // dd($data);
         $user_inputs = $data['user'];
         $random_password = Str::random(8);
         $user_inputs['password'] = Hash::make($random_password);
@@ -50,34 +51,96 @@ trait Methods
         $partner_products_inputs = $data['partner_products'];
         $partner_products_inputs['user_id'] = $user->id;
         $PartnerProducts = PartnerProducts::create($partner_products_inputs);
-
-
+        if($PartnerProducts){
+            self::partnerExtras($data,$PartnerProducts->id,$user->id);
+            $msg = 'Partner added Successfully';
+            return ['status' => true,'message'=>$msg];   
+        }
+        $msg = 'Something went wrong';
+        return ['status' => false,'message'=>$msg];   
+    }
+    ###### Partner Extra Fields ###########
+    static function partnerExtras($data,$id,$user_id){
         foreach ($data['package_locations']['location'] as $locationId => $location) {
 
             $package_locations_inputs['location'] = $location;
-            $package_locations_inputs['product_id'] = $PartnerProducts->id;
-            $package_locations_inputs['user_id'] = $user->id;
-            $PackageLocations = PackageLocations::create($package_locations_inputs);
+            $package_locations_inputs['product_id'] = $id;
+            $package_locations_inputs['user_id'] = $user_id;
+            PackageLocations::create($package_locations_inputs);
         }
 
 
         if (!empty($data['partner_packages'])) {
             foreach ($data['partner_packages'] as $packages) {
                 $partner_packages_inputs = $packages;
-                $partner_packages_inputs['product_id'] = $PartnerProducts->id;
-                $partner_packages_inputs['user_id'] = $user->id;
+                $partner_packages_inputs['product_id'] = $id;
+                $partner_packages_inputs['user_id'] = $user_id;
                 $PartnerPackages = PartnerPackages::create($partner_packages_inputs);
                 foreach ($packages['package_images']['image_name'] as $file) {
                     $package_images_inputs['image_name'] = uploadImage($file, 'package');
                     $package_images_inputs['package_id'] = $PartnerPackages->id;
-                    $package_images_inputs['user_id'] = $user->id;
-                    $PackageImages = PackageImages::create($package_images_inputs);
+                    $package_images_inputs['user_id'] = $user_id;
+                    PackageImages::create($package_images_inputs);
                 }
             }
         }
         return true;
     }
+    static function updatePackage($data,$id){
+       
+        if(isset($data['partner_products'])){
+            $partner_products = $data['partner_products'];
+            PartnerProducts::where('id', $id)->update($partner_products);
+        }
+        if(isset($data['image_id']) && $data['image_id'] !=''){
+           
+            deleteRecords($data['image_id'],'App\Models\PackageImages');  
+        }
+        
+        if (isset($data['package_locations']['location'])) {
+            
+            self::savePartnerLocations($data['package_locations']['location'],$data['user_id'],$id);
+        }
+        if (isset($data['partner_packages']) && !empty($data['partner_packages'])) {
+            
+            self::savePartnerPackages($data['partner_packages'],$data['user_id'],$id);
+        } 
 
+        $msg = 'Package updated Successfully';
+        return ['status' => true,'message'=>$msg]; 
+
+    }
+      //common function to partner locations
+    static function savePartnerPackages($partner_packages, $user_id,$product_id)
+    {
+        foreach ($partner_packages as $packages) {
+            $partner_packages_inputs['product_id'] = $product_id;
+            $partner_packages_inputs['user_id'] = $user_id;
+            $partner_packages_inputs['package_name'] = $packages['package_name'];
+            $partner_packages_inputs['partner_fee'] = $packages['partner_fee'];
+            $partner_packages_inputs['admin_fee'] = $packages['admin_fee'];
+            $partner_packages_inputs['total_fee'] = $packages['total_fee'];
+            $partner_packages_inputs['deposit'] = $packages['deposit'];
+            $partner_packages_inputs['simulation_partner_fee'] = $packages['simulation_partner_fee'];
+            $partner_packages_inputs['simulation_total_fee'] = $packages['simulation_total_fee'];
+            $partner_packages_inputs['location_description'] = $packages['location_description'];
+            $partner_packages_inputs['title_term'] = $packages['title_term'];
+            $partner_packages_inputs['terms'] = $packages['terms'];
+            PartnerPackages::where('id', $packages['id'])->update($partner_packages_inputs);
+            
+            if(isset($packages['package_images']) && !empty($packages['package_images'])){                              
+                foreach ($packages['package_images']['image_name'] as $file) {
+                    $package_images_inputs['image_name'] = uploadImage($file, 'package');
+                    $package_images_inputs['package_id'] = $packages['id'];
+                    $package_images_inputs['user_id'] = $user_id;
+                    PackageImages::create($package_images_inputs);
+                }
+            }
+            
+        }
+        return true;
+       
+    }
     //function to add celebrant
     static function createCelebrant($data)
     {
@@ -137,9 +200,7 @@ trait Methods
    static function updatePartner($data, $partnerid)
    {
         try{
-
             $userData = $data['user'];
-            // dd($data['user']);
             if (!empty($data['user']['image'])) {
                 $userData['image'] = uploadImage($data['user']['image'], 'user');
             }
@@ -150,9 +211,6 @@ trait Methods
             } 
             if (isset($data['locations'])) {
                 self::savePartnerLocations($data['locations'], $partnerid,$product_id);
-            } 
-            else {
-                PackageLocations::where('user_id', $partnerid)->delete();
             }
             $msg = 'Partner Updated Successfully';
             return ['status' => true,'message'=>$msg];   
@@ -180,7 +238,7 @@ trait Methods
     //common function to partner locations
     static function savePartnerLocations($locations, $user_id,$product_id)
     {
-        
+       
         PackageLocations::where('user_id', $user_id)->where('product_id', $product_id)->delete();
         foreach ($locations as $location) {
             $package_locations['location'] = $location;
@@ -190,6 +248,7 @@ trait Methods
         }
         return true;
     }
+      
     //common function to celebrant locations
     static function saveCelebrantLocations($locations, $id)
     {
@@ -236,4 +295,5 @@ trait Methods
         $tax->save();
         return true;
     }
+
 }

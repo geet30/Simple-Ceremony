@@ -24,9 +24,6 @@ class AddonsController extends Controller
             if($request->has('page')){
                 $req_page = $request->page; 
             }
-            //  if($request->has('records')){
-            //     $records = $request->records; 
-            // }
             $products = Addons::productWithRejected();          
             $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);          
             $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);

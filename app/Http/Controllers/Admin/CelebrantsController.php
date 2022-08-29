@@ -21,7 +21,7 @@ class CelebrantsController extends Controller
         $data = [];
         $req_page = 1;
         $search = '';
-        $records = 1;
+        $records = 10;
         if ($request->has('page')) {
             $req_page = $request->page;
         }
