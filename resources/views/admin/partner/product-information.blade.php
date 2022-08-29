@@ -24,9 +24,8 @@
             ?>
     
             <div class="col-lg-3">
-            <!-- <a href="package-details" class="text-decoration-none"> -->
-            <a href="#" class="text-decoration-none">
-            <div class="card image-card">
+            <a href="{{route('partner.package',$product_id)}}" class="text-decoration-none">
+            <div class="card image-card admin-location-card">
                 @foreach($products['package'] as $images)
                     @if ($loop->first)  
                         @if(isset($images['gallery'][0]) && !empty($images['gallery'][0]['image_name']))

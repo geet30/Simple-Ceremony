@@ -17,7 +17,7 @@ trait Methods
                 $query->select('*');
             },
             'package' => function ($query) {
-                $query->select('id', 'user_id', 'location_description', 'product_id', 'partner_fee', 'admin_fee', 'total_fee', 'package_name', 'title_term');
+                $query->select('id', 'user_id', 'location_description', 'product_id', 'partner_fee', 'admin_fee', 'total_fee', 'package_name', 'title_term','deposit','simulation_partner_fee','simulation_admin_fee','simulation_total_fee','terms');
             },
             'package.gallery' => function ($query) {
                 $query->select('image_name', 'id', 'package_id');

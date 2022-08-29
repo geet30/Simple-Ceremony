@@ -8,9 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-
 use App\Traits\User\{Methods, Relationship};
-
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, Methods, Relationship;
@@ -48,7 +46,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(CelebrantLocations::class, 'celebrant_id', 'id');
     }
-
+    public function partnerProducts()
+    {
+        return $this->hasMany(PartnerProducts::class, 'user_id', 'id');
+    }
     public function celebrant()
     {
         return $this->hasOne(CelebrantDetail::class, 'celebrant_id', 'id');

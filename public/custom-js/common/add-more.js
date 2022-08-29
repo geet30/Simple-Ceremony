@@ -4,7 +4,6 @@ var location_package_counter = 0;
 
 $(document).ready(function(){
   
-   // ImgUpload();
    var advantage = '<div class="row mt-2 keyDiv"><label for="Key" class="form-label small-text2">Key advantages of site</label><div class="col-10 col-sm-8 col-md-6"><input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="key_advantages[]" id="Key"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`keyDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
    var html = "";
    var total_fee = 0;

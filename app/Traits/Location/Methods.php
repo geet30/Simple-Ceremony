@@ -74,13 +74,16 @@ trait Methods
                 }
             }   
         }
-        if($data->has('partners')){
+        if($data->has('partners') && !empty($data->partners)){
             foreach($data->partners as $partner){
-                $partner_packages['location_id'] = $id;
-                // $partner_packages['location_category'] = $data->location_category;
-                $partner_packages['partner_id'] = $partner['partner_id'];
-                $partner_packages['package_id'] = $partner['package_id'];
-                LocationPackages::create($partner_packages);
+                if($partner['partner_id'] !=null){
+                    $partner_packages['location_id'] = $id;
+                    // $partner_packages['location_category'] = $data->location_category;
+                    $partner_packages['partner_id'] = $partner['partner_id'];
+                    $partner_packages['package_id'] = $partner['package_id'];
+                    LocationPackages::create($partner_packages);
+                }
+              
             }   
         }
         if($data->has('custom_location_id') && $data->custom_location_id !='null'){
@@ -94,8 +97,7 @@ trait Methods
        
         try{
             
-            $input = $data->all();
-            // dd($data->all());   
+            $input = $data->all();  
             deleteRecords($data->image_id,'App\Models\LocationImages');  
             if($data->has('key_advantages') && !empty($data->key_advantages)){
                 deleteEntries($id,'App\Models\LocationKeyAdvantages','location_id'); 
@@ -123,6 +125,7 @@ trait Methods
             return ['status' => false,'message'=>$msg];   
         }
         catch (\Exception $ex) {
+            dd($ex); 
             return ['status' => false,'message'=>$ex->getMessage()];   
         }
 
