@@ -262,3 +262,37 @@ input:-webkit-autofill:active {
 .has-search input:focus + .form-control-feedback{
     color: $turquoise-100 !important;
 }
+
+.currency-sign {
+    position: absolute;
+    top: 6px;
+    left: 10px;
+}
+.calendar-icon-input {
+    position: absolute;
+    top: 5px;
+    left: 25px;
+}
+.calendar-with-input {
+    background: #61cbc9;
+    color: #fff;
+}
+.calendar-with-input:focus {
+    background: #61cbc9;
+    color: #fff;
+}
+.calendar-with-input::placeholder {
+    color: #fff;;
+    opacity: 1;
+    /* Firefox */
+}
+
+.calendar-with-input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #fff;;
+}
+
+.calendar-with-input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #fff;;
+}

@@ -143,9 +143,17 @@
         <div class="col-sm-6 align-self-center order-md-1">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item "><a href="#">All location packages</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <?php $segments = ''; ?>
+                    @foreach (Request::segments() as $segment)
+                        <?php $segments .= '/' . $segment; ?>
+                        <li class="breadcrumb-item" style="text-transform: capitalize;">
+                            <?php  if(is_numeric($segment)){?>
+                            <a>{{ $segment }}</a>
+                            <?php }else{?>
+                            <a href="{{ $segments }}">{{ $segment }}</a>
+                            <?php  }?>
+                        </li>
+                    @endforeach
                 </ol>
             </nav>
         </div>

@@ -28,7 +28,7 @@
                                     action="{{ route('account.store') }}">
                                     <div class="row">
                                         <div class="col-md-10 col-lg-6 col-xl-5 col-xxl-4 mb-4">
-                                            <label for="InputName" class="form-label small-text2">Name</label>
+                                            <label for="InputName" class="form-label small-text2">Your name</label>
                                             <input type="text" value="{{ auth()->user()->name }}"
                                                 class="form-control body-1 netural-100" name="name" readonly
                                                 id="InputName" required>

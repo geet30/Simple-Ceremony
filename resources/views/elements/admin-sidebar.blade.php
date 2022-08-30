@@ -44,7 +44,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center" href="calander-overview">
+                <a class="body-1 nav-link d-flex align-items-center" href="/calander-overview">
                     <svg width="21" height="23" viewBox="0 0 21 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -55,7 +55,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/celebrant" class="body-1 nav-link d-flex align-items-center {{ Request::segment(1)=='celebrant' ? 'active' : ''}}">
+                <a href="/celebrants"
+                    class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'celebrant' ? 'active' : '' }}">
                     <svg width="27" height="19" viewBox="0 0 27 19" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -76,21 +77,34 @@
             </li>
             <li class="nav-item">
 
-                <a href="/locations/all-requests" class="body-1 nav-link d-flex align-items-center {{ Request::segment(1)=='locations' ||Request::segment(1)=='location' ? 'active' : ''}}">
-                <svg width="19" height="27" viewBox="0 0 19 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.47856 12.7044V13.3026C7.1317 12.8901 8.74432 7.62656 9.12806 5.97656C7.35912 6.00253 5.67098 6.72217 4.42721 7.98051C3.18363 9.2388 2.48384 10.9352 2.47852 12.7042L2.47856 12.7044Z" fill="#62CBC9"/>
-                <path d="M9.31348 5.9767C9.7013 7.62671 11.3101 12.8982 15.963 13.3107V12.7043C15.9587 10.9348 15.2593 9.23786 14.0154 7.97919C12.7716 6.72071 11.0828 6.00141 9.31348 5.97656V5.9767Z" fill="#62CBC9"/>
-                <path d="M4.9291 26.6037C5.67566 21.6207 3.65441 16.0272 2.4541 13.3047V26.6037H4.9291Z" fill="#62CBC9"/>
-                <path d="M13.5131 26.6037H15.9634V13.3047C14.7838 16.0272 12.7666 21.6207 13.5131 26.6037Z" fill="#62CBC9"/>
-                <path d="M8.4185 5.15377C7.95241 4.78786 7.51651 4.3851 7.11509 3.94922C5.24965 4.46227 3.60479 5.57456 2.43376 7.11463C1.26273 8.6545 0.630544 10.5369 0.634787 12.4715V26.6035H1.62884V12.7062C1.62847 10.8312 2.32179 9.02226 3.57532 7.62801C4.82904 6.23362 6.554 5.35228 8.41831 5.15358L8.4185 5.15377Z" fill="#62CBC9"/>
-                <path d="M15.7079 6.22515C14.6433 5.15727 13.3223 4.38031 11.8716 3.96875C11.4488 4.42453 10.9832 4.83905 10.4814 5.20625C12.2337 5.4961 13.8278 6.39368 14.9843 7.74164C16.1406 9.08964 16.7853 10.8017 16.8052 12.5776L17.0527 26.6026H18.2902V12.4705C18.2941 11.3104 18.068 10.1611 17.6247 9.08912C17.1815 8.017 16.5299 7.04355 15.7079 6.2252L15.7079 6.22515Z" fill="#62CBC9"/>
-                <path d="M9.46638 4.89754C10.4317 4.26644 12.2507 2.76914 12.1765 1.44084V1.39959C12.1743 1.08156 12.0465 0.777352 11.8207 0.553235C11.5952 0.329122 11.29 0.203345 10.972 0.203345C10.7354 0.205923 10.5048 0.279217 10.31 0.413645C10.1153 0.548261 9.96523 0.737752 9.87886 0.958192C9.82528 1.13074 9.66562 1.24841 9.48496 1.24841C9.30431 1.24841 9.14465 1.13074 9.09106 0.958192C9.00248 0.731868 8.8465 0.53814 8.64449 0.403179C8.44229 0.268195 8.20381 0.1984 7.96073 0.203373C7.63404 0.200427 7.32006 0.329886 7.09042 0.562286C6.87294 0.780873 6.75508 1.07921 6.76447 1.38729C6.76834 1.41454 6.76834 1.44235 6.76447 1.46979C6.76447 1.46979 6.64073 2.83933 9.46633 4.89759L9.46638 4.89754Z" fill="#62CBC9"/>
-                </svg>
-                <span class="ms-3  d-none d-md-block  font-weight-600">Locations</span>
-              </a>
+                <a href="/locations/all-requests"
+                    class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'locations' || Request::segment(1) == 'location' ? 'active' : '' }}">
+                    <svg width="19" height="27" viewBox="0 0 19 27" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2.47856 12.7044V13.3026C7.1317 12.8901 8.74432 7.62656 9.12806 5.97656C7.35912 6.00253 5.67098 6.72217 4.42721 7.98051C3.18363 9.2388 2.48384 10.9352 2.47852 12.7042L2.47856 12.7044Z"
+                            fill="#62CBC9" />
+                        <path
+                            d="M9.31348 5.9767C9.7013 7.62671 11.3101 12.8982 15.963 13.3107V12.7043C15.9587 10.9348 15.2593 9.23786 14.0154 7.97919C12.7716 6.72071 11.0828 6.00141 9.31348 5.97656V5.9767Z"
+                            fill="#62CBC9" />
+                        <path d="M4.9291 26.6037C5.67566 21.6207 3.65441 16.0272 2.4541 13.3047V26.6037H4.9291Z"
+                            fill="#62CBC9" />
+                        <path d="M13.5131 26.6037H15.9634V13.3047C14.7838 16.0272 12.7666 21.6207 13.5131 26.6037Z"
+                            fill="#62CBC9" />
+                        <path
+                            d="M8.4185 5.15377C7.95241 4.78786 7.51651 4.3851 7.11509 3.94922C5.24965 4.46227 3.60479 5.57456 2.43376 7.11463C1.26273 8.6545 0.630544 10.5369 0.634787 12.4715V26.6035H1.62884V12.7062C1.62847 10.8312 2.32179 9.02226 3.57532 7.62801C4.82904 6.23362 6.554 5.35228 8.41831 5.15358L8.4185 5.15377Z"
+                            fill="#62CBC9" />
+                        <path
+                            d="M15.7079 6.22515C14.6433 5.15727 13.3223 4.38031 11.8716 3.96875C11.4488 4.42453 10.9832 4.83905 10.4814 5.20625C12.2337 5.4961 13.8278 6.39368 14.9843 7.74164C16.1406 9.08964 16.7853 10.8017 16.8052 12.5776L17.0527 26.6026H18.2902V12.4705C18.2941 11.3104 18.068 10.1611 17.6247 9.08912C17.1815 8.017 16.5299 7.04355 15.7079 6.2252L15.7079 6.22515Z"
+                            fill="#62CBC9" />
+                        <path
+                            d="M9.46638 4.89754C10.4317 4.26644 12.2507 2.76914 12.1765 1.44084V1.39959C12.1743 1.08156 12.0465 0.777352 11.8207 0.553235C11.5952 0.329122 11.29 0.203345 10.972 0.203345C10.7354 0.205923 10.5048 0.279217 10.31 0.413645C10.1153 0.548261 9.96523 0.737752 9.87886 0.958192C9.82528 1.13074 9.66562 1.24841 9.48496 1.24841C9.30431 1.24841 9.14465 1.13074 9.09106 0.958192C9.00248 0.731868 8.8465 0.53814 8.64449 0.403179C8.44229 0.268195 8.20381 0.1984 7.96073 0.203373C7.63404 0.200427 7.32006 0.329886 7.09042 0.562286C6.87294 0.780873 6.75508 1.07921 6.76447 1.38729C6.76834 1.41454 6.76834 1.44235 6.76447 1.46979C6.76447 1.46979 6.64073 2.83933 9.46633 4.89759L9.46638 4.89754Z"
+                            fill="#62CBC9" />
+                    </svg>
+                    <span class="ms-3  d-none d-md-block  font-weight-600">Locations</span>
+                </a>
             </li>
             <li class="nav-item">
-
                 <a href="/addons/all"
                     class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'addons' ? 'active' : '' }}">
                     <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
@@ -135,7 +149,7 @@
                     <span class="ms-3  d-none d-md-block  font-weight-600">Partners</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center" href="all-referrers">
                     <svg width="25" height="26" viewBox="0 0 25 26" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -148,8 +162,8 @@
                     </svg>
                     <span class="ms-3  d-none d-md-block  font-weight-600">Referrers</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li> --}}
+            {{-- <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center" href="all-reports">
                     <svg width="19" height="25" viewBox="0 0 19 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -159,7 +173,7 @@
                     </svg>
                     <span class="ms-3  d-none d-md-block  font-weight-600">Financial report</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center" href="/payments-overview">
                     <svg width="21" height="25" viewBox="0 0 21 25" fill="none"
@@ -180,7 +194,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center" href="all-enquiries">
+                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-enquiries' || Request::segment(1) == 'enquiries' ? 'active' : '' }}"
+                    href="/all-enquiries/all-records-tab">
                     <svg width="21" height="21" viewBox="0 0 21 21" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -190,7 +205,7 @@
                     <span class="ms-3  d-none d-md-block  font-weight-600">Enquiries</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center" href="/all-triggers-and-emails">
                     <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -221,7 +236,7 @@
                     </svg>
                     <span class="ms-3  d-none d-md-block  font-weight-600">Triggers & emails</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </nav>
