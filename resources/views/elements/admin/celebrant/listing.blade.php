@@ -52,7 +52,7 @@
                          </div>
                      </td>
                      <td style="min-width:180px;">
-                         <a href="/celebrants/{{ $celebrant->id }}" class="table-link">View info</a>
+                         <a href="/marriage-celebrants/{{ $celebrant->id }}" class="table-link">View info</a>
                      </td>
                  </tr>
              @endforeach

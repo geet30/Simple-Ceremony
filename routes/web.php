@@ -207,7 +207,7 @@ $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        Route::resource('celebrants', CelebrantsController::class);
+        Route::resource('marriage-celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
         Route::group(['prefix' => 'account'], function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);
@@ -245,7 +245,7 @@ $adminRoutes = function () {
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
 
-        Route::group(['prefix' => 'location'], function () {         
+        Route::group(['prefix' => 'location'], function () {
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
             Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
@@ -253,7 +253,7 @@ $adminRoutes = function () {
             Route::get('edit/{id}', 'App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
             Route::post('update/{id}', 'App\Http\Controllers\Admin\LocationsController@update')->name('locations.update');
         });
-        Route::group(['prefix' => 'partner'], function () { 
+        Route::group(['prefix' => 'partner'], function () {
             Route::get('/', [PartnerController::class, 'index']);
             Route::get('details/{id}', [PartnerController::class, 'partnerDetail']);
             Route::post('personal-data/{id}', [PartnerController::class, 'personalData'])->name('partner.personal-data');
@@ -263,9 +263,8 @@ $adminRoutes = function () {
             Route::get('package/gallery/{id}/{addonid}', [PartnerController::class, 'gallery'])->name('admin.package.gallery');
             Route::get('edit/package/{id}', [PartnerController::class, 'edit'])->name('admin.package.edit');
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
-
         });
-       
+
 
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
@@ -296,9 +295,9 @@ $adminRoutes = function () {
 
         Route::post('/change-status', [AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
-  
-     
-      
+
+
+
 
         Route::get('all-reports', function () {
             return view('admin.financial-report.all-reports');

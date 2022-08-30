@@ -17,7 +17,7 @@
                         <td style="min-width:200px" class="body-2">
                             +{{ $celebrants->user->country_code }}{{ $celebrants->user->phone }}</td>
                         <td style="min-width:180px"><a class="table-link body-2"
-                                href="/celebrants/{{ $celebrants->celebrant_id }}">See availability</a></td>
+                                href="/marriage-celebrants/{{ $celebrants->celebrant_id }}">See availability</a></td>
                         <td style="min-width:200px">
                             <a role="button" data-bs-toggle="modal" data-bs-target="#delete_celebrant_alert"
                                 class="table-link remove_celebrant" data-id="{{ $celebrants->id }}">Remove from list</a>

@@ -55,7 +55,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/celebrants"
+                <a href="/marriage-celebrants"
                     class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'celebrant' ? 'active' : '' }}">
                     <svg width="27" height="19" viewBox="0 0 27 19" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
