@@ -38,6 +38,7 @@
                                     <div class="card-body  scrollbar" id="style-3">
                                         <div class="force-overflow">
                                             <ul>
+
                                                 @if (count(auth()->user()->notifications) > 0)
                                                     @foreach (auth()->user()->notifications as $not)
                                                         <li class="turquoise-20">
@@ -64,7 +65,9 @@
                                                 @else
                                                     <li class="turquoise-20">
                                                         <div class="d-flex">
-                                                            No notification found.
+                                                            <p class="neutral-70 small-text3 mb-2px">
+                                                                No notification found.
+                                                            </p>
                                                         </div>
                                                     </li>
                                                 @endif
