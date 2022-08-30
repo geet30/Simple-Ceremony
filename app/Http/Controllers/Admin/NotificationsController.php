@@ -81,7 +81,6 @@ class NotificationsController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $id = Auth::user()->id;
             $data['status'] = 1;
             $response = Notification::where('id', $id)->update($data);
             if ($response) {
