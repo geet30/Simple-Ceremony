@@ -73,7 +73,7 @@
 
                                     <div class="col-md-12 col-lg-9 col-xl-9 col-xxl-8">
                                         <form class="needs-validation" novalidate enctype="multipart/form-data"
-                                            method="POST" action="{{ route('celebrants.update', $data->id) }}">
+                                            method="POST" action="{{ route('marriage-celebrants.update', $data->id) }}">
                                             @csrf
                                             @method('PUT')
 
