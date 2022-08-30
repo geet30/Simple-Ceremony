@@ -24,14 +24,14 @@
                         <td class="body-2 neutral-100">{{ $request->street_address}},{{$request->suburb}},{{$request->state}},</td>
                         @if($request->status == 0)
                            <td><a class="table-link button-1"> <a class="btn edit-btn" href="{{route('locations.create',$request->id)}}">Confirm</a></td>
-                     @endif
-                     @if($request->status == 2)
-                     <td><a class="table-link button-1"> <a class="btn edit-btn"  href="#">Declined</a></td>
-                     @endif
-                     @if($request->status == 1)
-                     <td><a class="table-link button-1"> <a class="btn edit-btn"  href="
-                     #">Approved</a></td>
-                     @endif
+                        @endif
+                        @if($request->status == 2)
+                           <td><a class="table-link button-1"> <a class="btn edit-btn"  href="#">Declined</a></td>
+                        @endif
+                        @if($request->status == 1)
+                           <td><a class="table-link button-1"> <a class="btn edit-btn"  href="
+                            #">Approved</a></td>
+                        @endif
                      
                         <td><a class="table-link button-1"  href="{{route('location.view',$request->id)}}"> View info</a> </td>
                      </tr>

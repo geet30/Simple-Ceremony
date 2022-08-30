@@ -246,8 +246,6 @@ $adminRoutes = function () {
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
 
         Route::group(['prefix' => 'location'], function () {
-
-
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
             Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
@@ -255,15 +253,25 @@ $adminRoutes = function () {
             Route::get('edit/{id}', 'App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
             Route::post('update/{id}', 'App\Http\Controllers\Admin\LocationsController@update')->name('locations.update');
         });
+        Route::group(['prefix' => 'partner'], function () {
+            Route::get('/', [PartnerController::class, 'index']);
+            Route::get('details/{id}', [PartnerController::class, 'partnerDetail']);
+            Route::post('personal-data/{id}', [PartnerController::class, 'personalData'])->name('partner.personal-data');
+            Route::get('create', [PartnerController::class, 'create']);
+            Route::post('store', [PartnerController::class, 'store'])->name('partner.store');
+            Route::get('package/details/{id}', [PartnerController::class, 'packageDetail'])->name('partner.package');
+            Route::get('package/gallery/{id}/{addonid}', [PartnerController::class, 'gallery'])->name('admin.package.gallery');
+            Route::get('edit/package/{id}', [PartnerController::class, 'edit'])->name('admin.package.edit');
+            Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
+        });
+
+
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
         });
         Route::get('create-partners-invoice', function () {
             return view('admin.payments.create-partners-invoice');
         });
-
-
-
         Route::post('/change-location-status', [LocationsController::class, 'changeStatus']);
         Route::get('locations/view/{id}', [LocationsController::class, 'view'])->name('location.view');
 
@@ -287,24 +295,9 @@ $adminRoutes = function () {
 
         Route::post('/change-status', [AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
-        Route::get('partner/details/{id}', [PartnerController::class, 'partnerDetail']);
-        Route::post('partner/personal-data/{id}', [PartnerController::class, 'personalData'])->name('partner.personal-data');
-        Route::get('all-partners', function () {
-            return view('admin.partner.all-partners');
-        });
-        Route::get('add-new-partner', function () {
-            return view('admin.partner.add-new-partner');
-        });
-        Route::get('edit-package', function () {
-            return view('admin.partner.edit-package');
-        });
-        Route::get('package-details', function () {
-            return view('admin.partner.package-details');
-        });
 
-        Route::get('partner-edit', function () {
-            return view('admin.partner.partner-edit');
-        });
+
+
 
         Route::get('all-reports', function () {
             return view('admin.financial-report.all-reports');

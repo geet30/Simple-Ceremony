@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Traits\Celebrant;
+namespace App\Traits\Partner;
 
 use App\Models\{User};
 
 
 /**
- * Celebrant Relationship model.
+ * Partner Relationship model.
  * Author: Geetanjali Sharma
- */
+*/
 
 trait Relationship
 {   

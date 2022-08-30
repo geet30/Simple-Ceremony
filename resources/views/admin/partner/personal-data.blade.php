@@ -116,7 +116,8 @@
                             <div class="col-2 col-sm-4 col-md-6">
                                 <a class="cross-icon" onclick="remove(`locDiv`,this)"><img
                                         src="/images/icons/cross.svg"
-                                        class="img-fluid"></a></div>
+                                        class="img-fluid"></a>
+                            </div>
                         </div>
                         @endforeach
                     @endforeach
