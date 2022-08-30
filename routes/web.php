@@ -207,7 +207,7 @@ $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        Route::resource('celebrants', CelebrantsController::class);
+        Route::resource('marriage-celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
         Route::group(['prefix' => 'account'], function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);

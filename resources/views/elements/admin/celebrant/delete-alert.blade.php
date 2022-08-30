@@ -2,7 +2,7 @@
       aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
           <div class="modal-content">
-              <form method="post" class="delete_form" action="{{ url('/celebrants', $data->id) }}">
+              <form method="post" class="delete_form" action="{{ url('/marriage-celebrants', $data->id) }}">
                   @method('DELETE')
                   @csrf
                   <div class="modal-body text-center">
