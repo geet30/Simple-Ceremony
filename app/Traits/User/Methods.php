@@ -58,7 +58,7 @@ trait Methods
             $admin = User::role('Admin')->first();
             $title = 'New partner registered';
             $body = $data['user']['name'];
-            $redirection_url = 'partner/details/details/' . $PartnerProducts->id . '#personal-data';
+            $redirection_url = 'partner/details/' . $PartnerProducts->id . '#personal-data';
             $type = 'New partner registered';
             notificationSave($user->id, $admin->id, $title, $body, $redirection_url, $type);
 
