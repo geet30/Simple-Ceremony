@@ -18,8 +18,8 @@
                                 {{ $errors->first() }}
                             </div>
                         @endif
-                        <form class="needs-validation" method="POST" novalidate action="{{ route('celebrants.store') }}"
-                            enctype="multipart/form-data">
+                        <form class="needs-validation" method="POST" novalidate
+                            action="{{ route('marriage-celebrants.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
