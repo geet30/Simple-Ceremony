@@ -25,11 +25,11 @@ class AddonsController extends Controller
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
-            $products = Addons::productWithRejected();          
-            $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);          
-            $pending_addons = (clone $products)->where('status',0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-            $approved_addons = (clone $products)->where('partner_products.status',1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-            $rejected_addons = (clone $products)->where('partner_products.status',2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page',$req_page);
+            $products = Addons::productWithRejected();
+            $all_addons = (clone $products)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+            $pending_addons = (clone $products)->where('status', 0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+            $approved_addons = (clone $products)->where('partner_products.status', 1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+            $rejected_addons = (clone $products)->where('partner_products.status', 2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
 
             $dataArray = array(
                 'all_addons' => $all_addons,

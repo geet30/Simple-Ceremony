@@ -51,21 +51,18 @@ class Locations extends Model
     }
     public function location_packages()
     {
-        return $this->hasMany('App\Models\LocationPackages','location_id','id');
+        return $this->hasMany('App\Models\LocationPackages', 'location_id', 'id');
     }
     public function location_advantages()
     {
-        return $this->hasMany('App\Models\LocationKeyAdvantages','location_id','id');
+        return $this->hasMany('App\Models\LocationKeyAdvantages', 'location_id', 'id');
     }
     public function location_celebrants()
     {
-        return $this->hasMany('App\Models\CelebrantLocations','location_id','id');
+        return $this->hasMany('App\Models\CelebrantLocations', 'location_id', 'id');
     }
     public function location_criteria()
     {
-        return $this->hasMany('App\Models\LocationFilterCriterias','location_id','id');
+        return $this->hasMany('App\Models\LocationFilterCriterias', 'location_id', 'id');
     }
-   
-    
-    
 }
