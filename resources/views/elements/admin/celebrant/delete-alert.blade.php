@@ -2,7 +2,7 @@
       aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
           <div class="modal-content">
-              <form method="post" class="delete_form" action="{{ url('/celebrant', $data->id) }}">
+              <form method="post" class="delete_form" action="{{ url('/celebrants', $data->id) }}">
                   @method('DELETE')
                   @csrf
                   <div class="modal-body text-center">
@@ -15,9 +15,7 @@
                           <button type="submit" role="button" class="theme-btn primary-btn me-3">Continue</button>
                           <a role="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal"
                               aria-label="Close">Cancel</a>
-
                       </div>
-
                   </div>
               </form>
           </div>

@@ -1,5 +1,4 @@
 $(window).on('load', function () {
-   
     $('ul.add-on-list-nav').find('li button').removeClass('active').removeClass('show');
     if (window.location.href.indexOf("all") > -1) {     
         $('ul.add-on-list-nav').find('li button#all-ads-on-tab').click();
@@ -16,8 +15,23 @@ $(window).on('load', function () {
     if (window.location.href.indexOf("add-on-reject-tab") > -1) {
          $('ul.add-on-list-nav').find('li button#add-on-reject-tab').click();    
     } 
+    //common function to hit the tabs
+    if (window.location.href.indexOf("all-records-tab") > -1) {     
+        $('ul.add-on-list-nav').find('li button#all-records-tab').click();
+    }
+    if (window.location.href.indexOf("booked-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#booked-tab').click();
+    }
+    if (window.location.href.indexOf("follow-up-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#follow-up-tab').click();
+    } 
+    if (window.location.href.indexOf("no-interest") > -1) {
+         $('ul.add-on-list-nav').find('li button#no-interest-tab').click();    
+    }
    
 });
+
+
 $(document).ready(function(){
   
     //add-ons top tab//

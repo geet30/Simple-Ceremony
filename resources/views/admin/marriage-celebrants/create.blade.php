@@ -7,7 +7,7 @@
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-4">
                 @include('elements.panel-header')
-                <a href="/celebrant" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img
+                <a href="/celebrants" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img
                         class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
                 <div class="card panel-card">
                     <div class="card-body">
@@ -18,7 +18,7 @@
                                 {{ $errors->first() }}
                             </div>
                         @endif
-                        <form class="needs-validation" method="POST" novalidate action="{{ route('celebrant.store') }}"
+                        <form class="needs-validation" method="POST" novalidate action="{{ route('celebrants.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -29,7 +29,7 @@
                                             <label for="InputName" class="form-label small-text2">Username *</label>
                                             <input type="text" placeholder="Type your username here"
                                                 class="form-control body-1 netural-100" name="user[username]" id="InputName"
-                                                required>
+                                                required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Username is
                                                 required</div>
@@ -47,7 +47,7 @@
                                             <label for="InputName" class="form-label small-text2">First name *</label>
                                             <input type="text" placeholder="Type your first name here"
                                                 class="form-control body-1 netural-100" name="user[first_name]"
-                                                id="InputName" required>
+                                                id="InputName" required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>First name
                                                 is required</div>
@@ -56,7 +56,7 @@
                                             <label for="InputName" class="form-label small-text2">Other names *</label>
                                             <input type="text" placeholder="Type your other names here"
                                                 class="form-control body-1 netural-100" name="user[other_name]"
-                                                id="InputName" required>
+                                                id="InputName" required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span> Other name
                                                 is required</div>
@@ -65,7 +65,7 @@
                                             <label for="InputName" class="form-label small-text2">Surname *</label>
                                             <input type="text" placeholder="Type your surname here"
                                                 class="form-control body-1 netural-100" name="user[surname]" id="InputName"
-                                                required>
+                                                required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Surname is
                                                 required</div>
@@ -183,20 +183,31 @@
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2 ms-2">Standard
                                                 fee</label>
-                                            <input type="number" step="0.01" class="form-control body-1 netural-100"
-                                                name="celebrant[standard_fee]" id="InputName">
-                                            <div class="invalid-feedback"> <span><img class="me-2"
-                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Standard
-                                                fee is required</div>
+                                            <div class=" position-relative">
+                                                <span class="currency-sign body-1 netural-100">$</span>
+                                                <input type="number" step="0.01"
+                                                    class="form-control body-1 netural-100 ps-4"
+                                                    name="celebrant[standard_fee]" id="InputName">
+                                                <div class="invalid-feedback"> <span><img class="me-2"
+                                                            src="/images/require-iocn.svg"
+                                                            alt="Require Icon"></span>Standard
+                                                    fee is required</div>
+                                            </div>
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2 ms-2">SC admin
                                                 fee</label>
-                                            <input type="number" step="0.01" class="form-control body-1 netural-100"
-                                                name="celebrant[admin_fee]" id="InputName">
-                                            <div class="invalid-feedback"> <span><img class="me-2"
-                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin
-                                                is required</div>
+                                            <div class=" position-relative">
+                                                <span class="currency-sign body-1 netural-100">$</span>
+                                                <input type="number" step="0.01"
+                                                    class="form-control body-1 netural-100 ps-4"
+                                                    name="celebrant[admin_fee]" id="InputName">
+                                                <div class="invalid-feedback"> <span><img class="me-2"
+                                                            src="/images/require-iocn.svg" alt="Require Icon"></span>SC
+                                                    admin
+                                                    is required</div>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <label class="form-label small-text2">About me</label>

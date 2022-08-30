@@ -71,4 +71,11 @@ $(document).ready(function(){
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    window.changeStatusText = function(cls,parentcls,inputcls,val,text){
+        $("."+parentcls).removeClass("waiting-approval approved rejected");
+        $("."+parentcls).addClass(cls);
+        $("."+parentcls).text(text);
+        $("."+inputcls).val(val);
+    }
 });

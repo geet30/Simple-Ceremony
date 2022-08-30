@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\CelebrantsController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\LocationsController;
+use App\Http\Controllers\Admin\EnqueriesController;
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -203,23 +204,22 @@ $websiteRoutes = function () {
     });
 };
 $adminRoutes = function () {
-    Route::get('test', function () {
-        return view('test');
-    })->name('success');
-
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        Route::resource('celebrant', CelebrantsController::class);
+        Route::resource('celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
         Route::group(['prefix' => 'account'], function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);
         });
+        Route::resource('enquiries', EnqueriesController::class);
+        Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
+        Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
+        Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
+
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
-
         Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);
-
         Route::get('calander-overview', function () {
             return view('admin.calander.calander-overview');
         });
@@ -248,9 +248,9 @@ $adminRoutes = function () {
         Route::group(['prefix' => 'location'], function () {         
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
-            Route::get('create/{id?}','App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
-            Route::get('detail/{id}','App\Http\Controllers\Admin\LocationsController@detail')->name('locations.detail');
-            Route::get('edit/{id}','App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
+            Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
+            Route::get('detail/{id}', 'App\Http\Controllers\Admin\LocationsController@detail')->name('locations.detail');
+            Route::get('edit/{id}', 'App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
             Route::post('update/{id}', 'App\Http\Controllers\Admin\LocationsController@update')->name('locations.update');
         });
         Route::group(['prefix' => 'partner'], function () { 
@@ -323,18 +323,6 @@ $adminRoutes = function () {
             return view('admin.referrers.pending-referrers-details');
         });
 
-        Route::get('all-enquiries', function () {
-            return view('admin.enquiries.all-enquiries');
-        });
-        Route::get('enquiries-details', function () {
-            return view('admin.enquiries.enquiries-details');
-        });
-        Route::get('create-enquiry', function () {
-            return view('admin.enquiries.create-enquiry');
-        });
-        Route::get('edit-enquiry', function () {
-            return view('admin.enquiries.edit-enquiry');
-        });
         Route::get('marriages', function () {
             return view('admin.marriages.view');
         });
