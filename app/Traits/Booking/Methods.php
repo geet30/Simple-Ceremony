@@ -247,15 +247,30 @@ trait Methods
                           
         }
     }
-    static function checkIfBookingExist($data){
-        return Booking::with([
+    static function checkIfBookingExist($data,$locationId){
+        $get_result = Booking::with([
             'location' => function($query){
                 $query->select('name','id','price');
             },
             'location.location_images' => function($query){
                 $query->select('location_id','image');
             }
-        ])->where('booking_start_time',$data['booking_start_time'])->where('booking_end_time',$data['booking_end_time'])->where('booking_date',$data['booking_date'])->select('booking_date','id','locationId')->first();
+        ]);
+        $booking = (clone $get_result);
+           
+        if($locationId !=''){
+            $booking->where('locationId',$locationId);
+        }           
+        if(isset($data['booking_date']) && $data['booking_date']!=''){
+            $booking->where('booking_date',$data['booking_date']);
+        }
+        if(isset($data['booking_start_time']) && $data['booking_start_time']!=''){
+            $booking->where('booking_start_time',$data['booking_start_time']);
+        }
+        if(isset($data['booking_end_time']) && $data['booking_end_time']!=''){
+            $booking->where('booking_end_time',$data['booking_end_time']);
+        }
+        return $booking->select('booking_date','id','locationId')->first();
     }
    
 }

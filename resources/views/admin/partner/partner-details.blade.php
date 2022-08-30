@@ -7,7 +7,7 @@
         </div>
         <div class="col-10 col-md-9 col-lg-10 px-4">
             @include('elements.panel-header')
-            <a href="/all-partners" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+            <a href="{{url('partner')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             @if (\Session::has('message'))
                <div class="alert {{\Session::get('class')}}">
                      <ul> <li>{!! \Session::get('message') !!}</li></ul>

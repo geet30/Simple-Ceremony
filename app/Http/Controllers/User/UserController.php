@@ -15,12 +15,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request){
-        // $user_id = Auth::user()->id;
         try{
-            // User::addToCart();
             $addons = Addons::productPackages()->get()->toArray();
-            // $addons = Addons::userProductPackages($user_id)->get()->toArray();
-            // dd($addons);
             return view('user.overview.index',compact(['addons']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
