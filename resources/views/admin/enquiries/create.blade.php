@@ -38,7 +38,7 @@
                                             <label for="InputName" class="form-label small-text2">Name couple 2</label>
                                             <input type="text" placeholder="Add name couple here"
                                                 class="form-control body-1 netural-100" name="couple_two" id="InputName"
-                                                required>
+                                                required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>couple 2
                                                 name is required</div>
@@ -71,10 +71,10 @@
                                         </div>
                                         <div class="col-md-6 mb-4 phone_number">
                                             <label for="phone" class="form-label small-text2">Phone number *</label>
-                                            <input type="hidden" id="code" name="phone_code">
+                                            <input type="hidden" id="code" name="phone_code" value="966">
                                             <input id="phone" type="tel"
                                                 class="form-control body-1 netural-100 tel-input"
-                                                placeholder="Your phone number" name="phone" required>
+                                                placeholder="Your phone number" name="phone" required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Phone
                                                 number is required</div>
