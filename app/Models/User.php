@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
     public function notifications()
     {
-        return $this->hasMany(Notification::class, 'receiver_id', 'id');
+        return $this->hasMany(Notification::class, 'receiver_id', 'id')->orderBy('id', 'DESC');
     }
     public function unreadNotifications()
     {
