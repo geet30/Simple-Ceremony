@@ -38,6 +38,16 @@ trait Methods
 
         $user = User::create($user_inputs);
         $user->assignRole('Partner');
+
+        // send notification 
+        $admin = User::role('Admin')->first();
+        $title = 'New partner registered';
+        $body = $data['user']['name'];
+        $redirection_url = 'partner/details/' . $user->id;
+        $type = 'New partner registered';
+        notificationSave($user->id, $admin->id, $title, $body, $redirection_url, $type);
+
+        //send email 
         $when = now()->addMinutes(1);
         $dataMail  = array(
             'email' => $user_inputs['email'],
@@ -51,16 +61,23 @@ trait Methods
         $partner_products_inputs = $data['partner_products'];
         $partner_products_inputs['user_id'] = $user->id;
         $PartnerProducts = PartnerProducts::create($partner_products_inputs);
-        if($PartnerProducts){
-            self::partnerExtras($data,$PartnerProducts->id,$user->id);
+        if ($PartnerProducts) {
+            // send notification to admin for add-ons list
+            $title = 'Add-ons';
+            $body = $data['user']['name'] . ' has added the add-ons';
+            $redirection_url = 'partner';
+            $type = 'Add-ons added by partner';
+            notificationSave($user->id, $admin->id, $title, $body, $redirection_url, $type);
+            self::partnerExtras($data, $PartnerProducts->id, $user->id);
             $msg = 'Partner added Successfully';
-            return ['status' => true,'message'=>$msg];   
+            return ['status' => true, 'message' => $msg];
         }
         $msg = 'Something went wrong';
-        return ['status' => false,'message'=>$msg];   
+        return ['status' => false, 'message' => $msg];
     }
     ###### Partner Extra Fields ###########
-    static function partnerExtras($data,$id,$user_id){
+    static function partnerExtras($data, $id, $user_id)
+    {
         foreach ($data['package_locations']['location'] as $locationId => $location) {
 
             $package_locations_inputs['location'] = $location;
@@ -86,32 +103,32 @@ trait Methods
         }
         return true;
     }
-    static function updatePackage($data,$id){
-       
-        if(isset($data['partner_products'])){
+    static function updatePackage($data, $id)
+    {
+
+        if (isset($data['partner_products'])) {
             $partner_products = $data['partner_products'];
             PartnerProducts::where('id', $id)->update($partner_products);
         }
-        if(isset($data['image_id']) && $data['image_id'] !=''){
-           
-            deleteRecords($data['image_id'],'App\Models\PackageImages');  
+        if (isset($data['image_id']) && $data['image_id'] != '') {
+
+            deleteRecords($data['image_id'], 'App\Models\PackageImages');
         }
-        
+
         if (isset($data['package_locations']['location'])) {
-            
-            self::savePartnerLocations($data['package_locations']['location'],$data['user_id'],$id);
+
+            self::savePartnerLocations($data['package_locations']['location'], $data['user_id'], $id);
         }
         if (isset($data['partner_packages']) && !empty($data['partner_packages'])) {
-            
-            self::savePartnerPackages($data['partner_packages'],$data['user_id'],$id);
-        } 
+
+            self::savePartnerPackages($data['partner_packages'], $data['user_id'], $id);
+        }
 
         $msg = 'Package updated Successfully';
-        return ['status' => true,'message'=>$msg]; 
-
+        return ['status' => true, 'message' => $msg];
     }
-      //common function to partner locations
-    static function savePartnerPackages($partner_packages, $user_id,$product_id)
+    //common function to partner locations
+    static function savePartnerPackages($partner_packages, $user_id, $product_id)
     {
         foreach ($partner_packages as $packages) {
             $partner_packages_inputs['product_id'] = $product_id;
@@ -127,8 +144,8 @@ trait Methods
             $partner_packages_inputs['title_term'] = $packages['title_term'];
             $partner_packages_inputs['terms'] = $packages['terms'];
             PartnerPackages::where('id', $packages['id'])->update($partner_packages_inputs);
-            
-            if(isset($packages['package_images']) && !empty($packages['package_images'])){                              
+
+            if (isset($packages['package_images']) && !empty($packages['package_images'])) {
                 foreach ($packages['package_images']['image_name'] as $file) {
                     $package_images_inputs['image_name'] = uploadImage($file, 'package');
                     $package_images_inputs['package_id'] = $packages['id'];
@@ -136,10 +153,8 @@ trait Methods
                     PackageImages::create($package_images_inputs);
                 }
             }
-            
         }
         return true;
-       
     }
     //function to add celebrant
     static function createCelebrant($data)
@@ -196,29 +211,28 @@ trait Methods
         }
         return true;
     }
-   //function to update partner
-   static function updatePartner($data, $partnerid)
-   {
-        try{
+    //function to update partner
+    static function updatePartner($data, $partnerid)
+    {
+        try {
             $userData = $data['user'];
             if (!empty($data['user']['image'])) {
                 $userData['image'] = uploadImage($data['user']['image'], 'user');
             }
             User::where('id', $partnerid)->update($userData);
-            $product_id = $data['product_id']; 
+            $product_id = $data['product_id'];
             if (isset($data['business_category'])) {
-                PartnerProducts::where('id', $product_id )->update(['business_category'=>$data['business_category']]);
-            } 
+                PartnerProducts::where('id', $product_id)->update(['business_category' => $data['business_category']]);
+            }
             if (isset($data['locations'])) {
-                self::savePartnerLocations($data['locations'], $partnerid,$product_id);
+                self::savePartnerLocations($data['locations'], $partnerid, $product_id);
             }
             $msg = 'Partner Updated Successfully';
-            return ['status' => true,'message'=>$msg];   
-        }catch (\Exception $ex) {
-            return ['status' => false,'message'=>$ex->getMessage()]; 
+            return ['status' => true, 'message' => $msg];
+        } catch (\Exception $ex) {
+            return ['status' => false, 'message' => $ex->getMessage()];
         }
-     
-   }
+    }
     static function redirectToRole($request)
     {
 
@@ -235,10 +249,11 @@ trait Methods
         }
         return array('role' => $role, 'redirection' => $redirection);
     }
+
     //common function to partner locations
-    static function savePartnerLocations($locations, $user_id,$product_id)
+    static function savePartnerLocations($locations, $user_id, $product_id)
     {
-       
+
         PackageLocations::where('user_id', $user_id)->where('product_id', $product_id)->delete();
         foreach ($locations as $location) {
             $package_locations['location'] = $location;
@@ -248,7 +263,7 @@ trait Methods
         }
         return true;
     }
-      
+
     //common function to celebrant locations
     static function saveCelebrantLocations($locations, $id)
     {
@@ -295,5 +310,4 @@ trait Methods
         $tax->save();
         return true;
     }
-
 }

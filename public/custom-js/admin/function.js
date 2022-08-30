@@ -78,4 +78,18 @@ $(document).ready(function(){
         $("."+parentcls).text(text);
         $("."+inputcls).val(val);
     }
+
+    //function to change the status of record
+    window.readNotification = function(url,redirection){
+        $.ajax({
+            type: "PUT",
+            url: url,
+            dataType: 'json',
+            cache: false,
+            success: function(response)
+            {
+                window.location = redirection;
+            }
+        });
+    }
 });

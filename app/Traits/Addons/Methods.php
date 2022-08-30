@@ -2,7 +2,7 @@
 
 namespace App\Traits\Addons;
 
-use Illuminate\Support\Facades\{View, Storage, DB, Hash};
+use Illuminate\Support\Facades\{View, Storage, DB, Hash, Auth};
 use App\Models\{User, PartnerPackages, PackageLocations, PartnerProducts, Addons, Booking};
 use Carbon\Carbon;
 
@@ -17,7 +17,7 @@ trait Methods
                 $query->select('*');
             },
             'package' => function ($query) {
-                $query->select('id', 'user_id', 'location_description', 'product_id', 'partner_fee', 'admin_fee', 'total_fee', 'package_name', 'title_term','deposit','simulation_partner_fee','simulation_admin_fee','simulation_total_fee','terms');
+                $query->select('id', 'user_id', 'location_description', 'product_id', 'partner_fee', 'admin_fee', 'total_fee', 'package_name', 'title_term', 'deposit', 'simulation_partner_fee', 'simulation_admin_fee', 'simulation_total_fee', 'terms');
             },
             'package.gallery' => function ($query) {
                 $query->select('image_name', 'id', 'package_id');
@@ -118,17 +118,28 @@ trait Methods
     public static function changeStatus($request)
     {
         $input['status'] = $request->status;
+        $body = '';
         if ($request->status == 1) {
+            $body = 'Add-ons approved by admin';
             $data['status'] = 'Approved';
             $data['class'] = 'approved';
         } else if ($request->status == 2) {
+            $body = 'Add-ons rejected by admin';
             $data['status'] = 'Rejected';
             $data['class'] = 'rejected';
         } else if ($request->status == 0) {
+            $body = 'Add-ons updated as waiting for approval by admin';
             $data['status'] = 'Waiting for approval';
             $data['class'] = 'waiting-approval';
         }
+        // send notification to admin for add-ons list
+        $title = 'Add-ons status';
+        $redirection_url = '/add-ons';
+        $type = 'Add-ons status updated';
+        $authId = Auth::user()->id;
         PartnerProducts::where('id', $request->id)->update($input);
+        $partner = PartnerProducts::where('id', $request->id)->first();
+        notificationSave($authId, $partner->user_id, $title, $body, $redirection_url, $type);
         return $data;
     }
 

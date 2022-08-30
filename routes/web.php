@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CelebrantsController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\LocationsController;
 use App\Http\Controllers\Admin\EnqueriesController;
+use App\Http\Controllers\Admin\NotificationsController;
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -213,6 +214,7 @@ $adminRoutes = function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);
         });
         Route::resource('enquiries', EnqueriesController::class);
+        Route::resource('notifications', NotificationsController::class);
         Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
         Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
