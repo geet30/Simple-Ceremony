@@ -39,14 +39,6 @@ trait Methods
         $user = User::create($user_inputs);
         $user->assignRole('Partner');
 
-        // send notification 
-        $admin = User::role('Admin')->first();
-        $title = 'New partner registered';
-        $body = $data['user']['name'];
-        $redirection_url = 'partner/details/' . $user->id;
-        $type = 'New partner registered';
-        notificationSave($user->id, $admin->id, $title, $body, $redirection_url, $type);
-
         //send email 
         $when = now()->addMinutes(1);
         $dataMail  = array(
@@ -62,10 +54,18 @@ trait Methods
         $partner_products_inputs['user_id'] = $user->id;
         $PartnerProducts = PartnerProducts::create($partner_products_inputs);
         if ($PartnerProducts) {
+            // send notification 
+            $admin = User::role('Admin')->first();
+            $title = 'New partner registered';
+            $body = $data['user']['name'];
+            $redirection_url = 'partner/details/details/' . $PartnerProducts->id . '#personal-data';
+            $type = 'New partner registered';
+            notificationSave($user->id, $admin->id, $title, $body, $redirection_url, $type);
+
             // send notification to admin for add-ons list
             $title = 'Add-ons';
             $body = $data['user']['name'] . ' has added the add-ons';
-            $redirection_url = 'partner';
+            $redirection_url = 'addons/all';
             $type = 'Add-ons added by partner';
             notificationSave($user->id, $admin->id, $title, $body, $redirection_url, $type);
             self::partnerExtras($data, $PartnerProducts->id, $user->id);
