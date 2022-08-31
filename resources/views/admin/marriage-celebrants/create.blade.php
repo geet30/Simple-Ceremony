@@ -220,7 +220,7 @@
                                                     <div class="d-flex flex-column flex-md-row">
                                                         <span class="body-2 netural-100 me-4">Locations list</span>
                                                         <a role="button"
-                                                            class="mt-2 mt-md-0 button-1 turquoise-100 text-decoration-none faq-link"
+                                                            class="mt-2 mt-md-0 button-1 turquoise-100 text-decoration-none faq-link offcanvasCommonClass"
                                                             data-bs-toggle="offcanvas"
                                                             data-bs-target="#celebrant_addlocation"
                                                             aria-controls="celebrant_addlocation">Add new location</a>

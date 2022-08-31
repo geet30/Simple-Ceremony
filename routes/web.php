@@ -1,14 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
-use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\CelebrantsController;
-use App\Http\Controllers\Admin\AccountController;
-use App\Http\Controllers\Admin\LocationsController;
-use App\Http\Controllers\Admin\EnqueriesController;
-use App\Http\Controllers\Admin\NotificationsController;
+use App\Http\Controllers\Admin\{AddonsController,PartnerController,MarriagesController,CelebrantsController,AccountController,LocationsController,NotificationsController};
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -266,7 +260,10 @@ $adminRoutes = function () {
             Route::get('edit/package/{id}', [PartnerController::class, 'edit'])->name('admin.package.edit');
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
         });
+        Route::group(['prefix' => 'marriages'], function () { 
+            Route::get('/', [MarriagesController::class, 'index']);
 
+        });
 
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
@@ -324,9 +321,19 @@ $adminRoutes = function () {
             return view('admin.referrers.pending-referrers-details');
         });
 
-        Route::get('marriages', function () {
-            return view('admin.marriages.view');
+        Route::get('all-enquiries', function () {
+            return view('admin.enquiries.all-enquiries');
         });
+        Route::get('enquiries-details', function () {
+            return view('admin.enquiries.enquiries-details');
+        });
+        Route::get('create-enquiry', function () {
+            return view('admin.enquiries.create-enquiry');
+        });
+        Route::get('edit-enquiry', function () {
+            return view('admin.enquiries.edit-enquiry');
+        });
+       
         Route::get('order-details', function () {
             return view('admin.marriages.order-details');
         });

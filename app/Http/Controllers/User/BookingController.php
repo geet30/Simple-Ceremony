@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\{LocationFilters,Locations};
-use App\Models\Booking;
+use App\Models\{LocationFilters,Locations,Booking};
 use Illuminate\Http\Request;
 use View;
 use DB;
@@ -59,10 +58,30 @@ class BookingController extends Controller
                 Cache::forget('booking');
             }
             $timeslot  = timeslots();
-            $booking = Cache::get('booking');
-            return view('user.booking.book-location',compact('booking','timeslot','locationId'));
+            
+            $get_booking_total_price = Booking::getBookingPrice($locationId);
+            $data = [
+                'package_price' => $get_booking_total_price,
+            ];
+            // $booking = Cache::get('booking');
+            if(Cache::has('booking')){
+                $booking = Cache::get('booking');
+                $booking->fill($data);
+            }
+            else{
+                $booking = new \App\Models\Booking();
+                $booking->fill($data);
+            }
+
+            // $booking['package_price'] = $get_booking_total_price;
+            Cache::put('booking', $booking);
+
+            $get_location_addons =  Locations::getLocationPackages($locationId)->get()->toArray();
+            $location_price = Locations::where('id',$locationId)->pluck('price','name');
+            return view('user.booking.book-location',compact('booking','timeslot','locationId','get_location_addons','location_price'));
         }
         catch (\Exception $ex) {
+            dd($ex->getMessage());
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }    
     }  
@@ -83,11 +102,13 @@ class BookingController extends Controller
             $checkIfBookingExist =   Booking::checkIfBookingExist($data,$request->locationId);;
             if($checkIfBookingExist){
                 return $this->errorResponse([], 'Booking already exist', 400);
-            }           
+            }          
+            // dd(Cache::get('booking')) ;
             if(Cache::has('booking')){
                 $booking = Cache::get('booking');
                 $booking->fill($data);
-            }else{
+            }
+            else{
                 $booking = new \App\Models\Booking();
                 $booking->fill($data);
             }
@@ -96,6 +117,7 @@ class BookingController extends Controller
             return $this->successResponse([],'Date added successfully.');
         }
         catch (\Exception $ex) {
+            dd($ex->getMessage());
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }  
 
@@ -142,6 +164,7 @@ class BookingController extends Controller
      */
     public function postBookingLocationPayment(Request $request)
     {
+        
         try {           
            return  Booking::getLocationDetail();
         }
