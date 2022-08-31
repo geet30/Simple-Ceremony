@@ -100,7 +100,7 @@
                                         <div class="col-md-6 mb-4 phone_number">
                                             <label for="phone" class="form-label small-text2">Phone number *</label>
                                             <input type="hidden" id="code" name="user[country_code]"
-                                                value="61">
+                                                value="966">
                                             <input id="phone" type="tel"
                                                 class="form-control body-1 netural-100 tel-input"
                                                 placeholder="Your phone number" name="user[phone]" required>

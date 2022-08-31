@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
+use App\Traits\Marriages\{Methods as MarriagesMethods};
 
 class CalanderController extends Controller
 {
@@ -19,9 +20,9 @@ class CalanderController extends Controller
             $celebrants = User::role('Celebrant')->count();
             $locations = Locations::count();
             $bookingsCount = Booking::count();
-            $bookings = Booking::marriages()->get();
+            $bookings = MarriagesMethods::marriages()->get();
 
-
+            dd($bookings);
             return view('admin.calander.calander-overview', compact('celebrants', 'locations', 'bookings', 'bookingsCount'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
