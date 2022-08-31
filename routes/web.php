@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BookingController;
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -209,6 +209,7 @@ $adminRoutes = function () {
         });
         Route::resource('enquiries', EnqueriesController::class);
         Route::resource('notifications', NotificationsController::class);
+        Route::resource('calander-overview', CalanderController::class);
         Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
         Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
@@ -216,9 +217,6 @@ $adminRoutes = function () {
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
         Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);
-        Route::get('calander-overview', function () {
-            return view('admin.calander.calander-overview');
-        });
 
         Route::get('all-triggers-and-emails', function () {
             return view('admin.triggers-and-emails.all-triggers-and-emails');
@@ -264,7 +262,6 @@ $adminRoutes = function () {
             Route::get('/', [MarriagesController::class, 'index']);
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
-
         });
 
         Route::get('create-celebrants-invoice', function () {
@@ -335,8 +332,8 @@ $adminRoutes = function () {
         Route::get('edit-enquiry', function () {
             return view('admin.enquiries.edit-enquiry');
         });
-       
-        
+
+
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
