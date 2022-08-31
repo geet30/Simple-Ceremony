@@ -14,7 +14,7 @@ class Booking extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id','locationId','booking_date','booking_start_time','booking_end_time','status','first_couple_name','second_couple_name','ceremony_type'
+        'user_id','locationId','booking_date','celebrant_id','booking_start_time','booking_end_time','status','first_couple_name','second_couple_name','ceremony_type'
     ];
 
     /**
@@ -29,6 +29,10 @@ class Booking extends Model
     public function location()
     {
         return $this->belongsTo('App\Models\Locations', 'locationId','id');
+    }
+    public function celebrant()
+    {
+        return $this->belongsTo('App\Models\User', 'celebrant_id','id');
     }
    
 }

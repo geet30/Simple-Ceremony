@@ -67,4 +67,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Notification::class, 'receiver_id', 'id')->where('status', 0)->orderBy('id', 'DESC');
     }
+    public function booking()
+    {
+        return $this->hasMany(Booking::class, 'user_id', 'id')->orderBy('id', 'DESC');
+    }
 }

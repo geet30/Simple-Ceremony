@@ -1,4 +1,5 @@
 @extends('layouts.panels')
+@section('page-name') {{ $partner_details['user']['name'] }} @stop
 @section('content')
 <div class="container-fluid">
     <div class="row">
