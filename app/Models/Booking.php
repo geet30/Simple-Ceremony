@@ -35,9 +35,12 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Models\User', 'celebrant_id', 'id');
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 3c1ee358dbca3e73c2854c8d7d65de368e56a3fa
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'user_id','id');
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 }
