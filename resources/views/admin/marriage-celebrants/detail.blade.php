@@ -7,7 +7,7 @@
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-4">
                 @include('elements.panel-header')
-                <a href="/celebrant" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img
+                <a href="/marriage-celebrants" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img
                         class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
                 <div class="card panel-card">
                     <div class="card-body">
@@ -73,7 +73,7 @@
 
                                     <div class="col-md-12 col-lg-9 col-xl-9 col-xxl-8">
                                         <form class="needs-validation" novalidate enctype="multipart/form-data"
-                                            method="POST" action="{{ route('celebrant.update', $data->id) }}">
+                                            method="POST" action="{{ route('marriage-celebrants.update', $data->id) }}">
                                             @csrf
                                             @method('PUT')
 
@@ -259,20 +259,22 @@
                                                     <textarea class="form-control body-1 netural-100 readonlyInput" id="ceremonyplace" rows="10" readonly
                                                         name="celebrant[description]">{{ $data->celebrant->description ?? '' }}</textarea>
                                                 </div>
-                                                <div class="col-md-6 mb-4">
+                                                <div class="col-md-6 mb-4 position-relative">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Standard
                                                         fee</label>
+                                                    <span class="currency-sign body-1 netural-100">$</span>
                                                     <input type="number" step="0.01"
-                                                        class="form-control body-1 netural-100 readonlyInput"
+                                                        class="form-control body-1 netural-100 readonlyInput ps-4"
                                                         id="InputName" value="{{ $data->celebrant->standard_fee ?? '' }}"
                                                         name="celebrant[standard_fee]" readonly>
 
                                                 </div>
-                                                <div class="col-md-6 mb-4">
+                                                <div class="col-md-6 mb-4 position-relative">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Admin
                                                         fee</label>
+                                                    <span class="currency-sign body-1 netural-100">$</span>
                                                     <input type="number" step="0.01"
-                                                        class="form-control body-1 netural-100 readonlyInput"
+                                                        class="form-control body-1 netural-100 readonlyInput ps-4"
                                                         id="InputName" value="{{ $data->celebrant->admin_fee ?? '' }}"
                                                         name="celebrant[admin_fee]" readonly>
                                                 </div>

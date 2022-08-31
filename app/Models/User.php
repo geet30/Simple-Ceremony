@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Traits\User\{Methods, Relationship};
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, Methods, Relationship;
@@ -40,7 +41,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-   
+
 
     public function celebrantLocations()
     {
@@ -54,9 +55,16 @@ class User extends Authenticatable
     {
         return $this->hasOne(CelebrantDetail::class, 'celebrant_id', 'id');
     }
-
     public function taxDetail()
     {
         return $this->hasOne(AdminTax::class, 'admin_id', 'id');
+    }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class, 'receiver_id', 'id')->orderBy('id', 'DESC');
+    }
+    public function unreadNotifications()
+    {
+        return $this->hasMany(Notification::class, 'receiver_id', 'id')->where('status', 0)->orderBy('id', 'DESC');
     }
 }

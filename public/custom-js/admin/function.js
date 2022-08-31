@@ -71,4 +71,25 @@ $(document).ready(function(){
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    window.changeStatusText = function(cls,parentcls,inputcls,val,text){
+        $("."+parentcls).removeClass("waiting-approval approved rejected");
+        $("."+parentcls).addClass(cls);
+        $("."+parentcls).text(text);
+        $("."+inputcls).val(val);
+    }
+
+    //function to change the status of record
+    window.readNotification = function(url,redirection){
+        $.ajax({
+            type: "PUT",
+            url: url,
+            dataType: 'json',
+            cache: false,
+            success: function(response)
+            {
+                window.location = redirection;
+            }
+        });
+    }
 });

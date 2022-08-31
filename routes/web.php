@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BookingController;
-use App\Http\Controllers\Admin\{AddonsController,PartnerController,MarriagesController,CelebrantsController,AccountController,LocationsController};
+use App\Http\Controllers\Admin\{AddonsController,PartnerController,MarriagesController,CelebrantsController,AccountController,LocationsController,NotificationsController};
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -199,23 +199,23 @@ $websiteRoutes = function () {
     });
 };
 $adminRoutes = function () {
-    Route::get('test', function () {
-        return view('test');
-    })->name('success');
-
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        Route::resource('celebrant', CelebrantsController::class);
+        Route::resource('marriage-celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
         Route::group(['prefix' => 'account'], function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);
         });
+        Route::resource('enquiries', EnqueriesController::class);
+        Route::resource('notifications', NotificationsController::class);
+        Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
+        Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
+        Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
+
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
-
         Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);
-
         Route::get('calander-overview', function () {
             return view('admin.calander.calander-overview');
         });
@@ -241,15 +241,15 @@ $adminRoutes = function () {
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
 
-        Route::group(['prefix' => 'location'], function () {         
+        Route::group(['prefix' => 'location'], function () {
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
-            Route::get('create/{id?}','App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
-            Route::get('detail/{id}','App\Http\Controllers\Admin\LocationsController@detail')->name('locations.detail');
-            Route::get('edit/{id}','App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
+            Route::get('create/{id?}', 'App\Http\Controllers\Admin\LocationsController@create')->name('locations.create');
+            Route::get('detail/{id}', 'App\Http\Controllers\Admin\LocationsController@detail')->name('locations.detail');
+            Route::get('edit/{id}', 'App\Http\Controllers\Admin\LocationsController@edit')->name('locations.edit');
             Route::post('update/{id}', 'App\Http\Controllers\Admin\LocationsController@update')->name('locations.update');
         });
-        Route::group(['prefix' => 'partner'], function () { 
+        Route::group(['prefix' => 'partner'], function () {
             Route::get('/', [PartnerController::class, 'index']);
             Route::get('details/{id}', [PartnerController::class, 'partnerDetail']);
             Route::post('personal-data/{id}', [PartnerController::class, 'personalData'])->name('partner.personal-data');
@@ -259,7 +259,6 @@ $adminRoutes = function () {
             Route::get('package/gallery/{id}/{addonid}', [PartnerController::class, 'gallery'])->name('admin.package.gallery');
             Route::get('edit/package/{id}', [PartnerController::class, 'edit'])->name('admin.package.edit');
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
-
         });
         Route::group(['prefix' => 'marriages'], function () { 
             Route::get('/', [MarriagesController::class, 'index']);
@@ -295,9 +294,9 @@ $adminRoutes = function () {
 
         Route::post('/change-status', [AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
-  
-     
-      
+
+
+
 
         Route::get('all-reports', function () {
             return view('admin.financial-report.all-reports');

@@ -8,6 +8,7 @@
                         <li class="nav-item dropdown align-self-center me-3">
                             <a type="button" class="nav-link dropdown-toggle notification" href="#"
                                 id="notification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                                 <svg xmlns="http://www.w3.org/2000/svg" class="notification-img" width="18"
                                     height="22" viewBox="0 0 18 22">
                                     <path
@@ -17,88 +18,60 @@
                                         d="M2.24006 8.09304C2.24006 4.37239 5.25624 0.875 8.9769 0.875C12.6976 0.875 15.7137 4.37239 15.7137 8.09304V10.4612C15.7137 11.7096 16.2476 12.8984 17.1807 13.7278C18.1819 14.6178 17.5524 16.2735 16.2128 16.2735H1.74102C0.401429 16.2735 -0.228077 14.6178 0.773148 13.7278C1.70621 12.8984 2.24006 11.7096 2.24006 10.4612V8.09304Z"
                                         fill="#B6CED0" />
                                 </svg>
-                                <span
-                                    class="position-absolute  translate-middle notification-icon bg-accent-blue-100 border border-light rounded-circle">
-                                    <span class="visually-hidden">New alerts</span>
-                                </span>
+                                @if (count(auth()->user()->unreadNotifications) > 0)
+                                    <span
+                                        class="position-absolute  translate-middle notification-icon bg-accent-blue-100 border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                @endif
                             </a>
                             <div class="dropdown-menu p-0 notification-dropdwon" aria-labelledby="notification">
                                 <div class="card card-notification">
-                                    <div class="card-header d-flex justify-content-end ">
+                                    <div class="card-header d-flex justify-content-end "
+                                        onclick="event.preventDefault(); document.getElementById('notification-form').submit();">
                                         Mark all as read
                                     </div>
+                                    <form id="notification-form" action="{{ route('notifications.store') }}"
+                                        method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                     <div class="card-body  scrollbar" id="style-3">
                                         <div class="force-overflow">
                                             <ul>
-                                                <li class="turquoise-20">
-                                                    <div class="d-flex">
-                                                        <div class="me-2 align-self-start"><span
-                                                                class="dot align-self-start"></span></div>
-                                                        <div>
-                                                            <p class="neutral-70 small-text3 mb-2px">15-03-2022 11.00
+
+                                                @if (count(auth()->user()->notifications) > 0)
+                                                    @foreach (auth()->user()->notifications as $not)
+                                                        <li class="turquoise-20">
+                                                            <div class="d-flex">
+                                                                @if ($not->status == 0)
+                                                                    <div class="me-2 align-self-start"><span
+                                                                            class="dot align-self-start"></span>
+                                                                    </div>
+                                                                @endif
+                                                                <div>
+                                                                    <p class="neutral-70 small-text3 mb-2px">
+                                                                        {{ $not->created_at }}
+                                                                    </p>
+                                                                    <a class="text-decoration-none"
+                                                                        onclick="readNotification('{{ route('notifications.update', $not->id) }}', '/{{ $not->redirection_url }}')">
+                                                                        <p class="body-3-medium  text-black mb-0">
+                                                                            {{ $not->title }}:
+                                                                            {{ $not->body }}</p>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                @else
+                                                    <li class="turquoise-20">
+                                                        <div class="d-flex">
+                                                            <p class="neutral-70 small-text3 mb-2px">
+                                                                No notification found.
                                                             </p>
-                                                            <p class="body-3-medium  text-black mb-0">Documents David
-                                                                and Sarah are approved by Marriage Celebrant</p>
                                                         </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex">
-                                                        <div class="me-2 align-self-start">&nbsp;</div>
-                                                        <div>
-                                                            <p class="neutral-70 small-text3 mb-2px">15-03-2022 09.00
-                                                            </p>
-                                                            <p class="body-3-medium  text-black mb-0">Documents David &
-                                                                Sarah add add-on videographer</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="turquoise-20">
-                                                    <div class="d-flex">
-                                                        <div class="me-2 align-self-start"><span
-                                                                class="dot align-self-start"></span></div>
-                                                        <div>
-                                                            <p class="neutral-70 small-text3 mb-2px">15-03-2022 08.00
-                                                            </p>
-                                                            <p class="body-3-medium  text-black mb-0">New booking : John
-                                                                & Emma</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="turquoise-20">
-                                                    <div class="d-flex">
-                                                        <div class="me-2 align-self-start"><span
-                                                                class="dot align-self-start"></span></div>
-                                                        <div>
-                                                            <p class="neutral-70 small-text3 mb-2px">14-03-2022 17.00
-                                                            </p>
-                                                            <p class="body-3-medium  text-black mb-0">Marriage Celebrant
-                                                                Michael cancelled a wedding</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex">
-                                                        <div class="me-2 align-self-start">&nbsp;</div>
-                                                        <div>
-                                                            <p class="neutral-70 small-text3 mb-2px">14-03-2022 15.00
-                                                            </p>
-                                                            <p class="body-3-medium  text-black mb-0">Marriage Celebrant
-                                                                Michael cancelled a wedding</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex">
-                                                        <div class="me-2 align-self-start">&nbsp;</div>
-                                                        <div>
-                                                            <p class="neutral-70 small-text3 mb-2px">12-03-2022 08.00
-                                                            </p>
-                                                            <p class="body-3-medium  text-black mb-0">Prisillia
-                                                                decoration requested a new package</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                @endif
+
                                             </ul>
                                         </div>
                                     </div>
@@ -143,9 +116,17 @@
         <div class="col-sm-6 align-self-center order-md-1">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item "><a href="#">All location packages</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <?php $segments = ''; ?>
+                    @foreach (Request::segments() as $segment)
+                        <?php $segments .= '/' . $segment; ?>
+                        <li class="breadcrumb-item" style="text-transform: capitalize;">
+                            <?php  if(is_numeric($segment)){?>
+                            <a>{{ $segment }}</a>
+                            <?php }else{?>
+                            <a href="{{ $segments }}">{{ $segment }}</a>
+                            <?php  }?>
+                        </li>
+                    @endforeach
                 </ol>
             </nav>
         </div>

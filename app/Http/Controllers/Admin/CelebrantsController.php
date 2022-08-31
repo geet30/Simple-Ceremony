@@ -72,7 +72,7 @@ class CelebrantsController extends Controller
             }
             $response = User::createCelebrant($request->all());
             if ($response) {
-                return redirect('celebrant')->with('message', 'Celebrant created successfully.');
+                return redirect('marriage-celebrants')->with('message', 'Celebrant created successfully.');
             }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -120,7 +120,7 @@ class CelebrantsController extends Controller
         try {
             $response = User::updateCelebrant($request->all(), $id);
             if ($response) {
-                return redirect('celebrant')->with('message', 'Celebrant updated successfully.');
+                return redirect('marriage-celebrants')->with('message', 'Celebrant updated successfully.');
             }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -136,8 +136,8 @@ class CelebrantsController extends Controller
     public function destroy($id)
     {
         try {
-            $data = User::destroy($id);
-            return redirect('celebrant')->with('message', 'Celebrant deleted successfully.');
+            $data = User::where('id', $id)->delete();
+            return redirect('marriage-celebrants')->with('message', 'Celebrant deleted successfully.');
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

@@ -83,7 +83,7 @@
 
 .intl-tel-input .country-list {
 	position: absolute;
-	z-index: 2;
+	z-index: 9999999;
 	list-style: none;
 	text-align: left;
 	padding: 0;

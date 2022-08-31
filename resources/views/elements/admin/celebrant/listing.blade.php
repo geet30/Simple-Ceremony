@@ -52,7 +52,7 @@
                          </div>
                      </td>
                      <td style="min-width:180px;">
-                         <a href="/celebrant/{{ $celebrant->id }}" class="table-link">View info</a>
+                         <a href="/marriage-celebrants/{{ $celebrant->id }}" class="table-link">View info</a>
                      </td>
                  </tr>
              @endforeach
@@ -71,7 +71,7 @@
                      'title' => 'All Celebrants',
                      '' => '',
                      'data' => $celebrants,
-                     'id'=>'#celebrantListing'
+                     'id' => '#celebrantListing',
                  ])
              </td>
          </tr>
