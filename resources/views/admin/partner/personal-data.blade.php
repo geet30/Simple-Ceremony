@@ -37,8 +37,9 @@
             
             <div class="col-md-6 mb-4">
                 <label for="phone" class="form-label small-text2">Phone number *</label>
-                <input type="hidden"  id="code" name ="user[country_code]" value="{{ isset($partner_details['user']['country_code']) ? $partner_details['user']['country_code'] : '61' }}" >
-                <input class="form-control body-1 netural-100 tel-input" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="user[phone]" value="{{ isset($partner_details['user']['phone']) ? $partner_details['user']['phone'] : '' }}" required>
+                <input type="hidden"  id="code" name ="user[country_code]" value="{{ $partner_details['user']['country_code']}}" >
+                
+                <input class="form-control body-1 netural-100 tel-input" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" name="user[phone]" value="+{{ $partner_details['user']['country_code'] }}{{ $partner_details['user']['phone'] }}" required>
                 <div class="invalid-feedback phone_number_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                 <div class="invalid-feedback invalid-phone-number"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is invalid</div>
             </div>
