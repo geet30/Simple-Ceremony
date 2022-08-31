@@ -173,7 +173,7 @@
                </div>
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
-            <input type="text" class="form-control" placeholder="Search couple or celebrant">
+            <input type="text" class="form-control" placeholder="Search couple or celebrant" onkeyup="searchWithoutTabs('/marriages',this.value, 'marriagesListing', '1')">
                <span class="fa fa-search form-control-feedback"></span>
             </div>
          </div>
@@ -185,7 +185,7 @@
             @include('elements.calander')
          </div>
       </div>
-     <div class="table-responsive">
+     <div class="table-responsive marriagesListing" id="marriagesListing">
           @include('elements.admin.marriage.listing')
       
      </div>
@@ -195,4 +195,5 @@
 @include('elements.admin.marriage.assign-marriage-celebrant')
 @include('elements.admin.marriage.note-popup')
 @include('elements.admin.marriage.note-edit')
+@include('admin.marriages.js')
 @endsection

@@ -269,6 +269,9 @@ trait Methods
         return  Booking::with([
             'location' => function($query){
                 $query->select('name','id','price');
+            },
+            'celebrant' => function($query){
+                $query->select('first_name','id');
             }
         ]);
     }

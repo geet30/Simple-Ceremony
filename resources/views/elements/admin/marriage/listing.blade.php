@@ -18,18 +18,26 @@
             <tr>
                 <td style="min-width:160px" class="body-2">{{$result->first_couple_name}} & {{$result->second_couple_name}}</td>
                 <td  style="min-width:130px" class="body-2">{{date('M d, Y',strtotime($result->created_at))}}</td>
-                <td style="min-width:50px" class="body-2" >20% <span class="align-self-center ms-1 info-icon">
+                <td style="min-width:50px" class="body-2" >{{config('ceremonyStatus.booking_progress.'.$result->status) }}  <span class="align-self-center ms-1 info-icon">
                     <a href="" class="theme-tip"><img src="/images/icons/Info-light.svg" class="img-fluid"><span class="">New booking</span></a>
                     </span>
                 </td>
-                <td class="body-2 neutral-100" style="min-width:140px;"><a href="" data-bs-toggle="offcanvas" data-bs-target="#marriage-celebrant"  class="text-decoration-underline  add-link ">Assign marriage celebrant</a></td>
+                <td class="body-2 neutral-100" style="min-width:140px;">
+                   
+                    @if(isset($result->celebrant->first_name) && $result->celebrant->first_name!=null)
+                        {{ $result->celebrant->first_name}}
+                    @else
+                    <a href="" data-bs-toggle="offcanvas" data-bs-target="#marriage-celebrant"  class="text-decoration-underline  add-link assign_celebrant" data-id="{{$result->id}}"> Assign marriage celebrant</a>
+                    @endif
+                    
+                    
+                </td>
                 <td class="body-2 neutral-100" style="min-width:130px;">
                    {{$result->location->name}}
                 </td>
                 <td class="body-2 neutral-100" style="min-width:130px;">{{date('M d,Y',strtotime($result->booking_date))}}</td>
                 <td style="min-width:120px;">
-                
-                    <span class="status booked">Booked</span>
+                    <span class="status {{strtolower(config('ceremonyStatus.booking_status.'.$result->status) )}}"> {{config('ceremonyStatus.booking_status.'.$result->status) }}  </span>
                 </td>
                
                 <td  style="min-width:60px;" class="body-2 neutral-100">
@@ -43,7 +51,7 @@
                 </td>
                 <td ></td>
                 <td style="min-width:100px;">
-                    <a href="/order-details" class="table-link">View info</a>
+                    <a href="{{route('marriage.detail',$result->id)}}" class="table-link">View info</a>
                 </td>
             </tr>
             <!-- <tr>
@@ -281,16 +289,7 @@
     <tfoot>
     <tr>
         <td colspan="10">
-            <div class="theme-pagination d-flex justify-content-end">
-                <div class="align-self-center me-4 button-1">Rows per page: 10</div>
-                <div class="align-self-center me-4 button-1 ">1-10 of 150</div>
-                <div class="align-self-center">
-                <a class="d-inline-flex me-4" href=""><img src="/images/pagination/left.svg"
-                    class="img-fluid"></a>
-                <a class="d-inline-flex me-4" href=""><img src="/images/pagination/right.svg"
-                    class="img-fluid"> </a>
-                </div>
-            </div>
+            @include('elements.pagination.pagination', ['title' => 'All marriages', 'id' => '#marriagesListing', 'data' => $data])
         </td>
     </tr>
     </tfoot>

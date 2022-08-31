@@ -7,9 +7,8 @@ use App\Models\{User, Addons, PartnerProducts, PackageLocations, Locations};
 use Illuminate\Http\Request;
 use View;
 use Session;
-use DB;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\Partner\{Methods as PartnerMethods, Relationship};
+use App\Traits\Partner\{Methods as PartnerMethods};
 
 class PartnerController extends Controller
 {

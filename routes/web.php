@@ -262,6 +262,8 @@ $adminRoutes = function () {
         });
         Route::group(['prefix' => 'marriages'], function () { 
             Route::get('/', [MarriagesController::class, 'index']);
+            Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
+            Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
 
         });
 
@@ -334,9 +336,7 @@ $adminRoutes = function () {
             return view('admin.enquiries.edit-enquiry');
         });
        
-        Route::get('order-details', function () {
-            return view('admin.marriages.order-details');
-        });
+        
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });

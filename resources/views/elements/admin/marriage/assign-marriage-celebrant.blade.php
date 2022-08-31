@@ -4,26 +4,27 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
    </div>
    <div class="offcanvas-body">
-      <form>
-         <div class="col-md-10 mb-4">
+      <form method="post" id="add-celebrants" action="{{url('marriages/save-celebrant')}}" name="postform">
+         @csrf 
+         <!-- <div class="col-md-10 mb-4">
             <label class="form-label small-text2 ps-2">Domicile location of marriage celebrants </label>
-            <select required="" name="customer_type" class="js-placeholder-single-input form-control">
-               <option value="" disabled="" selected="" hidden="">Choose location</option>
-               <option value="1">Add name location here</option>
-               <option value="2">Add name location here</option>
-               <option value="3">Add name location here</option>
-               <option value="4">Add name location here</option>
+            <select required="" name="location" class="js-placeholder-single-input form-control">
+               <option value="" disabled="" selected="" hidden="" id="location">Choose location</option>
+               @foreach($locations as $location)
+                  <option value="{{$location->id}}">{{$location->name}}</option>
+               @endforeach
             </select>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Marriage couple is required</div>
-         </div>
+         </div> -->
+         <input type="hidden" name="id"  class="booking_id">
          <div class="col-md-10 col-xl-6 mb-4">
             <label class="form-label small-text2 ps-2">Choose marriage celebrant </label>
-            <select required="" name="customer_type" class="js-placeholder-single-input form-control">
+            <select required="" id="celebrant_id" name="celebrant_id" class="js-placeholder-single-input form-control">
                <option value="" disabled="" selected="" hidden="">Choose here</option>
-               <option value="1">Peter</option>
-               <option value="2">Lux</option>
-               <option value="3">Michael</option>
-               <option value="4">Johnson</option>
+               
+               @foreach($celebrants as $celebrant)
+                  <option value="{{$celebrant->id}}">{{$celebrant->first_name}}</option>
+               @endforeach
             </select>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Marriage couple is required</div>
          </div>
@@ -33,3 +34,8 @@
       </form>
    </div>
 </div>
+<style type="text/css">
+    .select2-container {
+        z-index: 99999;
+    }
+</style>

@@ -117,11 +117,12 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <?php $segments = ''; ?>
+
                     @foreach (Request::segments() as $segment)
                         <?php $segments .= '/' . $segment; ?>
                         <li class="breadcrumb-item" style="text-transform: capitalize;">
                             <?php  if(is_numeric($segment)){?>
-                            <a>{{ $segment }}</a>
+                            <a>@yield('page-name')</a>
                             <?php }else{?>
                             <a href="{{ $segments }}">{{ $segment }}</a>
                             <?php  }?>
