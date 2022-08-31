@@ -122,7 +122,9 @@
                         <?php $segments .= '/' . $segment; ?>
                         <li class="breadcrumb-item" style="text-transform: capitalize;">
                             <?php  if(is_numeric($segment)){?>
-                            <a>@yield('page-name')</a>
+                            @if (trim($__env->yieldContent('page-name')))
+                                <a>@yield('page-name')</a>
+                            @endif
                             <?php }else{?>
                             <a href="{{ $segments }}">{{ $segment }}</a>
                             <?php  }?>
