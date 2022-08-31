@@ -1,5 +1,7 @@
 @extends('layouts.panels')
 @section('content')
+    @section('page-name') {{ $detail->couple_one }} &amp; {{ $detail->couple_two }} @stop
+    @section('page-name') {{ $detail->couple_one }} @stop
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 col-md-3 col-lg-2 px-0">
@@ -17,6 +19,7 @@
                                 <div class="col-md-12 col-lg-6 align-self-center">
                                     <div class="table-dropdown d-md-flex align-items-center">
                                         <div>
+
                                             <h1 class="h4 neutral-100 mb-0">{{ $detail->couple_one }} &amp;
                                                 {{ $detail->couple_two }}</h1>
                                         </div>

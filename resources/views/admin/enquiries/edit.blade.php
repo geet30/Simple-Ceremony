@@ -1,4 +1,5 @@
 @extends('layouts.panels')
+@section('page-name') {{ $detail->couple_one }} &amp; {{ $detail->couple_two }} @stop
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -83,14 +84,24 @@
                                                 </span>
                                             </div>
                                         </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="InputName" class="form-label small-text2">Email</label>
+                                            <input type="email" placeholder="Add email here"
+                                                class="form-control body-1 netural-100" name="email" id="InputName"
+                                                required value="{{ $detail->email }}">
+                                            <div class="invalid-feedback"> <span><img class="me-2"
+                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Email
+                                                is required and please add correct format</div>
+                                        </div>
                                         <div class="col-md-6 mb-4 phone_number">
                                             <label for="phone" class="form-label small-text2">Phone number *</label>
                                             <input type="hidden" id="code" name="phone_code"
                                                 value="{{ $detail->phone_code }}">
                                             <input id="phone" type="tel"
                                                 class="form-control body-1 netural-100 tel-input"
-                                                placeholder="Your phone number" name="phone" value="{{ $detail->phone }}"
-                                                required maxlength="15">
+                                                placeholder="Your phone number" name="phone"
+                                                value="+{{ $detail->phone_code }}{{ $detail->phone }}" required
+                                                maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Phone
                                                 number is required</div>
