@@ -97,7 +97,7 @@
                                             class="img-fluid">Setting Profile</a></li>
                                 {{-- <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li> --}}
                                 <li><a role="button" class="dropdown-item" data-bs-toggle="offcanvas"
-                                        data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax.svg"
+                                        data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax-icon.svg"
                                             class="img-fluid">Setting admin tax</a></li>
 
                                 <li><a class="dropdown-item logout" href="{{ route('logout') }}"
