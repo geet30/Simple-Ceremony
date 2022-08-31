@@ -24,7 +24,7 @@
                   <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
                   <input type="text" value="You haven't chosen" class="form-control body-1 color-red" name="name" id="celebrant">
                </div>
-               <div class="col-md-6 mb-4 align-self-center"><label for="celebrant" class="form-label small-text2 ps-2 d-block">&nbsp;</label><a href="" data-bs-toggle="offcanvas" data-bs-target="#choose-marriage-celebrant" class="add-link">Choose marriage celebrant</a></div>
+               <div class="col-md-6 mb-4 align-self-center"><label for="celebrant" class="form-label small-text2 ps-2 d-block">&nbsp;</label><a href="" data-bs-toggle="offcanvas" data-id="" data-bs-target="#marriage-celebrant" class="add-link">Choose marriage celebrant</a></div>
                <div class="col-md-6  mb-4 align-self-center">
                   <label for="location" class="form-label small-text2 ps-2">Location</label>
                   <input type="text" value="Bradfield park" class="form-control body-1 netural-100" name="name" id="location">

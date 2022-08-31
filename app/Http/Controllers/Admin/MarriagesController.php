@@ -29,20 +29,18 @@ class MarriagesController extends Controller
 
             if ($request->has('search') && $request->filled('search')) {
                 $search = $request->search;
-                $data  = MarriagesMethods::users($search)->paginate($records, ['*'], 'page', $req_page);
+                $data  = MarriagesMethods::marriages($search)->paginate($records, ['*'], 'page', $req_page);
             } else {
-                $data  = MarriagesMethods::users($search)->paginate($records, ['*'], 'page', $req_page);
+                $data  = MarriagesMethods::marriages($search)->paginate($records, ['*'], 'page', $req_page);
             }
             $celebrants = Locations::celebrants()->get();
-            $locations = Locations::all();
-            // $data = Booking::marriages()->paginate($records, ['*'], 'page', $req_page); 
+            $locations = Locations::all(); 
             if ($request->ajax()) {
 
                 $viewurl = 'elements.admin.marriage.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data, 'search' => $search]);
             }
             // dd($data);
-            
             return view('admin.marriages.view', compact('data','locations','celebrants'));
         } catch (\Exception $ex) {
 
@@ -84,6 +82,7 @@ class MarriagesController extends Controller
      */
     public function saveCelebrant(Request $request){
         try {
+            // dd($request->all());
             $id = $request->input('id');
             $celebrant_id = $request->input('celebrant_id');
             Booking::where('id', $id)->update(['celebrant_id' => $celebrant_id]);
@@ -100,8 +99,12 @@ class MarriagesController extends Controller
      */
     public function detail(Request $request,$id){
         try {
+            $celebrants = Locations::celebrants()->get();
+            $locations = Locations::all();
+            $data = MarriagesMethods::marriage_detail($id)->first();
+            // dd($data);
             // $user_id = PartnerProducts::where('id', $id)->value('user_id');
-            return view('admin.marriages.detail');
+            return view('admin.marriages.detail',compact('celebrants','locations','data'));
             
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
