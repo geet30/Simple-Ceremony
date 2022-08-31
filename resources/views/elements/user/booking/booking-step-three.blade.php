@@ -1,3 +1,15 @@
+<?php 
+    $package_details =[];
+          
+    foreach($get_location_addons as $key=>$packages){
+        foreach($packages['packages'] as $key=>$package){
+            
+            $package_details[$package['id']]['package_name'] = $package['package_name'];
+            $package_details[$package['id']]['total_fee'] = $package['total_fee'];
+        }
+    } 
+    
+?>
 <form method="post" action="/post-booking-user-payment">
 {{ csrf_field() }}
 
@@ -13,6 +25,14 @@
     <div class="col-md-12">
         <h3 class="h3 Neutral/100 mt-4 mb-4">Payment</h3>
     </div>
+    {{-- <ul>
+    @foreach($package_details as $details)
+    <li>
+        {{ $details['package_name']}} - ${{ number_format($details['total_fee'])}}
+    </li>
+
+    @endforeach
+    </ul> --}}
     <div class="col-md-6 mb-4">
         <label for="InputName" class="form-label small-text2">Input your Voucher code here, if you have one</label>
         <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="InputName">

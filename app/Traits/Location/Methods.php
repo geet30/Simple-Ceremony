@@ -162,6 +162,19 @@ trait Methods
         $getPartnerPackages =$getPartnerPackages->get();
         return $getPartnerPackages;
     }
+    public static function getLocationPackages($id=null){
+        
+        $getLocationPackages =  LocationPackages::with([
+            'packages' => function($query){               
+                $query->select('package_name','id','total_fee');
+            }          
+        ])->select('id','package_id');
+        if($id != ''){
+            $getLocationPackages =$getLocationPackages->where('location_id',$id);
+        }
+        return $getLocationPackages;
+    }
+    
     public static function getLocations($id=null,$columns=null,$packages=null){
         if($columns ==''){
             $columns = ['name','id','price','address','town','why_this_location','cover_image'];
@@ -172,7 +185,6 @@ trait Methods
                 $query->select('location_id','image','id');
             }           
         ]);
-       
         if($packages == 'packages'){
             $locations =  $locations->with([
                 'location_packages' => function($query){
@@ -182,7 +194,6 @@ trait Methods
                     $query->select('location_id','key_advantages','id');
                 },
                 'location_celebrants' => function($query){
-                    // $query->select('celebrant_id');
                     $query->select('location_id','celebrant_id','id');
                 },
                 'location_criteria'=>function($query){
@@ -239,7 +250,6 @@ trait Methods
         }
     }
     public static function searchAdminLocation($request){
-    //  dd($request->all());
         $locations = self::getLocations();
         if($request->has('filter') && $request->filter !=''){
             $id = $request->filter;

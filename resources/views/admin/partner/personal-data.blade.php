@@ -91,7 +91,7 @@
                         <div class="d-flex flex-column flex-md-row">
                             <span class="body-2 netural-100 me-4">Locations list</span>
                             <a role="button"
-                                class="mt-2 mt-md-0 button-1 turquoise-100 text-decoration-none faq-link"
+                                class="mt-2 mt-md-0 button-1 turquoise-100 text-decoration-none faq-link offcanvasCommonClass"
                                 data-bs-toggle="offcanvas"
                                 data-bs-target="#offcanvas_partner_addlocation"
                                 aria-controls="offcanvas_partner_addlocation">Add new location</a>
@@ -127,41 +127,6 @@
                     </div>
                 @endif
             </div>
-            <!-- <div class="location_list_div">
-                <div class="col-md-12 mb-3 mt-4">
-                    <div class="d-flex flex-column flex-md-row">
-                        <span class="body-2 netural-100 me-4">Locations list</span>
-                        <a href="#" class="mt-2 mt-md-0 button-1 turquoise-100 text-decoration-none faq-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_partner_addlocation" aria-controls="offcanvas_partner_addlocation">Add new location</a>
-                    </div>
-                </div>
-                <div class="col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <input type="text" value="Bradfield park" class="form-control body-1 netural-100 disabled" name="location_name" id="InputName">
-                        </div>
-                        <div class="col-md-6">
-                            <input type="button" value="confirm" class="theme-btn primary-btn border-0 me-4">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-md-12 mb-4 col-lg-6 mb-lg-0">
-                            <input type="text" value="Tench park, penrith" class="form-control body-1 netural-100 disabled" name="location_name" id="InputName">
-                        </div>
-                        <div class="col-md-12 col-lg-6">
-                            <div class="d-flex table-dropdown align-items-start flex-column flex-md-row align-items-md-center">
-                            <span class="small-text2 netural-100 me-3 mt-3 mt-md-0 mb-md-0 mb-3">status</span>
-                            <p class="approved p-1 px-3 d-inline-block text-decoration-none me-3 mb-3 mb-md-0">Approve</p>
-                            <a href="#" class="button-1 turquoise-100 text-decoration-none faq-link me-3 mb-3 mb-md-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_partner_editlocation" aria-controls="offcanvas_partner_editlocation">Edit</a>
-                            <a href="#" class="button-1 turquoise-100 text-decoration-none faq-link mb-3 mb-md-0">
-                            <img src="/images/admin/partner/trash.svg" alt="Delete">
-                            </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             
             <div class="col-md-12 mb-4 text-start">
                 <div class="row">
@@ -181,8 +146,8 @@
         </form>
     </div>
 </div>
-<style type="text/css">
+<!-- <style type="text/css">
     .select2-container {
         z-index: 99999;
     }
-</style>s
+</style> -->

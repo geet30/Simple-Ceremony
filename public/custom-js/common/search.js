@@ -12,14 +12,14 @@ $(document).ready(function(){
                     date: date
                 });
 
-                $('#calendar_date').val(new Date(date).toLocaleDateString());
+                $('#calendar_date').val(new Date(date).toLocaleDateString('en-US'));
             }
         });
         $('.set_date_time').click(function(){
             if($('#calendar_date').val() !=''){
                 $('#set_date_time').html($('#calendar_date').val());
             }else{
-                $('#set_date_time').html(new Date().toLocaleDateString()); 
+                $('#set_date_time').html(new Date(date).toLocaleDateString('en-US')); 
             }
 
         })

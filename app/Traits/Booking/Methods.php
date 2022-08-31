@@ -3,7 +3,7 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB,Hash};
-use App\Models\{User,Locations,Booking,BookingPayments,Cart,RequestLocations};
+use App\Models\{User,Locations,Booking,BookingPayments,Cart,RequestLocations,LocationPackages};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
@@ -22,6 +22,25 @@ trait Methods
         $check_count_of_timeslots = $duration /30;
         return $check_count_of_timeslots;
        
+    }
+    static function getBookingPrice($id=null){
+        $getLocationPackages =  LocationPackages::with([
+            'packages' => function($query){               
+                $query->select('package_name','id','total_fee');
+            }          
+        ])->select('id','package_id');
+        if($id != ''){
+            $getLocationPackages =$getLocationPackages->where('location_id',$id);
+        }
+        $getLocationPackages = $getLocationPackages->get()->toArray();
+        $total_fee =0;
+        foreach($getLocationPackages as $key=>$packages){
+            
+            foreach($packages['packages'] as $key=>$package){
+                $total_fee += number_format($package['total_fee']);
+            }
+        } 
+        return $total_fee;
     }
     static function getLocationDetail(){
         try{
@@ -42,14 +61,13 @@ trait Methods
                     }
                 }
             }
-
+            $addons_price = Cache::get('booking')->package_price;
             $check_count_of_timeslots = self::calculateTimeslotsPrice();
             $price = $data['price'] * $check_count_of_timeslots;
-          
-            // $Booking= self::addBookingDetailToDB(Cache::get('booking'));
+            $total_price = $addons_price + $price;
             $send_paramter = [
                 'name' => $data['name'],
-                'price' => $price,
+                'price' => $total_price,
                 'img' => $img,
                 'locationId' => $locationId,
 
@@ -127,7 +145,6 @@ trait Methods
                 Cache::put('booking',$booking);
     
             }
-            // dd($data);
             $booking_inputs['user_id']  = $user->id; 
             $booking_inputs['locationId']  = $data->locationId; 
             $booking_inputs['booking_date']  = $data->booking_date; 
@@ -135,7 +152,9 @@ trait Methods
             $booking_inputs['booking_end_time']  = $data->booking_end_time; 
             $booking_inputs['first_couple_name']  = $data->first_couple_name; 
             $booking_inputs['second_couple_name']  = $data->second_couple_name; 
-            $booking_inputs['ceremony_type']  = $data->ceremony_type;     
+            $booking_inputs['ceremony_type']  = $data->ceremony_type;   
+            $booking_inputs['status']  = config('ceremonyStatus.status.Booked');     
+
             $booking = Booking::create($booking_inputs);
             self::savePaymentDetail($sessionId,$user->id);
 
@@ -148,8 +167,7 @@ trait Methods
 
     }
     static function savePaymentDetail($sessionId,$userId){
-        
-       
+              
         $stripe = new \Stripe\StripeClient(
             config('env.STRIPE_SECRET')
         );
@@ -246,6 +264,13 @@ trait Methods
             ])->select('booking_date','id','locationId')->get();
                           
         }
+    }
+    static function marriages(){
+        return  Booking::with([
+            'location' => function($query){
+                $query->select('name','id','price');
+            }
+        ]);
     }
     static function checkIfBookingExist($data,$locationId){
         $get_result = Booking::with([

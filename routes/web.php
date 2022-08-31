@@ -1,12 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\AddonsController;
 use App\Http\Controllers\User\BookingController;
-use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\CelebrantsController;
-use App\Http\Controllers\Admin\AccountController;
-use App\Http\Controllers\Admin\LocationsController;
+use App\Http\Controllers\Admin\{AddonsController,PartnerController,MarriagesController,CelebrantsController,AccountController,LocationsController};
 use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
@@ -265,7 +261,10 @@ $adminRoutes = function () {
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
 
         });
-       
+        Route::group(['prefix' => 'marriages'], function () { 
+            Route::get('/', [MarriagesController::class, 'index']);
+
+        });
 
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
@@ -335,9 +334,7 @@ $adminRoutes = function () {
         Route::get('edit-enquiry', function () {
             return view('admin.enquiries.edit-enquiry');
         });
-        Route::get('marriages', function () {
-            return view('admin.marriages.view');
-        });
+       
         Route::get('order-details', function () {
             return view('admin.marriages.order-details');
         });
