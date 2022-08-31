@@ -69,6 +69,6 @@ class User extends Authenticatable
     }
     public function booking()
     {
-        return $this->hasMany(Booking::class, 'user_id', 'id')->orderBy('id', 'DESC');
+        return $this->hasOne(Booking::class, 'user_id', 'id');
     }
 }

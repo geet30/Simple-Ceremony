@@ -191,9 +191,9 @@
      </div>
    </div>
 </div>
-
+@include('admin.marriages.js')
 @include('elements.admin.marriage.assign-marriage-celebrant')
 @include('elements.admin.marriage.note-popup')
 @include('elements.admin.marriage.note-edit')
-@include('admin.marriages.js')
+
 @endsection
