@@ -32,7 +32,11 @@ class CelebrantsController extends Controller
             $search = $request->search;
             $data = User::role('Celebrant')->with(['celebrantLocations.location' => function ($query) {
                 $query->select('name', 'id');
-            }])->where('first_name', 'like', '%' . $request->search . '%')->orwhere('surname', 'like', '%' . $request->search . '%')->orwhere('email', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+            }])->where(function ($query) use ($request) {
+                $query->where('first_name', 'like', '%' . $request->search . '%')
+                    ->orWhere('surname', 'like', '%' . $request->search . '%')
+                    ->orWhere('email', 'like', '%' . $request->search . '%');
+            })->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
         } else {
             $data = User::role('Celebrant')->with(['celebrantLocations.location' => function ($query) {
                 $query->select('name', 'id');
