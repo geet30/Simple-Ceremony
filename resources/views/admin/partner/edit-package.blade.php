@@ -207,7 +207,7 @@
                               </div>
                            </div>
                         @endforeach
-                        <div class="col-md-12 mb-4">
+                        <div class="col-md-12 offset-lg-4 mb-4">
                               <div class="d-flex ">
                                  <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 me-4">Save</button>
                               </div>

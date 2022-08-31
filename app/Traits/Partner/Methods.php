@@ -13,7 +13,11 @@ trait Methods
                 'partnerProducts.addon' => function ($query) {
                     $query->select('name', 'id');
                 },
-            ])->where('first_name', 'like', '%' . $search . '%')->where('contact_name', 'like', '%' . $search . '%')->orwhere('name', 'like', '%' . $search . '%')->orwhere('email', 'like', '%' . $search . '%')->orderBy('id', 'DESC');
+            ])->where(function ($query) use ($search) {
+                $query->where('first_name', 'like', '%' . $search . '%')
+                    ->orWhere('surname', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%');
+            })->orderBy('id', 'DESC');
         }else{
             $data = User::role('Partner')->with([
                 'partnerProducts.addon' => function ($query) {

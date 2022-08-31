@@ -31,13 +31,13 @@
                                 <div class="col-md-6 align-self-center">
                                     <div class="table-dropdown d-flex align-items-center">
                                         <h1 class="h3 neutral-100 mb-0">{{ $data['product_name'] }}</h1>
-                                        <a class="{{ $status_class }}  p-1 px-3 d-inline text-decoration-none ms-3"
+                                        <a class="{{ $status_class }} text-nowrap p-1 px-3 d-inline text-decoration-none ms-3"
                                             id="detail_change_class-{{ $data['id'] }}"> <span
                                                 id="change_status-{{ $data['id'] }}">{{ $status }}</status></a>
-                                        <a class="{{ $status_class }} p-1 px-3 d-inline text-decoration-none ms-3 d-none"
+                                        <a class="{{ $status_class }} text-nowrap p-1 px-3 d-inline text-decoration-none ms-3 d-none"
                                             id="detail_change_class-{{ $data['id'] }}"> <span
                                                 id="change_status-{{ $data['id'] }}">{{ $status }}</status></a>
-                                        <a class="{{ $status_class }} p-1 px-3 d-inline text-decoration-none ms-3 d-none"
+                                        <a class="{{ $status_class }} text-nowrap p-1 px-3 d-inline text-decoration-none ms-3 d-none"
                                             id="detail_change_class-{{ $data['id'] }}"> <span
                                                 id="change_status-{{ $data['id'] }}">{{ $status }}</status></a>
                                     </div>
@@ -63,7 +63,7 @@
                                             class="theme-btn primary-btn-border me-3">Reject</a>
                                     @endif
                                     @if ($data['status'] == 1)
-                                        <a href="#" class="theme-btn primary-btn me-3"> <img class="me-2"
+                                        <a href="{{route('admin.package.edit',$data['id'])}}" class="theme-btn primary-btn me-3"> <img class="me-2"
                                                 src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                                     @endif
                                     <a href="{{ url('partner/details', $data['id']) }}"

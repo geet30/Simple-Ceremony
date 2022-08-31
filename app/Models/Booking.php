@@ -34,5 +34,9 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Models\User', 'celebrant_id','id');
     }
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id','id');
+    }
    
 }

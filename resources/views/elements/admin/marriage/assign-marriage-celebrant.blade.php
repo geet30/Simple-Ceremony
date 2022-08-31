@@ -4,7 +4,7 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
    </div>
    <div class="offcanvas-body">
-      <form method="post" id="add-celebrants" action="{{url('marriages/save-celebrant')}}" name="postform">
+      <form method="post" id="add-celebrants" action="{{route('save-celebrant')}}" name="postform">
          @csrf 
          <!-- <div class="col-md-10 mb-4">
             <label class="form-label small-text2 ps-2">Domicile location of marriage celebrants </label>

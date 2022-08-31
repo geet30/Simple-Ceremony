@@ -37,9 +37,9 @@
                            <h1 class="h3 neutral-100 mb-0">{{$data['product_name']}}</h1>
                            </div>
                            <div class="ms-3">
-                           <a class="{{$status_class}}  p-1 px-3 d-inline text-decoration-none ms-3" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
-                           <a class="{{$status_class}} p-1 px-3 d-inline text-decoration-none ms-3 d-none" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
-                           <a class="{{$status_class}} p-1 px-3 d-inline text-decoration-none ms-3 d-none" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
+                           <a class="{{$status_class}} text-nowrap  p-1 px-3 d-inline text-decoration-none ms-3" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
+                           <a class="{{$status_class}} text-nowrap p-1 px-3 d-inline text-decoration-none ms-3 d-none" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
+                           <a class="{{$status_class}} text-nowrap p-1 px-3 d-inline text-decoration-none ms-3 d-none" id="detail_change_class-{{$data['id']}}"> <span id="change_status-{{$data['id']}}">{{$status}}</status></a>
                            </div>
                         </div>
                         <p class="body-3 mb-0 mt-3"><span class="body-1">Criteria : </span>Available on 
@@ -60,7 +60,7 @@
                      
                         @if($data['status'] == 0 )
                         <a onclick="changeStatus('/change-status',{{$data['id']}},1,'detail','tab_id','addon')"  class="theme-btn primary-btn me-3">Confirm</a>
-                        <a href="#" class="theme-btn primary-btn me-3"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit Package</a>
+                        <a href="{{route('admin.package.edit',$data['id'])}}" class="theme-btn primary-btn me-3"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit Package</a>
                         <!-- <a onclick="changeStatus('/change-status',{{$data['id']}},2,'detail','tab_id','addon')"  class="theme-btn primary-btn-border me-3">Reject</a> -->
 
                         @endif
