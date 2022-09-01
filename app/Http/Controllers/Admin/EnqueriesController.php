@@ -19,7 +19,7 @@ class EnqueriesController extends Controller
     {
         try {
             $req_page = 1;
-            $records = 10;
+            $records = 1;
             if ($request->has('page')) {
                 $req_page = $request->page;
             }

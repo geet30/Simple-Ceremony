@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\{Users, Notification};
+use App\Models\{Users, Notification,User};
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\{Auth};
@@ -57,7 +57,22 @@ function one_validation_message($validator)
    // Return only first occured message
    return implode(' ', $new_validation_messages[0]);
 }
+/**
+ *check mail exist
+ *
+ */
+function checkIfMailExist($request){
+  
+   $checkEmail = User::where('email', $request['email'])->first();
+   
+   if ($checkEmail) {
+       $role = $checkEmail->roles->first()->name;
+       $msg = 'Email already exists as a ' . $role;
+       return ['status' => false,'message'=>$msg]; 
+   }
+   return ['status' => true,'message'=>'']; 
 
+}
 /**
  *upload image function
  *

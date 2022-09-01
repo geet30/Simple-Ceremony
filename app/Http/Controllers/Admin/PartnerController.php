@@ -17,7 +17,7 @@ class PartnerController extends Controller
     public function index(Request $request)
     {
         try {
-            $records = 10;
+            $records = 1;
             $req_page = 1;
             $search = '';
             if ($request->has('page')) {

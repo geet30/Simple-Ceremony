@@ -154,4 +154,16 @@ class HomeController extends Controller
             
         }
     }
+    /**
+     *check mail exist
+    *
+    */
+    function checkIfMailExist(Request $request){
+        try{
+            return  checkIfMailExist($request);
+        }catch (\Exception $e) {
+            return ['status' => false,'message'=>'Something went wrong']; 
+            
+        }
+    }
 }

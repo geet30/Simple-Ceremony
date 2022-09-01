@@ -1,5 +1,5 @@
 
-<div class="offcanvas offcanvas-end theme-offcanvas" id="offcanvas_partner_addlocation" aria-labelledby="offcanvas_partner_addlocationLabel">
+<div class="offcanvas offcanvas-end theme-offcanvas offcanvas_add_select2_class" id="offcanvas_partner_addlocation" aria-labelledby="offcanvas_partner_addlocationLabel">
     <div class="offcanvas-header">
         <p id="offcanvasRightLabel" class="h3 neutral-100">Add new location</p>
         <button type="button" class="btn-close text-reset closeCanvas" data-bs-dismiss="offcanvas"
@@ -20,7 +20,8 @@
     </div>
 </div>
 <style type="text/css">
-    .select2-container {
+    
+    .addSelect2.select2-container .select2-container {
         z-index: 99999;
     }
 </style>

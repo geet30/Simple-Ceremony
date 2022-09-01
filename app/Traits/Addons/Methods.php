@@ -90,6 +90,8 @@ trait Methods
     }
     public static function searchAdminAddon($request)
     {
+        $req_page = 1;
+        $records = 10;
         $data = [];
         if ($request->has('search') && $request->filled('search')) {
             if ($request->table == 'partner_products') {
@@ -97,23 +99,23 @@ trait Methods
                 if ($request->status != null) {
                     $data = $data->where('status', $request->status)->orderBy('id', 'DESC')->get();
                 }
-                $data = $data->orderBy('id', 'DESC')->get();
+                $data = $data->orderBy('id', 'DESC');
             } else {
-                $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
+                $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC');
             }
         } else {
             if ($request->table == 'partner_products') {
                 $data = PartnerProducts::orderBy('id', 'DESC');
                 if ($request->status != null) {
-                    $data = $data->where('status', $request->status)->get();
+                    $data = $data->where('status', $request->status);
                 } else {
-                    $data = $data->get();
+                    $data = $data;
                 }
             } else {
-                $data = Addons::orderBy('id', 'DESC')->get();
+                $data = Addons::orderBy('id', 'DESC');
             }
         }
-        return $data;
+        return $data->paginate($records, ['*'], 'page', $req_page);
     }
     public static function changeStatus($request)
     {
