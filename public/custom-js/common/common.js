@@ -276,7 +276,6 @@ function ImgUpload(counter = null) {
         $(this).parent().parent().remove();
     });
 }
-
 //
 
 (function ($) {
@@ -292,36 +291,7 @@ function ImgUpload(counter = null) {
         $(".editinformation").addClass("d-none");
         $(".addmarriage").addClass("d-block");
     });
-})(
-    //
-
-    function ($) {
-        $(document)
-            .find(".offcanvasCommonClass")
-            .click(function () {
-                $(".offcanvas_add_select2_class").addClass("addSelect2");
-                $("body").addClass("addSelect2");
-            });
-        $(document)
-            .find(".closeCanvas")
-            .click(function () {
-                $("body").removeClass("addSelect2");
-                $(".offcanvas_add_select2_class").removeClass("addSelect2");
-            });
-        $("#information-tab").click(function () {
-            $(".addmarriage").addClass("d-none");
-            $(".addmarriage").removeClass("d-block");
-            $(".editinformation").addClass("d-block");
-            $(".editinformation").removeClass("d-none");
-        });
-        $("#celebrants-tab").click(function () {
-            $(".addmarriage").removeClass("d-none");
-            $(".editinformation").removeClass("d-block");
-            $(".editinformation").addClass("d-none");
-            $(".addmarriage").addClass("d-block");
-        });
-    }
-)(jQuery);
+})(jQuery);
 
 $(".eyeIcon").click(function () {
     if ($(this).hasClass("fa-eye-slash")) {
