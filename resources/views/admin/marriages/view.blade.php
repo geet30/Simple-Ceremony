@@ -43,7 +43,7 @@
                      <img src="/images/marriage-celebrant/icons/booking.svg" alt="">
                   </div>
                   <div class="add-ons-nav-data text-start ">
-                     <h3 class="h3">50</h3>
+                     <h3 class="h3">0</h3>
                      <p class="subheader-2 d-none d-md-block">Lodged</p>
                   </div>
                </div>
@@ -58,7 +58,7 @@
                      <img src="/images/marriage-celebrant/icons/document.svg" alt="Lodged pending">
                   </div>
                   <div class="add-ons-nav-data text-start ">
-                     <h3 class="h3">10</h3>
+                     <h3 class="h3">0</h3>
                      <p class="subheader-2 d-none d-md-block">Lodged pending</p>
                   </div>
                </div>
@@ -178,7 +178,9 @@
       <div class="tab-content" id="pills-tabContent">
          <div class="tab-pane fade show" id="all-records" role="tabpanel" aria-labelledby="all-records-tab"
             tabindex="0">
-            @include('elements.admin.marriage.all-records-tab')
+            <div class="table-responsive searchResult">
+               @include('elements.admin.marriage.all-records-tab')
+            </div>
 
          </div>
          <div class="tab-pane fade" id="booked" role="tabpanel" aria-labelledby="booked-tab-tab"

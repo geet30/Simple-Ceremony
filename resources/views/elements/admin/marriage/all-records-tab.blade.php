@@ -1,4 +1,4 @@
-<div class="table-responsive searchResult" id="marriagesListing">
+
     <table class="table align-middle theme-table">
         <thead>
         <tr>
@@ -14,7 +14,7 @@
             <th></th>
         </tr>
         </thead>
-        <tbody id="searchResult" class="searchResult">
+        <tbody id="searchResult" class="searchResult row">
             @foreach ($dataArray['all_marriages'] as $result)
                 
                 <tr>
@@ -74,4 +74,3 @@
         </tr>
         </tfoot>
     </table>
-</div>

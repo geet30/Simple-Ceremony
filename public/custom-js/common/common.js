@@ -36,15 +36,17 @@ function selectDate(date) {
   $('#calendar-wrapper').updateCalendarOptions({
     date: date
   });
-  console.log(calendar.getSelectedDate());
+ 
 }
 
 var defaultConfig = {
   weekDayLength: 2,
-  date: '08/05/2021',
+  date: new Date().toLocaleDateString('fr-CA'),
   onClickDate: selectDate,
   showYearDropdown: true,
   startOnMonday: true,
+  min: new Date().toLocaleDateString('fr-CA'),
+
 };
 
 var calendar = $('#calendar-wrapper').calendar(defaultConfig);
@@ -290,15 +292,16 @@ function selectDateClass(date) {
   $('.calendar-wrapper').updateCalendarOptions({
     date: date
   });
-  console.log(calendar.getSelectedDate());
+  
 }
 
 var defaultConfigClass = {
   weekDayLength: 2,
-  date: '08/05/2021',
+  date: new Date().toLocaleDateString('fr-CA'),
   onClickDate: selectDateClass,
   showYearDropdown: true,
   startOnMonday: true,
+  min: new Date().toLocaleDateString('fr-CA'),
 };
 
 var calendar = $('.calendar-wrapper').calendar(defaultConfigClass);

@@ -14,7 +14,7 @@
             <th></th>
         </tr>
         </thead>
-        <tbody id="searchResult" class="searchResult">
+        <tbody id="searchResult" class="searchResult row">
             @foreach ($dataArray['booking_marriages'] as $result)
                 
                 <tr>

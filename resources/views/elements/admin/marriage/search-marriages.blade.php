@@ -2,7 +2,7 @@
     <table class="table align-middle theme-table">
         <thead>
         <tr>
-            <th>Preferred couple’s name</th>
+            <th style="min-width:160px">Preferred couple’s name</th>
             <th>Booking created</th>
             <th>Progress</th>
             <th>Marriage celebrant</th>
@@ -14,7 +14,7 @@
             <th></th>
         </tr>
         </thead>
-        <tbody id="searchResult" class="searchResult">
+        <tbody id="searchResult" class="searchResult row">
             @foreach($data as $result)
                 
                 <tr>
