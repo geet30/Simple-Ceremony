@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Locations,Addons,PartnerProducts,User,PartnerPackages,Booking};
+use App\Models\{Locations,Addons,PartnerProducts,User,Enqueries,Booking};
 use Redirect;
 use Cookie;
 use View;
@@ -117,6 +117,10 @@ class HomeController extends Controller
      */
     public function contactUs(Request $request){
         try{
+           
+            $input = $request->except('_token');
+            $input['enquiry_date'] = date('Y-m-d');
+            Enqueries::create($input);
             Booking::contactUsEmail($request->all());
             return redirect('contact-us')->with('message', 'Message Sent Successfully');
 
