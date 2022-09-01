@@ -7,7 +7,7 @@ use App\Models\{User, Booking};
 trait Methods
 {
 
-    public static function marriages($search = null)
+    public static function marriages($date, $search = null)
     {
         if ($search != '') {
             $data = User::role(['User'])->with([
@@ -33,21 +33,21 @@ trait Methods
                 })->orderBy('id', 'DESC');
             dd($data->get()->toArray());
         } else {
-            $data = User::role('User')->with([
-                'booking' => function ($query) {
-                    $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name');
-                },
-                'booking.location' => function ($query) {
-                    $query->select('name', 'id', 'price');
-                },
-                'booking.celebrant' => function ($query) {
-                    $query->select('first_name', 'id');
-                },
+            $data = User::role('User')
+                ->whereHas('booking', function ($query) use ($date) {
+                    $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name', 'booking_start_time', 'booking_end_time')->whereBookingDate($date);
+                })
+                ->with([
+                    'booking.location' => function ($query) {
+                        $query->select('name', 'id', 'price');
+                    },
+                    'booking.celebrant' => function ($query) {
+                        $query->select('first_name', 'id');
+                    },
 
-            ])->select('name', 'id', 'phone', 'country_code', 'email')->orderBy('id', 'DESC');
+                ])->select('name', 'id', 'phone', 'country_code', 'email')
+                ->orderBy('id', 'DESC');
         }
-
-
         return   $data;
     }
     public static function marriage_detail($id = null)
