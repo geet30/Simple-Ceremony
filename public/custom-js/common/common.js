@@ -241,6 +241,15 @@ function ImgUpload(counter=null) {
 
 
 (function( $ ) {
+  $(document).find('.offcanvasCommonClass').click(function(){
+    
+    $('.offcanvas_add_select2_class').addClass('addSelect2');
+    $('body').addClass('addSelect2');
+  })
+  $(document).find('.closeCanvas').click(function(){
+    $('body').removeClass('addSelect2');
+    $('.offcanvas_add_select2_class').removeClass('addSelect2');
+  })
   $('#information-tab').click(function(){
       $('.addmarriage').addClass("d-none");
       $('.addmarriage').removeClass("d-block");

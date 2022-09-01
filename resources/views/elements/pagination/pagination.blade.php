@@ -45,7 +45,8 @@
 </div>
 <script type="text/javascript">
     var outer_id = <?php echo json_encode($id); ?>;
-    console.log(outer_id);
+    var outer_class = <?php echo json_encode($class); ?>;
+    console.log(outer_class);
 
     function fetch_data(page, perpage) {
 
@@ -62,8 +63,11 @@
             data: data,
             url: route,
             success: function(response) {
+                console.log('outer_id',outer_id);
                 // $('#requests').html(response);
                 $(outer_id).html(response);
+                
+                $(outer_class).html(response);
             },
         });
     }

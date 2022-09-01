@@ -257,7 +257,6 @@ trait Methods
                 $data = $locations->where('name', 'like', '%' . $request->search . '%')->get();
             }
             else if(($request->has('search') && $request->search !='') && ($request->has('filter') && $request->filter !='' && $request->filter !=0)){
-                // $data = $locations->where('name', 'like', '%' . $request->search . '%')->where('location_category',$request->filter)->get();
                 $data = $locations->where('name', 'like', '%' . $request->search . '%')->whereHas('location_criteria', (function ($q) use ($id)
                 {
                     $q->where('location_category', '=', $id);

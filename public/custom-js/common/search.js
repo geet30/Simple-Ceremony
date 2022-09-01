@@ -12,14 +12,15 @@ $(document).ready(function(){
                     date: date
                 });
 
-                $('#calendar_date').val(new Date(date).toLocaleDateString('en-US'));
+                $('#calendar_date').val(new Date(date).toLocaleDateString('fr-CA'));
             }
         });
         $('.set_date_time').click(function(){
+           
             if($('#calendar_date').val() !=''){
                 $('#set_date_time').html($('#calendar_date').val());
             }else{
-                $('#set_date_time').html(new Date(date).toLocaleDateString('en-US')); 
+                $('#set_date_time').html(new Date(date).toLocaleDateString('fr-CA')); 
             }
 
         })
@@ -51,14 +52,17 @@ $(document).ready(function(){
             
             success: function(response)
             {
-                $("#searchResult").html(response);
+                $(".searchResult").html(response);
                 
             }
         });
     }
     window.SearchRecords = function(url,keyword=null){
+       
         var tab_id = $("ul.theme-tabs li a.active").attr("id");
+        
         var sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
+        var sub_tab_target = $("ul.add-on-list-nav li button.active").attr("data-bs-target");
         var status ='';
         if(sub_tab_id == 'Waiting-for-approval-tab'){
             status = 0;
@@ -86,8 +90,9 @@ $(document).ready(function(){
             cache: false,
             success: function(response)
             {  
+                // $(sub_tab_target).find('#'+sub_tab_id+'_searchList').html('');
                 if(tab_id == 'information-tab'){
-                    $('#'+sub_tab_id+'_searchList').html(response);
+                    $('.'+sub_tab_id+'_searchList').html(response);
                 }else{
                     $("#addon_list").html(response);
                 }
@@ -127,10 +132,9 @@ $(document).ready(function(){
         });
     }
 
-     window.searchWithTabs = function(url,keyword=null, type){
-        const tab_id = $("ul.theme-tabs li a.active").attr("id");
+    window.searchWithTabs = function(url,keyword=null, type){
         const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
-        
+        console.log('keyword',keyword);
         var status ='';
         if(sub_tab_id == 'follow-up-tab'){
             status = 0;

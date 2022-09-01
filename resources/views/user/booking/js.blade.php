@@ -11,7 +11,8 @@
                     date: date
                 });
 
-                $('#calendar_date').val(new Date(date).toLocaleDateString('en-US'));
+                
+                $('#calendar_date').val(new Date(date).toLocaleDateString('fr-CA'));
             }
         });
         $('#booking_start_time').change(function(e){
@@ -34,7 +35,7 @@
                 if($('#calendar_date').val() !=''){
                     data['calendar_date'] = $('#calendar_date').val();
                 }else{
-                    data['calendar_date'] = new Date(date).toLocaleDateString('en-US');
+                    data['calendar_date'] = new Date(date).toLocaleDateString('fr-CA');
                 }
                 data['booking_start_time'] = $('#booking_start_time').val();
                 data['booking_end_time'] = $('#booking_end_time').val();
