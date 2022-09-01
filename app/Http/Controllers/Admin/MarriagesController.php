@@ -16,6 +16,7 @@ class MarriagesController extends Controller
      */
     public function index(Request $request, $slug)
     {
+       
         try {          
             $records = 10;
             $req_page = 1;

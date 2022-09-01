@@ -75,6 +75,9 @@ class EnqueriesController extends Controller
     {
         try {
             $input = $request->except('_token');
+            $input['marriage_date'] = date('Y-m-d',strtotime($request->marriage_date));
+            $input['enquiry_date'] = date('Y-m-d',strtotime($request->enquiry_date));
+                    
             $result = Enqueries::create($input);
             if ($result) {
                 return redirect('all-enquiries/all-records-tab')->with('message', 'Enquiry created successfully.');
@@ -119,6 +122,10 @@ class EnqueriesController extends Controller
     {
         try {
             $input = $request->except(['_token', '_method']);
+           
+            $input['marriage_date'] = date('Y-m-d',strtotime($request->marriage_date));
+            $input['enquiry_date'] = date('Y-m-d',strtotime($request->enquiry_date));
+           
             $result = Enqueries::where('id', $id)->update($input);
             if ($result) {
                 return redirect('all-enquiries/all-records-tab')->with('message', 'Enquiry updated successfully.');
@@ -184,8 +191,8 @@ class EnqueriesController extends Controller
                     $query->where('couple_one', 'like', '%' . $request->search . '%')
                         ->orWhere('couple_two', 'like', '%' . $request->search . '%')
                         ->orWhere('phone', 'like', '%' . $request->search . '%')
-                        ->orWhere('enquiry_date', 'like', '%' . $request->search . '%')
-                        ->orWhere('marriage_date', 'like', '%' . $request->search . '%');
+                        ->orWhere('enquiry_date', 'like', '%' . date('Y-m-d',strtotime($request->search)) . '%')
+                        ->orWhere('marriage_date', 'like', '%' . date('Y-m-d',strtotime($request->search)) . '%');
                 })->where($whereClause)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             } else {
                 $data = $data->orderBy('id', 'DESC')->where($whereClause)->paginate($records, ['*'], 'page', $req_page);

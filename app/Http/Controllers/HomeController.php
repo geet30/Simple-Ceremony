@@ -118,7 +118,7 @@ class HomeController extends Controller
     public function contactUs(Request $request){
         try{
            
-            $input = $request->except('_token');
+            $input = $request->except('_token');         
             $input['enquiry_date'] = date('Y-m-d');
             Enqueries::create($input);
             Booking::contactUsEmail($request->all());
