@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
+use Illuminate\Support\Carbon;
+use connectGoogleCalendar;
 
 class CalanderController extends Controller
 {
@@ -14,16 +16,19 @@ class CalanderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $celebrants = User::role('Celebrant')->count();
-            $locations = Locations::count();
-            $bookingsCount = Booking::count();
-            $bookings = MarriagesMethods::marriages()->get();
-
-            dd($bookings);
-            return view('admin.calander.calander-overview', compact('celebrants', 'locations', 'bookings', 'bookingsCount'));
+            $date = Carbon::today();
+            $date = $request->ajax() ? $request->date : $date->format('m/d/Y');
+            $count['marriageBookings'] = Booking::count();
+            $count['marriageCelebrant'] = Booking::whereNotNull('celebrant_id')->groupBy('celebrant_id')->count();
+            $count['marriageLocation'] = Booking::whereNotNull('locationId')->groupBy('locationId')->count();
+            $bookings = MarriagesMethods::marriages($date)->get();
+            if ($request->ajax()) {
+                return $bookings;
+            }
+            return $request->ajax() ? $bookings : view('admin.calander.calander-overview', compact('bookings', 'count'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -93,5 +98,12 @@ class CalanderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function connectGoogleCalendar()
+    {
+        $client = GoogleCalendar::getClient();
+        $authUrl = $client->createAuthUrl();
+        return redirect($authUrl);
     }
 }
