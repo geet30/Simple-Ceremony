@@ -50,6 +50,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
 <script src="/custom-js/common/select2.js"></script>
+<script src="/custom-js/common/ajax-request.js"></script>
 <script src="/custom-js/common/common.js"></script>
 <script src="/custom-js/common/add-more.js"></script>
 <script src="/custom-js/common/validation.js"></script>

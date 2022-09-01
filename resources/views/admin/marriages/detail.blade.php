@@ -77,8 +77,8 @@
                      <div class="tab-content" id="tabContent">
                         <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
                            @include('elements.admin.marriage.order.information')
-                           {(--@include('elements.admin.marriage.order.choose-marriage-celebrant') --}}
-                           @include('elements.admin.marriage.assign-marriage-celebrant')
+                           {{--@include('elements.admin.marriage.order.choose-marriage-celebrant') --}}
+                          
                            @include('elements.admin.marriage.order.reschedule')
                            @include('elements.admin.marriage.order.invoice')
                         </div>
@@ -103,6 +103,6 @@
    </div>
 </div>
 @include('admin.marriages.js')
-
+@include('elements.admin.marriage.assign-marriage-celebrant')
 @include('elements.admin.marriage.order.create-reminder')
 @endsection

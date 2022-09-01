@@ -25,10 +25,12 @@
             <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" value="{{ (isset(cache('booking')['second_couple_name']) ? cache('booking')['second_couple_name'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner Name is required</div>
         </div>
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 email_exist">
             <label for="InputName" class="form-label small-text2">Your email</label>
-            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100" name="email" id="email" value="{{ (isset(cache('booking')['email']) ? cache('booking')['email'] :'')}}" required>
+            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100 email_check" name="email" id="email" onblur="duplicateEmail(this)" value="{{ (isset(cache('booking')['email']) ? cache('booking')['email'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
+            <div class="invalid-feedback duplicate_email"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email already Exist</div>
+           
         </div>
         <div class="col-md-6 mb-4">
        
@@ -36,6 +38,7 @@
             <input type="hidden"  id="code" name ="country_code" value="61" >
             <input class="form-control body-1 netural-100 phone" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone Number is required</div>
+           
         </div>
         <div class="col-md-6 mb-4">
             <label for="selectinput" class="form-label small-text2">This ceremony is a</label>

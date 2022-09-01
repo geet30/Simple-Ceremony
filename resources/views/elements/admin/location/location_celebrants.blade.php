@@ -39,6 +39,7 @@
                         '' => '',
                         'data' => $celebrants_locations,
                         'id' => '#celebrants',
+                        'class' => '.celebrants',
                     ])
                 </td>
             </tr>

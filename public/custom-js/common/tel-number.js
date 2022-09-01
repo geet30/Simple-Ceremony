@@ -38,15 +38,11 @@ errorMsg = $("#invalid-phone-number");
   errorMsg.removeClass("d-block");
   };
   $('.country-list li').click(function(){
-    // alert($(this).data('dial-code'));
     $("#code").val(($(this).data('dial-code')));
   })
   // on blur: validate
   telInput.blur(function() {
     reset();
-    // var getCode = telInput.intlTelInput('getSelectedCountryData').dialCode;
-    // console.log(getCode);
-    // $("#code").val((getCode));
     if ($.trim(telInput.val())) {
       $(this).parents('.phone_number').find('.phone_number_required').removeClass('d-block');
       if (telInput.intlTelInput("isValidNumber")) {

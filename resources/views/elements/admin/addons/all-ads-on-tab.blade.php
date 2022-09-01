@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive all-ads-on-tab_searchList"  id="all-ads-on-tab_searchList">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
@@ -10,7 +10,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody id="all-ads-on-tab_searchList">
+        <tbody>
             <?php $count = 0; ?>
             @foreach ($all_addons as $addon)
                 <?php //echo "<pre>";print_r($addon->rejected);die;
