@@ -174,17 +174,12 @@
                                                             {{ $package['location_description'] }}
                                                         </p>
                                                         <ul class="addons-list">
-                                                            <li>Signing table and 2 white padded folding chairs </li>
-                                                            <li>Signing table decoration </li>
-                                                            <li> Aisle runner in natural sisal </li>
-                                                            <li>Frame your ceremony with a beautiful chiffon with silk
-                                                                flowers </li>
+                                                           
                                                         </ul>
                                                         <h4 class="h4">Add title terms here</h4>
                                                         <p class="body-3-medium">{{ $package['title_term'] }}</p>
                                                         <ul class="addons-list">
-                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
-                                                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>

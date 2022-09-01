@@ -22,6 +22,8 @@
               $(this).parents('.phone_number').find('.phone_number_required').removeClass('d-block');
             }
         });
+       
+        
         
 
         window.setTimeout(function () {

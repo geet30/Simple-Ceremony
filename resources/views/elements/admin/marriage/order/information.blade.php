@@ -6,28 +6,30 @@
             <div class=" row force-overflow  w-97">
                <div class="col-md-6 mb-4 ">
                   <label for="preferredname1" class="form-label small-text2 ps-2">Preferred name 1</label>
-                  <input type="text" value="Johny" class="form-control body-1 netural-100" name="name" id="preferredname1">
+                 
+                  <input type="text" value="{{ isset($data->first_couple_name) ? $data->first_couple_name : '' }}" class="form-control body-1 netural-100" name="name" id="preferredname1">
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="preferredname2" class="form-label small-text2 ps-2">Preferred name 2</label>
-                  <input type="text" value="Say" class="form-control body-1 netural-100" name="name" id="preferredname2">
+                  <input type="text" value="{{ isset($data->second_couple_name) ? $data->second_couple_name : '' }}" class="form-control body-1 netural-100" name="name" id="preferredname2">
                </div>
                <div class="col-md-6  mb-4 ">
+               
                   <label for="phone" class="form-label small-text2 ps-2">Phone number</label>
-                  <input type="text" value="+61 0909 0900 909" class="form-control body-1 netural-100" name="name" id="phone">
+                  <input type="text" value="+{{ $data->user->country_code }}{{ $data->user->phone }}" class="form-control body-1 netural-100" name="name" id="phone">
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="email" class="form-label small-text2 ps-2">Email</label>
-                  <input type="email" value="joe@gmail.com" class="form-control body-1 netural-100" name="name" id="email">
+                  <input type="email" value="{{ isset($data->user->email) ? $data->user->email : '' }}" class="form-control body-1 netural-100" name="name" id="email">
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
-                  <input type="text" value="You haven't chosen" class="form-control body-1 color-red" name="name" id="celebrant">
+                  <input type="text" value="{{isset($data->celebrant->first_name) ? $data->celebrant->first_name : 'You have not chosen'}}" class="form-control body-1" name="name" id="celebrant">
                </div>
-               <div class="col-md-6 mb-4 align-self-center"><label for="celebrant" class="form-label small-text2 ps-2 d-block">&nbsp;</label><a href="" data-bs-toggle="offcanvas" data-id="" data-bs-target="#marriage-celebrant" class="add-link">Choose marriage celebrant</a></div>
+               <div class="col-md-6 mb-4 align-self-center"><label for="celebrant" class="form-label small-text2 ps-2 d-block ">&nbsp;</label><a href="" data-bs-toggle="offcanvas" data-id="{{$data->id}}" data-bs-target="#marriage-celebrant" class="add-link assign_celebrant">Choose marriage celebrant</a></div>
                <div class="col-md-6  mb-4 align-self-center">
                   <label for="location" class="form-label small-text2 ps-2">Location</label>
-                  <input type="text" value="Bradfield park" class="form-control body-1 netural-100" name="name" id="location">
+                  <input type="text" value="{{ isset($data->location->name) ? $data->location->name : '' }}" class="form-control body-1 netural-100" name="name" id="location">
                </div>
                <div class="col-md-6 mb-4 align-self-center">
                   <label for="celebrant" class="form-label small-text2 ps-2 d-block">&nbsp;</label>
@@ -35,11 +37,11 @@
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="date" class="form-label small-text2 ps-2">Date of marriage</label>
-                  <input type="text" value="Daniels" class="form-control body-1 netural-100" name="name" id="date">
+                  <input type="text" value="{{date('M d,Y',strtotime($data->booking_start_time))}}" class="form-control body-1 netural-100" name="name" id="date">
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="time" class="form-label small-text2 ps-2">Time</label>
-                  <input type="text" value="11:30 - 12.30 PM" class="form-control body-1 netural-100" name="name" id="time">
+                  <input type="text" value="{{$data->booking_start_time}} - {{$data->booking_end_time}}" class="form-control body-1 netural-100" name="name" id="time">
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="date" class="form-label small-text2 ps-2">Invoice number</label>

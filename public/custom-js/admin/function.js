@@ -6,7 +6,6 @@ $(document).ready(function(){
         const text = $('.'+input+" option:selected").text();
         if(checkLocationExistance(text)==false){
           $('.'+close).click();
-        //   $(".select2Popup").val('').trigger('change')
         $("."+input).val('').trigger('change')
           return;
         }
@@ -15,6 +14,7 @@ $(document).ready(function(){
         var celebrantLocation ='<div class="row locDiv mb-2"><div class="col-10 col-sm-8 col-md-6"><input type="text" value="'+text+'" readonly class="form-control body-1 netural-100 locationText" > <input type="hidden" value='+val+' name="locations[]"></div><div class="col-2 col-sm-4 col-md-6"><a class="cross-icon" onclick="remove(`locDiv`,this)"><img src="/images/icons/cross.svg" class="img-fluid"></a></div></div>';
         $('.'+parentClass).append(celebrantLocation)
         $('.'+close).click();
+
         $("."+input).val('').trigger('change')
         // $(".select2Popup").val('').trigger('change')
     }
@@ -44,6 +44,30 @@ $(document).ready(function(){
             success: function(response)
             {
                 window.location.reload();
+            }
+        });
+    }
+    window.duplicateEmail = function(element){
+        var email = $(element).val();
+        $.ajax({
+            type: "POST",
+            url: "/checkemail",
+            data: {email:email},
+            dataType: "json",
+            success: function(res) {
+                $('#second-form').prop("disabled",false);
+                if(res.status == false){
+                    $(document).find('.email_exist').find('.duplicate_email').addClass('d-block');
+                    $('#second-form').prop("disabled",true);
+                    
+                }else{
+                    $(document).find('.email_exist').find('.duplicate_email').removeClass('d-block');
+                    
+                }
+                
+            },
+            error: function (jqXHR, exception) {
+
             }
         });
     }

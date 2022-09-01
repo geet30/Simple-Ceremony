@@ -36,7 +36,7 @@
       <tr>
          <td colspan="5">
             
-            @include('elements.pagination.pagination', ['title' => 'All partner', 'id' => '#partnersListing', 'data' => $data])
+            @include('elements.pagination.pagination', ['title' => 'All partner', 'id' => '#partnersListing','class' => '.partnersListing',  'data' => $data])
          </td>
       </tr>
    </tfoot>

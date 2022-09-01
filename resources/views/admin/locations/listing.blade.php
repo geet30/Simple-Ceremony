@@ -32,11 +32,11 @@
                             </div>
                         @endif
                         <div class="tab-content" id="tabContent">
-                            <div class="tab-pane fade show active" id="requests" role="tabpanel"
+                            <div class="tab-pane fade show active requests" id="requests" role="tabpanel"
                                 aria-labelledby="requests-tab">
                                 @include('elements.admin.location.all-requests')
                             </div>
-                            <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="packages-tab">
+                            <div class="tab-pane fade packages" id="packages" role="tabpanel" aria-labelledby="packages-tab">
                                 @include('elements.admin.location.all-packages')
                             </div>
                             <div class="tab-pane fade" id="filters" role="tabpanel" aria-labelledby="filters-tab">

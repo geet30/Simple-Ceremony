@@ -14,34 +14,37 @@ class MarriagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $slug = null)
+    public function index(Request $request, $slug)
     {
         try {          
-            $records = 10;
+            $records = 1;
             $req_page = 1;
             $search = '';
             if($request->has('page')){
                 $req_page = $request->page; 
             }
-            if ($request->has('search')) {
-                $search = $request->search;
-            }
-
-            if ($request->has('search') && $request->filled('search')) {
-                $search = $request->search;
-                $data  = MarriagesMethods::marriages($search)->paginate($records, ['*'], 'page', $req_page);
-            } else {
-                $data  = MarriagesMethods::marriages($search)->paginate($records, ['*'], 'page', $req_page);
-            }
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all(); 
-            if ($request->ajax()) {
+            if ($request->has('search') && $request->filled('search')) {
+                $search = $request->search;
+                $data  = MarriagesMethods::marriages($search);
+            } else {
+                $data  = MarriagesMethods::marriages($search);
+            }
+           
+            $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
+            $booking_marriages = (clone $data)->where('status', 1)->paginate($records, ['*'], 'page', $req_page);
 
-                $viewurl = 'elements.admin.marriage.listing';
-                return View::make($viewurl, ['req_page' => $req_page, 'data' => $data, 'search' => $search]);
+            $dataArray = array(
+                'all_marriages' => $all_marriages,
+                'booking_marriages' => $booking_marriages,
+            );
+            if ($request->ajax()) {
+                $viewurl = 'elements.admin.marriage.' . $slug;
+                return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray, 'search' => $search]);
             }
             // dd($data);
-            return view('admin.marriages.view', compact('data','locations','celebrants'));
+            return view('admin.marriages.view', compact('dataArray','locations','celebrants'));
         } catch (\Exception $ex) {
 
             dd($ex);
@@ -75,6 +78,38 @@ class MarriagesController extends Controller
  
     }
     /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+
+    public function searchMarriages(Request $request){
+        try {
+            $data =   MarriagesMethods::searchMarriages($request);
+            return View::make('elements.admin.marriage.search-marriages', ['data' => $data]);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
+    /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+    public function searchMarriageLocation(Request $request){
+        try {
+            $data =   MarriagesMethods::searchMarriageLocation($request);
+            // dd($data);
+            return View::make('elements.admin.marriage.search-marriages', ['data' => $data]);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }    
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -82,7 +117,7 @@ class MarriagesController extends Controller
      */
     public function saveCelebrant(Request $request){
         try {
-            // dd($request->all());
+           
             $id = $request->input('id');
             $celebrant_id = $request->input('celebrant_id');
             Booking::where('id', $id)->update(['celebrant_id' => $celebrant_id]);

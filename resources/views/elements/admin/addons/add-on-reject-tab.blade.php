@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive add-on-reject-tab_searchList" id="add-on-reject-tab_searchList">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
@@ -10,7 +10,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody id="add-on-reject-tab_searchList">
+        <tbody >
                   <?php $count = 0;?>
                   @foreach($rejected_addons  as $addon)
                    <?php $count++; 
