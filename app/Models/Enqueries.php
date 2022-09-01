@@ -10,6 +10,6 @@ class Enqueries extends Model
     use HasFactory;
 
     protected $fillable = [
-        'couple_one', 'couple_two', 'marriage_date', 'enquiry_date', 'phone', 'status', 'reffer_by', 'enquiry', 'phone_code'
+        'couple_one', 'couple_two', 'marriage_date', 'enquiry_date', 'phone', 'status', 'reffer_by', 'enquiry', 'phone_code', 'email'
     ];
 }
