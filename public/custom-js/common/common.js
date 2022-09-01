@@ -317,7 +317,6 @@ $(document).ready(function () {
     });
 });
 function selectDateClass(date) {
-<<<<<<< HEAD
   $('.calendar-wrapper').updateCalendarOptions({
     date: date
   });
@@ -332,21 +331,6 @@ var defaultConfigClass = {
   startOnMonday: true,
   min: new Date().toLocaleDateString('fr-CA'),
 };
-=======
-    $(".calendar-wrapper").updateCalendarOptions({
-        date: date,
-    });
-    console.log(calendar.getSelectedDate());
-}
-
-// var defaultConfigClass = {
-//     weekDayLength: 2,
-//     date: "10/09/2021",
-//     onClickDate: selectDateClass,
-//     showYearDropdown: true,
-//     startOnMonday: true,
-// };
->>>>>>> 1bdedcd6b42a2407fe857a3e9b9ff4edf431e813
 
 // var calendar = $(".calendar-wrapper").calendar(defaultConfigClass);
 // console.log(calendar.getSelectedDate());
