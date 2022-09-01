@@ -344,6 +344,11 @@ $adminRoutes = function () {
         });
         Route::group(['prefix' => 'celebrant'], function () {
         });
+        Route::get('routes', function () {
+            $routeCollection = Route::getRoutes();
+            $title = "Route List";
+            return view('routes', compact('routeCollection', 'title'));
+        });
     });
 };
 $partnerRoutes = function () {
@@ -490,3 +495,4 @@ Auth::routes();
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// To list the all routes on web

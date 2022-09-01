@@ -7,7 +7,7 @@ use App\Models\{User,Booking,Locations};
 trait Methods
 {
 
-    public static function marriages($search = null)
+    public static function marriages($date, $search = null)
     {
         if ($search != '') {
             $data = User::role(['User'])->with([
@@ -26,6 +26,26 @@ trait Methods
                     // });
                 },
             ])
+<<<<<<< HEAD
+                ->where(function ($query) use ($search) {
+                    $query->where('first_name', 'like', '%' . $search . '%')
+                        ->orWhere('surname', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%');
+                })->orderBy('id', 'DESC');
+            dd($data->get()->toArray());
+        } else {
+            $data = User::role('User')
+                ->whereHas('booking', function ($query) use ($date) {
+                    $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name', 'booking_start_time', 'booking_end_time')->whereBookingDate($date);
+                })
+                ->with([
+                    'booking.location' => function ($query) {
+                        $query->select('name', 'id', 'price');
+                    },
+                    'booking.celebrant' => function ($query) {
+                        $query->select('first_name', 'id');
+                    },
+=======
             ->where(function ($query) use ($search) {
                 $query->where('first_name', 'like', '%' . $search . '%')
                     ->orWhere('surname', 'like', '%' . $search . '%')
@@ -43,11 +63,11 @@ trait Methods
                 'booking.celebrant' => function ($query) {
                     $query->select('first_name', 'id');
                 },
+>>>>>>> 7f7b570ef6cec88b3696b6c2115be510a69e9295
 
-            ])->select('name', 'id', 'phone', 'country_code', 'email')->orderBy('id', 'DESC');
+                ])->select('name', 'id', 'phone', 'country_code', 'email')
+                ->orderBy('id', 'DESC');
         }
-
-
         return   $data;
     }
     public static function marriage_detail($id = null)
@@ -72,9 +92,9 @@ trait Methods
         $req_page = 1;
         $records = 10;
         $locations = self::marriages();
-      
+
         if($request->has('filter') && !empty($request->filter)){
-            if(in_array('0',$request->filter)){             
+            if(in_array('0',$request->filter)){
                 $data =$locations;
             }else{
                 $id = $request->filter;
@@ -91,7 +111,7 @@ trait Methods
         }
     }
     public static function searchMarriages($request){
-        
+
         $req_page = 1;
         $records = 10;
         $whereClause = [];
