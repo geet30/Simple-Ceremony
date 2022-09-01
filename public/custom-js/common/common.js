@@ -58,20 +58,23 @@ function dateFormat(inputDate, format) {
 }
 /////// calander Js
 function selectDate(date) {
-    $("#calendar-wrapper").updateCalendarOptions({
-        date: date,
-    });
-    date = new Date(date);
-    date = dateFormat(date, "MM/dd/yyyy");
-    getMarriageBookingsRequest(date);
+  $('#calendar-wrapper').updateCalendarOptions({
+    date: date
+  });
+  date = new Date(date);
+  date = dateFormat(date, "MM/dd/yyyy");
+  getMarriageBookingsRequest(date);
+ 
 }
 
 var defaultConfig = {
-    weekDayLength: 2,
-    date: new Date(),
-    onClickDate: selectDate,
-    showYearDropdown: true,
-    startOnMonday: true,
+  weekDayLength: 2,
+  date: new Date().toLocaleDateString('fr-CA'),
+  onClickDate: selectDate,
+  showYearDropdown: true,
+  startOnMonday: true,
+  min: new Date().toLocaleDateString('fr-CA'),
+
 };
 
 var calendar = $(".calendar-wrapper").calendar();
@@ -314,6 +317,22 @@ $(document).ready(function () {
     });
 });
 function selectDateClass(date) {
+<<<<<<< HEAD
+  $('.calendar-wrapper').updateCalendarOptions({
+    date: date
+  });
+  
+}
+
+var defaultConfigClass = {
+  weekDayLength: 2,
+  date: new Date().toLocaleDateString('fr-CA'),
+  onClickDate: selectDateClass,
+  showYearDropdown: true,
+  startOnMonday: true,
+  min: new Date().toLocaleDateString('fr-CA'),
+};
+=======
     $(".calendar-wrapper").updateCalendarOptions({
         date: date,
     });
@@ -327,6 +346,7 @@ function selectDateClass(date) {
 //     showYearDropdown: true,
 //     startOnMonday: true,
 // };
+>>>>>>> 1bdedcd6b42a2407fe857a3e9b9ff4edf431e813
 
 // var calendar = $(".calendar-wrapper").calendar(defaultConfigClass);
 // console.log(calendar.getSelectedDate());

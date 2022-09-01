@@ -26,7 +26,7 @@
       </a>
    </div>
 </div>
-<div id="searchResult" class="searchResult" class="row">
+<div id="searchResult" class="searchResult row">
 
    @include('elements.admin.location.all-locations', ['title' => 'locations', '' => '', 'locations' => $locations])
 </div>

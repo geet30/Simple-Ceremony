@@ -35,7 +35,7 @@ $(document).ready(function(){
         if($('#calendar_date').val() !=''){
             var  calendar_date= $('#calendar_date').val();
         }else{
-            // var  calendar_date = new Date().toLocaleDateString();
+            // var  calendar_date = new Date().toLocaleDateString('fr-CA');
         }
         var booking_start_time  = $('#booking_start_time').val();
         var booking_end_time  = $('#booking_end_time').val();
