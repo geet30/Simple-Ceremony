@@ -6,8 +6,10 @@
         </div>
         <ul class="nav flex-column" id="sidebar">
             <li class="nav-item">
-            
-                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1)=='marriages' ? 'active' : ''}}" aria-current="page" href="/marriages">
+            <!-- <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-enquiries' || Request::segment(1) == 'enquiries' ? 'active' : '' }}"
+                    href="/all-enquiries/all-records-tab"> -->
+
+                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1)=='marriages' ? 'active' : ''}}" aria-current="page" href="/marriages/all-records-tab">
                     <svg width="24" height="27" viewBox="0 0 24 27" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
