@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use Illuminate\Support\Carbon;
+use connectGoogleCalendar;
 
 class CalanderController extends Controller
 {
@@ -97,5 +98,12 @@ class CalanderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function connectGoogleCalendar()
+    {
+        $client = GoogleCalendar::getClient();
+        $authUrl = $client->createAuthUrl();
+        return redirect($authUrl);
     }
 }
