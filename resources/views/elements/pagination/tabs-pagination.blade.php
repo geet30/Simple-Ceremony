@@ -40,14 +40,12 @@
 </div>
 <script type="text/javascript">
     function fetch_data(page, perpage) {
-
         if (perpage == '' || perpage == undefined) {
             perpage = $('.perPage').val();
         }
-
         var route = window.location.pathname + '?page=' + page;
         var data = {
-            'records': perpage
+            'records': perpage,
         };
         $.ajax({
             method: 'GET',
@@ -63,7 +61,6 @@
                     $("#follow-up").html(response);
                 } else if (window.location.pathname.split('/')[2] == 'no-interest-tab') {
                     $("#no-interest").html(response);
-
                 }
             },
         });

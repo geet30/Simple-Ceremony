@@ -81,6 +81,7 @@
                                         </span>
                                     </div>
                                 </div>
+
                                 <div class="marriagesListing" id="overview-booking-list">
                                     @foreach ($bookings as $booking)
                                         <div class="marriage-calendar-overview">
@@ -119,10 +120,49 @@
                                                                 {{ $booking->booking->location->name }}</p>
                                                         </div>
                                                     </div>
+
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/calendar/location.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Tench park</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="reason-details">
+                                                <p class="button-1 mb-1">Reason :</p>
+                                                <p class="body-3 mb-0">There is the same schedule with other person 2s</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="marriage-calendar-overview mt-4">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 col-lg-1 mb-2">
+                                            <div class="numberCircle">4</div>
+                                        </div>
+                                        <div class="col-12 col-md-10 col-lg-11">
+                                            <h4 class="h4 neutral-100">Jorsey &amp; Erin</h4>
+                                            <div class="d-flex mt-3 flex-md-row flex-column">
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/user-gray.svg" alt="user">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0"> <a
+                                                            class="turquoise-100 text-decoration-none"
+                                                            href="#">Assign</a></p>
+                                                </div>
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/time.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">15:00</p>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/calendar/location.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Tench park</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

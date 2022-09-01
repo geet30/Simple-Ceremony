@@ -15,14 +15,15 @@ class EnqueriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $slug)
     {
         try {
             $req_page = 1;
-            $records = 10;
+            $records = 2;
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
+
             $enquries = new Enqueries();
             $all_enquries = (clone $enquries)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             $follow_enquries = (clone $enquries)->where('status', 0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
@@ -35,6 +36,19 @@ class EnqueriesController extends Controller
                 'booked_enquries' => $booked_enquries,
                 'noInterest_enquries' => $noInterest_enquries
             );
+            if ($request->ajax()) {
+                if ($slug == 'all-records-tab') {
+                    $data = $all_enquries;
+                } else if ($slug == 'follow-up-tab') {
+                    $data = $follow_enquries;
+                } else if ($slug == 'booked-tab') {
+                    $data = $booked_enquries;
+                } else {
+                    $data = $noInterest_enquries;
+                }
+                $viewurl = 'admin.enquiries.search-list';
+                return View::make($viewurl, compact('data'));
+            }
             return view('admin.enquiries.listing', compact('dataArray'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
