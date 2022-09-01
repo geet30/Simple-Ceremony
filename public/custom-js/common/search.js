@@ -52,7 +52,7 @@ $(document).ready(function(){
             
             success: function(response)
             {
-                $("#searchResult").html(response);
+                $(".searchResult").html(response);
                 
             }
         });

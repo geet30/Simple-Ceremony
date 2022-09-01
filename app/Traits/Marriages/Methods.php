@@ -102,7 +102,7 @@ trait Methods
         //     ];
         // }
         if($request->has('type') && $request->filled('type') &&  $request->type=='date'){
-            $request->search = date('m-d-Y',strtotime($request->search));
+            $request->search = date('Y-m-d',strtotime($request->search));
         }
         if ($request->has('search') && $request->filled('search')) {
             $data = $data->whereHas('booking', (function ($q) use ($request)
@@ -110,13 +110,6 @@ trait Methods
                 $q->Where('booking_date', 'like', '%' . $request->search . '%');
 
             }))->where($whereClause)->orderBy('id', 'DESC');
-
-            // $data = $data->where(function ($query) use ($request) {
-            //     $query->where('couple_one', 'like', '%' . $request->search . '%')
-            //         ->orWhere('couple_two', 'like', '%' . $request->search . '%')
-            //         ->orWhere('phone', 'like', '%' . $request->search . '%')
-            //         ->orWhere('enquiry_date', 'like', '%' . $request->search . '%');
-            // })->where($whereClause)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
         } else {
             $data = $data->orderBy('id', 'DESC');
         }

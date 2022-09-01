@@ -1,4 +1,4 @@
-<div class="table-responsive marriagesListing" id="marriagesListing">
+
     <table class="table align-middle theme-table">
         <thead>
         <tr>
@@ -69,9 +69,8 @@
         <tfoot>
         <tr>
             <td colspan="10">
-                @include('elements.pagination.pagination', ['title' => 'All marriages', 'id' => '#marriagesListing', 'class' => '.marriagesListing', 'data' => $data])
+                @include('elements.pagination.pagination', ['title' => 'All marriages', 'id' => '#marriagesListing', 'class' => '.searchResult', 'data' => $data])
             </td>
         </tr>
         </tfoot>
     </table>
-</div>
