@@ -158,12 +158,36 @@
                                                         value="{{ $data->surname }}" id="InputName" required
                                                         name="user[surname]" readonly>
                                                 </div>
-                                                <div class="col-md-6 mb-4">
+                                                <div class="col-md-6 mb-4 showClass">
                                                     <label for="phone" class="form-label small-text2 ms-2">Phone
                                                         number</label>
                                                     <input class="form-control body-1 netural-100 readonlyInput"
-                                                        type="tel" required value="{{ $data->phone }}"
-                                                        name="user[phone]" readonly>
+                                                        type="tel" required
+                                                        value="+{{ $data->country_code }}-{{ $data->phone }}" readonly>
+                                                </div>
+                                                <div class="col-md-6 mb-4 phone_number saveClass d-none">
+                                                    <label for="phone" class="form-label small-text2">Phone number
+                                                        *</label>
+                                                    <input type="hidden" id="code" name="user[country_code]"
+                                                        value="{{ $data->country_code }}">
+                                                    <input id="phone" type="tel"
+                                                        class="form-control body-1 netural-100 tel-input"
+                                                        placeholder="Your phone number" name="user[phone]"
+                                                        value="+{{ $data->country_code }}{{ $data->phone }}" required
+                                                        maxlength="15">
+                                                    <div class="invalid-feedback"> <span><img class="me-2"
+                                                                src="/images/require-iocn.svg"
+                                                                alt="Require Icon"></span>Phone
+                                                        number is required</div>
+                                                    <div class="invalid-feedback phone_number_required"> <span><img
+                                                                class="me-2" src="/images/require-iocn.svg"
+                                                                alt="Require Icon"></span>Phone
+                                                        number is required</div>
+                                                    <div class="invalid-feedback invalid-phone-number"> <span><img
+                                                                class="me-2" src="/images/require-iocn.svg"
+                                                                alt="Require Icon"></span>Phone
+                                                        number is invalid</div>
+
                                                 </div>
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Email
@@ -260,24 +284,32 @@
                                                     <textarea class="form-control body-1 netural-100 readonlyInput" id="ceremonyplace" rows="10" readonly
                                                         name="celebrant[description]">{{ $data->celebrant->description ?? '' }}</textarea>
                                                 </div>
-                                                <div class="col-md-6 mb-4 position-relative">
+                                                <div class="col-md-6 mb-4 ">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Standard
                                                         fee</label>
-                                                    <span class="currency-sign body-1 netural-100">$</span>
-                                                    <input type="number" step="0.01"
-                                                        class="form-control body-1 netural-100 readonlyInput ps-4"
-                                                        id="InputName" value="{{ $data->celebrant->standard_fee ?? '' }}"
-                                                        name="celebrant[standard_fee]" readonly>
+                                                    <div class=" position-relative">
+
+                                                        <span class="currency-sign body-1 netural-100">$</span>
+                                                        <input type="number" step="0.01"
+                                                            class="form-control body-1 netural-100 readonlyInput ps-4"
+                                                            id="InputName"
+                                                            value="{{ $data->celebrant->standard_fee ?? '' }}"
+                                                            name="celebrant[standard_fee]" readonly>
+                                                    </div>
 
                                                 </div>
-                                                <div class="col-md-6 mb-4 position-relative">
+                                                <div class="col-md-6 mb-4 ">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Admin
                                                         fee</label>
-                                                    <span class="currency-sign body-1 netural-100">$</span>
-                                                    <input type="number" step="0.01"
-                                                        class="form-control body-1 netural-100 readonlyInput ps-4"
-                                                        id="InputName" value="{{ $data->celebrant->admin_fee ?? '' }}"
-                                                        name="celebrant[admin_fee]" readonly>
+                                                    <div class="position-relative">
+
+                                                        <span class="currency-sign body-1 netural-100">$</span>
+                                                        <input type="number" step="0.01"
+                                                            class="form-control body-1 netural-100 readonlyInput ps-4"
+                                                            id="InputName"
+                                                            value="{{ $data->celebrant->admin_fee ?? '' }}"
+                                                            name="celebrant[admin_fee]" readonly>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-12 col-lg-6 mb-4 celebrantLocation">
                                                     <div class="row">
@@ -318,14 +350,14 @@
                                                 </div>
                                                 <div class="col-md-12 mb-4">
                                                     <a role="button"
-                                                        class="d-inline-flex theme-btn primary-btn justify-content-center editTextBtn"
-                                                        onclick="displayItem('editTextBtn','saveBtn')">
+                                                        class="d-inline-flex theme-btn primary-btn justify-content-center showClass"
+                                                        onclick="displayItem('showClass','saveClass')">
                                                         <img class="me-2" src="/images/admin/partner/edit.svg"
                                                             alt="Edit">
                                                         Edit information
                                                     </a>
                                                     <button type="submit"
-                                                        class="d-inline-flex theme-btn primary-btn justify-content-center sticky-bottom d-none saveBtn">Save</button>
+                                                        class="d-inline-flex theme-btn primary-btn justify-content-center sticky-bottom d-none saveClass">Save</button>
                                                 </div>
                                             </div>
                                         </form>

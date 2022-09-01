@@ -79,46 +79,129 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="marriagesListing">
-                                    @php
-                                        $count == 0;
-                                    @endphp
-                                    @foreach ($bookings as $booking)
-                                        @php
-                                            $count++;
-                                        @endphp
-                                        <div class="marriage-calendar-overview">
-                                            <div class="row">
-                                                <div class="col-12 col-md-2 col-lg-1 mb-2">
-                                                    <div class="numberCircle">{{ $count }}</div>
+                                <div class="marriage-calendar-overview">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 col-lg-1 mb-2">
+                                            <div class="numberCircle">1</div>
+                                        </div>
+                                        <div class="col-12 col-md-10 col-lg-11">
+                                            <h4 class="h4 neutral-100">Steven &amp; Claudia</h4>
+                                            <div class="d-flex mt-3 flex-md-row flex-column">
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/user-gray.svg" alt="user">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Johny</p>
+                                                    <span class="d-inline-block ms-2" tabindex="0"
+                                                        data-bs-toggle="popover" data-bs-trigger="hover focus"
+                                                        data-bs-placement="right" data-bs-content="Approved">
+                                                        <img src="/images/calendar/timeline-success.svg"
+                                                            alt="Information Icon" style="width:13px;">
+                                                    </span>
                                                 </div>
-                                                <div class="col-12 col-md-10 col-lg-11">
-                                                    <h4 class="h4 neutral-100">{{ $booking->first_couple_name }} &amp;
-                                                        {{ $booking->second_couple_name }}</h4>
-                                                    <div class="d-flex mt-3 flex-md-row flex-column">
-                                                        <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
-                                                            <img src="/images/calendar/user-gray.svg" alt="user">
-                                                            <p class="gray-gray-900 body-2 ms-2 mb-0">Johny</p>
-                                                            <span class="d-inline-block ms-2" tabindex="0"
-                                                                data-bs-toggle="popover" data-bs-trigger="hover focus"
-                                                                data-bs-placement="right" data-bs-content="Approved">
-                                                                <img src="/images/calendar/timeline-success.svg"
-                                                                    alt="Information Icon" style="width:13px;">
-                                                            </span>
-                                                        </div>
-                                                        <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
-                                                            <img src="/images/calendar/time.svg" alt="mobile">
-                                                            <p class="gray-gray-900 body-2 ms-2 mb-0">09:00</p>
-                                                        </div>
-                                                        <div class="d-flex align-items-center">
-                                                            <img src="/images/calendar/location.svg" alt="mobile">
-                                                            <p class="gray-gray-900 body-2 ms-2 mb-0">Bradfield park</p>
-                                                        </div>
-                                                    </div>
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/time.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">09:00</p>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/calendar/location.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Bradfield park</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
+                                </div>
+                                <div class="marriage-calendar-overview mt-4">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 col-lg-1 mb-2">
+                                            <div class="numberCircle">2</div>
+                                        </div>
+                                        <div class="col-12 col-md-10 col-lg-11">
+                                            <h4 class="h4 neutral-100">John &amp; Amily</h4>
+                                            <div class="d-flex mt-3 flex-md-row flex-column">
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/user-gray.svg" alt="user">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Alex</p>
+                                                    <span class="d-inline-block ms-2" tabindex="0"
+                                                        data-bs-toggle="popover" data-bs-trigger="hover focus"
+                                                        data-bs-placement="right" data-bs-content="Waiting for approval">
+                                                        <img src="/images/calendar/timeline-warning.svg"
+                                                            alt="Information Icon" style="width:13px;">
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/time.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">10:00</p>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/calendar/location.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Blues point</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="marriage-calendar-overview mt-4">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 col-lg-1 mb-2">
+                                            <div class="numberCircle">3</div>
+                                        </div>
+                                        <div class="col-12 col-md-10 col-lg-11">
+                                            <h4 class="h4 neutral-100">Tomy &amp; Cheline</h4>
+                                            <div class="d-flex mt-3 flex-md-row flex-column">
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0 danger">
+                                                    <img src="/images/calendar/user-gray.svg" alt="user">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Jax</p>
+                                                    <span class="d-inline-block ms-2" tabindex="0"
+                                                        data-bs-toggle="popover" data-bs-trigger="hover focus"
+                                                        data-bs-placement="right" data-bs-content="Needs attention!">
+                                                        <img src="/images/calendar/timeline-error.svg"
+                                                            alt="Information Icon" style="width:13px;">
+                                                    </span>
+                                                </div>
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/time.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">15:00</p>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/calendar/location.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Tench park</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="reason-details">
+                                                <p class="button-1 mb-1">Reason :</p>
+                                                <p class="body-3 mb-0">There is the same schedule with other person 2s</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="marriage-calendar-overview mt-4">
+                                    <div class="row">
+                                        <div class="col-12 col-md-2 col-lg-1 mb-2">
+                                            <div class="numberCircle">4</div>
+                                        </div>
+                                        <div class="col-12 col-md-10 col-lg-11">
+                                            <h4 class="h4 neutral-100">Jorsey &amp; Erin</h4>
+                                            <div class="d-flex mt-3 flex-md-row flex-column">
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/user-gray.svg" alt="user">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0"> <a
+                                                            class="turquoise-100 text-decoration-none"
+                                                            href="#">Assign</a></p>
+                                                </div>
+                                                <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
+                                                    <img src="/images/calendar/time.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">15:00</p>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="/images/calendar/location.svg" alt="mobile">
+                                                    <p class="gray-gray-900 body-2 ms-2 mb-0">Tench park</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
