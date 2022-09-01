@@ -73,7 +73,7 @@
                                 <div class="col-md-12 mb-4">
                                     <label for="first_name" class="form-label small-text2">First Name *</label>
                                     <input type="text" placeholder="Type your first name here"
-                                        class="form-control body-1 netural-100" name="first_name" id="first_name"
+                                        class="form-control body-1 netural-100" name="couple_one" id="first_name"
                                         required="">
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                                 alt="Require Icon"></span>Name is required</div>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-md-12 mb-4 phone_number">
                                     <label for="phone" class="form-label small-text2">Phone number *</label>
-                                    <input type="hidden" id="code" name="country_code" value="61">
+                                    <input type="hidden" id="code" name="phone_code" value="61">
                                     <input class="form-control body-1 netural-100 tel-input" type="tel" id="phone"
                                         placeholder="e.g. +1 702 123 4567" name="phone" required>
                                     <div class="invalid-feedback phone_number_required"> <span><img class="me-2"
@@ -102,7 +102,7 @@
                                     <label for="description" class="form-label small-text2">Anything you would like us to
                                         know before we call? *</label>
                                     <textarea placeholder="Type here" class="form-control body-1 netural-100" id="description" rows="8"
-                                        name="description" required></textarea>
+                                        name="enquiry" required></textarea>
                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                 src="/images/require-iocn.svg" alt="Require Icon"></span>Description is
                                         required</div>

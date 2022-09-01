@@ -99,10 +99,10 @@ trait Methods
         $when = now()->addMinutes(1);
         $dataMail  = array(
             'email' => $data['email'],
-            'first_name' => $data['first_name'],
+            'first_name' => $data['couple_one'],
             'phone' => $data['phone'],
-            'country_code' => $data['country_code'],
-            'description' => $data['description']
+            'country_code' => $data['phone_code'],
+            'description' => $data['enquiry']
         );
         // dd($dataMail);
 
