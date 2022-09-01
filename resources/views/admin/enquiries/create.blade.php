@@ -97,9 +97,8 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label class="form-label small-text2">Reference by</label>
-                                            <select required="" name="customer_type"
-                                                class="js-placeholder-single-input form-control" name="reffer_by"
-                                                required>
+                                            <select required="" class="js-placeholder-single-input form-control"
+                                                name="reffer_by" required>
                                                 <option value="" disabled="" selected="" hidden="">
                                                     Select
                                                 </option>

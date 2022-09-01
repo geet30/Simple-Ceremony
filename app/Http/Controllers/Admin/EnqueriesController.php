@@ -19,7 +19,7 @@ class EnqueriesController extends Controller
     {
         try {
             $req_page = 1;
-            $records = 2;
+            $records = 10;
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
@@ -75,6 +75,7 @@ class EnqueriesController extends Controller
     {
         try {
             $input = $request->except('_token');
+            dd($input);
             $result = Enqueries::create($input);
             if ($result) {
                 return redirect('all-enquiries/all-records-tab')->with('message', 'Enquiry created successfully.');
