@@ -25,7 +25,9 @@
                  <tr>
                      <td class="body-2 neutral-100" style="min-width:180px;">{{ $celebrant->first_name }}
                          {{ $celebrant->surname }}</td>
-                     <td class="body-2 neutral-100" style="min-width:180px;">{{ $celebrant->phone }}</td>
+                     <td class="body-2 neutral-100" style="min-width:180px;">
+                         {{ $celebrant->phone_code != '' ? '+' : '' }}{{ $celebrant->phone_code }}{{ $celebrant->phone_code != '' ? '-' : '' }}{{ $celebrant->phone }}
+                     </td>
                      <td class="body-2 neutral-100" style="min-width:180px;">{{ $celebrant->email }}</td>
                      <td class="body-2 neutral-100" style="min-width:200px;">
                          <ul class="m-0 p-0">

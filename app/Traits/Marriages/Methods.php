@@ -7,14 +7,15 @@ use App\Models\{User,Booking,Locations};
 trait Methods
 {
 
-    public static function marriages($search=null){
-        if($search !=''){
+    public static function marriages($search = null)
+    {
+        if ($search != '') {
             $data = User::role(['User'])->with([
                 'booking' => function ($query) {
-                    $query->select('booking_date', 'id','user_id','locationId','celebrant_id','first_couple_name','status','created_at','second_couple_name');
+                    $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name');
                 },
-                'booking.location' => function($query){
-                    $query->select('name','id','price');
+                'booking.location' => function ($query) {
+                    $query->select('name', 'id', 'price');
                 },
                 'booking.celebrant' => function ($query) use ($search) {
                     $query->select('first_name', 'id');
@@ -34,23 +35,23 @@ trait Methods
         }else{
             $data = User::role('User')->with([
                 'booking' => function ($query) {
-                    $query->select('booking_date', 'id','user_id','locationId','celebrant_id','first_couple_name','status','created_at','second_couple_name');
+                    $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name');
                 },
-                'booking.location' => function($query){
-                    $query->select('name','id','price');
+                'booking.location' => function ($query) {
+                    $query->select('name', 'id', 'price');
                 },
                 'booking.celebrant' => function ($query) {
                     $query->select('first_name', 'id');
                 },
 
-            ])->select('name','id','phone','country_code','email')->orderBy('id', 'DESC');
+            ])->select('name', 'id', 'phone', 'country_code', 'email')->orderBy('id', 'DESC');
         }
-        
+
 
         return   $data;
-
     }
-    public static function marriage_detail($id=null){
+    public static function marriage_detail($id = null)
+    {
         $data =   Booking::with([
             'user' => function($query){
                 $query->select('email','phone','country_code','id');
@@ -58,15 +59,14 @@ trait Methods
             'location' => function($query){
                 $query->select('name','id','price');
             },
-            'celebrant' => function($query){
-                $query->select('first_name','id');
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id');
             }
         ]);
-        if($id !=null){
-            $data = $data->where('id',$id);
+        if ($id != null) {
+            $data = $data->where('id', $id);
         }
         return   $data;
-
     }
     public static function searchMarriageLocation($request){
         $req_page = 1;
