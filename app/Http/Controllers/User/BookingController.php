@@ -82,7 +82,6 @@ class BookingController extends Controller
             return view('user.booking.book-location',compact('booking','timeslot','locationId','get_location_addons','location_price'));
         }
         catch (\Exception $ex) {
-            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }    
     }  
