@@ -37,7 +37,7 @@
                 ?>
                 <tr>
                     <td class="body-2 neutral-100" style="min-width:130px;">
-                        {{ $enq->enquiry_date }}</td>
+                    {{ date('M d,Y',strtotime($enq->enquiry_date)) }}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width:150px;">{{ $enq->couple_one }}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width:150px;">{{ $enq->couple_two }}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width:150px;">
@@ -45,7 +45,13 @@
                     </td>
                     <td class="body-2 neutral-100 text-center" style="min-width:130px;">{{ $reffer }}
                     </td>
-                    <td class="body-2 neutral-100 text-center" style="min-width:130px;">{{ $enq->marriage_date }}
+                    <td class="body-2 neutral-100 text-center" style="min-width:130px;">
+                    <?php $enquiry = ''; ?>
+                    @if(isset($enq->marriage_date) && !empty($enq->marriage_date))
+                      <?php $enquiry = date('M d,Y',strtotime($enq->marriage_date)) ?>
+                
+                    @endif
+                    {{ $enquiry }}
                     </td>
                     <td style="min-width:150px;" class="text-center">
                         <div class="dropdown table-dropdown">
