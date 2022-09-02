@@ -39,7 +39,7 @@ trait Methods
         foreach ($getLocationPackages as $key => $packages) {
 
             foreach ($packages['packages'] as $key => $package) {
-                $total_fee += number_format($package['total_fee']);
+                $total_fee += round($package['total_fee'],0);
             }
         }
         return $total_fee;
