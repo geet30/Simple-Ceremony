@@ -20,7 +20,7 @@
     </div>
 </div>
 <style type="text/css">
-    .select2-container {
-        z-index: 99999;
-    }
+span.select2-container.select2-container--default.select2-container--open {
+    z-index: 9999999;
+}
 </style>

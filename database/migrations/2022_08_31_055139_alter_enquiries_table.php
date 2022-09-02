@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('enqueries', function (Blueprint $table) {
             $table->string('email')->nullable();
         });
+        
     }
 
     /**

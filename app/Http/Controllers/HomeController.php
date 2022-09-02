@@ -121,10 +121,19 @@ class HomeController extends Controller
             $input = $request->except('_token');         
             $input['enquiry_date'] = date('Y-m-d');
             Enqueries::create($input);
+            // send notification 
+            $admin = User::role('Admin')->first();
+            $title = 'New enquiry';
+            $body = $request->couple_one;
+            $redirection_url = '/all-enquiries/all-records-tab';
+            $type = 'Contact us form';
+            notificationSave('', $admin->id, $title, $body, $redirection_url, $type);
+
             Booking::contactUsEmail($request->all());
             return redirect('contact-us')->with('message', 'Message Sent Successfully');
 
         }catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
