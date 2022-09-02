@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use Illuminate\Support\Carbon;
-use connectGoogleCalendar;
 
 class CalanderController extends Controller
 {
