@@ -11,12 +11,12 @@ function getMarriageBookingsRequest(date) {
             if (data.length > 0) {
                 let bookingListItems = "";
                 data.forEach(function (item, index) {
-                    // let assignCelebrantElement = `<a href="" data-bs-toggle="offcanvas"
-                    //                                 data-bs-target="#marriage-celebrant"
-                    //                                 class="text-decoration-underline  add-link assign_celebrant"
-                    //                                 data-id="${item.booking.id}"> Assign celebrant
-                    //                             </a>`;
-                    let assignCelebrantElement = "N/A";
+                    let assignCelebrantElement = `<a href="" data-bs-toggle="offcanvas"
+                                                    data-bs-target="#marriage-celebrant"
+                                                    class="text-decoration-underline add-link assign_celebrant"
+                                                    data-id="${item.booking.id}"> Assign celebrant
+                                                </a>`;
+                    //let assignCelebrantElement = "N/A";
                     let celebrantNameElement = `<img src="/images/calendar/user-gray.svg" alt="user">
                                                 <p class="gray-gray-900 body-2 ms-2 mb-0">
                                                     ${

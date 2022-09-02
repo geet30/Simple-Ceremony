@@ -97,18 +97,18 @@
                                                         {{ $booking['booking']['second_couple_name'] }}</h4>
                                                     <div class="d-flex mt-3 flex-md-row flex-column">
                                                         <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
-                                                            @if ($booking->booking->celebrant == null)
+                                                           
+                                                            @if ($booking->booking->celebrant != null)
                                                                 <img src="/images/calendar/user-gray.svg" alt="user">
                                                                 <p class="gray-gray-900 body-2 ms-2 mb-0">
                                                                     {{ $booking->booking->celebrant->first_name }}
                                                                 </p>
                                                             @else
-                                                                N/A
-                                                                {{-- <a href="" data-bs-toggle="offcanvas"
+                                                                <a href="" data-bs-toggle="offcanvas"
                                                                     data-bs-target="#marriage-celebrant"
                                                                     class="text-decoration-underline  add-link assign_celebrant"
                                                                     data-id="{{ $booking->booking->id }}"> Assign
-                                                                    celebrant</a> --}}
+                                                                    celebrant</a>
                                                             @endif
                                                             <span class="d-inline-block ms-2" tabindex="0"
                                                                 data-bs-toggle="popover" data-bs-trigger="hover focus"
@@ -180,5 +180,6 @@
             </div>
         </div>
     </div>
+    @include('admin.marriages.js')
     @include('elements.admin.marriage.assign-marriage-celebrant')
 @endsection

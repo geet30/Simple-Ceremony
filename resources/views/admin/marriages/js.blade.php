@@ -1,10 +1,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
-    
-    $('.assign_celebrant').click(function(){
+    $(document).on('click', '.assign_celebrant', function() {
        var id = $(this).data('id');
        $('.booking_id').val(id);
-
     })
     $("#add-celebrants").on("submit", function(e) { 
         e.preventDefault();
