@@ -64,7 +64,7 @@
                                     <h4 class="h4 neutral-100 mb-2 mb-md-0">Marriages
                                         (<span id="overview-booking-count">{{ count($bookings) }}</span>)
                                     </h4>
-                                    <div class="align-items-center d-flex">
+                                    {{-- <div class="align-items-center d-flex">
                                         <p class="button-1 mb-0 me-3">Integrate to</p>
                                         <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover"
                                             data-bs-trigger="hover focus" data-bs-placement="bottom"
@@ -79,7 +79,7 @@
                                             <img role="button" src="/images/calendar/microsoft_outlook.svg"
                                                 alt="Microsoft Outlook">
                                         </span>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 <div class="marriagesListing" id="overview-booking-list">
