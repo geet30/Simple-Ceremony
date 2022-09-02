@@ -7,8 +7,10 @@ function getMarriageBookingsRequest(date) {
         data: { date: date },
         dataType: "json",
         success: function (data) {
+            cl(data);
             $("span#overview-booking-count").text(data.length);
             if (data.length > 0) {
+                cl(data);
                 let bookingListItems = "";
                 data.forEach(function (item, index) {
                     bookingListItems += `<div class="marriage-calendar-overview">
