@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use Illuminate\Support\Carbon;
+use Spatie\GoogleCalendar\Event;
 
 class CalanderController extends Controller
 {
@@ -19,7 +20,7 @@ class CalanderController extends Controller
     {
         try {
             $date = Carbon::today();
-            $date = $request->ajax() ? $request->date : $date->format('m/d/Y');
+            $date = $request->ajax() ? $request->date : $date->format('Y/m/d');
             $count['marriageBookings'] = Booking::count();
             $count['marriageCelebrant'] = Booking::whereNotNull('celebrant_id')->groupBy('celebrant_id')->count();
             $count['marriageLocation'] = Booking::whereNotNull('locationId')->groupBy('locationId')->count();
@@ -27,6 +28,7 @@ class CalanderController extends Controller
             if ($request->ajax()) {
                 return $bookings;
             }
+            // return $bookings;
             return $request->ajax() ? $bookings : view('admin.calander.calander-overview', compact('bookings', 'count'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -104,5 +106,29 @@ class CalanderController extends Controller
         $client = GoogleCalendar::getClient();
         $authUrl = $client->createAuthUrl();
         return redirect($authUrl);
+    }
+    public function storeGoogleCalendarCredentials()
+    {
+        $client = GoogleCalendar::getClient();
+        $authCode = request('code');
+        // Load previously authorized credentials from a file.
+        $credentialsPath = storage_path('keys/client_secret_generated.json');
+        // Exchange authorization code for an access token.
+        $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+
+        // Store the credentials to disk.
+        if (!file_exists(dirname($credentialsPath))) {
+            mkdir(dirname($credentialsPath), 0700, true);
+        }
+        file_put_contents($credentialsPath, json_encode($accessToken));
+        return redirect('/calander-overview')->with('message', 'Credentials saved');
+    }
+    public function testGoogleCalendarEvent()
+    {
+        Event::create([
+            'name' => 'A new event',
+            'startDateTime' => Carbon::now(),
+            'endDateTime' => Carbon::now()->addHour(),
+        ]);
     }
 }
