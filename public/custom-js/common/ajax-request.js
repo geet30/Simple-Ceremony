@@ -3,7 +3,7 @@ var cl = console.log;
 function getMarriageBookingsRequest(date) {
     $.ajax({
         type: "GET", //THIS NEEDS TO BE GET
-        url: "/calander-overview",
+        url: "/calendar-overview",
         data: { date: date },
         dataType: "json",
         success: function (data) {
