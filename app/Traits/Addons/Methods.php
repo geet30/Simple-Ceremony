@@ -151,12 +151,15 @@ trait Methods
             'package' => function ($query) {
                 $query->select('user_id', 'location_description', 'product_id');
             },
+            'user' => function ($query) {
+                $query->select('*');
+            },
             'addon' => function ($query) {
                 $query->select('name', 'id');
             },
             'rejected' => function ($query) {
                 $query->select('feedback', 'id', 'product_id');
             },
-        ])->select('product_name', 'id', 'status', 'business_category');
+        ])->select('product_name', 'id', 'status','user_id', 'business_category');
     }
 }
