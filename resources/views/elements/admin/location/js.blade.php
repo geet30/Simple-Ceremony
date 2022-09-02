@@ -42,56 +42,67 @@ $(document).ready(function(){
     });
     window.findPackage = function(url,that,id){        
         var userid = $(that).val();
-        $.ajax({
-            type: 'post',
-            url: url,
-            data: {
-                'id': userid
-            },
-            dataType: 'json',
-            cache: false,
-            success: function(response) {
-               
-                if (response.status) {
-                   
-                    var temp =  $('#package-'+id);
-                    temp.empty();
-                    $.each(response.data, function (i, data) {      
-                        var total_fee = parseInt(data.total_fee);
+        console.log(userid,'user');
+        if(userid !=''){
+            $.ajax({
+                type: 'post',
+                url: url,
+                data: {
+                    'id': userid
+                },
+                dataType: 'json',
+                cache: false,
+                success: function(response) {
+                
+                    if (response.status) {
+                    
+                        var temp =  $('#package-'+id);
+                        temp.empty();
+                        $.each(response.data, function (i, data) {      
+                            var total_fee = parseInt(data.total_fee);
+                            $('<option>',
+                            {
+                                value: data.id,
+                                text: data.package_name
+                            }).html(data.package_name+' - $'+total_fee.toFixed(0)).appendTo("#package-"+id);
+                        });
+
+                    }
+                    else{
+                        var temp =  $('#package-'+id); // cache it
+                        temp.empty();
                         $('<option>',
                         {
-                            value: data.id,
-                            text: data.package_name
-                        }).html(data.package_name+' - $'+total_fee.toFixed(0)).appendTo("#package-"+id);
-                    });
-
-                }
-                else{
-                    var temp =  $('#package-'+id); // cache it
+                            value: '',
+                            text: 'Select package'
+                        }).html('Select package').appendTo("#package-"+id);
+    
+                    }
+                },
+                error: function(response) { // handle the error
+                    console.log(response.responseJSON.data);
+                    var temp = $('#package-'+id);
                     temp.empty();
                     $('<option>',
                     {
                         value: '',
                         text: 'Select package'
                     }).html('Select package').appendTo("#package-"+id);
- 
-                }
-            },
-            error: function(response) { // handle the error
-                console.log(response.responseJSON.data);
-                var temp = $('#package-'+id);
+                    
+
+                },
+                
+
+            })
+        }else{
+            var temp =  $('#package-'+id); // cache it
                 temp.empty();
                 $('<option>',
                 {
                     value: '',
                     text: 'Select package'
                 }).html('Select package').appendTo("#package-"+id);
-                
-
-            },
-            
-
-        })
+        }
         
 
     // })

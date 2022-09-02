@@ -125,7 +125,7 @@ class HomeController extends Controller
             $admin = User::role('Admin')->first();
             $title = 'New enquiry';
             $body = $request->couple_one;
-            $redirection_url = '/all-enquiries/all-records-tab';
+            $redirection_url = 'all-enquiries/all-records-tab';
             $type = 'Contact us form';
             notificationSave('', $admin->id, $title, $body, $redirection_url, $type);
 

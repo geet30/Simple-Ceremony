@@ -137,7 +137,7 @@ trait Methods
         }
         // send notification to admin for add-ons list
         $title = 'Add-ons status';
-        $redirection_url = '/add-ons';
+        $redirection_url = 'add-ons';
         $type = 'Add-ons status updated';
         $authId = Auth::user()->id;
         PartnerProducts::where('id', $request->id)->update($input);
