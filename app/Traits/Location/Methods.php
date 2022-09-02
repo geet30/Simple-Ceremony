@@ -96,7 +96,7 @@ trait Methods
     static function updateLocation($data,$id){   
        
         try{
-            dd($data->location_images);
+            // dd($data->location_images);
             $input = $data->all();  
             deleteRecords($data->image_id,'App\Models\LocationImages');  
             if($data->has('key_advantages') && !empty($data->key_advantages)){
