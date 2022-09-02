@@ -25,11 +25,12 @@ class CalanderController extends Controller
             $count['marriageCelebrant'] = Booking::whereNotNull('celebrant_id')->groupBy('celebrant_id')->count();
             $count['marriageLocation'] = Booking::whereNotNull('locationId')->groupBy('locationId')->count();
             $bookings = MarriagesMethods::marriages($date)->get();
+            $celebrants = Locations::celebrants()->get();
             if ($request->ajax()) {
                 return $bookings;
             }
             // return $bookings;
-            return $request->ajax() ? $bookings : view('admin.calander.calander-overview', compact('bookings', 'count'));
+            return $request->ajax() ? $bookings : view('admin.calander.calander-overview', compact('bookings', 'celebrants', 'count'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
