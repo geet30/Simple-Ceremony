@@ -145,7 +145,7 @@
                                                     class="body-1 neutral-100 me-4 mb-3">{{ ucfirst($addon->name) }}</span>
                                                 <div class="d-flex">
                                                     <a href="{{ route('addons.destroy', $addon->id) }}"
-                                                        class=""><img src="/images/admin/add-ons/add-on-delete.svg"
+                                                        class=""><img class="me-2" src="/images/admin/add-ons/add-on-delete.svg"
                                                             alt="Delete"></a>
                                                     <a class="edit-addon" class="ms-3" data-bs-toggle="offcanvas"
                                                         data-bs-target="#offcanvaseditaddons"

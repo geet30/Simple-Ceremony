@@ -27,7 +27,7 @@
                             </a>
                             <div class="dropdown-menu p-0 notification-dropdwon" aria-labelledby="notification">
                                 <div class="card card-notification">
-                                    <div class="card-header d-flex justify-content-end "
+                                    <div class="cursor-pointer card-header d-flex justify-content-end "
                                         onclick="event.preventDefault(); document.getElementById('notification-form').submit();">
                                         Mark all as read
                                     </div>

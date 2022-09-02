@@ -50,7 +50,7 @@
                     @if(isset($data->status) && $data->status== 0)
                      <a class="theme-btn  primary-btn me-2"  href="{{route('locations.create',$data->id)}}">Confirm</a>
                    
-                     <a onClick="changeStatus('/change-location-status',{{$data->id}},2,'detail','tab_id','location')"  class="theme-btn  primary-btn-border me-2">Decline</a>
+                     <a onClick="changeStatus('/change-location-status',{{$data->id}},2,'detail','tab_id','location')"  class="cursor-pointer theme-btn  primary-btn-border me-2">Decline</a>
                      @endif
                      <!-- <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
                      Edit</a> -->

@@ -105,7 +105,9 @@ function uploadImage($image, $folder)
  */
 function notificationSave($sender_id, $receiver_id, $title, $body, $redirection, $type)
 {
-   $not['sender_id'] = $sender_id;
+   if($sender_id!=''){
+      $not['sender_id'] = $sender_id;
+   }
    $not['receiver_id'] = $receiver_id;
    $not['title'] = $title;
    $not['body'] = $body;

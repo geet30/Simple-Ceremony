@@ -17,7 +17,7 @@
         </thead>
         <tbody>
             @foreach ($dataArray['all_marriages'] as $result)
-                
+            
                 <tr>
                     <td style="min-width:160px" class="body-2">{{$result->booking->first_couple_name}} & {{$result->booking->second_couple_name}}</td>
                     <td  style="min-width:130px" class="body-2">{{date('M d, Y',strtotime($result->booking->created_at))}}</td>
@@ -40,7 +40,8 @@
                     </td>
                     <td class="body-2 neutral-100" style="min-width:130px;">{{date('M d,Y',strtotime($result->booking->booking_date))}}</td>
                     <td style="min-width:120px;">
-                        <span class="status {{strtolower(config('ceremonyStatus.booking_status.'.$result->status) )}}"> {{config('ceremonyStatus.booking_status.'.$result->booking->status) }}  </span>
+                    
+                        <span class="status {{strtolower(config('ceremonyStatus.booking_status.'.$result->booking->status) )}}"> {{config('ceremonyStatus.booking_status.'.$result->booking->status) }}  </span>
                     </td>
                     
                     <td  style="min-width:60px;" class="body-2 neutral-100">
