@@ -62,9 +62,12 @@ function selectDate(date) {
         date: date,
     });
     $(".booking_date").val(new Date(date).toLocaleDateString("fr-CA"));
-    date = new Date(date);
-    date = dateFormat(date, "MM/dd/yyyy");
-    getMarriageBookingsRequest(date);
+
+    if (typeof getMarriageBookingsRequest == "function") {
+        date = new Date(date);
+        date = dateFormat(date, "MM/dd/yyyy");
+        getMarriageBookingsRequest(date);
+    }
 }
 
 var defaultConfig = {
