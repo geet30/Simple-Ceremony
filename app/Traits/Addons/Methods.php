@@ -97,25 +97,26 @@ trait Methods
             if ($request->table == 'partner_products') {
                 $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%');
                 if ($request->status != null) {
-                    $data = $data->where('status', $request->status)->orderBy('id', 'DESC')->get();
+                    $data = $data->where('status', $request->status);
                 }
-                $data = $data->orderBy('id', 'DESC');
+                $data = $data->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             } else {
-                $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC');
+                $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             }
         } else {
             if ($request->table == 'partner_products') {
                 $data = PartnerProducts::orderBy('id', 'DESC');
                 if ($request->status != null) {
-                    $data = $data->where('status', $request->status);
+                    $data = $data->where('status', $request->status)->paginate($records, ['*'], 'page', $req_page);
                 } else {
-                    $data = $data;
+                    $data = $data->paginate($records, ['*'], 'page', $req_page);
                 }
             } else {
-                $data = Addons::orderBy('id', 'DESC');
+                $data = Addons::orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             }
         }
-        return $data->paginate($records, ['*'], 'page', $req_page);
+        return $data;
+        
     }
     public static function changeStatus($request)
     {
