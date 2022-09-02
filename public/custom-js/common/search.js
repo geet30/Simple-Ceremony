@@ -5,22 +5,12 @@ $(document).ready(function(){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
       });
-
-      $('.calendar-wrapper').calendar({
-            onClickDate:function (date) {
-                $('#calendar-wrapper').updateCalendarOptions({
-                    date: date
-                });
-
-                $('#calendar_date').val(new Date(date).toLocaleDateString('fr-CA'));
-            }
-        });
         $('.set_date_time').click(function(){
            
-            if($('#calendar_date').val() !=''){
-                $('#set_date_time').html($('#calendar_date').val());
+            if($('#booking_date').val() !=''){
+                $('#set_date_time').html($('.booking_date').val());
             }else{
-                $('#set_date_time').html(new Date(date).toLocaleDateString('fr-CA')); 
+                $('#set_date_time').html(new Date().toLocaleDateString('fr-CA')); 
             }
 
         })

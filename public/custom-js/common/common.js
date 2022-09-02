@@ -61,9 +61,10 @@ function selectDate(date) {
   $('#calendar-wrapper').updateCalendarOptions({
     date: date
   });
-  date = new Date(date);
-  date = dateFormat(date, "MM/dd/yyyy");
-  getMarriageBookingsRequest(date);
+  $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
+//   date = new Date(date);
+//   date = dateFormat(date, "MM/dd/yyyy");
+//   getMarriageBookingsRequest(date);
  
 }
 
@@ -77,7 +78,6 @@ var defaultConfig = {
 
 };
 
-var calendar = $(".calendar-wrapper").calendar();
 $(document).ready(function () {
     $(".calendar-wrapper").calendar(defaultConfig);
 });
