@@ -1,4 +1,5 @@
-@if ($table == 'partner_products')
+@if($table == 'partner_products')
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
@@ -42,7 +43,7 @@
                             @endif
                         </td>
 
-                        <td class="body-2 neutral-100">Picture framing</td>
+                        <td class="body-2 neutral-100">{{$addon->user->contact_name}}</td>
                         <td style="min-width:200px;">
                             <div class="dropdown table-dropdown">
                                 <button class="btn dropdown-toggle {{ $status_class }}" type="button"
@@ -93,6 +94,7 @@
             </tr>
         </tfoot>
     </table>
+</div>
 @else
     @if (count($addons) > 0)
         @foreach ($addons as $counter => $addon)

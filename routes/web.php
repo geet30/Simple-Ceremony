@@ -19,7 +19,7 @@ use App\Http\Controllers\HomeController;
 $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
-
+    Route::post('/checkemail',[HomeController::class, 'checkIfMailExist']);
 
     Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
@@ -260,11 +260,13 @@ $adminRoutes = function () {
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
         });
         Route::group(['prefix' => 'marriages'], function () {
-            Route::get('/', [MarriagesController::class, 'index']);
+            Route::get('/{slug?}', [MarriagesController::class, 'index'])->name('admin.marriages');
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
+            Route::post('search-location', [MarriagesController::class, 'searchMarriageByLocation']);
+            Route::post('search-marriages', [MarriagesController::class, 'searchMarriagesByDate']);
+            Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
         });
-
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
         });

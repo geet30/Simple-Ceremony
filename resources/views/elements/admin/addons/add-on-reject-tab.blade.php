@@ -1,4 +1,4 @@
-<div class="table-responsive add-on-reject-tab_searchList" id="add-on-reject-tab_searchList">
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
@@ -39,7 +39,7 @@
                             {{$addon->package[0]->location_description}}
                         @endif
                     </td>
-                        <td class="body-2 neutral-100">Picture framing</td>
+                        <td class="body-2 neutral-100">{{$addon->user->contact_name}}</td>
                         <td style="min-width:200px;">
                         <div class="dropdown table-dropdown">
                             <button class="btn dropdown-toggle {{$status_class}}" type="button" id="add-on-reject-tab_{{$addon->id}}" data-bs-toggle="dropdown" aria-expanded="false">

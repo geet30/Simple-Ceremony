@@ -1,4 +1,4 @@
-<div class="table-responsive Waiting-for-approval-tab_searchList"  id="Waiting-for-approval-tab_searchList">
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
@@ -38,7 +38,7 @@
                     @if(isset($addon->package[0]) && !empty($addon->package[0]))
                         {{$addon->package[0]->location_description}}
                     @endif</td>
-                <td class="body-2 neutral-100">Flower by joelle</td>
+                <td class="body-2 neutral-100">{{$addon->user->contact_name}}</td>
                 <td style="min-width:200px;">
                 <div class="dropdown table-dropdown">
                     <button class="btn dropdown-toggle {{$status_class}}" type="button" 
