@@ -52,7 +52,7 @@
                                                                     <p class="neutral-70 small-text3 mb-2px">
                                                                         {{ $not->created_at }}
                                                                     </p>
-                                                                    <a class="text-decoration-none"
+                                                                    <a class="cursor-pointer text-decoration-none"
                                                                         onclick="readNotification('{{ route('notifications.update', $not->id) }}', '/{{ $not->redirection_url }}')">
                                                                         <p class="body-3-medium  text-black mb-0">
                                                                             {{ $not->title }}:

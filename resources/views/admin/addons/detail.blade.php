@@ -60,7 +60,7 @@
                                             class="theme-btn primary-btn me-3">Confirm</a>
 
                                         <a onclick="changeStatus('/change-status',{{ $data['id'] }},2,'detail','tab_id','addon')"
-                                            class="theme-btn primary-btn-border me-3">Reject</a>
+                                            class="theme-btn primary-btn-border me-3 cursor-pointer">Reject</a>
                                     @endif
                                     @if ($data['status'] == 1)
                                         <a href="{{route('admin.package.edit',$data['id'])}}" class="theme-btn primary-btn me-3"> <img class="me-2"
