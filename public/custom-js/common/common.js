@@ -58,24 +58,22 @@ function dateFormat(inputDate, format) {
 }
 /////// calander Js
 function selectDate(date) {
-  $('#calendar-wrapper').updateCalendarOptions({
-    date: date
-  });
-  $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
-//   date = new Date(date);
-//   date = dateFormat(date, "MM/dd/yyyy");
-//   getMarriageBookingsRequest(date);
- 
+    $("#calendar-wrapper").updateCalendarOptions({
+        date: date,
+    });
+    $(".booking_date").val(new Date(date).toLocaleDateString("fr-CA"));
+    date = new Date(date);
+    date = dateFormat(date, "MM/dd/yyyy");
+    getMarriageBookingsRequest(date);
 }
 
 var defaultConfig = {
-  weekDayLength: 2,
-  date: new Date().toLocaleDateString('fr-CA'),
-  onClickDate: selectDate,
-  showYearDropdown: true,
-  startOnMonday: true,
-  min: new Date().toLocaleDateString('fr-CA'),
-
+    weekDayLength: 2,
+    date: new Date().toLocaleDateString("fr-CA"),
+    onClickDate: selectDate,
+    showYearDropdown: true,
+    startOnMonday: true,
+    min: new Date().toLocaleDateString("fr-CA"),
 };
 
 $(document).ready(function () {
@@ -317,19 +315,18 @@ $(document).ready(function () {
     });
 });
 function selectDateClass(date) {
-  $('.calendar-wrapper').updateCalendarOptions({
-    date: date
-  });
-  
+    $(".calendar-wrapper").updateCalendarOptions({
+        date: date,
+    });
 }
 
 var defaultConfigClass = {
-  weekDayLength: 2,
-  date: new Date().toLocaleDateString('fr-CA'),
-  onClickDate: selectDateClass,
-  showYearDropdown: true,
-  startOnMonday: true,
-  min: new Date().toLocaleDateString('fr-CA'),
+    weekDayLength: 2,
+    date: new Date().toLocaleDateString("fr-CA"),
+    onClickDate: selectDateClass,
+    showYearDropdown: true,
+    startOnMonday: true,
+    min: new Date().toLocaleDateString("fr-CA"),
 };
 
 // var calendar = $(".calendar-wrapper").calendar(defaultConfigClass);
