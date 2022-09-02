@@ -172,6 +172,7 @@ class LocationsController extends Controller
      */
     public function edit($id)
     {
+       
         try {
             $filters = LocationFilters::all();
             $partners = Locations::partners();
