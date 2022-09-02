@@ -13,7 +13,7 @@
                     @endforeach
                     <div class="card-body">
                     
-                        <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">${{ $location['location']['price'] }}</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
+                        <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">${{ number_format($location['location']['price']) }}</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
                         <h2 class="h3 netural-100 mb-3 mb-lg-4">{{ $location['location']['name'] }}</h2>
                         <div class="card-btn-link d-flex">
                             <div class="align-self-center">{{ $btn }}</div>

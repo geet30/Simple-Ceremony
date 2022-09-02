@@ -4,10 +4,16 @@ $('.js-placeholder-single-input').select2({
 });
 
 
-// var current_url = window.location.pathname.split('/');
-// if(current_url[1] =='marriages')
+var current_url = window.location.pathname.split('/');
+if(current_url[1] =='marriages'){
+  var filter= `<div class="search-location"><a onclick="SearchResultsWithTab('search-location')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
+}else{
+  var filter= `<div class="search-location"><a onclick="SearchResults('search-location')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
+}
 
-var filter= `<div class="search-location"><a onclick="SearchResults('search-location')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
+
+
+
 $(".select2-drop").append(filter);
 
 $(".location_categories_button").select2()

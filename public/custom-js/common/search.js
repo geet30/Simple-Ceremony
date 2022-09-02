@@ -35,7 +35,7 @@ $(document).ready(function(){
         if($('#calendar_date').val() !=''){
             var  calendar_date= $('#calendar_date').val();
         }else{
-            // var  calendar_date = new Date().toLocaleDateString();
+            // var  calendar_date = new Date().toLocaleDateString('fr-CA');
         }
         var booking_start_time  = $('#booking_start_time').val();
         var booking_end_time  = $('#booking_end_time').val();
@@ -53,6 +53,35 @@ $(document).ready(function(){
             success: function(response)
             {
                 $(".searchResult").html(response);
+                
+            }
+        });
+    }
+    window.SearchResultsWithTab = function(url,keyword=null){
+        const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
+        $("#selectinput").select2("close");
+        var filter = $('.filter_by_categories').val()
+        var location= $('#search_location').val();
+        var calendar_date = '';
+        if($('#calendar_date').val() !=''){
+            var  calendar_date= $('#calendar_date').val();
+        }
+        var booking_start_time  = $('#booking_start_time').val();
+        var booking_end_time  = $('#booking_end_time').val();
+        var divId= sub_tab_id.slice(0, -4)
+        console.log(divId);
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter               
+            },
+            dataType: 'html',
+            cache: false,
+            
+            success: function(response)
+            {
+                $("#"+divId).html(response);
                 
             }
         });
@@ -99,7 +128,6 @@ $(document).ready(function(){
             }
         });
     }
-
 
     window.searchBookingAddon = function(url,keyword=null){
         $.ajax({

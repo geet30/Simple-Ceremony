@@ -72,7 +72,7 @@
                
             </div>
         </div>
-        <div id="searchResult" class="row">
+        <div id="searchResult" class="row searchResult">
 
             @include('elements.user.location.index', ['title' => 'locations', '' => '', 'locations' => $locations])
         </div>

@@ -52,10 +52,17 @@ class LoginController extends Controller
             $response = User::redirectToRole($request);
             if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {               
                 $user=Auth::user();
-                // User::addToCart();
-                if($response['role'] = $user->roles->first()->name){
+                if($response['role'] == $user->roles->first()->name){
+                   
                     return redirect($response['redirection']);
-                }else{
+                }
+                else if($response['role'] != $user->roles->first()->name){
+                    request()->session()->invalidate();
+                    request()->session()->regenerateToken();
+                    return Redirect::to('login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
+                    
+                }
+                else{
                     return Redirect::to('login')->withErrors(['email' => 'Provided credentials does not have access of this panel']);
                 }
             }
@@ -64,6 +71,7 @@ class LoginController extends Controller
             ]);
         }
         catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }  
         
@@ -71,7 +79,7 @@ class LoginController extends Controller
   
     public function logout() {
         try {
-            $user=Auth::user();
+            Auth::user();
             request()->session()->invalidate();
             request()->session()->regenerateToken();       
             return redirect()->route('login');

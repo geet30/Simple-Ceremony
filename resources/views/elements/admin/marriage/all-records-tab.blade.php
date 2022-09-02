@@ -1,4 +1,5 @@
-<div class="table-responsive searchResult" id="marriagesListing">
+
+    <div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
         <tr>
@@ -14,7 +15,7 @@
             <th></th>
         </tr>
         </thead>
-        <tbody id="searchResult" class="searchResult">
+        <tbody>
             @foreach ($dataArray['all_marriages'] as $result)
                 
                 <tr>
@@ -69,9 +70,9 @@
         <tfoot>
         <tr>
             <td colspan="10">
-                @include('elements.pagination.pagination', ['title' => 'All marriages', 'id' => '#marriagesListing', 'class'=>'.searchResult','data' => $dataArray['all_marriages']])
+                @include('elements.pagination.marriage-pagination', ['title' => 'All marriages','data' => $dataArray['all_marriages']])
             </td>
         </tr>
         </tfoot>
     </table>
-</div>
+    </div>

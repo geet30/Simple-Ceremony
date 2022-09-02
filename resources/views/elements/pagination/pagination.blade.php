@@ -46,7 +46,7 @@
 <script type="text/javascript">
     var outer_id = <?php echo json_encode($id); ?>;
     var outer_class = <?php echo json_encode($class); ?>;
-    console.log(outer_class);
+    
 
     function fetch_data(page, perpage) {
 
