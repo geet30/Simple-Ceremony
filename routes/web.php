@@ -265,8 +265,9 @@ $adminRoutes = function () {
             Route::get('/{slug?}', [MarriagesController::class, 'index'])->name('admin.marriages');
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
-            Route::post('search-location', [MarriagesController::class, 'searchMarriageLocation']);
-            Route::post('search-marriages', [MarriagesController::class, 'searchMarriages']);
+            Route::post('search-location', [MarriagesController::class, 'searchMarriageByLocation']);
+            Route::post('search-marriages', [MarriagesController::class, 'searchMarriagesByDate']);
+            Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
         });
 
         Route::get('create-celebrants-invoice', function () {

@@ -20,18 +20,13 @@ class MarriagesController extends Controller
         try {          
             $records = 10;
             $req_page = 1;
-            $search = '';
             if($request->has('page')){
                 $req_page = $request->page; 
             }
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all(); 
-            if ($request->has('search') && $request->filled('search')) {
-                $search = $request->search;
-                $data  = MarriagesMethods::marriages($search);
-            } else {
-                $data  = MarriagesMethods::marriages($search);
-            }
+            $data  = MarriagesMethods::fetch_marriages();
+           
            
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
             $booking_marriages = (clone $data)->where('status', 1)->paginate($records, ['*'], 'page', $req_page);
@@ -42,7 +37,7 @@ class MarriagesController extends Controller
             );
             if ($request->ajax()) {
                 $viewurl = 'elements.admin.marriage.' . $slug;
-                return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray, 'search' => $search]);
+                return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray]);
             }
             // dd($data);
             return view('admin.marriages.view', compact('dataArray','locations','celebrants'));
@@ -86,7 +81,7 @@ class MarriagesController extends Controller
      * @return \Illuminate\Http\Response
      * */
 
-    public function searchMarriages(Request $request){
+    public function searchMarriagesByDate(Request $request){
         try {
             $data =   MarriagesMethods::searchMarriages($request);
             return View::make('elements.admin.marriage.search-marriages', ['data' => $data]);
@@ -101,7 +96,7 @@ class MarriagesController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      * */
-    public function searchMarriageLocation(Request $request){
+    public function searchMarriageByLocation(Request $request){
         try {
             $data =   MarriagesMethods::searchMarriageLocation($request);
             // dd($data);
@@ -109,7 +104,24 @@ class MarriagesController extends Controller
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-    }    
+    }   
+    /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+    public function searchMarriagesByUser(Request $request){
+        try {
+            $data = MarriagesMethods::searchByUser($request);
+            // dd($data);
+            return View::make('elements.admin.marriage.search-marriages', ['data' => $data]);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }      
+    
     /**
      * Store a newly created resource in storage.
      *

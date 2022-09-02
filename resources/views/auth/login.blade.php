@@ -44,33 +44,27 @@
                                                         your account</h1>
                                                 </div>
                                                 @error('email')
-                                                    <div class="alert alert-danger" v-if="showError">Email or Password is
-                                                        invalid.</div>
+                                                    <div class="alert alert-danger" v-if="showError">{{ $message }}</div>
                                                 @enderror
                                                 <div class="col-lg-12 mb-4">
                                                     <label for="email" class="form-label small-text2">{{ __('Email') }}
                                                         *</label>
                                                     <input type="email" placeholder="Type your email here"
-                                                        class="form-control emailInput body-1 netural-100 @error('email') is-invalid @enderror"
-                                                        name="email" value="{{ old('email') }}" required
+                                                        class="form-control emailInput body-1 netural-100"
+                                                        name="email" required
                                                         autocomplete="off">
 
                                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                                 src="/images/require-iocn.svg"
                                                                 alt="Require Icon"></span>Email is required</div>
-                                                    {{-- @error('email')
-                                       <div class="invalid-feedback">
-                                          <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>
-                                          {{ $message }}
-                                       </div>
-                                    @enderror --}}
+                                                  
                                                 </div>
                                                 <div class="col-lg-12 mb-4">
                                                     <label for="password"
                                                         class="form-label small-text2">{{ __('Password') }} *</label>
                                                     <div class="password-with-eye">
                                                         <input type="password" placeholder="Type your password here"
-                                                            class="form-control passwordInput body-1 netural-100 @error('password') is-invalid @enderror"
+                                                            class="form-control passwordInput body-1 netural-100"
                                                             name="password" required autocomplete="off">
                                                         <i class="fas fa-eye-slash right-icon turquoise-100 eyeIcon"></i>
                                                         <div class="invalid-feedback"> <span><img class="me-2"

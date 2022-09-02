@@ -160,7 +160,7 @@
                </div>
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
-            <input type="text" class="form-control" placeholder="Search couple or celebrant" onkeyup="searchWithoutTabs('/marriages',this.value, 'marriagesListing', '1')">
+            <input type="text" class="form-control" placeholder="Search couple or celebrant" onkeyup="searchWithTabs('/marriages/search-by-user',this.value)">
                <span class="fa fa-search form-control-feedback"></span>
             </div>
          </div>
@@ -178,9 +178,8 @@
       <div class="tab-content" id="pills-tabContent">
          <div class="tab-pane fade show" id="all-records" role="tabpanel" aria-labelledby="all-records-tab"
             tabindex="0">
-            <div class="table-responsive searchResult">
                @include('elements.admin.marriage.all-records-tab')
-            </div>
+            
 
          </div>
          <div class="tab-pane fade" id="booked" role="tabpanel" aria-labelledby="booked-tab-tab"
