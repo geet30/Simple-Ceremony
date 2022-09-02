@@ -95,7 +95,7 @@
                 </div>
                 @if (\Session::has('message'))
                     <div class="alert {{ \Session::get('class') }}">
-                        <ul>
+                        <ul class="mb-0">
                             <li>{!! \Session::get('message') !!}</li>
                         </ul>
                     </div>

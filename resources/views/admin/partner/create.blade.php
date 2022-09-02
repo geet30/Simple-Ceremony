@@ -19,7 +19,7 @@
                   @endif
                   @if (\Session::has('message'))
                      <div class="alert {{\Session::get('class')}}">
-                           <ul> <li>{!! \Session::get('message') !!}</li></ul>
+                           <ul class="mb-0"> <li>{!! \Session::get('message') !!}</li></ul>
                      </div>
                   @endif
                <form class="needs-validation" method="POST" novalidate action="{{ route('partner.store') }}" enctype="multipart/form-data">
