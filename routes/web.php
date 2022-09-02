@@ -264,7 +264,6 @@ $adminRoutes = function () {
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
         });
-
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
         });
