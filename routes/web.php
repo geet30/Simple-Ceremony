@@ -269,7 +269,6 @@ $adminRoutes = function () {
             Route::post('search-marriages', [MarriagesController::class, 'searchMarriagesByDate']);
             Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
         });
-
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
         });
