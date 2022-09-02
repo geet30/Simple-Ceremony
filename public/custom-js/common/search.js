@@ -92,7 +92,8 @@ $(document).ready(function(){
         else if(sub_tab_id == 'add-on-reject-tab'){
             status = 2;
         }
-       
+        var divId= sub_tab_id.slice(0, -4);
+        console.log(divId,'divid');
         if(tab_id == 'information-tab'){
             var table = 'partner_products';
         }else if(tab_id == 'celebrants-tab'){
@@ -109,9 +110,8 @@ $(document).ready(function(){
             cache: false,
             success: function(response)
             {  
-                // $(sub_tab_target).find('#'+sub_tab_id+'_searchList').html('');
                 if(tab_id == 'information-tab'){
-                    $('.'+sub_tab_id+'_searchList').html(response);
+                    $("#"+divId).html(response);
                 }else{
                     $("#addon_list").html(response);
                 }

@@ -19,7 +19,7 @@ use App\Http\Controllers\HomeController;
 $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
-
+    Route::post('/checkemail',[HomeController::class, 'checkIfMailExist']);
 
     Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');

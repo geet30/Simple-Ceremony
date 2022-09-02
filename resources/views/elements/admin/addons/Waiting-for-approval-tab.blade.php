@@ -1,4 +1,4 @@
-<div class="table-responsive Waiting-for-approval-tab_searchList"  id="Waiting-for-approval-tab_searchList">
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
