@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use Illuminate\Support\Carbon;
-use Spatie\GoogleCalendar\Event;
+
 
 class CalanderController extends Controller
 {
@@ -112,7 +112,7 @@ class CalanderController extends Controller
         $client = GoogleCalendar::getClient();
         $authCode = request('code');
         // Load previously authorized credentials from a file.
-        $credentialsPath = storage_path('keys/client_secret_generated.json');
+        $credentialsPath = storage_path('app/google-calendar/client_secret.json');
         // Exchange authorization code for an access token.
         $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
 
@@ -122,13 +122,5 @@ class CalanderController extends Controller
         }
         file_put_contents($credentialsPath, json_encode($accessToken));
         return redirect('/calander-overview')->with('message', 'Credentials saved');
-    }
-    public function testGoogleCalendarEvent()
-    {
-        Event::create([
-            'name' => 'A new event',
-            'startDateTime' => Carbon::now(),
-            'endDateTime' => Carbon::now()->addHour(),
-        ]);
     }
 }
