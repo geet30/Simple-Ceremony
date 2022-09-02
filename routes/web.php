@@ -202,7 +202,7 @@ $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        Route::get('test-google-calender-event', [CalanderController::class, 'testGoogleCalendarEvent']);
+        Route::get('test-google-calender-event', [CalanderController::class, 'createGoogleCalendarEvent']);
         Route::resource('marriage-celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
         Route::group(['prefix' => 'account'], function () {

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use Illuminate\Support\Carbon;
-
+use Spatie\GoogleCalendar\Event;
 
 class CalanderController extends Controller
 {
@@ -122,5 +122,14 @@ class CalanderController extends Controller
         }
         file_put_contents($credentialsPath, json_encode($accessToken));
         return redirect('/calander-overview')->with('message', 'Credentials saved');
+    }
+
+    public function createGoogleCalendarEvent()
+    {
+        Event::create([
+            'name' => 'A new event',
+            'startDateTime' => Carbon::now(),
+            'endDateTime' => Carbon::now()->addHour(),
+        ]);
     }
 }
