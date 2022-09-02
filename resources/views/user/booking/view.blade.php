@@ -121,7 +121,7 @@
            <div class="row">
                <div class="col-md-12 col-lg-7 mb-lg-0 mb-4">
                   <div class="calendar-wrapper " id="calendar-wrapper"></div>
-                  <input type="hidden" name="booking_date" id="calendar_date">
+                  <input type="hidden" name="booking_date" id="calendar_date" class="booking_date">
                </div>
                <div class="col-md-12 col-lg-5">
                   <div class="calander-time mb-4">

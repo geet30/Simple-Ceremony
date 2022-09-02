@@ -66,7 +66,7 @@
                         <div class="col-md-5 mb-4">
                            <label for="price" class="form-label small-text2">Price</label>
                            <div class=" theme-input-group">
-                              <input type="text" value="{{ (isset($data->price)) ? number_format($data->price) : '' }}" class="form-control body-1 netural-100 pl-30" name="price" id="price">
+                              <input type="text" value="{{ (isset($data->price)) ? round($data->price,0) : '' }}" class="form-control body-1 netural-100 pl-30" name="price" id="price">
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                            </div>
                         </div>
