@@ -97,8 +97,9 @@ trait Methods
             if ($request->table == 'partner_products') {
                 $data = PartnerProducts::where('product_name', 'like', '%' . $request->search . '%');
                 if ($request->status != null) {
-                    $data = $data->where('status', $request->status)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
+                    $data = $data->where('status', $request->status);
                 }
+                $data = $data->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             } else {
                 $data = Addons::where('name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             }
