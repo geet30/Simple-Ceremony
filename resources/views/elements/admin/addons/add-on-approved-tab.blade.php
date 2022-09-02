@@ -35,7 +35,7 @@
                             {{ $addon->package[0]->location_description }}
                         @endif
                     </td>
-                    <td class="body-2 neutral-100">Picture framing</td>
+                    <td class="body-2 neutral-100">{{$addon->user->contact_name}}</td>
                     <td style="min-width:200px;">
                         <div class="dropdown table-dropdown">
                             <button class="btn dropdown-toggle {{ $status_class }}" type="button"
