@@ -147,17 +147,17 @@
                                           <div class="row">
                                              <div class="col-md-4 mb-4">
                                                 <label for="InputName" class="form-label small-text2">Partner fee</label>
-                                                <input type="text" value="{{ isset($package['partner_fee']) ? number_format($package['partner_fee']) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][partner_fee]" id="InputName" required>
+                                                <input type="text" value="{{ isset($package['partner_fee']) ? round($package['partner_fee'],0) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][partner_fee]" id="InputName" required>
                                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner fee is required</div>
                                              </div>
                                              <div class="col-md-4 mb-4">
                                                 <label for="InputName" class="form-label small-text2">SC admin fee</label>
-                                                <input type="text" value="{{ isset($package['partner_fee']) ? number_format($package['partner_fee']) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][admin_fee]"  id="InputName" required>
+                                                <input type="text" value="{{ isset($package['partner_fee']) ? round($package['partner_fee'],0) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][admin_fee]"  id="InputName" required>
                                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin fee is required</div>
                                              </div>
                                              <div class="col-md-4">
                                                 <label for="InputName" class="form-label small-text2">Total fee</label>
-                                                <input type="text" value="{{ isset($package['partner_fee']) ? number_format($package['partner_fee']) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][total_fee]" id="InputName" required>
+                                                <input type="text" value="{{ isset($package['partner_fee']) ? round($package['partner_fee'],0) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][total_fee]" id="InputName" required>
                                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
                                              </div>
                                           </div>
@@ -170,18 +170,18 @@
                                              </div>
                                              <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
                                                 <label for="InputName" class="form-label small-text2">Simulation partner fee</label>
-                                                <input type="text" value="{{ isset($package['simulation_partner_fee']) ? number_format($package['simulation_partner_fee']) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][simulation_partner_fee]" id="InputName" required>
+                                                <input type="text" value="{{ isset($package['simulation_partner_fee']) ? round($package['simulation_partner_fee'],0) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][simulation_partner_fee]" id="InputName" required>
                                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation partner fee is required</div>
                                              </div>
                                              <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
                                                 <label for="InputName" class="form-label small-text2">Simulation admin fee</label>
-                                                <input type="text" value="{{ isset($package['simulation_admin_fee']) ? number_format($package['simulation_admin_fee']) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][simulation_admin_fee]" id="InputName" required>
+                                                <input type="text" value="{{ isset($package['simulation_admin_fee']) ? round($package['simulation_admin_fee'],0) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][simulation_admin_fee]" id="InputName" required>
                                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation admin fee is required</div>
                                              </div>
                                              <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-4">
                                                 <label for="InputName" class="form-label small-text2">Total fee</label>
                                                 <div class="d-flex align-items-center">
-                                                   <input type="text" value="{{ isset($package['simulation_total_fee']) ? number_format($package['simulation_total_fee']) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][simulation_total_fee]" id="InputName" required>
+                                                   <input type="text" value="{{ isset($package['simulation_total_fee']) ? round($package['simulation_total_fee'],0) : '' }}" class="form-control body-1 netural-100" name="partner_packages[{{$key}}][simulation_total_fee]" id="InputName" required>
                                                    <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Fill the deposit field first, after that simulation total deposit can appear">
                                                       <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
                                                    </span>

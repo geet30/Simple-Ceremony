@@ -210,7 +210,7 @@ $adminRoutes = function () {
         });
         Route::resource('enquiries', EnqueriesController::class);
         Route::resource('notifications', NotificationsController::class);
-        Route::resource('calander-overview', CalanderController::class);
+        Route::resource('calendar-overview', CalanderController::class);
         Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
         Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);

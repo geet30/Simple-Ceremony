@@ -47,7 +47,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center" href="/calander-overview">
+                <a class="body-1 nav-link d-flex align-items-center" href="/calendar-overview">
                     <svg width="21" height="23" viewBox="0 0 21 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

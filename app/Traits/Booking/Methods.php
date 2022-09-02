@@ -285,6 +285,7 @@ trait Methods
     }
     static function checkIfBookingExist($data, $locationId)
     {
+       
         $get_result = Booking::with([
             'location' => function ($query) {
                 $query->select('name', 'id', 'price');
