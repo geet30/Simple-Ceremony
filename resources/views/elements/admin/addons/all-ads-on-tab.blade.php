@@ -1,4 +1,4 @@
-<div class="table-responsive all-ads-on-tab_searchList"  id="all-ads-on-tab_searchList">
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>

@@ -1,4 +1,4 @@
-<div class="table-responsive add-on-reject-tab_searchList" id="add-on-reject-tab_searchList">
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>

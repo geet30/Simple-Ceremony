@@ -1,4 +1,5 @@
-@if ($table == 'partner_products')
+@if($table == 'partner_products')
+<div class="table-responsive">
     <table class="table align-middle theme-table">
         <thead>
             <tr>
@@ -93,6 +94,7 @@
             </tr>
         </tfoot>
     </table>
+</div>
 @else
     @if (count($addons) > 0)
         @foreach ($addons as $counter => $addon)
