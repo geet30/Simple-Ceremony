@@ -48,11 +48,12 @@
                         </div>
                     </li>
                 </ul>
-                <div class="row">
+                <div class="row" id="calendar-overview">
                     <div class="col-md-12 col-lg-12 col-xl-6 mb-4">
                         <div class="card panel-card">
                             <div class="card-body">
-                                <div class="calendar-wrapper no-border-calander" id="calendar-wrapper"></div>
+                                <div class="calendar-wrapper no-border-calander getBookingsCalendar" id="calendar-wrapper">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -96,11 +97,18 @@
                                                         {{ $booking['booking']['second_couple_name'] }}</h4>
                                                     <div class="d-flex mt-3 flex-md-row flex-column">
                                                         <div class="d-flex align-items-center me-0 me-md-4 mb-3 mb-md-0">
-                                                            <img src="/images/calendar/user-gray.svg" alt="user">
-                                                            <p class="gray-gray-900 body-2 ms-2 mb-0">
-                                                                {{-- {{ $booking->booking->celebrant }} --}}
-                                                                {{ $booking->booking->celebrant != null ? $booking->booking->celebrant->first_name : 'John' }}
-                                                            </p>
+                                                            @if ($booking->booking->celebrant != null)
+                                                                <img src="/images/calendar/user-gray.svg" alt="user">
+                                                                <p class="gray-gray-900 body-2 ms-2 mb-0">
+                                                                    {{ $booking->booking->celebrant->first_name }}
+                                                                </p>
+                                                            @else
+                                                                <a href="" data-bs-toggle="offcanvas"
+                                                                    data-bs-target="#marriage-celebrant"
+                                                                    class="text-decoration-underline  add-link assign_celebrant"
+                                                                    data-id="{{ $booking->booking->id }}"> Assign
+                                                                    celebrant</a>
+                                                            @endif
                                                             <span class="d-inline-block ms-2" tabindex="0"
                                                                 data-bs-toggle="popover" data-bs-trigger="hover focus"
                                                                 data-bs-placement="right" data-bs-content="Approved">
@@ -122,10 +130,10 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="d-flex align-items-center">
+                                                {{-- <div class="d-flex align-items-center">
                                                     <img src="/images/calendar/location.svg" alt="mobile">
                                                     <p class="gray-gray-900 body-2 ms-2 mb-0">Tench park</p>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     @endforeach
@@ -171,4 +179,5 @@
             </div>
         </div>
     </div>
+    @include('elements.admin.marriage.assign-marriage-celebrant')
 @endsection
