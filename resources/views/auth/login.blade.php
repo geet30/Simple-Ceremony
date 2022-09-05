@@ -93,8 +93,8 @@
                                                                     {{ __('Forgot Your Password?') }}
                                                                 </a>
                                                                 {{-- <a class="small-text2 forgot-password-link" href="{{ route('password.request') }}">
-                                             {{ __('Forgot Your Password?') }}
-                                             </a> --}}
+                                                                {{ __('Forgot Your Password?') }}
+                                                                 </a> --}}
                                                             @endif
                                                         </div>
                                                     </div>
@@ -108,7 +108,17 @@
                                                         </div>
                                                         @if (Route::current()->getName() == 'partner-login')
                                                             <div class="col-6">
-                                                                <a href="/sign-up"
+                                                                <a href="{{route('partner-signup')}}" class="theme-btn primary-btn-border d-block w-100">Sign
+                                                                    up</a>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <button type="submit" class="theme-btn primary-btn w-100">
+                                                                    {{ __('Login') }}
+                                                                </button>
+                                                            </div>
+                                                        @elseif (Route::current()->getName() == 'celebrant-login')
+                                                            <div class="col-6">
+                                                                <a href="{{route('celebrant-signup')}}"
                                                                     class="theme-btn primary-btn-border d-block w-100">Sign
                                                                     up</a>
                                                             </div>
@@ -132,8 +142,8 @@
                                                                     Create a password
                                                                 </a>
                                                                 <!-- <a class="small-text2 forgot-password-link" href="/user/create-password">
-                                                             Create a password
-                                                          </a> -->
+                                                                Create a password
+                                                                 </a> -->
                                                             </div>
                                                         @else
                                                             <div class="col-12">
