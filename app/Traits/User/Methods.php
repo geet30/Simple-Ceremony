@@ -164,6 +164,7 @@ trait Methods
         if (!empty($data['user']['image'])) {
             $userData['image'] = uploadImage($data['user']['image'], 'user');
         }
+        $userData['name'] = $data['user']['first_name'];
         $user = User::create($userData);
         $user->assignRole('Celebrant');
 
@@ -246,6 +247,9 @@ trait Methods
         } else if ($request->route_name == 'user-login') {
             $role = 'User';
             $redirection = 'user/overview';
+        }else if ($request->route_name == 'celebrant-login') {
+            $role = 'Celebrant';
+            $redirection = 'upcoming';
         }
         return array('role' => $role, 'redirection' => $redirection);
     }

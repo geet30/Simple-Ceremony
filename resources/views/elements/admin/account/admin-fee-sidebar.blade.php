@@ -9,22 +9,22 @@
             <div class="message"></div>
             @csrf
             <div class="col-md-10 col-12 mb-4">
-                <label for="InputName" class="form-label small-text2">Admin fee for marriage celebrants</label>
+                <label for="celebrant_tax" class="form-label small-text2">Admin fee for marriage celebrants</label>
                 <div class=" position-relative">
                     <span class="currency-sign body-1 netural-100">$</span>
                     <input type="number" step="0.1" value="{{ auth()->user()->taxdetail->celebrant_tax ?? '' }}"
-                        class="form-control body-1 netural-100 ps-4" name="celebrant_tax" id="InputName" maxlength="4"
+                        class="form-control body-1 netural-100 ps-4" name="celebrant_tax" id="celebrant_tax" maxlength="4"
                         required>
                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                 alt="Require Icon"></span> Celebrant fee is required</div>
                 </div>
             </div>
             <div class="col-md-10 col-12 mb-4">
-                <label for="InputName" class="form-label small-text2">Admin fee for partners</label>
+                <label for="partner_tax" class="form-label small-text2">Admin fee for partners</label>
                 <div class=" position-relative">
                     <span class="currency-sign body-1 netural-100">$</span>
                     <input type="number" step="0.1" value="{{ auth()->user()->taxdetail->partner_tax ?? '' }}"
-                        class="form-control body-1 netural-100 ps-4" name="partner_tax" id="InputName" maxlength="4"
+                        class="form-control body-1 netural-100 ps-4" name="partner_tax" id="partner_tax" maxlength="4"
                         required>
                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                 alt="Require Icon"></span>Partner fee is required</div>

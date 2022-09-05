@@ -77,7 +77,10 @@ $(document).ready(function(){
         $('.'+ele).addClass('d-none');
         $('.'+cls).addClass('d-block');
         $('.'+cls).removeClass('d-none');
+        $(document).find('.change_password').removeClass('d-none');
+        $(document).find('.change_password').addClass('d-block');
         $('.readonlyInput').attr("readonly", false); 
+        $('.readonlyInput').attr("disabled", false); 
     }
 
     //function to browse image

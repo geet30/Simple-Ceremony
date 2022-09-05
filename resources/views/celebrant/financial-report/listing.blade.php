@@ -7,7 +7,7 @@
         
         </div>
         <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.celebrant.panel-header')
+         @include('elements.panel-header')
          <div class="row mb-4">
             <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 mb-3">
                <a role="button" class="theme-btn primary-btn d-flex justify-content-center " data-bs-toggle="modal" data-bs-target="#calendarmodal">

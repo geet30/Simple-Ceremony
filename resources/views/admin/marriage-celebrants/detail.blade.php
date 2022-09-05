@@ -231,7 +231,7 @@
                                                     <label class="form-label small-text2">Bank *</label>
                                                     <select required="" name="user[bank]"
                                                         class="js-placeholder-single-input form-control readonlyInput"
-                                                        required readonly>
+                                                        required disabled>
 
                                                         <option value="1" {{ $data->bank == 1 ? ' selected' : '' }}>
                                                             ANZ</option>

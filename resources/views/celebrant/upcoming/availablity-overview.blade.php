@@ -6,7 +6,7 @@
          @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-12 col-md-9 col-lg-10 px-md-4 ">
-         @include('elements.celebrant.panel-header')
+         @include('elements.panel-header')
          <div class="col-12">
             <a href="/upcomming" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          </div>
