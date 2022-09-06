@@ -22,6 +22,19 @@
                      </div>
                   @endIf
                <h1 class="h4 netural-100 mb-4">My account</h1>
+               @php
+                     $status_class = 'approved';
+                     if ($data->status == 1) {
+                        $status = 'Active';
+                        $status_class = 'approved';
+                     } elseif ($data->status == 0) {
+                        $status = 'In-active';
+                        $status_class = 'rejected';
+                     }
+               @endphp
+               <div class="table-dropdown d-flex align-items-center mb-2">
+                  <a class="{{ $status_class }} text-nowrap p-1 px-3 d-inline text-decoration-none ms-3"> <span>{{ $status }}</status></a>
+               </div>
                <div class="row">
                   <div class="col-md-3 col-lg-3 col-xl-2 col-xxl-2 col-6">
                         <div class="position-relative mb-4">

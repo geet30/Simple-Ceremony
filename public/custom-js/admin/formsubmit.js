@@ -39,6 +39,9 @@ $(document).ready(function(){
             },
             dataType: 'json',
             cache: false,
+            beforeSend:function(){
+                $('#loading').show();
+            },
             success: function(response)
             {
                 $('#'+tab_id+'_'+id).removeAttr('class');
@@ -50,6 +53,7 @@ $(document).ready(function(){
     
                     window.location = tab_id;
                 }
+                $('#loading').hide();
               
             }
         });
@@ -65,6 +69,9 @@ $(document).ready(function(){
             contentType: false,
             processData: false,
             data: formData,
+            beforeSend:function(){
+                $('#loading').show();
+            },
             success: function(response) {
                 if (response.status) {
                     form.trigger("reset");
@@ -79,6 +86,7 @@ $(document).ready(function(){
                 
                     
                 }
+                $('#loading').hide();
                 // display success response from the server
             },
             error: function(response) { // handle the error  
@@ -106,6 +114,9 @@ $(document).ready(function(){
             processData: false,
             data: formData,
             type: method,
+            beforeSend:function(){
+                $('#loading').show();
+            },
             success: function(response) {
                 if (response.status) {
                     form.trigger("reset");
@@ -118,6 +129,7 @@ $(document).ready(function(){
                         $(document).find('.message').html("<div class='alert alert-danger'>" + response.message + "</div>"); 
                     }, 300);   
                 }
+                $('#loading').hide();
                 // display success response from the server
             },
             error: function(response) { // handle the error
@@ -144,6 +156,9 @@ $(document).ready(function(){
             dataType: 'JSON', // what to expect back from the server
             data: $('#'+id).serialize(),
             type: method,
+            beforeSend:function(){
+                $('#loading').show();
+            },
             success: function(response) {
                 if (response.status) {
                     $(document).find('.message').html("<div class='alert alert-success'>" + response.message + "</div>");
@@ -155,6 +170,7 @@ $(document).ready(function(){
                     }, 300); 
                     hideAlert();  
                 }
+                $('#loading').hide();
             },
             error: function(response) {  
                 if( response.status === 400 ) {

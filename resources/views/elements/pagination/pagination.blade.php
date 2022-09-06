@@ -47,13 +47,12 @@
     var outer_id = <?php echo json_encode($id); ?>;
     var outer_class = <?php echo json_encode($class); ?>;
     
-
+   
     function fetch_data(page, perpage) {
-
         if (perpage == '' || perpage == undefined) {
             perpage = $('.perPage').val();
         }
-
+     
         var route = window.location.pathname + '?page=' + page;
         var data = {
             'records': perpage
@@ -62,12 +61,18 @@
             method: 'GET',
             data: data,
             url: route,
+            cache:false,
+            beforeSend:function(){
+                
+                $('#loading').show();
+            },
             success: function(response) {
                 console.log('outer_id',outer_id);
                 // $('#requests').html(response);
                 $(outer_id).html(response);
                 
                 $(outer_class).html(response);
+                $('#loading').hide();
             },
         });
     }

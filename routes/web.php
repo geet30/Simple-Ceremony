@@ -437,10 +437,6 @@ $celebrantRoutes = function () {
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
         Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
-        
-        Route::get('edit', function () {
-            return view('celebrant.profile.edit');
-        });
     });
    
     Route::get('availablity-overview', function () {

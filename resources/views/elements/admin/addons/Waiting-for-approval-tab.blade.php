@@ -69,7 +69,7 @@
             <tr>
                 <td colspan="6">
                 <?php $data = array();?>
-                    @include('elements.admin.addons.pagination',array('data'=>$pending_addons,'tab_name'=>'Waiting-for-approval-tab'))
+                    @include('elements.pagination.tabs-pagination',array('data'=>$pending_addons))
                
 
                 </td>

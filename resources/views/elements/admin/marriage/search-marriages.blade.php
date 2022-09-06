@@ -72,7 +72,7 @@
         <tfoot>
         <tr>
             <td colspan="10">
-                @include('elements.pagination.marriage-pagination', ['title' => 'All marriages', 'data' => $data])
+                @include('elements.pagination.tabs-pagination', ['title' => 'All marriages', 'data' => $data])
             </td>
         </tr>
         </tfoot>

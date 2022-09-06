@@ -43,4 +43,37 @@
 .search-location {
         padding: 0px 20px;
         margin-bottom: 15px;
-    }
+}
+.wrapper {
+    background: #000000a3;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    margin: auto;
+    z-index: 9999;
+}
+.c-loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.c-loader-circle {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 80px;
+    height: 80px;
+    background-color: #389BD6;
+    border-radius: 50%;
+}
