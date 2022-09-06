@@ -57,6 +57,27 @@ class RegisterController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }        
     }
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    public function showCelebrantSignupForm(){
+        try {
+            $allLocations = Locations::all();
+            return view('celebrant.sign-up',compact('allLocations'));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }        
+    }
+    /**
+     * Register Partner.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
     public function register(Request $request)
     {
         try {
@@ -64,6 +85,28 @@ class RegisterController extends Controller
             if($response){
              
                return redirect('login')->with('message', 'User created successfully, to login please check your email');
+            }    
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }   
+    }
+    /**
+     * Register Celebrant.
+     *
+     * @param  array  $data
+     * @return \App\Models\User
+     */
+    public function celebrantRegister(Request $request)
+    {
+        try {
+            $response = User::createCelebrant($request->all());
+            if($response){
+                if($request->register =='Register'){
+                    return \Redirect::back()->with('code', 1);
+                }else{
+                    return redirect('login')->with('message', 'Celebrant created successfully');
+                }
+             
             }    
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

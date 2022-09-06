@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Celebrants\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -359,7 +360,7 @@ $adminRoutes = function () {
 $partnerRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
-    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm');
+    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm')->name('partner-signup');
     Route::get('password-reset', function () {
         return view('partner.password-reset');
     });
@@ -431,17 +432,32 @@ $partnerRoutes = function () {
     });
 };
 $celebrantRoutes = function () {
-    Route::get('upcomming', function () {
-        return view('celebrant.upcomming.listing');
+    Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('celebrant-login');
+    Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('celebrant-login');
+    Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showCelebrantSignupForm')->name('celebrant-signup');
+    Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
+    
+    Route::middleware('auth')->group(function () {
+        Route::group(['prefix' => 'upcoming'], function () {           
+            Route::get('/', [DashboardController::class, 'upcomingMarriages']);
+        });
+        Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
+        Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
+        Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
+        
+        Route::get('edit', function () {
+            return view('celebrant.profile.edit');
+        });
     });
+   
     Route::get('availablity-overview', function () {
-        return view('celebrant.upcomming.availablity-overview');
+        return view('celebrant.upcoming.availablity-overview');
     });
     Route::get('locations', function () {
         return view('celebrant.locations.listing');
     });
     Route::get('availablity-upcoming-docs', function () {
-        return view('celebrant.upcomming.availablity-upcoming-docs');
+        return view('celebrant.upcoming.availablity-upcoming-docs');
     });
     Route::get('add', function () {
         return view('celebrant.locations.add');
@@ -473,23 +489,12 @@ $celebrantRoutes = function () {
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });
-    Route::get('profile', function () {
-        return view('celebrant.profile.setting');
-    });
-    Route::get('edit', function () {
-        return view('celebrant.profile.edit');
-    });
+    
 
     Route::get('password-reset', function () {
         return view('celebrant.password-reset');
     });
-    Route::get('sign-up', function () {
-        return view('celebrant.sign-up');
-    });
-
-    Route::get('/', function () {
-        return view('celebrant.login');
-    });
+ 
 };
 
 Route::group(array('domain' => config('env.PARTNER')), $partnerRoutes);

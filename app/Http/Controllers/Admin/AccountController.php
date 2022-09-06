@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User};
+use App\Models\{User,Locations};
 use View;
 use Redirect;
 use Illuminate\Support\Facades\{Auth, Hash};
-// use Validator;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -23,7 +22,53 @@ class AccountController extends Controller
     {
         return view('admin.account.detail');
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getCelebrantAccount()
+    {
+        try {
+            $allLocations = Locations::all();
+            $id = Auth::user()->id;
+            $data = User::where('id',$id )->with(['celebrant', 'celebrantLocations.location' => function ($query) {
+                $query->select('name', 'id');
+            }])->first();
+            // dd($data);
+            return view('celebrant.profile.setting',compact('allLocations','id','data'));
+        }catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateCelebrantAccount(Request $request)
+    {
+        try {
+            if ($request->ajax()) {
+                if ($request->has('current_password')) {
+                    if (Hash::check($request->current_password,Auth::user()->password) == false) {
+                        return $this->errorResponse([], 'Current password is not correct.', 400);
+                    }
+                }
+                $response = User::saveProfileDetail($request,  Auth::user()->id);
+                if ($response) {
+                    return $this->successResponse([], 'Password changed successfully.');
+                }
+            }
+            $response = User::updateCelebrant($request->all(), Auth::user()->id);
+            if ($response) {
+                return redirect('profile')->with('message', 'Profile updated successfully.');
+            }
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }  
+    }
+     
     /**
      * Show the form for creating a new resource.
      *

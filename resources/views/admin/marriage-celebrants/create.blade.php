@@ -22,7 +22,6 @@
                             action="{{ route('marriage-celebrants.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-
                                 <div class="col-lg-12 col-xl-10 col-xxl-8">
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
@@ -176,7 +175,7 @@
                                                 <div class="col-md-5 col-lg-4">
                                                     <label role="button" for="formFileLg"
                                                         class="form-label small-text2 mb-0 theme-btn primary-btn">Choose
-                                                        imagee</label>
+                                                        image</label>
                                                 </div>
                                             </div>
                                         </div>

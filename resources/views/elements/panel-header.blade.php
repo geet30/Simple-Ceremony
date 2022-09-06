@@ -82,27 +82,39 @@
                             <a class="nav-link dropdown-toggle d-flex admin-profile py-0" href="#"
                                 id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <div class="align-self-center"><img src="/images/icons/header-logo.svg"
-                                        class="img-fluid"></div>
+                                <div class="align-self-center"><img src="/images/icons/header-logo.svg"  class="img-fluid"></div>
                                 <div class="align-self-center">
-                                    <p class="body-2 text-black mb-0">{{ auth()->user()->name }}</p>
+                                   
+                                    <p class="body-2 text-black mb-0">{{ (isset(auth()->user()->name)) ? auth()->user()->name : '' }}</p>
                                     <p class="small-text3 mb-0 text-black">{{ auth()->user()->roles()->first()->name }}
                                     </p>
                                 </div>
                                 <div class="fa-solid fa-chevron-down icon-rotate align-self-center ms-3"></div>
-                                <!-- <span><img src="/images/icons/header-logo.svg" class="img-fluid"></span> <span  class="align-self-center"><span class="body-2 text-black mb-0">Damian</span><span class="small-text3 mb-0 text-black">Admin SC</span></span> -->
                             </a>
                             <ul class="dropdown-menu  admin-profile-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="/account"><img src="/images/icons/team.svg"
-                                            class="img-fluid">Setting Profile</a></li>
+                                
+                                <li>
+                                    @if(Auth::user()->roles->first()->name =='Admin')
+                                        <a class="dropdown-item" href="/account"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                    
+                                    @elseif(Auth::user()->roles->first()->name =='Celebrant')
+                                        <a class="dropdown-item" href="{{route('getCelebrantAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                    @endif
+                                </li>
                                 {{-- <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li> --}}
-                                <li><a role="button" class="dropdown-item" data-bs-toggle="offcanvas"
-                                        data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax-icon.svg"
-                                            class="img-fluid">Setting admin tax</a></li>
 
-                                <li><a class="dropdown-item logout" href="{{ route('logout') }}"
+                              
+                                @if(Auth::user()->roles->first()->name =='Admin')
+                                <li>
+                                    <a role="button" class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax-icon.svg" class="img-fluid">Setting admin tax</a>
+                                </li>
+                                @endif
+
+                                <li>
+                                    <a class="dropdown-item logout" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        <img src="/images/icons/logout.svg" class="img-fluid">Log out</a></li>
+                                        <img src="/images/icons/logout.svg" class="img-fluid">Log out</a>
+                                </li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
