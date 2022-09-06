@@ -19,7 +19,7 @@ use App\Http\Controllers\HomeController;
 $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
-    Route::post('/checkemail',[HomeController::class, 'checkIfMailExist']);
+    Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
 
     Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
@@ -130,10 +130,19 @@ $websiteRoutes = function () {
             Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
             Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
             Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+            Route::get('documents', function () {
+                return view('user.documents.lisiting');
+            });
+            Route::get('NoIM', function () {
+                return view('user.NoIM.view');
+            });
+            Route::get('steps', function () {
+                return view('user.NoIM.steps');
+            });
+            Route::get('step-2', function () {
+                return view('user.NoIM.step-2');
+            });
         });
-
-
-
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
         });
@@ -177,24 +186,22 @@ $websiteRoutes = function () {
         Route::get('activity-history', function () {
             return view('user.activity-history.lisiting');
         });
-        Route::get('documents', function () {
-            return view('user.documents.lisiting');
-        });
+
         Route::get('signature', function () {
             return view('user.documents.signature');
         });
         Route::get('edit-signature', function () {
             return view('user.documents.edit-signature');
         });
-        Route::get('NoIM', function () {
-            return view('user.NoIM.view');
-        });
-        Route::get('steps', function () {
-            return view('user.NoIM.steps');
-        });
-        Route::get('step-2', function () {
-            return view('user.NoIM.step-2');
-        });
+        // Route::get('NoIM', function () {
+        //     return view('user.NoIM.view');
+        // });
+        // Route::get('steps', function () {
+        //     return view('user.NoIM.steps');
+        // });
+        // Route::get('step-2', function () {
+        //     return view('user.NoIM.step-2');
+        // });
         // });
     });
 };
