@@ -1,4 +1,4 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 @section('content')
 
 <div class="container pt-4">
@@ -46,7 +46,7 @@
                                  <div class="invalid-feedback event_date_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event date is required</div>
                               </div>
 
-                             
+
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="event_start_time" class="form-label small-text2 invisible">Event start time</label>

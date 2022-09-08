@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\{Booking, User, Locations};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use Illuminate\Support\Carbon;
-use Spatie\GoogleCalendar\Event;
+// use Spatie\GoogleCalendar\Event;
+use View;
 
 class CalanderController extends Controller
 {
@@ -26,11 +27,8 @@ class CalanderController extends Controller
             $count['marriageLocation'] = Booking::whereNotNull('locationId')->groupBy('locationId')->count();
             $bookings = MarriagesMethods::marriages($date)->get();
             $celebrants = Locations::celebrants()->get();
-            if ($request->ajax()) {
-                return $bookings;
-            }
-            // return $bookings;
-            return $request->ajax() ? $bookings : view('admin.calander.calander-overview', compact('bookings', 'celebrants', 'count'));
+
+            return $request->ajax() ? View::make('admin.calander.dynamic-booking-list-ajax', compact('bookings')) : view('admin.calander.calander-overview', compact('bookings', 'celebrants', 'count'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

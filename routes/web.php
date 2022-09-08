@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\BookingController;
+use App\Http\Controllers\User\{BookingController, UserNoimController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Celebrants\{DashboardController,LocationsController as CelebrantLocations};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +20,7 @@ use App\Http\Controllers\Celebrants\{DashboardController,LocationsController as 
 $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
-    Route::post('/checkemail',[HomeController::class, 'checkIfMailExist']);
+    Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
 
     Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
@@ -131,10 +131,21 @@ $websiteRoutes = function () {
             Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
             Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
             Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+            Route::get('documents', function () {
+                return view('user.documents.lisiting');
+            });
+            Route::get('NoIM', function () {
+                return view('user.NoIM.view');
+            });
+            Route::get('steps', function () {
+                return view('user.NoIM.steps');
+            });
+            Route::get('step-2', function () {
+                return view('user.NoIM.step-2');
+            });
+            Route::resource('user-noim', UserNoimController::class);
+            Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
         });
-
-
-
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
         });
@@ -178,25 +189,28 @@ $websiteRoutes = function () {
         Route::get('activity-history', function () {
             return view('user.activity-history.lisiting');
         });
-        Route::get('documents', function () {
-            return view('user.documents.lisiting');
-        });
+
         Route::get('signature', function () {
             return view('user.documents.signature');
         });
         Route::get('edit-signature', function () {
             return view('user.documents.edit-signature');
         });
-        Route::get('NoIM', function () {
-            return view('user.NoIM.view');
-        });
-        Route::get('steps', function () {
-            return view('user.NoIM.steps');
-        });
-        Route::get('step-2', function () {
-            return view('user.NoIM.step-2');
-        });
+        // Route::get('NoIM', function () {
+        //     return view('user.NoIM.view');
         // });
+        // Route::get('steps', function () {
+        //     return view('user.NoIM.steps');
+        // });
+        // Route::get('step-2', function () {
+        //     return view('user.NoIM.step-2');
+        // });
+        // });
+        Route::get('routes', function () {
+            $routeCollection = Route::getRoutes();
+            $title = "Route List";
+            return view('routes', compact('routeCollection', 'title'));
+        });
     });
 };
 $adminRoutes = function () {
@@ -324,7 +338,7 @@ $adminRoutes = function () {
             return view('admin.referrers.pending-referrers-details');
         });
 
-       
+
 
 
         Route::get('booked-order-details', function () {
@@ -418,28 +432,27 @@ $celebrantRoutes = function () {
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('celebrant-login');
     Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showCelebrantSignupForm')->name('celebrant-signup');
     Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
-    
+
     Route::middleware('auth')->group(function () {
-        Route::group(['prefix' => 'upcoming'], function () {           
+        Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/', [DashboardController::class, 'upcomingMarriages']);
         });
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
         Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
-        Route::resource('all-locations', CelebrantLocations::class);   
-        
+        Route::resource('all-locations', CelebrantLocations::class);
+
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
         Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
-      
     });
-   
+
     Route::get('availablity-overview', function () {
         return view('celebrant.upcoming.availablity-overview');
     });
     Route::get('availablity-upcoming-docs', function () {
         return view('celebrant.upcoming.availablity-upcoming-docs');
     });
-    
+
     Route::get('open', function () {
         return view('celebrant.locations.open');
     });
@@ -467,12 +480,11 @@ $celebrantRoutes = function () {
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });
-    
+
 
     Route::get('password-reset', function () {
         return view('celebrant.password-reset');
     });
- 
 };
 
 Route::group(array('domain' => config('env.PARTNER')), $partnerRoutes);

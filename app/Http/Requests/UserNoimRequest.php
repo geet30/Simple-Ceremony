@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddonsRequest extends FormRequest
+class UserNoimRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,14 @@ class AddonsRequest extends FormRequest
     public function rules()
     {
         return [
-            "name"  => "required|min:5|max:30",
+            'person.*.preferred_name' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'person.*.preferred_name.required' => 'Preferred name is required.',
         ];
     }
 }
