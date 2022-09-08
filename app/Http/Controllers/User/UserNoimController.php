@@ -1,12 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Models\Booking;
 use App\Models\UserNoim;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UserNoimRequest;
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
 class UserNoimController extends Controller
 {
+    protected static $bladePath = 'user.NoIM.';
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class UserNoimController extends Controller
      */
     public function index()
     {
-        //
+        return view(self::$bladePath . 'view');
     }
 
     /**
@@ -35,7 +42,23 @@ class UserNoimController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $loggedInUserId = Auth::user()->id;
+        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+
+        // remove the exists rows
+        UserNoim::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
+
+        $person = array_map(function ($person) use ($loggedInUserId, $bookingId) {
+            $person['user_id'] = $loggedInUserId;
+            $person['booking_id'] = $bookingId;
+            $person['date_of_birth'] = date('Y-m-d', strtotime($person['date_of_birth']));
+            UserNoim::create($person);
+            return $person;
+        }, $request->person);
+        // UserNoim::insert($person);
+        return redirect()->back();
+        return $person;
+        return $request->all();
     }
 
     /**
@@ -81,5 +104,12 @@ class UserNoimController extends Controller
     public function destroy(UserNoim $userNoim)
     {
         //
+    }
+
+    public function steps()
+    {
+        $loggedInUserId = Auth::user()->id;
+        $person = UserNoim::whereUserId($loggedInUserId)->get();
+        return view(self::$bladePath . 'steps', compact('person'));
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\BookingController;
+use App\Http\Controllers\User\{BookingController, UserNoimController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Celebrants\DashboardController;
@@ -143,6 +143,8 @@ $websiteRoutes = function () {
             Route::get('step-2', function () {
                 return view('user.NoIM.step-2');
             });
+            Route::resource('user-noim', UserNoimController::class);
+            Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
         });
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
@@ -204,6 +206,11 @@ $websiteRoutes = function () {
         //     return view('user.NoIM.step-2');
         // });
         // });
+        Route::get('routes', function () {
+            $routeCollection = Route::getRoutes();
+            $title = "Route List";
+            return view('routes', compact('routeCollection', 'title'));
+        });
     });
 };
 $adminRoutes = function () {
@@ -436,20 +443,20 @@ $celebrantRoutes = function () {
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('celebrant-login');
     Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showCelebrantSignupForm')->name('celebrant-signup');
     Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
-    
+
     Route::middleware('auth')->group(function () {
-        Route::group(['prefix' => 'upcoming'], function () {           
+        Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/', [DashboardController::class, 'upcomingMarriages']);
         });
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
         Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
-        
+
         Route::get('edit', function () {
             return view('celebrant.profile.edit');
         });
     });
-   
+
     Route::get('availablity-overview', function () {
         return view('celebrant.upcoming.availablity-overview');
     });
@@ -489,12 +496,11 @@ $celebrantRoutes = function () {
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });
-    
+
 
     Route::get('password-reset', function () {
         return view('celebrant.password-reset');
     });
- 
 };
 
 Route::group(array('domain' => config('env.PARTNER')), $partnerRoutes);

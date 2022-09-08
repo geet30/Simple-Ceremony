@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('user_noims', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('booking_id');
             $table->string('preferred_name');
             $table->string('person_first_name');
+            $table->string('person_other_name');
             $table->string('family_name');
             $table->string('person_name_combination');
             $table->integer('person_description')->comment('1:Partner,2:Bride,3:Groom');
@@ -32,13 +34,15 @@ return new class extends Migration
             $table->string('postal_code');
             $table->date('date_of_birth');
             $table->string('birth_place');
-            $table->string('birth_document');
+            $table->string('birth_document')->nullable();
             $table->text('birth_town_or_city_or_suburb');
             $table->text('birth_state_or_province_or_territory');
             $table->integer('conjugal_status')->comment('1:Divorced, 2:Never validy married, 3:Divorced pending, 4:widowed');
             $table->boolean('are_parties_related');
             $table->text('how_they_related')->comment('only fill when parties are related')->nullable();
             $table->boolean('is_data_and_document_identical')->default(false);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('booking_id')->references('id')->on('bookings')->onDelete('cascade');
             $table->timestamps();
         });
     }
