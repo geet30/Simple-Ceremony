@@ -50,13 +50,13 @@
                      <p> Phone Number :  + <?php echo$data['country_code'].$data['phone'] ?></p>
                      <p> Event Date  : <?php echo $data['event_date'] ?></p>
                      <p> Event Start Time  : <?php echo $data['event_start_time'] ?></p>
-                     <p> location Name  : <?php echo $data['location_name'] ?> </p>
-                     <p> Street Address  :  <?php echo $data['street_address'] ?> </p>
-                     <p> Suburb  :  <?php echo $data['suburb'] ?> </p>
+                     <p> location Name  : <?php echo $data['name'] ?> </p>
+                     <p> Street Address  :  <?php echo $data['address'] ?> </p>
+                     <p> Suburb  :  <?php echo $data['town'] ?> </p>
                      <p> post Code  : <?php echo $data['post_code'] ?> </p>
                      <p> State  : <?php echo $data['state'] ?> </p> 
                      <p> Co-ordinates  : <?php echo $data['coordinates'] ?> </p> 
-                     <p> Specific Location   :  <?php echo $data['specific_location'] ?> </p> 
+                     <p> Specific Location   :  <?php echo $data['direction'] ?> </p> 
                      <p> Parking Detail   : <?php echo $data['parking_details'] ?> </p> 
                      <p>Parking Cost   :  <?php echo $data['parking_cost'] ?></p>
                      </td>
@@ -71,7 +71,7 @@
                   </tr>
                   <tr>
                      <td align="left" style="padding-left:20px ; padding-right:18px; font-family: 'Montserrat', sans-serif; color:#2a3a4b; line-height:24px; font-weight:400;font-size:16px">
-                    <?php echo $data['name'] ?>
+                    <?php echo $data['username'] ?>
                      </td>
                   </tr>
                   <tr>

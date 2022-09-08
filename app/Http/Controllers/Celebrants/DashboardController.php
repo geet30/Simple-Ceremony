@@ -13,6 +13,7 @@ class DashboardController extends Controller
         return view('celebrant.upcoming.listing');
 
     }
+    
 
     
 }

@@ -14,7 +14,9 @@
                     form.addEventListener(
                         "submit",
                         function (event) {
+                            $("#loading").show();
                             if (form.checkValidity() === false) {
+                                $("#loading").hide();
                                 event.preventDefault();
                                 event.stopPropagation();
                             }
@@ -36,7 +38,6 @@
                                         .removeClass("d-block");
                                 }
                             });
-
                             window.setTimeout(function () {
                                 var errors = $(
                                     ".invalid-feedback:visible:first"

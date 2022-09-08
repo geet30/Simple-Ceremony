@@ -35,7 +35,7 @@
                                 }
                             @endphp
                             <div class="col-md-12">
-                                <form class="needs-validation" method="POST" novalidate
+                                <form class="needs-validation loader_class" method="POST" novalidate
                                     action="{{ route('enquiries.update', $detail->id) }}">
                                     @csrf
                                     @method('PUT')

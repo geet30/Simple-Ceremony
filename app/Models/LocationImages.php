@@ -11,6 +11,8 @@ class LocationImages extends Model
 
     protected $fillable = [
         'location_id',
+        'request_location_id',
+        'location_type',
         'image',
     ];
 }

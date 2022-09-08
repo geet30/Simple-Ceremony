@@ -23,7 +23,7 @@
             <div class="card panel-card">
                <div class="card-body">
                   <h1 class="h3 netural-100 mb-4">Edit Package</h1>
-                  <form class="needs-validation" method="POST" novalidate action="{{ route('partner.update',$product_id) }}" enctype="multipart/form-data">
+                  <form class="needs-validation loader_class" method="POST" novalidate action="{{ route('partner.update',$product_id) }}" enctype="multipart/form-data">
                      @csrf
                      <div class="row">
                         <div class="col-lg-12 col-xl-10 col-xxl-8">
@@ -73,7 +73,7 @@
                         </div>
                      </div>
                   </form>
-                  <form class="needs-validation" method="POST" novalidate action="{{ route('partner.update',$product_id) }}" enctype="multipart/form-data">
+                  <form class="needs-validation loader_class" method="POST" novalidate action="{{ route('partner.update',$product_id) }}" enctype="multipart/form-data">
                      @csrf
                      <input type="hidden" name="user_id" value="{{$partner_details['user_id']}}">
                      <?php $count = 0;?>

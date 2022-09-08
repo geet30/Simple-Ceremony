@@ -123,12 +123,7 @@ $(document).ready(function(){
         submitform(id,action,method,formData,form);
                 
     });
-    $('.remove_celebrant').click(function(){
-        
-        var id = $(this).data('id');
-        $('#delete_celebrant').find('input[name="id"]').val(id);
-
-    })
+  
 
  
 });

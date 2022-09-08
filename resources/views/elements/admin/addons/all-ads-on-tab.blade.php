@@ -88,9 +88,8 @@
             <tr>
                 <td colspan="6">
                     <?php $data = []; ?>
-                    @include('elements.admin.addons.pagination', [
+                    @include('elements.pagination.tabs-pagination', [
                         'data' => $all_addons,
-                        'tab_name' => 'all-ads-on-tab',
                     ])
 
 
