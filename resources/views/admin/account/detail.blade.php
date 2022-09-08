@@ -25,7 +25,7 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                                     </div>
                                 @endIf
-                                <form class="needs-validation" method="POST" novalidate
+                                <form class="needs-validation loader_class" method="POST" novalidate
                                     action="{{ route('account.store') }}">
                                     <div class="row">
                                         <div class="col-md-10 col-lg-6 col-xl-5 col-xxl-4 mb-4">

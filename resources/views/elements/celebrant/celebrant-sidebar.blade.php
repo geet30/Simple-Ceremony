@@ -40,7 +40,7 @@
             </a>
          </li>
          <li class="nav-item" >
-            <a class="body-1 nav-link d-flex align-items-center" href="/locations">
+            <a class="body-1 nav-link d-flex align-items-center" href="{{url('all-locations')}}">
                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="27" viewBox="0 0 19 27" fill="none">
                   <path d="M2.47661 12.7044V13.3026C7.12975 12.8901 8.74237 7.62656 9.12611 5.97656C7.35717 6.00253 5.66903 6.72217 4.42526 7.98051C3.18168 9.2388 2.48189 10.9352 2.47656 12.7042L2.47661 12.7044Z" fill="#62CBC9"/>
                   <path d="M9.3125 5.9767C9.70033 7.62671 11.3091 12.8982 15.962 13.3107V12.7043C15.9578 10.9348 15.2584 9.23786 14.0144 7.97919C12.7707 6.72071 11.0818 6.00141 9.3125 5.97656V5.9767Z" fill="#62CBC9"/>

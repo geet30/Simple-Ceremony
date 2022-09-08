@@ -8,10 +8,25 @@ use Illuminate\Database\Eloquent\Model;
 class RequestLocations extends Model
 {
     use HasFactory;
-    // protected $table = 'rejected_products';
-    protected $fillable = ['name','phone','country_code','email','event_date','event_start_time','location_name','street_address','suburb','post_code','state','specific_location','coordinates','parking_details','parking_cost','status'];
+    protected $fillable = ['username','type','celebrant_id','name','phone','country_code','email','event_date','event_start_time','name','address','town','post_code','state','general_location','direction','coordinates','parking_details','parking_cost','status','celebrant_id','loc_number','key_advances','price','cover_image','custom_terms','why_this_location','weather_option','getting_there'];
 
     public function setEventDateAttribute($value){    
         $this->attributes['event_date'] =  date("Y-m-d H:i:s", strtotime($value));
+    }
+    public function request_location_images()
+    {
+        return $this->hasMany('App\Models\LocationImages', 'request_location_id', 'id')->where('location_type',2);
+    }
+    public function request_location_packages()
+    {
+        return $this->hasMany('App\Models\LocationPackages', 'request_location_id', 'id')->where('location_type',2);
+    }  
+    public function request_location_advantages()
+    {
+        return $this->hasMany('App\Models\LocationKeyAdvantages', 'request_location_id', 'id')->where('location_type',2);
+    }
+    public function request_location_criteria()
+    {
+        return $this->hasMany('App\Models\LocationFilterCriterias', 'request_location_id', 'id')->where('location_type',2);
     }
 }

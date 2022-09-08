@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BookingController;
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Celebrants\DashboardController;
+use App\Http\Controllers\Celebrants\{DashboardController,LocationsController as CelebrantLocations};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -324,18 +324,7 @@ $adminRoutes = function () {
             return view('admin.referrers.pending-referrers-details');
         });
 
-        Route::get('all-enquiries', function () {
-            return view('admin.enquiries.all-enquiries');
-        });
-        Route::get('enquiries-details', function () {
-            return view('admin.enquiries.enquiries-details');
-        });
-        Route::get('create-enquiry', function () {
-            return view('admin.enquiries.create-enquiry');
-        });
-        Route::get('edit-enquiry', function () {
-            return view('admin.enquiries.edit-enquiry');
-        });
+       
 
 
         Route::get('booked-order-details', function () {
@@ -437,24 +426,20 @@ $celebrantRoutes = function () {
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
         Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
+        Route::resource('all-locations', CelebrantLocations::class);   
         
-        Route::get('edit', function () {
-            return view('celebrant.profile.edit');
-        });
+        Route::post('get-packages', [LocationsController::class, 'getPackages']);
+        Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
+      
     });
    
     Route::get('availablity-overview', function () {
         return view('celebrant.upcoming.availablity-overview');
     });
-    Route::get('locations', function () {
-        return view('celebrant.locations.listing');
-    });
     Route::get('availablity-upcoming-docs', function () {
         return view('celebrant.upcoming.availablity-upcoming-docs');
     });
-    Route::get('add', function () {
-        return view('celebrant.locations.add');
-    });
+    
     Route::get('open', function () {
         return view('celebrant.locations.open');
     });

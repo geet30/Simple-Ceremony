@@ -146,7 +146,7 @@ $(document).ready(function(){
             </div>
             <div class="col-2 ">
                <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-               <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer')"></a>
+               <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer','location')"></a>
             </div>
          </div>`;   
      return html; 
@@ -202,7 +202,6 @@ $(document).ready(function(){
             localStorage.setItem('cart', JSON.stringify(products));
             setCookie('myCart', JSON.stringify(products), 7);
             let cart_count= JSON.parse(localStorage.getItem('cart')).length;
-            console.log('after delete',cart_count);
             showTotals();
             $('.show-addon-basket-header').find('.cart-item-counting').html(cart_count);
             
@@ -214,9 +213,16 @@ $(document).ready(function(){
                <td>&nbsp;</td>`)
                $('.paynow_text').css('visibility','hidden');
             }
-         }else{
-            if($('.'+packageContainer).find('.'+parentClass).length == 1)
-            return false;
+         }
+         
+         else{
+            if(type !='location'){
+               if($('.'+packageContainer).find('.'+parentClass).length == 1)
+               return false;
+            }else{
+               $('.'+packageContainer).find('.'+parentClass).remove();
+            }
+           
          }
         
          $(el).closest('.'+parentClass).remove()

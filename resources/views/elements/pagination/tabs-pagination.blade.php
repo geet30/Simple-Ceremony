@@ -47,13 +47,19 @@
         var data = {
             'records': perpage,
         };
+        var current_url = window.location.pathname.split('/');
         $.ajax({
             method: 'GET',
             data: data,
             url: route,
+            beforeSend:function(){
+                // $('#loading').show();
+            },
             success: function(response) {
-                if (window.location.pathname.split('/')[2] == 'all-records-tab' || window.location.pathname
-                    .split('/')[2] == 'all') {
+             
+                
+                if (current_url[1] == 'all-enquiries' && (window.location.pathname.split('/')[2] == 'all-records-tab' || window.location.pathname
+                    .split('/')[2] == 'all')) {
                     $("#all-records").html(response);
                 } else if (window.location.pathname.split('/')[2] == 'booked-tab') {
                     $("#booked").html(response);
@@ -62,6 +68,20 @@
                 } else if (window.location.pathname.split('/')[2] == 'no-interest-tab') {
                     $("#no-interest").html(response);
                 }
+                else if(current_url[1] == 'addons' && (window.location.pathname.split('/')[2]  == 'all-ads-on-tab' || window.location.pathname.split('/')[2] =='all'))
+                {
+                    $("#all-ads-on").html(response);
+                } else if(window.location.pathname.split('/')[2]  == 'add-on-approved-tab'){
+                    $("#add-on-approved").html(response);
+                }  
+                else if(window.location.pathname.split('/')[2]  == 'Waiting-for-approval-tab'){
+                    $("#Waiting-for-approval").html(response);
+                }  
+                else if(window.location.pathname.split('/')[2]  == 'add-on-reject-tab'){
+                    $("#add-on-reject").html(response);
+                    
+                }  
+                // $('#loading').hide();
             },
         });
     }

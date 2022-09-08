@@ -15,12 +15,12 @@
             <div class="card py-50 px-50">
                <p class="paragraph text-black">Request custom location</p>
                <h1 class="h2 netural-100 mb-5">Please fill the form in below</h1>
-               <form class="needs-validation" action="{{route('post-custom-location')}}" method="POST" novalidate>
+               <form class="needs-validation loader_class" action="{{route('post-custom-location')}}" method="POST" novalidate>
                   @csrf
                   <div class="row">
                      <div class="col-md-6 mb-4">
-                        <label for="name" class="form-label small-text2">Preferred names *</label>
-                        <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="name" id="name" required>
+                        <label for="username" class="form-label small-text2">Preferred names *</label>
+                        <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="username" id="username" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Preferred names is required</div>
                      </div>
                      <div class="col-md-6 mb-4 phone_number">
@@ -62,18 +62,18 @@
                         </div>
                      </div>
                      <div class="col-md-6 mb-4">
-                        <label for="location_name" class="form-label small-text2">Location name *</label>
-                        <input type="text" placeholder="Type location here" class="form-control body-1 netural-100" name="location_name" id="location_name" required>
+                        <label for="name" class="form-label small-text2">Location name *</label>
+                        <input type="text" placeholder="Type location here" class="form-control body-1 netural-100" name="name" id="name" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Location name is required</div>
                      </div>
                      <div class="col-md-6 mb-4">
-                        <label for="street_address" class="form-label small-text2">Street Address *</label>
-                        <input type="text" placeholder="Type street address here" class="form-control body-1 netural-100" name="street_address" id="street_address" required>
+                        <label for="address" class="form-label small-text2">Street Address *</label>
+                        <input type="text" placeholder="Type street address here" class="form-control body-1 netural-100" name="address" id="address" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Street Address is required</div>
                      </div>
                      <div class="col-md-4">
-                        <label for="suburb" class="form-label small-text2">Suburb *</label>
-                        <input type="text" placeholder="Type suburb here" class="form-control body-1 netural-100" name="suburb" id="suburb" required>
+                        <label for="town" class="form-label small-text2">Suburb *</label>
+                        <input type="text" placeholder="Type suburb here" class="form-control body-1 netural-100" name="town" id="town" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Suburb is required</div>
                      </div>
                      <div class="col-md-4">
@@ -88,7 +88,7 @@
                      </div>
                      <div class="col-md-12 mb-4">
                         <label for="specific_location" class="form-label small-text2">Specific location *</label>
-                        <input type="text" placeholder="Pop in specific details on how to find your locations. Example. Park in the car park and walk towards the water and look for the big palm tree" class="form-control body-1 netural-100" name="specific_location" id="specific_location" required>
+                        <input type="text" placeholder="Pop in specific details on how to find your locations. Example. Park in the car park and walk towards the water and look for the big palm tree" class="form-control body-1 netural-100" name="direction" id="specific_location" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Specific location is required</div>
                      </div>
                      <div class="col-md-4 mb-4">

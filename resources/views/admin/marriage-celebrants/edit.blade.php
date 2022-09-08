@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-lg-9 col-xl-9 col-xxl-8">
-                                        <form class="needs-validation" method="POST" novalidate>
+                                        <form class="needs-validation loader_class" method="POST" novalidate>
                                             <div class="row">
                                                 <div class="col-md-12 mb-4">
                                                     <div

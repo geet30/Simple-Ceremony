@@ -9,6 +9,7 @@ class LocationFilterCriterias extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'location_category', 'location_id'
+        'location_category', 'location_id','request_location_id',
+        'location_type',
     ];
 }

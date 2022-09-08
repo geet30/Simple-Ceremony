@@ -13,9 +13,7 @@ trait Methods
    
   
     static function addData($data){    
-        try{
-            // dd($data->all());
-           
+        try{          
             $input = $data->all();
             $input['added_by'] = Auth::user()->id;
             $checkName = Locations::where('name',$data->name)->first();
@@ -40,17 +38,98 @@ trait Methods
         }
 
     }
-    static function locationExtras($data,$id){
+    static function addRequestLocation($data){    
+        try{          
+            $input = $data->all();
+            // $input['added_by'] = Auth::user()->id;
+            $checkName = RequestLocations::where('name',$data->name)->first();
+            if($checkName){
+                $msg = 'Location already exists with this name.';
+                return ['status' => false,'message'=>$msg];    
+            }
+            if($data->hasFile('cover_image')){
+                $input['cover_image'] = uploadImage($data->cover_image, 'locations');
+            }
+            $input['celebrant_id'] = Auth::user()->id;
+            $input['type'] = 2;
+            $input['username'] = Auth::user()->username;
+            $input['email'] = Auth::user()->email;
+            $result = RequestLocations::create($input);
+            if($result){
+                self::locationExtras($data,$result->id,2);
+                $msg = 'Location added Successfully';
+                return ['status' => true,'message'=>$msg];   
+            }
+            $msg = 'Something went wrong';
+            return ['status' => false,'message'=>$msg]; 
+        }
+        catch (\Exception $ex) {
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+
+    }
+    
+    static function updateRequestLocation($data,$id){   
+       
+        try{
+            // dd($data->location_images);
+            $input = $data->all();  
+            deleteRecords($data->image_id,'App\Models\LocationImages');  
+            if($data->has('key_advantages') && !empty($data->key_advantages)){
+                deleteEntries($id,'App\Models\LocationKeyAdvantages','request_location_id'); 
+            } 
+            if($data->has('partners') && !empty($data->partners)){
+                deleteEntries($id,'App\Models\LocationPackages','request_location_id'); 
+            }
+            if($data->has('location_category') && !empty($data->location_category)){
+                deleteEntries($id,'App\Models\LocationFilterCriterias','request_location_id'); 
+            } 
+            if($data->has('marriage_celebrant') && !empty($data->marriage_celebrant)){
+                deleteEntries($id,'App\Models\CelebrantLocations','request_location_id'); 
+            }
+           
+            if($data->hasFile('cover_image')){
+                $input['cover_image'] = uploadImage($data->cover_image, 'locations');
+            }               
+            $location = Locations::find($id);
+            if($location->fill($input)->save()){
+                self::locationExtras($data,$id,2); 
+                $msg = 'Location updated Successfully';
+                return ['status' => true,'message'=>$msg];   
+            }
+            $msg = 'Something went wrong';
+            return ['status' => false,'message'=>$msg];   
+        }
+        catch (\Exception $ex) {
+            dd($ex); 
+            return ['status' => false,'message'=>$ex->getMessage()];   
+        }
+
+    }
+    static function locationExtras($data,$id,$type=null){
         if($data->has('location_images')){
             foreach($data->location_images as $file){
-                $image['location_id'] = $id;
+                if($type != ''){
+                    $image['location_type'] = $type; 
+                    $image['request_location_id'] = $id;
+                    
+                }else{
+                    $image['location_id'] = $id;
+                }
+              
                 $image['image'] = uploadImage($file, 'locations');
                 LocationImages::create($image);
             }   
         }
         if($data->has('location_category') && !empty($data->location_category)){
             foreach($data->location_category as $category){
-                $location_category['location_id'] = $id;
+                if($type != ''){
+                    $location_category['location_type'] = $type; 
+                    $location_category['request_location_id'] = $id;
+                    
+                }else{
+                    $location_category['location_id'] = $id;
+                }
                 $location_category['location_category'] = $category;
                 LocationFilterCriterias::create($location_category);
             }   
@@ -58,7 +137,13 @@ trait Methods
         if($data->has('marriage_celebrant') && !empty($data->marriage_celebrant)){
             foreach($data->marriage_celebrant as $celebrant){
                 if($celebrant!=null){
-                    $marriage_celebrant['location_id'] = $id;
+                    if($type != ''){
+                        $marriage_celebrant['location_type'] = $type; 
+                        $marriage_celebrant['request_location_id'] = $id;
+                        
+                    }else{
+                        $marriage_celebrant['location_id'] = $id;
+                    }
                     $marriage_celebrant['celebrant_id'] =$celebrant;
                     CelebrantLocations::create($marriage_celebrant);
                 }
@@ -68,7 +153,13 @@ trait Methods
         if($data->has('key_advantages') && !empty($data->key_advantages)){
             foreach($data->key_advantages as $advantage){
                 if($advantage!=null){
-                    $key_advantages['location_id'] = $id;
+                    if($type != ''){
+                        $key_advantages['location_type'] = $type; 
+                        $key_advantages['request_location_id'] = $id;
+                        
+                    }else{
+                        $key_advantages['location_id'] = $id;
+                    }
                     $key_advantages['key_advantages'] = $advantage;
                     LocationKeyAdvantages::create($key_advantages);
                 }
@@ -77,7 +168,13 @@ trait Methods
         if($data->has('partners') && !empty($data->partners)){
             foreach($data->partners as $partner){
                 if($partner['partner_id'] !=null){
-                    $partner_packages['location_id'] = $id;
+                    if($type != ''){
+                        $partner_packages['location_type'] = $type; 
+                        $partner_packages['request_location_id'] = $id;
+                        
+                    }else{
+                        $partner_packages['location_id'] = $id;
+                    }
                     // $partner_packages['location_category'] = $data->location_category;
                     $partner_packages['partner_id'] = $partner['partner_id'];
                     $partner_packages['package_id'] = $partner['package_id'];
@@ -282,5 +379,22 @@ trait Methods
             return $locations->get();
         }
     } 
+    public static function request_custom_location_data(){
+        $locations =   RequestLocations::with([
+            'request_location_images' => function($query){               
+                $query->select('request_location_id', 'image');
+            } ,
+            'request_location_packages' => function($query){
+                $query->select('request_location_id','partner_id','package_id');
+            },
+            'request_location_advantages'=>function($query){
+                $query->select('request_location_id','key_advantages','id');
+            },           
+            'request_location_criteria'=>function($query){
+                $query->select('request_location_id','location_category','id');
+            },        
+        ]);
+        return $locations;
+    }
    
 }

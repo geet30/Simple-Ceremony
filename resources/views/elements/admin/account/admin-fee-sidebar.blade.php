@@ -5,7 +5,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
     </div>
     <div class="offcanvas-body">
-        <form class="needs-validation" novalidate id="saveTax" method="POST">
+        <form class="needs-validation loader_class" novalidate id="saveTax" method="POST">
             <div class="message"></div>
             @csrf
             <div class="col-md-10 col-12 mb-4">

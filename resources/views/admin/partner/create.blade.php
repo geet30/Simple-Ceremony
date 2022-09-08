@@ -22,7 +22,7 @@
                            <ul class="mb-0"> <li>{!! \Session::get('message') !!}</li></ul>
                      </div>
                   @endif
-               <form class="needs-validation" method="POST" novalidate action="{{ route('partner.store') }}" enctype="multipart/form-data">
+               <form class="needs-validation loader_class" method="POST" novalidate action="{{ route('partner.store') }}" enctype="multipart/form-data">
                   @csrf
                   <div class="row">
                      <div class="col-lg-12 col-xl-12 col-xxl-12">

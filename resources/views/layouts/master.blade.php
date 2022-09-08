@@ -30,6 +30,15 @@
 </head>
 
 <body class="antialiased" data-barba="wrapper">
+    <div class="wrapper" id="loading">
+        <div class='c-loader'>
+            <div class='c-loader-circle'>
+                <div class='c-loader-circle-border'>
+                </div>
+                <img src="/images/user/sidebar-main-logo.svg"/>  
+            </div> 
+        </div>
+    </div>
     <main>
         @include('elements.header')
         @yield('content')

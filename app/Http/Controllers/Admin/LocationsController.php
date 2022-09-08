@@ -87,6 +87,7 @@ class LocationsController extends Controller
 
             $columns = ['name', 'id', 'price', 'address', 'town', 'why_this_location', 'cover_image'];
             $data = Locations::getLocations($id, $columns)->first();
+            
             $celebrants = Locations::celebrants()->get();
             $celebrants_locations = Locations::celebrants($id)->paginate($records, ['*'], 'page', $req_page);
             if ($request->ajax()) {
@@ -152,12 +153,14 @@ class LocationsController extends Controller
             $filters = LocationFilters::all();
             $partners = Locations::partners();
             $celebrants = Locations::celebrants()->get();
+            $partnerspackages = Locations::getPartnerPackages();
             $data = array();
             if ($id) {
-                $data = RequestLocations::where('id', $id)->first();
-            }
+               
 
-            return view('admin.locations.create', compact('data', 'filters', 'partners', 'celebrants'));
+                $data = Locations::request_custom_location_data()->where('id', $id)->first();
+            }
+            return view('admin.locations.create', compact('data', 'filters', 'partners', 'celebrants','partnerspackages'));
         } catch (\Exception $ex) {
 
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
