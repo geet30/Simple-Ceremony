@@ -22,7 +22,7 @@
             @endif
                <div class="card panel-card">
                   <div class="card-body">
-                     <form class="needs-validation row" novalidate method="POST" action="{{route('locations.update',$data->id)}}" enctype="multipart/form-data">
+                     <form class="needs-validation row loader_class" novalidate method="POST" action="{{route('locations.update',$data->id)}}" enctype="multipart/form-data">
                         @csrf
                         @if($errors->any())
                         <div class="alert alert-danger mb-3 alert-block">
@@ -267,7 +267,7 @@
                                     </div>
                                     <div class="col-2 ">
                                        <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                       <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer')"></a>
+                                       <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer','location')"></a>
                                     </div>
                                  </div>
                               @endforeach
@@ -300,7 +300,7 @@
                               </div>
                               <div class="col-2 ">
                                  <label for="InputName" class="form-label small-text2 d-block">&nbsp;</label>
-                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer')"></a>
+                                 <a class="cross-icon"><img src="/images/icons/cross.svg" class="img-fluid" onclick="remove('partnerpackageDiv',this,'partnerpackageContainer','location')"></a>
                               </div>
                            </div>
                            @endif
@@ -308,7 +308,7 @@
                         <div class="col-12 mb-4">
                            <a class="d-flex add-link" onclick="appendHtml('partnerpackageContainer', 'locationpackage',partners,'partnerpackageDiv')">
                               <div class="align-self-center mr-6"><img src="/images/icons/add-primary.svg" class="img-fluid"></div>
-                              <div class="align-self-center">Add other partners</div>
+                              <div class="align-self-center cursor-pointer">Add other partners</div>
                            </a>
                         </div>
                         <div class="col-12 mt-3">

@@ -11,5 +11,7 @@ class LocationKeyAdvantages extends Model
     protected $fillable = [
         'location_id',
         'key_advantages',
+        'request_location_id',
+        'location_type',
     ];
 }

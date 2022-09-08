@@ -34,7 +34,7 @@
                                             </div>
                                         @endif
 
-                                        <form class="needs-validation row" method="POST" action="{{ route('login') }}"
+                                        <form class="needs-validation row loader_class" method="POST" action="{{ route('login') }}"
                                             novalidate>
                                             @csrf
 

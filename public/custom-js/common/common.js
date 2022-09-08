@@ -79,9 +79,6 @@ var defaultConfig = {
     min: new Date().toLocaleDateString("fr-CA"),
 };
 
-$(document).ready(function () {
-    $(".calendar-wrapper").calendar(defaultConfig);
-});
 
 /////// user sidebar
 $("#sidebarMenu li a").click(function () {
@@ -171,6 +168,13 @@ $(document).ready(function () {
     // $(".alert").slideDown(300).delay(3000).slideUp(300);
     $('#loading').hide();
     ImgUpload();
+    $(".calendar-wrapper").calendar(defaultConfig);
+    $(document).on('click', '.delete_append_id', function() {
+        
+        var id = $(this).data('id');
+        $('.delete_form').find('input[name="id"]').val(id);
+
+    })
 });
 
 function ImgUpload(counter = null) {
@@ -206,6 +210,7 @@ function ImgUpload(counter = null) {
                         return false;
                     } else {
                         imgArray.push(f);
+                        console.log(imgArray);
 
                         var reader = new FileReader();
                         reader.onload = function (e) {

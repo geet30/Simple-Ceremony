@@ -10,6 +10,8 @@ class LocationPackages extends Model
     use HasFactory;
     protected $fillable = [
         'location_id',
+        'request_location_id',
+        'location_type',
         'location_category',
         'partner_id',
         'package_id',

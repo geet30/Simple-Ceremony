@@ -9,7 +9,9 @@
     // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function(form) {
       form.addEventListener('submit', function(event) {
+        $("#loading").show();
         if (form.checkValidity() === false) {
+          $("#loading").hide();
             event.preventDefault();
             event.stopPropagation();
         }
@@ -22,10 +24,6 @@
               $(this).parents('.phone_number').find('.phone_number_required').removeClass('d-block');
             }
         });
-       
-        
-        
-
         window.setTimeout(function () {
             var errors = $('.invalid-feedback:visible:first').prev();
             if (errors.length) {
