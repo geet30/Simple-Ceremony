@@ -38,23 +38,23 @@ $person = $person && $person[0] ? $person[0] : null;
                         <div class="col-md-6 mb-4 align-self-end">
                             <label for="birth" class="form-label small-text2">What evidence of Date and Place of
                                 Birth are you using?</label>
-                            <select name="birth" id="birth" class="js-placeholder-single-input form-control">
-                                <option value="" disabled="" selected="" hidden="">Select answer here
+                            <select name="birth" id="person1SelectEvidence"
+                                class="js-placeholder-single-input form-control selectEvidence">
+                                <option value="" selected="">Select answer here
                                 </option>
                                 <option value="1">Birth Certificate or official extract</option>
                                 <option value="2">Australian Passport</option>
                                 <option value="3">OS Passport</option>
                             </select>
                         </div>
-                        <div class="col-md-6 mb-4 align-self-end">
+                        <div class="col-md-6 mb-4 align-self-end d-none">
                             <label for="id" class="form-label small-text2">What photo ID are you using?</label>
                             <select name="id" id="id" class="js-placeholder-single-input form-control">
-                                <option value="" disabled="" selected="" hidden="">Select answer here
+                                <option value="" selected="">Select answer here
                                 </option>
                                 <option value="1">Current Card (Govt issued)</option>
                                 <option value="2">Current Driver’s Licence</option>
                                 <option value="3">Current Proof of Age Card (Govt issued)</option>
-                                <option value="4">Passport</option>
                             </select>
                         </div>
                     </div>

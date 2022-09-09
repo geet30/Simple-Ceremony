@@ -137,9 +137,9 @@ $websiteRoutes = function () {
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
-            Route::get('steps', function () {
-                return view('user.NoIM.steps');
-            });
+            // Route::get('steps', function () {
+            //     return view('user.NoIM.steps');
+            // });
             Route::get('step-2', function () {
                 return view('user.NoIM.step-2');
             });

@@ -79,7 +79,6 @@ var defaultConfig = {
     min: new Date().toLocaleDateString("fr-CA"),
 };
 
-
 /////// user sidebar
 $("#sidebarMenu li a").click(function () {
     $("#sidebarMenu li a").removeClass("active");
@@ -166,15 +165,13 @@ $(document).ready(function () {
         $(".alert").slideDown(300).delay(3000).slideUp(300);
     }
     // $(".alert").slideDown(300).delay(3000).slideUp(300);
-    $('#loading').hide();
+    $("#loading").hide();
     ImgUpload();
     $(".calendar-wrapper").calendar(defaultConfig);
-    $(document).on('click', '.delete_append_id', function() {
-        
-        var id = $(this).data('id');
-        $('.delete_form').find('input[name="id"]').val(id);
-
-    })
+    $(document).on("click", ".delete_append_id", function () {
+        var id = $(this).data("id");
+        $(".delete_form").find('input[name="id"]').val(id);
+    });
 });
 
 function ImgUpload(counter = null) {
@@ -385,5 +382,19 @@ $(function () {
         format: "D, MM d, yyyy",
         keyboardNavigation: false,
         autoclose: true,
+    });
+});
+
+var cl = console.log;
+$(document).ready(function () {
+    $(".selectEvidence").on("change", function () {
+        cl(this.value);
+        if (this.value == 1) {
+            $(this).parent().siblings().removeClass("d-none");
+            $(this).parent().siblings().children().attr("required", true);
+        } else {
+            $(this).parent().siblings().addClass("d-none");
+            $(this).parent().siblings().children().attr("required", false);
+        }
     });
 });

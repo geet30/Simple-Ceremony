@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Booking;
 use App\Models\UserNoim;
+use App\Models\UserParent;
+use App\Models\UserWitness;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -47,18 +49,33 @@ class UserNoimController extends Controller
 
         // remove the exists rows
         UserNoim::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
+        UserWitness::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
 
         $person = array_map(function ($person) use ($loggedInUserId, $bookingId) {
             $person['user_id'] = $loggedInUserId;
             $person['booking_id'] = $bookingId;
             $person['date_of_birth'] = date('Y-m-d', strtotime($person['date_of_birth']));
-            UserNoim::create($person);
+            $userNoim = UserNoim::create($person);
+
             return $person;
         }, $request->person);
+        self::storeWitnessData($request, $loggedInUserId, $bookingId);
         // UserNoim::insert($person);
-        return redirect()->back();
-        return $person;
+        // return redirect()->back();
+        // return $person;
         return $request->all();
+    }
+    private static function storeWitnessData($request, $loggedInUserId, $bookingId)
+    {
+        $witness = array_map(function ($witness) use ($loggedInUserId, $bookingId) {
+            $witness['user_id'] = $loggedInUserId;
+            $witness['booking_id'] = $bookingId;
+            return $witness;
+        }, $request->witness);
+        UserWitness::insert($witness);
+    }
+    private static function storeParentData($request, $loggedInUserId, $bookingId)
+    {
     }
 
     /**

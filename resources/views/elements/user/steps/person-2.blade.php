@@ -33,16 +33,18 @@ $person = $person && $person[1] ? $person[1] : null;
                         <div class="col-md-6 mb-4 align-self-end">
                             <label for="birth" class="form-label small-text2">What evidence of Date and Place of
                                 Birth are you using?</label>
-                            <select name="birth" id="birth" class="js-placeholder-single-input form-control">
+                            <select name="birth" id="person2selectEvidence"
+                                class="js-placeholder-single-input form-control selectEvidence" name="person[1][]">
                                 <option value="">Select answer here</option>
-                                <option value="1" selected="">Birth Certificate or official extract</option>
+                                <option value="1">Birth Certificate or official extract</option>
                                 <option value="2">Australian Passport</option>
                                 <option value="3">OS Passport</option>
                             </select>
                         </div>
-                        <div class="col-md-6 mb-4 align-self-end">
+                        <div class="col-md-6 mb-4 align-self-end d-none">
                             <label for="id" class="form-label small-text2">What photo ID are you using?</label>
-                            <select name="id" id="id" class="js-placeholder-single-input form-control">
+                            <select name="id" id="id"
+                                class="js-placeholder-single-input form-control d-none">
                                 <option value="" disabled="" selected="" hidden="">Select answer here
                                 </option>
                                 <option value="1">Current Card (Govt issued)</option>
@@ -82,7 +84,7 @@ $person = $person && $person[1] ? $person[1] : null;
                     </div>
                     <!--  -->
                     <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box  noim-document-box">
+                    <div class="attach-document-box uploaded-box  noim-document-box d-none">
                         <div class="d-flex justify-content-center uploaded-content">
                             <div class="align-self-center">
                                 <p id="filename" class="h4 neutral-100 mb-0">Document.pdf</p>
