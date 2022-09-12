@@ -1,6 +1,6 @@
 <div class="modal-success-form modal fade cancel-ceremony-popup" id="change_status_modal" tabindex="-1"
       aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">             
                 <div class="modal-body text-center">
                     <img class="mt-4" src="/images/user/exclamation.svg" alt="Exclamation">
