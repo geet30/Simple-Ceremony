@@ -426,11 +426,25 @@
             background-color: #ffb800;
         }
     }
+    &.lodged-pending {
+        color: #ffb800;
+        background: #fff6de;
+        &::before {
+            background-color: #ffb800;
+        }
+    }
     &.lodged {
         color: #ffb800;
         background: #fff6de;
         &::before {
             background-color: #ffb800;
+        }
+    }
+    &.non-legal {
+        color: #1482e3;
+        background: #f1f3f5;
+        &::before {
+            background-color: #1482e3;
         }
     }
     &.registered {
@@ -462,6 +476,13 @@
         }
     }
     &.refunded {
+        color: #ff4545;
+        background: #ffeded;
+        &::before {
+            background-color: #ff4545;
+        }
+    }
+    &.settled {
         color: #ff4545;
         background: #ffeded;
         &::before {

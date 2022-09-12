@@ -32,5 +32,13 @@ return [
         7 => '100%',
         8 => '0%'
     ],
+    'celebrant_booking_status' => [
+       
+        2 => 'Lodged',
+        3 => 'Lodged-Pending',
+        4 => 'Non-Legal',
+        5 => 'Registered',
+        8 => 'Cancelled'
+    ],
 
 ];

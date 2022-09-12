@@ -77,9 +77,6 @@ trait Methods
             ];
             return self::stripePayment($send_paramter);
         } catch (\Exception $ex) {
-            echo "<pre>";
-            print_r($ex->getMessage());
-            die;
             return $ex->getMessage();
         }
     }
@@ -197,7 +194,6 @@ trait Methods
     }
     static function stripePayment($data)
     {
-
         try {
 
             Stripe::setApiKey(config('env.STRIPE_SECRET'));
@@ -225,9 +221,6 @@ trait Methods
             ]);
             return redirect($checkout_session->url);
         } catch (\Exception $ex) {
-            echo "<pre>";
-            print_r($ex->getMessage());
-            die;
             return $ex->getMessage();
         }
     }
@@ -309,5 +302,37 @@ trait Methods
             $booking->where('booking_end_time', $data['booking_end_time']);
         }
         return $booking->select('booking_date', 'id', 'locationId')->first();
+    }
+    static function change_booking_status($request){
+        // dd($request->all());
+        $input['status'] = $request->status;
+        $body = '';
+        if ($request->status == 2) {
+            $body = 'Marriage status changed to Lodged by celebrant';
+        } else if ($request->status == 3) {
+            $body = 'Marriage status changed to Lodged Pending by celebrant';
+        } else if ($request->status == 4) {
+            $body = 'Marriage status changed to Non Legal by celebrant';
+        }
+        else if ($request->status == 5) {
+            $body = 'Marriage status changed to Registered by celebrant';
+        }
+        else if ($request->status == 8) {
+            $body = 'Marriage status changed to Cancelled by celebrant';
+        }
+        // send notification to admin for add-ons list
+        $title = 'Ceremony Status';
+        $redirection_url = 'user/overview';
+        $type = 'Ceremony status updated';
+        $authId = Auth::user()->id;
+        Booking::where('id', $request->id)->update($input);
+        $booking = Booking::where('id', $request->id)->first();
+        notificationSave($authId, $booking->user_id, $title, $body, $redirection_url, $type);
+        $admin = User::role('Admin')->first();
+        $redirection_url_admin = 'marriages/all-records-tab';
+        notificationSave($authId, $admin->id, $title, $body, $redirection_url_admin, $type);
+        return true;
+
+
     }
 }
