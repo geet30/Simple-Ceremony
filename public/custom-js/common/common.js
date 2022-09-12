@@ -79,7 +79,6 @@ var defaultConfig = {
     min: new Date().toLocaleDateString("fr-CA"),
 };
 
-
 /////// user sidebar
 $("#sidebarMenu li a").click(function () {
     $("#sidebarMenu li a").removeClass("active");
@@ -165,29 +164,26 @@ $(document).ready(function () {
         //  $('html, body').animate({ scrollTop: $('.alert:first').offset().top - 10 }, 500);
         $(".alert").slideDown(300).delay(3000).slideUp(300);
     }
-    $('#loading').hide();
+    $("#loading").hide();
     ImgUpload();
     $(".calendar-wrapper").calendar(defaultConfig);
-    $(document).on('click', '.delete_append_id', function() {
-        
-        var id = $(this).data('id');
-        $('.delete_form').find('input[name="id"]').val(id);
+    $(document).on("click", ".delete_append_id", function () {
+        var id = $(this).data("id");
+        $(".delete_form").find('input[name="id"]').val(id);
+    });
+    window.closeDialog = function (id) {
+        $("#" + id).modal("hide");
+    };
+    window.appendId = function (value, findclass) {
+        $("." + findclass).val(value);
+    };
 
-    })
-    window.closeDialog = function(id){
-        $('#'+id).modal('hide');
-    }
-    window.appendId = function(value,findclass){
-        $('.'+findclass).val(value);
-    }
-    
-    window.submitThroughAjax = function(e,id,method,action){      
-        e.preventDefault();       
+    window.submitThroughAjax = function (e, id, method, action) {
+        e.preventDefault();
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = $(e.target);
-        submitform(id,action,method, formData,form);
-    }
-  
+        submitform(id, action, method, formData, form);
+    };
 });
 
 function ImgUpload(counter = null) {
@@ -398,5 +394,31 @@ $(function () {
         format: "D, MM d, yyyy",
         keyboardNavigation: false,
         autoclose: true,
+    });
+});
+
+var cl = console.log;
+$(document).ready(function () {
+    $(".selectEvidence").on("change", function () {
+        if (this.value == "birth-certificate-or-official-extract") {
+            $(this).parent().siblings().removeClass("d-none");
+            $(this).parent().siblings().children().attr("required", true);
+        } else {
+            $(this).parent().siblings().addClass("d-none");
+            $(this).parent().siblings().children().attr("required", false);
+        }
+    });
+
+    // DISPLAY SELECTED FILE NAME ON USER DOCUMENT SECTION
+    $('.noim-document-box input[type="file"]').change(function (e) {
+        let filename = e.target.files[0].name;
+        $(this).parent().siblings().removeClass("d-none");
+        $(this)
+            .parent()
+            .siblings()
+            .children()
+            .children(":first-child")
+            .children("p.document-name")
+            .text(filename);
     });
 });

@@ -53,34 +53,34 @@ $personParentElement = 'person0Parent';
                 <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Birth Name of Parent
                     1</label>
                 <input type="text" value="SMITH" class="form-control body-1 netural-100"
-                    name="{{ $personParent }}[0][parent_birth_name]" id="{{ $personParentElement }}0BirthName"
-                    required>
+                    name="{{ $personParent }}[0][birth_name]" id="{{ $personParentElement }}0BirthName" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
             </div>
         </div>
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $presonParentElement }}FirstName" class="form-label small-text2">Parent 1 first
+                <label for="{{ $personParentElement }}0BirthFirstName" class="form-label small-text2">Parent 1 first
                     name</label>
                 <input type="text" value="Brad" class="form-control body-1 netural-100"
-                    name="{{ $personParent }}[first_name]" id="{{ $presonParentElement }}FirstName" required>
+                    name="{{ $personParent }}[0][birth_first_name]" id="{{ $personParentElement }}0BirthFirstName"
+                    required>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}OtherName" class="form-label small-text2">Parent 1 other given
+                <label for="{{ $personParentElement }}0BirthOtherName" class="form-label small-text2">Parent 1 other
+                    given
                     name(s)</label>
                 <input type="text" value="Martin" class="form-control body-1 netural-100"
-                    name="{{ $personParent }}[other_name]" id="{{ $personParentElement }}OtherName" required>
+                    name="{{ $personParent }}[0][birth_other_name]" id="{{ $personParentElement }}BirthOtherName"
+                    required>
             </div>
-        </div> --}}
+        </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}0BirthPlace" class="form-label small-text2">Birth place</label>
                 <select name="{{ $personParent }}[0][birth_place]" id="{{ $personParentElement }}0BirthPlace"
                     class="js-placeholder-single-input form-control">
                     <option value="0">Select country here</option>
-                    <option value="1" selected="">Australia</option>
-                    <option value="2">Add other country names here</option>
-                    <option value="3">Add other country names here</option>
+                    <option value="Australia" selected="">Australia</option>
                 </select>
             </div>
         </div>
@@ -116,18 +116,22 @@ $personParentElement = 'person0Parent';
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
             </div>
         </div>
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="description" class="form-label small-text2">Parent 2 first name</label>
-                <input type="text" value="Brad" class="form-control body-1 netural-100" name="name"
-                    id="description" required>
+                <label for="{{ $personParentElement }}1BirthFirstName" class="form-label small-text2">Parent 2 first
+                    name</label>
+                <input type="text" value="Brad" class="form-control body-1 netural-100"
+                    name="{{ $personParent }}[1][birth_first_name]" id="{{ $personParentElement }}1BirthFirstName"
+                    required>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="description" class="form-label small-text2">Parent 2 other given name(s)</label>
-                <input type="text" value="Lyn" class="form-control body-1 netural-100" name="name"
-                    id="description" required>
+                <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given
+                    name(s)</label>
+                <input type="text" value="Lyn" class="form-control body-1 netural-100"
+                    name="{{ $personParent }}[1][birth_other_name]" id="{{ $personParentElement }}1OtherName"
+                    required>
             </div>
-        </div> --}}
+        </div>
         <div class="row">
             <div class="col-md-6  align-self-top">
                 <label for="{{ $personParentElement }}[1][birth_place]" class="form-label small-text2">Birth
@@ -135,9 +139,7 @@ $personParentElement = 'person0Parent';
                 <select name="{{ $personParent }}[1][birth_place]" id="{{ $personParentElement }}[1][birth_place]"
                     class="js-placeholder-single-input form-control">
                     <option value="0">Select country here</option>
-                    <option value="1" selected="">Australia</option>
-                    <option value="2">Add other country names here</option>
-                    <option value="3">Add other country names here</option>
+                    <option value="Australia" selected>Australia</option>
                 </select>
             </div>
         </div>
