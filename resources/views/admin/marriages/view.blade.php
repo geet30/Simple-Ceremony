@@ -47,7 +47,7 @@
                                     <img src="/images/marriage-celebrant/icons/booking.svg" alt="">
                                     </div>
                                     <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['lodged_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Lodged</p>
                                     </div>
                                 </div>
@@ -63,7 +63,7 @@
                                     <img src="/images/marriage-celebrant/icons/document.svg" alt="Lodged pending">
                                     </div>
                                     <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['lodged_pending_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Lodged pending</p>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                     <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
                                 </div>
                                 <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['non_legal_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Non Legal</p>
                                 </div>
                                 </div>
@@ -96,7 +96,7 @@
                                     <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
                                 </div>
                                 <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['registered_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Registered</p>
                                 </div>
                                 </div>
@@ -111,7 +111,7 @@
                                     <img src="/images/marriage-celebrant/icons/finalised.svg" alt="">
                                 </div>
                                 <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['finalised_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Finalised</p>
                                 </div>
                                 </div>
@@ -126,7 +126,7 @@
                                     <img src="/images/marriage-celebrant/icons/cancelled.svg" alt="">
                                 </div>
                                 <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['cancelled_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Cancelled</p>
                                 </div>
                                 </div>
@@ -141,7 +141,7 @@
                                     <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
                                 </div>
                                 <div class="add-ons-nav-data text-start ">
-                                    <h3 class="h3">0</h3>
+                                    <h3 class="h3">{{ $dataArray['settled_marriages']->total() }}</h3>
                                     <p class="subheader-2 d-none d-md-block">Settled</p>
                                 </div>
                                 </div>

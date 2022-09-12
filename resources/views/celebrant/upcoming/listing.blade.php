@@ -47,7 +47,7 @@
                            <img src="/images/marriage-celebrant/icons/booking.svg" alt="">
                         </div>
                         <div class="add-ons-nav-data text-start ">
-                           <h3 class="h3">0</h3>
+                           <h3 class="h3">{{ $dataArray['lodged_marriages']->total() }}</h3>
                            <p class="subheader-2 d-none d-md-block">Lodged</p>
                         </div>
                      </div>
@@ -63,7 +63,7 @@
                            <img src="/images/marriage-celebrant/icons/document.svg" alt="Lodged pending">
                         </div>
                         <div class="add-ons-nav-data text-start ">
-                           <h3 class="h3">0</h3>
+                           <h3 class="h3">{{ $dataArray['lodged_pending_marriages']->total() }}</h3>
                            <p class="subheader-2 d-none d-md-block">Lodged pending</p>
                         </div>
                      </div>
@@ -81,7 +81,7 @@
                               <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
                            </div>
                            <div class="add-ons-nav-data text-start ">
-                              <h3 class="h3">0</h3>
+                              <h3 class="h3">{{ $dataArray['non_legal_marriages']->total() }}</h3>
                               <p class="subheader-2 d-none d-md-block">Non Legal</p>
                            </div>
                         </div>
@@ -96,7 +96,7 @@
                               <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
                            </div>
                            <div class="add-ons-nav-data text-start ">
-                              <h3 class="h3">0</h3>
+                              <h3 class="h3">{{ $dataArray['registered_marriages']->total() }}</h3>
                               <p class="subheader-2 d-none d-md-block">Registered</p>
                            </div>
                         </div>
@@ -111,7 +111,7 @@
                               <img src="/images/marriage-celebrant/icons/finalised.svg" alt="">
                            </div>
                            <div class="add-ons-nav-data text-start ">
-                              <h3 class="h3">0</h3>
+                              <h3 class="h3">{{ $dataArray['finalised_marriages']->total() }}</h3>
                               <p class="subheader-2 d-none d-md-block">Finalised</p>
                            </div>
                         </div>
@@ -126,7 +126,7 @@
                               <img src="/images/marriage-celebrant/icons/cancelled.svg" alt="">
                            </div>
                            <div class="add-ons-nav-data text-start ">
-                              <h3 class="h3">0</h3>
+                              <h3 class="h3">{{ $dataArray['cancelled_marriages']->total() }}</h3>
                               <p class="subheader-2 d-none d-md-block">Cancelled</p>
                            </div>
                         </div>
@@ -141,7 +141,7 @@
                               <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
                            </div>
                            <div class="add-ons-nav-data text-start ">
-                              <h3 class="h3">0</h3>
+                              <h3 class="h3">{{ $dataArray['settled_marriages']->total() }}</h3>
                               <p class="subheader-2 d-none d-md-block">Settled</p>
                            </div>
                         </div>
@@ -157,23 +157,28 @@
             <div class="align-self-center col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-grid mt-3 mt-md-0 position-relative">
                <div class="dropdown filter-date-calendar-dropdown">
                   <a role="button" class="theme-btn primary-btn-border d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/icons/green-calendar.svg" class="me-3" alt="calendar"> Filter by date</a>
-                  <div class="dropdown-menu p-4">
+                  <div class="dropdown-menu p-4 filter_date_div">
                      <div class="filter-date-calendar">
                         <p class="mb-3 netural-100 light-heading">Choose filter</p>
                         <div class="row">
                            <div class="col-6">
                               <div class="cs-checkbox-list form-check mb-3">
-                                 <input name="status" class="form-check-input" type="checkbox" value="2"><span class="netural-100 body-2 ms-2">Ceremony Date</span>
+                             
+                                 <input name="ceremony_date" class="form-check-input ceremony_date"  value="1" type="checkbox"><span class="netural-100 body-2 ms-2">Ceremony Date</span>
+                                 <!-- <input name="ceremony_date" class="form-check-input ceremony_date"  value="0" type="hidden"> -->
                                </div>
                            </div>
                            <div class="col-6">
                               <div class="cs-checkbox-list form-check mb-3">
-                                 <input name="status" class="form-check-input" type="checkbox" value="2"><span class="netural-100 body-2 ms-2">Payment Date</span>
+                            
+                                 <input name="payment_date" class="form-check-input payment_date" type="checkbox" value="1"><span class="netural-100 body-2 ms-2">Payment Date</span>
+                                 <!-- <input name="payment_date" class="form-check-input payment_date"  value="0" type="hidden"> -->
                                </div>
                            </div>
                         </div>
                         <div class="calendar-wrapper" id="calendar-wrapper"></div>
-                        <a href="#" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
+                        <input type="hidden" name="booking_date" class="booking_date">
+                        <a onclick="SearchResultsWithTab('search-marriage-by-date')" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
                      </div>
                   </div>
                 </div>
@@ -184,7 +189,7 @@
                   <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                   </a>
                   <div class="select-with-checkbox">
-                     <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
+                     <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control searchingMultiple location_categories_button" multiple="multiple">
                         <optgroup label="Status">
                         @foreach(config('ceremonyStatus.booking_status') as $key=>$status)
                            <option value="{{ $key }}" data-badge="">{{ $status }}
@@ -220,12 +225,17 @@
             </div>
             <div class="tab-pane fade" id="lodged" role="tabpanel" aria-labelledby="lodged-tab"
                tabindex="2">
-               @include('elements.celebrant.marriage.all-records-tab')
+               @include('elements.celebrant.marriage.lodged-tab')
 
             </div>
             <div class="tab-pane fade" id="lodged-pending" role="tabpanel" aria-labelledby="lodged-pending-tab"
                tabindex="3">
-               @include('elements.celebrant.marriage.all-records-tab')
+               @include('elements.celebrant.marriage.lodged-pending-tab')
+
+            </div>
+            <div class="tab-pane fade" id="non-legal" role="tabpanel" aria-labelledby="non-legal-tab"
+               tabindex="3">
+               @include('elements.celebrant.marriage.non-legal-tab')
 
             </div>
          </div>

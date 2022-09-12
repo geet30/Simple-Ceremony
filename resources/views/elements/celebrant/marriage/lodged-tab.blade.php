@@ -14,11 +14,12 @@
             </tr>
             </thead>
             <tbody>
-                @foreach($data as $result)
+                @foreach ($dataArray['lodged_marriages'] as $result)
                 
                     <tr>                   
                         <td  style="min-width:130px" class="body-2">{{date('M d, Y',strtotime($result->booking_date))}}</td>
                         <td  style="min-width:130px" class="body-2">{{$result->booking_start_time}}</td>
+                        
                         <td  style="min-width:130px" class="body-2">{{config('ceremonyStatus.typeOfCeremony.'.$result->ceremony_type) }}</td>
                         <td style="min-width:120px;">
                             <span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$result->status) )}}"> <a role="button" data-bs-toggle="modal" data-bs-target="#change_status_modal" onclick="appendId('{{$result->id}}','id')">{{config('ceremonyStatus.booking_status.'.$result->status) }}  </a></span>
@@ -34,14 +35,14 @@
                         </td>                   
                         
                         <td style="min-width:100px;">
-                            <a href="{{route('marriage.detail',$result->id)}}" class="table-link">View info</a>
+                            <a href="{{route('celebrant.marriage.detail',$result->id)}}" class="table-link">View info</a>
                         </td>
                     </tr>
                     
                 @endforeach
-                @if($data->total()==0)
+                @if($dataArray['lodged_marriages']->total()==0)
                     <tr>
-                        <td colspan="8">
+                        <td colspan="9">
                             <center>No Record Found</center>
                         </td>
                     </tr>
@@ -49,11 +50,11 @@
             </tbody>
             <tfoot>
             <tr>
-                <td colspan="10">
-                    @include('elements.pagination.tabs-pagination', ['title' => 'All marriages','data' => $data])
+                <td colspan="9">
+                    @include('elements.pagination.tabs-pagination', ['title' => 'All marriages','data' => $dataArray['lodged_marriages']])
                 </td>
             </tr>
             </tfoot>
         </table>
     </div>
-    @include('pages.alert.change_status')
+    

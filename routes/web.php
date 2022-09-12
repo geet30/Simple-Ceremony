@@ -428,6 +428,8 @@ $celebrantRoutes = function () {
             // Route::resource('/', DashboardController::class);
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
+            Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
+            Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
            
         });
         Route::post('search-by-user', [DashboardController::class, 'searchMarriagesByUser']);
@@ -439,6 +441,8 @@ $celebrantRoutes = function () {
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
         Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
+       
+        
     });
 
     Route::get('availablity-overview', function () {
