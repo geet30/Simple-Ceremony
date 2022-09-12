@@ -188,7 +188,7 @@ class HomeController extends Controller
      */
     public function changeStatus(Request $request)
     {
-       
+   
         try {
             $result =   Booking::change_booking_status($request);
             if ($result) {

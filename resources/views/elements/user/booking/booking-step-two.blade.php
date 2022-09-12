@@ -43,14 +43,12 @@
         <div class="col-md-6 mb-4">
             <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
             <select name="ceremony_type" id="ceremony_type" class="js-placeholder-single-input form-control" required>
-            
-
                 <option value="" disabled="" selected="" hidden="">This ceremony is a</option>
-                <option value="1" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 1) ? 'selected' : '' }}>Legal marriage ceremony</option>
-                <option value="2" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 2) ? 'selected' : '' }}>A commitment ceremony</option>
-                <option value="3" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 3) ? 'selected' : '' }}>A re-newal of vows</option>
-                <option value="4" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 4) ? 'selected' : '' }}>A naming day</option>
-                <option value="5" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == 5) ? 'selected' : '' }}>A memorial ceremony</option>
+                @foreach(config('ceremonyStatus.typeOfCeremony') as $key=>$ceremony)
+               
+                    <option value="{{$key}}" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == $key) ? 'selected' : '' }}>{{$ceremony}}</option>
+                @endforeach
+            
             </select>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Type is required</div>
         </div>

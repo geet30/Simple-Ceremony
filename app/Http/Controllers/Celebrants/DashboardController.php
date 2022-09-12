@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request,$slug){
         try {          
-            $records = 1;
+            $records = 10;
             $req_page = 1;
             if($request->has('page')){
                 $req_page = $request->page; 
@@ -24,6 +24,13 @@ class DashboardController extends Controller
             
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
             $booking_marriages = (clone $data)->where('status', 1)->paginate($records, ['*'], 'page', $req_page);
+            $lodged_marriages = (clone $data)->where('status', 2)->paginate($records, ['*'], 'page', $req_page);
+            $lodged_pending_marriages = (clone $data)->where('status', 3)->paginate($records, ['*'], 'page', $req_page);
+            $non_legal_marriages = (clone $data)->where('status', 4)->paginate($records, ['*'], 'page', $req_page);
+            $registered_marriages = (clone $data)->where('status', 5)->paginate($records, ['*'], 'page', $req_page);
+            $finalised_marriages = (clone $data)->where('status', 6)->paginate($records, ['*'], 'page', $req_page);
+            $settled_marriages = (clone $data)->where('status', 7)->paginate($records, ['*'], 'page', $req_page);
+            $cancelled_marriages = (clone $data)->where('status', 8)->paginate($records, ['*'], 'page', $req_page);
 
             $dataArray = array(
                 'all_marriages' => $all_marriages,
@@ -33,7 +40,7 @@ class DashboardController extends Controller
                 $viewurl = 'elements.celebrant.marriage.' . $slug;
                 return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray]);
             }
-            // dd($all_marriages);
+            // dd($dataArray);
             return view('celebrant.upcoming.listing', compact('dataArray','locations','celebrants'));
         } catch (\Exception $ex) {
 
@@ -52,9 +59,11 @@ class DashboardController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = CelebrantMethods::marriage_detail($id)->first();
-            // dd($data);
+          
+            $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
+          
             // $user_id = PartnerProducts::where('id', $id)->value('user_id');
-            return view('celebrant.upcoming.detail',compact('celebrants','locations','data'));
+            return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details'));
             
         } catch (\Exception $ex) {
             dd($ex);

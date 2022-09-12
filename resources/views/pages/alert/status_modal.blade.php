@@ -11,7 +11,7 @@
         <input name="id" type="hidden" class="id">
         <div class="col-md-9 mb-4">
             @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
-                <input name="status" class="" type="checkbox" value="{{$key}}">{{$status}}<br>
+                <input name="status" class="" type="radio" value="{{$key}}">{{$status}}<br>
             @endforeach
         </div>
        

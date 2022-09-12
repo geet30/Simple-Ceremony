@@ -215,6 +215,7 @@ $adminRoutes = function () {
         Route::group(['prefix' => 'account'], function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);
         });
+        Route::post('change-booking-status', [HomeController::class, 'changeStatus']);
         Route::resource('enquiries', EnqueriesController::class);
         Route::resource('notifications', NotificationsController::class);
         Route::resource('calendar-overview', CalanderController::class);

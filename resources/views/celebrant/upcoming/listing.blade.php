@@ -54,7 +54,6 @@
                      <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Lodged</p>
                </button>
             </li>
-
             <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                <button class="nav-link w-100" id="lodged-pending-tab" data-bs-toggle="pill"
                      data-bs-target="#lodged-pending" type="button" role="tab" aria-controls="lodged-pending"
@@ -219,4 +218,5 @@
    </div>
 </div>
 @include('elements.celebrant.celebrant-note-popup')
+@include('pages.alert.change_status')
 @endsection

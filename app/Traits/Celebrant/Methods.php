@@ -116,6 +116,9 @@ trait Methods
             'user' => function ($query) {
                 $query->select('email', 'phone', 'country_code', 'id');
             },
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
+            },
             'location' => function ($query) {
                 $query->select('name', 'id', 'price');
             },
@@ -126,6 +129,7 @@ trait Methods
         if ($id != null) {
             $data = $data->where('id', $id);
         }
+      
         return   $data;
     }
 }
