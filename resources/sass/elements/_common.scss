@@ -758,3 +758,17 @@
         .panel-header .dropdown-toggle:focus {
             outline: none;
         }
+
+.filter-date-calendar-dropdown{
+    .dropdown-menu {
+        width: 529px;
+        box-shadow: 0px 2px 16px #e8f9f7;
+        border-radius: 10px;
+        border: 0;
+    }
+    .calendar-wrapper{
+        .calendar-box {
+            border: none;
+        }
+    }
+}
