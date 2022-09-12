@@ -1,5 +1,5 @@
 @php
-$person = $person && $person[0] ? $person[0] : null;
+$person = isset($person) && isset($person[0]) ? $person[0] : null;
 @endphp
 <div class="row">
     <div class="col-12 mb-4">
@@ -123,11 +123,11 @@ $person = $person && $person[0] ? $person[0] : null;
                 <select name="person[0][person_description]" id="person0person_description"
                     class="js-placeholder-single-input form-control" required>
                     <option value="">Select answer here</option>
-                    <option value="1" {{ $person['person_description'] == '1' ? 'selected' : '' }}>
+                    <option value="1" {{ $person && $person['person_description'] == '1' ? 'selected' : '' }}>
                         Partner</option>
-                    <option value="2" {{ $person['person_description'] == '2' ? 'selected' : '' }}>
+                    <option value="2" {{ $person && $person['person_description'] == '2' ? 'selected' : '' }}>
                         Bride</option>
-                    <option value="3" {{ $person['person_description'] == '3' ? 'selected' : '' }}>
+                    <option value="3" {{ $person && $person['person_description'] == '3' ? 'selected' : '' }}>
                         Groom</option>
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
@@ -170,7 +170,7 @@ $person = $person && $person[0] ? $person[0] : null;
                     <input class="form-check-input" type="checkbox"
                         name="person[0][name_same_as_passport_or_driving_license]"
                         id="person0name_same_as_passport_or_driving_license" autocomplete="off"
-                        {{ $person['name_same_as_passport_or_driving_license'] ? 'checked' : '' }}>
+                        {{ $person && $person['name_same_as_passport_or_driving_license'] ? 'checked' : '' }}>
                     <label class="form-check-label text-black small-text2"
                         for="person0name_same_as_passport_or_driving_license">
                         Does this name exactly match with your passport or drivers licence?
@@ -182,10 +182,11 @@ $person = $person && $person[0] ? $person[0] : null;
                 <select name="person[0][gender]" id="person0gender" class="js-placeholder-single-input form-control"
                     required>
                     <option value="">Select gender here</option>
-                    <option value="1" {{ $person['gender'] == 1 ? 'selected' : '' }}>Female</option>
-                    <option value="2" {{ $person['gender'] == 2 ? 'selected' : '' }}>Male</option>
-                    <option value="3" {{ $person['gender'] == 3 ? 'selected' : '' }}>Non-binary</option>
-                    <option value="4" {{ $person['gender'] == 4 ? 'selected' : '' }}>X</option>
+                    <option value="1" {{ $person && $person['gender'] == 1 ? 'selected' : '' }}>Female</option>
+                    <option value="2" {{ $person && $person['gender'] == 2 ? 'selected' : '' }}>Male</option>
+                    <option value="3" {{ $person && $person['gender'] == 3 ? 'selected' : '' }}>Non-binary
+                    </option>
+                    <option value="4" {{ $person && $person['gender'] == 4 ? 'selected' : '' }}>X</option>
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -393,7 +394,7 @@ $person = $person && $person[0] ? $person[0] : null;
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="person[0][is_data_and_document_identical]"
                         id="person0is_data_and_document_identical" autocomplete="off"
-                        {{ $person['is_data_and_document_identical'] ? 'checked' : '' }}>
+                        {{ $person && $person['is_data_and_document_identical'] ? 'checked' : '' }}>
                     <label class="form-check-label text-black small-text2"
                         for="person0is_data_and_document_identical">
                         Have you uploaded the above documents to this site & checked all data entered is identical
