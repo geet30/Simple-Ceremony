@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -8,21 +8,21 @@
       <div class="col-12 col-md-9 col-lg-10 px-md-4 ">
          @include('elements.panel-header')
          <div class="col-12">
-            <a href="/upcomming" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+            <a href="/upcoming/all-records-tab" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          </div>
          <div class=" card panel-card mb-4">
             <div class="card-body">
                <div class="col-12">
                   <div class="row">
-                     <div class="col-xl-7 ">
+                     <div class="col-xl-6 ">
                         <div class="d-flex">
                            <div class="col-5 col-md-6 col-xxl-6 align-self-center">
-                              <h1 class="h3 neutral-100 mb-0">Wedding details </h1>
+                              <h1 class="h3 neutral-100 mb-0">Ceremony details </h1>
                            </div>
                            <div class="col-7 align-self-center text-end d-md-none ">
                               <span class="status registered  ">30 days till marriage</span>
                            </div>
-                           <div class="col-md-6 col-xxl-6 align-self-center mt-2 mt-md-0 w-100 d-none d-md-flex">
+                           <div class="col-md-4 col-xxl-4 align-self-center mt-2 mt-md-0 w-100 d-none d-md-flex">
                               <div class="progress theme-progress body-1 w-40 align-self-center">
                                  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
                               </div>
@@ -32,26 +32,21 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-xl-5 mt-3 mt-xl-0">
+                     <div class="col-xl-6 mt-3 mt-xl-0">
                         <div class="d-flex justify-content-xl-end">
+                           <div class="align-self-center me-2 body-2-semi-bold"><span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$data->status) )}}">{{config('ceremonyStatus.booking_status.'.$data->status) }} </span></div>
                            <div class="align-self-center">
                               <div class="dropdown theme-dropdown">
                                  <button class="theme-btn white-btn-border dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                  Ceremony status
                                  </button>
                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#"><span class="status booked">Booked</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status pending">Pending</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status accents-blue">Non - legal</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status lodged">Lodged</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status pending">Lodged (Pending)</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status registered">Lodged (Voucher only - booking to made)</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status pending">Non-Legal</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status accents-blue">Married</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status registered">Registered</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status finalised">Finalised</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status cancelled">Cancelled</span></a></li>
-                                    <li><a class="dropdown-item" href="#"><span class="status refunded">Refunded</span></a></li>
+                                    @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
+                                   
+                                       <li>
+                                          <a role="button" class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#change_marriage_status_modal" onclick="appendId('{{$key}}','status')" class="theme-btn primary-btn-border d-flex justify-content-center"><span class="status text-nowrap {{strtolower($status)}}">{{$status}}</span></a>
+                                       </li>
+                                   @endforeach
                                  </ul>
                               </div>
                            </div>
@@ -90,18 +85,18 @@
                      <!-- tab content -->
                      <div class="tab-content" id="tabContent">
                         <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
-                           @include('elements.availablity-overview.information')
+                           @include('elements.celebrant.marriage.detail.information')
                         </div>
                         <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
-                           @include('elements.availablity-overview.docs-noim')
-                           @include('elements.availablity-overview.feedback')
+                           @include('elements.celebrant.marriage.detail.docs-noim')
+                           @include('elements.celebrant.marriage.detail.feedback')
                         </div>
                         <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
-                           @include('elements.availablity-overview.documents-signed')
-                           @include('elements.availablity-overview.viewmessage')
+                           @include('elements.celebrant.marriage.detail.documents-signed')
+                           @include('elements.celebrant.marriage.detail.viewmessage')
                         </div>
                         <div class="tab-pane fade" id="reminders" role="tabpanel" aria-labelledby="reminders-tab">
-                           @include('elements.availablity-overview.reminder')
+                           @include('elements.celebrant.marriage.detail.reminder')
                         </div>
                      </div>
                      <!-- tab content -->
@@ -113,4 +108,6 @@
       </div>
    </div>
 </div>
+@include('pages.alert.change_marriage_status')
+
 @endsection

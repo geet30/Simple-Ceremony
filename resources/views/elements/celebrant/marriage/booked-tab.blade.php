@@ -21,8 +21,7 @@
                     <td  style="min-width:130px" class="body-2">{{$result->booking_start_time}}</td>
                     <td  style="min-width:130px" class="body-2">{{$result->ceremony_type}}</td>
                     <td style="min-width:120px;">
-                    
-                        <span class="status {{strtolower(config('ceremonyStatus.booking_status.'.$result->status) )}}"> {{config('ceremonyStatus.booking_status.'.$result->status) }}  </span>
+                            <span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$result->status) )}}"> <a role="button" data-bs-toggle="modal" data-bs-target="#change_status_modal" onclick="appendId('{{$result->id}}','id')">{{config('ceremonyStatus.booking_status.'.$result->status) }}  </a></span>
                     </td>
                     <td class="body-2 neutral-100" style="min-width:130px;">
                         {{$result->location->name}}
