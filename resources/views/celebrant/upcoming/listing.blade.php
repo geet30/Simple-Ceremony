@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -7,150 +7,146 @@
       </div>
       <div class="col-12 col-md-9 col-lg-10 px-md-4">
          @include('elements.panel-header')
-         <ul class="row add-on-list-nav  mb-3 mt-3 ps-0" id="pills-tab" role="tablist">
-            <li class="col-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
-               <div class="nav-link w-100" >
-                  <div class="add-ons-nav d-flex">
-                     <div class="add-ons-nav-image me-4">
-                        <img src="/images/marriage-celebrant/icons/wedding.svg" alt="All add-ons">
+         <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab">
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               <button class="nav-link w-100 active" id="all-records-tab" data-bs-toggle="pill"
+                     data-bs-target="#all-records" type="button" role="tab" aria-controls="all-records"
+                     aria-selected="true">
+                     <div class="add-ons-nav d-flex">
+                        <div class="add-ons-nav-image me-4">
+                           <img src="/images/admin/partner/booking-performed.svg" alt="All marriages">
+                        </div>
+                        <div class="add-ons-nav-data text-start ">
+                           <h3 class="h3">{{ $dataArray['all_marriages']->total() }}</h3>
+                           <p class="subheader-2 d-none d-md-block">All marriages</p>
+                        </div>
                      </div>
-                     <div class="add-ons-nav-data text-start ">
-                        <h2 class="h3">465</h2>
-                        <p class="subheader-2 d-none d-md-block">All marriages</p>
-                     </div>
-                     
-                  </div>
-                  <p class="body-3-regular  d-md-none mb-0 mt-3">All marriages</p>
-               </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">All marriages</p>
+               </button>
             </li>
-            <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-               <div class="nav-link w-100" >
-                  <div class="add-ons-nav d-flex">
-                     <div class="add-ons-nav-image me-4">
-                        <img src="/images/marriage-celebrant/icons/waiting.svg" alt="">
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               <button class="nav-link w-100" id="booked-tab" data-bs-toggle="pill" data-bs-target="#booked"
+                     type="button" role="tab" aria-controls="booked" aria-selected="false">
+                     <div class="add-ons-nav d-flex">
+                        <div class="add-ons-nav-image me-4">
+                           <img src="/images/admin/add-ons/timer-icon.svg" alt="">
+                        </div>
+                        <div class="add-ons-nav-data text-start ">
+                           <h3 class="h3">{{ $dataArray['booking_marriages']->total() }}</h3>
+                           <p class="subheader-2 d-none d-md-block">Booked</p>
+                        </div>
                      </div>
-                     <div class="add-ons-nav-data text-start ">
-                        <h2 class="h3">50</h2>
-                        <p class="subheader-2 d-none d-md-block">Pending</p>
-                     </div>
-                  </div>
-                  <p class="body-3-regular  d-md-none mb-0 mt-3">Pending</p>
-               </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Booked</p>
+               </button>
             </li>
-            <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-               <div class="nav-link w-100" >
-                  <div class="add-ons-nav d-flex">
-                     <div class="add-ons-nav-image me-4">
-                        <img src="/images/marriage-celebrant/icons/booking.svg" alt="">
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               <button class="nav-link w-100" id="lodged-tab" data-bs-toggle="pill" data-bs-target="#lodged"
+                     type="button" role="tab" aria-controls="lodged" aria-selected="false">
+                     <div class="add-ons-nav d-flex">
+                        <div class="add-ons-nav-image me-4">
+                           <img src="/images/marriage-celebrant/icons/booking.svg" alt="">
+                        </div>
+                        <div class="add-ons-nav-data text-start ">
+                           <h3 class="h3">0</h3>
+                           <p class="subheader-2 d-none d-md-block">Lodged</p>
+                        </div>
                      </div>
-                     <div class="add-ons-nav-data text-start ">
-                        <h2 class="h3">50</h2>
-                        <p class="subheader-2 d-none d-md-block">Booked</p>
-                     </div>
-                  </div>
-                  <p class="body-3-regular  d-md-none mb-0 mt-3">Booked</p>
-               </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Lodged</p>
+               </button>
             </li>
-            <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-               <div class="nav-link w-100" >
-                  <div class="add-ons-nav d-flex">
-                     <div class="add-ons-nav-image me-4">
-                        <img src="/images/marriage-celebrant/icons/lodged.svg" alt="">
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               <button class="nav-link w-100" id="lodged-pending-tab" data-bs-toggle="pill"
+                     data-bs-target="#lodged-pending" type="button" role="tab" aria-controls="lodged-pending"
+                     aria-selected="false">
+                     <div class="add-ons-nav d-flex">
+                        <div class="add-ons-nav-image me-4">
+                           <img src="/images/marriage-celebrant/icons/document.svg" alt="Lodged pending">
+                        </div>
+                        <div class="add-ons-nav-data text-start ">
+                           <h3 class="h3">0</h3>
+                           <p class="subheader-2 d-none d-md-block">Lodged pending</p>
+                        </div>
                      </div>
-                     <div class="add-ons-nav-data text-start ">
-                        <h2 class="h3">20</h2>
-                        <p class="subheader-2 d-none d-md-block">Lodged</p>
-                     </div>
-                  </div>
-                  <p class="body-3-regular  d-md-none mb-0 mt-3">Lodged</p>
-               </div>
-            </li>
-            <li class="col-lg-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
-               <div class="nav-link w-100" >
-                  <div class="add-ons-nav d-flex">
-                     <div class="add-ons-nav-image me-4">
-                        <img src="/images/marriage-celebrant/icons/document.svg" alt="">
-                     </div>
-                     <div class="add-ons-nav-data text-start ">
-                        <h2 class="h3">10</h2>
-                        <p class="subheader-2 d-none d-md-block">Lodged pending</p>
-                     </div>
-                  </div>
-                  <p class="body-3-regular  d-md-none mb-0 mt-3">Lodged pending</p>
-               </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Lodged pending</p>
+               </button>
             </li>
          </ul>
          <div class="collapse" id="collapseExample">
             <ul class="row add-on-list-nav  upcomming-marriage-pills px-0" id="pills-tab" role="tablist">
-               <li class="col-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
-                  <div class="nav-link w-100" >
-                     <div class="add-ons-nav d-flex">
-                        <div class="add-ons-nav-image me-4">
-                           <img src="/images/marriage-celebrant/icons/married.svg" alt="All add-ons">
+               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                  <button class="nav-link w-100" id="non-legal-tab" data-bs-toggle="pill" data-bs-target="#non-legal"
+                        type="button" role="tab" aria-controls="non-legal" aria-selected="false">
+                        <div class="add-ons-nav d-flex">
+                           <div class="add-ons-nav-image me-4">
+                              <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
+                           </div>
+                           <div class="add-ons-nav-data text-start ">
+                              <h3 class="h3">0</h3>
+                              <p class="subheader-2 d-none d-md-block">Non Legal</p>
+                           </div>
                         </div>
-                        <div class="add-ons-nav-data text-start ">
-                           <h2 class="h3">190</h2>
-                           <p class="subheader-2  d-none d-md-block">Married</p>
-                        </div>
-                     </div>
-                     <p class="body-3-regular  d-md-none mb-0 mt-3">Married</p>
-                  </div>
+                        <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Non Legal</p>
+                  </button>
                </li>
-               <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-                  <div class="nav-link w-100" >
-                     <div class="add-ons-nav d-flex">
-                        <div class="add-ons-nav-image me-4">
-                           <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
+               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                  <button class="nav-link w-100" id="registered-tab" data-bs-toggle="pill" data-bs-target="#registered"
+                        type="button" role="tab" aria-controls="registered" aria-selected="false">
+                        <div class="add-ons-nav d-flex">
+                           <div class="add-ons-nav-image me-4">
+                              <img src="/images/marriage-celebrant/icons/registered.svg" alt="">
+                           </div>
+                           <div class="add-ons-nav-data text-start ">
+                              <h3 class="h3">0</h3>
+                              <p class="subheader-2 d-none d-md-block">Registered</p>
+                           </div>
                         </div>
-                        <div class="add-ons-nav-data text-start ">
-                           <h2 class="h3">80</h2>
-                           <p class="subheader-2 d-none d-md-block">Registered</p>
-                        </div>
-                     </div>
-                     <p class="body-3-regular  d-md-none mb-0 mt-3">Registered</p>
-                  </div>
+                        <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Registered</p>
+                  </button>
                </li>
-               <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-                  <div class="nav-link w-100" >
-                     <div class="add-ons-nav d-flex">
-                        <div class="add-ons-nav-image me-4">
-                           <img src="/images/marriage-celebrant/icons/finalised.svg" alt="">
+               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                  <button class="nav-link w-100" id="finalised-tab" data-bs-toggle="pill" data-bs-target="#finalised"
+                        type="button" role="tab" aria-controls="finalised" aria-selected="false">
+                        <div class="add-ons-nav d-flex">
+                           <div class="add-ons-nav-image me-4">
+                              <img src="/images/marriage-celebrant/icons/finalised.svg" alt="">
+                           </div>
+                           <div class="add-ons-nav-data text-start ">
+                              <h3 class="h3">0</h3>
+                              <p class="subheader-2 d-none d-md-block">Finalised</p>
+                           </div>
                         </div>
-                        <div class="add-ons-nav-data text-start ">
-                           <h2 class="h3">50</h2>
-                           <p class="subheader-2  d-none d-md-block">Finalised</p>
-                        </div>
-                     </div>
-                     <p class="body-3-regular  d-md-none mb-0 mt-3">Finalised</p>
-                  </div>
+                        <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Finalised</p>
+                  </button>
                </li>
-               <li class="col-6 col-xl-4 col-xxl  nav-item  mb-3" role="presentation">
-                  <div class="nav-link w-100" >
-                     <div class="add-ons-nav d-flex">
-                        <div class="add-ons-nav-image me-4">
-                           <img src="/images/marriage-celebrant/icons/cancelled.svg" alt="">
+               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                  <button class="nav-link w-100" id="cancelled-tab" data-bs-toggle="pill" data-bs-target="#cancelled"
+                        type="button" role="tab" aria-controls="cancelled" aria-selected="false">
+                        <div class="add-ons-nav d-flex">
+                           <div class="add-ons-nav-image me-4">
+                              <img src="/images/marriage-celebrant/icons/cancelled.svg" alt="">
+                           </div>
+                           <div class="add-ons-nav-data text-start ">
+                              <h3 class="h3">0</h3>
+                              <p class="subheader-2 d-none d-md-block">Cancelled</p>
+                           </div>
                         </div>
-                        <div class="add-ons-nav-data text-start ">
-                           <h2 class="h3">10</h2>
-                           <p class="subheader-2 d-none d-md-block" >Cancelled</p>
-                        </div>
-                     </div>
-                     <p class="body-3-regular  d-md-none mb-0 mt-3">Cancelled</p>
-                  </div>
+                        <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Cancelled</p>
+                  </button>
                </li>
-               <li class="col-6 col-xl-4 col-xxl nav-item mb-3" role="presentation">
-                  <div class="nav-link w-100" >
-                     <div class="add-ons-nav d-flex">
-                        <div class="add-ons-nav-image me-4">
-                           <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
+               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                  <button class="nav-link w-100" id="settled-tab" data-bs-toggle="pill" data-bs-target="#settled"
+                        type="button" role="tab" aria-controls="settled" aria-selected="false">
+                        <div class="add-ons-nav d-flex">
+                           <div class="add-ons-nav-image me-4">
+                              <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
+                           </div>
+                           <div class="add-ons-nav-data text-start ">
+                              <h3 class="h3">0</h3>
+                              <p class="subheader-2 d-none d-md-block">Settled</p>
+                           </div>
                         </div>
-                        <div class="add-ons-nav-data text-start ">
-                           <h2 class="h3">5</h2>
-                           <p class="subheader-2 d-none d-md-block">Refunded</p>
-                        </div>
-                     </div>
-                     <p class="body-3-regular  d-md-none mb-0 mt-3">Refunded</p>
-                  </div>
+                        <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Settled</p>
+                  </button>
                </li>
             </ul>
          </div>
@@ -158,7 +154,31 @@
             <a class="position-relative " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> </a>
          </div>
          <div class="row mb-4 pt-32">
-            <div class="col-md-7 col-xl-8 d-flex align-self-center">
+            <div class="align-self-center col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-grid mt-3 mt-md-0 position-relative">
+               <div class="dropdown filter-date-calendar-dropdown">
+                  <a role="button" class="theme-btn primary-btn-border d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/icons/green-calendar.svg" class="me-3" alt="calendar"> Filter by date</a>
+                  <div class="dropdown-menu p-4">
+                     <div class="filter-date-calendar">
+                        <p class="mb-3 netural-100 light-heading">Choose filter</p>
+                        <div class="row">
+                           <div class="col-6">
+                              <div class="cs-checkbox-list form-check mb-3">
+                                 <input name="status" class="form-check-input" type="checkbox" value="2"><span class="netural-100 body-2 ms-2">Ceremony Date</span>
+                               </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="cs-checkbox-list form-check mb-3">
+                                 <input name="status" class="form-check-input" type="checkbox" value="2"><span class="netural-100 body-2 ms-2">Payment Date</span>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="calendar-wrapper" id="calendar-wrapper"></div>
+                        <a href="#" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
+                     </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-9 col-xl-9 col-xxl-10 d-flex align-self-center">
                <div class="dropdown">
                   <a class="btn">
                   <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
@@ -166,304 +186,52 @@
                   <div class="select-with-checkbox">
                      <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
                         <optgroup label="Status">
-                           <option value="O1" data-badge="">Booked</option>
-                           <option value="O2" data-badge="">Pending</option>
-                           <option value="O3" data-badge="">Lodged</option>
-                           <option value="O4" data-badge="">Lodged (pending)</option>
-                           <option value="O5" data-badge="">Married</option>
-                           <option value="O6" data-badge="">Registered</option>
-                           <option value="O7" data-badge="">Finalised</option>
-                           <option value="O7" data-badge="">Cancelled</option>
+                        @foreach(config('ceremonyStatus.booking_status') as $key=>$status)
+                           <option value="{{ $key }}" data-badge="">{{ $status }}
+                                </option>
+                        @endforeach
                         </optgroup>
                         <optgroup label="Location">
-                           <option value="O1" data-badge="">Blues point</option>
-                           <option value="O2" data-badge="">Tench park</option>
-                           <option value="O3" data-badge="">Bradfield park</option>
+                           @foreach ($locations as $location)
+                              <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
+                                </option>
+                            @endforeach
                         </optgroup>
                      </select>
                   </div>
                </div>
                <div class="form-group has-search w-100 ms-4 position-relative">
                   <span class="fa fa-search form-control-feedback"></span>
-                  <input type="text" class="form-control" placeholder="Search couple name">
+                  <input type="text" class="form-control" placeholder="Search couple name" onkeyup="searchWithTabs('/search-by-user',this.value)">
                </div>
-            </div>
-            <div class="align-self-center col-md-5 col-xl-4 d-grid mt-3 mt-md-0 postion-relative">
-               <a class="theme-btn primary-btn d-flex justify-content-center "  data-bs-toggle="modal" data-bs-target="#calendarmodal">
-               <img class="me-2" src="/images/icons/date.svg" alt="shopping-icon">
-               select a specific date
-               </a>
-               @include('elements.calander')
             </div>
          </div>
-         <div class="row">
-            <div class="col-12">
-               <div class="table-responsive">
-                  <table class="table align-middle theme-table">
-                     <thead>
-                        <tr>
-                           <th>Name couple</th>
-                           <th>Location</th>
-                           <th>Wedding date</th>
-                           <th>Time</th>
-                           <th>Phone</th>
-                           <th>Status </th>
-                           <th></th>
-                           <th></th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr>
-                           <td style="min-width:180px" class="body-2">Joe & Vho</td>
-                           <td  style="min-width:180px" class="body-2">Blues point</td>
-                           <td style="min-width:180px" class="body-2" >Dec 11, 2022</td>
-                           <td  style="min-width:100px" class="body-2">10:30</td>
-                           <td  style="min-width:180px" class="body-2">+61-123456789</td>
-                           <td  style="min-width:180px" class="body-2"><span class="status booked">Booked</span></td>
-                           <td  style="min-width:100px"><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td  class="body-2"> John & Emma</td>
-                           <td  class="body-2">Tench park</td>
-                           <td  class="body-2" >Dec 11, 2022</td>
-                           <td  class="body-2">10:30</td>
-                           <td class="body-2">+61-123456789</td>
-                           <td  class="body-2"><span class="status pending">Pending</span></td>
-                           <td><a class="table-link button-2"></a></td>
-                           <td  style="min-width:100px">
-                           
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2"> Chloe & Amy</td>
-                           <td  class="body-2">Blues point</td>
-                           <td class="body-2" >Dec 11, 2022</td>
-                           <td class="body-2">10:30</td>
-                           <td class="body-2">+61-123456789</td>
-                           <td  class="body-2"><span class="status lodged">Lodged</span></td>
-                           <td ><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td >
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2"> Sam & Sophie</td>
-                           <td  class="body-2">Blues point</td>
-                           <td class="body-2" >Dec 11, 2022</td>
-                           <td  class="body-2">10:30</td>
-                           <td  class="body-2">+61-123456789</td>
-                           <td  class="body-2"><span class="status lodged">Lodged (Pending)</span></td>
-                           <td ><a class="table-link button-2"></a></td>
-                           <td >
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td  class="body-2"> Jorsey & Erin</td>
-                           <td   class="body-2">Tench park</td>
-                           <td class="body-2" >Mar 09, 2022</td>
-                           <td   class="body-2">10:30</td>
-                           <td   class="body-2">+61-123456789</td>
-                           <td   class="body-2"><span class="status registered">Registered</span></td>
-                           <td ><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td>
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2"> Max & Jade</td>
-                           <td class="body-2">Bradfield park</td>
-                           <td  class="body-2" >Mar 09, 2022</td>
-                           <td  class="body-2">10:30</td>
-                           <td class="body-2">+61-123456789</td>
-                           <td class="body-2"><span class="status registered">Registered</span></td>
-                           <td><a class="table-link button-2"></a></td>
-                           <td>
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2">Matt & Zoe</td>
-                           <td  class="body-2">Tench park</td>
-                           <td class="body-2" >Mar 07, 2022</td>
-                           <td class="body-2">10:30</td>
-                           <td class="body-2">+61-123456789</td>
-                           <td class="body-2"><span class="status pending">Pending</span></td>
-                           <td ><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td>
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2">Jack & Ella</td>
-                           <td class="body-2">Bradfield park</td>
-                           <td class="body-2" >Mar 05, 2022</td>
-                           <td class="body-2">10:30</td>
-                           <td class="body-2">+61-123456789</td>
-                           <td class="body-2"><span class="status cancelled">Cancelled</span></td>
-                           <td><a class="table-link button-2"></a></td>
-                           <td>
-                           
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2"> Tom & Jess</td>
-                           <td  class="body-2">Tench park</td>
-                           <td class="body-2" >Mar 06, 2022</td>
-                           <td class="body-2">10:30</td>
-                           <td  class="body-2">+61-123456789</td>
-                           <td class="body-2"><span class="status registered">Registered</span></td>
-                           <td><a class="table-link button-2" data-bs-toggle="modal" data-bs-target="#note">Note</a></td>
-                           <td>
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                        <tr>
-                           <td class="body-2"> Joe & Jessica</td>
-                           <td class="body-2">Blues point</td>
-                           <td class="body-2" >Mar 04, 2022</td>
-                           <td class="body-2">10:30</td>
-                           <td class="body-2">+61-123456789</td>
-                           <td class="body-2"><span class="status registered">Registered</span></td>
-                           <td><a class="table-link button-2"></a></td>
-                           <td>
-                         
-                              <div class="dropdown d-none d-md-block">
-                                 <button class="btn edit-btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                 View info
-                                 </button>
-                                 <ul class="dropdown-menu edit-btn-dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Download docs</a></li>
-                                    <li><a class="dropdown-item" href="/availablity-overview">Check docs</a></li>
-                                    <li><a class="dropdown-item" href="#">Approve</a></li>
-                                    <li><a class="dropdown-item" href="#">Reject</a></li>
-                                 </ul>
-                              </div>
-                           </td>
-                        </tr>
-                     </tbody>
-                     <tfoot>
-                        <tr>
-                           <td colspan="8">
-                              <div class="theme-pagination d-flex justify-content-end">
-                                 <div class="align-self-center me-4 button-1">Rows per page: 10</div>
-                                 <div class="align-self-center me-4 button-1 ">1-10 of 12</div>
-                                 <div class="align-self-center">
-                                    <a class="d-inline-flex me-4" href=""><img src="/images/pagination/left.svg" class="img-fluid"></a>
-                                    <a class="d-inline-flex me-4" href=""><img src="/images/pagination/right.svg" class="img-fluid"> </a>
-                                 </div>
-                              </div>
-                           </td>
-                        </tr>
-                     </tfoot>
-                  </table>
-               </div>
+         <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show" id="all-records" role="tabpanel" aria-labelledby="all-records-tab"
+               tabindex="0">
+               @include('elements.celebrant.marriage.all-records-tab')
+
+
+            </div>
+            <div class="tab-pane fade" id="booked" role="tabpanel" aria-labelledby="booked-tab-tab"
+               tabindex="1">
+               @include('elements.celebrant.marriage.booked-tab')
+
+            </div>
+            <div class="tab-pane fade" id="lodged" role="tabpanel" aria-labelledby="lodged-tab"
+               tabindex="2">
+               @include('elements.celebrant.marriage.all-records-tab')
+
+            </div>
+            <div class="tab-pane fade" id="lodged-pending" role="tabpanel" aria-labelledby="lodged-pending-tab"
+               tabindex="3">
+               @include('elements.celebrant.marriage.all-records-tab')
+
             </div>
          </div>
       </div>
    </div>
 </div>
 @include('elements.celebrant.celebrant-note-popup')
+@include('pages.alert.change_status')
 @endsection

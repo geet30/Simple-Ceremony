@@ -17,7 +17,7 @@
                      <div class="col-xxl-6 col-lg-12 col-xl-6 col-12 ">
                         <div class="d-flex flex-column flex-lg-row">
                            <div class="col-12 col-md-6 col-xxl-5 align-self-start mb-2 mb-lg-0">
-                              <h1 class="h3 neutral-100 mb-0">Order details  </h1>
+                              <h1 class="h3 neutral-100 mb-0">Ceremony details  </h1>
                            </div>
                            <div class="col-12 align-self-start text-start d-block d-lg-none">
                               <span class="status registered  ">30 days till marriage</span>
@@ -35,20 +35,20 @@
                      <div class=" col-lg-12 col-xxl-6 col-xl-6 col-12 text-xxl-end mt-3 mt-xxl-0">
                         <div class="d-flex justify-content-start justify-content-md-between justify-content-xl-end flex-column flex-md-row">
                            <div class="d-flex align-self-start me-0 me-xl-4 mb-4 mb-xl-0">
-                              <div class="align-self-center me-2 body-2-semi-bold">Status</div>
-                           <div class="dropdown table-dropdown align-self-center">
-                                       <button class="btn dropdown-toggle approved" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                       Booking/Pending
-                                       </button>
-                                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                       <li><a class="dropdown-item approved" href="#">Booking/Pending</a></li>
-                                         <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                         <li><a class="dropdown-item status-turquoise-100" href="#">Lodged</a></li>
-                                         <li><a class="dropdown-item status-blueturquoise-100" href="#">Lodged(Pending)</a></li>
-                                         <li><a class="dropdown-item status-funblue " href="#">Lodged (Voucher only - Booking to be made)</a></li>
-                                       </ul>
-                                     </div>
-                           </div>
+                              <div class="align-self-center me-2 body-2-semi-bold"><span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$data->status) )}}">{{config('ceremonyStatus.booking_status.'.$data->status) }} </span></div>
+                              <div class="dropdown theme-dropdown me-2">
+                                 <button class="theme-btn white-btn-border dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                 Ceremony status
+                                 </button>
+                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
+                                   
+                                       <li>
+                                          <a role="button" class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#change_marriage_status_modal" onclick="appendId('{{$key}}','status')" class="theme-btn primary-btn-border d-flex justify-content-center"><span class="status text-nowrap {{strtolower($status)}}">{{$status}}</span></a>
+                                       </li>
+                                   @endforeach
+                                 </ul>
+                              </div>
                            <div class=" align-self-start">
                             <a href="" class="theme-btn primary-btn-border d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#reminder"> Create reminder</a>
                            </div>
@@ -105,4 +105,5 @@
 @include('admin.marriages.js')
 @include('elements.admin.marriage.assign-marriage-celebrant')
 @include('elements.admin.marriage.order.create-reminder')
+@include('pages.alert.change_marriage_status')
 @endsection

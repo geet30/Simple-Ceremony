@@ -164,7 +164,6 @@ $(document).ready(function () {
         //  $('html, body').animate({ scrollTop: $('.alert:first').offset().top - 10 }, 500);
         $(".alert").slideDown(300).delay(3000).slideUp(300);
     }
-    // $(".alert").slideDown(300).delay(3000).slideUp(300);
     $("#loading").hide();
     ImgUpload();
     $(".calendar-wrapper").calendar(defaultConfig);
@@ -172,6 +171,19 @@ $(document).ready(function () {
         var id = $(this).data("id");
         $(".delete_form").find('input[name="id"]').val(id);
     });
+    window.closeDialog = function (id) {
+        $("#" + id).modal("hide");
+    };
+    window.appendId = function (value, findclass) {
+        $("." + findclass).val(value);
+    };
+
+    window.submitThroughAjax = function (e, id, method, action) {
+        e.preventDefault();
+        var formData = new FormData(document.getElementsByName(id)[0]);
+        var form = $(e.target);
+        submitform(id, action, method, formData, form);
+    };
 });
 
 function ImgUpload(counter = null) {

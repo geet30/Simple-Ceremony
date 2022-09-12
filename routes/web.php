@@ -21,7 +21,8 @@ $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
-
+    
+   
     Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
 
@@ -196,16 +197,7 @@ $websiteRoutes = function () {
         Route::get('edit-signature', function () {
             return view('user.documents.edit-signature');
         });
-        // Route::get('NoIM', function () {
-        //     return view('user.NoIM.view');
-        // });
-        // Route::get('steps', function () {
-        //     return view('user.NoIM.steps');
-        // });
-        // Route::get('step-2', function () {
-        //     return view('user.NoIM.step-2');
-        // });
-        // });
+       
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
@@ -223,6 +215,7 @@ $adminRoutes = function () {
         Route::group(['prefix' => 'account'], function () {
             Route::post('save-tax', [AccountController::class, 'addAdminTax']);
         });
+        Route::post('change-booking-status', [HomeController::class, 'changeStatus']);
         Route::resource('enquiries', EnqueriesController::class);
         Route::resource('notifications', NotificationsController::class);
         Route::resource('calendar-overview', CalanderController::class);
@@ -338,9 +331,6 @@ $adminRoutes = function () {
             return view('admin.referrers.pending-referrers-details');
         });
 
-
-
-
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
@@ -435,8 +425,13 @@ $celebrantRoutes = function () {
 
     Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'upcoming'], function () {
-            Route::get('/', [DashboardController::class, 'upcomingMarriages']);
+            // Route::resource('/', DashboardController::class);
+            Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
+            Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
+           
         });
+        Route::post('search-by-user', [DashboardController::class, 'searchMarriagesByUser']);
+        Route::post('change-booking-status', [HomeController::class, 'changeStatus']);
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
         Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');

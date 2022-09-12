@@ -2,7 +2,7 @@
 
 namespace App\Traits\Celebrant;
 
-use App\Models\{User, RequestLocations};
+use App\Models\{User, RequestLocations,Booking};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Carbon\Carbon;
@@ -57,6 +57,26 @@ trait Methods
         $data = $locations->select($columns)->where('celebrant_id',Auth::user()->id);
         return $data; 
     }
+    public static function fetch_marriages($id=null)
+    {
+
+        $data =   Booking::with([
+            'user' => function ($query) {
+                $query->select('email', 'phone', 'country_code', 'id');
+            },
+            'location' => function ($query) {
+                $query->select('name', 'id', 'price');
+            },
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id');
+            }
+        ]);
+        if ($id != null) {
+            $data = $data->where('id', $id);
+        }
+        $data = $data->where('celebrant_id',Auth::user()->id);
+        return $data;
+    }
     public static function searchCelebrantLocationWithStatus($request){
         $req_page = 1;
         $records = 10;
@@ -80,5 +100,36 @@ trait Methods
 
        
     } 
- 
+    public static function searchByUser($request)
+    {
+        $req_page = 1;
+        $records = 10;
+        $search = $request->search;
+        $data = self::fetch_marriages();
+        $data = $data->where('first_couple_name', 'like', '%' . $search . '%')
+                ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+        return $data->paginate($records, ['*'], 'page', $req_page);
+    }
+    public static function marriage_detail($id = null)
+    {
+        $data =   Booking::with([
+            'user' => function ($query) {
+                $query->select('email', 'phone', 'country_code', 'id');
+            },
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
+            },
+            'location' => function ($query) {
+                $query->select('name', 'id', 'price');
+            },
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id');
+            }
+        ]);
+        if ($id != null) {
+            $data = $data->where('id', $id);
+        }
+      
+        return   $data;
+    }
 }

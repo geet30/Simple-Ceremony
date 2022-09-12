@@ -54,7 +54,7 @@ trait Methods
 
         $data = User::role('User')->with([
             'booking' => function ($query) {
-                $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name');
+                $query->select('booking_date', 'id', 'user_id', 'locationId', 'celebrant_id', 'first_couple_name', 'status', 'created_at', 'second_couple_name','ceremony_type');
             },
             'booking.location' => function ($query) {
                 $query->select('name', 'id', 'price');

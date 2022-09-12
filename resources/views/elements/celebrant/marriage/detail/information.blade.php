@@ -5,44 +5,51 @@
             <div class=" row">
                <div class="col-md-6 mb-4 ">
                   <label for="preferredname1" class="form-label small-text2 ps-2">Preferred name 1</label>
-                  <input type="text" value="Johny" class="form-control body-1 netural-100" name="name" id="preferredname1">
+                  <input type="text" value="{{ isset($data->first_couple_name) ? $data->first_couple_name : '' }}" class="form-control body-1 netural-100" name="name" id="preferredname1" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="preferredname2" class="form-label small-text2 ps-2">Preferred name 2</label>
-                  <input type="text" value="Say" class="form-control body-1 netural-100" name="name" id="preferredname2">
+                  <input type="text" value="{{ isset($data->second_couple_name) ? $data->second_couple_name : '' }}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="phone" class="form-label small-text2 ps-2">Phone number</label>
-                  <input type="text" value="+61 0909 0900 909" class="form-control body-1 netural-100" name="name" id="phone">
+                  <input type="text" value="+{{ $data->user->country_code }}{{ $data->user->phone }}" class="form-control body-1 netural-100" name="name" id="phone" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="email" class="form-label small-text2 ps-2">Email</label>
-                  <input type="email" value="joe@gmail.com" class="form-control body-1 netural-100" name="name" id="email">
+                  <input type="email" value="{{ isset($data->user->email) ? $data->user->email : '' }}" class="form-control body-1 netural-100" name="name" id="email" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
-                  <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
-                  <input type="text" value="Daniels" class="form-control body-1 netural-100" name="name" id="celebrant">
+                  <label for="email" class="form-label small-text2 ps-2">Type of ceremony</label>
+                  <input type="email" value="{{ isset($data->cermony_type) ? $data->cermony_type : '' }}" class="form-control body-1 netural-100" name="name" id="email" readonly>
                </div>
                <div class="col-md-6 mb-4 d-md-block"></div>
                <div class="col-md-6  mb-4 ">
+                  <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
+                  <input type="text" value="{{isset($data->celebrant->first_name) ? $data->celebrant->first_name : ''}}" class="form-control body-1" name="name" id="celebrant" readonly>
+               </div>
+               <div class="col-md-6  mb-4 ">
+                  <label for="celebrant" class="form-label small-text2 ps-2">Celebrant Fee</label>
+                  <input type="text" value="${{isset($celebrant_details->celebrant->standard_fee ) ? $celebrant_details->celebrant->standard_fee : ''}}" class="form-control body-1" name="name" id="celebrant" readonly>
+               </div>
+               
+               <div class="col-md-6  mb-4 ">
                   <label for="location" class="form-label small-text2 ps-2">Location</label>
-                  <input type="text" value="Bradfield park" class="form-control body-1 netural-100" name="name" id="location">
+                  <input type="text" value="{{ isset($data->location->name) ? $data->location->name : '' }}" class="form-control body-1 netural-100" name="name" id="location" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="address" class="form-label small-text2 ps-2">Address</label>
-                  <input type="text" value="Alfred St S, Milsons Point NSW" class="form-control body-1 netural-100" name="name" id="address">
+                  <input type="text" value="{{ isset($data->location->address) ? $data->location->address : '' }}" class="form-control body-1 netural-100" name="name" id="address" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="date" class="form-label small-text2 ps-2">Date of marriage</label>
-                  <input type="text" value="Daniels" class="form-control body-1 netural-100" name="name" id="date">
+                  <input type="text" value="{{date('M d,Y',strtotime($data->booking_start_time))}}" class="form-control body-1 netural-100" name="name" id="date" readonly>
                </div>
                <div class="col-md-6  mb-4 ">
                   <label for="time" class="form-label small-text2 ps-2">Time</label>
-                  <input type="text" value="11:30 - 12.30 PM" class="form-control body-1 netural-100" name="name" id="time">
+                  <input type="text" value="{{$data->booking_start_time}} - {{$data->booking_end_time}}" class="form-control body-1 netural-100" name="name" id="time" readonly>
                </div>
-               <div class="col-12 mb-4 d-flex justify-content-center justify-content-md-start">
-                  <a class="theme-btn primary-btn">Confirm the data is complete</a>
-               </div>
+               
                <div class="col-md-12 mb-4">
                   <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes about couples</label>
                   <textarea class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10"></textarea>

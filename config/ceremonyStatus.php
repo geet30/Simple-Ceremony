@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'typeOfCeremony' => [
+        1 =>'Legal marriage ceremony',
+        2 =>'A commitment ceremony',
+        3 =>'A re-newal of vows',
+        4 => 'A naming day',
+        5 =>'A memorial ceremony',
+    ],
     'status' => [
         'Booked' => 1,
         'Lodged' => 2,
@@ -31,6 +38,14 @@ return [
         6 => '90%',
         7 => '100%',
         8 => '0%'
+    ],
+    'celebrant_booking_status' => [
+        1 => 'Booked',
+        2 => 'Lodged',
+        3 => 'Lodged-Pending',
+        4 => 'Non-Legal',
+        5 => 'Registered',
+        8 => 'Cancelled'
     ],
 
 ];

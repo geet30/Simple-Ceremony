@@ -80,7 +80,17 @@
                 else if(window.location.pathname.split('/')[2]  == 'add-on-reject-tab'){
                     $("#add-on-reject").html(response);
                     
-                }  
+                } 
+                if (current_url[1] == 'upcoming' && (window.location.pathname.split('/')[2] == 'all-records-tab' || window.location.pathname
+                    .split('/')[2] == 'all')) {
+                    $("#all-records").html(response);
+                } else if (window.location.pathname.split('/')[2] == 'booked-tab') {
+                    $("#booked").html(response);
+                } else if (window.location.pathname.split('/')[2] == 'lodged-tab') {
+                    $("#lodged").html(response);
+                } else if (window.location.pathname.split('/')[2] == 'lodged-pending-tab') {
+                    $("#lodged-pending").html(response);
+                } 
                 // $('#loading').hide();
             },
         });
