@@ -155,7 +155,31 @@
             <a class="position-relative " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> </a>
          </div>
          <div class="row mb-4 pt-32">
-            <div class="col-md-7 col-xl-8 d-flex align-self-center">
+            <div class="align-self-center col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-grid mt-3 mt-md-0 position-relative">
+               <div class="dropdown filter-date-calendar-dropdown">
+                  <a role="button" class="theme-btn primary-btn-border d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/icons/green-calendar.svg" class="me-3" alt="calendar"> Filter by date</a>
+                  <div class="dropdown-menu p-4">
+                     <div class="filter-date-calendar">
+                        <p class="mb-3 netural-100 light-heading">Choose filter</p>
+                        <div class="row">
+                           <div class="col-6">
+                              <div class="cs-checkbox-list form-check mb-3">
+                                 <input name="status" class="form-check-input" type="checkbox" value="2"><span class="netural-100 body-2 ms-2">Ceremony Date</span>
+                               </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="cs-checkbox-list form-check mb-3">
+                                 <input name="status" class="form-check-input" type="checkbox" value="2"><span class="netural-100 body-2 ms-2">Payment Date</span>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="calendar-wrapper" id="calendar-wrapper"></div>
+                        <a href="#" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
+                     </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-9 col-xl-9 col-xxl-10 d-flex align-self-center">
                <div class="dropdown">
                   <a class="btn">
                   <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
@@ -163,8 +187,6 @@
                   <div class="select-with-checkbox">
                      <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
                         <optgroup label="Status">
-
-                        
                         @foreach(config('ceremonyStatus.booking_status') as $key=>$status)
                            <option value="{{ $key }}" data-badge="">{{ $status }}
                                 </option>
@@ -183,13 +205,6 @@
                   <span class="fa fa-search form-control-feedback"></span>
                   <input type="text" class="form-control" placeholder="Search couple name" onkeyup="searchWithTabs('/search-by-user',this.value)">
                </div>
-            </div>
-            <div class="align-self-center col-md-5 col-xl-4 d-grid mt-3 mt-md-0 postion-relative">
-               <a class="theme-btn primary-btn d-flex justify-content-center "  data-bs-toggle="modal" data-bs-target="#calendarmodal">
-               <img class="me-2" src="/images/icons/date.svg" alt="shopping-icon">
-               select a specific date
-               </a>
-               @include('elements.calander')
             </div>
          </div>
          <div class="tab-content" id="pills-tabContent">
