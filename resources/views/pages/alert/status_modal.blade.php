@@ -12,7 +12,7 @@
         <div class="col-md-12 mb-4">
             @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
             <div class="cs-checkbox-list form-check mb-3">
-              <input name="status" class="form-check-input rounded-circle" type="checkbox" value="{{$key}}"><span class="netural-100 body-2 ms-2">{{$status}}</span>
+              <input name="status" class="form-check-input rounded-circle" type="radio" value="{{$key}}"><span class="netural-100 body-2 ms-2">{{$status}}</span>
             </div>
             @endforeach
         </div>

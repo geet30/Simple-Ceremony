@@ -30,10 +30,24 @@ class MarriagesController extends Controller
            
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
             $booking_marriages = (clone $data)->where('status', 1)->paginate($records, ['*'], 'page', $req_page);
+            $lodged_marriages = (clone $data)->where('status', 2)->paginate($records, ['*'], 'page', $req_page);
+            $lodged_pending_marriages = (clone $data)->where('status', 3)->paginate($records, ['*'], 'page', $req_page);
+            $non_legal_marriages = (clone $data)->where('status', 4)->paginate($records, ['*'], 'page', $req_page);
+            $registered_marriages = (clone $data)->where('status', 5)->paginate($records, ['*'], 'page', $req_page);
+            $finalised_marriages = (clone $data)->where('status', 6)->paginate($records, ['*'], 'page', $req_page);
+            $settled_marriages = (clone $data)->where('status', 7)->paginate($records, ['*'], 'page', $req_page);
+            $cancelled_marriages = (clone $data)->where('status', 8)->paginate($records, ['*'], 'page', $req_page);
 
             $dataArray = array(
                 'all_marriages' => $all_marriages,
                 'booking_marriages' => $booking_marriages,
+                'lodged_marriages' => $lodged_marriages,
+                'lodged_pending_marriages' => $lodged_pending_marriages,
+                'non_legal_marriages' => $non_legal_marriages,
+                'registered_marriages' => $registered_marriages,
+                'finalised_marriages' => $finalised_marriages,
+                'settled_marriages' => $settled_marriages,
+                'cancelled_marriages' => $cancelled_marriages,
             );
             if ($request->ajax()) {
                 $viewurl = 'elements.admin.marriage.' . $slug;

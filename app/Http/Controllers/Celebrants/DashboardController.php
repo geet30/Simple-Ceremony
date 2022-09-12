@@ -35,6 +35,13 @@ class DashboardController extends Controller
             $dataArray = array(
                 'all_marriages' => $all_marriages,
                 'booking_marriages' => $booking_marriages,
+                'lodged_marriages' => $lodged_marriages,
+                'lodged_pending_marriages' => $lodged_pending_marriages,
+                'non_legal_marriages' => $non_legal_marriages,
+                'registered_marriages' => $registered_marriages,
+                'finalised_marriages' => $finalised_marriages,
+                'settled_marriages' => $settled_marriages,
+                'cancelled_marriages' => $cancelled_marriages,
             );
             if ($request->ajax()) {
                 $viewurl = 'elements.celebrant.marriage.' . $slug;
