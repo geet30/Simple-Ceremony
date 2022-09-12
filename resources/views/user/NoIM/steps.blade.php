@@ -9,7 +9,7 @@
                 @include('elements.user.steps.header')
                 <div class="card noim-card mb-4">
                     <form class="card-body needs-validation pb-5 px-0 pt-0" method="POST"
-                        action="{{ route('user-noim.store') }}" novalidate>
+                        action="{{ route('user-noim.store') }}" novalidate enctype="multipart/form-data">
                         @csrf
                         <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100"
                             class="scrollspy-example" tabindex="0">

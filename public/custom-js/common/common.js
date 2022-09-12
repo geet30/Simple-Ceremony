@@ -388,13 +388,25 @@ $(function () {
 var cl = console.log;
 $(document).ready(function () {
     $(".selectEvidence").on("change", function () {
-        cl(this.value);
-        if (this.value == 1) {
+        if (this.value == "birth-certificate-or-official-extract") {
             $(this).parent().siblings().removeClass("d-none");
             $(this).parent().siblings().children().attr("required", true);
         } else {
             $(this).parent().siblings().addClass("d-none");
             $(this).parent().siblings().children().attr("required", false);
         }
+    });
+
+    // DISPLAY SELECTED FILE NAME ON USER DOCUMENT SECTION
+    $('.noim-document-box input[type="file"]').change(function (e) {
+        let filename = e.target.files[0].name;
+        $(this).parent().siblings().removeClass("d-none");
+        $(this)
+            .parent()
+            .siblings()
+            .children()
+            .children(":first-child")
+            .children("p.document-name")
+            .text(filename);
     });
 });

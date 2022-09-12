@@ -38,10 +38,10 @@ $personParentElement = 'person1Parent';
                     name="{{ $personParent }}[0][first_name]" id="{{ $personParentElement }}0FirstName" required>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Parent 1 other given
+                <label for="{{ $personParentElement }}0OtherName" class="form-label small-text2">Parent 1 other given
                     name(s)</label>
                 <input type="text" value="Lux" class="form-control body-1 netural-100"
-                    name="{{ $personParent }}[0][birth_name]" id="{{ $personParentElement }}0BirthName" required>
+                    name="{{ $personParent }}[0][other_name]" id="{{ $personParentElement }}0OtherName" required>
             </div>
         </div>
         <div class="row">
@@ -64,8 +64,9 @@ $personParentElement = 'person1Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}BirthOtherName" class="form-label small-text2">Parent 1 other
                     given name(s)</label>
-                <input type="text" value="Lux" class="form-control body-1 netural-100" name="name"
-                    id="{{ $personParentElement }}BirthOtherName" required>
+                <input type="text" value="Lux" class="form-control body-1 netural-100"
+                    name="{{ $personParent }}[0][birth_other_name]" id="{{ $personParentElement }}BirthOtherName"
+                    required>
             </div>
         </div>
         <div class="row">
@@ -91,8 +92,8 @@ $personParentElement = 'person1Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1FirstName" class="form-label small-text2">Parent 2 first
                     name</label>
-                <input type="text" value="Pat" class="form-control body-1 netural-100" name="name"
-                    id="{{ $personParentElement }}1FirstName" required>
+                <input type="text" value="Pat" class="form-control body-1 netural-100"
+                    name="{{ $personParent }}[1][first_name]" id="{{ $personParentElement }}1FirstName" required>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given
@@ -105,8 +106,8 @@ $personParentElement = 'person1Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1BirthName" class="form-label small-text2">Birth Name of Parent
                     2</label>
-                <input type="text" value="DOBSON" class="form-control body-1 netural-100" name="name"
-                    id="{{ $personParentElement }}1BirthName" required>
+                <input type="text" value="DOBSON" class="form-control body-1 netural-100"
+                    name="{{ $personParent }}[1][birth_name]" id="{{ $personParentElement }}1BirthName" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
             </div>
         </div>
@@ -115,7 +116,7 @@ $personParentElement = 'person1Parent';
                 <label for="{{ $personParentElement }}1BirthFirstName" class="form-label small-text2">Parent 2 first
                     name</label>
                 <input type="text" value="Pat" class="form-control body-1 netural-100"
-                    name="{{ $personParent }}[1][first_name]" id="{{ $personParentElement }}1BirthFirstName"
+                    name="{{ $personParent }}[1][birth_first_name]" id="{{ $personParentElement }}1BirthFirstName"
                     required>
             </div>
             <div class="col-md-6 mb-4 align-self-top">

@@ -36,32 +36,44 @@ $person = $person && $person[0] ? $person[0] : null;
                 <div class="col-xl-10 mx-auto mt-20">
                     <div class="row">
                         <div class="col-md-6 mb-4 align-self-end">
-                            <label for="birth" class="form-label small-text2">What evidence of Date and Place of
+                            <label for="person1SelectEvidence" class="form-label small-text2">What evidence of Date and
+                                Place of
                                 Birth are you using?</label>
-                            <select name="birth" id="person1SelectEvidence"
-                                class="js-placeholder-single-input form-control selectEvidence">
+                            <select name="person[0][document][first_document_name]" id="person1SelectEvidence"
+                                class="js-placeholder-single-input form-control selectEvidence" required>
                                 <option value="" selected="">Select answer here
                                 </option>
-                                <option value="1">Birth Certificate or official extract</option>
-                                <option value="2">Australian Passport</option>
-                                <option value="3">OS Passport</option>
+                                <option value="birth-certificate-or-official-extract">Birth Certificate or official
+                                    extract</option>
+                                <option value="autstralian-passport">Australian Passport</option>
+                                <option value="os-passport">OS Passport</option>
                             </select>
+                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
+                                        alt="Require Icon"></span>Field is required</div>
                         </div>
                         <div class="col-md-6 mb-4 align-self-end d-none">
-                            <label for="id" class="form-label small-text2">What photo ID are you using?</label>
-                            <select name="id" id="id" class="js-placeholder-single-input form-control">
+                            <label for="person1SelectEvidence2" class="form-label small-text2">What photo ID are you
+                                using?</label>
+                            <select name="person[0][document][second_document_name]" id="person1SelectEvidence2"
+                                class="js-placeholder-single-input form-control">
                                 <option value="" selected="">Select answer here
                                 </option>
-                                <option value="1">Current Card (Govt issued)</option>
-                                <option value="2">Current Driver’s Licence</option>
-                                <option value="3">Current Proof of Age Card (Govt issued)</option>
+                                <option value="current-card-(govt-issued)">Current Card (Govt issued)</option>
+                                <option value="current-driver's-licence">Current Driver’s Licence</option>
+                                <option value="current-proof-of-age-card-(govt-issued)">Current Proof of Age Card (Govt
+                                    issued)</option>
                             </select>
+                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
+                                        alt="Require Icon"></span>Field is required</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-10 mx-auto mt-30 position-relative">
                     <div class="attach-document-box position-relative noim-document-box">
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
+                        <input id="fileupload" class="fileupload" type="file"
+                            name="person[0][document][birth_evedence_file]" accept=".pdf,.doc,.docx" required>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
+                                    alt="Require Icon"></span>Field is required</div>
                         <div class="inner-content">
                             <div class="d-md-flex ">
                                 <div class="d-flex d-md-block  justify-content-center justify-content-md-start">
@@ -77,6 +89,17 @@ $person = $person && $person[0] ? $person[0] : null;
                             </div>
                         </div>
                     </div>
+                    <!--uploaded-box  -->
+                    <div class="attach-document-box uploaded-box noim-document-box d-none">
+                        <div class="d-flex justify-content-center uploaded-content">
+                            <div class="align-self-center">
+                                <p id="filename" class="h4 neutral-100 mb-0 document-name"></p>
+                            </div>
+                            <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
+                                    class="img-fluid ms-3"></div>
+                        </div>
+                    </div>
+                    <!--  -->
                 </div>
             </div>
         </div>
@@ -258,7 +281,8 @@ $person = $person && $person[0] ? $person[0] : null;
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <div class="attach-document-box position-relative noim-document-box">
-                    <input id="fileupload" class="fileupload" type="file" name="person[0][birth_document]">
+                    <input id="fileupload" class="fileupload" type="file" name="person[0][conjugal_document]"
+                        accept=".pdf,.doc,.docx">
                     <div class="inner-content">
                         <div class="d-md-flex ">
                             <div class="d-flex d-md-block  justify-content-center justify-content-md-start">
@@ -275,6 +299,17 @@ $person = $person && $person[0] ? $person[0] : null;
                         </div>
                     </div>
                 </div>
+                <!--uploaded-box  -->
+                <div class="attach-document-box uploaded-box noim-document-box d-none">
+                    <div class="d-flex justify-content-center uploaded-content">
+                        <div class="align-self-center">
+                            <p class="h4 neutral-100 mb-0 document-name">Document.pdf</p>
+                        </div>
+                        <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
+                                class="img-fluid ms-3"></div>
+                    </div>
+                </div>
+                <!--  -->
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person0birth_town_or_city_or_suburb"

@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('booking_id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('document_name');
+            $table->unsignedBigInteger('user_noim_id');
+            $table->string('first_document_name');
+            $table->string('second_document_name')->nullable();
             $table->string('document_path');
             $table->string('document_extension');
             $table->timestamps();
