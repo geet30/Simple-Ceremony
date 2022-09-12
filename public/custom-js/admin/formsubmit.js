@@ -104,6 +104,7 @@ $(document).ready(function(){
         })
     }
     window.submitform = function(id,action,method,formData,form){
+
         $('.form-error').html('');
         $('.message').html('');
         $.ajax({

@@ -179,4 +179,24 @@ class HomeController extends Controller
             
         }
     }
+
+    /**
+     * Change status of ceremony.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus(Request $request)
+    {
+       
+        try {
+            $result =   Booking::change_booking_status($request);
+            if ($result) {
+                return $this->successResponse($result, 'Status changed successfully.');
+            }
+            return response()->json(['status' => false, "message" => 'something went wrong']);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }  
 }

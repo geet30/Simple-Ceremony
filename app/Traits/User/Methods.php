@@ -249,7 +249,7 @@ trait Methods
             $redirection = 'user/overview';
         }else if ($request->route_name == 'celebrant-login') {
             $role = 'Celebrant';
-            $redirection = 'upcoming';
+            $redirection = 'upcoming/all-records-tab';
         }
         return array('role' => $role, 'redirection' => $redirection);
     }
