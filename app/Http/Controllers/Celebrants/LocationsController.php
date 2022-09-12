@@ -60,6 +60,7 @@ class LocationsController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
+    
      /**
      * Show the form for creating a new resource.
      *
