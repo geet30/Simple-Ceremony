@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Celebrants;
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,User};
+use App\Models\{Locations,User,UserNoim};
 use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
@@ -99,8 +99,7 @@ class DashboardController extends Controller
             $data = CelebrantMethods::marriage_detail($id)->first();
           
             $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
-          
-            // $user_id = PartnerProducts::where('id', $id)->value('user_id');
+            // dd($data);
             return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details'));
             
         } catch (\Exception $ex) {

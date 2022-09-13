@@ -39,4 +39,8 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+    public function user_noim()
+    {
+        return $this->belongsTo('App\Models\UserNoim', 'id', 'booking_id');
+    }
 }

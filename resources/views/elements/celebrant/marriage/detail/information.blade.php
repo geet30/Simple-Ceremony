@@ -1,4 +1,5 @@
 <div class="row">
+   
    <div class="col-xl-6 py-31">
       <form class="availablity-overview-scrollbar" method="POST" id="availablity-overview-style">
          <div  class="force-overflow  w-97">
