@@ -67,7 +67,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <div class="row">
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Conjugal Status</label>
-               <input type="text" value="Say" class="form-control body-1 netural-100" name="name" id="preferredname2">
+               <input type="text" value="{{config('userConstants.conjugal_status.'.$couple1->conjugal_status) }}"  class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
          </div>
          <h4 class="h4  neutral-100 align-self-center mb-0 ms-2 mb-3">Person 1 ID</h4>
@@ -149,7 +149,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <div class="row">
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Conjugal Status</label>
-               <input type="text" value="Say" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+               <input type="text" value="{{config('userConstants.conjugal_status.'.$couple2->conjugal_status) }}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
          </div>
          <div class="row">
