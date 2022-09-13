@@ -99,8 +99,7 @@ class DashboardController extends Controller
             $data = CelebrantMethods::marriage_detail($id)->first();
           
             $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
-            dd($data);
-            // $person = UserNoim::whereUserId($loggedInUserId)->get();
+            // dd($data);
             return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details'));
             
         } catch (\Exception $ex) {

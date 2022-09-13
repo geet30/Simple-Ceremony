@@ -174,7 +174,7 @@ trait Methods
                 $query->select('first_name', 'id');
             },
             'user_noim' => function ($query) {
-                $query->select('preferred_name','booking_id');
+                $query->select('*');
             }
         ]);
         if ($id != null) {
