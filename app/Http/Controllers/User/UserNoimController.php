@@ -148,6 +148,7 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $person = UserNoim::whereUserId($loggedInUserId)->get();
+        
         return view(self::$bladePath . 'steps', compact('person'));
     }
 }

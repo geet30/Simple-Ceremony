@@ -99,8 +99,10 @@ class DashboardController extends Controller
             $data = CelebrantMethods::marriage_detail($id)->first();
           
             $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
-            // dd($data);
-            return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details'));
+            
+            $couple = UserNoim::where('booking_id',$id )->with(['booking','document'])->get();
+            // dd($couple);
+            return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple'));
             
         } catch (\Exception $ex) {
             dd($ex);

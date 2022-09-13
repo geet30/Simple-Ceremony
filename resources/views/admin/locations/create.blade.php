@@ -6,7 +6,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-      @include('elements.celebrant.celebrant-sidebar')
+      @include('elements.admin-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
       @include('elements.panel-header')

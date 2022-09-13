@@ -91,7 +91,7 @@ trait Methods
             if($data->hasFile('cover_image')){
                 $input['cover_image'] = uploadImage($data->cover_image, 'locations');
             }               
-            $location = Locations::find($id);
+            $location = RequestLocations::find($id);
             if($location->fill($input)->save()){
                 self::locationExtras($data,$id,2); 
                 $msg = 'Location updated Successfully';
