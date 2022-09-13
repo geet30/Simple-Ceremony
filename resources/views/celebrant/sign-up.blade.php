@@ -103,7 +103,7 @@
                               <div class="col-md-6 mb-4 phone_number">
                                  <label for="phone" class="form-label small-text2">Phone number *</label>
                                  <input type="hidden" id="code" name="user[country_code]"
-                                    value="966">
+                                    value="61">
                                  <input id="phone" type="tel"
                                     class="form-control body-1 netural-100 tel-input"
                                     placeholder="Your phone number" name="user[phone]" required>
@@ -190,7 +190,7 @@
                                     <span class="currency-sign body-1 netural-100">$</span>
                                     <input type="number" step="0.01"
                                           class="form-control body-1 netural-100 ps-4"
-                                          name="celebrant[standard_fee]" id="InputName">
+                                          name="celebrant[standard_fee]" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                 src="/images/require-iocn.svg"
                                                 alt="Require Icon"></span>Standard
@@ -202,13 +202,13 @@
                                     fee</label>
                                  <div class=" position-relative">
                                     <span class="currency-sign body-1 netural-100">$</span>
-                                    <input type="number" step="0.01"
+                                   
+                                    <input type="number" step="0.01" value="{{ (isset($admin_tax_detail->taxdetail->celebrant_tax)) ? $admin_tax_detail->taxdetail->celebrant_tax :''}}"
                                           class="form-control body-1 netural-100 ps-4"
-                                          name="celebrant[admin_fee]" id="InputName">
-                                    <div class="invalid-feedback"> <span><img class="me-2"
-                                                src="/images/require-iocn.svg" alt="Require Icon"></span>SC
-                                          admin
-                                          is required</div>
+                                          name="celebrant[admin_fee]" id="InputName" required>
+                                    <div class="invalid-feedback"> <span>
+                                       <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin is required
+                                    </div>
                                  </div>
 
                               </div>

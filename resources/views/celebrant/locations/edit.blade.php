@@ -182,8 +182,9 @@
                      <input type="text" value="{{ (isset($data->getting_there)) ? $data->getting_there : '' }}" class="form-control body-1 netural-100" name="getting_there" id="getting_there">
                   </div>
                   <div class="col-md-12 mb-4">
-                     <input class="form-check-input me-2" type="checkbox" name="custom_location" id="custom_location"  autocomplete="off" value="{{ (isset($data->custom_location)) ? $data->custom_location : '' }}" 
-                     @if(isset($data->custom_location))) checked @endif >
+                  <input type="hidden" value="0" name="custom_location">
+                     <input class="form-check-input me-2" type="checkbox" name="custom_location" id="custom_location"  autocomplete="off" value="1" 
+                     @if(isset($data->custom_location) && $data->custom_location ==1)) checked @endif >
                      <label class="form-check-label body-1" for="location">
                      Is this a Custom Location?
                      </label>

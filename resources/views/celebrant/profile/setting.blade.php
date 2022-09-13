@@ -138,7 +138,7 @@
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="address" class="form-label small-text2 ms-2">Address</label>
-                              <input type="text" value="{{$data->celebrant->address}}" class="form-control body-1 netural-100 readonlyInput" name="celebrant[address]" id="address" required readonly>
+                              <input type="text" value="{{isset($data->celebrant->address)?$data->celebrant->address:''}}" class="form-control body-1 netural-100 readonlyInput" name="celebrant[address]" id="address" required readonly>
                               <div class="invalid-feedback"> <span><img class="me-2"
                                  src="/images/require-iocn.svg" alt="Require Icon"></span>Address is required
                               </div>
