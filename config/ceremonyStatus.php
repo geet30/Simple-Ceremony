@@ -2,11 +2,11 @@
 
 return [
     'typeOfCeremony' => [
-        1 =>'Legal marriage ceremony',
-        2 =>'A commitment ceremony',
-        3 =>'A re-newal of vows',
+        1 => 'Legal marriage ceremony',
+        2 => 'A commitment ceremony',
+        3 => 'A re-newal of vows',
         4 => 'A naming day',
-        5 =>'A memorial ceremony',
+        5 => 'A memorial ceremony',
     ],
     'status' => [
         'Booked' => 1,
@@ -46,6 +46,5 @@ return [
         4 => 'Non-Legal',
         5 => 'Registered',
         8 => 'Cancelled'
-    ],
-
+    ]
 ];

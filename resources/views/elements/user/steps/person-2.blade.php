@@ -289,6 +289,18 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
                         </div>
                     </div>
                 </div>
+                <!--uploaded-box  -->
+                <div class="attach-document-box uploaded-box noim-document-box d-none" style="position:relative">
+                    <div class="d-flex justify-content-center
+                    uploaded-content">
+                        <div class="align-self-center">
+                            <p id="filename" class="h4 neutral-100 mb-0 document-name">Document.pdf</p>
+                        </div>
+                        <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
+                                class="img-fluid ms-3"></div>
+                    </div>
+                </div>
+                <!--  -->
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person1birth_town_or_city_or_suburb"

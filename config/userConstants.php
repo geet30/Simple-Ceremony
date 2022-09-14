@@ -20,4 +20,10 @@ return [
             ]
         ],
     ],
+    'gender' => [
+        1 => 'Male',
+        2 => 'Female',
+        3 => 'Non-binary',
+        4 => 'X'
+    ]
 ];

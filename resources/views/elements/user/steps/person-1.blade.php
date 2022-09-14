@@ -182,11 +182,11 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <select name="person[0][gender]" id="person0gender" class="js-placeholder-single-input form-control"
                     required>
                     <option value="">Select gender here</option>
-                    <option value="1" {{ $person && $person['gender'] == 1 ? 'selected' : '' }}>Female</option>
-                    <option value="2" {{ $person && $person['gender'] == 2 ? 'selected' : '' }}>Male</option>
-                    <option value="3" {{ $person && $person['gender'] == 3 ? 'selected' : '' }}>Non-binary
-                    </option>
-                    <option value="4" {{ $person && $person['gender'] == 4 ? 'selected' : '' }}>X</option>
+                    @foreach (Config::get('userConstants.gender') as $key => $gender)
+                        <option value="{{ $key }}"
+                            {{ $person && $person['gender'] == $key ? 'selected' : '' }}>
+                            {{ $gender }}</option>
+                    @endforeach
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -203,9 +203,13 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <select name="person[0][residence_place]" id="person0residence_place"
                     class="js-placeholder-single-input form-control">
                     <option value="">Select country here</option>
-                    <option value="Australia"
+                    @foreach (Config::get('userConstants.countries') as $key => $country)
+                        <option value="{{ $key }}">
+                            {{ Config::get('userConstants.countries')[$key]['name'] }}</option>
+                    @endforeach
+                    {{-- <option value="Australia"
                         {{ $person && $person['residence_place'] == 'Australia' ? 'selected' : '' }}>
-                        Australia</option>
+                        Australia</option> --}}
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -239,11 +243,12 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <select name="person[0][residence_state_or_province_or_territory]"
                     id="person0residence_state_or_province_or_territory"
                     class="js-placeholder-single-input form-control" required>
-                    <option value="">Select country here</option>
-                    <option value="1"
-                        {{ $person && $person['residence_state_or_province_or_territory'] == 1 ? 'selected' : '' }}>
-                        TAS
-                    </option>
+                    <option value="">Select state/Territory/Province here</option>
+                    @foreach (Config::get('userConstants.countries.australia.states') as $key => $state)
+                        <option value="{{ $key }}"
+                            {{ $person && $person['residence_state_or_province_or_territory'] == $key ? 'selected' : '' }}>
+                            {{ $state }}</option>
+                    @endforeach
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -258,13 +263,18 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person0conjugal_status" class="form-label small-text2">Conjugal status</label>
                 <select name="person[0][conjugal_status]" id="person0conjugal_status"
-                    class="js-placeholder-single-input form-control" required>
-                    <option value="">Select country here</option>
-                    <option value="1" {{ $person && $person['conjugal_status'] == 1 ? 'selected' : '' }}>
+                    class="js-placeholder-single-input form-control conjugal_status_select" required>
+                    <option value="">Select conjugal status here</option>
+                    @foreach (Config::get('userConstants.conjugal_status') as $key => $value)
+                        <option value="{{ $key }}"
+                            {{ $person && $person['conjugal_status'] == $key ? 'selected' : '' }}>{{ $value }}
+                        </option>
+                    @endforeach
+                    {{-- <option value="1" {{ $person && $person['conjugal_status'] == 1 ? 'selected' : '' }}>
                         Never
                         validly married</option>
                     <option value="2"{{ $person && $person['conjugal_status'] == 2 ? 'selected' : '' }}>
-                        Divorced</option>
+                        Divorced</option> --}}
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -281,7 +291,7 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                             alt="Require Icon"></span>Field is required</div>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <div class="attach-document-box position-relative noim-document-box">
+                <div class="attach-document-box position-relative noim-document-box conjugal_document d-none">
                     <input id="fileupload" class="fileupload" type="file" name="person[0][conjugal_document]"
                         accept=".pdf,.doc,.docx">
                     <div class="inner-content">
@@ -292,8 +302,7 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                                     file .pdf .docx</p>
                             </div>
                             <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
-                                <p class="body-2 text-black mb-1">Upload your evidence of Date and Place of Birth
-                                    here
+                                <p class="body-2 text-black mb-1">Upload your divorce/widowed document here
                                 </p>
                                 <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
                             </div>
@@ -301,7 +310,7 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                     </div>
                 </div>
                 <!--uploaded-box  -->
-                <div class="attach-document-box uploaded-box noim-document-box d-none">
+                <div class="attach-document-box uploaded-box noim-document-box d-none" style="position: relative;">
                     <div class="d-flex justify-content-center uploaded-content">
                         <div class="align-self-center">
                             <p class="h4 neutral-100 mb-0 document-name">Document.pdf</p>

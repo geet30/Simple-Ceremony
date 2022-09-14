@@ -47,7 +47,7 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
-        // return $request->all();
+        return $request->all();
         // remove the exists rows
         UserNoim::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
         UserParent::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('booking_id');
             $table->unsignedBigInteger('user_noim_id');
+            $table->integer('document_type')->comment('1: birth evidence, 2: divorce/widowed evidence');
             $table->string('first_document_name');
             $table->string('second_document_name')->nullable();
             $table->string('document_path');

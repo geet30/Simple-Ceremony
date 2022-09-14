@@ -411,10 +411,38 @@ $(document).ready(function () {
             $(this).parent().siblings().children().attr("required", false);
         }
     });
+    $(".conjugal_status_select").on("change", function () {
+        if (this.value != 1) {
+            $(this)
+                .parent()
+                .siblings()
+                .children(".conjugal_document")
+                .removeClass("d-none");
+            $(this)
+                .parent()
+                .siblings()
+                .children(".conjugal_document")
+                .children()
+                .attr("required", true);
+        } else {
+            $(this)
+                .parent()
+                .siblings()
+                .children(".conjugal_document")
+                .addClass("d-none");
+            $(this)
+                .parent()
+                .siblings()
+                .children(".conjugal_document")
+                .children()
+                .attr("required", false);
+        }
+    });
 
     // DISPLAY SELECTED FILE NAME ON USER DOCUMENT SECTION
     $('.noim-document-box input[type="file"]').change(function (e) {
         let filename = e.target.files[0].name;
+        $(this).parent().addClass("d-none");
         $(this).parent().siblings().removeClass("d-none");
         $(this)
             .parent()
