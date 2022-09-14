@@ -1,4 +1,5 @@
 @extends('layouts.panels')
+@section('page-name') {{ $data->name }} @stop
 @section('content')
 <script>
    var partners ='<?php echo json_encode($partners);?>';

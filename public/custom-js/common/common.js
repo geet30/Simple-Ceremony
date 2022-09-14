@@ -174,6 +174,9 @@ $(document).ready(function () {
     window.closeDialog = function (id) {
         $("#" + id).modal("hide");
     };
+    window.closedDiv = function(findclass){
+        $("." + findclass).removeClass('show');
+    }
     window.appendId = function (value, findclass) {
         $("." + findclass).val(value);
     };

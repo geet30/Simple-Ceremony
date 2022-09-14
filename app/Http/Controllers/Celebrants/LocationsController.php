@@ -34,6 +34,7 @@ class LocationsController extends Controller
         } else {
             $data = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
         }
+       
         if ($request->ajax()) {
 
             $viewurl = 'celebrant.locations.listing';
@@ -60,6 +61,7 @@ class LocationsController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
+    
      /**
      * Show the form for creating a new resource.
      *
@@ -112,6 +114,7 @@ class LocationsController extends Controller
         $partners = Locations::partners();
         $data  = CelebrantMethods::fetch_locations($id)->first();
         $partnerspackages = Locations::getPartnerPackages();
+     
         return view('celebrant.locations.detail', compact(['data','filters','partners','partnerspackages']));
     }
 
@@ -126,6 +129,7 @@ class LocationsController extends Controller
         $filters = LocationFilters::all();
         $partners = Locations::partners();
         $data  = CelebrantMethods::fetch_locations($id)->first();
+   
         $partnerspackages = Locations::getPartnerPackages();
         return view('celebrant.locations.edit', compact(['data','partners','filters','partnerspackages']));
     }

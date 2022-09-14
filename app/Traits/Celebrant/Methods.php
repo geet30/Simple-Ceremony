@@ -100,6 +100,54 @@ trait Methods
 
        
     } 
+    public static function searchCelebrantMarriagesWithStatus($request){
+        $req_page = 1;
+        $records = 10;
+        $marriages = self::fetch_marriages();     
+
+        if ($request->has('firstOptgroup') && !empty($request->firstOptgroup) && $request->has('secondOptgroup') && !empty($request->secondOptgroup)) {
+            $data = $marriages->whereIn('status', $request->firstOptgroup)->whereIn('locationId', $request->secondOptgroup);
+        }else if($request->has('firstOptgroup') && !empty($request->firstOptgroup)){
+            $id = $request->firstOptgroup;
+            $data = $marriages->whereIn('status', $id);
+        }
+        else if($request->has('secondOptgroup') && !empty($request->secondOptgroup)){
+            $id = $request->secondOptgroup;
+            $data = $marriages->whereIn('locationId', $id);
+        }        
+        else{
+           
+            $data =  $marriages;
+        }
+        return $data->paginate($records, ['*'], 'page', $req_page);
+
+       
+    } 
+    
+    public static function searchCelebrantMarriagesWithDate($request){
+        $req_page = 1;
+        $records = 10;
+        $marriages = self::fetch_marriages();     
+       
+
+        if ($request->has('payment_date') && !empty($request->payment_date) && $request->has('ceremony_date') && !empty($request->ceremony_date)) {
+            $data = $marriages->where('booking_date', $request->ceremony_date);
+        }else if($request->has('payment_date') && !empty($request->payment_date)){// this needs to be changed when we will have the booking payment made to celebrant
+         
+            $data = $marriages->where('booking_date', $request->booking_date);
+        }
+        else if($request->has('ceremony_date') && !empty($request->ceremony_date)){
+           
+            $data = $marriages->where('booking_date', $request->booking_date);
+        }        
+        else{
+           
+            $data =  $marriages;
+        }
+        return $data->paginate($records, ['*'], 'page', $req_page);
+
+       
+    } 
     public static function searchByUser($request)
     {
         $req_page = 1;
@@ -120,10 +168,13 @@ trait Methods
                 $query->select('celebrant_id','admin_fee','standard_fee', 'id');
             },
             'location' => function ($query) {
-                $query->select('name', 'id', 'price');
+                $query->select('name', 'id', 'price','address');
             },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
+            },
+            'user_noim' => function ($query) {
+                $query->select('*');
             }
         ]);
         if ($id != null) {

@@ -66,7 +66,9 @@ class RegisterController extends Controller
     public function showCelebrantSignupForm(){
         try {
             $allLocations = Locations::all();
-            return view('celebrant.sign-up',compact('allLocations'));
+            $admin_tax_detail = User::role('Admin')->with('taxdetail')->first(); 
+            // dd($admin->taxdetail->celebrant_tax);
+            return view('celebrant.sign-up',compact('allLocations','admin_tax_detail'));
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

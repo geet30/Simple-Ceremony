@@ -6,7 +6,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-      @include('elements.celebrant.celebrant-sidebar')
+      @include('elements.admin-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
       @include('elements.panel-header')
@@ -107,7 +107,7 @@
 
                            <div class="drop-zone text-center">
                            <?php  $required = 'required'?>
-                              @if($data->cover_image && !empty($data->cover_image))
+                              @if(isset($data->cover_image) && !empty($data->cover_image))
                                  <?php 
                               
                                     $path = asset('uploads/images/locations/'.$data->cover_image);
@@ -147,7 +147,7 @@
                            
                               <div class="upload__img-wrap">
                               
-                                 @if($data->request_location_images && !empty($data->request_location_images))
+                                 @if(isset($data->request_location_images) && !empty($data->request_location_images))
                                  <input type="hidden" name="image_id" id="image_id">
                                  @foreach($data->request_location_images as $keys=>$images)
                                  <?php 

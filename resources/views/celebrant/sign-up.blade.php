@@ -103,7 +103,7 @@
                               <div class="col-md-6 mb-4 phone_number">
                                  <label for="phone" class="form-label small-text2">Phone number *</label>
                                  <input type="hidden" id="code" name="user[country_code]"
-                                    value="966">
+                                    value="61">
                                  <input id="phone" type="tel"
                                     class="form-control body-1 netural-100 tel-input"
                                     placeholder="Your phone number" name="user[phone]" required>
@@ -190,7 +190,7 @@
                                     <span class="currency-sign body-1 netural-100">$</span>
                                     <input type="number" step="0.01"
                                           class="form-control body-1 netural-100 ps-4"
-                                          name="celebrant[standard_fee]" id="InputName">
+                                          name="celebrant[standard_fee]" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2"
                                                 src="/images/require-iocn.svg"
                                                 alt="Require Icon"></span>Standard
@@ -202,13 +202,13 @@
                                     fee</label>
                                  <div class=" position-relative">
                                     <span class="currency-sign body-1 netural-100">$</span>
-                                    <input type="number" step="0.01"
+                                   
+                                    <input type="number" step="0.01" value="{{ (isset($admin_tax_detail->taxdetail->celebrant_tax)) ? $admin_tax_detail->taxdetail->celebrant_tax :''}}"
                                           class="form-control body-1 netural-100 ps-4"
-                                          name="celebrant[admin_fee]" id="InputName">
-                                    <div class="invalid-feedback"> <span><img class="me-2"
-                                                src="/images/require-iocn.svg" alt="Require Icon"></span>SC
-                                          admin
-                                          is required</div>
+                                          name="celebrant[admin_fee]" id="InputName" required>
+                                    <div class="invalid-feedback"> <span>
+                                       <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin is required
+                                    </div>
                                  </div>
 
                               </div>
@@ -257,27 +257,7 @@
 
 @endIf
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cancel_ceremony_popup">
-   Launch static backdrop modal
- </button>
 
-<div class="modal-success-form modal fade cancel-ceremony-popup" id="cancel_ceremony_popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-body text-center p-0">
-         <div class="bg-turquoise-100 text-center position-relative" style="border-radius: 8px 8px 0 0;">
-            <img class="mt-4 mb-4" src="/images/icons/congratulations.svg" alt="Congratulations" width="180" height="180">
-            <a role="button" class="color-white text-decoration-none button" data-bs-dismiss="modal" aria-label="Close" style="position: absolute;right: 40px;top: 30px;color: #fff;">Cancel</a>
-           </div>
-           <h3 class="h3 netural-100 mb-3 mt-5 px-3">Awesome!</h3>
-           <p class="subheader-2 netural-100 mb-3 px-3">Congratulations, your account has been successfully created.</p>
-           <div class="d-flex justify-content-center mt-3">
-            <a role="button" class="theme-btn primary-btn mt-5 mb-5 w-25">Login</a>
-           </div>
-        </div>
-      </div>
-    </div>
- </div>
+
 
 @endsection
