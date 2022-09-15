@@ -204,11 +204,13 @@ $(document).ready(function(){
    }
    var first_time = false;
    window.appendHtml = function(parentClass, type,data=Array(),childcontainer='') { 
+  
       var htmlCode = '';
       if(type=='cart'){  
          htmlCode=cart(data);
       }
-      if(type='document'){
+      if(type=='document'){
+        
          htmlCode=celebrantDocument(data);
       }
       
