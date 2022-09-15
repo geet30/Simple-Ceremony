@@ -31,8 +31,7 @@
                     </td> 
                     <td class="body-2 neutral-100" style="min-width:130px;">
                         {{$result->user->country_code}} {{$result->user->phone}}
-                    </td>                   
-                    <td ></td>
+                    </td>   
                     <td style="min-width:100px;">
                         <a href="{{route('marriage.detail',$result->id)}}" class="table-link">View info</a>
                     </td>
@@ -41,7 +40,7 @@
             @endforeach
             @if($dataArray['booking_marriages']->total()==0)
                 <tr>
-                    <td colspan="10">
+                    <td colspan="9">
                         <center>No Record Found</center>
                     </td>
                 </tr>

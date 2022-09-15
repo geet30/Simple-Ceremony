@@ -181,14 +181,14 @@ $(document).ready(function(){
                   </div>
                </div>
             </div>
-            <div class="attach-document-box uploaded-box d-none">
+            <div class="attach-document-box uploaded-box d-none" style="z-index: 999999;">
                <div class="uploaded-content">
                   <p id="filename" class="h4 neutral-100 mb-4 filename"></p>
-                  <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
-                  <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                  <a class="me-2 viewDocument" target="_blank" href=""><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                  <a class="me-2 downloadDocument" href=""><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                   <a> <img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')"></a>
                </div>
-               <div class="created-date">Created Feb 29, 2022</div>
+               <div class="created-date"></div>
             </div>
          </div>
          <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">

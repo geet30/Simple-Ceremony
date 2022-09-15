@@ -111,10 +111,17 @@ class DashboardController extends Controller
         }
 
     }
+       
+    /**
+     * save the detail of resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function saveDocs(Request $request,$id){
+        
         try {
             $detail = CelebrantMethods::update_booking_docs($request,$id);
-            return response()->json(['status' => $detail['status'], "message" => $detail['message'],'image'=>$detail['data']]);
+            return response()->json(['status' => $detail['status'], "message" => $detail['message'],'result'=>$detail['data']]);
            
         } catch (\Exception $ex) {
 
@@ -122,7 +129,12 @@ class DashboardController extends Controller
         }
 
     }
-    
+       
+    /**
+     * save the detail of resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function saveRecord(Request $request){
         try {
             $detail = CelebrantMethods::update_booking_details($request);
@@ -134,6 +146,12 @@ class DashboardController extends Controller
         }
 
     }
+       
+    /**
+     * Delete the detail of resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function deleteRecord(Request $request){
        
         try {
@@ -147,7 +165,7 @@ class DashboardController extends Controller
         }
 
     }
-    
+ 
     /**
      * search the specified booking location in storage.
      *
