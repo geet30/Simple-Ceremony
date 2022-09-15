@@ -151,11 +151,65 @@ $(document).ready(function(){
          </div>`;   
      return html; 
    }
+   function celebrantDocument(id){
+         
+      html = '';
+      html = `<div class="col-xxl-6 mb-4 documentDiv">
+      <div class="row">
+         <div class="col-lg-8 col-xxl-9 text-center position-relative">
+            <div class="attach-document-box position-relative">
+               <input class="fileupload" type="file" name="document[]" onchange="uploadProgress(event,${id},'information','fileupload1')">
+               <div class="inner-content">
+                  <p class="document-text mb-4">Attach document</p>
+                  <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
+                  <p class="text">Compatible file .pdf .docx</p>
+                  <div class="d-flex justify-content-center">
+                     <div class="align-self-center">
+                        <p class="darg neutral-100 mb-0">Drag or</p>
+                     </div>
+                     <div class="align-self-center ms-1">
+                        <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="attach-document-box progress-box text-center d-none">
+               <div class="progress-content">
+                  <p class="h4 neutral-100">Uploading <span class="progress-percentage"></span></p>
+                  <div id="progress" class="progress">
+                     <div class="progress-bar bar"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="attach-document-box uploaded-box d-none">
+               <div class="uploaded-content">
+                  <p id="filename" class="h4 neutral-100 mb-4 filename"></p>
+                  <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                  <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                  <a> <img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')"></a>
+               </div>
+               <div class="created-date">Created Feb 29, 2022</div>
+            </div>
+         </div>
+         <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
+            <a class=" d-inline-flex delete-icon">
+               <img src="/images/icons/delete-black.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')">
+            </a>
+            <br/>
+            <a onclick="appendHtml('documentContainer', 'document',${id},'documentDiv')" class="theme-btn  primary-btn plus-icon d-inline-flex"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
+         </div>
+      </div>
+      </div>`;   
+      return html; 
+   }
    var first_time = false;
    window.appendHtml = function(parentClass, type,data=Array(),childcontainer='') { 
       var htmlCode = '';
       if(type=='cart'){  
          htmlCode=cart(data);
+      }
+      if(type='document'){
+         htmlCode=celebrantDocument(data);
       }
       
       if(type=='locationpackage'){ 
@@ -213,6 +267,10 @@ $(document).ready(function(){
                <td>&nbsp;</td>`)
                $('.paynow_text').css('visibility','hidden');
             }
+         }else if(type =='document'){
+            if($('.'+packageContainer).find('.'+parentClass).length == 1)
+            return false;
+            deleteRecord(el,'/deleteRecord');
          }
          
          else{

@@ -65,6 +65,8 @@
 <script src="/custom-js/common/validation.js"></script>
 <script src="/custom-js/common/tel-number.js"></script>
 <script src="/custom-js/admin/formsubmit.js"></script>
+<script src="/custom-js/common/upload-progress.js"></script>
+<script src="/custom-js/common/delete-record.js"></script>
 <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 

@@ -246,6 +246,7 @@
                            </div>
                            <div class="col-md-12 mb-4">
                                  <a role="button" class="d-inline-flex theme-btn primary-btn justify-content-center showClass" onclick="displayItem('showClass','saveClass')">
+                                 
                                     <img class="me-2" src="/images/admin/partner/edit.svg"
                                        alt="Edit">
                                     Edit information

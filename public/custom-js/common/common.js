@@ -187,6 +187,12 @@ $(document).ready(function () {
         var form = $(e.target);
         submitform(id, action, method, formData, form);
     };
+    window.submitAjaxWithoutReload = function (e, id, method, action) {
+        e.preventDefault();
+        var formData = new FormData(document.getElementsByName(id)[0]);
+        var form = $(e.target);
+        submitfunctionWithoutReload(id, action, method, formData, form);
+    };
 });
 
 function ImgUpload(counter = null) {

@@ -148,6 +148,27 @@ $(document).ready(function(){
 
         })
     }
+    
+    window.submitfunctionWithoutReload= function(id,action,method,formData,form){
+        $.ajax({
+            url: action,
+            dataType: 'json', // what to expect back from the server
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            type: method,
+            beforeSend:function(){
+                $('#loading').show();
+            },
+            success: function(response) {               
+                $('#loading').hide();
+            },
+            error: function(response) {  
+               
+            },
+        })
+    }
 
     window.submitCommonfunction= function(id,action,method,form){
         $('.form-error').html('');

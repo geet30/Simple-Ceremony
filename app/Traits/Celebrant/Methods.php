@@ -2,15 +2,37 @@
 
 namespace App\Traits\Celebrant;
 
-use App\Models\{User, RequestLocations,Booking};
+use App\Models\{User, RequestLocations,Booking,BookingDetailsDocs,BookingDetails};
 use Illuminate\Support\Facades\Cache;
 use Str;
+use Illuminate\Support\Facades\File;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 trait Methods
 {
 
+    static function fetch_all_request_locations(){
+        $columns = ['*'];
+    
+        $locations =   RequestLocations::with([
+            'request_location_images' => function($query){               
+                $query->select('request_location_id', 'image');
+            } ,
+            'request_location_packages' => function($query){
+                $query->select('request_location_id','partner_id','package_id');
+            },
+            'request_location_advantages'=>function($query){
+                $query->select('request_location_id','key_advantages','id');
+            },           
+            'request_location_criteria'=>function($query){
+                $query->select('request_location_id','location_category','id');
+            },        
+        ]);
+    
+        $data = $locations->select($columns);
+        return $data; 
+    }
     static function fetch_locations($id=null,$search=null){
         $columns = ['*'];
         if($search !=''){
@@ -164,6 +186,12 @@ trait Methods
             'user' => function ($query) {
                 $query->select('email', 'phone', 'country_code', 'id');
             },
+            'booking_details_docs' => function ($query) {
+                $query->select('id', 'document','booking_id');
+            },
+            'booking_details' => function ($query) {
+                $query->select('feedback', 'notes','checked','id','booking_id');
+            },
             'user.celebrant' => function ($query) {
                 $query->select('celebrant_id','admin_fee','standard_fee', 'id');
             },
@@ -183,4 +211,75 @@ trait Methods
       
         return   $data;
     }
+
+    public static function update_booking_docs($request,$id){
+        try{
+            $input = $request->all();
+            $input['booking_id'] = $id;
+            if($request->hasFile('file')){
+                $input['document'] = uploadFile($request->file, 'uploads/documents/user/');
+                $BookingDetailsDocs = BookingDetailsDocs::create($input);
+                $msg = 'Uploaded Successfully';
+                return ['status' => true,'message'=>$msg,'data'=>$BookingDetailsDocs->id]; 
+            }
+            $msg = 'Something went wrong';
+            return ['status' => false,'message'=>$msg]; 
+            
+           
+        }
+        catch (\Exception $ex) {
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+        
+
+    }
+    
+    public static function update_booking_details($request){
+        try{
+            // $input = $request->all();
+            $input['booking_id'] = $request->booking_id;
+            $input['notes'] =  $request->notes;
+            
+           
+            if(isset($request->booking_id) && !empty( $request->booking_id)){
+               
+                BookingDetails::create($input);
+                $msg = 'Saved Successfully';
+                return ['status' => true,'message'=>$msg]; 
+            }
+            $msg = 'Something went wrong';
+            return ['status' => false,'message'=>$msg]; 
+            
+           
+        }
+        catch (\Exception $ex) {
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+        
+
+    }
+    public static function delete_booking_record($request){
+        try{
+            if(isset($request->id) && !empty($request->id)){
+                $data = BookingDetailsDocs::find($request->id);
+                BookingDetailsDocs::where('id', '=', $request->id)->delete();
+                if(file_exists(public_path("uploads/documents/user/".$data->document))){
+                    unlink(public_path("uploads/documents/user/".$data->document));
+                }
+                $msg = 'Deleted Successfully';
+                return ['status' => true,'message'=>$msg]; 
+            }
+            $msg = 'Something went wrong';
+            return ['status' => false,'message'=>$msg]; 
+            
+            
+           
+        }
+        catch (\Exception $ex) {
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+        
+
+    }
+    
 }

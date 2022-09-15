@@ -1,184 +1,179 @@
 <div class="row">
-   
+
    <div class="col-xl-6 py-31">
-      <form class="availablity-overview-scrollbar" method="POST" id="availablity-overview-style">
-         <div  class="force-overflow  w-97">
-            <div class=" row">
-               <div class="col-md-6 mb-4 ">
-                  <label for="preferredname1" class="form-label small-text2 ps-2">Preferred name 1</label>
-                  <input type="text" value="{{ isset($data->first_couple_name) ? $data->first_couple_name : '' }}" class="form-control body-1 netural-100" name="name" id="preferredname1" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="preferredname2" class="form-label small-text2 ps-2">Preferred name 2</label>
-                  <input type="text" value="{{ isset($data->second_couple_name) ? $data->second_couple_name : '' }}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="phone" class="form-label small-text2 ps-2">Phone number</label>
-                  <input type="text" value="+{{ $data->user->country_code }}{{ $data->user->phone }}" class="form-control body-1 netural-100" name="name" id="phone" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="email" class="form-label small-text2 ps-2">Email</label>
-                  <input type="email" value="{{ isset($data->user->email) ? $data->user->email : '' }}" class="form-control body-1 netural-100" name="name" id="email" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="email" class="form-label small-text2 ps-2">Type of ceremony</label>
-                  <input type="email" value="{{ isset($data->cermony_type) ? $data->cermony_type : '' }}" class="form-control body-1 netural-100" name="name" id="email" readonly>
-               </div>
-               <div class="col-md-6 mb-4 d-md-block"></div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
-                  <input type="text" value="{{isset($data->celebrant->first_name) ? $data->celebrant->first_name : ''}}" class="form-control body-1" name="name" id="celebrant" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="celebrant" class="form-label small-text2 ps-2">Celebrant Fee</label>
-                  <input type="text" value="${{isset($celebrant_details->celebrant->standard_fee ) ? $celebrant_details->celebrant->standard_fee : ''}}" class="form-control body-1" name="name" id="celebrant" readonly>
-               </div>
+
+      <div class="force-overflow  w-97">
+         <div class=" row">
+            <div class="col-md-6 mb-4 ">
+               <label for="preferredname1" class="form-label small-text2 ps-2">Preferred name 1</label>
+               <input type="text" value="{{ isset($data->first_couple_name) ? $data->first_couple_name : '' }}" class="form-control body-1 netural-100" id="preferredname1" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="preferredname2" class="form-label small-text2 ps-2">Preferred name 2</label>
+               <input type="text" value="{{ isset($data->second_couple_name) ? $data->second_couple_name : '' }}" class="form-control body-1 netural-100" id="preferredname2" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="phone" class="form-label small-text2 ps-2">Phone number</label>
+               <input type="text" value="+{{ $data->user->country_code }}{{ $data->user->phone }}" class="form-control body-1 netural-100" id="phone" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="email" class="form-label small-text2 ps-2">Email</label>
+               <input type="email" value="{{ isset($data->user->email) ? $data->user->email : '' }}" class="form-control body-1 netural-100" id="email" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="email" class="form-label small-text2 ps-2">Type of ceremony</label>
+               <input type="email" value="{{ isset($data->cermony_type) ? $data->cermony_type : '' }}" class="form-control body-1 netural-100" id="email" readonly>
+            </div>
+            <div class="col-md-6 mb-4 d-md-block"></div>
+            <div class="col-md-6  mb-4 ">
+               <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
+               <input type="text" value="{{isset($data->celebrant->first_name) ? $data->celebrant->first_name : ''}}" class="form-control body-1" id="celebrant" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="celebrant" class="form-label small-text2 ps-2">Celebrant Fee</label>
+               <input type="text" value="${{isset($celebrant_details->celebrant->standard_fee ) ? $celebrant_details->celebrant->standard_fee : ''}}" class="form-control body-1" id="celebrant" readonly>
+            </div>
+
+            <div class="col-md-6  mb-4 ">
+               <label for="location" class="form-label small-text2 ps-2">Location</label>
+               <input type="text" value="{{ isset($data->location->name) ? $data->location->name : '' }}" class="form-control body-1 netural-100" id="location" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="address" class="form-label small-text2 ps-2">Address</label>
+               <input type="text" value="{{ isset($data->location->address) ? $data->location->address : '' }}" class="form-control body-1 netural-100" id="address" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="date" class="form-label small-text2 ps-2">Date of marriage</label>
+               <input type="text" value="{{date('M d,Y',strtotime($data->booking_start_time))}}" class="form-control body-1 netural-100" id="date" readonly>
+            </div>
+            <div class="col-md-6  mb-4 ">
+               <label for="time" class="form-label small-text2 ps-2">Time</label>
+               <input type="text" value="{{$data->booking_start_time}} - {{$data->booking_end_time}}" class="form-control body-1 netural-100" id="time" readonly>
+            </div>
+
+            <div class="col-md-12 mb-4">
+               <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes about couples</label>
                
-               <div class="col-md-6  mb-4 ">
-                  <label for="location" class="form-label small-text2 ps-2">Location</label>
-                  <input type="text" value="{{ isset($data->location->name) ? $data->location->name : '' }}" class="form-control body-1 netural-100" name="name" id="location" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="address" class="form-label small-text2 ps-2">Address</label>
-                  <input type="text" value="{{ isset($data->location->address) ? $data->location->address : '' }}" class="form-control body-1 netural-100" name="name" id="address" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="date" class="form-label small-text2 ps-2">Date of marriage</label>
-                  <input type="text" value="{{date('M d,Y',strtotime($data->booking_start_time))}}" class="form-control body-1 netural-100" name="name" id="date" readonly>
-               </div>
-               <div class="col-md-6  mb-4 ">
-                  <label for="time" class="form-label small-text2 ps-2">Time</label>
-                  <input type="text" value="{{$data->booking_start_time}} - {{$data->booking_end_time}}" class="form-control body-1 netural-100" name="name" id="time" readonly>
-               </div>
-               
-               <div class="col-md-12 mb-4">
-                  <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes about couples</label>
-                  <textarea class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10"></textarea>
-               </div>
-               <div class="col-12 mb-4">
-                  <div class="card simple-card ">
-                     <div class="card-body">
-                        <div class="row">
-                           <div class="col-xxl-6 mb-4">
+               <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord',$id)}}">
+               @csrf
+                  <input name="booking_id" type="hidden" value="{{ $id}}">
+                  <textarea name="notes" class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" onfocusout="submitAjaxWithoutReload(event, 'information', 'post', '/saveRecord')">
+                  {{ isset($data->booking_details->notes) ? $data->booking_details->notes : '' }}
+                  </textarea>
+               </form>
+            </div>
+            <div class="col-12 mb-4">
+               <div class="card simple-card ">
+                  <div class="card-body">
+                     <form class="availablity-overview-scrollbar" method="POST" id="information" enctype="multipart/form-data" action="{{route('celebrant.marriage.saveDocs',$id)}}">
+                        @csrf
+                        <div class="row documentContainer">
+                           <div class="col-xxl-6 mb-4 documentDiv">
                               <div class="row">
-                                 <div class="col-lg-8 col-xxl-9 text-center position-relative">
-                                    <div class="attach-document-box position-relative">
-                                       <input id="fileupload" class="fileupload" type="file" name="files[]">
-                                       <div class="inner-content">
-                                          <p class="document-text mb-4">Attach document</p>
-                                          <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                                          <p class="text">Compatible file .pdf .docx</p>
-                                          <div class="d-flex justify-content-center">
-                                             <div class="align-self-center">
-                                                <p class="darg neutral-100 mb-0">Drag or</p>
-                                             </div>
-                                             <div class="align-self-center ms-1">
-                                                <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!-- progress-box -->
-                                    <div class="attach-document-box progress-box text-center d-none">
-                                       <div class="progress-content">
-                                          <p class="h4 neutral-100">Uploading 0%</p>
-                                          <div id="progress" class="progress">
-                                             <div class="progress-bar bar"></div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <!--  -->
-                                    <!--uploaded-box  -->
-                                    <div class="attach-document-box uploaded-box d-none">
-                                       <div class="d-flex form-check justify-content-end">
-                                          <input class="form-check-input" type="checkbox" name="remember" id="remember" autocomplete="off">
-                                       </div>
-                                       <div class="uploaded-content">
-                                          <p id="filename" class="h4 neutral-100 mb-4"></p>
-                                          <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
-                                          <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
-                                          <a><img src="/images/icons/uploading/delete.svg" class="img-fluid" alt="delete"></a>
-                                       </div>
-                                       <div class="created-date">Created Feb 29, 2022</div>
-                                    </div>
-                                    <!--  -->
-                                 </div>
-                                 <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0">
-                                    <a class=" d-inline-flex delete-icon">
-                                    <img src="/images/icons/delete-black.svg" class="img-fluid" alt="delete">
-                                    </a>
-                                    <br/>
-                                    <a class="theme-btn  primary-btn plus-icon d-inline-flex"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-xxl-6 mb-4">
-                              <div class="row">
-                                 <div class="col-lg-8 col-xxl-9 text-center position-relative">
-                                    <div class="attach-document-box position-relative">
-                                       <input id="fileupload" class="fileupload" type="file" name="files[]">
-                                       <div class="inner-content">
-                                          <p class="document-text mb-4">Attach document</p>
-                                          <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                                          <p class="text">Compatible file .pdf .docx</p>
-                                          <div class="d-flex justify-content-center">
-                                             <div class="align-self-center">
-                                                <p class="darg neutral-100 mb-0">Drag or</p>
-                                             </div>
-                                             <div class="align-self-center ms-1">
-                                                <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                 @if(isset($data->booking_details_docs) & count($data->booking_details_docs) >0)
+                                    @foreach($data->booking_details_docs as $docs)
+                                       <div class="col-lg-8 col-xxl-9 text-center position-relative">
+                                       <div class="attach-document-box position-relative">
+                                        
+
+                                          <div class="inner-content">
+                                             <p class="document-text mb-4">Attach document</p>
+                                             <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
+                                             <p class="text">Compatible file .pdf .docx</p>
+                                             <div class="d-flex justify-content-center">
+                                                <div class="align-self-center">
+                                                   <p class="darg neutral-100 mb-0">Drag or</p>
+                                                </div>
+                                                <div class="align-self-center ms-1">
+                                                   <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                                </div>
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
-                                    <!-- progress-box -->
-                                    <div class="attach-document-box progress-box text-center d-none">
-                                       <div class="progress-content">
-                                          <p class="h4 neutral-100">Uploading 0%</p>
-                                          <div id="progress" class="progress">
-                                             <div class="progress-bar bar"></div>
+                                         
+                                       <div class="attach-document-box uploaded-box d-block">
+
+                                             <div class="uploaded-content">
+                                                <p id="filename" class="h4 neutral-100 mb-4 filename">{{$docs->document}}</p>
+                                                <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                                <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                                                <a><img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')" id="{{$docs->id}}"></a>
+                                             </div>
+                                             <div class="created-date">Created Feb 29, 2022</div>
                                           </div>
                                        </div>
-                                    </div>
-                                    <!--  -->
-                                    <!--uploaded-box  -->
-                                    <div class="attach-document-box uploaded-box d-none">
-                                       <div class="d-flex form-check justify-content-end">
-                                          <input class="form-check-input" type="checkbox" name="remember" id="remember" autocomplete="off">
+                                       <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
+                                          <a class=" d-inline-flex delete-icon">
+                                             <img src="/images/icons/delete-black.svg" class="img-fluid removeClass" alt="delete" id="{{$docs->id}}" onclick="remove('documentDiv',this,'documentContainer','document')">
+                                          </a>
+                                          <br />
+                                          <a class="theme-btn  primary-btn plus-icon d-inline-flex" onclick="appendHtml('documentContainer', 'document',{{$id}},'documentDiv')"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
                                        </div>
-                                       <div class="uploaded-content">
-                                          <p id="filename" class="h4 neutral-100 mb-4"></p>
-                                          <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
-                                          <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
-                                          <a><img src="/images/icons/uploading/delete.svg" class="img-fluid" alt="delete"></a>
+                                    @endforeach
+                                 @else
+                                    <div class="col-lg-8 col-xxl-9 text-center position-relative newdiv">
+                                       <div class="attach-document-box position-relative">
+                                          <input class="fileupload" type="file" name="document" onchange="uploadProgress(event,'{{$id}}','information','fileupload1')">
+
+                                          <div class="inner-content">
+                                             <p class="document-text mb-4">Attach document</p>
+                                             <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
+                                             <p class="text">Compatible file .pdf .docx</p>
+                                             <div class="d-flex justify-content-center">
+                                                <div class="align-self-center">
+                                                   <p class="darg neutral-100 mb-0">Drag or</p>
+                                                </div>
+                                                <div class="align-self-center ms-1">
+                                                   <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                                </div>
+                                             </div>
+                                          </div>
                                        </div>
-                                       <div class="created-date">Created Feb 29, 2022</div>
+                                       <!-- progress-box -->
+                                       <div class="attach-document-box progress-box text-center d-none">
+                                          <div class="progress-content">
+                                             <p class="h4 neutral-100">Uploading <span class="progress-percentage"></span></p>
+                                             <div id="progress" class="progress">
+                                                <div class="progress-bar bar"></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="attach-document-box uploaded-box d-none">
+
+                                          <div class="uploaded-content">
+                                             <p id="filename" class="h4 neutral-100 mb-4 filename"></p>
+                                             <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                             <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                                             <a><img src="/images/icons/uploading/delete.svg" class="img-fluid" alt="delete"></a>
+                                          </div>
+                                          <div class="created-date">Created Feb 29, 2022</div>
+                                       </div>
                                     </div>
-                                    <!--  -->
-                                 </div>
-                                 <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0">
-                                    <a class=" d-inline-flex delete-icon">
-                                    <img src="/images/icons/delete-black.svg" class="img-fluid" alt="delete">
-                                    </a>
-                                    <br/>
-                                    <a class="theme-btn  primary-btn plus-icon d-inline-flex"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
-                                 </div>
+                                    <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
+                                       <a class=" d-inline-flex delete-icon">
+                                          <img src="/images/icons/delete-black.svg" class="img-fluid removeClass"  alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')">
+                                       </a>
+                                       <br />
+                                       <a class="theme-btn  primary-btn plus-icon d-inline-flex" onclick="appendHtml('documentContainer', 'document',{{$id}},'documentDiv')"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
+                                    </div>
+                                 @endif
                               </div>
                            </div>
                         </div>
-                        <!-- row-->
-                     </div>
-                     <!-- card-body-->
+
+                     </form>
+                     <!-- row-->
                   </div>
-                  <!-- simple-card-->
+                  <!-- card-body-->
                </div>
-               <div class="col-12 mb-4 d-flex justify-content-center justify-content-md-start">
-                  <a class="theme-btn primary-btn">Send</a>
-               </div>
+               <!-- simple-card-->
+            </div>
+            <div class="col-12 mb-4 d-flex justify-content-center justify-content-md-start">
+               <!-- <button type="submit" class="theme-btn primary-btn">Save</button> -->
             </div>
          </div>
-         <!-- force-overflow -->
-      </form>
+      </div>
+      <!-- </form> -->
    </div>
    <!-- right -->
    <div class="col-xl-6  ">
@@ -188,8 +183,8 @@
          </div>
          <div class="card-body">
             <form class="availablity-overview-scrollbar w-100 ps-05 h-36" method="POST" id="availablity-overview-style">
-               <div  class="force-overflow  w-97 ">
-                  <div  class="row">
+               <div class="force-overflow  w-97 ">
+                  <div class="row">
                      <div class="col-12">
                         <ul class="events p-0 activity-history">
                            <li>
@@ -329,7 +324,7 @@
                               <span class="step-point"></span>
                               <div class="steps-information  ">
                                  <div class="steps-information-details custom-padding border-none">
-                                    <p class="small-text2 neutral-70 mb-1">14-03-2022  12.00</p>
+                                    <p class="small-text2 neutral-70 mb-1">14-03-2022 12.00</p>
                                     <p class="body-2 netural-100 mb-0 ">
                                        Couple uploaded the signed forms
                                     </p>
@@ -340,7 +335,7 @@
                               <span class="step-point"></span>
                               <div class="steps-information  ">
                                  <div class="steps-information-details custom-padding border-none">
-                                    <p class="small-text2 neutral-70 mb-1">13-03-2022  17.00</p>
+                                    <p class="small-text2 neutral-70 mb-1">13-03-2022 17.00</p>
                                     <p class="body-2 netural-100 mb-0 ">
                                        Email NOIM reminder sent
                                     </p>
@@ -351,7 +346,7 @@
                               <span class="step-point"></span>
                               <div class="steps-information  ">
                                  <div class="steps-information-details custom-padding border-none">
-                                    <p class="small-text2 neutral-70 mb-1">13-03-2022  17.00</p>
+                                    <p class="small-text2 neutral-70 mb-1">13-03-2022 17.00</p>
                                     <p class="body-2 netural-100 mb-0 ">
                                        NOIM uploaded
                                     </p>
@@ -372,7 +367,7 @@
             </div>
          </div>
          <div class="card-footer bg-turquoise-50 d-flex justify-content-center custom-footer">
-            <a class="theme-btn black-btn show-footer cursor-pointer" >Create new thread <img class="ms-2" src="/images/icons/chat.svg" alt="Chat Icon"></a>
+            <a class="theme-btn black-btn show-footer cursor-pointer">Create new thread <img class="ms-2" src="/images/icons/chat.svg" alt="Chat Icon"></a>
          </div>
       </div>
    </div>

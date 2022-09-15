@@ -101,6 +101,13 @@ class RegisterController extends Controller
     public function celebrantRegister(Request $request)
     {
         try {
+           
+            $checkEmail = User::where('email',$request['user']['email'])->first();
+            if($checkEmail){
+                
+                $msg = 'Email already exists.';
+                return \Redirect::back()->withErrors(['msg' => $msg])->withInput();
+            }
             $response = User::createCelebrant($request->all());
             if($response){
                 if($request->register =='Register'){

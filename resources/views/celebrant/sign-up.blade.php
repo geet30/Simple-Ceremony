@@ -19,7 +19,18 @@
             </div>
          </div>
          <div class="col-md-8 col-lg-7 right">
-            
+            @if($errors->any())
+                     <div class="alert alert-danger mb-3 alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>  
+                        {{$errors->first()}}
+                     </div>
+            @endif
+            @if(session()->has('msg'))
+               <div class="alert alert-danger">
+                  <button type="button" class="close" data-dismiss="alert">×</button> 
+                  {{ session()->get('msg') }}
+               </div>
+            @endif  
            
             
             <h1 class="h3 netural-100 mb-4">Fill in the form</h1>
