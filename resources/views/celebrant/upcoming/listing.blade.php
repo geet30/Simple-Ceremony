@@ -18,10 +18,10 @@
                         </div>
                         <div class="add-ons-nav-data text-start ">
                            <h3 class="h3">{{ $dataArray['all_marriages']->total() }}</h3>
-                           <p class="subheader-2 d-none d-md-block">All marriages</p>
+                           <p class="subheader-2 d-none d-md-block">All Ceremonies</p>
                         </div>
                      </div>
-                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">All marriages</p>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">All Ceremonies</p>
                </button>
             </li>
             <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
@@ -70,11 +70,8 @@
                      <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Lodged pending</p>
                </button>
             </li>
-         </ul>
-         <div class="collapse" id="collapseExample">
-            <ul class="row add-on-list-nav  upcomming-marriage-pills px-0" id="pills-tab" role="tablist">
-               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
-                  <button class="nav-link w-100" id="non-legal-tab" data-bs-toggle="pill" data-bs-target="#non-legal"
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               <button class="nav-link w-100" id="non-legal-tab" data-bs-toggle="pill" data-bs-target="#non-legal"
                         type="button" role="tab" aria-controls="non-legal" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                            <div class="add-ons-nav-image me-4">
@@ -86,9 +83,9 @@
                            </div>
                         </div>
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Non Legal</p>
-                  </button>
-               </li>
-               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               </button>
+            </li>
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                   <button class="nav-link w-100" id="registered-tab" data-bs-toggle="pill" data-bs-target="#registered"
                         type="button" role="tab" aria-controls="registered" aria-selected="false">
                         <div class="add-ons-nav d-flex">
@@ -102,8 +99,8 @@
                         </div>
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Registered</p>
                   </button>
-               </li>
-               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+            </li>
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                   <button class="nav-link w-100" id="finalised-tab" data-bs-toggle="pill" data-bs-target="#finalised"
                         type="button" role="tab" aria-controls="finalised" aria-selected="false">
                         <div class="add-ons-nav d-flex">
@@ -117,8 +114,8 @@
                         </div>
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Finalised</p>
                   </button>
-               </li>
-               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+            </li>
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                   <button class="nav-link w-100" id="cancelled-tab" data-bs-toggle="pill" data-bs-target="#cancelled"
                         type="button" role="tab" aria-controls="cancelled" aria-selected="false">
                         <div class="add-ons-nav d-flex">
@@ -132,26 +129,25 @@
                         </div>
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Cancelled</p>
                   </button>
-               </li>
-               <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
-                  <button class="nav-link w-100" id="settled-tab" data-bs-toggle="pill" data-bs-target="#settled"
-                        type="button" role="tab" aria-controls="settled" aria-selected="false">
-                        <div class="add-ons-nav d-flex">
-                           <div class="add-ons-nav-image me-4">
-                              <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
-                           </div>
-                           <div class="add-ons-nav-data text-start ">
-                              <h3 class="h3">{{ $dataArray['settled_marriages']->total() }}</h3>
-                              <p class="subheader-2 d-none d-md-block">Settled</p>
-                           </div>
+            </li>
+            <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+               <button class="nav-link w-100" id="settled-tab" data-bs-toggle="pill" data-bs-target="#settled"
+                     type="button" role="tab" aria-controls="settled" aria-selected="false">
+                     <div class="add-ons-nav d-flex">
+                        <div class="add-ons-nav-image me-4">
+                           <img src="/images/marriage-celebrant/icons/refunded.svg" alt="">
                         </div>
-                        <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Settled</p>
-                  </button>
-               </li>
-            </ul>
-         </div>
+                        <div class="add-ons-nav-data text-start ">
+                           <h3 class="h3">{{ $dataArray['settled_marriages']->total() }}</h3>
+                           <p class="subheader-2 d-none d-md-block">Settled</p>
+                        </div>
+                     </div>
+                     <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Settled</p>
+               </button>
+            </li>
+         </ul>
          <div class="col-12 pt-20 pb-32 d-flex justify-content-center upcomming-marriage-top">
-            <a class="position-relative " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> </a>
+            <a class="position-relative collapse_ul" type="button"> </a>
          </div>
          <div class="row mb-4 pt-32">
             <div class="align-self-center col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-grid mt-3 mt-md-0 position-relative">
@@ -236,6 +232,26 @@
             <div class="tab-pane fade" id="non-legal" role="tabpanel" aria-labelledby="non-legal-tab"
                tabindex="3">
                @include('elements.celebrant.marriage.non-legal-tab')
+
+            </div>
+            <div class="tab-pane fade" id="registered" role="tabpanel" aria-labelledby="registered-tab"
+                tabindex="3">
+               @include('elements.celebrant.marriage.registered-tab')
+
+            </div>
+            <div class="tab-pane fade" id="finalised" role="tabpanel" aria-labelledby="finalised-tab"
+            tabindex="3">
+               @include('elements.celebrant.marriage.finalised-tab')
+
+            </div>
+            <div class="tab-pane fade" id="settled" role="tabpanel" aria-labelledby="settled-tab"
+            tabindex="3">
+               @include('elements.celebrant.marriage.settled-tab')
+
+            </div>
+            <div class="tab-pane fade" id="cancelled" role="tabpanel" aria-labelledby="cancelled-tab"
+            tabindex="3">
+               @include('elements.celebrant.marriage.cancelled-tab')
 
             </div>
          </div>
