@@ -2,80 +2,76 @@
 @section('page-name') {{ $data->name }} @stop
 @section('content')
 <div class="container-fluid">
-<div class="row">
-<div class="col-2 col-md-3 col-lg-2 px-0">
-   @include('elements.admin-sidebar')
-</div>
-<div class="col-10 col-md-9 col-lg-10 px-4">
-   @include('elements.panel-header')
    <div class="row">
-      <div class="col-12 mb-30">
-         <a href="/locations/all-requests" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+      <div class="col-2 col-md-3 col-lg-2 px-0">
+         @include('elements.admin-sidebar')
       </div>
-   
-      <div class="col-12">
-      <div class="row ">
+      <div class="col-10 col-md-9 col-lg-10 px-4">
+         @include('elements.panel-header')
+         <div class="row">
+            <div class="col-12 mb-30">
+               <a href="/locations/all-requests" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+            </div>
+
+            <div class="col-12">
+               <div class="row ">
+
                   <div class="col-lg-6 col-xl-5 location-detail-slider">
+                  
                      <div class="slider slider-for mb-11 ">
-                        <div>
-                           <img src="/images/single-location/single-page-slider1.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider2.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider3.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider4.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                     </div>
+                     @if(isset($data['request_location_images']) && !empty($data['request_location_images']))
+                        @foreach($data['request_location_images'] as $images)
+                           @if ($loop->first)
+                              <div>
+                                 <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
+                              </div>
+                           
+                           </div>
+                           @endif
+                        @endforeach
+                     @endif
                      <div class="slider slider-nav">
+                     @if(isset($data['request_location_images']) && !empty($data['request_location_images']))
+                        @foreach($data['request_location_images'] as $images)
                         <div>
-                           <img src="/images/single-location/single-page-slider1.png" class="w-100 img-fluid" alt="slider Image">
+                           <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
                         </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider2.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider3.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
-                        <div>
-                           <img src="/images/single-location/single-page-slider4.png" class="w-100 img-fluid" alt="slider Image">
-                        </div>
+                        @endforeach
+                     @endif
+                     
                      </div>
                   </div>
                   <div class="col-lg-6  mt-3 mt-lg-0">
-                    <div class="d-flex justify-content-end mb-47">
-                    @if(isset($data->status) && $data->status== 0)
-                     <a class="theme-btn  primary-btn me-2"  href="{{route('locations.create',$data->id)}}">Confirm</a>
-                   
-                     <a onClick="changeStatus('/change-location-status',{{$data->id}},2,'detail','tab_id','location')"  class="cursor-pointer theme-btn  primary-btn-border me-2">Decline</a>
-                     @endif
-                     <!-- <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
-                     Edit</a> -->
-                    </div>
+                     <div class="d-flex justify-content-end mb-47">
+                        @if(isset($data->status) && $data->status== 0)
+                        <a class="theme-btn  primary-btn me-2" href="{{route('locations.create',$data->id)}}">Confirm</a>
+
+                        <a onClick="changeStatus('/change-location-status',{{$data->id}},2,'detail','tab_id','location')" class="cursor-pointer theme-btn  primary-btn-border me-2">Decline</a>
+                        @endif
+                        <!-- <a href="edit" class="theme-btn  primary-btn-border">  <img class="me-2" src="/images/icons/edit-primary.svg" alt="shopping-icon">
+                        Edit</a> -->
+                     </div>
                      <h1 class="mb-0 col-xl-10">
                         <span class="h1 netural-100">
                            @if(isset($data->street_address) && !empty($data->street_address))
-                              {{$data->street_address}}
-                           @endif               
-                           @if(isset($data->suburb	) && !empty($data->suburb	))
-                              ,{{$data->suburb	}}
+                           {{$data->street_address}}
+                           @endif
+                           @if(isset($data->suburb ) && !empty($data->suburb ))
+                           ,{{$data->suburb }}
                            @endif
                         </span>
                      </h1>
                   </div>
                   <div class="col-12 admin-pt-92">
-                     <p class="body-3-medium  text-black">The name says it all "{{ (isset($data->location_name)) ? $data->location_name:'' }}"will be on your marriage certificate ;-).</p>
+                     <p class="body-3-medium  text-black">The name says it all "{{ (isset($data->name)) ? $data->name:'' }}"will be on your marriage certificate ;-).</p>
                      <p class="body-3-medium  text-black">
-                        With a number of spots right down on the Parramatta River, Kissing Point Park offers a water side wedding location in a unique Sydney riverside setting, with the tranquility of the river with kayaks, motorboats and the sailing boats from the Concord Sailing Club right next door.    
+                        With a number of spots right down on the Parramatta River, Kissing Point Park offers a water side wedding location in a unique Sydney riverside setting, with the tranquility of the river with kayaks, motorboats and the sailing boats from the Concord Sailing Club right next door.
                      </p>
                      <p class="body-3-medium  text-black">
-                        The park offers a number of vantage points for your wedding location, all with views across the water.  The Riverside walking & bicycle track runs through it, connecting the park through to Meadowbank and beyond. There’s a playground for the kids, plus BBQ areas and numerous shady spots.
+                        The park offers a number of vantage points for your wedding location, all with views across the water. The Riverside walking & bicycle track runs through it, connecting the park through to Meadowbank and beyond. There’s a playground for the kids, plus BBQ areas and numerous shady spots.
                      </p>
                      <p class="body-3-medium  text-black">
-                        Nearby cafes in Putney Village offer options for a celebration afterwards, or Top Ryde Shopping Village is a short 5 minute drive away.   Consider a photo opportunity and lunch, take the ferry direct from Kissing Point Wharf to Sydney Rowing Club at Abbotsford, just 13 minutes away or to Eat Street Parramatta, just 35 minutes up the river.
+                        Nearby cafes in Putney Village offer options for a celebration afterwards, or Top Ryde Shopping Village is a short 5 minute drive away. Consider a photo opportunity and lunch, take the ferry direct from Kissing Point Wharf to Sydney Rowing Club at Abbotsford, just 13 minutes away or to Eat Street Parramatta, just 35 minutes up the river.
                      </p>
                      <p class="body-3-medium  text-black">
                         You can have up to 20 people (the 2 of you and 18 guests) at your ceremony. This can not be increased.
@@ -148,8 +144,8 @@
                      </div>
                   </div>
                </div>
+            </div>
+         </div>
       </div>
-   </div>
-</div>
-@include('elements.celebrant.addmarriage-celebrant')
-@endsection
+      @include('elements.celebrant.addmarriage-celebrant')
+      @endsection

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LocationRequest;
 use View;
 use Redirect;
+use App\Traits\Celebrant\{Methods as CelebrantMethods};
 use Illuminate\Support\Facades\Auth;
 
 class LocationsController extends Controller
@@ -65,7 +66,9 @@ class LocationsController extends Controller
     {
         try {
             $data = RequestLocations::where('id', $id)->first();
-            return view('admin.locations.view', compact('data'));
+            $allLocations = CelebrantMethods::fetch_all_request_locations()->first();
+      
+            return view('admin.locations.view', compact('data','allLocations'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -156,9 +159,7 @@ class LocationsController extends Controller
             $partnerspackages = Locations::getPartnerPackages();
             $data = array();
             if ($id) {
-               
-
-                $data = Locations::request_custom_location_data()->where('id', $id)->first();
+               $data = Locations::request_custom_location_data()->where('id', $id)->first();
             }
             return view('admin.locations.create', compact('data', 'filters', 'partners', 'celebrants','partnerspackages'));
         } catch (\Exception $ex) {

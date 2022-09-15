@@ -91,9 +91,7 @@ function uploadImage($image, $folder)
     $fileImageNameExtension = $image->getClientOriginalName();
     $fileName = pathInfo($fileImageNameExtension, PATHINFO_FILENAME);
     $imageName = $fileName . '-' . time() . '.' . $image->getClientOriginalExtension();
-    //  $imageName = $image->getClientOriginalName().'_'. time().'.'.$image->getClientOriginalExtension();
     if ($image->move(public_path('uploads/images/' . $folder), $imageName)) {
-        // echo $imageName;
         return $imageName;
     } else {
         return false;
@@ -112,10 +110,9 @@ function uploadFile($file, $folder)
     $fileImageNameExtension = $file->getClientOriginalName();
     $fileName = pathInfo($fileImageNameExtension, PATHINFO_FILENAME);
     $imageName = $fileName . '-' . time() . '-' . rand(9999, 999999999) . '.' . $file->getClientOriginalExtension();
-    //  $imageName = $image->getClientOriginalName().'_'. time().'.'.$image->getClientOriginalExtension();
     if ($file->move(public_path($folder), $imageName)) {
-        // echo $imageName;
-        return $folder . $imageName;
+      
+        return $imageName;
     } else {
         return false;
     }

@@ -84,8 +84,19 @@
                                 aria-expanded="false">
                                 <div class="align-self-center"><img src="/images/icons/header-logo.svg"  class="img-fluid"></div>
                                 <div class="align-self-center">
-                                   
-                                    <p class="body-2 text-black mb-0">{{ (isset(auth()->user()->name)) ? auth()->user()->name : '' }}</p>
+
+                                   @if(Auth::user()->roles->first()->name =='User')
+                                    @php
+                                    $username ='';
+                                     $username = \App\Models\Booking::where(['user_id' => Auth::user()->id])->pluck('first_couple_name')->first();
+
+                                   @endphp
+                                   <p class="body-2 text-black mb-0">{{ ucfirst($username)}}</p>
+
+                                   @else
+                                        <p class="body-2 text-black mb-0">{{ (isset(auth()->user()->name)) ? auth()->user()->name : '' }}</p>
+                                       
+                                    @endif
                                     <p class="small-text3 mb-0 text-black">{{ auth()->user()->roles()->first()->name }}
                                     </p>
                                 </div>
@@ -99,6 +110,8 @@
                                     
                                     @elseif(Auth::user()->roles->first()->name =='Celebrant')
                                         <a class="dropdown-item" href="{{route('getCelebrantAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                    @elseif(Auth::user()->roles->first()->name =='User')
+                                        <a class="dropdown-item" href="#"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
                                     @endif
                                 </li>
                                 {{-- <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li> --}}

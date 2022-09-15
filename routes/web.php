@@ -425,10 +425,15 @@ $celebrantRoutes = function () {
             // Route::resource('/', DashboardController::class);
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
+            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
+            
+           
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
            
         });
+        Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
+        Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
         Route::post('search-by-user', [DashboardController::class, 'searchMarriagesByUser']);
         Route::post('change-booking-status', [HomeController::class, 'changeStatus']);
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');

@@ -42,7 +42,7 @@
                             d="M8.55499 15.7465C8.55499 16.028 8.13254 16.028 8.13254 15.7465C8.13254 15.4647 8.55499 15.4647 8.55499 15.7465Z"
                             fill="#62CBC9" />
                     </svg>
-                    <span class="ms-3  d-none d-md-block font-weight-600">Marriages</span>
+                    <span class="ms-3  d-none d-md-block font-weight-600">Ceremonies</span>
                 </a>
             </li>
             <li class="nav-item">

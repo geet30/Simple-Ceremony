@@ -160,6 +160,7 @@ trait Methods
     static function createCelebrant($data)
     {
         $userData = $data['user'];
+       
         $userData['password'] = Hash::make($userData['password']);
         if (!empty($data['user']['image'])) {
             $userData['image'] = uploadImage($data['user']['image'], 'user');

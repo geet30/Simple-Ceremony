@@ -20,6 +20,7 @@ class DashboardController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all(); 
             $data  = CelebrantMethods::fetch_marriages();
+          
            
             
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
@@ -101,8 +102,8 @@ class DashboardController extends Controller
             $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
             
             $couple = UserNoim::where('booking_id',$id )->with(['booking','document'])->get();
-            // dd($couple);
-            return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple'));
+            // dd($data);
+            return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
             
         } catch (\Exception $ex) {
             dd($ex);
@@ -110,6 +111,43 @@ class DashboardController extends Controller
         }
 
     }
+    public function saveDocs(Request $request,$id){
+        try {
+            $detail = CelebrantMethods::update_booking_docs($request,$id);
+            return response()->json(['status' => $detail['status'], "message" => $detail['message'],'image'=>$detail['data']]);
+           
+        } catch (\Exception $ex) {
+
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+
+    }
+    
+    public function saveRecord(Request $request){
+        try {
+            $detail = CelebrantMethods::update_booking_details($request);
+            return response()->json(['status' => $detail['status'], "message" => $detail['message']]);
+           
+        } catch (\Exception $ex) {
+
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+
+    }
+    public function deleteRecord(Request $request){
+       
+        try {
+           
+            $detail = CelebrantMethods::delete_booking_record($request);
+            return response()->json(['status' => $detail['status'], "message" => $detail['message']]);
+           
+        } catch (\Exception $ex) {
+            dd($ex);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+
+    }
+    
     /**
      * search the specified booking location in storage.
      *

@@ -67,7 +67,13 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <div class="row">
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Conjugal Status</label>
-               <input type="text" value="{{config('userConstants.conjugal_status.'.$couple1->conjugal_status) }}"  class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+               <?php
+                  $conjugal_status = '';
+                  if(isset($couple1->conjugal_status) && !empty($couple1->conjugal_status)){
+                     $conjugal_status = config('userConstants.conjugal_status.'.$couple1->conjugal_status);
+                  }
+               ?>
+               <input type="text" value="{{$conjugal_status}}"  class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
          </div>
          <h4 class="h4  neutral-100 align-self-center mb-0 ms-2 mb-3">Person 1 ID</h4>
@@ -149,7 +155,13 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <div class="row">
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Conjugal Status</label>
-               <input type="text" value="{{config('userConstants.conjugal_status.'.$couple2->conjugal_status) }}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+               <?php
+                  $conjugal_status2 = '';
+                  if(isset($couple2->conjugal_status) && !empty($couple2->conjugal_status)){
+                     $conjugal_status2 = config('userConstants.conjugal_status.'.$couple2->conjugal_status);
+                  }
+               ?>
+               <input type="text" value="{{$conjugal_status2}}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
          </div>
          <div class="row">
@@ -187,7 +199,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
       </form>
    </div>
    <div class=" ps-xl-0 col-xl-3 ">
-      <a class="theme-btn primary-btn">Access Couples NoIM</a>
+      <a class="theme-btn primary-btn" href="">Access Couples NoIM</a>
    </div>
 </div>
 <div class="row pt-52 ">

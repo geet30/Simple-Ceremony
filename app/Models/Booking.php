@@ -43,4 +43,12 @@ class Booking extends Model
     {
         return $this->belongsTo('App\Models\UserNoim', 'id', 'booking_id');
     }
+    public function booking_details()
+    {
+        return $this->belongsTo('App\Models\BookingDetails', 'id', 'booking_id');
+    }
+    public function booking_details_docs()
+    {
+        return $this->hasMany('App\Models\BookingDetailsDocs', 'booking_id', 'id');
+    }
 }
