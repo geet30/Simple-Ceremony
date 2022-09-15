@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{HomeController,DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
 /*
 |--------------------------------------------------------------------------
@@ -427,11 +427,14 @@ $celebrantRoutes = function () {
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
             
-           
+            
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
            
         });
+        Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
+        Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
+       
         Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
         Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
         Route::post('search-by-user', [DashboardController::class, 'searchMarriagesByUser']);

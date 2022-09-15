@@ -10,6 +10,8 @@ $(document).ready(function() {
             var formData=new FormData();
             formData.append('file',e.target.files[0]);
             var filename = e.target.files[0].name;
+           
+            
             $.ajax({
                 type: "post",
                 url: url,
@@ -41,14 +43,21 @@ $(document).ready(function() {
                 success:function(data)
                 {
                     
+                    // Created Feb 29, 2022
                     if(data.status == true)
                     {
                         $(e.target).prop('disabled', true);
                         $(e.target).parent().next('.progress-box').find('.progress-box').addClass('d-none').removeClass('d-block');
                         console.log($(e.target).parent().next().next('.uploaded-box'));
                         $(e.target).parent().next().next('.uploaded-box').addClass('d-block').removeClass('d-none');
-                        $(e.target).parent().next().next('.uploaded-box').find('.filename').append(filename);
-                        $(e.target).parent().parent().next('.next-div-to-file').find('.removeClass').attr('id',data.image);
+                        $(e.target).parent().next().next('.uploaded-box').find('.filename').append(data.result.document);
+                        $(e.target).parent().next().next('.uploaded-box').find('.removeClass').attr('id',data.result.id);
+                        var mydate = new Date();
+                        mydate = mydate.toDateString().split(' ').slice(1).join(' ');
+                        $(e.target).parent().next().next('.uploaded-box').find('.created-date').html('Created ' +mydate);
+                        $(e.target).parent().next().next('.uploaded-box').find("a.viewDocument").attr("href",'/view/'+data.result.document);
+                        $(e.target).parent().next().next('.uploaded-box').find("a.downloadDocument").attr("href",'/download/'+data.result.document);
+                        $(e.target).parent().parent().next('.next-div-to-file').find('.removeClass').attr('id',data.result.id);
                        
                         
                     }

@@ -187,10 +187,10 @@ trait Methods
                 $query->select('email', 'phone', 'country_code', 'id');
             },
             'booking_details_docs' => function ($query) {
-                $query->select('id', 'document','booking_id');
+                $query->select('id', 'document','booking_id','created_at');
             },
             'booking_details' => function ($query) {
-                $query->select('feedback', 'notes','checked','id','booking_id');
+                $query->select('notes','checked','id','booking_id');
             },
             'user.celebrant' => function ($query) {
                 $query->select('celebrant_id','admin_fee','standard_fee', 'id');
@@ -219,8 +219,9 @@ trait Methods
             if($request->hasFile('file')){
                 $input['document'] = uploadFile($request->file, 'uploads/documents/user/');
                 $BookingDetailsDocs = BookingDetailsDocs::create($input);
+                $data = BookingDetailsDocs::find($BookingDetailsDocs->id);
                 $msg = 'Uploaded Successfully';
-                return ['status' => true,'message'=>$msg,'data'=>$BookingDetailsDocs->id]; 
+                return ['status' => true,'message'=>$msg,'data'=>$data]; 
             }
             $msg = 'Something went wrong';
             return ['status' => false,'message'=>$msg]; 

@@ -53,9 +53,9 @@
 
             <div class="col-md-12 mb-4">
                <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes about couples</label>
-               
-               <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord',$id)}}">
-               @csrf
+
+               <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord')}}">
+                  @csrf
                   <input name="booking_id" type="hidden" value="{{ $id}}">
                   <textarea name="notes" class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" onfocusout="submitAjaxWithoutReload(event, 'information', 'post', '/saveRecord')">
                   {{ isset($data->booking_details->notes) ? $data->booking_details->notes : '' }}
@@ -65,100 +65,106 @@
             <div class="col-12 mb-4">
                <div class="card simple-card ">
                   <div class="card-body">
-                     <form class="availablity-overview-scrollbar" method="POST" id="information" enctype="multipart/form-data" action="{{route('celebrant.marriage.saveDocs',$id)}}">
+                     <form  method="POST" id="information" enctype="multipart/form-data" action="{{route('celebrant.marriage.saveDocs',$id)}}">
                         @csrf
                         <div class="row documentContainer">
+                        @if(isset($data->booking_details_docs) & count($data->booking_details_docs) >0)
+                           @foreach($data->booking_details_docs as $docs)
                            <div class="col-xxl-6 mb-4 documentDiv">
                               <div class="row">
-                                 @if(isset($data->booking_details_docs) & count($data->booking_details_docs) >0)
-                                    @foreach($data->booking_details_docs as $docs)
-                                       <div class="col-lg-8 col-xxl-9 text-center position-relative">
-                                       <div class="attach-document-box position-relative">
-                                        
+                                
+                                 <div class="col-lg-8 col-xxl-9 text-center position-relative">
+                                    <div class="attach-document-box position-relative">
 
-                                          <div class="inner-content">
-                                             <p class="document-text mb-4">Attach document</p>
-                                             <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                                             <p class="text">Compatible file .pdf .docx</p>
-                                             <div class="d-flex justify-content-center">
-                                                <div class="align-self-center">
-                                                   <p class="darg neutral-100 mb-0">Drag or</p>
-                                                </div>
-                                                <div class="align-self-center ms-1">
-                                                   <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                                </div>
+
+                                       <div class="inner-content">
+                                          <p class="document-text mb-4">Attach document</p>
+                                          <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
+                                          <p class="text">Compatible file .pdf .docx</p>
+                                          <div class="d-flex justify-content-center">
+                                             <div class="align-self-center">
+                                                <p class="darg neutral-100 mb-0">Drag or</p>
+                                             </div>
+                                             <div class="align-self-center ms-1">
+                                                <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
                                              </div>
                                           </div>
-                                       </div>
-                                         
-                                       <div class="attach-document-box uploaded-box d-block">
-
-                                             <div class="uploaded-content">
-                                                <p id="filename" class="h4 neutral-100 mb-4 filename">{{$docs->document}}</p>
-                                                <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
-                                                <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
-                                                <a><img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')" id="{{$docs->id}}"></a>
-                                             </div>
-                                             <div class="created-date">Created Feb 29, 2022</div>
-                                          </div>
-                                       </div>
-                                       <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
-                                          <a class=" d-inline-flex delete-icon">
-                                             <img src="/images/icons/delete-black.svg" class="img-fluid removeClass" alt="delete" id="{{$docs->id}}" onclick="remove('documentDiv',this,'documentContainer','document')">
-                                          </a>
-                                          <br />
-                                          <a class="theme-btn  primary-btn plus-icon d-inline-flex" onclick="appendHtml('documentContainer', 'document',{{$id}},'documentDiv')"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
-                                       </div>
-                                    @endforeach
-                                 @else
-                                    <div class="col-lg-8 col-xxl-9 text-center position-relative newdiv">
-                                       <div class="attach-document-box position-relative">
-                                          <input class="fileupload" type="file" name="document" onchange="uploadProgress(event,'{{$id}}','information','fileupload1')">
-
-                                          <div class="inner-content">
-                                             <p class="document-text mb-4">Attach document</p>
-                                             <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                                             <p class="text">Compatible file .pdf .docx</p>
-                                             <div class="d-flex justify-content-center">
-                                                <div class="align-self-center">
-                                                   <p class="darg neutral-100 mb-0">Drag or</p>
-                                                </div>
-                                                <div class="align-self-center ms-1">
-                                                   <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <!-- progress-box -->
-                                       <div class="attach-document-box progress-box text-center d-none">
-                                          <div class="progress-content">
-                                             <p class="h4 neutral-100">Uploading <span class="progress-percentage"></span></p>
-                                             <div id="progress" class="progress">
-                                                <div class="progress-bar bar"></div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                       <div class="attach-document-box uploaded-box d-none">
-
-                                          <div class="uploaded-content">
-                                             <p id="filename" class="h4 neutral-100 mb-4 filename"></p>
-                                             <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
-                                             <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
-                                             <a><img src="/images/icons/uploading/delete.svg" class="img-fluid" alt="delete"></a>
-                                          </div>
-                                          <div class="created-date">Created Feb 29, 2022</div>
                                        </div>
                                     </div>
-                                    <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
-                                       <a class=" d-inline-flex delete-icon">
-                                          <img src="/images/icons/delete-black.svg" class="img-fluid removeClass"  alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')">
-                                       </a>
-                                       <br />
-                                       <a class="theme-btn  primary-btn plus-icon d-inline-flex" onclick="appendHtml('documentContainer', 'document',{{$id}},'documentDiv')"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
+
+                                    <div class="attach-document-box uploaded-box d-block z-index-9">
+
+                                       <div class="uploaded-content">
+                                          <p id="filename" class="h4 neutral-100 mb-4 filename">{{$docs->document}}</p>
+                                          <a class="me-2" href="{{route('viewDocument',$docs->document)}}" target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                          <a class="me-2" href="{{route('downloadDocument',$docs->document)}}"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                                          <a><img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')" id="{{$docs->id}}"></a>
+                                       </div>
+
+                                       <div class="created-date">Created {{date('M d, Y',strtotime($docs->created_at))}}</div>
                                     </div>
-                                 @endif
+                                 </div>
+                                 <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
+                                    <a class=" d-inline-flex delete-icon">
+                                       <img src="/images/icons/delete-black.svg" class="img-fluid removeClass" alt="delete" id="{{$docs->id}}" onclick="remove('documentDiv',this,'documentContainer','document')">
+                                    </a>
+                                    <br />
+                                    <a class="theme-btn  primary-btn plus-icon d-inline-flex" onclick="appendHtml('documentContainer', 'document',{{$id}},'documentDiv')"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
+                                 </div>
                               </div>
                            </div>
+                           @endforeach
+                           @else
+                           <div class="col-xxl-6 mb-4 documentDiv">
+                              <div class="row">
+                                 <div class="col-lg-8 col-xxl-9 text-center position-relative newdiv">
+                                    <div class="attach-document-box position-relative">
+                                       <input class="fileupload" type="file" name="document" onchange="uploadProgress(event,'{{$id}}','information','fileupload1')">
+
+                                       <div class="inner-content">
+                                          <p class="document-text mb-4">Attach document</p>
+                                          <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
+                                          <p class="text">Compatible file .pdf .docx</p>
+                                          <div class="d-flex justify-content-center">
+                                             <div class="align-self-center">
+                                                <p class="darg neutral-100 mb-0">Drag or</p>
+                                             </div>
+                                             <div class="align-self-center ms-1">
+                                                <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="attach-document-box progress-box text-center d-none">
+                                       <div class="progress-content">
+                                          <p class="h4 neutral-100">Uploading <span class="progress-percentage"></span></p>
+                                          <div id="progress" class="progress">
+                                             <div class="progress-bar bar"></div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="attach-document-box uploaded-box d-none" style="z-index: 999999;">
+
+                                       <div class="uploaded-content">
+                                          <p id="filename" class="h4 neutral-100 mb-4 filename"></p>
+                                          <a class="me-2 viewDocument" href="" target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                          <a class="me-2 downloadDocument" href=""><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                                          <a><img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" onclick="remove('documentDiv',this,'documentContainer','document')" alt="delete"></a>
+                                       </div>
+                                       <div class="created-date"></div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-xxl-3 align-self-end mt-3 mt-lg-0 next-div-to-file">
+                                    <a class=" d-inline-flex delete-icon">
+                                       <img src="/images/icons/delete-black.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')">
+                                    </a>
+                                    <br />
+                                    <a class="theme-btn  primary-btn plus-icon d-inline-flex" onclick="appendHtml('documentContainer', 'document',{{$id}},'documentDiv')"><img src="/images/icons/add.svg" class="img-fluid" alt="add"></a>
+                                 </div>
+                              </div>
+                           </div>
+                                 @endif
+                              
                         </div>
 
                      </form>
