@@ -180,7 +180,12 @@ $(document).ready(function () {
     window.appendId = function (value, findclass) {
         $("." + findclass).val(value);
     };
-
+  
+    $('ul.add-on-list-nav li:gt(3)').hide();
+    $('.collapse_ul').click(function() {
+        $(this).toggleClass('button_collapse')
+        $('ul.add-on-list-nav li:gt(3)').toggle();
+    });
     window.submitThroughAjax = function (e, id, method, action) {
         e.preventDefault();
         var formData = new FormData(document.getElementsByName(id)[0]);
