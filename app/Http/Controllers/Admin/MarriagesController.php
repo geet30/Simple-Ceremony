@@ -27,7 +27,6 @@ class MarriagesController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all(); 
             $data  = MarriagesMethods::fetch_all_marriages();
-            // dd($data->get());
            
            
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
@@ -99,9 +98,10 @@ class MarriagesController extends Controller
 
     public function searchMarriagesByDate(Request $request){
         try {
-            $data =   MarriagesMethods::searchMarriages($request);
+            $data =   MarriagesMethods::searchMarriagesByDate($request);
             return View::make('elements.admin.marriage.search-marriages', ['data' => $data]);
         } catch (\Exception $ex) {
+           
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }

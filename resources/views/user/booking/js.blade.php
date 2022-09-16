@@ -3,10 +3,13 @@
 
         $('#list-profile-list').addClass("disable-click");
         $('#list-messages-list').addClass("disable-click");
+        
         $('.calendar-wrapper').calendar({
+            min: new Date().toLocaleDateString("fr-CA"),
             onClickDate: function(date) {
                 $('#calendar-wrapper').updateCalendarOptions({
-                    date: date
+                    date: date,
+                
                 });
 
 

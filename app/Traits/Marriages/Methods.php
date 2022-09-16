@@ -97,8 +97,10 @@ trait Methods
             $data = $data->where($whereClause);
         }
         if( $search !=''){
-            $data = $data->where('first_couple_name', 'like', '%' . $search . '%')
-            ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+            $data = $data->where(function ($query) use($search) {
+                $query->where('first_couple_name', 'like', '%' . $search . '%')
+                    ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+            });
         }
         
 
@@ -108,7 +110,7 @@ trait Methods
         //         ->orWhere('surname', 'like', '%' . $search . '%')
         //         ->orWhere('email', 'like', '%' . $search . '%');
         // }));
-        // dd($data->toSql());
+       
         return $data->paginate($records, ['*'], 'page', $req_page);
     }
     public static function marriage_detail($id = null)
@@ -131,14 +133,15 @@ trait Methods
     }
     public static function searchMarriageLocation($request)
     {
+        
         $req_page = 1;
         $records = 10;
-        $locations = self::fetch_marriages();
+        $locations = self::fetch_all_marriages();
         if ($request->has('status') && $request->filled('status')) {
             $whereClause = [
                 ['status', '=', $request->status]
             ];
-            $data = $data->where($whereClause);
+            $data = $locations->where($whereClause);
         }
 
         if ($request->has('filter') && !empty($request->filter)) {
@@ -146,22 +149,23 @@ trait Methods
                 $data = $locations;
             } else {
                 $id = $request->filter;
-                $data = $locations->whereHas('booking', (function ($q) use ($id) {
-                    $q->whereIn('locationId', $id);
-                }));
+                $data = $locations->whereIn('locationId', $id);
+                // $data = $locations->whereHas('booking', (function ($q) use ($id) {
+                //     $q->whereIn('locationId', $id);
+                // }));
             }
             return $data->paginate($records, ['*'], 'page', $req_page);
         } else {
             return $locations->paginate($records, ['*'], 'page', $req_page);
         }
     }
-    public static function searchMarriages($request)
+    public static function searchMarriagesByDate($request)
     {
 
         $req_page = 1;
         $records = 10;
         $whereClause = [];
-        $data = self::fetch_marriages();
+        $data = self::fetch_all_marriages();
         if ($request->has('status') && $request->filled('status')) {
             $whereClause = [
                 ['status', '=', $request->status]
@@ -172,11 +176,13 @@ trait Methods
             $date = date('Y-m-d', strtotime($request->search));
         }
         if ($request->has('search') && $request->filled('search')) {
-            $data = $data->whereHas('booking', (function ($q) use ($date) {
-
-                $q->Where('booking_date', 'like', '%' . $date . '%')
+            $data->Where('booking_date', 'like', '%' . $date . '%')
                     ->orWhere('created_at', 'like', '%' . $date . '%');
-            }))->where($whereClause)->orderBy('id', 'DESC');
+            // $data = $data->whereHas('booking', (function ($q) use ($date) {
+
+            //     $q->Where('booking_date', 'like', '%' . $date . '%')
+            //         ->orWhere('created_at', 'like', '%' . $date . '%');
+            // }))->orderBy('id', 'DESC');
         } else {
             $data = $data->orderBy('id', 'DESC');
         }
