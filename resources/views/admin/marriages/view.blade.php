@@ -7,6 +7,7 @@
         </div>
         <div class="col-10 col-md-9 col-lg-10 px-4">
             @include('elements.panel-header')
+         
             <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab">
                 <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
                     <button class="nav-link w-100 active" id="all-records-tab" data-bs-toggle="pill" data-bs-target="#all-records" type="button" role="tab" aria-controls="all-records" aria-selected="true">

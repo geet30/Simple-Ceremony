@@ -170,7 +170,7 @@ $(document).ready(function(){
 
     window.searchWithTabs = function(url,keyword=null, type){
         const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
-        console.log('keyword',keyword);
+       
         var status ='';
         if(sub_tab_id == 'follow-up-tab'){
             status = 0;
@@ -181,8 +181,30 @@ $(document).ready(function(){
         else if(sub_tab_id == 'no-interest-tab'){
             status = 2;
         }
+        else if(sub_tab_id == 'lodged-tab'){
+            status = 2;
+        }
+        else if(sub_tab_id == 'lodged-pending-tab'){
+            status = 3;
+        }
+        else if(sub_tab_id == 'non-legal-tab'){
+            status = 4;
+        }
+        else if(sub_tab_id == 'registered-tab'){
+            status = 5;
+        }
+        else if(sub_tab_id == 'finalised-tab'){
+            status = 6;
+        }
+        else if(sub_tab_id == 'settled-tab'){
+            status = 7;
+        }
+        else if(sub_tab_id == 'cancelled-tab'){
+            status = 8;
+        }
+        
         var divId= sub_tab_id.slice(0, -4)
-        console.log(divId, 'divId');
+        // console.log(divId, 'divId');
         $.ajax({
             type: "post",
             url: url,
@@ -190,7 +212,6 @@ $(document).ready(function(){
                 'search': keyword, 'status':status, 'type':type 
             },
             success: function(response){
-                console.log(response, 'response'); 
                 $("#"+divId).html(response);
             }
             
