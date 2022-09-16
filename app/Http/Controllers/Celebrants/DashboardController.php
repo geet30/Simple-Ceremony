@@ -105,6 +105,7 @@ class DashboardController extends Controller
             // dd($data);
             return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
             
+            
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

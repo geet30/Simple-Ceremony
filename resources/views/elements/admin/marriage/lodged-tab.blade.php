@@ -10,7 +10,7 @@
             <th>Marriage celebrant</th>
             <th>Location</th>
             <th>Ceremony date</th>
-            <th>No. of addons</th>
+            <th>No. of <span class="text-nowrap">Add-Ons</span></th>
             <th>Status</th>
             <th>Days till marriage</th>
             <th></th>

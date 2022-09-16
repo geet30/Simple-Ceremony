@@ -9,7 +9,7 @@
             @include('elements.panel-header')
          
             <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab">
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100 active" id="all-records-tab" data-bs-toggle="pill" data-bs-target="#all-records" type="button" role="tab" aria-controls="all-records" aria-selected="true">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -23,7 +23,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">All Ceremonies</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="booked-tab" data-bs-toggle="pill" data-bs-target="#booked" type="button" role="tab" aria-controls="booked" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -37,7 +37,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Booked</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="lodged-tab" data-bs-toggle="pill" data-bs-target="#lodged" type="button" role="tab" aria-controls="lodged" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -51,7 +51,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Lodged</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="lodged-pending-tab" data-bs-toggle="pill" data-bs-target="#lodged-pending" type="button" role="tab" aria-controls="lodged-pending" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -65,7 +65,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Lodged pending</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="non-legal-tab" data-bs-toggle="pill" data-bs-target="#non-legal" type="button" role="tab" aria-controls="non-legal" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -79,7 +79,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Non Legal</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="registered-tab" data-bs-toggle="pill" data-bs-target="#registered" type="button" role="tab" aria-controls="registered" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -93,7 +93,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Registered</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="finalised-tab" data-bs-toggle="pill" data-bs-target="#finalised" type="button" role="tab" aria-controls="finalised" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -107,7 +107,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Finalised</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="cancelled-tab" data-bs-toggle="pill" data-bs-target="#cancelled" type="button" role="tab" aria-controls="cancelled" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
@@ -121,7 +121,7 @@
                         <p class="body-3-regular  d-md-none mb-0 mt-3 text-start">Cancelled</p>
                     </button>
                 </li>
-                <li class="nav-item col-12 col-md-6 col-lg-6  col-xl-4 col-xxl nav-item  mb-3" role="presentation">
+                <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                     <button class="nav-link w-100" id="settled-tab" data-bs-toggle="pill" data-bs-target="#settled" type="button" role="tab" aria-controls="settled" aria-selected="false">
                         <div class="add-ons-nav d-flex">
                             <div class="add-ons-nav-image me-4">
