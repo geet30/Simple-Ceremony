@@ -19,12 +19,6 @@ $(document).ready(function() {
                 dataType:'json',
                 processData: false,
                 contentType: false,
-               
-                // beforeSend:function(){
-                //     $('#success').empty();
-                //     $('.progress-bar').text('0%');
-                //     $('.progress-bar').css('width', '0%');
-                // },
                 xhr: function() {
                     var xhr = new window.XMLHttpRequest();
                     $(e.target).parent().next('.progress-box').addClass('d-block').removeClass('d-none');
@@ -42,8 +36,6 @@ $(document).ready(function() {
                 },
                 success:function(data)
                 {
-                    
-                    // Created Feb 29, 2022
                     if(data.status == true)
                     {
                         $(e.target).prop('disabled', true);
