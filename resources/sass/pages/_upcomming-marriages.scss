@@ -9,7 +9,13 @@
             display: inline-block;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: rotate(180deg);
+        }
+
+        &.button_collapse {
+            &:after {
+                transform: rotate(0deg);
+            }
         }
 
         &.collapsed {
@@ -226,8 +232,8 @@
         }
     }
 }
-.activity-history-card {
-}
+// .activity-history-card {
+// }
 .h-36 {
     @include media-breakpoint-up(xl) {
         height: 36vh !important;

@@ -121,7 +121,7 @@
                                 id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <div class="align-self-center"><img src="/images/icons/header-logo.svg"
-                                        class="img-fluid"></div>
+                                        class="img-fluid me-2"></div>
                                 <div class="align-self-center">
                                     <p class="body-2 text-black mb-0">Damian</p>
                                     <p class="small-text3 mb-0 text-black">Admin SC</p>

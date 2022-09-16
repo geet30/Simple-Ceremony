@@ -181,10 +181,10 @@ $(document).ready(function () {
         $("." + findclass).val(value);
     };
   
-    $('ul.add-on-list-nav li:gt(3)').hide();
+    $('ul.add-on-list-nav li:gt(4)').hide();
     $('.collapse_ul').click(function() {
         $(this).toggleClass('button_collapse')
-        $('ul.add-on-list-nav li:gt(3)').toggle();
+        $('ul.add-on-list-nav li:gt(4)').toggle();
     });
     window.submitThroughAjax = function (e, id, method, action) {
         e.preventDefault();
