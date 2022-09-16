@@ -295,7 +295,7 @@
                         <div class="align-self-center cursor-pointer">Add other partners</div>
                      </a>
                   </div>
-                  <div class="col-12 mt-3">
+                  <div class="col-12 mt-3 mb-4">
                   <button class="theme-btn primary-btn" type="submit">Save</button>
                   </div>
                </form>
