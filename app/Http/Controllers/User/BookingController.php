@@ -36,7 +36,8 @@ class BookingController extends Controller
      */
     public function detail($id){
         try {
-            // die;
+       
+            Cache::forget('booking');
             $data = Locations::getLocations($id)->first();
             $locations = Locations::getLocations()->get();
             return view('user.booking.single-location',compact(['data','locations']));
@@ -54,10 +55,12 @@ class BookingController extends Controller
      */
     public function getBookingLocationCalender(Request $request,$locationId){
         try {
+
             if(isset($request->session_id) && !empty($request->session_id)){
                 $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
                 Cache::forget('booking');
             }
+           
             $timeslot  = timeslots();
             
             $get_booking_total_price = Booking::getBookingPrice($locationId);

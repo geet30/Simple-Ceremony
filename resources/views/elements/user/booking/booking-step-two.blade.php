@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-6 mb-4 email_exist">
             <label for="InputName" class="form-label small-text2">Your email</label>
-            <input type="text" placeholder="Type your email here" class="form-control body-1 netural-100 email_check" name="email" id="email" onblur="duplicateEmail(this)" value="{{ (isset(cache('booking')['email']) ? cache('booking')['email'] :'')}}" required>
+            <input type="email" placeholder="Type your email here" class="form-control body-1 netural-100 email_check" name="email" id="email" onblur="duplicateEmail(this)" value="{{ (isset(cache('booking')['email']) ? cache('booking')['email'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
             <div class="invalid-feedback duplicate_email"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email already Exist</div>
            

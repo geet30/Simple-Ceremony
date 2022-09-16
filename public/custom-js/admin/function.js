@@ -68,12 +68,16 @@ $(document).ready(function(){
             dataType: "json",
             success: function(res) {
                 $('#second-form').prop("disabled",false);
+                console.log(res.status,'statuys');
+                $(document).find('.email_exist').find('.duplicate_email').addClass('d-none');
                 if(res.status == false){
+                    $(document).find('.email_exist').find('.duplicate_email').removeClass('d-none');
                     $(document).find('.email_exist').find('.duplicate_email').addClass('d-block');
                     $('#second-form').prop("disabled",true);
                     
                 }else{
                     $(document).find('.email_exist').find('.duplicate_email').removeClass('d-block');
+                    $(document).find('.email_exist').find('.duplicate_email').addClass('d-none');
                     
                 }
                 
