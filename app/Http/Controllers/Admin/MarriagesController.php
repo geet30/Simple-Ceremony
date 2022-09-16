@@ -25,7 +25,8 @@ class MarriagesController extends Controller
             }
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all(); 
-            $data  = MarriagesMethods::fetch_marriages();
+            $data  = MarriagesMethods::fetch_all_marriages();
+            // dd($data->get());
            
            
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
