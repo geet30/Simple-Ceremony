@@ -28,6 +28,27 @@ $(window).on('load', function () {
     if (window.location.href.indexOf("no-interest") > -1) {
          $('ul.add-on-list-nav').find('li button#no-interest-tab').click();    
     }
+    if (window.location.href.indexOf("lodged-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#lodged-tab').click();    
+    }
+    if (window.location.href.indexOf("lodged-pending-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#lodged-pending-tab').click();    
+    }
+    if (window.location.href.indexOf("non-legal-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#non-legal-tab').click();    
+    }
+    if (window.location.href.indexOf("registered-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#registered-tab').click();    
+    }
+    if (window.location.href.indexOf("cancelled-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#cancelled-tab').click();    
+    }
+    if (window.location.href.indexOf("settled-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#settled-tab').click();    
+    }
+    if (window.location.href.indexOf("finalised-tab") > -1) {
+        $('ul.add-on-list-nav').find('li button#finalised-tab').click();    
+    }
    
 });
 
