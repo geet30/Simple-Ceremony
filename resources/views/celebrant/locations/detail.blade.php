@@ -217,7 +217,7 @@
                         @endif
                      </div>
                      
-                     <div class="col-12 mt-3">
+                     <div class="col-12 mt-3 mb-5">
                     
                      <a href="/all-locations/{{ $data->id }}/edit" class="theme-btn primary-btn ">Edit</a>
                      </div>
