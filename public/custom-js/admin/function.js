@@ -1,6 +1,14 @@
 
 $(document).ready(function(){
-
+    window.showFeedback = function(text,parentClass,close){ 
+    
+        // $('.emptyRecord').css('display', 'none');
+        var feedback =`<div class="col-10 col-sm-8 col-md-6 feedbackDiv">
+        <p class="neutral-70 subheader-2">${text}</p>
+            </div>`;
+        $('.'+parentClass).append(feedback)
+        $('.'+close).click();
+    }
     //function to append selection locations in celebrant form  
     window.assignLocation = function(input,parentClass,close){ 
         const text = $('.'+input+" option:selected").text();

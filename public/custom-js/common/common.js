@@ -192,11 +192,12 @@ $(document).ready(function () {
         var form = $(e.target);
         submitform(id, action, method, formData, form);
     };
-    window.submitAjaxWithoutReload = function (e, id, method, action) {
+    window.submitAjaxWithoutReload = function (e, id, method, action,callfunction=null) {
         e.preventDefault();
         var formData = new FormData(document.getElementsByName(id)[0]);
-        var form = $(e.target);
-        submitfunctionWithoutReload(id, action, method, formData, form);
+        var form = e.target;
+        
+        submitfunctionWithoutReload(id, action, method, formData, form,callfunction);
     };
 });
 

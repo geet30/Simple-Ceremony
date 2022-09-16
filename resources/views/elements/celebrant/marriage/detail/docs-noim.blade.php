@@ -332,15 +332,20 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
       </div>
    </div>
    <div class=" col-xl-8 offset-xl-2 mt-3 mt-md-0">
-
-
-
       <div class="row mb-2">
          <div class=" col-lg-12 mt-3 mt-md-0">
-            <p class="neutral-70 subheader-2">Only one party has signed</p>
+         <div class="align-self-center me-2 mb-4 body-2-semi-bold"><span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$data->status) )}}">{{config('ceremonyStatus.booking_status.'.$data->status) }} </span></div>
+
+           
+
             <div class="d-lg-flex">
-               <a class="theme-btn primary-btn bg-danger  cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0">have you confirm all details are correct ?</a>
-               <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#feedback" aria-controls="feedback">Give feedback</a>
+               <form method="POST" name="booking_details" id="booking_details" action="{{route('celebrant.saveRecord')}}">
+                  @csrf
+                  <input name="booking_id" type="hidden" value="{{ $id}}">
+                  <input class="form-check-input me-2" type="checkbox" name="checked" value="1" {{ $data->booking_details->checked ? 'checked' : '' }} onchange="submitAjaxWithoutReload(event, 'booking_details', 'post', '/saveRecord')">
+                  <a class="theme-btn primary-btn bg-danger  cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0">have you confirm all details are correct ?</a>
+               </form>
+                  <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#feedback" aria-controls="feedback">Give feedback</a>
             </div>
          </div>
 
@@ -379,8 +384,20 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <h2 class="subheader-3 neutral-100 align-self-center mb-0 ms-2">History feedback</h2>
       </div>
    </div>
-   <div class=" col-lg-10 mt-3 mt-md-0">
-      <p class="neutral-70 subheader-2">No feedback yet</p>
 
+   <div class="row feedback mb-2">
+      @if(isset($data->booking_feedback) && !empty($data->booking_feedback))
+            @foreach($data->booking_feedback as $feedback)
+            <div class="col-10 col-sm-8 col-md-6 feedbackDiv">
+               <p class="neutral-70 subheader-2">{{$feedback['feedback']}}</p>
+            </div>
+         @endforeach
+      @else
+      <div class=" col-lg-10 mt-3 mt-md-0">
+            <p class="neutral-70 subheader-2">No feedback yet</p>
+
+      </div>
+      @endif
    </div>
 </div>
+@include('celebrant.js')
