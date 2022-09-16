@@ -271,7 +271,13 @@ $adminRoutes = function () {
             Route::post('search-location', [MarriagesController::class, 'searchMarriageByLocation']);
             Route::post('search-marriages', [MarriagesController::class, 'searchMarriagesByDate']);
             Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
+            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');   
         });
+        Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
+        Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
+        Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
+        Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
+        Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
         Route::get('create-celebrants-invoice', function () {
             return view('admin.payments.create-celebrants-invoice');
         });
@@ -425,13 +431,9 @@ $celebrantRoutes = function () {
             // Route::resource('/', DashboardController::class);
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
-            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
-            
-            
+            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');         
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
-            Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
-           
-           
+            Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);       
         });
         
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');

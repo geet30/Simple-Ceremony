@@ -42,7 +42,7 @@
         </div>
         
         <div class="col-xxl-12 col-xl-12 col-md-12 mb-4">
-            <!-- <div class="calendar-wrapper" id="calendar-wrapper" onChange="calenderSetting('calendar-wrapper','calender_date')"></div> -->
+           
             <div class="calendar-wrapper" id="calendar-wrapper"></div>
             <input type="hidden" name="booking_date" id="calendar_date" class="booking_date">
         </div>

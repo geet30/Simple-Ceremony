@@ -38,11 +38,17 @@ $(document).ready(function() {
                 {
                     if(data.status == true)
                     {
+                     
+                        var doc = data.result.document;
+                        doc = doc.split(".");
+                        var shortName = doc[0].split('-');
+                        var fullname = shortName[0]+'.'+doc[1];
+
                         $(e.target).prop('disabled', true);
                         $(e.target).parent().next('.progress-box').find('.progress-box').addClass('d-none').removeClass('d-block');
                         console.log($(e.target).parent().next().next('.uploaded-box'));
                         $(e.target).parent().next().next('.uploaded-box').addClass('d-block').removeClass('d-none');
-                        $(e.target).parent().next().next('.uploaded-box').find('.filename').append(data.result.document);
+                        $(e.target).parent().next().next('.uploaded-box').find('.filename').append(fullname);
                         $(e.target).parent().next().next('.uploaded-box').find('.removeClass').attr('id',data.result.id);
                         var mydate = new Date();
                         mydate = mydate.toDateString().split(' ').slice(1).join(' ');

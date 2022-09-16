@@ -76,7 +76,7 @@ var defaultConfig = {
     onClickDate: selectDate,
     showYearDropdown: true,
     startOnMonday: true,
-    min: new Date().toLocaleDateString("fr-CA"),
+   
 };
 
 /////// user sidebar
@@ -352,17 +352,6 @@ function selectDateClass(date) {
     });
 }
 
-var defaultConfigClass = {
-    weekDayLength: 2,
-    date: new Date().toLocaleDateString("fr-CA"),
-    onClickDate: selectDateClass,
-    showYearDropdown: true,
-    startOnMonday: true,
-    min: new Date().toLocaleDateString("fr-CA"),
-};
-
-// var calendar = $(".calendar-wrapper").calendar(defaultConfigClass);
-// console.log(calendar.getSelectedDate());
 
 (function ($) {
     $(".reply-btn").click(function () {

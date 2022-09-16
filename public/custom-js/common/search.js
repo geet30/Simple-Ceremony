@@ -52,6 +52,42 @@ $(document).ready(function(){
             }
         });
     }
+    window.getStatus = function(){
+        const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
+        var status = '';
+        if(sub_tab_id == 'follow-up-tab'){
+            status = 0;
+
+        }else if(sub_tab_id == 'booked-tab'){
+            status = 1;
+        }
+        else if(sub_tab_id == 'no-interest-tab'){
+            status = 2;
+        }
+        else if(sub_tab_id == 'lodged-tab'){
+            status = 2;
+        }
+        else if(sub_tab_id == 'lodged-pending-tab'){
+            status = 3;
+        }
+        else if(sub_tab_id == 'non-legal-tab'){
+            status = 4;
+        }
+        else if(sub_tab_id == 'registered-tab'){
+            status = 5;
+        }
+        else if(sub_tab_id == 'finalised-tab'){
+            status = 6;
+        }
+        else if(sub_tab_id == 'settled-tab'){
+            status = 7;
+        }
+        else if(sub_tab_id == 'cancelled-tab'){
+            status = 8;
+        } 
+        return status;
+
+    }
     window.SearchResultsWithTab = function(url,keyword=null){
         closedDiv('filter_date_div');
         const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
@@ -77,12 +113,14 @@ $(document).ready(function(){
         var booking_date = $('.booking_date').val();
         var ceremony_date = $('.ceremony_date:checked').val();
         var payment_date = $('.payment_date:checked').val();
+        var status =getStatus();
+        
         var divId= sub_tab_id.slice(0, -4)
         $.ajax({
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date         
+                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status       
             },
             dataType: 'html',
             cache: false,
@@ -169,39 +207,8 @@ $(document).ready(function(){
     }
 
     window.searchWithTabs = function(url,keyword=null, type){
-        const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
-       
-        var status ='';
-        if(sub_tab_id == 'follow-up-tab'){
-            status = 0;
-
-        }else if(sub_tab_id == 'booked-tab'){
-            status = 1;
-        }
-        else if(sub_tab_id == 'no-interest-tab'){
-            status = 2;
-        }
-        else if(sub_tab_id == 'lodged-tab'){
-            status = 2;
-        }
-        else if(sub_tab_id == 'lodged-pending-tab'){
-            status = 3;
-        }
-        else if(sub_tab_id == 'non-legal-tab'){
-            status = 4;
-        }
-        else if(sub_tab_id == 'registered-tab'){
-            status = 5;
-        }
-        else if(sub_tab_id == 'finalised-tab'){
-            status = 6;
-        }
-        else if(sub_tab_id == 'settled-tab'){
-            status = 7;
-        }
-        else if(sub_tab_id == 'cancelled-tab'){
-            status = 8;
-        }
+        const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");   
+        var status =getStatus();
         
         var divId= sub_tab_id.slice(0, -4)
         // console.log(divId, 'divId');
