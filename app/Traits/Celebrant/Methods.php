@@ -192,6 +192,9 @@ trait Methods
             'booking_details' => function ($query) {
                 $query->select('notes','checked','id','booking_id');
             },
+            'booking_feedback'=>function ($query) {
+                $query->select('feedback','id','booking_id');
+            },
             'user.celebrant' => function ($query) {
                 $query->select('celebrant_id','admin_fee','standard_fee', 'id');
             },
@@ -239,12 +242,25 @@ trait Methods
         try{
             // $input = $request->all();
             $input['booking_id'] = $request->booking_id;
-            $input['notes'] =  $request->notes;
+            if(isset($request->notes) && !empty($request->notes)){
+                $input['notes'] =  $request->notes;
+            }
+            if(isset($request->checked) && !empty($request->checked)){
+                $input['checked'] =  $request->checked;
+            }
             
+          
            
             if(isset($request->booking_id) && !empty( $request->booking_id)){
-               
-                BookingDetails::create($input);
+                
+                $data =BookingDetails::where('booking_id','=',$request->booking_id)->first();
+                if(!empty($data)){
+                    $data = BookingDetails::where('booking_id', $request->booking_id)->update($input);
+                }else{
+                    BookingDetails::create($input);
+                }
+
+                
                 $msg = 'Saved Successfully';
                 return ['status' => true,'message'=>$msg]; 
             }

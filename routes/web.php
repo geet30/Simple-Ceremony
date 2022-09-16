@@ -431,10 +431,12 @@ $celebrantRoutes = function () {
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
            
+           
         });
+        
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
         Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
-       
+        Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
         Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
         Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
         Route::post('search-by-user', [DashboardController::class, 'searchMarriagesByUser']);

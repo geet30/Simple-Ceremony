@@ -57,8 +57,7 @@
                <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord')}}">
                   @csrf
                   <input name="booking_id" type="hidden" value="{{ $id}}">
-                  <textarea name="notes" class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" onfocusout="submitAjaxWithoutReload(event, 'information', 'post', '/saveRecord')">
-                  {{ isset($data->booking_details->notes) ? $data->booking_details->notes : '' }}
+                  <textarea name="notes" class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" onfocusout="submitAjaxWithoutReload(event, 'information', 'post', '/saveRecord')">{{ isset($data->booking_details->notes) ? $data->booking_details->notes : '' }}
                   </textarea>
                </form>
             </div>
