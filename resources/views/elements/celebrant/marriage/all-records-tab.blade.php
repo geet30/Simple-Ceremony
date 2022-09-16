@@ -15,6 +15,7 @@
             </thead>
             <tbody>
                 @foreach ($dataArray['all_marriages'] as $result)
+             
                 
                     <tr>                   
                         <td  style="min-width:130px" class="body-2">{{date('M d, Y',strtotime($result->booking_date))}}</td>

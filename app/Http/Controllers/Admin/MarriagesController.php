@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking,Locations};
+use App\Models\{Booking,Locations,UserNoim,User};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use View;
+use Illuminate\Support\Facades\Auth; 
 class MarriagesController extends Controller
 {
      /**
@@ -165,9 +166,11 @@ class MarriagesController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = MarriagesMethods::marriage_detail($id)->first();
-            // dd($data);
-            // $user_id = PartnerProducts::where('id', $id)->value('user_id');
-            return view('admin.marriages.detail',compact('celebrants','locations','data'));
+            $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
+            
+            $couple = UserNoim::where('booking_id',$id )->with(['booking','document'])->get();
+            
+            return view('admin.marriages.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
             
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

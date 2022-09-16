@@ -1,11 +1,15 @@
 
 $(document).ready(function(){
     window.showFeedback = function(text,parentClass,close){ 
-    
-        // $('.emptyRecord').css('display', 'none');
-        var feedback =`<div class="col-10 col-sm-8 col-md-6 feedbackDiv">
-        <p class="neutral-70 subheader-2">${text}</p>
-            </div>`;
+        var feedback =` <div class="alert alert-primary alert-dismissible" role="alert">
+        <div class="d-flex">
+           <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
+
+           <div class="feedbackDiv">
+              <p class="body-1 mb-0">${text}</p>
+           </div>
+        </div>
+     </div>`;
         $('.'+parentClass).append(feedback)
         $('.'+close).click();
     }
