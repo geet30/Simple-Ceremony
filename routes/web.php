@@ -23,7 +23,7 @@ $websiteRoutes = function () {
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
     
    
-    Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
+    Route::get('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
 
     Route::get('addons/detail/{id}', [HomeController::class, 'addonDetail'])->name('add-ons-detail');

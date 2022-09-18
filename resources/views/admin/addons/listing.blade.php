@@ -87,7 +87,7 @@
                         <div class="form-group has-search w-100 position-relative">
                             <span class="fa fa-search form-control-feedback"></span>
 
-                            <input type="text" class="form-control" onkeyup="SearchRecords('/search-addon',this.value)"
+                            <input type="text" class="form-control" onkeyup="SearchAdminAddons('/search-addon',this.value,'addon_list')"
                                 placeholder="Search add-ons">
 
                         </div>
@@ -136,7 +136,7 @@
                                 src="/images/admin/add-ons/white-plus.svg" alt="Add">Create new add-ons</a>
                         <div class="card panel-card">
                             <div class="card-body">
-                                <ul class="add-on-setting-ul list-unstyled p-0 m-0" id="addon_list">
+                                <ul class="add-on-setting-ul list-unstyled p-0 m-0 addon_list">
                                     @if (count($data) > 0)
                                         @foreach ($data as $counter => $addon)
                                             <li class="d-flex flex-wrap mb-4">

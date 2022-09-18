@@ -6,7 +6,7 @@
          </a>
          <div class="select-with-checkbox">
             
-            <select onchange="SearchResults('/search-location')" required="" name="filter_by_categories" class="js-placeholder-single-input form-control filter_by_categories">
+            <select onchange="SearchMultipleFilter('/search-location','','searchResult','')" required="" name="filter_by_categories" class="js-placeholder-single-input form-control filter_by_categories">
                <option value="0" data-badge="">All</option>
                @foreach($filters as $filter)
                   <option value="{{$filter->id}}">{{$filter->name}}</option>
@@ -15,7 +15,7 @@
          </div>
       </div>
       <div class="form-group has-search w-100 ms-4 position-relative">
-          <input type="text" class="form-control" placeholder="Search" onkeyup="SearchResults('/search-location',this.value)">
+          <input type="text" class="form-control" placeholder="Search" onkeyup="SearchMultipleFilter('/search-location',this.value,'searchResult','')">
          <span class="fa fa-search form-control-feedback"></span>
       </div>
    </div>
@@ -26,7 +26,7 @@
       </a>
    </div>
 </div>
-<div id="searchResult" class="searchResult row">
+<div class="searchResult row">
 
    @include('elements.admin.location.all-locations', ['title' => 'locations', '' => '', 'locations' => $locations])
 </div>

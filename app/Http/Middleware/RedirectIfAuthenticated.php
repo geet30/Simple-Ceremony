@@ -41,6 +41,9 @@ class RedirectIfAuthenticated
                 else if (Auth::user()->roles->first()->name == 'User') {
                     return redirect('user/overview');
                 }
+                else if (Auth::user()->roles->first()->name == 'Celebrant') {
+                    return redirect('upcoming/all-records-tab');
+                }
                 else{
                     return redirect('/');
                 }

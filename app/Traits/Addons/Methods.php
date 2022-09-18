@@ -81,11 +81,13 @@ trait Methods
 
     public static function searchAddon($request)
     {
+       
         if ($request->has('search') && $request->filled('search')) {
             $addons = self::products()->where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
         } else {
             $addons = self::products()->orderBy('id', 'DESC')->get();
         }
+       
         return $addons;
     }
     public static function searchAdminAddon($request)

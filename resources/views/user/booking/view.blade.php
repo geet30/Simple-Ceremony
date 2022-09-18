@@ -35,7 +35,7 @@
                            </p>
                         </div>
                         <div class="col-lg-4 col-xl-4 d-flex align-items-center justify-content-start">
-                           <a onclick="SearchResults('search-booking')" class="theme-btn primary-btn d-inline-flex px-3 me-3">
+                           <a onclick="SearchMultipleFilter('search-booking','','searchResult','')" class="theme-btn primary-btn d-inline-flex px-3 me-3">
                               <img class="me-2" src="images/location-page/search-icon.svg" alt="search-icon" >Search
                            </a>
                            <a href="{{route('user.booking')}}" class="theme-btn primary-btn-border">Reset</a>
@@ -72,7 +72,7 @@
                
             </div>
         </div>
-        <div id="searchResult" class="row searchResult">
+        <div class="row searchResult">
 
             @include('elements.user.location.index', ['title' => 'locations', '' => '', 'locations' => $locations])
         </div>
