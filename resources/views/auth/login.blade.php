@@ -28,7 +28,7 @@
                                             </div>
                                         @endIf
                                         @if (Request::get('addToCart') && Request::get('addToCart') == 'yes')
-                                            <div class="alert alert-success alert-dismissible fade shows">
+                                            <div class="alert alert-success alert-dismissible fade show">
                                                 <button type="button" class="btn-close" data-dismiss="alert">×</button>
                                                 Please login to pay for your cart
                                             </div>
