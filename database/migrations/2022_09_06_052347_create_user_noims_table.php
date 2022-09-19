@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('booking_id');
+            $table->string('uuid');
             $table->string('preferred_name');
             $table->string('person_first_name');
             $table->string('person_other_name');
@@ -34,7 +35,11 @@ return new class extends Migration
             $table->string('postal_code');
             $table->date('date_of_birth');
             $table->string('birth_place');
-            $table->string('birth_document')->nullable();
+            $table->string('birth_identical_document_first')->nullable();
+            $table->string('birth_identical_document_number_first')->nullable();
+            $table->string('birth_identical_document_second')->nullable();
+            $table->string('birth_identical_document_number_second')->nullable();
+            $table->string('birth_identical_document_issue_state')->nullable();
             $table->text('birth_town_or_city_or_suburb');
             $table->text('birth_state_or_province_or_territory');
             $table->integer('conjugal_status')->comment('1:Divorced, 2:Never validy married, 3:Divorced pending, 4:widowed');
