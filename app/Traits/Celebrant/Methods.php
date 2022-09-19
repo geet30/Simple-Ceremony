@@ -126,7 +126,12 @@ trait Methods
         $req_page = 1;
         $records = 10;
         $marriages = self::fetch_marriages();     
-
+        if ($request->has('status') && $request->filled('status')) {
+            $whereClause = [
+                ['status', '=', $request->status]
+            ];
+            $data = $marriages->where($whereClause);
+        }
         if ($request->has('firstOptgroup') && !empty($request->firstOptgroup) && $request->has('secondOptgroup') && !empty($request->secondOptgroup)) {
             $data = $marriages->whereIn('status', $request->firstOptgroup)->whereIn('locationId', $request->secondOptgroup);
         }else if($request->has('firstOptgroup') && !empty($request->firstOptgroup)){
@@ -151,7 +156,12 @@ trait Methods
         $records = 10;
         $marriages = self::fetch_marriages();     
        
-
+        if ($request->has('status') && $request->filled('status')) {
+            $whereClause = [
+                ['status', '=', $request->status]
+            ];
+            $data = $marriages->where($whereClause);
+        }
         if ($request->has('payment_date') && !empty($request->payment_date) && $request->has('ceremony_date') && !empty($request->ceremony_date)) {
             $data = $marriages->where('booking_date', $request->ceremony_date);
         }else if($request->has('payment_date') && !empty($request->payment_date)){// this needs to be changed when we will have the booking payment made to celebrant
@@ -176,8 +186,16 @@ trait Methods
         $records = 10;
         $search = $request->search;
         $data = self::fetch_marriages();
-        $data = $data->where('first_couple_name', 'like', '%' . $search . '%')
+        if ($request->has('status') && $request->filled('status')) {
+            $whereClause = [
+                ['status', '=', $request->status]
+            ];
+            $data = $data->where($whereClause);
+        }
+        $data = $data->where(function ($query) use($search) {
+            $query->where('first_couple_name', 'like', '%' . $search . '%')
                 ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+        });
         return $data->paginate($records, ['*'], 'page', $req_page);
     }
     public static function marriage_detail($id = null)
@@ -191,6 +209,9 @@ trait Methods
             },
             'booking_details' => function ($query) {
                 $query->select('notes','checked','id','booking_id');
+            },
+            'booking_feedback'=>function ($query) {
+                $query->select('feedback','id','booking_id');
             },
             'user.celebrant' => function ($query) {
                 $query->select('celebrant_id','admin_fee','standard_fee', 'id');
@@ -239,12 +260,26 @@ trait Methods
         try{
             // $input = $request->all();
             $input['booking_id'] = $request->booking_id;
-            $input['notes'] =  $request->notes;
+            if(isset($request->notes) && !empty($request->notes)){
+                $input['notes'] =  $request->notes;
+            }
+            if(isset($request->checked)){
+                $input['checked'] =  $request->checked;
+            }
+            // dd($input);
             
+          
            
             if(isset($request->booking_id) && !empty( $request->booking_id)){
-               
-                BookingDetails::create($input);
+                
+                $data =BookingDetails::where('booking_id','=',$request->booking_id)->first();
+                if(!empty($data)){
+                    $data = BookingDetails::where('booking_id', $request->booking_id)->update($input);
+                }else{
+                    BookingDetails::create($input);
+                }
+
+                
                 $msg = 'Saved Successfully';
                 return ['status' => true,'message'=>$msg]; 
             }

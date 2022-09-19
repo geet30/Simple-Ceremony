@@ -76,7 +76,6 @@ var defaultConfig = {
     onClickDate: selectDate,
     showYearDropdown: true,
     startOnMonday: true,
-    min: new Date().toLocaleDateString("fr-CA"),
 };
 
 /////// user sidebar
@@ -181,11 +180,36 @@ $(document).ready(function () {
         $("." + findclass).val(value);
     };
 
+    $("ul.add-on-list-nav li:gt(4)").hide();
+    $(".collapse_ul").click(function () {
+        $(this).toggleClass("button_collapse");
+        $("ul.add-on-list-nav li:gt(4)").toggle();
+    });
     window.submitThroughAjax = function (e, id, method, action) {
         e.preventDefault();
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = $(e.target);
         submitform(id, action, method, formData, form);
+    };
+    window.submitAjaxWithoutReload = function (
+        e,
+        id,
+        method,
+        action,
+        callfunction = null
+    ) {
+        e.preventDefault();
+        var formData = new FormData(document.getElementsByName(id)[0]);
+        var form = e.target;
+
+        submitfunctionWithoutReload(
+            id,
+            action,
+            method,
+            formData,
+            form,
+            callfunction
+        );
     };
 });
 
@@ -339,18 +363,6 @@ function selectDateClass(date) {
         date: date,
     });
 }
-
-var defaultConfigClass = {
-    weekDayLength: 2,
-    date: new Date().toLocaleDateString("fr-CA"),
-    onClickDate: selectDateClass,
-    showYearDropdown: true,
-    startOnMonday: true,
-    min: new Date().toLocaleDateString("fr-CA"),
-};
-
-// var calendar = $(".calendar-wrapper").calendar(defaultConfigClass);
-// console.log(calendar.getSelectedDate());
 
 (function ($) {
     $(".reply-btn").click(function () {

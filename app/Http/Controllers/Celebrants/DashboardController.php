@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Celebrants;
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,User,UserNoim};
+use App\Models\{Locations,User,UserNoim,CeremonyFeedback};
 use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
@@ -105,11 +105,32 @@ class DashboardController extends Controller
             // dd($data);
             return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
             
+            
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
 
+    }
+    /**
+     * Store a newly created feedback in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function bookingFeedback(Request $request)
+    {
+        try {
+            $input = $request->all();
+            $result = CeremonyFeedback::create($input);
+            if ($result) {
+                $msg = 'Feedback added successfully.';
+                return response()->json(['status' => true, "message" => $msg, "data" => $result]);
+            }
+            return response()->json(['status' => false, "message" => 'Something went wrong.']);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
        
     /**

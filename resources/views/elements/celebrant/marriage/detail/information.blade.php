@@ -21,8 +21,10 @@
                <input type="email" value="{{ isset($data->user->email) ? $data->user->email : '' }}" class="form-control body-1 netural-100" id="email" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
+             
                <label for="email" class="form-label small-text2 ps-2">Type of ceremony</label>
-               <input type="email" value="{{ isset($data->cermony_type) ? $data->cermony_type : '' }}" class="form-control body-1 netural-100" id="email" readonly>
+               
+               <input type="email" value="{{ (isset($data->ceremony_type)) ? config('ceremonyStatus.typeOfCeremony.'.$data->ceremony_type) : '' }}" class="form-control body-1 netural-100" id="email" readonly>
             </div>
             <div class="col-md-6 mb-4 d-md-block"></div>
             <div class="col-md-6  mb-4 ">
@@ -57,8 +59,7 @@
                <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord')}}">
                   @csrf
                   <input name="booking_id" type="hidden" value="{{ $id}}">
-                  <textarea name="notes" class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" onfocusout="submitAjaxWithoutReload(event, 'information', 'post', '/saveRecord')">
-                  {{ isset($data->booking_details->notes) ? $data->booking_details->notes : '' }}
+                  <textarea name="notes" class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" rows="10" onfocusout="submitAjaxWithoutReload(event, 'information', 'post', '/saveRecord')">{{ isset($data->booking_details->notes) ? $data->booking_details->notes : '' }}
                   </textarea>
                </form>
             </div>
@@ -70,6 +71,12 @@
                         <div class="row documentContainer">
                         @if(isset($data->booking_details_docs) & count($data->booking_details_docs) >0)
                            @foreach($data->booking_details_docs as $docs)
+                           <?php 
+                           $filename= explode('.',$docs->document);
+                           $shortName = explode('-',$filename[0]);
+
+                           $fullname = $shortName[0].'.'.$filename[1];
+                           ?>
                            <div class="col-xxl-6 mb-4 documentDiv">
                               <div class="row">
                                 
@@ -95,7 +102,7 @@
                                     <div class="attach-document-box uploaded-box d-block z-index-9">
 
                                        <div class="uploaded-content">
-                                          <p id="filename" class="h4 neutral-100 mb-4 filename">{{$docs->document}}</p>
+                                          <p id="filename" class="h4 neutral-100 mb-4 filename">{{$fullname}}</p>
                                           <a class="me-2" href="{{route('viewDocument',$docs->document)}}" target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                           <a class="me-2" href="{{route('downloadDocument',$docs->document)}}"><img src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                                           <a><img src="/images/icons/uploading/delete.svg" class="img-fluid removeClass" alt="delete" onclick="remove('documentDiv',this,'documentContainer','document')" id="{{$docs->id}}"></a>

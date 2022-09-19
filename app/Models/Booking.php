@@ -51,4 +51,8 @@ class Booking extends Model
     {
         return $this->hasMany('App\Models\BookingDetailsDocs', 'booking_id', 'id');
     }
+    public function booking_feedback()
+    {
+        return $this->hasMany('App\Models\CeremonyFeedback', 'booking_id', 'id');
+    }
 }

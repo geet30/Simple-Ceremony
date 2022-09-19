@@ -63,11 +63,15 @@
                         <li class="nav-item">
                            <a class="nav-link active" id="information-tab" data-bs-toggle="tab" data-bs-target="#information" href="#">Information</a>
                         </li>
+
                         <li class="nav-item">
                            <a class="nav-link" id="docs-tab" data-bs-toggle="tab" data-bs-target="#docs" href="#">Details and Docs</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" id="documents-tab" data-bs-toggle="tab" data-bs-target="#documents" href="#">Add-ons <span class="neutral-70">(3)</span></a>
+                           <a class="nav-link" id="documents-tab" data-bs-toggle="tab" data-bs-target="#documents" href="#">Documents you have signed</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" id="addons-tab" data-bs-toggle="tab" data-bs-target="#addons" href="#">Add-ons <span class="neutral-70">(3)</span></a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" id="reminders-tab" data-bs-toggle="tab" data-bs-target="#reminders" href="#">Reminders</a>
@@ -76,21 +80,25 @@
                      <!-- tab content -->
                      <div class="tab-content" id="tabContent">
                         <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="information-tab">
-                           @include('elements.admin.marriage.order.information')
-                           {{--@include('elements.admin.marriage.order.choose-marriage-celebrant') --}}
+                           @include('elements.admin.marriage.detail.information')
+                           {{--@include('elements.admin.marriage.detail.choose-marriage-celebrant') --}}
                           
-                           @include('elements.admin.marriage.order.reschedule')
-                           @include('elements.admin.marriage.order.invoice')
+                           @include('elements.admin.marriage.detail.reschedule')
+                           @include('elements.admin.marriage.detail.invoice')
                         </div>
                         <div class="tab-pane fade" id="docs" role="tabpanel" aria-labelledby="docs-tab">
-                           @include('elements.admin.marriage.order.docs-noim')
-                           @include('elements.admin.marriage.order.feedback')
+                           @include('elements.admin.marriage.detail.docs-noim')
+                           @include('elements.admin.marriage.detail.feedback')
                         </div>
                         <div class="tab-pane fade" id="documents" role="tabpanel" aria-labelledby="documents-tab">
-                           @include('elements.admin.marriage.order.add-ons')
+                           @include('elements.admin.marriage.detail.documents-signed')
+                           @include('elements.admin.marriage.detail.viewmessage')
+                        </div>
+                        <div class="tab-pane fade" id="addons" role="tabpanel" aria-labelledby="addons-tab">
+                           @include('elements.admin.marriage.detail.add-ons')
                         </div>
                         <div class="tab-pane fade" id="reminders" role="tabpanel" aria-labelledby="reminders-tab">
-                           @include('elements.admin.marriage.order.reminder')
+                           @include('elements.admin.marriage.detail.reminder')
                         </div>
                      </div>
                      <!-- tab content -->
@@ -104,6 +112,6 @@
 </div>
 @include('admin.marriages.js')
 @include('elements.admin.marriage.assign-marriage-celebrant')
-@include('elements.admin.marriage.order.create-reminder')
+@include('elements.admin.marriage.detail.create-reminder')
 @include('pages.alert.change_marriage_status')
 @endsection

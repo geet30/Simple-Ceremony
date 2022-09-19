@@ -149,7 +149,9 @@ $(document).ready(function(){
         })
     }
     
-    window.submitfunctionWithoutReload= function(id,action,method,formData,form){
+    window.submitfunctionWithoutReload= function(id,action,method,formData,form,callfunction){
+        
+       
         $.ajax({
             url: action,
             dataType: 'json', // what to expect back from the server
@@ -161,7 +163,11 @@ $(document).ready(function(){
             beforeSend:function(){
                 $('#loading').show();
             },
-            success: function(response) {               
+            success: function(response) {  
+                if(callfunction !=null){
+                    showFeedback(form.feedback.value,callfunction, 'closeCanvas');
+                }
+
                 $('#loading').hide();
             },
             error: function(response) {  

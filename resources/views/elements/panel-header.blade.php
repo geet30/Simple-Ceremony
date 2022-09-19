@@ -82,7 +82,7 @@
                             <a class="nav-link dropdown-toggle d-flex admin-profile py-0" href="#"
                                 id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <div class="align-self-center"><img src="/images/icons/header-logo.svg"  class="img-fluid"></div>
+                                <div class="align-self-center"><img src="/images/icons/header-logo.svg"  class="img-fluid me-2"></div>
                                 <div class="align-self-center">
 
                                    @if(Auth::user()->roles->first()->name =='User')

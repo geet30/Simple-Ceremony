@@ -51,7 +51,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <div class="row">
             <div class="col-md-4  mb-4 ">
                <label for="preferredname2" class="form-label small-text2 ps-2">Birth place</label>
-               
+
                <input type="text" value="{{ isset($couple1->birth_place) ? $couple1->birth_place: '' }}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
             <div class="col-md-4  mb-4 ">
@@ -68,12 +68,12 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Conjugal Status</label>
                <?php
-                  $conjugal_status = '';
-                  if(isset($couple1->conjugal_status) && !empty($couple1->conjugal_status)){
-                     $conjugal_status = config('userConstants.conjugal_status.'.$couple1->conjugal_status);
-                  }
+               $conjugal_status = '';
+               if (isset($couple1->conjugal_status) && !empty($couple1->conjugal_status)) {
+                  $conjugal_status = config('userConstants.conjugal_status.' . $couple1->conjugal_status);
+               }
                ?>
-               <input type="text" value="{{$conjugal_status}}"  class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+               <input type="text" value="{{$conjugal_status}}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
          </div>
          <h4 class="h4  neutral-100 align-self-center mb-0 ms-2 mb-3">Person 1 ID</h4>
@@ -83,11 +83,11 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                   <div class="id-card border-turquoise-50 br-10">
                      <div class="row">
                         <div class="col-md-7 col-xl-8 align-self-center">
-                        @if(isset($couple1->document) && !empty($couple1->document))
+                           @if(isset($couple1->document) && !empty($couple1->document))
                            @foreach($couple1->document as $couple_documents)
-                              <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
+                           <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
                            @endforeach
-                        @endif
+                           @endif
                         </div>
                         <div class="col-md-5 col-xl-4 align-self-center">
                            <p class="h4 neutral-100">ID Person 1</p>
@@ -123,7 +123,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <div class="row">
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Person 2 full name</label>
-               
+
                <input type="text" value="{{ isset($couple2->person_name_combination) ? $couple2->person_name_combination: '' }}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
          </div>
@@ -156,10 +156,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-12   mb-4">
                <label for="preferredname2" class="form-label small-text2 ps-2">Conjugal Status</label>
                <?php
-                  $conjugal_status2 = '';
-                  if(isset($couple2->conjugal_status) && !empty($couple2->conjugal_status)){
-                     $conjugal_status2 = config('userConstants.conjugal_status.'.$couple2->conjugal_status);
-                  }
+               $conjugal_status2 = '';
+               if (isset($couple2->conjugal_status) && !empty($couple2->conjugal_status)) {
+                  $conjugal_status2 = config('userConstants.conjugal_status.' . $couple2->conjugal_status);
+               }
                ?>
                <input type="text" value="{{$conjugal_status2}}" class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
             </div>
@@ -181,9 +181,9 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                   <div class="id-card border-turquoise-50 br-10">
                      <div class="row">
                         <div class="col-md-7 col-xl-8 align-self-center">
-                        @if(isset($couple2->document) && !empty($couple2->document))
+                           @if(isset($couple2->document) && !empty($couple2->document))
                            @foreach($couple2->document as $couple_documents)
-                              <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
+                           <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
                            @endforeach
                            @endif
                         </div>
@@ -332,14 +332,28 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
       </div>
    </div>
    <div class=" col-xl-8 offset-xl-2 mt-3 mt-md-0">
-
-
-
       <div class="row mb-2">
          <div class=" col-lg-12 mt-3 mt-md-0">
-            <p class="neutral-70 subheader-2">Only one party has signed</p>
+            <div class="align-self-center me-2 mb-4 body-2-semi-bold"><span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$data->status) )}}">{{config('ceremonyStatus.booking_status.'.$data->status) }} </span></div>
+
+
+
             <div class="d-lg-flex">
-               <a class="theme-btn primary-btn bg-danger  cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0">have you confirm all details are correct ?</a>
+               <form method="POST" name="booking_details" id="booking_details" action="{{route('celebrant.saveRecord')}}">
+                  @csrf
+                  <?php 
+                  
+                   if(isset($data->booking_details->checked) && $data->booking_details->checked ==1){
+                     $buttonClass = '';
+                  }else{
+                     $buttonClass = 'bg-danger';
+                  }
+                  ?>
+                  <input name="booking_id" type="hidden" value="{{ $id}}">
+                  <input type='hidden' value='0' name='checked'>
+                  <input class="form-check-input me-2" type="checkbox" name="checked" value="1" {{ $data->booking_details->checked == 1? 'checked' : '' }}  onchange="submitAjaxWithoutReload(event, 'booking_details', 'post', '/saveRecord')">
+                  <a class="theme-btn primary-btn {{ $buttonClass}}  cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0">have you confirm all details are correct ?</a>
+               </form>
                <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#feedback" aria-controls="feedback">Give feedback</a>
             </div>
          </div>
@@ -350,21 +364,21 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="card doument-box">
                <div class="card-body text-center d-flex align-items-center">
                   <h3 class="button-1 neutral-100 title mb-0">Change Ceremony Status</h3>
-                    
+
                   <div class="dropdown table-dropdown ms-5">
                      <button class="theme-btn white-btn-border dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                     Ceremony status
+                        Ceremony status
                      </button>
                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
-                        
-                           <li>
-                              <a role="button" class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#change_marriage_status_modal" onclick="appendId('{{$key}}','status')" class="theme-btn primary-btn-border d-flex justify-content-center"><span class="status text-nowrap {{strtolower($status)}}">{{$status}}</span></a>
-                           </li>
+
+                        <li>
+                           <a role="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#change_marriage_status_modal" onclick="appendId('{{$key}}','status')" class="theme-btn primary-btn-border d-flex justify-content-center"><span class="status text-nowrap {{strtolower($status)}}">{{$status}}</span></a>
+                        </li>
                         @endforeach
                      </ul>
                   </div>
-                 
+
                </div>
             </div>
          </div>
@@ -379,8 +393,33 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
          <h2 class="subheader-3 neutral-100 align-self-center mb-0 ms-2">History feedback</h2>
       </div>
    </div>
-   <div class=" col-lg-10 mt-3 mt-md-0">
-      <p class="neutral-70 subheader-2">No feedback yet</p>
+   <div class="col-xl-10 feedback">
+      @if(isset($data->booking_feedback) && !empty($data->booking_feedback))
+      @foreach($data->booking_feedback as $feedback)
+      <div class="alert alert-primary alert-dismissible" role="alert">
+         <div class="d-flex">
+            <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
 
+            <div class="feedbackDiv">
+               <p class="body-1 mb-0">{{$feedback['feedback']}}</p>
+            </div>
+         </div>
+      </div>
+      @endforeach
+      @else
+      <div class="alert alert-primary alert-dismissible" role="alert">
+         <div class="d-flex">
+            <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
+
+            <div class="feedbackDiv">
+               <p class="body-1 mb-0">No feedback yet</p>
+            </div>
+
+
+         </div>
+      </div>
+      @endif
    </div>
+
 </div>
+@include('celebrant.js')
