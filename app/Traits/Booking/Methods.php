@@ -3,7 +3,7 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, Locations, Booking, BookingPayments, Cart, RequestLocations, LocationPackages};
+use App\Models\{User, Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
@@ -64,6 +64,7 @@ trait Methods
                     }
                 }
             }
+            // dd(Cache::get('booking'));
             $addons_price = Cache::get('booking')->package_price;
             $check_count_of_timeslots = self::calculateTimeslotsPrice();
             $price = $data['price'] * $check_count_of_timeslots;
@@ -77,6 +78,7 @@ trait Methods
             ];
             return self::stripePayment($send_paramter);
         } catch (\Exception $ex) {
+            
             return $ex->getMessage();
         }
     }
@@ -121,7 +123,9 @@ trait Methods
     }
     static function addBookingDetailToDB($sessionId, $data)
     {
-        try {
+
+        try {           
+
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
             $user_inputs['country_code'] = $data->country_code;
@@ -159,7 +163,8 @@ trait Methods
             $booking_inputs['status']  = config('ceremonyStatus.status.Booked');
 
             $booking = Booking::create($booking_inputs);
-            self::savePaymentDetail($sessionId, $user->id);
+            self::saveAddonDetail($data->locationId,$booking->id);
+            self::savePaymentDetail($sessionId, $user->id,$booking->id);
 
             return true;
         } catch (\Exception $ex) {
@@ -169,7 +174,24 @@ trait Methods
             return $ex->getMessage();
         }
     }
-    static function savePaymentDetail($sessionId, $userId)
+    static function saveAddonDetail($locationId,$booking_id){
+        $locations_packages =  Locations::with([
+            'location_packages' => function($query){
+                $query->select('location_id','partner_id','package_id');
+            }           
+        ])->where('id',$locationId)->first();
+        if(!empty($locations_packages['location_packages'])){
+            //insert to table
+            foreach($locations_packages['location_packages'] as $package){
+                
+                $userBookingAddon['booking_id']= $booking_id;
+                $userBookingAddon['package_id']= $package['package_id'];
+                UserBookingAddon::create($userBookingAddon);
+            }
+        }
+        return true;
+    }
+    static function savePaymentDetail($sessionId, $userId,$booking_id)
     {
 
         $stripe = new \Stripe\StripeClient(
@@ -181,6 +203,7 @@ trait Methods
         );
         bcscale(2);
         $booking_payment_inputs['user_id']  = $userId;
+        $booking_payment_inputs['booking_id']  = $booking_id;
         $booking_payment_inputs['amount']  = bcdiv($response->amount_total, '100');
         $booking_payment_inputs['currency']  = $response->currency;
         $booking_payment_inputs['customerId']  = $response->customer;
@@ -194,6 +217,7 @@ trait Methods
     }
     static function stripePayment($data)
     {
+        
         try {
 
             Stripe::setApiKey(config('env.STRIPE_SECRET'));
@@ -221,7 +245,7 @@ trait Methods
             ]);
             return redirect($checkout_session->url);
         } catch (\Exception $ex) {
-            return $ex->getMessage();
+            return redirect('/payment-cancel')->withErrors(['msg' => $ex->getMessage()]);
         }
     }
     static function requestLocation($data)

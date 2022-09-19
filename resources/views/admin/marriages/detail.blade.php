@@ -71,7 +71,7 @@
                            <a class="nav-link" id="documents-tab" data-bs-toggle="tab" data-bs-target="#documents" href="#">Documents you have signed</a>
                         </li>
                         <li class="nav-item">
-                           <a class="nav-link" id="addons-tab" data-bs-toggle="tab" data-bs-target="#addons" href="#">Add-ons <span class="neutral-70">(3)</span></a>
+                           <a class="nav-link" id="addons-tab" data-bs-toggle="tab" data-bs-target="#addons" href="#">Add-ons <span class="neutral-70">({{count($data->booking_addons)}})</span></a>
                         </li>
                         <li class="nav-item">
                            <a class="nav-link" id="reminders-tab" data-bs-toggle="tab" data-bs-target="#reminders" href="#">Reminders</a>

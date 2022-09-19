@@ -36,13 +36,13 @@ class BookingController extends Controller
      */
     public function detail($id){
         try {
-       
             Cache::forget('booking');
             $data = Locations::getLocations($id)->first();
             $locations = Locations::getLocations()->get();
             return view('user.booking.single-location',compact(['data','locations']));
         }
         catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }       
     }
@@ -60,31 +60,14 @@ class BookingController extends Controller
                 $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
                 Cache::forget('booking');
             }
-           
+            $booking ='';
             $timeslot  = timeslots();
-            
-            $get_booking_total_price = Booking::getBookingPrice($locationId);
-            $data = [
-                'package_price' => $get_booking_total_price,
-            ];
-            // $booking = Cache::get('booking');
-            if(Cache::has('booking')){
-                $booking = Cache::get('booking');
-                $booking->fill($data);
-            }
-            else{
-                $booking = new \App\Models\Booking();
-                $booking->fill($data);
-            }
-
-            // $booking['package_price'] = $get_booking_total_price;
-            Cache::put('booking', $booking);
-
             $get_location_addons =  Locations::getLocationPackages($locationId)->get()->toArray();
             $location_price = Locations::where('id',$locationId)->pluck('price','name');
             return view('user.booking.book-location',compact('booking','timeslot','locationId','get_location_addons','location_price'));
         }
         catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }    
     }  
@@ -116,6 +99,8 @@ class BookingController extends Controller
                 $booking->fill($data);
             }
             $booking['locationId'] = $request->locationId;
+            $get_booking_total_price = Booking::getBookingPrice($request->locationId);
+            $booking['package_price'] = $get_booking_total_price;
             Cache::put('booking', $booking);
             return $this->successResponse([],'Date added successfully.');
         }
