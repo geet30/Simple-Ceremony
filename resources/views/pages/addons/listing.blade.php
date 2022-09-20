@@ -37,10 +37,10 @@
                <span class="fa fa-search form-control-feedback"></span>
                
                
-               <input type="text" class="form-control" placeholder="Search" onkeyup="searchBookingAddon('search-booking-addon',this.value)">
+               <input type="text" class="form-control" placeholder="Search" onkeyup="searchWithoutTabs('search-booking-addon',this.value,'searchAddon', '')">
             </div>
          </div>
-         <div id="searchAddon" class="row pt-45">
+         <div class="row pt-45 searchAddon">
             <div class="col-md-12 pt-45">
                <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
             </div>

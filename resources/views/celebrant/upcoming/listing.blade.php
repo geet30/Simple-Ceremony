@@ -174,7 +174,7 @@
                         </div>
                         <div class="calendar-wrapper" id="calendar-wrapper"></div>
                         <input type="hidden" name="booking_date" class="booking_date">
-                        <a onclick="SearchResultsWithTab('search-marriage-by-date')" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
+                        <a onclick="SearchMultipleFilter('search-marriage-by-date')" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
                      </div>
                   </div>
                 </div>

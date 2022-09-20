@@ -115,15 +115,37 @@ trait Methods
     }
     public static function marriage_detail($id = null)
     {
+
         $data =   Booking::with([
             'user' => function ($query) {
                 $query->select('email', 'phone', 'country_code', 'id');
+            },
+            'booking_details_docs' => function ($query) {
+                $query->select('id', 'document','booking_id','created_at');
+            },
+            'booking_details' => function ($query) {
+                $query->select('notes','checked','id','booking_id');
+            },
+            'booking_feedback'=>function ($query) {
+                $query->select('feedback','id','booking_id');
+            },
+            'booking_addons.packages'=>function ($query) {
+                $query->select('package_name','id','total_fee','user_id','product_id');
+            },
+            'booking_addons.packages.user'=>function ($query) {
+                $query->select('name','id');
+            },
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
             },
             'location' => function ($query) {
                 $query->select('name', 'id', 'price');
             },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
+            },
+            'user_noim' => function ($query) {
+                $query->select('*');
             }
         ]);
         if ($id != null) {

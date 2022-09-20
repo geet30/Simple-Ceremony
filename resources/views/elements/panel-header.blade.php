@@ -1,10 +1,50 @@
 @include('elements.admin.account.admin-fee-sidebar')
+<?php
+$cart_count = 0;
+if (Cookie::get('myCart')) {
+    $cart = json_decode(Cookie::get('myCart'));
+    $cart_count = count($cart);
+}
+?>
 <header class="panel-header">
     <div class="row m-0">
+        @if(Auth::user()->roles->first()->name =='User')
+        <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
+            <div class="booking-process-bar d-flex align-items-center">
+                <span class="h4 text-nowrap mb-0 turquoise-100 me-3">Booking progress</span>
+                <div class="progress body-1 w-75">
+                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                </div>
+                <div class="booking-info ms-3">
+                    <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
+                    <div class="booking-info-details">
+                        <p class="body-2 neutral-100">Please, set your NoIM to get your marriage legal documents :</p>
+                        <ul class="body-2 neutral-100">
+                            <li>Notice of Intended Marriage form</li>
+                            <li>Official Certificate of Marriage</li>
+                            <li>Statement of No Legal Barriers</li>
+                            <li>Marriage certificate</li>
+                            <li>Certificate of Faithful performance of Interpreter</li>
+                        </ul>
+                        <a href="#" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to
+                            set up NoIM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
         <div class="col-12 col-sm-6 d-flex justify-content-end order-md-2">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
+                        @if(Auth::user()->roles->first()->name =='User')
+                        <li class="nav-item dropdown align-self-center me-3 user-header-login">
+                            <a role="button" class="cart-icon-header position-relative show-addon-basket-header" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <img src="/images/cart-icon.svg" lass="img-fluid" alt="Cart Icon">
+                                <span class="cart-item-counting">{{ $cart_count }}</span>
+                            </a>
+                        </li>
+                        @endif
                         <li class="nav-item dropdown align-self-center me-3">
                             <a type="button" class="nav-link dropdown-toggle notification" href="#"
                                 id="notification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,7 +75,7 @@
                                         method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <div class="card-body  scrollbar" id="style-3">
+                                    <div class="card-body scrollbar" id="style-3">
                                         <div class="force-overflow">
                                             <ul>
 
@@ -160,3 +200,5 @@
         </div>
     </div>
 </header>
+@include('pages.js')
+@include('elements.basket')

@@ -144,7 +144,6 @@ class UserNoimController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -158,9 +157,46 @@ class UserNoimController extends Controller
 
     public function steps()
     {
+       
         $loggedInUserId = Auth::user()->id;
         $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
         // return $person;
         return view(self::$bladePath . 'steps', compact('person'));
+    }
+
+    public function userNoim($id)
+    {
+        $person = UserNoim::where('booking_id',$id )->with(['birthDocument','divorceOrWidowedDocument','parents','witness'])->get();
+
+        return view('pages.steps.index', compact('person','id'));
+    }
+    public function updateUserNoim(Request $request,$id)
+    {
+        $loggedInUserId =  booking::whereId($id)->pluck('user_id')->first();
+        $bookingId = $id;
+        UserParent::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
+        UserWitness::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
+
+        $person = array_map(function ($person) use ($loggedInUserId, $bookingId) {
+            $person['uuid'] = $person['uuid'] ?? Str::uuid();
+            $person['user_id'] = $loggedInUserId;
+            $person['booking_id'] = $bookingId;
+            $person['date_of_birth'] = date('Y-m-d', strtotime($person['date_of_birth']));
+            $person['conjugal_status'] = $person['conjugal_document']['first_document_name'];
+            $person['name_same_as_passport_or_driving_license'] = isset($person['name_same_as_passport_or_driving_license']) && $person['name_same_as_passport_or_driving_license'] == 'on' ? true : false;
+            $person['is_data_and_document_identical'] = isset($person['is_data_and_document_identical']) && $person['is_data_and_document_identical'] == 'on' ? true : false;
+            $userNoim = UserNoim::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'uuid' => $person['uuid']], $person);
+            if (isset($person['document']['birth_evedence_file'])) {
+                // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 1)->delete();
+                self::uploadDocument($person['document'], $userNoim, 'birth_evedence_file');
+            }
+            if (isset($person['conjugal_document']['file'])) {
+                // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 2)->delete();
+                self::uploadDocument($person['conjugal_document'],  $userNoim, 'file', 2);
+            }
+            self::storeParentData($person, $loggedInUserId, $bookingId, $userNoim);
+        }, $request->person);
+        self::storeWitnessData($request, $loggedInUserId, $bookingId);
+        return env('APP_ENV') == 'dev' ? $request->all() : redirect()->back();
     }
 }

@@ -85,7 +85,7 @@
             <tr>
                 <td colspan="6">
                     <?php $data = []; ?>
-                    @include('elements.admin.addons.pagination', [
+                    @include('elements.pagination.tabs-pagination', [
                         'data' => $addons,
                     ])
 

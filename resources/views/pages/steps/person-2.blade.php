@@ -310,7 +310,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
                     </div>
                 </div>
                 <!--uploaded-box  -->
-                <div class="attach-document-box uploaded-box noim-document-box conjugal_document_perview {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? '' : 'd-none' }}"
+                <div class="attach-document-box uploaded-box noim-document-box {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? '' : 'd-none' }}"
                     style="position:relative">
                     <div class="d-flex justify-content-center
                     uploaded-content">

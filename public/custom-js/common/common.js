@@ -424,6 +424,12 @@ $(document).ready(function () {
         }
     });
     $(".conjugal_status_select").on("change", function () {
+        $(this)
+            .parent()
+            .siblings()
+            .children(".conjugal_document_perview")
+            .addClass("d-none");
+
         if (this.value != 1) {
             $(this)
                 .parent()
@@ -437,6 +443,20 @@ $(document).ready(function () {
                 .children()
                 .attr("required", true);
         } else {
+            $(this)
+                .parent()
+                .siblings()
+                .children(".conjugal_document")
+                .addClass("d-none");
+            $(this)
+                .parent()
+                .siblings()
+                .children(".conjugal_document")
+                .children()
+                .attr("required", false);
+        }
+
+        if (this.value == "") {
             $(this)
                 .parent()
                 .siblings()

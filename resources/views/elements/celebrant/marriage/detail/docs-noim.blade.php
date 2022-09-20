@@ -199,7 +199,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
       </form>
    </div>
    <div class=" ps-xl-0 col-xl-3 ">
-      <a class="theme-btn primary-btn" href="">Access Couples NoIM</a>
+      <a class="theme-btn primary-btn" href="{{url('user/noim',$data->id)}}">Access Couples NoIM</a>
    </div>
 </div>
 <div class="row pt-52 ">
@@ -342,16 +342,17 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                <form method="POST" name="booking_details" id="booking_details" action="{{route('celebrant.saveRecord')}}">
                   @csrf
                   <?php 
-                  
-                   if(isset($data->booking_details->checked) && $data->booking_details->checked ==1){
+                  if(isset($data->booking_details->checked) && $data->booking_details->checked ==1){
                      $buttonClass = '';
+                     $checked ='checked';
                   }else{
                      $buttonClass = 'bg-danger';
+                     $checked ='';
                   }
                   ?>
                   <input name="booking_id" type="hidden" value="{{ $id}}">
                   <input type='hidden' value='0' name='checked'>
-                  <input class="form-check-input me-2" type="checkbox" name="checked" value="1" {{ $data->booking_details->checked == 1? 'checked' : '' }}  onchange="submitAjaxWithoutReload(event, 'booking_details', 'post', '/saveRecord')">
+                  <input class="form-check-input me-2" type="checkbox" name="checked" value="1"  {{ $checked }}  onchange="submitAjaxWithoutReload(event, 'booking_details', 'post', '/saveRecord')">
                   <a class="theme-btn primary-btn {{ $buttonClass}}  cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0">have you confirm all details are correct ?</a>
                </form>
                <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#feedback" aria-controls="feedback">Give feedback</a>

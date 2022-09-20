@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+    
     public function index(Request $request,$slug){
         try {          
             $records = 10;
@@ -101,7 +102,7 @@ class DashboardController extends Controller
           
             $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
             
-            $couple = UserNoim::where('booking_id',$id )->with(['booking','document'])->get();
+            $couple = UserNoim::where('booking_id',$id )->with(['booking','birthDocument'])->get();
             // dd($data);
             return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
             

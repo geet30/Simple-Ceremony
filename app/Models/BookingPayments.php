@@ -9,6 +9,6 @@ class BookingPayments extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id','amount','currency','customerId','payment_status','payment_method_types','status','checkoutSessionID'
+        'user_id','booking_id','amount','currency','customerId','payment_status','payment_method_types','status','checkoutSessionID'
     ];
 }

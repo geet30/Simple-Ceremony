@@ -23,7 +23,7 @@ $websiteRoutes = function () {
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
 
 
-    Route::post('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
+    Route::get('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
 
     Route::get('addons/detail/{id}', [HomeController::class, 'addonDetail'])->name('add-ons-detail');
@@ -273,6 +273,8 @@ $adminRoutes = function () {
             Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
         });
+        Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
+        Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
         Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
         Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
@@ -435,7 +437,8 @@ $celebrantRoutes = function () {
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
         });
-
+        Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
+        Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
         Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
         Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');

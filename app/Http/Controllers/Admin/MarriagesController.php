@@ -166,13 +166,15 @@ class MarriagesController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = MarriagesMethods::marriage_detail($id)->first();
+            // dd($data);
             $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
             
-            $couple = UserNoim::where('booking_id',$id )->with(['booking','document'])->get();
+            $couple = UserNoim::where('booking_id',$id )->with(['booking','birthDocument'])->get();
             
             return view('admin.marriages.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
             
         } catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
 

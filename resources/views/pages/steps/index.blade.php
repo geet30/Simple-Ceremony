@@ -7,10 +7,17 @@
             </div>
            
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
-                @include('elements.user.steps.header')
+            @include('elements.panel-header')
+            <div class="col-12">
+                @if(Auth::user()->roles->first()->name =='Admin')
+                <a href="{{url('marriages/detail',$id)}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+                @elseif(Auth::user()->roles->first()->name =='Celebrant')
+                <a href="{{url('upcoming/detail',$id)}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+                @endif
+            </div>
                 <div class="card noim-card mb-4">
                     <form class="card-body needs-validation pb-5 px-0 pt-0" method="POST"
-                        action="{{ route('user-noim.store') }}" novalidate enctype="multipart/form-data">
+                        action="{{ route('user-noims.update',$id) }}" novalidate enctype="multipart/form-data">
                         @csrf
                         <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100"
                             class="scrollspy-example" tabindex="0">
@@ -36,10 +43,8 @@
                                 @include('elements.user.steps.witness')
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to
-                                fill
-                                referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></button>
+                        <div class="col-12 mb-4">
+                            <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue ... almost there :)<img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></button>
                             {{-- <a href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to fill
                                 referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></a> --}}
                         </div>

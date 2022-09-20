@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -6,7 +6,7 @@
                 @include('elements.user-sidebar')
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
-                @include('elements.user-header')
+                @include('elements.panel-header')
                 <div class="card panel-card">
                     <div class="card-body niom">
                         <div class="row">
