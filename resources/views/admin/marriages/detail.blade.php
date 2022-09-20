@@ -34,7 +34,7 @@
                      </div>
                      <div class=" col-lg-12 col-xxl-6 col-xl-6 col-12 text-xxl-end mt-3 mt-xxl-0">
                         <div class="d-flex justify-content-start justify-content-md-between justify-content-xl-end flex-column flex-md-row">
-                           <div class="d-flex align-self-start me-0 me-xl-4 mb-4 mb-xl-0">
+                           <div class="d-flex align-self-start me-0 me-xl-0 mb-4 mb-xl-0">
                               <div class="align-self-center me-2 body-2-semi-bold"><span class="text-nowrap status {{strtolower(config('ceremonyStatus.booking_status.'.$data->status) )}}">{{config('ceremonyStatus.booking_status.'.$data->status) }} </span></div>
                               <div class="dropdown theme-dropdown me-2">
                                  <button class="theme-btn white-btn-border dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,7 +50,7 @@
                                  </ul>
                               </div>
                            <div class=" align-self-start">
-                            <a href="" class="theme-btn primary-btn-border d-inline-flex" data-bs-toggle="offcanvas" data-bs-target="#reminder"> Create reminder</a>
+                            <a href="" class="theme-btn primary-btn-border d-inline-flex px-1 text-nowrap" data-bs-toggle="offcanvas" data-bs-target="#reminder"> Create reminder</a>
                            </div>
                         </div>
                      </div>
