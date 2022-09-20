@@ -59,6 +59,15 @@ trait Methods
             'location' => function ($query) {
                 $query->select('name', 'id', 'price');
             },
+            'booking_feedback'=>function ($query) {
+                $query->select('feedback','id','booking_id');
+            },
+            'booking_addons.packages'=>function ($query) {
+                $query->select('package_name','id','total_fee','user_id','product_id');
+            },
+            'booking_addons.packages.user'=>function ($query) {
+                $query->select('name','id');
+            },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
             }
