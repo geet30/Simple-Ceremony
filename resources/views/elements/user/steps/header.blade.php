@@ -115,10 +115,23 @@
                   <li class="nav-item dropdown align-self-center">
                      <a class="nav-link dropdown-toggle d-flex admin-profile py-0" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="align-self-center"><img src="/images/icons/header-logo.svg" class="img-fluid me-3"></div>
-                        <div  class="align-self-center">
-                           <p class="body-2 text-black mb-0">Geoff</p>
-                           <p class="small-text3 mb-0 text-black">User</p>
-                        </div>
+                        <div class="align-self-center">
+
+                           @if(Auth::user()->roles->first()->name =='User')
+                           @php
+                              $username ='';
+                              $username = \App\Models\Booking::where(['user_id' => Auth::user()->id])->pluck('first_couple_name')->first();
+
+                           @endphp
+                           <p class="body-2 text-black mb-0">{{ ucfirst($username)}}</p>
+
+                           @else
+                              <p class="body-2 text-black mb-0">{{ (isset(auth()->user()->name)) ? auth()->user()->name : '' }}</p>
+                              
+                           @endif
+                           <p class="small-text3 mb-0 text-black">{{ auth()->user()->roles()->first()->name }}
+                           </p>
+                           </div>
                         <div class="fa-solid fa-chevron-down icon-rotate align-self-center ms-3"></div>
                      </a>
                      <ul class="dropdown-menu  admin-profile-menu" aria-labelledby="navbarScrollingDropdown">
