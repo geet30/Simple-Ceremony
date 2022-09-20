@@ -199,7 +199,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
       </form>
    </div>
    <div class=" ps-xl-0 col-xl-3 ">
-      <a class="theme-btn primary-btn" href="">Access Couples NoIM</a>
+      <a class="theme-btn primary-btn" href="{{url('user/noim',$data->id)}}">Access Couples NoIM</a>
    </div>
 </div>
 <div class="row pt-52 ">
@@ -349,7 +349,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                      $buttonClass = 'bg-danger';
                      $checked ='';
                   }
-                     ?>
+                  ?>
                   @csrf
                   <input name="booking_id" type="hidden" value="{{ $id}}">
                   <input type='hidden' value='0' name='checked'>
