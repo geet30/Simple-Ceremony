@@ -98,6 +98,8 @@
         .uploaded-content {
             height: 112px !important;
             align-items: center;
+            width: 90%;
+            margin: 0 auto;
             @include media-breakpoint-down(md) {
                 height: 252px !important;
             }
