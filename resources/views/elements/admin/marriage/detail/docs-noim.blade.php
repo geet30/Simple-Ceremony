@@ -83,10 +83,11 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                   <div class="id-card border-turquoise-50 br-10">
                      <div class="row">
                         <div class="col-md-7 col-xl-8 align-self-center">
-                           @if(isset($couple1->document) && !empty($couple1->document))
-                           @foreach($couple1->document as $couple_documents)
-                           <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
-                           @endforeach
+                        
+                           @if(isset($couple1->birthDocument) && !empty($couple1->birthDocument))
+                           
+                           <embed src="{{ asset('uploads/documents/user/'.$couple1->birthDocument->document_path) }}" class="img-fluid" alt="id-1">
+                          
                            @endif
                         </div>
                         <div class="col-md-5 col-xl-4 align-self-center">
@@ -181,10 +182,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                   <div class="id-card border-turquoise-50 br-10">
                      <div class="row">
                         <div class="col-md-7 col-xl-8 align-self-center">
-                           @if(isset($couple2->document) && !empty($couple2->document))
-                           @foreach($couple2->document as $couple_documents)
-                           <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
-                           @endforeach
+                           @if(isset($couple2->birthDocument) && !empty($couple2->birthDocument))
+                           
+                           <embed src="{{ asset('uploads/documents/user/'.$couple2->birthDocument->document_path) }}" class="img-fluid" alt="id-1">
+                          
                            @endif
                         </div>
                         <div class="col-md-5 col-xl-4 align-self-center">
