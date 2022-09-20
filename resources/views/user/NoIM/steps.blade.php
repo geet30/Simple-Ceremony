@@ -5,7 +5,7 @@
             <div class="col-2 col-md-3 col-lg-2 p-0">
                 @include('elements.user.steps.sidebar')
             </div>
-           
+
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
                 @include('elements.user.steps.header')
                 <div class="card noim-card mb-4">
@@ -35,13 +35,14 @@
                             <div id="witness">
                                 @include('elements.user.steps.witness')
                             </div>
-                        </div>
-                        <div class="col-12">
-                            <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to
-                                fill
-                                referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></button>
-                            {{-- <a href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to fill
-                                referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></a> --}}
+                            <div class="col-12">
+                                <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue
+                                    to
+                                    fill
+                                    referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></button>
+                                {{-- <a href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to fill
+                                        referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></a> --}}
+                            </div>
                         </div>
                     </form>
                 </div>

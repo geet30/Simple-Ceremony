@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
-use App\Http\Controllers\{HomeController,DownloadController};
+use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +21,8 @@ $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
-    
-   
+
+
     Route::get('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
 
@@ -194,7 +194,7 @@ $websiteRoutes = function () {
         Route::get('edit-signature', function () {
             return view('user.documents.edit-signature');
         });
-       
+
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
@@ -271,7 +271,7 @@ $adminRoutes = function () {
             Route::post('search-location', [MarriagesController::class, 'searchMarriageByLocation']);
             Route::post('search-marriages', [MarriagesController::class, 'searchMarriagesByDate']);
             Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
-            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');   
+            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
         });
         Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
         Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
@@ -433,9 +433,9 @@ $celebrantRoutes = function () {
             // Route::resource('/', DashboardController::class);
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
-            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');         
+            Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
-            Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);       
+            Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
         });
         Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
         Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
@@ -453,8 +453,6 @@ $celebrantRoutes = function () {
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
         Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
-       
-        
     });
 
     Route::get('availablity-overview', function () {
