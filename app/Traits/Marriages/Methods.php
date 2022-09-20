@@ -139,7 +139,7 @@ trait Methods
                 $query->select('celebrant_id','admin_fee','standard_fee', 'id');
             },
             'location' => function ($query) {
-                $query->select('name', 'id', 'price');
+                $query->select('name', 'id', 'price','address');
             },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');

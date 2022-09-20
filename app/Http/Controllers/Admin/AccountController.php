@@ -91,7 +91,7 @@ class AccountController extends Controller
             $id = Auth::user()->id;
             if ($request->ajax()) {
                 if ($request->has('current_password')) {
-                    if (Hash::check(Auth::user()->password, $request->password) == false) {
+                    if (Hash::check($request->current_password,Auth::user()->password) == false) {
                         return $this->errorResponse([], 'Current password is not correct.', 400);
                     }
                 }

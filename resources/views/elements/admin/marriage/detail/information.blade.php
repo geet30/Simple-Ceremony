@@ -33,6 +33,7 @@
             </div>
             <div class="col-md-6  mb-4 ">
                <label for="celebrant" class="form-label small-text2 ps-2">Celebrant Fee</label>
+               
                <input type="text" value="${{isset($celebrant_details->celebrant->standard_fee ) ? $celebrant_details->celebrant->standard_fee : ''}}" class="form-control body-1" id="celebrant" readonly>
             </div>
 

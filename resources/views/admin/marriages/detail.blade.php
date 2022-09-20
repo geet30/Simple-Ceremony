@@ -17,7 +17,7 @@
                      <div class="col-xxl-6 col-lg-12 col-xl-6 col-12 ">
                         <div class="d-flex flex-column flex-lg-row">
                            <div class="col-12 col-md-6 col-xxl-5 align-self-start mb-2 mb-lg-0">
-                              <h1 class="h3 neutral-100 mb-0">Ceremony details  </h1>
+                              <h1 class="h4 neutral-100 mb-0">Ceremony details  </h1>
                            </div>
                            <div class="col-12 align-self-start text-start d-block d-lg-none">
                               <span class="status registered  ">30 days till marriage</span>
@@ -114,4 +114,5 @@
 @include('elements.admin.marriage.assign-marriage-celebrant')
 @include('elements.admin.marriage.detail.create-reminder')
 @include('pages.alert.change_marriage_status')
+
 @endsection

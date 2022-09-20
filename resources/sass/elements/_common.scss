@@ -413,10 +413,10 @@
         vertical-align: 0.155em;
     }
     &.booked {
-        color: $turquoise-100;
-        background-color: $turquoise-20;
+        color: #1B801B;
+        background-color: #E0FCE0;
         &::before {
-            background-color: $turquoise-100;
+            background-color: #1B801B;
         }
     }
     &.pending {

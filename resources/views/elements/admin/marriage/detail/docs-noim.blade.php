@@ -83,10 +83,11 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                   <div class="id-card border-turquoise-50 br-10">
                      <div class="row">
                         <div class="col-md-7 col-xl-8 align-self-center">
-                           @if(isset($couple1->document) && !empty($couple1->document))
-                           @foreach($couple1->document as $couple_documents)
-                           <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
-                           @endforeach
+                        
+                           @if(isset($couple1->birthDocument) && !empty($couple1->birthDocument))
+                           
+                           <embed src="{{ asset('uploads/documents/user/'.$couple1->birthDocument->document_path) }}" class="img-fluid" alt="id-1">
+                          
                            @endif
                         </div>
                         <div class="col-md-5 col-xl-4 align-self-center">
@@ -181,10 +182,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                   <div class="id-card border-turquoise-50 br-10">
                      <div class="row">
                         <div class="col-md-7 col-xl-8 align-self-center">
-                           @if(isset($couple2->document) && !empty($couple2->document))
-                           @foreach($couple2->document as $couple_documents)
-                           <embed src="{{ asset($couple_documents['document_path']) }}" class="img-fluid" alt="id-1">
-                           @endforeach
+                           @if(isset($couple2->birthDocument) && !empty($couple2->birthDocument))
+                           
+                           <embed src="{{ asset('uploads/documents/user/'.$couple2->birthDocument->document_path) }}" class="img-fluid" alt="id-1">
+                          
                            @endif
                         </div>
                         <div class="col-md-5 col-xl-4 align-self-center">
@@ -262,7 +263,8 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Notice of Intended Marriage form</h3>
-                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <!-- <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p> -->
+                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -275,7 +277,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Official Certificate of Marriage</h3>
-                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -288,7 +290,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Declaration of No legal Impediment</h3>
-                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -301,7 +303,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Certificate of Marriage -Form 15</h3>
-                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
@@ -313,7 +315,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="card doument-box">
                <div class="card-body text-center">
                   <h3 class="button-1 neutral-100 title ">Certificate of Faithful performance of Interpreter</h3>
-                  <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
+                  <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p>
                   <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download</a></p>
                </div>
                <div class="card-footer  text-center">
