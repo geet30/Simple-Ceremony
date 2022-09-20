@@ -144,10 +144,10 @@
                                     </div>
                                  </label>
                               </div>
-                           
+                              @if(isset($data->request_location_images) && !empty($data->request_location_images))
                               <div class="upload__img-wrap">
                               
-                                 @if(isset($data->request_location_images) && !empty($data->request_location_images))
+                                 
                                  <input type="hidden" name="image_id" id="image_id">
                                  @foreach($data->request_location_images as $keys=>$images)
                                  <?php 
@@ -164,10 +164,11 @@
                                     </div>
                                  </div>
                                  @endforeach
-                                 @else
+                                
+                              </div>
+                              @else
                                  <div class="upload__img-wrap"></div>
                                  @endif
-                              </div>
                            </div>
                         </div>
                         <div class="col-md-5 mb-4 keyAdvantage">
