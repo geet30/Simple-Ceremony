@@ -54,7 +54,7 @@ class MarriagesController extends Controller
                 $viewurl = 'elements.admin.marriage.' . $slug;
                 return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray]);
             }
-            // dd($data);
+            // dd($dataArray);
             return view('admin.marriages.view', compact('dataArray','locations','celebrants'));
         } catch (\Exception $ex) {
 

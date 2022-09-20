@@ -42,7 +42,7 @@
                         {{$result->location->name}}
                     </td>
                     <td class="body-2 neutral-100" style="min-width:130px;">{{date('M d,Y',strtotime($result->booking_date))}}</td>
-                    <td>2</td>
+                    <td>{{count($result->booking_addons)}}</td>
                     <td style="min-width:120px;">
                             <span class="text-nowrap cursor-pointer  status {{strtolower(config('ceremonyStatus.booking_status.'.$result->status) )}}"> <a role="button" data-bs-toggle="modal" data-bs-target="#change_status_modal" onclick="appendId('{{$result->id}}','id')">{{config('ceremonyStatus.booking_status.'.$result->status) }}  </a></span>
                     </td>
