@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
+    
     public function index(Request $request,$slug){
         try {          
             $records = 10;
