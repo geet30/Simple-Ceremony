@@ -76,7 +76,6 @@ var defaultConfig = {
     onClickDate: selectDate,
     showYearDropdown: true,
     startOnMonday: true,
-   
 };
 
 /////// user sidebar
@@ -174,17 +173,17 @@ $(document).ready(function () {
     window.closeDialog = function (id) {
         $("#" + id).modal("hide");
     };
-    window.closedDiv = function(findclass){
-        $("." + findclass).removeClass('show');
-    }
+    window.closedDiv = function (findclass) {
+        $("." + findclass).removeClass("show");
+    };
     window.appendId = function (value, findclass) {
         $("." + findclass).val(value);
     };
-  
-    $('ul.add-on-list-nav li:gt(4)').hide();
-    $('.collapse_ul').click(function() {
-        $(this).toggleClass('button_collapse')
-        $('ul.add-on-list-nav li:gt(4)').toggle();
+
+    $("ul.add-on-list-nav li:gt(4)").hide();
+    $(".collapse_ul").click(function () {
+        $(this).toggleClass("button_collapse");
+        $("ul.add-on-list-nav li:gt(4)").toggle();
     });
     window.submitThroughAjax = function (e, id, method, action) {
         e.preventDefault();
@@ -192,12 +191,25 @@ $(document).ready(function () {
         var form = $(e.target);
         submitform(id, action, method, formData, form);
     };
-    window.submitAjaxWithoutReload = function (e, id, method, action,callfunction=null) {
+    window.submitAjaxWithoutReload = function (
+        e,
+        id,
+        method,
+        action,
+        callfunction = null
+    ) {
         e.preventDefault();
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = e.target;
-        
-        submitfunctionWithoutReload(id, action, method, formData, form,callfunction);
+
+        submitfunctionWithoutReload(
+            id,
+            action,
+            method,
+            formData,
+            form,
+            callfunction
+        );
     };
 });
 
@@ -352,7 +364,6 @@ function selectDateClass(date) {
     });
 }
 
-
 (function ($) {
     $(".reply-btn").click(function () {
         $(".reply-content").addClass("d-block");
@@ -443,7 +454,9 @@ $(document).ready(function () {
     // DISPLAY SELECTED FILE NAME ON USER DOCUMENT SECTION
     $('.noim-document-box input[type="file"]').change(function (e) {
         let filename = e.target.files[0].name;
-        $(this).parent().addClass("d-none");
+        if ($(this).parent().hasClass("conjugal_document")) {
+            $(this).parent().addClass("d-none");
+        }
         $(this).parent().siblings().removeClass("d-none");
         $(this)
             .parent()
@@ -452,5 +465,13 @@ $(document).ready(function () {
             .children(":first-child")
             .children("p.document-name")
             .text(filename);
+    });
+});
+$(function () {
+    $(".noim-user-calendar").datepicker({
+        format: "D, MM d, yyyy",
+        keyboardNavigation: false,
+        autoclose: true,
+        endDate: new Date(),
     });
 });

@@ -8,15 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class UserNoim extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id', 'booking_id', 'preferred_name', 'person_first_name', 'family_name', 'person_other_name', 'person_name_combination', 'person_description', 'name_same_as_passport_or_driving_license', 'gender', 'occupation', 'residence_place', 'address_line_1', 'address_line_2', 'residence_town_or_city_or_suburb', 'residence_state_or_province_or_territory', 'postal_code', 'date_of_birth', 'birth_place', 'birth_document', 'birth_town_or_city_or_suburb', 'birth_state_or_province_or_territory', 'conjugal_status', 'are_parties_related', 'how_they_related', 'is_data_and_document_identical'];
+    protected $fillable = ['uuid', 'user_id', 'booking_id', 'preferred_name', 'person_first_name', 'family_name', 'person_other_name', 'person_name_combination', 'person_description', 'name_same_as_passport_or_driving_license', 'gender', 'occupation', 'residence_place', 'address_line_1', 'address_line_2', 'residence_town_or_city_or_suburb', 'residence_state_or_province_or_territory', 'postal_code', 'date_of_birth', 'birth_place', 'birth_document', 'birth_town_or_city_or_suburb', 'birth_state_or_province_or_territory', 'conjugal_status', 'are_parties_related', 'how_they_related', 'is_data_and_document_identical', 'birth_identical_document_first', 'birth_identical_document_number_first', 'birth_identical_document_second', 'birth_identical_document_number_second', 'birth_identical_document_issue_state', 'all_information_correct'];
 
     public function booking()
     {
         return $this->hasOne(Booking::class, 'id', 'booking_id');
     }
-    public function document()
+    public function birthDocument()
     {
-        return $this->hasMany(UserDocument::class, 'user_noim_id', 'id');
+        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 1);
     }
-
+    public function divorceOrWidowedDocument()
+    {
+        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 2);
+    }
+    public function witness()
+    {
+        return $this->hasMany(UserWitness::class, 'user_id', 'user_id');
+    }
+    public function parents()
+    {
+        return  $this->hasMany(UserParent::class, 'user_noim_id', 'id');
+    }
 }

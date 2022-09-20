@@ -1,6 +1,7 @@
 @php
 $person = isset($person) && isset($person[0]) ? $person[0] : null;
 @endphp
+<input type="hidden" name="person[0][uuid]" value="{{ $person && $person['uuid'] ? $person['uuid'] : '' }}">
 <div class="row">
     <div class="col-12 mb-4">
         <h2 class="h3 neutral-100 mb-0">Details of the Parties</h2>
@@ -43,25 +44,28 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                                 class="js-placeholder-single-input form-control selectEvidence" required>
                                 <option value="" selected="">Select answer here
                                 </option>
-                                <option value="birth-certificate-or-official-extract">Birth Certificate or official
-                                    extract</option>
-                                <option value="autstralian-passport">Australian Passport</option>
-                                <option value="os-passport">OS Passport</option>
+                                @foreach (Config::get('userConstants.birth_evidence_list_1') as $key => $evidence)
+                                    <option value="{{ $key }}"
+                                        {{ $person && $person->BirthDocument && $person->BirthDocument['first_document_name'] == $key ? 'selected' : '' }}>
+                                        {{ $evidence }}</option>
+                                @endforeach
                             </select>
                             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                         alt="Require Icon"></span>Field is required</div>
                         </div>
-                        <div class="col-md-6 mb-4 align-self-end d-none">
+                        <div
+                            class="col-md-6 mb-4 align-self-end  {{ $person && $person->BirthDocument && $person->BirthDocument['second_document_name'] != null ? '' : 'd-none' }}">
                             <label for="person1SelectEvidence2" class="form-label small-text2">What photo ID are you
                                 using?</label>
                             <select name="person[0][document][second_document_name]" id="person1SelectEvidence2"
                                 class="js-placeholder-single-input form-control">
-                                <option value="" selected="">Select answer here
+                                <option value="">Select answer here
                                 </option>
-                                <option value="current-card-(govt-issued)">Current Card (Govt issued)</option>
-                                <option value="current-driver's-licence">Current Driver’s Licence</option>
-                                <option value="current-proof-of-age-card-(govt-issued)">Current Proof of Age Card (Govt
-                                    issued)</option>
+                                @foreach (Config::get('userConstants.birth_evidence_list_2') as $key => $evidence)
+                                    <option value="{{ $key }}"
+                                        {{ $person && $person->BirthDocument && $person->BirthDocument['second_document_name'] == $key ? 'selected' : '' }}>
+                                        {{ $evidence }}</option>
+                                @endforeach
                             </select>
                             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                         alt="Require Icon"></span>Field is required</div>
@@ -71,7 +75,8 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <div class="col-xl-10 mx-auto mt-30 position-relative">
                     <div class="attach-document-box position-relative noim-document-box">
                         <input id="fileupload" class="fileupload" type="file"
-                            name="person[0][document][birth_evedence_file]" accept=".pdf,.doc,.docx" required>
+                            name="person[0][document][birth_evedence_file]" accept=".pdf,.doc,.docx"
+                            {{ $person && $person->BirthDocument && $person->BirthDocument['document_path'] != null ? '' : 'required' }}>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                     alt="Require Icon"></span>Field is required</div>
                         <div class="inner-content">
@@ -90,10 +95,13 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                         </div>
                     </div>
                     <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box noim-document-box d-none">
+                    <div
+                        class="attach-document-box uploaded-box noim-document-box {{ $person && $person->BirthDocument && $person->BirthDocument['document_path'] != null ? '' : 'd-none' }}">
                         <div class="d-flex justify-content-center uploaded-content">
                             <div class="align-self-center">
-                                <p id="filename" class="h4 neutral-100 mb-0 document-name"></p>
+                                <p id="filename" class="h4 neutral-100 mb-0 document-name">
+                                    {{ $person && $person->BirthDocument && $person->BirthDocument['document_path'] ? $person->BirthDocument['document_path'] : '' }}
+                                </p>
                             </div>
                             <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
                                     class="img-fluid ms-3"></div>
@@ -137,7 +145,7 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <label for="person0family_name" class="form-label small-text2">Your family name</label>
                 <input type="text" class="form-control body-1 netural-100" name="person[0][family_name]"
                     id="person0family_name" oninput="this.value = this.value.toUpperCase()"
-                    value="{{ $person['family_name'] ?? 'FAMILY NAME' }}" required>
+                    value="{{ $person['family_name'] ?? '' }}" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -178,7 +186,7 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 </div>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="person0gender" class="form-label small-text2">Gender (Optional)</label>
+                <label for="person0gender" class="form-label small-text2">Gender</label>
                 <select name="person[0][gender]" id="person0gender" class="js-placeholder-single-input form-control"
                     required>
                     <option value="">Select gender here</option>
@@ -201,10 +209,11 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person0residence_place" class="form-label small-text2">Usual place of residence</label>
                 <select name="person[0][residence_place]" id="person0residence_place"
-                    class="js-placeholder-single-input form-control">
+                    class="js-placeholder-single-input form-control" required>
                     <option value="">Select country here</option>
                     @foreach (Config::get('userConstants.countries') as $key => $country)
-                        <option value="{{ $key }}">
+                        <option value="{{ $key }}"
+                            {{ $person && $person['residence_place'] == $key ? 'selected' : '' }}>
                             {{ Config::get('userConstants.countries')[$key]['name'] }}</option>
                     @endforeach
                     {{-- <option value="Australia"
@@ -262,7 +271,7 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person0conjugal_status" class="form-label small-text2">Conjugal status</label>
-                <select name="person[0][conjugal_status]" id="person0conjugal_status"
+                <select name="person[0][conjugal_document][first_document_name]" id="person0conjugal_status"
                     class="js-placeholder-single-input form-control conjugal_status_select" required>
                     <option value="">Select conjugal status here</option>
                     @foreach (Config::get('userConstants.conjugal_status') as $key => $value)
@@ -270,11 +279,6 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                             {{ $person && $person['conjugal_status'] == $key ? 'selected' : '' }}>{{ $value }}
                         </option>
                     @endforeach
-                    {{-- <option value="1" {{ $person && $person['conjugal_status'] == 1 ? 'selected' : '' }}>
-                        Never
-                        validly married</option>
-                    <option value="2"{{ $person && $person['conjugal_status'] == 2 ? 'selected' : '' }}>
-                        Divorced</option> --}}
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -291,9 +295,11 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                             alt="Require Icon"></span>Field is required</div>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <div class="attach-document-box position-relative noim-document-box conjugal_document d-none">
-                    <input id="fileupload" class="fileupload" type="file" name="person[0][conjugal_document]"
-                        accept=".pdf,.doc,.docx">
+                <div
+                    class="attach-document-box position-relative noim-document-box conjugal_document {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? 'd-none' : '' }}">
+                    <input id="fileupload" class="fileupload" type="file"
+                        name="person[0][conjugal_document][file]" accept=".pdf,.doc,.docx"
+                        {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? '' : 'required' }}>
                     <div class="inner-content">
                         <div class="d-md-flex ">
                             <div class="d-flex d-md-block  justify-content-center justify-content-md-start">
@@ -310,10 +316,13 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                     </div>
                 </div>
                 <!--uploaded-box  -->
-                <div class="attach-document-box uploaded-box noim-document-box d-none" style="position: relative;">
+                <div class="attach-document-box uploaded-box noim-document-box {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? '' : 'd-none' }}"
+                    style="position: relative;">
                     <div class="d-flex justify-content-center uploaded-content">
                         <div class="align-self-center">
-                            <p class="h4 neutral-100 mb-0 document-name">Document.pdf</p>
+                            <p class="h4 neutral-100 mb-0 document-name">
+                                {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] ? $person->divorceOrWidowedDocument['document_path'] : '' }}
+                            </p>
                         </div>
                         <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
                                 class="img-fluid ms-3"></div>
@@ -368,10 +377,12 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
             </div>
             <div class="col-md-6 mb-4 ">
                 <label for="person0date_of_birth" class="form-label small-text2">Date of Birth</label>
-                <div class="input-group date theme-datepicker">
-                    <input role="button" type="text" class="form-control body-1 netural-100 event_date_input"
+                <div class="input-group date {{-- theme-datepicker --}}">
+                    <input role="button" type="text"
+                        class="form-control body-1 netural-100 event_date_input noim-user-calendar"
                         id="person0date_of_birth" name="person[0][date_of_birth]" placeholder="Choose date here"
-                        required />
+                        required autocomplete="off"
+                        value="{{ $person && $person['date_of_birth'] ? date('D, M d, Y', strtotime($person['date_of_birth'])) : date('D, M d, Y') }}" />
                     <span class="input-group-append">
                     </span>
                     <div class="invalid-feedback event_date_required"> <span><img class="me-2"

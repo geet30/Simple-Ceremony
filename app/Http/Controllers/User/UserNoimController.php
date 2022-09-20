@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Models\Booking;
 use App\Models\UserNoim;
 use App\Models\UserParent;
+use Illuminate\Support\Str;
 use App\Models\UserWitness;
 use App\Models\UserDocument;
 use Illuminate\Http\Request;
@@ -12,7 +13,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserNoimRequest;
 use Illuminate\Support\Facades\Request as FacadesRequest;
+use PhpParser\Node\Stmt\TryCatch;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
+
 
 class UserNoimController extends Controller
 {
@@ -47,25 +50,34 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
-        return $request->all();
+        // return $request->all();
+        // dd($request->all());
         // remove the exists rows
-        UserNoim::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
+        // UserNoim::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
         UserParent::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
         UserWitness::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
-        UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
 
         $person = array_map(function ($person) use ($loggedInUserId, $bookingId) {
+            $person['uuid'] = $person['uuid'] ?? Str::uuid();
             $person['user_id'] = $loggedInUserId;
             $person['booking_id'] = $bookingId;
             $person['date_of_birth'] = date('Y-m-d', strtotime($person['date_of_birth']));
+            $person['conjugal_status'] = $person['conjugal_document']['first_document_name'];
             $person['name_same_as_passport_or_driving_license'] = isset($person['name_same_as_passport_or_driving_license']) && $person['name_same_as_passport_or_driving_license'] == 'on' ? true : false;
             $person['is_data_and_document_identical'] = isset($person['is_data_and_document_identical']) && $person['is_data_and_document_identical'] == 'on' ? true : false;
-            $userNoim = UserNoim::create($person);
-            self::uploadDocument($person['document'], $userNoim);
+            $userNoim = UserNoim::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'uuid' => $person['uuid']], $person);
+            if (isset($person['document']['birth_evedence_file'])) {
+                // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 1)->delete();
+                self::uploadDocument($person['document'], $userNoim, 'birth_evedence_file');
+            }
+            if (isset($person['conjugal_document']['file'])) {
+                // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 2)->delete();
+                self::uploadDocument($person['conjugal_document'],  $userNoim, 'file', 2);
+            }
             self::storeParentData($person, $loggedInUserId, $bookingId, $userNoim);
         }, $request->person);
         self::storeWitnessData($request, $loggedInUserId, $bookingId);
-        return $request->all();
+        return env('APP_ENV') == 'dev' ? $request->all() : redirect()->back();
     }
     private static function storeWitnessData($request, $loggedInUserId, $bookingId)
     {
@@ -84,16 +96,16 @@ class UserNoimController extends Controller
             $parent['user_noim_id'] = $userNoim->id;
             return $parent;
         }, $request['parent']);
-        // dump($parents);
         UserParent::insert($parents);
     }
-    private function uploadDocument($document, $ref)
+    private function uploadDocument($document, $ref, $fileName, $documentType = 1)
     {
-        $file_name = uploadFile($document['birth_evedence_file'], 'uploads/documents/user/');
+        $file_name = uploadFile($document[$fileName], 'uploads/documents/user/');
         $document['user_id'] = $ref->user_id;
         $document['booking_id'] = $ref->booking_id;
         $document['user_noim_id'] = $ref->id;
-        $document['document_extension'] = $document['birth_evedence_file']->getClientOriginalExtension();
+        $document['document_type'] = $documentType;
+        $document['document_extension'] = $document[$fileName]->getClientOriginalExtension();
         $document['document_path'] = $file_name;
         UserDocument::create($document);
         //
@@ -147,8 +159,8 @@ class UserNoimController extends Controller
     public function steps()
     {
         $loggedInUserId = Auth::user()->id;
-        $person = UserNoim::whereUserId($loggedInUserId)->get();
-        
+        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
+        // return $person;
         return view(self::$bladePath . 'steps', compact('person'));
     }
 }
