@@ -494,6 +494,26 @@ $(document).ready(function () {
             .children("p.document-name")
             .text(filename);
     });
+    $("#english-speak-parties").on("change", function () {
+        let selectedVal = this.value;
+        cl(selectedVal);
+        if (selectedVal == 0) {
+            $(".speaking-lang").removeClass("d-none");
+            $(".speaking-lang").children("select").attr("required", true);
+            $(".speaking-lang")
+                .children()
+                .children("input")
+                .attr("required", true);
+        }
+        if (selectedVal == 1) {
+            $(".speaking-lang").addClass("d-none");
+            $(".speaking-lang").children("select").attr("required", false);
+            $(".speaking-lang")
+                .children()
+                .children("input")
+                .attr("required", false);
+        }
+    });
 });
 $(function () {
     $(".noim-user-calendar").datepicker({
