@@ -56,13 +56,20 @@
     </div>
 </div>
 <script>
+    var current_url = window.location.pathname.split('/');
+    
+    var route ='/account';
+    if(current_url[1]=='user'){
+        route ='/user/account';
+    }
+    // console.log(route,'route');
     $('#resetPassword').on('submit', function(e) {
         e.preventDefault();
         var form = $("#resetPassword")[0]
         if (form.checkValidity() === true) {
             if ($('.passwordCls').val() == $('.confirmPasswordCls').val()) {
                 $('.confirm_password_message').addClass('d-none');
-                submitCommonfunction('resetPassword', '/account', 'post')
+                submitCommonfunction('resetPassword', route, 'post')
             } else {
                 $('.confirm_password_message').addClass('d-block');
                 $('.confirm_password_message').removeClass('d-none');

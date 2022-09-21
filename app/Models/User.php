@@ -71,4 +71,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Booking::class, 'user_id', 'id');
     }
+    public function booking_user()
+    {
+        return $this->hasOne(UserPersonalDetail::class, 'user_id', 'id');
+    }
 }

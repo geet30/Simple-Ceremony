@@ -145,6 +145,9 @@ $websiteRoutes = function () {
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
             Route::get('step-2', [UserNoimController::class, 'step2'])->name('user-noim.steps2.get');
             Route::post('step-2', [UserNoimController::class, 'referrer'])->name('user-noim.steps2.post');
+            Route::get('profile', [AccountController::class, 'getUserAccount'])->name('getUserAccount');
+            Route::post('account', [AccountController::class, 'updateUserAccount']);
+            Route::put('account/update', [AccountController::class, 'updateUserAccount'])->name('updateUserAccount');
         });
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
