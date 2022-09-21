@@ -68,7 +68,50 @@ class AccountController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }  
     }
-     
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getUserAccount()
+    {
+        try {
+            
+            $id = Auth::user()->id;
+            $data = User::where('id',$id )->with(['booking_user'])->first();
+            return view('user.profile.setting',compact('id','data'));
+        }catch (\Exception $ex) {
+            dd($ex);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateUserAccount(Request $request)
+    {
+        try {
+            if ($request->ajax()) {
+                if ($request->has('current_password')) {
+                    if (Hash::check($request->current_password,Auth::user()->password) == false) {
+                        return $this->errorResponse([], 'Current password is not correct.', 400);
+                    }
+                }
+                $response = User::saveProfileDetail($request,  Auth::user()->id);
+                if ($response) {
+                    return $this->successResponse([], 'Password changed successfully.');
+                }
+            }
+            $response = User::updateUserDetail($request->all(), Auth::user()->id);
+            if ($response) {
+                return redirect('user/profile')->with('message', 'Profile updated successfully.');
+            }
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }  
+    }   
     /**
      * Show the form for creating a new resource.
      *
