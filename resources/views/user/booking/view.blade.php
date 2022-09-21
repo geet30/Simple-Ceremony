@@ -1,5 +1,10 @@
 @extends('layouts.master') 
 @section('content')
+<style>
+   .modal-open .select2-container {
+    z-index: 1055;
+} 
+</style>
 <section class="location-banner">
     <div class="container">
         <div class="row">
@@ -160,4 +165,5 @@
      </div>
    </div>
 </div>
+  
 @endsection
