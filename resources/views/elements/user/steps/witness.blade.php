@@ -104,8 +104,7 @@ $personWitnessElement = 'person1Witness';
     </div>
     <div class="col-12 mb-4">
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="witness-checkbox" id="witness-checkbox"
-                autocomplete="off" required checked>
+            <input class="form-check-input" type="checkbox" id="witness-checkbox" autocomplete="off" required checked>
             <label class="form-check-label text-black body-3-regular" for="witness-checkbox">
                 We have checked that all the details above are 100% correct and exactly agree with all the documentation
                 we have provided. We accept that we are responsible for any errors and the cost associated with

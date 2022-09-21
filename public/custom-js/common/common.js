@@ -427,47 +427,55 @@ $(document).ready(function () {
         $(this)
             .parent()
             .siblings()
+            .children()
             .children(".conjugal_document_perview")
             .addClass("d-none");
 
-        if (this.value != 1) {
-            $(this)
-                .parent()
-                .siblings()
-                .children(".conjugal_document")
-                .removeClass("d-none");
-            $(this)
-                .parent()
-                .siblings()
-                .children(".conjugal_document")
-                .children()
-                .attr("required", true);
-        } else {
-            $(this)
-                .parent()
-                .siblings()
-                .children(".conjugal_document")
-                .addClass("d-none");
-            $(this)
-                .parent()
-                .siblings()
-                .children(".conjugal_document")
-                .children()
-                .attr("required", false);
-        }
+        let currentParent = $(this).parent();
+        let divorceDocumentSection = currentParent.siblings(
+            ".divorce-document-section"
+        );
+        let divorceDocumentFileUpload = divorceDocumentSection
+            .children()
+            .children(".conjugal_document");
+        let divorcePendingDocumentSection = currentParent.siblings(
+            ".divorce-pending-document-section"
+        );
+        let divorcePendingDocumentFileUpload = divorcePendingDocumentSection
+            .children()
+            .children(".conjugal_document");
+        let widowedDocumentSection = currentParent.siblings(
+            ".widowed-document-section"
+        );
+        let widowedDocumentFileUpload = widowedDocumentSection
+            .children()
+            .children(".conjugal_document");
+        switch (this.value) {
+            case "2":
+                divorceDocumentSection.removeClass("d-none");
+                divorceDocumentFileUpload.removeClass("d-none");
 
-        if (this.value == "") {
-            $(this)
-                .parent()
-                .siblings()
-                .children(".conjugal_document")
-                .addClass("d-none");
-            $(this)
-                .parent()
-                .siblings()
-                .children(".conjugal_document")
-                .children()
-                .attr("required", false);
+                divorcePendingDocumentSection.addClass("d-none");
+                widowedDocumentSection.addClass("d-none");
+                break;
+            case "3":
+                divorceDocumentSection.addClass("d-none");
+
+                divorcePendingDocumentSection.removeClass("d-none");
+                divorcePendingDocumentFileUpload.removeClass("d-none");
+
+                widowedDocumentSection.addClass("d-none");
+                break;
+            case "4":
+                divorceDocumentSection.addClass("d-none");
+                divorcePendingDocumentSection.addClass("d-none");
+                widowedDocumentSection.removeClass("d-none");
+                widowedDocumentFileUpload.removeClass("d-none");
+                break;
+            default:
+                divorceDocumentSection.addClass("d-none");
+                divorcePendingDocumentSection.addClass("d-none");
+                widowedDocumentSection.addClass("d-none");
         }
     });
 

@@ -65,15 +65,25 @@ class UserNoimController extends Controller
             $person['conjugal_status'] = $person['conjugal_document']['first_document_name'];
             $person['name_same_as_passport_or_driving_license'] = isset($person['name_same_as_passport_or_driving_license']) && $person['name_same_as_passport_or_driving_license'] == 'on' ? true : false;
             $person['is_data_and_document_identical'] = isset($person['is_data_and_document_identical']) && $person['is_data_and_document_identical'] == 'on' ? true : false;
+
+
             $userNoim = UserNoim::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'uuid' => $person['uuid']], $person);
             if (isset($person['document']['birth_evedence_file'])) {
                 // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 1)->delete();
                 self::uploadDocument($person['document'], $userNoim, 'birth_evedence_file');
             }
-            if (isset($person['conjugal_document']['file'])) {
-                // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 2)->delete();
-                self::uploadDocument($person['conjugal_document'],  $userNoim, 'file', 2);
+            if (isset($person['conjugal_document'])) {
+                $selectedIndex = $person['conjugal_document']['first_document_name'];
+                if (isset($person['conjugal_document'][$selectedIndex])) {
+                    if (isset($person['conjugal_document'][$selectedIndex]['file'])) {
+                        self::uploadDocument($person['conjugal_document'][$selectedIndex],  $userNoim, 'file', 2, $person['conjugal_document']['first_document_name']);
+                    }
+                }
             }
+            // if (isset($person['conjugal_document']['file'])) {
+            //     // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 2)->delete();
+            //     self::uploadDocument($person['conjugal_document'],  $userNoim, 'file', 2);
+            // }
             self::storeParentData($person, $loggedInUserId, $bookingId, $userNoim);
         }, $request->person);
         self::storeWitnessData($request, $loggedInUserId, $bookingId);
@@ -100,7 +110,10 @@ class UserNoimController extends Controller
     }
     private function uploadDocument($document, $ref, $fileName, $documentType = 1)
     {
+        // dump($document);
         $file_name = uploadFile($document[$fileName], 'uploads/documents/user/');
+        // $document['first_document_name'] = $firstDocumentName ?? $document['first_document_name'];
+        $document['date_last_marriage_ended'] = isset($document['date_last_marriage_ended']) ?  date('Y-m-d', strtotime($document['date_last_marriage_ended'])) : null;
         $document['user_id'] = $ref->user_id;
         $document['booking_id'] = $ref->booking_id;
         $document['user_noim_id'] = $ref->id;
@@ -157,7 +170,7 @@ class UserNoimController extends Controller
 
     public function steps()
     {
-       
+
         $loggedInUserId = Auth::user()->id;
         $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
         // return $person;
@@ -166,11 +179,11 @@ class UserNoimController extends Controller
 
     public function userNoim($id)
     {
-        $person = UserNoim::where('booking_id',$id )->with(['birthDocument','divorceOrWidowedDocument','parents','witness'])->get();
+        $person = UserNoim::where('booking_id', $id)->with(['birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness'])->get();
 
-        return view('pages.steps.index', compact('person','id'));
+        return view('pages.steps.index', compact('person', 'id'));
     }
-    public function updateUserNoim(Request $request,$id)
+    public function updateUserNoim(Request $request, $id)
     {
         $loggedInUserId =  booking::whereId($id)->pluck('user_id')->first();
         $bookingId = $id;
