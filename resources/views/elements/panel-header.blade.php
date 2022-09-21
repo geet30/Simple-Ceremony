@@ -9,29 +9,31 @@ if (Cookie::get('myCart')) {
 <header class="panel-header">
     <div class="row m-0">
         @if(Auth::user()->roles->first()->name =='User')
-        <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
-            <div class="booking-process-bar d-flex align-items-center">
-                <span class="h4 text-nowrap mb-0 turquoise-100 me-3">Booking progress</span>
-                <div class="progress body-1 w-75">
-                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
-                </div>
-                <div class="booking-info ms-3">
-                    <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
-                    <div class="booking-info-details">
-                        <p class="body-2 neutral-100">Please, set your NoIM to get your marriage legal documents :</p>
-                        <ul class="body-2 neutral-100">
-                            <li>Notice of Intended Marriage form</li>
-                            <li>Official Certificate of Marriage</li>
-                            <li>Statement of No Legal Barriers</li>
-                            <li>Marriage certificate</li>
-                            <li>Certificate of Faithful performance of Interpreter</li>
-                        </ul>
-                        <a href="#" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to
-                            set up NoIM</a>
+            @if( Request::segment(2) != 'profile')
+            <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
+                <div class="booking-process-bar d-flex align-items-center">
+                    <span class="h4 text-nowrap mb-0 turquoise-100 me-3">Booking progress</span>
+                    <div class="progress body-1 w-75">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                    </div>
+                    <div class="booking-info ms-3">
+                        <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
+                        <div class="booking-info-details">
+                            <p class="body-2 neutral-100">Please, set your NoIM to get your marriage legal documents :</p>
+                            <ul class="body-2 neutral-100">
+                                <li>Notice of Intended Marriage form</li>
+                                <li>Official Certificate of Marriage</li>
+                                <li>Statement of No Legal Barriers</li>
+                                <li>Marriage certificate</li>
+                                <li>Certificate of Faithful performance of Interpreter</li>
+                            </ul>
+                            <a href="#" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to
+                                set up NoIM</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @endif
         @endif
         <div class="col-12 col-sm-6 d-flex justify-content-end order-md-2">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
@@ -151,7 +153,7 @@ if (Cookie::get('myCart')) {
                                     @elseif(Auth::user()->roles->first()->name =='Celebrant')
                                         <a class="dropdown-item" href="{{route('getCelebrantAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
                                     @elseif(Auth::user()->roles->first()->name =='User')
-                                        <a class="dropdown-item" href="#"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                        <a class="dropdown-item" href="{{route('getUserAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
                                     @endif
                                 </li>
                                 {{-- <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li> --}}

@@ -3,7 +3,7 @@
 namespace App\Traits\User;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, PartnerPackages, PackageLocations, PartnerProducts, PackageImages, Booking, CelebrantDetail, CelebrantLocations, AdminTax};
+use App\Models\{User, PartnerPackages, PackageLocations, PartnerProducts, PackageImages, Booking, CelebrantDetail, CelebrantLocations, AdminTax,UserPersonalDetail};
 use Carbon\Carbon;
 use Str;
 use Cookie;
@@ -190,7 +190,19 @@ trait Methods
         }
         return true;
     }
+    //function to update user details
+    static function updateUserDetail($data, $id)
+    {
+        $userData = $data['user'];
+        User::where('id', $id)->update($userData);
 
+        //Add extra detail of user
+        $booking_user = $data['booking_user'];
+        $booking_user['user_id'] = $id;
+        $match = ['user_id'=>$id];
+        UserPersonalDetail::updateOrCreate($match,$booking_user);
+        return true;
+    }
     //function to update celebrant
     static function updateCelebrant($data, $id)
     {

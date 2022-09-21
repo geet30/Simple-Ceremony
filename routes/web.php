@@ -143,6 +143,9 @@ $websiteRoutes = function () {
             });
             Route::resource('user-noim', UserNoimController::class);
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
+            Route::get('profile', [AccountController::class, 'getUserAccount'])->name('getUserAccount');
+            Route::post('account', [AccountController::class, 'updateUserAccount']);
+            Route::put('account/update', [AccountController::class, 'updateUserAccount'])->name('updateUserAccount');
         });
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
