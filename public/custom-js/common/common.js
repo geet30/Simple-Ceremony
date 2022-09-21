@@ -191,28 +191,33 @@ $(document).ready(function () {
         var form = $(e.target);
         submitform(id, action, method, formData, form);
     };
-    window.submitAjaxWithoutReload = function (
-        e,
-        id,
-        method,
-        action,
-        callfunction = null
-    ) {
+    window.submitAjaxWithoutReload = function (e,id,method,action,callfunction = null) {
         e.preventDefault();
+        if(id =='booking_details'){
+            $(".changeButton").removeClass('bg-danger');
+            if($(e.target).prop("checked")){
+                var text ='All details correct';
+                var giveclass=''
+                $(".changeButton").addClass(giveclass);
+                changeButtonColor('changeButton', text);
+            }else{
+                var giveclass='bg-danger'
+                $(".changeButton").addClass(giveclass);
+                var text ='have you confirm all details are correct ?';
+                changeButtonColor('changeButton', text);
+            }
+
+        }
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = e.target;
 
-        submitfunctionWithoutReload(
-            id,
-            action,
-            method,
-            formData,
-            form,
-            callfunction
-        );
+        submitfunctionWithoutReload(id,action,method,formData,form,
+            callfunction);
     };
 });
-
+window.changeButtonColor = function (findclass,text) {
+    $("." + findclass).html(text);
+}
 function ImgUpload(counter = null) {
     var imgWrap = "";
     var imgArray = [];

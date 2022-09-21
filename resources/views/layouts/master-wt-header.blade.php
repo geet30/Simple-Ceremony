@@ -16,6 +16,11 @@
       <link href="fonts/stylesheet.css" rel="stylesheet">
    </head>
    <body class="antialiased" data-barba="wrapper">
+      <div class="wrapper" id="loading">
+         <div class='c-loader'>
+               <img src="/images/loader.svg"/>  
+         </div>
+      </div>
       <main>
          @yield('content')
          @include('elements.footer')
