@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -7,7 +7,7 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.common.panel-header')
-         <a href="/payments-overview" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="{{url('payments/celebrants-invoice')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
@@ -19,8 +19,14 @@
                         <p class="subheader-3 neutral-100 mb-0">Invoice number #09012901912</p>
                      </div>
                   </div>
-               </section>
-               <form class="needs-validation" method="POST" novalidate>
+               </section> 
+               @if ($errors->any())
+                  <div class="alert alert-danger mb-3 alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        {{ $errors->first() }}
+                  </div>
+               @endif
+               <form class="needs-validation" method="POST" novalidate action="{{ route('payments.store') }}">
                   <div class="row align-items-center">
                      <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
                         <label class="form-label small-text2">Recipient</label>

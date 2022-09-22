@@ -243,13 +243,10 @@ $adminRoutes = function () {
         });
         Route::group(['prefix' => 'payments'], function () {
             Route::resource('/', PaymentsController::class);
-            // Route::get('payments-overview', function () {
-            //     return view('admin.payments.payments-overview');
-            // });
-            // Route::get('create-celebrants-invoice', function () {
-            //     return view('admin.payments.create-celebrants-invoice');
-            // });
+            Route::get('/{slug}', [PaymentsController::class, 'index'])->name('admin.payments');
+         
         });
+        
      
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 

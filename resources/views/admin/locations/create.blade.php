@@ -25,7 +25,7 @@
                      <h1 class="h3 neutral-100 mb-0">Add new location</h1>
                   </div>
                   <div class="card-body">
-                     <form class="row g-3 needs-validation loader_class" novalidate  method="POST" action="{{url('store-location')}}" enctype="multipart/form-data">
+                     <form class="row g-3 needs-validation" novalidate  method="POST" action="{{url('store-location')}}" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" name="custom_location_id" value="{{ isset($data['id']) ? $data['id'] : '' }}">
                         @if($errors->any())

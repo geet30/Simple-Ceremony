@@ -1,0 +1,42 @@
+<div class="row mb-4 pt-32 justify-content-between">
+
+    <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+        <div class="align-self-center d-flex position-relative">
+            <div class="dropdown filter-date-calendar-dropdown">
+                <a role="button" class="theme-btn primary-btn-border d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/icons/green-calendar.svg" class="me-3" alt="calendar"> Filter by date</a>
+                <div class="dropdown-menu p-4 filter_date_div">
+                    <div class="filter-date-calendar">
+
+                        <div class="calendar-wrapper" id="calendar-wrapper"></div>
+                        <input type="hidden" name="booking_date" class="booking_date">
+                        <a onclick="SearchMultipleFilter('search-marriage-by-date')" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a class="btn">
+                    <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
+                </a>
+                <div class="select-with-checkbox">
+                    <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control searchingMultiple location_categories_button" multiple="multiple">
+                        <optgroup label="Status">
+                            @foreach(config('ceremonyStatus.booking_status') as $key=>$status)
+                            <option value="{{ $key }}" data-badge="">{{ $status }}
+                            </option>
+                            @endforeach
+                        </optgroup>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-3 col-xl-3 col-xxl-2">
+
+        <a class="theme-btn primary-btn d-inline-block mt-2 mb-2 w-100" href="/payments/create">
+            <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
+            Create invoice
+        </a>
+    </div>
+
+</div>

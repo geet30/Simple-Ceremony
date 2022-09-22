@@ -21,7 +21,7 @@
                                         {{ $errors->first() }}
                                     </div>
                                 @endif
-                                <form class="needs-validation loader_class" method="POST" novalidate
+                                <form class="needs-validation" method="POST" novalidate
                                     action="{{ route('enquiries.store') }}">
                                     @csrf
                                     <div class="row">

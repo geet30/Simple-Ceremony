@@ -9,7 +9,8 @@
                 @include('elements.common.panel-header')
                 <div class="row pt-32">
                     <div class="col-12">
-                        <ul class="nav theme-tabs location-tabs mb-3">
+                        <ul class="nav theme-tabs location-tabs mb-3"  onclick="addTabToUrl(event,'/locations/')">
+                            
                             <li class="nav-item">
                                 <a class="nav-link active" id="all-requests" data-bs-toggle="tab" data-bs-target="#requests"
                                     href="#">All request</a>

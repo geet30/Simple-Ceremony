@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User, Notification};
+use App\Models\{User, Payments};
 use Illuminate\Support\Facades\{Auth};
-
+use View;
 
 class PaymentsController extends Controller
 {
@@ -15,9 +15,25 @@ class PaymentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('admin.payments.index'); 
+    public function index(Request $request,$slug = null)
+    {       
+        try {           
+            $records = 10;
+            $req_page = 1;
+            if ($request->has('page')) {
+                $req_page = $request->page;
+            }
+            $data = Payments::paginate($records, ['*'], 'page', $req_page);
+            if ($request->ajax()) {
+                
+                $viewurl = 'elements.admin.payments.' . $slug;
+                return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
+            }
+            return view('admin.payments.index'); 
+            // return view('admin.payments.index', compact('data'));
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**
@@ -27,7 +43,7 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.payments.create-invoice');  
     }
 
     /**
@@ -41,7 +57,7 @@ class PaymentsController extends Controller
         try {
             $id = Auth::user()->id;
             $data['status'] = 1;
-            $response = Notification::where('receiver_id', $id)->update($data);
+            $response = Payments::where('receiver_id', $id)->update($data);
             if ($response) {
                 return \Redirect::back()->with('message', 'You have marked all notification as read.');
             }
