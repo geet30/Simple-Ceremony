@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,PaymentsController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
 /*
@@ -241,11 +241,16 @@ $adminRoutes = function () {
         Route::get('edit-booking-confirmation', function () {
             return view('admin.triggers-and-emails.edit-booking-confirmation');
         });
-
-        Route::get('payments-overview', function () {
-            return view('admin.payments.payments-overview');
+        Route::group(['prefix' => 'payments'], function () {
+            Route::resource('/', PaymentsController::class);
+            // Route::get('payments-overview', function () {
+            //     return view('admin.payments.payments-overview');
+            // });
+            // Route::get('create-celebrants-invoice', function () {
+            //     return view('admin.payments.create-celebrants-invoice');
+            // });
         });
-
+     
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
@@ -285,9 +290,7 @@ $adminRoutes = function () {
         Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
         Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
         Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
-        Route::get('create-celebrants-invoice', function () {
-            return view('admin.payments.create-celebrants-invoice');
-        });
+       
         Route::get('create-partners-invoice', function () {
             return view('admin.payments.create-partners-invoice');
         });
@@ -316,8 +319,6 @@ $adminRoutes = function () {
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
 
 
-
-
         Route::get('all-reports', function () {
             return view('admin.financial-report.all-reports');
         });
@@ -344,8 +345,7 @@ $adminRoutes = function () {
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
-        Route::group(['prefix' => 'celebrant'], function () {
-        });
+   
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
@@ -435,7 +435,6 @@ $celebrantRoutes = function () {
 
     Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'upcoming'], function () {
-            // Route::resource('/', DashboardController::class);
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');

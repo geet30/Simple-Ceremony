@@ -6,7 +6,7 @@
          @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          <ul class="row add-on-list-nav p-0 mb-0 list-unstyled  mb-3 mt-3 ps-0">
             <li class="col-lg-6  col-xl-4  nav-item  mb-3">
                <div class="nav-link w-100" >
@@ -77,7 +77,7 @@
                <img class="me-2" src="/images/icons/date.svg" alt="shopping-icon">
                select a specific date
                </a>
-               @include('elements.calander')
+               @include('elements.common.calander')
             </div>
          </div>
          <!--  -->

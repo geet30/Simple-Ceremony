@@ -48,4 +48,4 @@ if (Cookie::get('myCart')) {
     </div>
 </nav>
 @include('pages.js')
-@include('elements.basket')
+@include('elements.common.basket')

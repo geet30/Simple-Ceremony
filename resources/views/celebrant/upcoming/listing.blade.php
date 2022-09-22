@@ -6,7 +6,7 @@
          @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-12 col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab">
             <li class="nav-item col-md-6 col-lg-4 col-xl-3 nav-item mb-3" role="presentation">
                <button class="nav-link w-100 active" id="all-records-tab" data-bs-toggle="pill"

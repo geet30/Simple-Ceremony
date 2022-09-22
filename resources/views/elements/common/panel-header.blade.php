@@ -203,4 +203,4 @@ if (Cookie::get('myCart')) {
     </div>
 </header>
 @include('pages.js')
-@include('elements.basket')
+@include('elements.common.basket')

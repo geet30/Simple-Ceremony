@@ -3,7 +3,7 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-md-3 col-lg-2 p-0">
-         @include('elements.user-sidebar')
+         @include('elements.common.user-sidebar')
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
          @include('elements.user-header')

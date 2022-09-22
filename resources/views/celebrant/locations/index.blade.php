@@ -6,7 +6,7 @@
          @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          @if (\Session::has('message'))
             <div class="alert {{\Session::get('class')}}">
                   <ul class="mb-0"> <li>{!! \Session::get('message') !!}</li></ul>

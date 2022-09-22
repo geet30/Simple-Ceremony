@@ -156,5 +156,5 @@
       </div>
    </div>
 </div>
-@include('elements.reject-reason-sidebar')
+@include('elements.common.reject-reason-sidebar')
 @endsection

@@ -3,10 +3,10 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-         @include('elements.admin-sidebar')
+         @include('elements.common.admin-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          <a href="/all-referrers" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="row">
             <div class="col-lg-6">
