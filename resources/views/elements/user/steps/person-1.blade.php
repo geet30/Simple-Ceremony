@@ -283,6 +283,188 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
             </div>
+            @php
+                $divorceDocumentShowClass = $person && $person['conjugal_status'] == 2 ? true : false;
+                $divorcePendingDocumentShowClass = $person && $person['conjugal_status'] == 3 ? true : false;
+                $widowedDocumentShowClass = $person && $person['conjugal_status'] == 4 ? true : false;
+            @endphp
+            <div id="preson1DiviorceSection"
+                class="row divorce-document-section {{ $divorceDocumentShowClass ? '' : 'd-none' }}">
+                <input type="hidden" name="person[0][conjugal_document][2][first_document_name]" value="2">
+                <div class="col-md-12 mb-4 align-self-top">
+                    <div class="attach-document-box position-relative noim-document-box conjugal_document d-none">
+                        <input id="fileupload" class="fileupload" type="file"
+                            name="person[0][conjugal_document][2][file]" accept=".pdf,.doc,.docx">
+                        <div class="inner-content">
+                            <div class="d-md-flex justify-content-center">
+                                <div class="d-flex d-md-block  justify-content-center justify-content-md-center">
+                                    <img src="/images/icons/uploading.svg" class="img-fluid mb-2 align-self-center">
+                                    <p class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">Compatible
+                                        file .pdf .docx</p>
+                                </div>
+                                <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
+                                    <p class="body-2 text-black mb-1">Upload your divorce document here
+                                    </p>
+                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--uploaded-box  -->
+                    <div class="attach-document-box uploaded-box noim-document-box conjugal_document_perview {{ $person && $divorceDocumentShowClass && $person->divorceOrWidowedDocument != null ? '' : 'd-none' }}"
+                        style="position: relative;">
+                        <div class="d-flex justify-content-center uploaded-content">
+                            <div class="align-self-center">
+                                <p class="h4 neutral-100 mb-0 document-name">
+                                    {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 2 ? $person->divorceOrWidowedDocument['document_path'] : '' }}
+                                </p>
+                            </div>
+                            <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
+                                    class="img-fluid ms-3"></div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-4 ">
+                            <label for="person0divorceCourtLocation" class="form-label small-text2">Court location(of
+                                divorce)</label>
+                            <input type="text" class="form-control body-1 netural-100"
+                                name="person[0][conjugal_document][2][court_location]"
+                                id="person0divorceCourtLocation"
+                                value="{{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 2 ? $person->divorceOrWidowedDocument['court_location'] : '' }}"
+                                placeholder="Court location(of divorce)">
+                            <div class="invalid-feedback event_date_required"> <span><img class="me-2"
+                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="person0date_of_birth" class="form-label small-text2">Date last marrige
+                                ended</label>
+                            <div class="input-group date ">
+                                <input role="button" type="text"
+                                    class="form-control body-1 netural-100 event_date_input noim-user-calendar"
+                                    id="person0date_of_birth"
+                                    name="person[0][conjugal_document][2][date_last_marriage_ended]"
+                                    placeholder="Date last marrige
+                                    ended" required
+                                    autocomplete="off"
+                                    value="{{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 2 ? date('D, M d, Y', strtotime($person->divorceOrWidowedDocument['date_last_marriage_ended'])) : date('D, M d, Y') }}" />
+                                <span class="input-group-append">
+                                </span>
+                                <div class="invalid-feedback event_date_required"> <span><img class="me-2"
+                                            src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="preson1WidowedSection"
+                class="row widowed-document-section {{ $widowedDocumentShowClass ? '' : 'd-none' }}">
+                <input type="hidden" name="person[0][conjugal_document][4][first_document_name]" value="4">
+                <div class="col-md-12 mb-4 align-self-top">
+                    <div class="attach-document-box position-relative noim-document-box conjugal_document d-none">
+                        <input id="fileupload" class="fileupload" type="file"
+                            name="person[0][conjugal_document][4][file]" accept=".pdf,.doc,.docx">
+                        <div class="inner-content">
+                            <div class="d-md-flex justify-content-center">
+                                <div class="d-flex d-md-block  justify-content-center justify-content-md-center">
+                                    <img src="/images/icons/uploading.svg" class="img-fluid mb-2 align-self-center">
+                                    <p class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">Compatible
+                                        file .pdf .docx</p>
+                                </div>
+                                <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
+                                    <p class="body-2 text-black mb-1">Upload your widowed document here
+                                    </p>
+                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--uploaded-box  -->
+                    <div class="attach-document-box uploaded-box noim-document-box conjugal_document_perview {{ $person && $widowedDocumentShowClass && $person->divorceOrWidowedDocument != null ? '' : 'd-none' }}"
+                        style="position: relative;">
+                        <div class="d-flex justify-content-center uploaded-content">
+                            <div class="align-self-center">
+                                <p class="h4 neutral-100 mb-0 document-name">
+                                    {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 4 ? $person->divorceOrWidowedDocument['document_path'] : '' }}
+                                </p>
+                            </div>
+                            <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
+                                    class="img-fluid ms-3"></div>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-4 ">
+                            <label for="person0divorceCourtLocation" class="form-label small-text2">Certificate
+                                number</label>
+                            <input type="text" class="form-control body-1 netural-100"
+                                name="person[0][conjugal_document][4][certificate_number]"
+                                id="person0divorceCourtLocation"
+                                value="{{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 4 ? $person->divorceOrWidowedDocument['certificate_number'] : '' }}"
+                                placeholder="Certificate number">
+                            <div class="invalid-feedback event_date_required"> <span><img class="me-2"
+                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <label for="person0date_of_birth" class="form-label small-text2">Date last marrige
+                                ended</label>
+                            <div class="input-group date ">
+                                <input role="button" type="text"
+                                    class="form-control body-1 netural-100 event_date_input noim-user-calendar"
+                                    id="person0date_of_birth"
+                                    name="person[0][conjugal_document][4][date_last_marriage_ended]"
+                                    placeholder="Choose date here" required autocomplete="off"
+                                    value="{{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 4 ? date('D, M d, Y', strtotime($person->divorceOrWidowedDocument['date_last_marriage_ended'])) : date('D, M d, Y') }}">
+                                <span class="input-group-append">
+                                </span>
+                                <div class="invalid-feedback event_date_required"> <span><img class="me-2"
+                                            src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="preson1DivorcePendingSection"
+                class="row divorce-pending-document-section  {{ $divorcePendingDocumentShowClass ? '' : 'd-none' }}">
+                <input type="hidden" name="person[0][conjugal_document][3][first_document_name]" value="3">
+                <div class="col-md-12 mb-4 align-self-top">
+                    <div class="attach-document-box position-relative noim-document-box conjugal_document d-none">
+                        <input id="fileupload" class="fileupload" type="file"
+                            name="person[0][conjugal_document][3][file]" accept=".pdf,.doc,.docx">
+                        <div class="inner-content">
+                            <div class="d-md-flex justify-content-center">
+                                <div class="d-flex d-md-block  justify-content-center justify-content-md-center">
+                                    <img src="/images/icons/uploading.svg" class="img-fluid mb-2 align-self-center">
+                                    <p class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">Compatible
+                                        file .pdf .docx</p>
+                                </div>
+                                <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
+                                    <p class="body-2 text-black mb-1">Upload your pending divorce document here
+                                    </p>
+                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--uploaded-box  -->
+                    <div class="attach-document-box uploaded-box noim-document-box conjugal_document_perview {{ $person && $divorcePendingDocumentShowClass && $person->divorceOrWidowedDocument != null ? '' : 'd-none' }}"
+                        style="position: relative;">
+                        <div class="d-flex justify-content-center uploaded-content">
+                            <div class="align-self-center">
+                                <p class="h4 neutral-100 mb-0 document-name">
+                                    {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 3 ? $person->divorceOrWidowedDocument['document_path'] : '' }}
+                                </p>
+                            </div>
+                            <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
+                                    class="img-fluid ms-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person0birth_place" class="form-label small-text2">Birth place</label>
                 <select name="person[0][birth_place]" id="person0birth_place"
@@ -293,42 +475,6 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 </select>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
-            </div>
-            <div class="col-md-6 mb-4 align-self-top">
-                <div
-                    class="attach-document-box position-relative noim-document-box conjugal_document {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? 'd-none' : '' }}">
-                    <input id="fileupload" class="fileupload" type="file"
-                        name="person[0][conjugal_document][file]" accept=".pdf,.doc,.docx"
-                        {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? '' : 'required' }}>
-                    <div class="inner-content">
-                        <div class="d-md-flex ">
-                            <div class="d-flex d-md-block  justify-content-center justify-content-md-start">
-                                <img src="/images/icons/uploading.svg" class="img-fluid mb-2 align-self-center">
-                                <p class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">Compatible
-                                    file .pdf .docx</p>
-                            </div>
-                            <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
-                                <p class="body-2 text-black mb-1">Upload your divorce/widowed document here
-                                </p>
-                                <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--uploaded-box  -->
-                <div class="attach-document-box uploaded-box noim-document-box conjugal_document_perview {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] != null ? '' : 'd-none' }}"
-                    style="position: relative;">
-                    <div class="d-flex justify-content-center uploaded-content">
-                        <div class="align-self-center">
-                            <p class="h4 neutral-100 mb-0 document-name">
-                                {{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['document_path'] ? $person->divorceOrWidowedDocument['document_path'] : '' }}
-                            </p>
-                        </div>
-                        <div class="align-self-center"><img src="/images/icons/cross.svg" alt="cross"
-                                class="img-fluid ms-3"></div>
-                    </div>
-                </div>
-                <!--  -->
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person0birth_town_or_city_or_suburb"

@@ -96,7 +96,7 @@
                     {{-- <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-3">
                         <a role="button" class="theme-btn primary-btn d-flex justify-content-center dateFilter">
                             <img class="me-2" src="/images/icons/date.svg" alt="shopping-icon">
-                           
+
                         </a>
                     </div> --}}
                     <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-3 date theme-datepicker position-relative"

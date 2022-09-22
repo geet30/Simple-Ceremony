@@ -35,7 +35,7 @@
                             <div id="witness">
                                 @include('elements.user.steps.witness')
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 mb-4">
                                 <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue
                                     to
                                     fill

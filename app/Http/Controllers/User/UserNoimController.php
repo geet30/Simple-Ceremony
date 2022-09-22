@@ -8,6 +8,7 @@ use App\Models\UserParent;
 use Illuminate\Support\Str;
 use App\Models\UserWitness;
 use App\Models\UserDocument;
+use App\Models\UserNoimReferrers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -31,16 +32,6 @@ class UserNoimController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -50,10 +41,6 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
-        // return $request->all();
-        // dd($request->all());
-        // remove the exists rows
-        // UserNoim::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
         UserParent::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
         UserWitness::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();
 
@@ -65,19 +52,25 @@ class UserNoimController extends Controller
             $person['conjugal_status'] = $person['conjugal_document']['first_document_name'];
             $person['name_same_as_passport_or_driving_license'] = isset($person['name_same_as_passport_or_driving_license']) && $person['name_same_as_passport_or_driving_license'] == 'on' ? true : false;
             $person['is_data_and_document_identical'] = isset($person['is_data_and_document_identical']) && $person['is_data_and_document_identical'] == 'on' ? true : false;
+
+
             $userNoim = UserNoim::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'uuid' => $person['uuid']], $person);
             if (isset($person['document']['birth_evedence_file'])) {
                 // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 1)->delete();
                 self::uploadDocument($person['document'], $userNoim, 'birth_evedence_file');
             }
-            if (isset($person['conjugal_document']['file'])) {
-                // UserDocument::whereUserIdAndBookingId($loggedInUserId, $bookingId)->where('document_type', 2)->delete();
-                self::uploadDocument($person['conjugal_document'],  $userNoim, 'file', 2);
+            if (isset($person['conjugal_document'])) {
+                $selectedIndex = $person['conjugal_document']['first_document_name'];
+                if (isset($person['conjugal_document'][$selectedIndex])) {
+                    if (isset($person['conjugal_document'][$selectedIndex]['file'])) {
+                        self::uploadDocument($person['conjugal_document'][$selectedIndex],  $userNoim, 'file', 2, $person['conjugal_document']['first_document_name']);
+                    }
+                }
             }
             self::storeParentData($person, $loggedInUserId, $bookingId, $userNoim);
         }, $request->person);
         self::storeWitnessData($request, $loggedInUserId, $bookingId);
-        return env('APP_ENV') == 'dev' ? $request->all() : redirect()->back();
+        return env('APP_ENV') == 'dev' ? $request->all() : redirect()->route('user-noim.steps2.get');
     }
     private static function storeWitnessData($request, $loggedInUserId, $bookingId)
     {
@@ -101,6 +94,7 @@ class UserNoimController extends Controller
     private function uploadDocument($document, $ref, $fileName, $documentType = 1)
     {
         $file_name = uploadFile($document[$fileName], 'uploads/documents/user/');
+        $document['date_last_marriage_ended'] = isset($document['date_last_marriage_ended']) ?  date('Y-m-d', strtotime($document['date_last_marriage_ended'])) : null;
         $document['user_id'] = $ref->user_id;
         $document['booking_id'] = $ref->booking_id;
         $document['user_noim_id'] = $ref->id;
@@ -108,69 +102,41 @@ class UserNoimController extends Controller
         $document['document_extension'] = $document[$fileName]->getClientOriginalExtension();
         $document['document_path'] = $file_name;
         UserDocument::create($document);
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\UserNoim  $userNoim
-     * @return \Illuminate\Http\Response
-     */
-    public function show(UserNoim $userNoim)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\UserNoim  $userNoim
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UserNoim $userNoim)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserNoim  $userNoim
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, UserNoim $userNoim)
-    {
-        //
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\UserNoim  $userNoim
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(UserNoim $userNoim)
-    {
-        //
     }
 
     public function steps()
     {
-       
         $loggedInUserId = Auth::user()->id;
         $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
-        // return $person;
         return view(self::$bladePath . 'steps', compact('person'));
+    }
+    public function step2()
+    {
+        $loggedInUserId = Auth::user()->id;
+        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        $referrer = UserNoimReferrers::where(['user_id' => $loggedInUserId, 'booking_id' => $bookingId])->first();
+        return view(self::$bladePath . 'step-2', compact('referrer'));
+    }
+    public function referrer(Request $request)
+    {
+        $loggedInUserId = Auth::user()->id;
+        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        $request->merge([
+            'user_id' => $loggedInUserId,
+            'booking_id' => $bookingId
+        ]);
+        UserNoimReferrers::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
+        return redirect()->back();
+        return $request->all();
     }
 
     public function userNoim($id)
     {
-        $person = UserNoim::where('booking_id',$id )->with(['birthDocument','divorceOrWidowedDocument','parents','witness'])->get();
+        $person = UserNoim::where('booking_id', $id)->with(['birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness'])->get();
 
-        return view('pages.steps.index', compact('person','id'));
+        return view('pages.steps.index', compact('person', 'id'));
     }
-    public function updateUserNoim(Request $request,$id)
+    public function updateUserNoim(Request $request, $id)
     {
         $loggedInUserId =  booking::whereId($id)->pluck('user_id')->first();
         $bookingId = $id;

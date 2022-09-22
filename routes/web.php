@@ -138,11 +138,13 @@ $websiteRoutes = function () {
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
-            Route::get('step-2', function () {
-                return view('user.NoIM.step-2');
-            });
+            // Route::get('step-2', function () {
+            //     return view('user.NoIM.step-2');
+            // });
             Route::resource('user-noim', UserNoimController::class);
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
+            Route::get('step-2', [UserNoimController::class, 'step2'])->name('user-noim.steps2.get');
+            Route::post('step-2', [UserNoimController::class, 'referrer'])->name('user-noim.steps2.post');
             Route::get('profile', [AccountController::class, 'getUserAccount'])->name('getUserAccount');
             Route::post('account', [AccountController::class, 'updateUserAccount']);
             Route::put('account/update', [AccountController::class, 'updateUserAccount'])->name('updateUserAccount');
