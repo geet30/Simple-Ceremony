@@ -21,5 +21,5 @@
       </div>
    </div>
 </div>
-@include('elements.marriage-calendar-info')
+@include('elements.common.marriage-calendar-info')
 @endsection

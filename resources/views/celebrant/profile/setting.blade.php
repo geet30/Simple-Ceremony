@@ -6,7 +6,7 @@
       @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          <div class="card panel-card mt-4">
             <div class="card-body">
                @if ($errors->any())
@@ -265,6 +265,6 @@
       </div>
    </div>
 </div>
-@include('elements.reset-password-sidebar')
+@include('elements.common.reset-password-sidebar')
 @include('elements.admin.celebrant.celebrant-add-new-location')
 @endsection

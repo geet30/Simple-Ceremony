@@ -258,5 +258,5 @@
          </div>
     </div>
 </div>
-@include('elements.tax-invoice')
+@include('elements.common.tax-invoice')
 @endsection

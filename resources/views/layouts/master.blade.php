@@ -36,9 +36,9 @@
         </div>
     </div>
     <main>
-        @include('elements.header')
+        @include('elements.common.header')
         @yield('content')
-        @include('elements.footer')
+        @include('elements.common.footer')
     </main>
 </body>
 

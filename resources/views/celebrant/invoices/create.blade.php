@@ -6,7 +6,7 @@
       @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          <a href="/invoices" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
@@ -157,5 +157,5 @@
       </div>
    </div>
 </div>
-@include('elements.calander')
+@include('elements.common.calander')
 @endsection

@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 col-md-3 col-lg-2 p-0">
-                @include('elements.user-sidebar')
+                @include('elements.common.user-sidebar')
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
-                @include('elements.panel-header')
+                @include('elements.common.panel-header')
                 <div class="card panel-card">
                     <div class="card-body niom">
                         <div class="row">

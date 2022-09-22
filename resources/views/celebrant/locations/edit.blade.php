@@ -10,7 +10,7 @@
          @include('elements.celebrant.celebrant-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.panel-header')
+         @include('elements.common.panel-header')
          <div class="row">
             <div class="col-12 mb-30">
                <a href="/all-locations/{{ $data->id }}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>

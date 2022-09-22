@@ -6,7 +6,7 @@
       @include('elements.celebrant.celebrant-sidebar')
    </div>
    <div class="col-10 col-md-9 col-lg-10 px-md-4">
-      @include('elements.panel-header')
+      @include('elements.common.panel-header')
       <div class="row pt-31 mb-4">
          <div class="col-md-8 col-xl-9 d-flex align-self-center">
             <div class="dropdown ">
@@ -91,5 +91,5 @@
       </div>
    </div>
 </div>
-@include('elements.calander')
+@include('elements.common.calander')
 @endsection

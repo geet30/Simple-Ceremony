@@ -178,6 +178,6 @@
    </div>
 </section>
 {{-- @include('pages.js')--}}
-@include('elements.basket')
+@include('elements.common.basket')
 @include('elements.partner.contact-partner')
 @endsection

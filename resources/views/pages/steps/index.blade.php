@@ -7,7 +7,7 @@
             </div>
            
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
-            @include('elements.panel-header')
+            @include('elements.common.panel-header')
             <div class="col-12">
                 @if(Auth::user()->roles->first()->name =='Admin')
                 <a href="{{url('marriages/detail',$id)}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>

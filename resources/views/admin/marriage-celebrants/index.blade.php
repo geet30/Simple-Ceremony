@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 col-md-3 col-lg-2 px-0">
-                @include('elements.admin-sidebar')
+                @include('elements.common.admin-sidebar')
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-4">
-                @include('elements.panel-header')
+                @include('elements.common.panel-header')
                 <div class="row mb-4 mt-3">
                     @if ($errors->any())
                         <div class="alert alert-danger alert-dismissible fade show">

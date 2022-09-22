@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 col-md-3 col-lg-2 px-0">
-                @include('elements.admin-sidebar')
+                @include('elements.common.admin-sidebar')
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-4">
-                @include('elements.panel-header')
+                @include('elements.common.panel-header')
                 <ul class="row add-on-list-nav p-0 mb-0 list-unstyled mb-2">
                     <li class="col-md-6 col-lg-4 col-xl-4 col-xxl-4 mb-3">
                         <div class="nav-link">
