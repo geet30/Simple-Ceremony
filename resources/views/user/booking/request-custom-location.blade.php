@@ -15,7 +15,7 @@
             <div class="card py-50 px-50">
                <p class="paragraph text-black">Request custom location</p>
                <h1 class="h2 netural-100 mb-5">Please fill the form in below</h1>
-               <form class="needs-validation loader_class" action="{{route('post-custom-location')}}" method="POST" novalidate>
+               <form class="needs-validation" action="{{route('post-custom-location')}}" method="POST" novalidate>
                   @csrf
                   <div class="row">
                      <div class="col-md-6 mb-4">

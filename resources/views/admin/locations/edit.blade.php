@@ -23,7 +23,7 @@
             @endif
                <div class="card panel-card">
                   <div class="card-body">
-                     <form class="needs-validation row loader_class" novalidate method="POST" action="{{route('locations.update',$data->id)}}" enctype="multipart/form-data">
+                     <form class="needs-validation row" novalidate method="POST" action="{{route('locations.update',$data->id)}}" enctype="multipart/form-data">
                         @csrf
                         @if($errors->any())
                         <div class="alert alert-danger mb-3 alert-block">

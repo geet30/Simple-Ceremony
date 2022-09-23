@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserBookingAddon extends Model
 {
     use HasFactory;
-    protected $fillable = ['package_id', 'booking_id'];
+    protected $fillable = ['package_id', 'booking_id','partner_id'];
     
     public function packages()
     {

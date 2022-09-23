@@ -32,6 +32,7 @@ trait Methods
         $user_inputs = $data['user'];
         $random_password = Str::random(8);
         $user_inputs['password'] = Hash::make($random_password);
+        $user_inputs['user_type'] =  config('env.userType.Partner');
         if (!empty($data['user']['image'])) {
             $user_inputs['image'] = uploadImage($data['user']['image'], 'user');
         }
@@ -162,6 +163,7 @@ trait Methods
         $userData = $data['user'];
        
         $userData['password'] = Hash::make($userData['password']);
+        $userData['user_type'] =  config('env.userType.Celebrant');
         if (!empty($data['user']['image'])) {
             $userData['image'] = uploadImage($data['user']['image'], 'user');
         }

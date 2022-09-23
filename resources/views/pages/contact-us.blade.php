@@ -66,7 +66,7 @@
                         </div>
                     @endIf
                     <div class="contact-form">
-                        <form class="needs-validation row loader_class" method="POST" action="{{ route('contact-us') }}" novalidate>
+                        <form class="needs-validation row" method="POST" action="{{ route('contact-us') }}" novalidate>
                             @csrf
                             <h2 class="h4">Fill in the form below and we will contact you</h2>
                             <div class="row">

@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-12 col-lg-9 col-xl-9 col-xxl-8">
     
-        <form class="needs-validation loader_class" method="POST" novalidate action="{{ route('partner.personal-data',$user_id) }}" enctype="multipart/form-data">
+        <form class="needs-validation" method="POST" novalidate action="{{ route('partner.personal-data',$user_id) }}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="product_id" value="{{$product_id}}">
             <div class="row">

@@ -13,7 +13,7 @@
                <a href="/all-locations" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
-               <form class="needs-validation row loader_class" novalidate method="POST"  enctype="multipart/form-data">
+               <form class="needs-validation row" novalidate method="POST"  enctype="multipart/form-data">
 
                      @csrf
                      @if($errors->any())

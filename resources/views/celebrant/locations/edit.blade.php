@@ -16,7 +16,7 @@
                <a href="/all-locations/{{ $data->id }}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-12">
-               <form class="needs-validation row loader_class" novalidate method="POST" action="{{route('all-locations.update',$data->id)}}" enctype="multipart/form-data">
+               <form class="needs-validation row" novalidate method="POST" action="{{route('all-locations.update',$data->id)}}" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
                   @if($errors->any())

@@ -1,5 +1,5 @@
 
-<form class="needs-validation2 loader_class" method="POST" name="userDetail" id="userDetail">
+<form class="needs-validation2" method="POST" name="userDetail" id="userDetail">
     <div class="row">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
             <p class="paragraph Neutral/100">Step 2</p>
