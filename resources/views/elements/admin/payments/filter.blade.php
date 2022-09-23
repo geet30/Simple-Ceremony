@@ -17,11 +17,67 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a role="button" class="theme-btn primary-btn-border d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon"></a>
-                    <div class="dropdown-menu p-4 filter_date_div">
-                        <div class="filter-date-calendar">
-
-                            hello
+                    <a role="button" class="theme-btn d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon"></a>
+                    <div class="dropdown-menu p-3 filter_date_div">
+                        <div class="filter-date-calendar" style="width:400px;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h4 class="h4 neutral-100 mb-3">Status</h4>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <a href="#" class="theme-btn primary-btn d-inline-flex px-5">Cancel</a>
+                                </div>
+                                <div class="col-6">
+                                    <h4 class="h4 neutral-100 mb-3">Status</h4>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                        <input class="form-check-input me-2" type="checkbox" name="remember">
+                                        <label class="form-check-labe body-2 neutral-100">Default checkbox</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
