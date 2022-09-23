@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{User, Payments};
 use Illuminate\Support\Facades\{Auth};
 use View;
-
+use App\Traits\Payments\{Methods as PaymentsMethod};
 class PaymentsController extends Controller
 {
     /**
@@ -23,15 +23,16 @@ class PaymentsController extends Controller
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
-            $data = Payments::paginate($records, ['*'], 'page', $req_page);
-            if ($request->ajax()) {
-                
+           
+            $data  = PaymentsMethod::fetch_all_payments($slug)->paginate($records, ['*'], 'page', $req_page);
+           
+            if ($request->ajax()) {            
                 $viewurl = 'elements.admin.payments.' . $slug;
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
-            return view('admin.payments.index'); 
-            // return view('admin.payments.index', compact('data'));
+            return view('admin.payments.index', compact('data')); 
         } catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
@@ -43,7 +44,11 @@ class PaymentsController extends Controller
      */
     public function create()
     {
-        return view('admin.payments.create-invoice');  
+        try {
+            return view('admin.payments.create-invoice');  
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**
@@ -117,5 +122,22 @@ class PaymentsController extends Controller
     public function destroy($id)
     {
         //
+    }
+      /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+
+    public function searchPaymentsByDate(Request $request){
+        try {
+            $data =   PaymentsMethod::searchPaymentsByDate($request);
+            return View::make('elements.admin.payments.search-payments', ['data' => $data]);
+        } catch (\Exception $ex) {
+           
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 }

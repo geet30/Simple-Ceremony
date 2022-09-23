@@ -241,12 +241,14 @@ $adminRoutes = function () {
         Route::get('edit-booking-confirmation', function () {
             return view('admin.triggers-and-emails.edit-booking-confirmation');
         });
-        Route::group(['prefix' => 'payments'], function () {
-            Route::resource('/', PaymentsController::class);
-            Route::get('/{slug}', [PaymentsController::class, 'index'])->name('admin.payments');
+        // Route::group(['prefix' => 'payments'], function () {
+            
+        //     Route::get('/{slug}', [PaymentsController::class, 'index'])->name('admin.payments');
          
-        });
-        
+        // });
+        Route::get('all-payments/{slug}', [PaymentsController::class, 'index'])->name('admin.payments');
+        Route::resource('payments', PaymentsController::class);
+        Route::post('search-payments', [PaymentsController::class, 'searchPaymentsByDate']);
      
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
@@ -272,6 +274,7 @@ $adminRoutes = function () {
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
         });
         Route::group(['prefix' => 'marriages'], function () {
+            
             Route::get('/{slug?}', [MarriagesController::class, 'index'])->name('admin.marriages');
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
@@ -280,6 +283,7 @@ $adminRoutes = function () {
             Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
         });
+       
         Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
         Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');

@@ -9,7 +9,7 @@
          @include('elements.common.panel-header')
          <div class="row mb-3 align-items-center">
             <div class="col-lg-12 col-xl-7 col-xxl-8 mb-3 mb-lg-0">
-               <ul class="nav theme-tabs payment-tabs" role="tablist" onclick="addTabToUrl(event,'/payments/')">
+               <ul class="nav theme-tabs payment-tabs" role="tablist" onclick="addTabToUrl(event,'/all-payments/')">
                   <li class="nav-item" role="presentation">
                      <a class="nav-link active" id="couple-invoice" data-bs-toggle="tab" data-bs-target="#invoice-of-couple" href="#" aria-selected="true" role="tab">Invoice from couples</a>
                   </li>
@@ -34,21 +34,21 @@
        
          <div class="tab-content" id="tabContent">
             @include('elements.admin.payments.filter')
-            <div class="tab-pane fade show active" id="invoice-of-couple" role="tabpanel" aria-labelledby="couple-invoice">
+            <div class="tab-pane fade show active couple-invoice" id="invoice-of-couple" role="tabpanel" aria-labelledby="couple-invoice">
                @include('elements.admin.payments.couple-invoice')
              
             </div>
-            <div class="tab-pane fade" id="invoice-of-celebrants" role="tabpanel" aria-labelledby="celebrants-invoice">
+            <div class="tab-pane fade celebrants-invoice" id="invoice-of-celebrants" role="tabpanel" aria-labelledby="celebrants-invoice">
                
                @include('elements.admin.payments.celebrants-invoice')
 
             </div>
-            <div class="tab-pane fade" id="invoice-of-partners" role="tabpanel" aria-labelledby="partners-invoice">
+            <div class="tab-pane fade partners-invoice" id="invoice-of-partners" role="tabpanel" aria-labelledby="partners-invoice">
                
                @include('elements.admin.payments.partners-invoice')
 
             </div>
-            <div class="tab-pane fade" id="invoice-of-referrers" role="tabpanel" aria-labelledby="referrers-invoice">
+            <div class="tab-pane fade referrers-invoice" id="invoice-of-referrers" role="tabpanel" aria-labelledby="referrers-invoice">
                @include('elements.admin.payments.referrers-invoice')
 
             </div>
@@ -56,5 +56,7 @@
       </div>
    </div>
 </div>
+@include('admin.marriages.js')
 @include('elements.common.tax-invoice')
+@include('pages.alert.change_status')
 @endsection
