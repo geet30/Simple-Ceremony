@@ -11,6 +11,12 @@ return [
     'CONTACTUS_EMAIL' => 'support@simpleceremonies.com.au',
     'CONTACTPAGE' =>'edo@simpleceremonies.com.au',
     'CONTACTPHONE' =>'+61280033919',
+    'userType' => [
+        'Admin' => 1,
+        'User' => 2,
+        'Partner' => 3,
+        'Celebrant' =>4
+    ],
 
 
 ];

@@ -129,6 +129,7 @@ trait Methods
             $user_inputs['email'] = $data->email;
             $user_inputs['phone'] = $data->phone;
             $user_inputs['country_code'] = $data->country_code;
+            $user_inputs['user_type'] =  config('env.userType.User');
             $random_password = Str::random(8);
             $user_inputs['password'] = Hash::make($random_password);
 
@@ -186,6 +187,7 @@ trait Methods
                 
                 $userBookingAddon['booking_id']= $booking_id;
                 $userBookingAddon['package_id']= $package['package_id'];
+                $userBookingAddon['partner_id']= $package['partner_id'];
                 UserBookingAddon::create($userBookingAddon);
             }
         }

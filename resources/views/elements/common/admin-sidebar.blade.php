@@ -107,7 +107,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/addons/all"
+                <a href="/addons/all-ads-on-tab"
                     class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'addons' ? 'active' : '' }}">
                     <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -177,7 +177,8 @@
                 </a>
             </li> --}}
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'payments' ? 'active' : '' }}" href="/payments">
+            
+                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-payments' || Request::segment(1) == 'payments' ? 'active' : '' }}" href="{{url('all-payments/invoice-couple')}}">
                     <svg width="21" height="25" viewBox="0 0 21 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.0576 14.2109H10.8826V17.0984H10.0576V14.2109Z" fill="#62CBC9" />

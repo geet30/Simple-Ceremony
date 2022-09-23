@@ -73,14 +73,14 @@ $(document).ready(function(){
         var payment_date = $('.payment_date:checked').val();
         var status =getStatus();
        
+        var current_url = window.location.pathname.split('/');
         if(sub_tab_id != undefined) // if we don't have tabs then we need to do this
-        
             var divId= sub_tab_id.slice(0, -4)
         $.ajax({
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status       
+                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url       
             },
             dataType: 'html',
             cache: false,
@@ -91,9 +91,11 @@ $(document).ready(function(){
                 if(sub_tab_id != undefined)
                     $("#"+divId).html(response);
                 else
-                    $("."+cls).html(response); // this is if we don't have tabs
-                
-                
+                    if(cls =='simpletabs'){
+                        $("."+current_url[2]).html(response);
+                    }else{
+                        $("."+cls).html(response); // this is if we don't have tabs
+                    }
             }
         });
     }
