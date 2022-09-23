@@ -191,33 +191,44 @@ $(document).ready(function () {
         var form = $(e.target);
         submitform(id, action, method, formData, form);
     };
-    window.submitAjaxWithoutReload = function (e,id,method,action,callfunction = null) {
+    window.submitAjaxWithoutReload = function (
+        e,
+        id,
+        method,
+        action,
+        callfunction = null
+    ) {
         e.preventDefault();
-        if(id =='booking_details'){
-            $(".changeButton").removeClass('bg-danger');
-            if($(e.target).prop("checked")){
-                var text ='All details correct';
-                var giveclass=''
+        if (id == "booking_details") {
+            $(".changeButton").removeClass("bg-danger");
+            if ($(e.target).prop("checked")) {
+                var text = "All details correct";
+                var giveclass = "";
                 $(".changeButton").addClass(giveclass);
-                changeButtonColor('changeButton', text);
-            }else{
-                var giveclass='bg-danger'
+                changeButtonColor("changeButton", text);
+            } else {
+                var giveclass = "bg-danger";
                 $(".changeButton").addClass(giveclass);
-                var text ='have you confirm all details are correct ?';
-                changeButtonColor('changeButton', text);
+                var text = "have you confirm all details are correct ?";
+                changeButtonColor("changeButton", text);
             }
-
         }
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = e.target;
 
-        submitfunctionWithoutReload(id,action,method,formData,form,
-            callfunction);
+        submitfunctionWithoutReload(
+            id,
+            action,
+            method,
+            formData,
+            form,
+            callfunction
+        );
     };
 });
-window.changeButtonColor = function (findclass,text) {
+window.changeButtonColor = function (findclass, text) {
     $("." + findclass).html(text);
-}
+};
 function ImgUpload(counter = null) {
     var imgWrap = "";
     var imgArray = [];
@@ -501,22 +512,72 @@ $(document).ready(function () {
     });
     $("#english-speak-parties").on("change", function () {
         let selectedVal = this.value;
-        cl(selectedVal);
+        let elementClass = ".need-interpreter";
         if (selectedVal == 0) {
-            $(".speaking-lang").removeClass("d-none");
-            $(".speaking-lang").children("select").attr("required", true);
-            $(".speaking-lang")
-                .children()
-                .children("input")
-                .attr("required", true);
+            $(elementClass).removeClass("d-none");
+            $(elementClass).children("select").attr("required", true);
+            $(elementClass).children().children("input").attr("required", true);
         }
         if (selectedVal == 1) {
-            $(".speaking-lang").addClass("d-none");
-            $(".speaking-lang").children("select").attr("required", false);
-            $(".speaking-lang")
+            $(elementClass).addClass("d-none");
+            $(elementClass).children("select").attr("required", false);
+            $(elementClass)
                 .children()
                 .children("input")
                 .attr("required", false);
+        }
+    });
+    $("#english-not-speak-parties").on("change", function () {
+        let selectedVal = this.value;
+        let elementClass = ".need-interpreter";
+        cl(selectedVal);
+        if (selectedVal === "0") {
+            $(elementClass).removeClass("d-none");
+            $(elementClass).children("select").attr("required", true);
+            $(elementClass).children().children("input").attr("required", true);
+        }
+        if (selectedVal === "1") {
+            $(elementClass).addClass("d-none");
+            $(elementClass).children("select").attr("required", false);
+            $(elementClass)
+                .children()
+                .children("input")
+                .attr("required", false);
+        }
+    });
+    $("#NoIM-witnessed").on("change", function () {
+        let selectedVal = this.value;
+        let elementId = "#authorization-code-section";
+        cl(selectedVal);
+        if (selectedVal == 1) {
+            $(elementId).removeClass("d-none");
+            $(elementId).children("#authorization-code").attr("required", true);
+        } else {
+            $(elementId).addClass("d-none");
+            $(elementId)
+                .children("#authorization-code")
+                .attr("required", false);
+        }
+    });
+    $("#digital-signature").on("change", function () {
+        let selectedVal = this.value;
+        let elementId = "#witness-occupation-section";
+        if (selectedVal == 1) {
+            $(elementId).removeClass("d-none");
+            $(elementId).children().children("input").attr("required", true);
+            $("#noim-upload-section").addClass("d-none");
+            $("#noim-upload-section")
+                .children()
+                .children("input")
+                .attr("required", false);
+        } else {
+            $(elementId).addClass("d-none");
+            $(elementId).children().children("input").attr("required", false);
+            $("#noim-upload-section").removeClass("d-none");
+            $("#noim-upload-section")
+                .children()
+                .children("input")
+                .attr("required", true);
         }
     });
 });

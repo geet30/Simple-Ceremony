@@ -8,6 +8,7 @@ use App\Models\UserParent;
 use Illuminate\Support\Str;
 use App\Models\UserWitness;
 use App\Models\UserDocument;
+use App\Models\UserMarriageDocument;
 use App\Models\UserNoimReferrers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ use App\Http\Requests\UserNoimRequest;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 use PhpParser\Node\Stmt\TryCatch;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
-
+use PDF;
 
 class UserNoimController extends Controller
 {
@@ -108,6 +109,7 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
+        // return $person;
         return view(self::$bladePath . 'steps', compact('person'));
     }
     public function step2()
@@ -133,7 +135,6 @@ class UserNoimController extends Controller
     public function userNoim($id)
     {
         $person = UserNoim::where('booking_id', $id)->with(['birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness'])->get();
-
         return view('pages.steps.index', compact('person', 'id'));
     }
     public function updateUserNoim(Request $request, $id)
@@ -164,5 +165,36 @@ class UserNoimController extends Controller
         }, $request->person);
         self::storeWitnessData($request, $loggedInUserId, $bookingId);
         return env('APP_ENV') == 'dev' ? $request->all() : redirect()->back();
+    }
+    public function documents()
+    {
+        return view('user.documents.lisiting');
+    }
+    public function documentSave(Request $request)
+    {
+        $loggedInUserId = Auth::user()->id;
+        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        $request->merge([
+            'user_id' => $loggedInUserId,
+            'booking_id' => $bookingId,
+        ]);
+        UserMarriageDocument::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
+        return $request->all();
+    }
+    public function previewDocument(Request $request, $document)
+    {
+        $loggedInUserId = Auth::user()->id;
+        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
+
+        switch ($document) {
+            case 'noim-download':
+                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person]);
+                return $NOIMpdf->download('sampleNoim.pdf');
+                break;
+            case 'noim-perview':
+                return view('user.documents.noim', ['person' => $person]);
+            default:
+                return redirect()->back();
+        }
     }
 }

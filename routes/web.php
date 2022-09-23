@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,PaymentsController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, PaymentsController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
 /*
@@ -132,9 +132,9 @@ $websiteRoutes = function () {
             Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
             Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
             Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
-            Route::get('documents', function () {
-                return view('user.documents.lisiting');
-            });
+            Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
+            Route::get('preview-document/{page}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-noim-document');
+            Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
@@ -250,7 +250,7 @@ $adminRoutes = function () {
             //     return view('admin.payments.create-celebrants-invoice');
             // });
         });
-     
+
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
@@ -290,7 +290,7 @@ $adminRoutes = function () {
         Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
         Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
         Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
-       
+
         Route::get('create-partners-invoice', function () {
             return view('admin.payments.create-partners-invoice');
         });
@@ -345,7 +345,7 @@ $adminRoutes = function () {
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
-   
+
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
