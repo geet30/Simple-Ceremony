@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User, Payments};
+use App\Models\{User, Invoices};
 use Illuminate\Support\Facades\{Auth};
 use View;
-use App\Traits\Payments\{Methods as PaymentsMethod};
-class PaymentsController extends Controller
+use App\Traits\Invoices\{Methods as InvoicesMethod};
+class InvoicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,14 +23,15 @@ class PaymentsController extends Controller
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
-           
-            $data  = PaymentsMethod::fetch_all_payments($slug)->paginate($records, ['*'], 'page', $req_page);
+            $celebrants = User::role('Celebrant')->select('first_name','id')->get();
+            $data  = InvoicesMethod::fetch_all_payments($slug)->paginate($records, ['*'], 'page', $req_page);
            
             if ($request->ajax()) {            
-                $viewurl = 'elements.admin.payments.' . $slug;
+                $viewurl = 'elements.admin.invoices.' . $slug;
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
-            return view('admin.payments.index', compact('data')); 
+            // dd($celebrant);
+            return view('admin.invoices.index', compact('data','celebrants')); 
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -45,7 +46,7 @@ class PaymentsController extends Controller
     public function create()
     {
         try {
-            return view('admin.payments.create-invoice');  
+            return view('admin.invoices.create-invoice');  
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -133,7 +134,7 @@ class PaymentsController extends Controller
 
     public function searchPaymentsByDate(Request $request){
         try {
-            $data =   PaymentsMethod::searchPaymentsByDate($request);
+            $data =   InvoicesMethod::searchPaymentsByDate($request);
             return View::make('elements.admin.payments.search-payments', ['data' => $data]);
         } catch (\Exception $ex) {
            

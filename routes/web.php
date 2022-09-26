@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,PaymentsController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
 /*
@@ -241,14 +241,10 @@ $adminRoutes = function () {
         Route::get('edit-booking-confirmation', function () {
             return view('admin.triggers-and-emails.edit-booking-confirmation');
         });
-        // Route::group(['prefix' => 'payments'], function () {
-            
-        //     Route::get('/{slug}', [PaymentsController::class, 'index'])->name('admin.payments');
-         
-        // });
-        Route::get('all-payments/{slug}', [PaymentsController::class, 'index'])->name('admin.payments');
-        Route::resource('payments', PaymentsController::class);
-        Route::post('search-payments', [PaymentsController::class, 'searchPaymentsByDate']);
+       
+        Route::get('all-payments/{slug}', [InvoicesController::class, 'index'])->name('admin.payments');
+        Route::resource('payments', InvoicesController::class);
+        Route::post('search-payments', [InvoicesController::class, 'searchPaymentsByDate']);
      
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 

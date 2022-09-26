@@ -377,7 +377,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                         Ceremony status
                      </button>
                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
+                        @foreach(config('ceremonyStatus.admin_booking_status') as $key=>$status)
 
                         <li>
                            <a role="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#change_marriage_status_modal" onclick="appendId('{{$key}}','status')" class="theme-btn primary-btn-border d-flex justify-content-center"><span class="status text-nowrap {{strtolower($status)}}">{{$status}}</span></a>
