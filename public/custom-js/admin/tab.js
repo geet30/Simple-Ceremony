@@ -11,6 +11,10 @@ $(window).on('load', function () {
 $(document).ready(function(){
     window.addTabToUrl = function(e,url){
         var tab_id = $(e.target).attr("id");
+        $('.filter_tab').css('display','block');
+        if(tab_id == 'couple-invoice'){
+            $('.filter_tab').css('display','none');
+        }
         var url = url +tab_id;
         history.pushState('', '', [url])
     }

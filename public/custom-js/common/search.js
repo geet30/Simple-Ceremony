@@ -72,7 +72,18 @@ $(document).ready(function(){
         var ceremony_date = $('.ceremony_date:checked').val();
         var payment_date = $('.payment_date:checked').val();
         var status =getStatus();
-       
+
+        var celebrants = [];
+        $('.celebrants:checked').each(function(i){
+            celebrants[i] = $(this).val();
+        });
+        var bookingStatus = [];
+        $('.bookingStatus:checked').each(function(i){
+            bookingStatus[i] = $(this).val();
+        });
+
+        console.log(celebrants,'celebrants');
+        console.log(bookingStatus,'bookingStatus');
         var current_url = window.location.pathname.split('/');
         if(sub_tab_id != undefined) // if we don't have tabs then we need to do this
             var divId= sub_tab_id.slice(0, -4)
@@ -80,7 +91,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url       
+                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus    
             },
             dataType: 'html',
             cache: false,

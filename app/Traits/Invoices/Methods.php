@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Payments;
+namespace App\Traits\Invoices;
 
 use App\Models\{User, Booking};
 
@@ -17,7 +17,7 @@ trait Methods
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
             },
-            'payments' =>function($query){
+            'invoices' =>function($query){
                 $query->select( 'booking_id', 'invoice_number', 'recipient_name', 'abn_number', 'bank_name', 'bank_number', 'notes');
             },
             'booking_payments'=>function ($query) {
@@ -37,7 +37,7 @@ trait Methods
     }
     public static function searchPaymentsByDate($request)
     {
-        
+        dd($request->all());
         $req_page = 1;
         $records = 10;
         $slug = '';
@@ -45,14 +45,21 @@ trait Methods
         if(isset($request->current_url[2]) && !empty($request->current_url[2])){
             $slug = $request->current_url[2];
         }
-        $data = self::fetch_all_payments($slug);
-        // if ($request->has('status') && $request->filled('status')) {
-        //     $whereClause = [
-        //         ['status', '=', $request->status]
-        //     ];
-        //     $data = $data->where($whereClause);
-        // }
        
+       
+        $data = self::fetch_all_payments($slug);
+        if ($request->has('bookingStatus') && $request->filled('bookingStatus')) {
+            $whereClause = [
+                ['status', '=', $request->bookingStatus]
+            ];
+            $data = $data->whereIn($whereClause);
+        }
+        if ($request->has('celebrants') && $request->filled('celebrants')) {
+            $whereClause = [
+                ['celebrant_id', '=', $request->celebrants]
+            ];
+            $data = $data->whereIn($whereClause);
+        }
         if ($request->has('booking_date') && $request->filled('booking_date')) {
             $date = date('Y-m-d', strtotime($request->booking_date));
             $data->Where('booking_date', 'like', '%' . $date . '%')
@@ -60,6 +67,7 @@ trait Methods
         } else {
             $data = $data->orderBy('id', 'DESC');
         }
+        // dd($data->toSql());
         return $data->paginate($records, ['*'], 'page', $req_page);
     }
 }

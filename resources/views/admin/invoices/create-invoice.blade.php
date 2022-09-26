@@ -26,6 +26,8 @@
                         {{ $errors->first() }}
                   </div>
                @endif
+               
+             
                <form class="needs-validation" method="POST" novalidate action="{{ route('payments.store') }}">
                   <div class="row align-items-center">
                      <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
