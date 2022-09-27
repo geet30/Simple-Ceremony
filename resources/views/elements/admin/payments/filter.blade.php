@@ -1,4 +1,6 @@
 
+{{-- @if(\Request::segment(2) != 'invoice-couple') --}}
+
 <div class="filter_tab">
     <div class="row mb-4 pt-32 justify-content-between ">
 
@@ -65,3 +67,5 @@
     </div>
 </div>
 
+
+{{-- @endif --}}

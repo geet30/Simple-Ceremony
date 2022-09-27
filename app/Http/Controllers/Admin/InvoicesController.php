@@ -105,7 +105,7 @@ class InvoicesController extends Controller
     {
         try {
             $data['status'] = 1;
-            $response = Notification::where('id', $id)->update($data);
+            $response = Invoices::where('id', $id)->update($data);
             if ($response) {
                 return $this->successResponse($data, 'Status changed successfully.');
             }
@@ -120,9 +120,17 @@ class InvoicesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+
+        try {
+            $data = Invoices::where('id', $request->id)->delete();
+            return redirect('all-payments/celebrants-invoice')->with('message', 'Celebrant deleted successfully.');
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+        
+        // deleteEntries($id,'App\Models\CelebrantLocations','request_location_id'); 
     }
       /**
      * search the specified booking location in storage.

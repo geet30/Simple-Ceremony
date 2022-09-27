@@ -31,7 +31,12 @@
                 </div>
             </div>
          </div>
-      
+         @if (session()->has('message'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        {{ session()->get('message') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+         @endIf
          <div class="tab-content" id="tabContent">
             @include('elements.admin.payments.filter')
             <div class="tab-pane fade show active couple-invoice" id="invoice-of-couple" role="tabpanel" aria-labelledby="couple-invoice">

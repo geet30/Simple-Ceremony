@@ -18,6 +18,16 @@ return [
         'Celebrant' =>4
     ],
 
+    'bankNames' => [
+        1=> 'ANZ',
+        2=>'NAB',
+        3=>'Westpac Bank',
+        4=>'Bank of Queensland',
+        5=>'Macquarie Bank',
+        6=>'Bendigo Bank',
+        7=>'AMP Bank Ltd'
+    ],
+
 
 ];
 

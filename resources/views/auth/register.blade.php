@@ -88,13 +88,9 @@
                             <label for="InputName" class="form-label small-text2">{{ __('Bank') }}</label>
                             <select required="" name="customer_type" id="selectinput" class="js-placeholder-single-input form-control">
                                <option value="" disabled="" selected="" hidden="">Choose category here</option>
-                               <option value="1">ANZ</option>
-                               <option value="2">NAB</option>
-                               <option value="3">Westpac Bank</option>
-                               <option value="4">Bank of Queensland</option>
-                               <option value="5">Macquarie Bank</option>
-                               <option value="6">Bendigo Bank</option>
-                               <option value="7">AMP Bank Ltd</option>
+                               @foreach(config('env.bankNames') as $key=>$bank)
+                                    <option value="{{$key}}">{{$bank}}</option>
+                                @endforeach
                             </select>
                          </div>
                          <div class="col-md-6 mb-4">
