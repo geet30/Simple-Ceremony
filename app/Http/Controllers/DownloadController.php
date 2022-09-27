@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use View;
+use PDF;
+use App\Models\{User, Invoices};
 
 class DownloadController extends Controller
 {
@@ -22,4 +24,15 @@ class DownloadController extends Controller
         $file_path = public_path('uploads/documents/user/'.$file_name);
         return response()->file($file_path);
     }  
+    public function downloadInvoices($id) {
+        // echo $id;die;
+        $data =   Invoices::with([
+            'booking' => function ($query) {
+                $query->select( 'id', 'booking_date', 'price', 'first_couple_name', 'second_couple_name', 'status');
+            },
+        ])->where('id',$id)->get()->toArray();
+    
+        $pdf = PDF::loadView('pages.pdf.invoice',  ['data' => $data]);
+        return $pdf->download('invoice.pdf');
+    }
 }

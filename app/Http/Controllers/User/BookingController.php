@@ -55,6 +55,8 @@ class BookingController extends Controller
      */
     public function getBookingLocationCalender(Request $request,$locationId){
         try {
+        //    $check =  Booking::createInvoice(5);
+        //    dd($check);
 
             if(isset($request->session_id) && !empty($request->session_id)){
                 $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));

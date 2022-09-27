@@ -179,6 +179,9 @@ $(document).ready(function () {
     window.appendId = function (value, findclass) {
         $("." + findclass).val(value);
     };
+    window.appendData = function(){
+        
+    }
 
     $("ul.add-on-list-nav li:gt(4)").hide();
     $(".collapse_ul").click(function () {

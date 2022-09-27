@@ -3,7 +3,7 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
+use App\Models\{User, Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
@@ -86,7 +86,6 @@ trait Methods
     {
         $when = now()->addMinutes(1);
         $dataMail  = $data;
-        // dd($dataMail);
 
         $mail_id = config('env.CONTACTUS_EMAIL');
         $sendMail = new RequestLocationEmail($dataMail);
@@ -155,6 +154,7 @@ trait Methods
             }
             $booking_inputs['user_id']  = $user->id;
             $booking_inputs['locationId']  = $data->locationId;
+            // $booking_inputs['celebrant_id']  = $data->celebrant_id; // will be done
             $booking_inputs['booking_date']  = $data->booking_date;
             $booking_inputs['booking_start_time']  = $data->booking_start_time;
             $booking_inputs['booking_end_time']  = $data->booking_end_time;
@@ -166,6 +166,7 @@ trait Methods
             $booking = Booking::create($booking_inputs);
             self::saveAddonDetail($data->locationId,$booking->id);
             self::savePaymentDetail($sessionId, $user->id,$booking->id);
+            self::createInvoice($booking->id);
 
             return true;
         } catch (\Exception $ex) {
@@ -174,6 +175,30 @@ trait Methods
             die;
             return $ex->getMessage();
         }
+    }
+    static function createInvoice($booking_id){
+        $booking =  Booking::where('id',$booking_id)->first();
+              
+        $invoices_data['user_id']  = $booking->user_id;
+        $invoices_data['booking_id']  = $booking->id;
+        if(isset($booking->celebrant_id) && !empty($booking->celebrant_id)){
+            $celebrant_details =User::where('id',$booking->celebrant_id)->with('celebrant')->first();
+           
+            $invoices_data['celebrant_id']  = $booking->celebrant_id;
+            $invoices_data['recipient_name']  = $celebrant_details->first_name;//celebrant name;
+            $invoices_data['abn_number']  =$celebrant_details->abn_number;
+            $invoices_data['bank_name']  = $celebrant_details->bank;
+            $invoices_data['bank_number']  = $celebrant_details->account_no;
+            $invoices_data['user_type']  =  config('env.userType.Celebrant');
+        }
+
+        $invoices_data['invoice_number']  = 1111;       
+        $invoices_data['amount']  = $booking->price;
+        $invoices_data['status']  = config('ceremonyStatus.status.Booked');
+        $invoices_data['notes'] = 'New Invoice Created';
+        Invoices::create($invoices_data);
+        return true;
+
     }
     static function saveAddonDetail($locationId,$booking_id){
         $locations_packages =  Locations::with([

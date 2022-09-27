@@ -59,10 +59,7 @@ class Booking extends Model
     {
         return $this->hasMany('App\Models\UserBookingAddon', 'booking_id', 'id');
     }
-    public function invoices()
-    {
-        return $this->hasMany('App\Models\Invoices', 'booking_id', 'id');
-    }
+    
     public function booking_payments()
     {
        
