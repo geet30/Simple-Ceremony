@@ -31,7 +31,8 @@ class DownloadController extends Controller
                 $query->select( 'id', 'booking_date', 'price', 'first_couple_name', 'second_couple_name', 'status');
             },
         ])->where('id',$id)->get()->toArray();
-        $pdf = PDF::loadView('pages.pdf.invoice', $data);
+    
+        $pdf = PDF::loadView('pages.pdf.invoice',  ['data' => $data]);
         return $pdf->download('invoice.pdf');
     }
 }

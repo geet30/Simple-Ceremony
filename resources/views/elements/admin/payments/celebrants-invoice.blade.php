@@ -40,7 +40,9 @@
                     </td>
                     {{-- @if($result->status == 7) --}}
                     <td style="min-width: 50px;" class="p-3 text-center">
-                        <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
+                        <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal" onclick="appendData('{{$result}}','result')"  data-result="{{
+                            $result
+                        }}">View</a>
                     </td>
                     <td style="min-width: 90px;" class="p-3 text-center">
                         <a href="{{url('download-invoice',$result->id)}}" class="table-link">Download</a>

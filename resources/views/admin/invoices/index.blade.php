@@ -62,6 +62,6 @@
    </div>
 </div>
 @include('admin.marriages.js')
-@include('elements.common.tax-invoice')
+@include('pages.alert.tax-invoice')
 @include('pages.alert.change_status')
 @endsection

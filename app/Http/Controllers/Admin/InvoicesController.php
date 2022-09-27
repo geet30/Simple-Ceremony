@@ -46,7 +46,8 @@ class InvoicesController extends Controller
     public function create()
     {
         try {
-            return view('admin.invoices.create-invoice');  
+            $celebrants = User::role('Celebrant')->select('first_name','id')->get();
+            return view('admin.invoices.create-invoice', compact('celebrants'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
