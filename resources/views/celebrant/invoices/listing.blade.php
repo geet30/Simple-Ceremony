@@ -38,6 +38,13 @@
                </td>
             </tr>
          @endforeach
+         @if($data->total()==0)
+                <tr>
+                    <td colspan="11">
+                        <center>No Record Found</center>
+                    </td>
+                </tr>
+         @endif  
       </tbody>
       <tfoot>
          <tr>
