@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
-use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations ,InvoicesController as CelebrantInvoices};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -244,7 +245,10 @@ $adminRoutes = function () {
        
         Route::get('all-payments/{slug}', [InvoicesController::class, 'index'])->name('admin.payments');
         Route::resource('payments', InvoicesController::class);
-        Route::post('search-payments', [InvoicesController::class, 'searchPaymentsByDate']);
+        Route::get('couple-info',[InvoicesController::class, 'getUserInfo']);
+        Route::get('recipient-info',[InvoicesController::class, 'getRecipientInfo']);
+        Route::post('search-payments', [InvoicesController::class, 'searchByStatusDate']);
+        Route::get('search-by-invoice', [InvoicesController::class, 'searchByInvoice']);
      
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
@@ -455,6 +459,11 @@ $celebrantRoutes = function () {
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
         Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
+        // Route::get('all-invoices/{slug}', [CelebrantInvoices::class, 'index'])->name('celebrant.invoices');
+        Route::resource('invoices', CelebrantInvoices::class);
+        Route::get('couple-info',[InvoicesController::class, 'getUserInfo']);
+        Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
+       
     });
 
     Route::get('availablity-overview', function () {
@@ -473,12 +482,7 @@ $celebrantRoutes = function () {
     Route::get('total-fee', function () {
         return view('celebrant.total-fee.listing');
     });
-    Route::get('invoices', function () {
-        return view('celebrant.invoices.listing');
-    });
-    Route::get('create', function () {
-        return view('celebrant.invoices.create');
-    });
+  
     Route::get('financial-report', function () {
         return view('celebrant.financial-report.listing');
     });

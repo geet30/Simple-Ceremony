@@ -71,7 +71,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/all-invoices">
+                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-invoices' || Request::segment(1) == 'invoices' ? 'active' : '' }} font-weight-600" href="/user/all-invoices" >
+
                     <svg width="25" height="26" viewBox="0 0 25 26" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

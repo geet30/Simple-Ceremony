@@ -81,9 +81,6 @@ $(document).ready(function(){
         $('.bookingStatus:checked').each(function(i){
             bookingStatus[i] = $(this).val();
         });
-
-        console.log(celebrants,'celebrants');
-        console.log(bookingStatus,'bookingStatus');
         var current_url = window.location.pathname.split('/');
         if(sub_tab_id != undefined) // if we don't have tabs then we need to do this
             var divId= sub_tab_id.slice(0, -4)
@@ -113,7 +110,9 @@ $(document).ready(function(){
  
     window.searchWithoutTabs = function(url,keyword=null,cls, page){
         const route = url;
-        const data = {'page':page,'search':keyword};
+        var current_url = window.location.pathname.split('/');
+        const data = {'page':page,'search':keyword,'current_url':current_url };
+        
         $.ajax({
             method:'GET',
             data:data,
@@ -121,7 +120,12 @@ $(document).ready(function(){
             beforeSend:function(){
             },
             success:function(response){
-                $("."+cls).html(response);
+                if(cls =='simpletabs'){
+                    $("."+current_url[2]).html(response);
+                }else{
+                    $("."+cls).html(response); // this is if we don't have tabs
+                }
+                
             },
         });
     }

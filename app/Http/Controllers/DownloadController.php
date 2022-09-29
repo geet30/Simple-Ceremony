@@ -25,12 +25,12 @@ class DownloadController extends Controller
         return response()->file($file_path);
     }  
     public function downloadInvoices($id) {
-        // echo $id;die;
         $data =   Invoices::with([
             'booking' => function ($query) {
-                $query->select( 'id', 'booking_date', 'price', 'first_couple_name', 'second_couple_name', 'status');
+                $query->select( 'id', 'booking_date', 'price', 'first_couple_name', 'second_couple_name', 'status','ceremony_type');
             },
-        ])->where('id',$id)->get()->toArray();
+        ])->where('id',$id)->first();
+     
     
         $pdf = PDF::loadView('pages.pdf.invoice',  ['data' => $data]);
         return $pdf->download('invoice.pdf');

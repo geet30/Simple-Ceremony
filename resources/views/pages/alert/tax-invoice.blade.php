@@ -2,7 +2,6 @@
 <div class="modal fade" id="tax_invoice_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
       <div class="modal-content border-0 rounded-0">
-        
          <div class="modal-body p-0"  style="min-height:94vh">
             <table style=";max-width:800px;background-color:#fff; font-family: 'Montserrat', sans-serif;" align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" >
                <tr>
@@ -36,29 +35,27 @@
                                     <td style="width:50%">
                                        <table style="width:100%" >
                                           <tr>
-                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Invoice from</td>
-                                             <td class="celebrant_name" style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : Daniels</td>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Invoice from    : </td>
+                                             <td class="celebrant_name" style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> </td>
                                           </tr>
-                                          <tr>
-                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Date</td>
-                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;">: Feb 21, 2022</td>
-                                          </tr>
+                                         
                                           
                                           <tr>
                                              <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">ABN number</td>
-                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : 090909090</td>
+                                             <td class="abn_number" style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : 090909090</td>
+                                          </tr>
+                                          <tr>
+                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Date Create</td>
+                                             <td class="date" style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;">: Feb 21, 2022</td>
                                           </tr>
                                        </table>
                                     </td>
                                     <td style="width:50%">
                                        <table style="width:100%;  justify-content: end;   display: flex; " >
                                           <tr>
-                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
-                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;">&nbsp;</td>
-                                          </tr>
-                                          <tr>
                                              <td style="font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Invoice to </td>
-                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : Simple ceremony</td>
+                                             <td style="font-weight:700;font-size: 12px;line-height: 20px; color: #1C1C1C;"> : {{ config('env.COMPANYNAME')}}</td>
+                                            
                                           </tr>
                                        </table>
                                     </td>
@@ -73,50 +70,54 @@
                                     <tr>
                                       
                                        <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;">Type of ceremony</th>
-                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;">Ceremony date</th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: left;padding-left: 0;">Ceremony date</th>
                                        <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;">Couple</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr style="border-bottom:1px solid #62CBC9;">
                                       
-                                       <td style="min-width:400px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
-                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$123</td>
-                                       <td style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$123</td>
+                                       <td class="ceremony_type" style="min-width:400px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
+                                       <td class="ceremony_date"  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding-left: 0;">$123</td>
+                                       <td class="couple"  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$123</td>
                                     </tr>
                                     
                                     
                                  </tbody>
                                  <tfoot>
                                     <tr>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;float: right;">Total Fee:</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;text-align: right;"></td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;padding: 0;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding: 0;padding-top: 20px;">Total Fee:</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;padding: 0;"></td>
                                     </tr>
                                     <tr>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;float: right;">Less administration Fee:</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;text-align: right;">$ 153</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;padding: 0;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding: 0;">Less administration Fee:</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;padding: 0;"></td>
                                     </tr>
                                     <tr>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;float: right;">Administration Fee:</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;text-align: right;">$ 153</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;padding: 0;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding: 0;">Administration Fee:</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;padding: 0;">
+                        
+                                    </td>
                                     </tr>
                                     <tr>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;float: right;">Total :</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;text-align: right;"></td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;padding: 0;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding: 0;padding-top: 20px;">Total :</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;padding: 0;"></td>
                                     </tr>
                                     <tr>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;float: right;">Less administration Fee:</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;text-align: right;">$ 153</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;padding: 0;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding: 0;">Celebrant Fee:</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;padding: 0;"></td>
                                     </tr>
                                     <tr>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;">&nbsp;</td>
-                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 0px; color: #1C1C1C;float: right;">Administration Fee:</td>
-                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 0px; color: #1C1C1C;text-align: right;">$ 153</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;padding: 0;">&nbsp;</td>
+                                       <td  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding: 0;">GST component</td>
+                                       <td  style="min-width:100px;font-weight: 700;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;padding: 0;">
+                                    
+                                    </td>
                                     </tr>
                                  </tfoot>
                               </table>
