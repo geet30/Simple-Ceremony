@@ -320,11 +320,18 @@ trait Methods
     {
         return  Booking::with([
             'location' => function ($query) {
-                $query->select('name', 'id', 'price');
+                $query->select('name', 'id', 'price','address','town','post_code');
             },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
-            }
+            },
+           
+            'booking_addons.packages'=>function ($query) {
+                $query->select('package_name','id','total_fee','user_id','product_id');
+            },
+            'booking_addons.packages.user'=>function ($query) {
+                $query->select('name','id');
+            },
         ]);
     }
     static function checkIfBookingExist($data, $locationId)

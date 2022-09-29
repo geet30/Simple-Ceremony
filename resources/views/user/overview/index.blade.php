@@ -25,7 +25,7 @@
                      <div class="row">
                         <div class="col-md-12 col-lg-6 mb-4 mb-md-0 mb-lg-4">
                            <label class="form-label small-text2">Ceremony location</label>
-                           <input type="text" value="Booking" class="form-control body-1 netural-100" readonly="">
+                           <input type="text" value="{{$booking->location->name}}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 col-lg-6 mb-4">
                            <label for="InputName" class="form-label small-text2 d-none d-md-inline-block"></label>
@@ -36,22 +36,26 @@
                         </div>
                         <div class="col-md-12 mb-4">
                         <label class="form-label small-text2">Detail location <a href="order-add-ons-details" class="ms-2 button-3 turquoise-100">See information</a></label>
-                           <input type="text" value="Alfred St S, Milsons Point NSW 2061, Australia" class="form-control body-1 netural-100" readonly="">
+                           <input type="text" value="{{$booking->location->address}} ,{{$booking->location->town}} ,{{$booking->location->post_code}}, {{config('env.COUNTRY')}}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 mb-4">
                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.637456914615!2d151.20927081554817!3d-33.84745908066219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12aef2e9f08045%3A0x32d189ddcd6f84ce!2sSimple%20Ceremonies!5e0!3m2!1sen!2sin!4v1654854264298!5m2!1sen!2sin" width="100%" height="158" style="border:0;border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
+                        <div class="col-md-12 mb-4">
+                           <label for="InputName" class="form-label small-text2">Pin Location</label>
+                           <input type="text" value="" class="form-control body-1 netural-100" readonly="">
+                        </div>
                         <div class="col-md-6 mb-4">
-                           <label for="InputName" class="form-label small-text2">Date of marriage</label>
-                           <input type="text" value="Mar 01, 2022" class="form-control body-1 netural-100" readonly="">
+                           <label for="InputName" class="form-label small-text2">Date of ceremony</label>
+                           <input type="text" value="{{date('M d,Y',strtotime($booking->booking_date))}}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="InputName" class="form-label small-text2">Time</label>
-                           <input type="text" value="08.00 am" class="form-control body-1 netural-100" readonly="">
+                           <input type="text" value="{{$booking->booking_start_time}}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 mb-5">
                            <label for="InputName" class="form-label small-text2">Name marriage celebrant</label>
-                           <input type="text" value="" class="form-control body-1 netural-100" readonly="">
+                           <input type="text" value="{{$booking->celebrant->first_name}}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-12 mb-2">
                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row">
@@ -61,18 +65,23 @@
                         </div>
                         <div class="col-12">
                             <div class="overview-add-ons">
-                            {{-- @foreach($addon['package'] as $package) --}}
+                           
+                            @foreach($addons as $booking_addon)
+                           
+                           
+                              @foreach($booking_addon->packages as $package)
+
                                <div class="overview-add-ons-details mb-4">
                                   <div class="row">
                                      <div class="col-md-5 mb-4">
                                         <label for="InputName" class="form-label small-text2">Name package</label>
                                         
                                       
-                                         <input type="text" value="Corona pack" class="form-control body-1 netural-100" readonly=""> 
+                                         <input type="text" value="{{$package->package_name}}" class="form-control body-1 netural-100" readonly=""> 
                                      </div>
                                      <div class="col-md-5 mb-4">
                                         <label for="InputName" class="form-label small-text2">Provider name</label>
-                                        <input type="text" value="Nathan decoration" class="form-control body-1 netural-100" readonly="">
+                                        <input type="text" value="{{$package->user->name}}" class="form-control body-1 netural-100" readonly="">
                                      </div>
                                      <div class="col-md-2 mb-4 text-start ">
                                         <label for="InputName" class="form-label small-text2 text-start">Quantity</label>
@@ -83,7 +92,7 @@
                                      <div class="col-md-12 mb-4">
                                         <div class="d-flex align-items-start align-items-md-center justify-content-between flex-column flex-md-row">
                                            <div class="d-flex align-items-start flex-column flex-lg-row mb-3 mb-md-0">
-                                              <h3 class="h3 neutral-100 mb-0 me-3 mb-2 mb-lg-0">$ 120</h3>
+                                              <h3 class="h3 neutral-100 mb-0 me-3 mb-2 mb-lg-0">$ {{round($package->total_fee,0)}}</h3>
                                               <a role="button" data-bs-toggle="modal" data-bs-target="#pay_ceremony_popup" class="theme-btn primary-btn me-3">Pay</a>
                                            </div>
                                            <span class="status registered thread">You got 1 comment in your thread!</span>
@@ -96,14 +105,15 @@
                                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row mb-0 mb-md-4 mb-lg-0">
                                               <span class="body-3 netural-100 me-md-4 mb-2 mb-md-0">Minimal deposit 10%</span>
                                               <span class="netural-100 small-text2 me-md-4 mb-2 mb-md-0">Status</span>
-                                              <span class="status pending me-md-5 mb-3 mb-md-0">Pending</span>
+                                              <span class="status pending me-md-5 mb-3 mb-md-0">{{config('ceremonyStatus.booking_status.'.$booking->status) }}</span>
                                            </div>
-                                          {{--  <a href="{{route('add-ons.detail',$addon['id'])}}" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>--}}
+                                          <a href="{{route('package-detail',$package->id)}}" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>
                                         </div>
                                      </div>
                                   </div>
                                </div>
-                             {{-- @endforeach --}} 
+                              @endforeach
+                           @endforeach
                             </div>
                          </div>
                      </div>

@@ -29,6 +29,7 @@ return [
         7=>'AMP Bank Ltd'
     ],
     'SERVERURL' =>'http://simpleceremoniesacc.crebos.online',
+    'COUNTRY' =>'Australia'
 
 
 ];

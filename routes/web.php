@@ -131,17 +131,18 @@ $websiteRoutes = function () {
         Route::prefix('user')->group(function () {
             Route::get('overview', 'App\Http\Controllers\User\UserController@index')->name('user-overview');
             Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
-            Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
-            Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+            Route::get('add-ons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
+            Route::get('package/detail/{id}', 'App\Http\Controllers\User\UserController@packageDetail')->name('package-detail');
+            Route::get('add-ons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', function () {
                 return view('user.documents.lisiting');
             });
+            Route::get('package/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
-            // Route::get('step-2', function () {
-            //     return view('user.NoIM.step-2');
-            // });
+            
             Route::resource('user-noim', UserNoimController::class);
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
             Route::get('step-2', [UserNoimController::class, 'step2'])->name('user-noim.steps2.get');
@@ -152,10 +153,9 @@ $websiteRoutes = function () {
             Route::get('order-add-ons-details', function () {
                 return view('user.overview.addons.details');
             });
+           
         });
-        Route::get('add-ons-gallery', function () {
-            return view('user.overview.addons.gallery');
-        });
+       
        
         Route::get('account-details', function () {
             return view('user.account.account-details');

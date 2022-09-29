@@ -52,7 +52,7 @@ trait Methods
                 $query->select('name', 'id');
             }
 
-        ])->select('id', 'user_id', 'package_name');
+        ])->select('id', 'user_id', 'package_name','total_fee','product_id');
         if ($id != '') {
             $partnerPackages = $partnerPackages->where('id', $id);
         }
