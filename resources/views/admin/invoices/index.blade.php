@@ -26,16 +26,16 @@
             </div>
             <div class="col-lg-4 col-xl-3">
                <div class="form-group has-search w-100 position-relative">
-                  <input type="text" class="form-control" placeholder="Search invoice">
-                  <span class="fa fa-search form-control-feedback"></span>
+                  <input type="text" class="form-control" placeholder="Search invoice" onkeyup="searchWithoutTabs('/search-by-invoice',this.value, 'simpletabs')">
+                  <span class="fa fa-search form-control-feedback" ></span>
                 </div>
             </div>
          </div>
          @if (session()->has('message'))
-                    <div class="alert alert-success alert-dismissible fade show">
-                        {{ session()->get('message') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
+            <div class="alert alert-success alert-dismissible fade show">
+               {{ session()->get('message') }}
+               <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
          @endIf
          <div class="tab-content" id="tabContent">
             @include('elements.admin.payments.filter')
@@ -43,7 +43,7 @@
                @include('elements.admin.payments.couple-invoice')
              
             </div>
-            <div class="tab-pane fade celebrants-invoice" id="invoice-of-celebrants" role="tabpanel" aria-labelledby="celebrants-invoice">
+            <div class="tab-pane fade celebrants-invoice searchResult" id="invoice-of-celebrants" role="tabpanel" aria-labelledby="celebrants-invoice">
                
                @include('elements.admin.payments.celebrants-invoice')
 
@@ -61,6 +61,7 @@
       </div>
    </div>
 </div>
+@include('pages.js')
 @include('admin.marriages.js')
 @include('pages.alert.tax-invoice')
 @include('pages.alert.change_status')

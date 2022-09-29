@@ -11,6 +11,7 @@ return [
     'CONTACTUS_EMAIL' => 'support@simpleceremonies.com.au',
     'CONTACTPAGE' =>'edo@simpleceremonies.com.au',
     'CONTACTPHONE' =>'+61280033919',
+    'COMPANYNAME' =>'Simple Ceremonies',
     'userType' => [
         'Admin' => 1,
         'User' => 2,
@@ -27,6 +28,7 @@ return [
         6=>'Bendigo Bank',
         7=>'AMP Bank Ltd'
     ],
+    'SERVERURL' =>'http://simpleceremoniesacc.crebos.online',
 
 
 ];

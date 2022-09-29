@@ -5,15 +5,22 @@ $(window).on('load', function () {
         
         $('ul.add-on-list-nav').find('li button#'+current_url[2]).click();   
     }
+    console.log(current_url[2]);
+    if(current_url[2] =='invoice-couple'){
+        $(document).find('.filter_tab').css('display','none');
+    }
+       
    
 });
 
 $(document).ready(function(){
     window.addTabToUrl = function(e,url){
         var tab_id = $(e.target).attr("id");
-        $('.filter_tab').css('display','block');
+      
         if(tab_id == 'couple-invoice'){
-            $('.filter_tab').css('display','none');
+            $(document).find('.filter_tab').css('display','none');
+        }else{
+            $(document).find('.filter_tab').css('display','block');
         }
         var url = url +tab_id;
         history.pushState('', '', [url])

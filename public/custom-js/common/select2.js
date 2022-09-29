@@ -49,21 +49,8 @@ $(".select2Popup").select2({
 $(".select2partnerPopup").select2({
   dropdownParent: $(".offcanvasCommonClass")
 });
-// 
-// $(".select2partnerPopup").select2({
-//       dropdownParent: $(".offcanvasCommonClass")
-//     })
-//     .on('select2:open', function () {
-//          $('span.select2.select2-container').addClass('Select2Classbody');
-//     }
-// );
-// $(".select2partnerPopup").select2({
-//   dropdownParent: $(".offcanvasCommonClass")
-// })
-// .on('select2:close', function () {
-//   $('span.select2.select2-container').removeClass('Select2Classbody');
-// }
-// );
+
+
 
 
 $('.js-example-placeholder-single').select2().on('select2:open', function(e){

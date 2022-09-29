@@ -21,8 +21,9 @@
                     <a role="button" class="theme-btn d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon"></a>
                     <div class="dropdown-menu p-3 filter_date_div">
                         <div class="filter-date-calendar" style="width:400px;">
+                        <form method="post">
                             <div class="row">
-                            <form method="post">
+                         
                                 <div class="col-6">
                                    
                                     <h4 class="h4 neutral-100 mb-3">Status</h4>
@@ -47,9 +48,9 @@
                                     @endforeach
                                   
                                 </div>
-                            </form>
+                          
                             </div>
-                            
+                        </form> 
                         </div>
                     </div>
                 </div>
