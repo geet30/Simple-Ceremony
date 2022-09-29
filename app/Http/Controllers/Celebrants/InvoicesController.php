@@ -18,14 +18,16 @@ class InvoicesController extends Controller
      */
     public function index(Request $request,$slug = null)
     {       
-        try {           
+        try {  
+            $user_id = Auth::user()->id;  
+                  
             $records = 10;
             $req_page = 1;
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = InvoicesMethod::fetch_all_payments($slug)->paginate($records, ['*'], 'page', $req_page);
+            $data  = InvoicesMethod::fetch_all_payments($slug,$user_id)->paginate($records, ['*'], 'page', $req_page);
            
             if ($request->ajax()) {            
                 $viewurl = 'celebrant.invoices.listing';

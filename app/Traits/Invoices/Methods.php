@@ -7,24 +7,10 @@ use App\Models\{User, Booking, Invoices};
 trait Methods
 {
 
-    public static function fetch_all_payments($slug=null)
+    public static function fetch_all_payments($slug=null,$celebrant_id = null)
     {   
         
-        // $data =   Booking::with([
-        //     'user' => function ($query) {
-        //         $query->select('email', 'phone', 'country_code', 'id');
-        //     },
-        //     'celebrant' => function ($query) {
-        //         $query->select('first_name', 'id');
-        //     },
-        //     'invoices' =>function($query){
-        //         $query->select( 'booking_id', 'invoice_number', 'recipient_name', 'abn_number', 'bank_name', 'bank_number', 'notes');
-        //     },
-        //     'booking_payments'=>function ($query) {
-        //         $query->select('amount','id','booking_id');
-        //     },
-
-        // ]);
+       
         $data =   Invoices::with([
             'booking' => function ($query) {
                 $query->select( 'id', 'booking_date', 'price', 'first_couple_name', 'second_couple_name', 'status','ceremony_type');
@@ -44,11 +30,18 @@ trait Methods
                 $query->where('user_type', '=', $type)
                       ->orWhere('user_type', '=', $common_type);
             });
-        }      
+            
+        } 
+        if($celebrant_id != null){
+            $data = $data->where('celebrant_id',$celebrant_id);
+        }     
+        
         // dd($data->toSql());      
    
         return $data;
     }
+    // public static function fetch_all_payments($slug=null)
+    // fetch_payments
     public static function createCustomInvoice($data){
         // dd($data->all());
         
