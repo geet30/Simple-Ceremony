@@ -8,7 +8,7 @@
          @include('elements.common.user-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
-         @include('elements.user-header')
+         @include('elements.common.panel-header')
          <div class="col-md-9 mt-3 mb-4 d-flex">
             <div class="dropdown">
                <a class="btn">

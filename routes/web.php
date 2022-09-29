@@ -149,13 +149,14 @@ $websiteRoutes = function () {
             Route::get('profile', [AccountController::class, 'getUserAccount'])->name('getUserAccount');
             Route::post('account', [AccountController::class, 'updateUserAccount']);
             Route::put('account/update', [AccountController::class, 'updateUserAccount'])->name('updateUserAccount');
+            Route::get('order-add-ons-details', function () {
+                return view('user.overview.addons.details');
+            });
         });
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
         });
-        Route::get('order-add-ons-details', function () {
-            return view('user.overview.addons.details');
-        });
+       
         Route::get('account-details', function () {
             return view('user.account.account-details');
         });
