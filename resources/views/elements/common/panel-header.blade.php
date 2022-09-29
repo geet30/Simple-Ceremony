@@ -9,12 +9,15 @@ if (Cookie::get('myCart')) {
 <header class="panel-header">
     <div class="row m-0">
         @if(Auth::user()->roles->first()->name =='User')
+
+        
             @if( Request::segment(2) != 'profile')
             <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
                 <div class="booking-process-bar d-flex align-items-center">
                     <span class="h4 text-nowrap mb-0 turquoise-100 me-3">Booking progress</span>
                     <div class="progress body-1 w-75">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">{{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}</div>
+                        
                     </div>
                     <div class="booking-info ms-3">
                         <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
@@ -180,7 +183,9 @@ if (Cookie::get('myCart')) {
                 </div>
             </nav>
         </div>
+        
         <div class="col-sm-6 align-self-center order-md-1">
+        @if(Auth::user()->roles->first()->name !='User')
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <?php $segments = ''; ?>
@@ -199,7 +204,9 @@ if (Cookie::get('myCart')) {
                     @endforeach
                 </ol>
             </nav>
+        @endif
         </div>
+        
     </div>
 </header>
 @include('pages.js')

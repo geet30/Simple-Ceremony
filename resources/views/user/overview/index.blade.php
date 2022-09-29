@@ -12,10 +12,19 @@
             <div class="card-body">
                <div class="row">
                   <div class="col-md-12 col-lg-12 col-xl-8 col-xxl-6">
-                     <h3 class="h3 neutral-100 mb-md-4">Detail order</h3>
+                  <div class="alert alert-primary alert-dismissible" role="alert">
+                     <div class="d-flex">
+                        <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
+
+                        <div class="feedbackDiv">
+                           <p class="body-1 mb-0">Do you want to update the password ?</p>
+                           <p class="body-1 mb-0"><a href="{{url('user/profile')}}">Click here</a></p>
+                        </div>
+                     </div>
+                  </div>
                      <div class="row">
                         <div class="col-md-12 col-lg-6 mb-4 mb-md-0 mb-lg-4">
-                           <label class="form-label small-text2">Wedding location <a href="/user/order-add-ons-details" class="ms-2 button-3 turquoise-100">See information</a></label>
+                           <label class="form-label small-text2">Ceremony location</label>
                            <input type="text" value="Booking" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 col-lg-6 mb-4">
@@ -26,7 +35,7 @@
                            </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                           <label for="InputName" class="form-label small-text2">Date of marriage</label>
+                        <label class="form-label small-text2">Detail location <a href="order-add-ons-details" class="ms-2 button-3 turquoise-100">See information</a></label>
                            <input type="text" value="Alfred St S, Milsons Point NSW 2061, Australia" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 mb-4">
@@ -42,7 +51,7 @@
                         </div>
                         <div class="col-md-12 mb-5">
                            <label for="InputName" class="form-label small-text2">Name marriage celebrant</label>
-                           <input type="text" value="You don't have a marriage celebrant yet" class="form-control body-1 netural-100" readonly="">
+                           <input type="text" value="" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-12 mb-2">
                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row">
@@ -95,82 +104,6 @@
                                   </div>
                                </div>
                              {{-- @endforeach --}} 
-                               <!-- <div class="overview-add-ons-details mb-4">
-                                  <div class="row">
-                                     <div class="col-md-5 mb-4">
-                                        <label for="InputName" class="form-label small-text2">Name package</label>
-                                        <input type="text" value="Silver package" class="form-control body-1 netural-100" readonly="">
-                                     </div>
-                                     <div class="col-md-5 mb-4">
-                                        <label for="InputName" class="form-label small-text2">Provider name</label>
-                                        <input type="text" value="Visual photography" class="form-control body-1 netural-100" readonly="">
-                                     </div>
-                                     <div class="col-md-2 mb-4 text-start ">
-                                        <label for="InputName" class="form-label small-text2 text-start">Quantity</label>
-                                        <input type="text" value="1" class="form-control body-1 netural-100 text-start" readonly="">
-                                     </div>
-                                  </div>
-                                  <div class="row">
-                                     <div class="col-md-12 mb-4">
-                                        <div class="d-flex align-items-start align-items-md-center justify-content-between flex-column flex-md-row">
-                                           <div class="d-flex align-items-start flex-column flex-lg-row mb-3 mb-md-0">
-                                              <h3 class="h3 neutral-100 mb-0 me-3 mb-2 mb-lg-0">$ 220</h3>
-                                           </div>
-                                        </div>
-                                     </div>
-                                  </div>
-                                  <div class="row">
-                                     <div class="col-md-12 mb-4">
-                                        <div class="d-flex align-items-start justify-content-between flex-column flex-lg-row">
-                                           <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row mb-0 mb-md-4 mb-lg-0">
-                                              
-                                              <span class="netural-100 small-text2 me-md-4 mb-2 mb-md-0">Status</span>
-                                              <span class="status registered me-md-5 mb-3 mb-md-0">Approved</span>
-                                           </div>
-                                           <a href="/user/order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
-                               <div class="overview-add-ons-details">
-                                  <div class="row">
-                                     <div class="col-md-5 mb-4">
-                                        <label for="InputName" class="form-label small-text2">Name package</label>
-                                        <input type="text" value="couple rings" class="form-control body-1 netural-100" readonly="">
-                                     </div>
-                                     <div class="col-md-5 mb-4">
-                                        <label for="InputName" class="form-label small-text2">Provider name</label>
-                                        <input type="text" value="The palace jewelry" class="form-control body-1 netural-100" readonly="">
-                                     </div>
-                                     <div class="col-md-2 mb-4 text-start ">
-                                        <label for="InputName" class="form-label small-text2 text-start">Quantity</label>
-                                        <input type="text" value="1" class="form-control body-1 netural-100 text-start" readonly="">
-                                     </div>
-                                  </div>
-                                  <div class="row">
-                                     <div class="col-md-12 mb-4">
-                                        <div class="d-flex align-items-start align-items-md-center justify-content-between flex-column flex-md-row">
-                                           <div class="d-flex align-items-start flex-column flex-lg-row mb-3 mb-md-0">
-                                              <h3 class="h3 neutral-100 mb-0 me-3 mb-2 mb-lg-0">$ 200</h3>
-                                              
-                                           </div>
-                                           <span class="status registered thread">You got 2 comments in your thread!</span>
-                                        </div>
-                                     </div>
-                                  </div>
-                                  <div class="row">
-                                     <div class="col-md-12 mb-4">
-                                        <div class="d-flex align-items-start justify-content-between flex-column flex-lg-row">
-                                           <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row mb-0 mb-md-4 mb-lg-0">
-                                              
-                                              <span class="netural-100 small-text2 me-md-4 mb-2 mb-md-0">Status</span>
-                                              <span class="status cancelled me-md-5 mb-3 mb-md-0">Rejected</span>
-                                           </div>
-                                           <a href="/user/order-add-ons" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div> -->
                             </div>
                          </div>
                      </div>

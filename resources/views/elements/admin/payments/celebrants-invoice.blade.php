@@ -2,7 +2,7 @@
     <table class="table align-middle theme-table">
         <thead>
             <tr>
-                <th></th>
+                <!-- <th></th> -->
                 <th class="text-center">Invoice<br>number</th>
                 <th class="text-center">Date created</th>
                 <th class="text-center">Marriage<br>celebrant</th>
@@ -24,11 +24,11 @@
             @php $total_fee += round($result['amount'],0);@endphp
                 
                 <tr>
-                    <td>
+                    <!-- <td>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="1" autocomplete="off" disabled>
                         </div>
-                    </td>
+                    </td> -->
                     <td class="body-2 neutral-100 text-center" style="min-width: 150px;">{{$result->invoice_number}}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width: 150px;">{{date('M d, Y',strtotime($result->created_at))}}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width: 150px;"> {{ $result->recipient_name }}</td>

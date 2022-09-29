@@ -136,7 +136,7 @@
         $('#tax_invoice_modal').find('.celebrant_name').html(data.recipient_name);
         $('#tax_invoice_modal').find('.date').html( created_date);
         $('#tax_invoice_modal').find('.abn_number').html(data.abn_number);
-        $('#tax_invoice_modal').find('.couple').html(data.booking.first_couple_name+'&'+data.booking.second_couple_name);
+        $('#tax_invoice_modal').find('.couple').html(data.booking.first_couple_name+' & '+data.booking.second_couple_name);
         $('#tax_invoice_modal').find('.ceremony_date').html(data.booking.booking_date
            );
         $('#tax_invoice_modal').find('.ceremony_type').html(ceremony_type[data.booking.ceremony_type]);
