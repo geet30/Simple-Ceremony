@@ -447,6 +447,7 @@ $celebrantRoutes = function () {
         Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
         Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
+        Route::get('download-invoice/{id}', [DownloadController::class, 'downloadInvoices'])->name('downloadInvoices');
         Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
         Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
         Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');

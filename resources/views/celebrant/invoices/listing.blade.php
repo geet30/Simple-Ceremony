@@ -31,10 +31,10 @@
                </td>
                <td class="body-2 neutral-100"></td>
                <td>
-                  <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
+                  <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal" onclick="appendData('{{$result}}')">View</a>
                </td>
                <td>
-                  <a href="#" class="table-link">Download</a>
+                  <a href="{{url('download-invoice',$result->id)}}" class="table-link">Download</a>
                </td>
             </tr>
          @endforeach
