@@ -71,15 +71,15 @@
                                       
                                        <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;">Type of ceremony</th>
                                        <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: left;padding-left: 0;">Ceremony date</th>
-                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;">Couple</th>
+                                       <th style="font-weight: 700;font-size: 15px;line-height: 13px; color: #FFFFFF;text-align: right;"></th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr style="border-bottom:1px solid #62CBC9;">
                                       
                                        <td class="ceremony_type" style="min-width:400px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;">Add item description here</td>
-                                       <td class="ceremony_date"  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding-left: 0;">$123</td>
-                                       <td class="couple"  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;">$123</td>
+                                       <td class="ceremony_date"  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: left;padding-left: 0;"></td>
+                                       <td class="couple"  style="min-width:100px;font-weight: 400;font-size: 12px;line-height: 20px; color: #1C1C1C;text-align: right;"></td>
                                     </tr>
                                     
                                     

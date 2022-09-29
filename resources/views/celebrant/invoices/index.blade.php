@@ -105,5 +105,6 @@
        
     </div>
 </div>
-@include('elements.celebrant.invoice')
+@include('pages.js')
+@include('pages.alert.tax-invoice')
 @endsection
