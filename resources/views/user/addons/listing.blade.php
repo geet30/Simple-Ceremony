@@ -28,14 +28,14 @@
                </div>
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
-               <input type="text" class="form-control" placeholder="Search package">
-               <span class="fa fa-search form-control-feedback"></span>
+               <input type="text" class="form-control" placeholder="Search package" onkeyup="searchWithoutTabs('/search-booking-addon',this.value,'searchAddon', '')">
+               <span class="fa fa-search form-control-feedback" ></span>
             </div>
          </div>
          <div class="card panel-card">
             <div class="card-body">
                <section class="add-ons pb-100 ">
-                  <div class="row">
+                  <div class="row searchAddon">
                      <div class="col-md-12">
                         <h2 class="pb-20 h3 netural-100">  Top list add-ons  </h2>
                      </div>

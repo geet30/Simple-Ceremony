@@ -52,7 +52,7 @@
                               <div class="align-self-center mb-3 mt-3 mt-lg-0 mb-xl-0">
                               <h2 class="h3 neutral-100">{{$package['package_name']}} • ${{number_format($package['total_fee'])}}</h2>
                               </div>
-                              <a role="button" class="theme-btn primary-btn open-add-to-wedding" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding" data-id="{{$package['id']}}" data-package_name="{{$package['package_name']}}" data-terms="{{$package['title_term']}}" data-price="{{$package['total_fee']}}">
+                              <a role="button" class="theme-btn primary-btn open-add-to-wedding" data-bs-toggle="modal" data-bs-target="#add_to_my_wedding" data-package_id="{{$package['id']}}" data-partner_id="{{$package['user_id']}}" data-package_name="{{$package['package_name']}}" data-terms="{{$package['title_term']}}" data-price="{{$package['total_fee']}}">
                                 <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
                                 Add to my wedding
                              </a>
@@ -269,5 +269,5 @@
    </div>
 </div>
 @include('elements.partner.contact-partner')
-@include('elements.user.add-my-wedding-popup')
+@include('elements.user.popup.add-my-wedding-popup')
 @endsection

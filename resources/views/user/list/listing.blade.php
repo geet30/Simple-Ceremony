@@ -6,7 +6,7 @@
    @include('elements.common.user-sidebar')
 </div>
 <div class="col-md-9 col-lg-10 px-md-4">
-   @include('elements.user-header')
+   @include('elements.common.panel-header')
    <div class="card panel-card h-87vh">
       <div class="card-body">
          <div class="row mb-4">

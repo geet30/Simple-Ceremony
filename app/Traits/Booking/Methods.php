@@ -69,6 +69,7 @@ trait Methods
             $check_count_of_timeslots = self::calculateTimeslotsPrice();
             $price = $data['price'] * $check_count_of_timeslots;
             $total_price = $addons_price + $price;
+            $DOMAIN = config('env.WEBSITE');
             $send_paramter = [
                 'name' => $data['name'],
                 'price' => $total_price,
@@ -76,7 +77,10 @@ trait Methods
                 'locationId' => $locationId,
 
             ];
-            return self::stripePayment($send_paramter);
+           
+            $success_url = $DOMAIN . '/get-booking-calender/1?session_id={CHECKOUT_SESSION_ID}';
+            $cancel_url = $DOMAIN . '/payment-cancel';
+            return self::stripePayment($send_paramter,$success_url,$cancel_url);
         } catch (\Exception $ex) {
             
             return $ex->getMessage();
@@ -108,17 +112,19 @@ trait Methods
         $sendMail = new ContactUsMail($dataMail);
         return \Mail::to($mail_id)->later($when, $sendMail);
     }
-    static function addtoCart($data)
+    static function addtoBookingAddon($data,$booking_id)
     {
-
-        foreach ($data as $key => $cart) {
-
-            $cart_inputs['name'] = $cart->package_name;
-            $cart_inputs['price'] = $cart->price;
-            $cart_inputs['package_id'] = $cart->package_id;
-            $cart_inputs['user_id'] = Auth::user()->id;
-            Cart::create($cart_inputs);
+        if($booking_id){
+            
+            foreach($data as $package){
+                $userBookingAddon['booking_id']= $booking_id;
+                $userBookingAddon['package_id']= $package->package_id;
+                $userBookingAddon['partner_id']= $package->partner_id;
+                UserBookingAddon::create($userBookingAddon);
+            }
+            return true;
         }
+
     }
     static function addBookingDetailToDB($sessionId, $data)
     {
@@ -242,11 +248,10 @@ trait Methods
 
         return BookingPayments::create($booking_payment_inputs);
     }
-    static function stripePayment($data)
+    static function stripePayment($data,$success_url,$cancel_url)
     {
         
         try {
-
             Stripe::setApiKey(config('env.STRIPE_SECRET'));
             $DOMAIN = config('env.WEBSITE');
             $amount = bcmul($data['price'], 100);
@@ -259,16 +264,16 @@ trait Methods
                         'product_data' => [
                             'name' => $data['name'],
                             'description' => $data['name'],
+                            
+                            
                             'images' => [$data['img']],
                         ]
                     ],
                     'quantity' => 1
                 ]],
                 'mode' => 'payment',
-
-                // 'success_url' => $DOMAIN . '/get-booking-calender/'.$data['locationId'].'?userId='.$data["userId"].'&session_id={CHECKOUT_SESSION_ID}',
-                'success_url' => $DOMAIN . '/get-booking-calender/' . $data['locationId'] . '?session_id={CHECKOUT_SESSION_ID}',
-                'cancel_url' => $DOMAIN . '/payment-cancel',
+                'success_url' => $success_url,
+                'cancel_url' => $cancel_url,
             ]);
             return redirect($checkout_session->url);
         } catch (\Exception $ex) {
@@ -320,11 +325,18 @@ trait Methods
     {
         return  Booking::with([
             'location' => function ($query) {
-                $query->select('name', 'id', 'price');
+                $query->select('name', 'id', 'price','address','town','post_code');
             },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
-            }
+            },
+           
+            'booking_addons.packages'=>function ($query) {
+                $query->select('package_name','id','total_fee','user_id','product_id');
+            },
+            'booking_addons.packages.user'=>function ($query) {
+                $query->select('name','id');
+            },
         ]);
     }
     static function checkIfBookingExist($data, $locationId)
