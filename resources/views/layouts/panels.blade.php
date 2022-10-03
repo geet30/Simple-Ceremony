@@ -66,5 +66,7 @@
 <script src="/custom-js/common/delete-record.js"></script>
 <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
+    @hasSection('scripts')
+        @yield('scripts')
+    @endIf
 </html>

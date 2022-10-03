@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
-use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
 /*
 |--------------------------------------------------------------------------
@@ -494,9 +494,11 @@ $celebrantRoutes = function () {
     Route::get('location', function () {
         return view('celebrant.financial-report.location');
     });
-    Route::get('calendar', function () {
-        return view('celebrant.calendar.availability');
+    Route::get('calendar', [CalendarController::class,'index']);
+    Route::get('calendar-design', function(){
+        return view('celebrant.calendar.design');
     });
+
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });

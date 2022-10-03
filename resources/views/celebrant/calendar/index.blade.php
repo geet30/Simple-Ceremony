@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
 <div class="row">
@@ -74,22 +74,79 @@
       <div class="row">
          <div class="col-12">
             <!-- tab content -->
-            <div class="tab-content" id="tabContent">
-              
-               <div class="tab-pane fade show active" id="month" role="tabpanel" aria-labelledby="month-tab">
-               <img src="/images/calendar-celebrant-month.png" class="img-fluid">
-               </div>
-               <div class="tab-pane fade " id="week" role="tabpanel" aria-labelledby="week-tab">
-                 <img src="/images/calendar-celebrant-week.png" class="img-fluid">
-               </div>
-               <div class="tab-pane fade " id="day" role="tabpanel" aria-labelledby="day-tab">
-                 <img src="/images/calendar-celebrant-day.png" class="img-fluid">
-               </div>
-            </div>
+            <div id='calendar-js'></div>
+            
             <!-- tab content -->
          </div>
       </div>
    </div>
 </div>
 @include('elements.common.calander')
+
 @endsection
+
+@section('scripts')
+<style>
+   .fc-gap-button{
+      background: transparent !important;
+       border: 0px !important;
+   }
+   td.fc-day-sun { background-color:red; }
+</style>
+<link rel="stylesheet" href="./fullcalendar/main.css">
+<script src="./fullcalendar/main.js"></script>
+<script>
+   var bookingData = @json($booking);
+   // console.log('====================================');
+   // console.log(bookingData);
+   var sortBookingData = [];
+   function addressFormatter(element) {
+      let address = element.booking_start_time+ ' - '+element.booking_end_time
+      let location = element.location?.name || '';
+      // return address +'\n '+ location;
+      return '\n '+location;
+   }
+
+   bookingData.forEach(element => {
+      // console.log('====================================');
+      // console.log(new Date(element.booking_date+'T'+element.booking_end_time));
+      // console.log('====================================');
+      sortBookingData.push({
+         id: element.id,
+         title: addressFormatter(element),
+         start: new Date(element.booking_date+'T'+element.booking_start_time),
+         end: new Date(element.booking_date+'T'+element.booking_end_time)
+      });
+      // start: element.booking_date+' '+element.booking_end_time
+   });
+//   console.log('====================================');
+//   console.log('sortBookingData -', sortBookingData);
+//   console.log('====================================');
+//    console.log('====================================');
+   var calendarEl = document.getElementById('calendar-js');
+   var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      timeZone: 'UTC',
+      events:sortBookingData,
+      // contentHeight:"auto",
+      headerToolbar: { left: 'dayGridMonth,timeGridWeek,timeGridDay',center:'title',right:'gap,prev,gap,next'},
+      views:{
+         dayGridMonth:{
+            buttonText: 'Month'
+         },
+         timeGridWeek:{
+            buttonText: 'Week'
+         },
+         timeGridDay:{
+            buttonText: 'Day'
+         },
+         monthGrid:{
+            buttonText: 'asdgahjs'
+         }
+      },
+   });
+   calendar.render();
+</script>
+@endsection
+
+{{-- ./fullcalendar/main.min.js --}}
