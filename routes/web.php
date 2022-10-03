@@ -164,22 +164,8 @@ $websiteRoutes = function () {
            
         });
 
-        });
-<<<<<<< HEAD
-
-        Route::get('account-details', function () {
-            return view('user.account.account-details');
-        });
-        Route::get('account-edit', function () {
-            return view('user.account.account-edit');
-        });
-
-        Route::get('package-gallery', function () {
-            return view('user.addons.package-gallery');
-        });
-=======
-       
->>>>>>> feature/user-overview
+    });
+     
         Route::get('all-invoices', function () {
             return view('user.invoices.all-invoices');
         });
