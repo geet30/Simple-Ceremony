@@ -27,7 +27,7 @@ class UserController extends Controller
                 $addtoBookingAddon =  Booking::addtoBookingAddon($cart, $bookingId);
                 $savePaymentDetail = Booking::savePaymentDetail($request->session_id, $user_id,$bookingId);
                 BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>2]);
-                // $cookie = Cookie::queue(Cookie::forget('myCart'));
+                $cookie = Cookie::queue(Cookie::forget('myCart'));
             }
            
          
