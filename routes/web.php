@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\{BookingController, UserNoimController};
+use App\Http\Controllers\User\{BookingController, UserNoimController,UserController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations ,InvoicesController as CelebrantInvoices};
@@ -129,15 +129,16 @@ $websiteRoutes = function () {
     });
     Route::middleware('auth')->group(function () {
         Route::prefix('user')->group(function () {
-            Route::get('overview', 'App\Http\Controllers\User\UserController@index')->name('user-overview');
-            Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
-            Route::get('add-ons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
-            Route::get('package/detail/{id}', 'App\Http\Controllers\User\UserController@packageDetail')->name('package-detail');
-            Route::get('add-ons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+            Route::get('overview{id?}', [UserController::class,'index'])->name('user-overview');
+            Route::get('add-ons',  [UserController::class,'addons'])->name('user-add-ons');
+            Route::get('overview/location/{id}', [UserController::class,'locationDetail'])->name('user-location');
+            Route::get('add-ons/detail/{id}', [UserController::class,'addonDetail'])->name('user-addons-detail');
+            Route::get('package/detail/{id}', [UserController::class,'packageDetail'])->name('package-detail');
+            Route::get('add-ons/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', function () {
                 return view('user.documents.lisiting');
             });
-            Route::get('package/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
+            Route::get('package/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
 
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
@@ -150,23 +151,15 @@ $websiteRoutes = function () {
             Route::get('profile', [AccountController::class, 'getUserAccount'])->name('getUserAccount');
             Route::post('account', [AccountController::class, 'updateUserAccount']);
             Route::put('account/update', [AccountController::class, 'updateUserAccount'])->name('updateUserAccount');
-            Route::get('order-add-ons-details', function () {
-                return view('user.overview.addons.details');
+            Route::get('overview/invitation', [UserController::class, 'getInvitation'])->name('getInvitation');
+            Route::get('list-to-do', function () {
+                return view('user.list.listing-empty');
             });
+            Route::get('getPay{id?}', [UserController::class, 'getPay'])->name('user.pay');
+            Route::post('postPay', [UserController::class, 'postPay'])->name('user.payment');
            
         });
        
-       
-        Route::get('account-details', function () {
-            return view('user.account.account-details');
-        });
-        Route::get('account-edit', function () {
-            return view('user.account.account-edit');
-        });
-
-        Route::get('package-gallery', function () {
-            return view('user.addons.package-gallery');
-        });
         Route::get('all-invoices', function () {
             return view('user.invoices.all-invoices');
         });
@@ -185,12 +178,8 @@ $websiteRoutes = function () {
         Route::get('detail', function () {
             return view('user.notes.detail');
         });
-        Route::get('list', function () {
-            return view('user.list.lisiting-empty');
-        });
-        Route::get('lisiting', function () {
-            return view('user.list.lisiting');
-        });
+       
+       
         Route::get('activity-history', function () {
             return view('user.activity-history.lisiting');
         });

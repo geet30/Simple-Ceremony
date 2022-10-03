@@ -7,7 +7,8 @@
 
         <ul class="nav flex-column" id="sidebar">
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center font-weight-600  {{ request()->is('user/overview') ? 'active' : '' }}"
+            
+                <a class="body-1 nav-link d-flex align-items-center font-weight-600  {{ Request::segment(2) == 'overview' ? 'active' : '' }}"
                     aria-current="page" href="{{url('user/overview')}}">
                     <svg width="19" height="25" viewBox="0 0 19 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -103,7 +104,7 @@
                     <span class="ms-3 d-none d-md-block">Add-ons</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/activity-history">
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -113,9 +114,9 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Activity history</span>
                 </a>
-            </li>
+            </li> -->
             <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/list">
+                <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ Request::segment(2) == 'list-to-do' ? 'active' : '' }}" href="/user/list-to-do">
                     <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path

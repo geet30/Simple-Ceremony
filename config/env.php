@@ -18,7 +18,16 @@ return [
         'Partner' => 3,
         'Celebrant' =>4
     ],
-
+    'addonStatus' => [
+        0=> 'Waiting For Approval',
+        1=>'Approved',
+        2=>'Rejected',
+    ],
+    'addonStatusClass' => [
+        0=> 'waiting-approval',
+        1=>'approved',
+        2=>'rejected',
+    ],
     'bankNames' => [
         1=> 'ANZ',
         2=>'NAB',

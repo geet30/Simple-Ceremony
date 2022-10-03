@@ -1,7 +1,13 @@
 @if(count($addons) > 0)
     @foreach ($addons as $addon)
     <div class="col-sm-6 col-md-6 col-lg-3 mb-3 mb-md-0">
-    <a class="card image-card" href="route('add-ons-detail',$addon['id'])}}">
+    @if(Auth::user() && Auth::user()->roles->first()->name =='User')
+        @php  $url = route('user-addons-detail',$addon['id']);@endphp
+    @else
+        @php  $url = route('add-ons-detail',$addon['id']);@endphp
+    @endif
+
+    <a class="card image-card" href="{{$url}}">
         
 
             @foreach($addon['package'] as $images)

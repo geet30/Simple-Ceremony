@@ -65,17 +65,18 @@
                                        </a>
                                     </div>
                                     <div class="col-12 pt-3">
-                                       <p class="body-3-medium text-black">At Simple C we have created a simple package so your
-                                          ceremony still feels special. Create a beautiful backdrop for you and your virtual guests if
-                                          you are planning on live streaming across the globe.
-                                          Or, if you just want to make your photos even more special.
+                                       <p class="body-3-medium text-black">
+                                       {{$data['location_description']}}
                                        </p>
                                        <ul class="addons-list">
+                                          <li> {{$data['title_term']}}</li>
+                                       </ul>
+                                       <!-- <ul class="addons-list">
                                           <li>Signing table and 2 white padded folding chairs </li>
                                           <li>Signing table decoration </li>
                                           <li> Aisle runner in natural sisal </li>
                                           <li>Frame your ceremony with a beautiful chiffon with silk flowers</li>
-                                       </ul>
+                                       </ul> -->
                                     </div>
                                  </div>
                               </div>

@@ -35,7 +35,9 @@
                            </div>
                         </div>
                         <div class="col-md-12 mb-4">
-                        <label class="form-label small-text2">Detail location <a href="order-add-ons-details" class="ms-2 button-3 turquoise-100">See information</a></label>
+                        <label class="form-label small-text2">Detail location
+                            <!-- <a href="{{route('user-location',$booking->location->id)}}" class="ms-2 button-3 turquoise-100">See information</a> -->
+                     </label>
                            <input type="text" value="{{$booking->location->address}} ,{{$booking->location->town}} ,{{$booking->location->post_code}}, {{config('env.COUNTRY')}}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-md-12 mb-4">
@@ -93,7 +95,8 @@
                                         <div class="d-flex align-items-start align-items-md-center justify-content-between flex-column flex-md-row">
                                            <div class="d-flex align-items-start flex-column flex-lg-row mb-3 mb-md-0">
                                               <h3 class="h3 neutral-100 mb-0 me-3 mb-2 mb-lg-0">$ {{round($package->total_fee,0)}}</h3>
-                                              <a role="button" data-bs-toggle="modal" data-bs-target="#pay_ceremony_popup" class="theme-btn primary-btn me-3">Pay</a>
+                                              
+                                             <!-- <a role="button" data-bs-toggle="modal" data-bs-target="#pay_ceremony_popup" class="theme-btn primary-btn me-3">Pay</a>  -->
                                            </div>
                                            <span class="status registered thread">You got 1 comment in your thread!</span>
                                         </div>
@@ -105,7 +108,7 @@
                                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row mb-0 mb-md-4 mb-lg-0">
                                               <span class="body-3 netural-100 me-md-4 mb-2 mb-md-0">Minimal deposit 10%</span>
                                               <span class="netural-100 small-text2 me-md-4 mb-2 mb-md-0">Status</span>
-                                              <span class="status pending me-md-5 mb-3 mb-md-0">{{config('ceremonyStatus.booking_status.'.$booking->status) }}</span>
+                                              <span class="status text-nowrap {{config('env.addonStatusClass.'.$package->product->status)}} me-md-5 mb-3 mb-md-0">{{config('env.addonStatus.'.$package->product->status) }}</span>
                                            </div>
                                           <a href="{{route('package-detail',$package->id)}}" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>
                                         </div>
@@ -125,7 +128,17 @@
                               <span class="step-point"></span>
                               <div class="steps-information">
                                  <div class="steps-information-details">
-                                    <span>Booked</span>
+                                    <span>{{config('ceremonyStatus.booking_status.'.$booking->status) }}</span>
+                                 </div>
+                              </div>
+                           </li>
+                           <li>
+                              <span class="step-point"></span>
+                              <div class="steps-information">
+                                 <div class="steps-information-details">
+                                    <span>Arrange call with marriage celebrant</span>
+                                    <br>
+                                    <span>Due date Aug 3,2022 <a href="{{url('user/list-to-do')}}" class="ms-2 button-3 turquoise-100">Read list to do</a></span>
                                  </div>
                               </div>
                            </li>
@@ -163,7 +176,7 @@
                               <span class="step-point"></span>
                               <div class="steps-information">
                                  <div class="steps-information-details">
-                                    <span>Marriage Registerd</span>
+                                    <span>Choose / change add-ons</span>
                                  </div>
                               </div>
                            </li>
@@ -171,15 +184,17 @@
                               <span class="step-point"></span>
                               <div class="steps-information">
                                  <div class="steps-information-details">
-                                    <span>Choose / change add-ons</span>
+                                    <span>Marriage Registerd</span>
                                  </div>
                               </div>
                            </li>
+                          
                         </ul>
                      </div>
                      <div class="create-invitation d-flex flex-column">
                         <img src="/images/user/create-invitation.svg" alt="Create invitation">
-                        <a role="button" data-bs-toggle="modal" data-bs-target="#invitation_card_popup" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0 w-100">Create invitation</a>
+                        <a role="button" href="{{url('user/overview/invitation')}}" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0 w-100">Create invitation</a>
+                        <!-- <a role="button" data-bs-toggle="modal" data-bs-target="#invitation_card_popup" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0 w-100">Create invitation</a> -->
                      </div>
                   </div>
                </div>
@@ -188,11 +203,12 @@
       </div>
    </div>
 </div>
+@include('elements.user.popup.cart-payment-popup')
 @include('elements.user.invitation-card-popup')
 @include('elements.user.pay-ceremony-popup')
-@include('elements.user.reschedule-ceremony-popup')
-@include('elements.user.cancel-ceremony-popup')
-@include('elements.user.reschedule-ceremony-sidebar')
+@include('elements.user.popup.reschedule-ceremony-popup')
+@include('elements.user.popup.cancel-ceremony-popup')
+@include('elements.user.popup.reschedule-ceremony-sidebar')
 @include('elements.user.calander')
 @include('elements.user.order-marriage-certificate')
 @endsection
