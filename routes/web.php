@@ -444,6 +444,7 @@ $celebrantRoutes = function () {
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
+            Route::post('save-detail/{id}', [DashboardController::class, 'saveSignedDocumentDetail'])->name('celebrant.marriage.save-detail');
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
@@ -469,6 +470,11 @@ $celebrantRoutes = function () {
         Route::resource('invoices', CelebrantInvoices::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
+        Route::get('routes', function () {
+            $routeCollection = Route::getRoutes();
+            $title = "Route List";
+            return view('routes', compact('routeCollection', 'title'));
+        });
     });
 
     Route::get('availablity-overview', function () {

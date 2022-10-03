@@ -188,7 +188,7 @@ class UserNoimController extends Controller
     public function previewDocument(Request $request, $document)
     {
         $loggedInUserId = Auth::user()->id;
-        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate')->whereUserId($loggedInUserId)->get();
+        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage')->whereUserId($loggedInUserId)->get();
         switch ($document) {
             case 'noim-perview':
                 return view('user.documents.noim',  ['person' => $person, 'button' => true]);
@@ -212,10 +212,10 @@ class UserNoimController extends Controller
                 return $officialCertificateOfMarriage->download('official-certificate-of-marriage.pdf');
                 break;
             case 'preview-declaration-of-no-legal-impediment-to-marriage':
-                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', compact('person'));
+                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => true]);
                 break;
             case 'download-declaration-of-no-legal-impediment-to-marriage':
-                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person]);
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
                 return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
                 break;
 
