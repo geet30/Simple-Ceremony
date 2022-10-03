@@ -202,7 +202,7 @@ $websiteRoutes = function () {
             $title = "Route List";
             return view('routes', compact('routeCollection', 'title'));
         });
-    });
+   
 };
 $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');

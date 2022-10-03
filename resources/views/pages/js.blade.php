@@ -118,7 +118,6 @@
         
         })
         if (window.location.href.indexOf("session_id") > -1) {
-            alert('gfdg');
             $('#show_paymentcart_success_alert').modal('show');
         }
     });

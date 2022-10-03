@@ -108,7 +108,7 @@
                                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row mb-0 mb-md-4 mb-lg-0">
                                               <span class="body-3 netural-100 me-md-4 mb-2 mb-md-0">Minimal deposit 10%</span>
                                               <span class="netural-100 small-text2 me-md-4 mb-2 mb-md-0">Status</span>
-                                              <span class="status text-nowrap {{config('env.addonStatusClass.'.$package->product->status)}} me-md-5 mb-3 mb-md-0">{{config('env.addonStatus.'.$package->product->status) }}</span>
+                                              <span class="text-nowrap status {{config('env.addonStatusClass.'.$package->product->status)}} me-md-5 mb-3 mb-md-0">{{config('env.addonStatus.'.$package->product->status) }}</span>
                                            </div>
                                           <a href="{{route('package-detail',$package->id)}}" class="button-1 turquoise-100 text-decoration-none faq-link">See add-on details</a>
                                         </div>
