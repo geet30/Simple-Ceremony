@@ -10,11 +10,19 @@
         @csrf
         <input name="id" type="hidden" class="id">
         <div class="col-md-12 mb-4">
+          @if(Auth::user()->roles->first()->name =='Celebrant')
             @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
             <div class="cs-checkbox-list form-check mb-3">
               <input name="status" class="form-check-input rounded-circle" type="radio" value="{{$key}}"><span class="netural-100 body-2 ms-2">{{$status}}</span>
             </div>
             @endforeach
+          @else
+            @foreach(config('ceremonyStatus.admin_booking_status') as $key=>$status)
+            <div class="cs-checkbox-list form-check mb-3">
+              <input name="status" class="form-check-input rounded-circle" type="radio" value="{{$key}}"><span class="netural-100 body-2 ms-2">{{$status}}</span>
+            </div>
+            @endforeach
+          @endif
         </div>
       <button type="submit" id="submit_button" class="theme-btn primary-btn border-0 mt-4 d-inline-block" >Save</button>
     </form>

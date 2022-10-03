@@ -91,6 +91,10 @@
                 } else if (window.location.pathname.split('/')[2] == 'lodged-pending-tab') {
                     $("#lodged-pending").html(response);
                 } 
+
+                // if (current_url[1] == 'all-payments' && (window.location.pathname.split('/')[2] == 'celebrants-invoice')) {
+
+                // }
                 // $('#loading').hide();
             },
         });

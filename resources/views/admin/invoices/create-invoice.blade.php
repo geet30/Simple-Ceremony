@@ -3,11 +3,11 @@
 <div class="container-fluid">
    <div class="row">
       <div class="col-2 col-md-3 col-lg-2 px-0">
-      @include('elements.celebrant.celebrant-sidebar')
+         @include('elements.common.admin-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.common.panel-header')
-         <a href="{{url('invoices')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="{{url('all-payments/celebrants-invoice')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pb-40">
@@ -28,31 +28,50 @@
                @endif
 
 
-               <form class="needs-validation" method="POST" novalidate action="{{ route('invoices.store') }}">
+               <form class="needs-validation" method="POST" novalidate action="{{ route('payments.store') }}">
                   @csrf
-                  <input type="hidden" class="booking_id" name="booking_id">
+               <input type="hidden" class="booking_id" name="booking_id">
                   <div class="row align-items-center">
                      <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
                         <label class="form-label small-text2">Recipient</label>
                         <select required="" name="recipient_name" class="js-placeholder-single-input form-control" onchange="findRecipientInfo('/recipient-info',this)">
-                        
-                           
-                           <option value="{{$admin['id']}}">{{ $admin['name'] }}</option>
-                         
+                           <option value="" disabled="" selected="" hidden="">Choose marriage celebrant</option>
+                           @foreach($celebrants as $key=>$celebrant)
+                           <option value="{{$celebrant['id']}}">{{ $celebrant['first_name'] }}</option>
+                           @endforeach
                         </select>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Recipient required</div>
                      </div>
                      <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
                         <label class="form-label small-text2">ABN number</label>
                         <div class="d-flex align-items-center">
-                           <input type="text" placeholder="ABN number" class="form-control body-1 netural-100 abn_number commonFirstEmpty" name="abn_number"  value="{{auth()->user()->abn_number}}" readonly >
+                           <input type="text" placeholder="ABN number" class="form-control body-1 netural-100 abn_number commonFirstEmpty" name="abn_number" readonly>
                            <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="left" data-bs-content="Select the recipient first,after that his data will appear">
                               <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
                            </span>
                         </div>
                      </div>
                   </div>
-            
+                  <div class="row align-items-center">
+                     <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
+                        <div class="d-flex align-items-center">
+                           <label class="form-label small-text2">Name bank</label>
+                           <span class="d-inline-block ms-2 mb-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Select the recipient first,after that his data will appear">
+                              <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
+                           </span>
+                        </div>
+                        <input type="text" placeholder="Name bank" class="form-control body-1 netural-100 commonFirstEmpty bank_name" name="bank_name" readonly>
+                     </div>
+                     <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
+                        <div class="d-flex align-items-center">
+                           <label class="form-label small-text2">Bank number</label>
+                           <span class="d-inline-block ms-2 mb-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Select the recipient first,after that his data will appear">
+                              <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
+                           </span>
+                        </div>
+                        <input type="text" placeholder="09019209011092" class="form-control body-1 netural-100 commonFirstEmpty bank_number" name="bank_number" readonly>
+                     </div>
+                  </div>
                   <div class="row align-items-center mb-4">
                      <div class="col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                         <div class="row">
@@ -61,8 +80,8 @@
                              
                               <select required="" class="js-placeholder-single-input form-control" name="couple" required onchange="findCoupleInfo('/couple-info',this)">
                                  <option value="" disabled="" selected="" hidden="">
-                                          Select
-                                    </option>
+                                    Select
+                                 </option>
                                   @foreach($couples as $couple)
                                   <option value="{{$couple['id']}}">{{$couple['first_couple_name']}} & {{$couple['second_couple_name']}}</option>
                                   @endforeach

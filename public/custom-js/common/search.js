@@ -72,7 +72,15 @@ $(document).ready(function(){
         var ceremony_date = $('.ceremony_date:checked').val();
         var payment_date = $('.payment_date:checked').val();
         var status =getStatus();
-       
+
+        var celebrants = [];
+        $('.celebrants:checked').each(function(i){
+            celebrants[i] = $(this).val();
+        });
+        var bookingStatus = [];
+        $('.bookingStatus:checked').each(function(i){
+            bookingStatus[i] = $(this).val();
+        });
         var current_url = window.location.pathname.split('/');
         if(sub_tab_id != undefined) // if we don't have tabs then we need to do this
             var divId= sub_tab_id.slice(0, -4)
@@ -80,7 +88,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url       
+                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus    
             },
             dataType: 'html',
             cache: false,
@@ -102,7 +110,9 @@ $(document).ready(function(){
  
     window.searchWithoutTabs = function(url,keyword=null,cls, page){
         const route = url;
-        const data = {'page':page,'search':keyword};
+        var current_url = window.location.pathname.split('/');
+        const data = {'page':page,'search':keyword,'current_url':current_url };
+        
         $.ajax({
             method:'GET',
             data:data,
@@ -110,7 +120,12 @@ $(document).ready(function(){
             beforeSend:function(){
             },
             success:function(response){
-                $("."+cls).html(response);
+                if(cls =='simpletabs'){
+                    $("."+current_url[2]).html(response);
+                }else{
+                    $("."+cls).html(response); // this is if we don't have tabs
+                }
+                
             },
         });
     }

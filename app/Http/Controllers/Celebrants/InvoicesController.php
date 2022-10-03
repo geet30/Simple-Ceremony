@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User, Payments};
+use App\Models\{User, Invoices,Booking};
 use Illuminate\Support\Facades\{Auth};
 use View;
-use App\Traits\Payments\{Methods as PaymentsMethod};
-class PaymentsController extends Controller
+use App\Traits\Invoices\{Methods as InvoicesMethod};
+
+class InvoicesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,20 +18,23 @@ class PaymentsController extends Controller
      */
     public function index(Request $request,$slug = null)
     {       
-        try {           
+        try {  
+            $user_id = Auth::user()->id;  
+                  
             $records = 10;
             $req_page = 1;
             if ($request->has('page')) {
                 $req_page = $request->page;
             }
-           
-            $data  = PaymentsMethod::fetch_all_payments($slug)->paginate($records, ['*'], 'page', $req_page);
+            $celebrants = User::role('Celebrant')->select('first_name','id')->get();
+            $data  = InvoicesMethod::fetch_all_payments($slug,$user_id)->paginate($records, ['*'], 'page', $req_page);
            
             if ($request->ajax()) {            
-                $viewurl = 'elements.admin.payments.' . $slug;
+                $viewurl = 'celebrant.invoices.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
-            return view('admin.payments.index', compact('data')); 
+            // dd($celebrant);
+            return view('celebrant.invoices.index', compact('data','celebrants')); 
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -45,7 +49,10 @@ class PaymentsController extends Controller
     public function create()
     {
         try {
-            return view('admin.payments.create-invoice');  
+            $admin = User::role('Admin')->select('name','id')->first();
+            $couples = Booking::select('first_couple_name','second_couple_name','id','status')->get();
+            $booking_status = Booking::select('id','status')->first();
+            return view('celebrant.invoices.create', compact('admin','couples'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -59,12 +66,11 @@ class PaymentsController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $id = Auth::user()->id;
-            $data['status'] = 1;
-            $response = Payments::where('receiver_id', $id)->update($data);
+        try {         
+            $response =   InvoicesMethod::createCelebrantCustomInvoice($request);
             if ($response) {
-                return \Redirect::back()->with('message', 'You have marked all notification as read.');
+                return redirect('invoices')->with('message', 'Invoices created successfully.');
+                return \Redirect::back()->with('message', 'Invoices created successfully');
             }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -102,15 +108,7 @@ class PaymentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
-            $data['status'] = 1;
-            $response = Notification::where('id', $id)->update($data);
-            if ($response) {
-                return $this->successResponse($data, 'Status changed successfully.');
-            }
-        } catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
+       
     }
 
     /**
@@ -119,9 +117,9 @@ class PaymentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+ 
     }
       /**
      * search the specified booking location in storage.
@@ -131,13 +129,24 @@ class PaymentsController extends Controller
      * @return \Illuminate\Http\Response
      * */
 
-    public function searchPaymentsByDate(Request $request){
+    public function searchCelebrantInvoices(Request $request){
         try {
-            $data =   PaymentsMethod::searchPaymentsByDate($request);
-            return View::make('elements.admin.payments.search-payments', ['data' => $data]);
+            $data =   InvoicesMethod::searchCelebrantInvoices($request);
+            return View::make('celebrant.invoices.listing', ['data' => $data]);
         } catch (\Exception $ex) {
            
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
+    
+    /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+
+ 
+    
 }

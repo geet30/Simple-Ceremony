@@ -100,14 +100,9 @@
                                     <label class="form-label small-text2">Bank</label>
                                     <select required="" name="user[bank]" class="js-placeholder-single-input form-control">
                                        <option value="" disabled="" selected="" hidden="">Select</option>
-                                       <option value="1">ANZ</option>
-                                       <option value="2">NAB</option>
-                                       <option value="3">Westpac Bank</option>
-                                       <option value="4">Bank of Queensland</option>
-                                       <option value="5">Macquarie Bank</option>
-                                       <option value="6">Bendigo Bank</option>
-                                       <option value="7">AMP Bank Ltd</option>
-                                       <option value="8">Westparc</option>
+                                       @foreach(config('env.bankNames') as $key=>$bank)
+                                          <option value="{{$key}}">{{$bank}}</option>
+                                       @endforeach
                                     </select>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
                                  </div>

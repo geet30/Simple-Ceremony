@@ -59,13 +59,14 @@ class Booking extends Model
     {
         return $this->hasMany('App\Models\UserBookingAddon', 'booking_id', 'id');
     }
-    public function payments()
-    {
-        return $this->hasMany('App\Models\Payments', 'booking_id', 'id');
-    }
+    
     public function booking_payments()
     {
        
         return $this->hasMany('App\Models\BookingPayments', 'booking_id', 'id');
+    }
+    public function celebrant_details()
+    {
+        return $this->belongsTo(CelebrantDetail::class, 'celebrant_id', 'celebrant_id');
     }
 }

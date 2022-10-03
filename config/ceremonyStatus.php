@@ -45,6 +45,16 @@ return [
         3 => 'Lodged-Pending',
         4 => 'Non-Legal',
         5 => 'Registered',
+        6 => 'Finalised'
+    ],
+    'admin_booking_status' => [
+        1 => 'Booked',
+        2 => 'Lodged',
+        3 => 'Lodged-Pending',
+        4 => 'Non-Legal',
+        5 => 'Registered',
+        6 => 'Finalised',
+        7 => 'Settled',
         8 => 'Cancelled'
     ]
 ];

@@ -159,25 +159,10 @@
                                  <div class="col-md-9">
                                     <label for="bank" class="form-label small-text2 ms-2">Bank</label>
                                     <select name="gender" id="bank" name="user[bank]" class="js-placeholder-single-input form-control readonlyInput" disabled required>
-                                       <option value="1" {{ $data->bank == 1 ? ' selected' : '' }}>
-                                                               ANZ</option>
-                                       <option value="2" {{ $data->bank == 2 ? ' selected' : '' }}>
-                                          NAB</option>
-                                       <option value="3" {{ $data->bank == 3 ? ' selected' : '' }}>
-                                          Westpac Bank
-                                       </option>
-                                       <option value="4" {{ $data->bank == 4 ? ' selected' : '' }}>
-                                          Bank of Queensland
-                                       </option>
-                                       <option value="5" {{ $data->bank == 5 ? ' selected' : '' }}>
-                                          Macquarie Bank
-                                       </option>
-                                       <option value="6" {{ $data->bank == 6 ? ' selected' : '' }}>
-                                          Bendigo Bank
-                                       </option>
-                                       <option value="7" {{ $data->bank == 7 ? ' selected' : '' }}>
-                                          AMP Bank Ltd
-                                       </option>
+                                    @foreach(config('env.bankNames') as $key=>$bank)
+                                       <option value="{{$key}}" {{ $data->bank == $key ? ' selected' : '' }}>{{$bank}}</option>
+                                    @endforeach
+
                                     </select>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
                                  </div>

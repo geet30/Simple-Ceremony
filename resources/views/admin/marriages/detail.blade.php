@@ -24,7 +24,7 @@
                            </div>
                            <div class="col-md-6 col-xxl-7  align-self-center mt-2 mt-lg-0 w-100 d-flex">
                               <div class="progress theme-progress body-1 w-40 align-self-center">
-                                 <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+                              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{config('ceremonyStatus.booking_progress.'.$data->status) }}" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">{{config('ceremonyStatus.booking_progress.'.$data->status) }}</div>
                               </div>
                               <div class="align-self-center ms-3 info-icon">
                                  <a href="" class="theme-tip"><img src="/images/icons/Info-light.svg" class="img-fluid"><span>Data Entered into NoIM</span></a>
@@ -41,7 +41,7 @@
                                  Ceremony status
                                  </button>
                                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    @foreach(config('ceremonyStatus.celebrant_booking_status') as $key=>$status)
+                                    @foreach(config('ceremonyStatus.admin_booking_status') as $key=>$status)
                                    
                                        <li>
                                           <a role="button" class="dropdown-item"  data-bs-toggle="modal" data-bs-target="#change_marriage_status_modal" onclick="appendId('{{$key}}','status')" class="theme-btn primary-btn-border d-flex justify-content-center"><span class="status text-nowrap {{strtolower($status)}}">{{$status}}</span></a>
