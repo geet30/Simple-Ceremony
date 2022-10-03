@@ -8,6 +8,7 @@ use App\Models\UserParent;
 use Illuminate\Support\Str;
 use App\Models\UserWitness;
 use App\Models\UserDocument;
+use App\Models\UserMarriagePdf;
 use App\Models\UserMarriageDocument;
 use App\Models\UserNoimReferrers;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 use PhpParser\Node\Stmt\TryCatch;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 use PDF;
+use Illuminate\Http\File;
 
 class UserNoimController extends Controller
 {
@@ -109,7 +111,6 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
-        // return $person;
         return view(self::$bladePath . 'steps', compact('person'));
     }
     public function step2()
@@ -168,7 +169,10 @@ class UserNoimController extends Controller
     }
     public function documents()
     {
-        return view('user.documents.lisiting');
+        $loggedInUserId = Auth::user()->id;
+        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        $userMarriageDocument = UserMarriageDocument::where(['user_id' => $loggedInUserId, 'booking_id' => $bookingId])->first();
+        return view('user.documents.lisiting', compact('userMarriageDocument'));
     }
     public function documentSave(Request $request)
     {
@@ -184,17 +188,68 @@ class UserNoimController extends Controller
     public function previewDocument(Request $request, $document)
     {
         $loggedInUserId = Auth::user()->id;
-        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness')->whereUserId($loggedInUserId)->get();
-
+        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate')->whereUserId($loggedInUserId)->get();
         switch ($document) {
-            case 'noim-download':
-                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person]);
-                return $NOIMpdf->download('sampleNoim.pdf');
-                break;
             case 'noim-perview':
-                return view('user.documents.noim', ['person' => $person]);
+                return view('user.documents.noim',  ['person' => $person, 'button' => true]);
+                break;
+            case 'noim-download':
+                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person, 'button' => false]);
+                return $NOIMpdf->download('NOIM.pdf');
+                break;
+            case 'preview-certificate-of-faithful-performance-by-interpreter':
+                return view('user.documents.certificate-of-faithful-performance-by-interpreter', compact('person'));
+                break;
+            case 'download-certificate-of-faithful-performance-by-interpreter':
+                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person]);
+                return $faithFullCertificate->download('certificate-of-faithful-performance-by-interpreter.pdf');
+                break;
+            case 'preview-official-certificate-of-marriage':
+                return view('user.documents.official-certificate-of-marriage', ['person' => $person, 'button' => true]);
+                break;
+            case  'download-official-certificate-of-marriage':
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.official-certificate-of-marriage', ['person' => $person, 'button' => false]);
+                return $officialCertificateOfMarriage->download('official-certificate-of-marriage.pdf');
+                break;
+            case 'preview-declaration-of-no-legal-impediment-to-marriage':
+                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', compact('person'));
+                break;
+            case 'download-declaration-of-no-legal-impediment-to-marriage':
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person]);
+                return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
+                break;
+
             default:
                 return redirect()->back();
         }
+    }
+
+    public function saveSignature(Request $request)
+    {
+        $loggedInUserId = Auth::user()->id;
+        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        $img = self::convertBase64ToImage($request->signed);
+        $imageName = rand(777777, 777777777) . time() . '-' . rand(9999, 999999999) . '.' . 'png';
+        $folder = 'base64toimg/';
+        if (!is_dir($folder)) {
+            //Directory does not exist, so lets create it.
+            \File::makeDirectory(public_path() . '/' . $folder, 0777, true);
+        }
+        file_put_contents(public_path($folder) . $imageName, $img);
+
+        $request->merge([
+            'user_id' => $loggedInUserId,
+            'booking_id' => $bookingId,
+            $request->key => $folder . $imageName
+        ]);
+        UserMarriagePdf::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'document_name' => $request->document_name], $request->all());
+        return redirect()->back();
+    }
+
+    private static function convertBase64ToImage($base64String)
+    {
+        $image = explode(',', $base64String)[1];  // your base64 encoded
+        $imgFile = base64_decode($image);
+        return $imgFile;
     }
 }

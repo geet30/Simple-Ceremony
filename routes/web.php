@@ -18,6 +18,9 @@ use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as
 
 
 $websiteRoutes = function () {
+    Route::get('e-signature', function () {
+        return view('user.sample.e-signature');
+    });
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
@@ -133,8 +136,9 @@ $websiteRoutes = function () {
             Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
             Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
-            Route::get('preview-document/{page}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-noim-document');
+            Route::get('preview-document/{page}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
             Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
+            Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('userNoim.documents.signature');
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });

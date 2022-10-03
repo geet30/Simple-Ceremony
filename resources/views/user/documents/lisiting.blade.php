@@ -6,7 +6,6 @@
                 @include('elements.common.user-sidebar')
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
-                {{-- @include('elements.user-header') --}}
                 <div class="card panel-card ">
                     <div class="card-body">
                         <div class="row">
@@ -25,11 +24,11 @@
                                                     form.pdf</p>
                                                 <div>
                                                     <a class="me-2"
-                                                        href="{{ route('userNoim.preview-noim-document', 'noim-perview') }}"
+                                                        href="{{ route('userNoim.preview-document', 'noim-perview') }}"
                                                         target="_blank"><img src="/images/icons/uploading/eye.svg"
                                                             class="img-fluid" alt="eye"></a>
                                                     <a class="me-2"
-                                                        href="{{ route('userNoim.preview-noim-document', 'noim-download') }}"><img
+                                                        href="{{ route('userNoim.preview-document', 'noim-download') }}"><img
                                                             src="/images/icons/uploading/download.svg" class="img-fluid"
                                                             alt="download"></a>
                                                 </div>
@@ -43,11 +42,14 @@
                                                 <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
                                                     Marriage</p>
                                                 <div>
-                                                    <a class="me-2" href="/user/signature"><img
+                                                    <a class="me-2"
+                                                        href="{{ route('userNoim.preview-document', 'preview-official-certificate-of-marriage') }}"><img
                                                             src="/images/icons/uploading/eye.svg" class="img-fluid"
                                                             alt="eye"></a>
-                                                    <a class="me-2"><img src="/images/icons/uploading/download.svg"
-                                                            class="img-fluid" alt="download"></a>
+                                                    <a class="me-2"
+                                                        href="{{ route('userNoim.preview-document', 'download-official-certificate-of-marriage') }}"><img
+                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
+                                                            alt="download"></a>
                                                 </div>
                                             </div>
                                             <div class="created-date">Created Feb 27, 2022</div>
@@ -59,11 +61,14 @@
                                                 <p id="filename" class="h4 neutral-100 mb-3">Declaration of No legal
                                                     Impediment</p>
                                                 <div>
-                                                    <a class="me-2" href="/user/signature"><img
+                                                    <a class="me-2"
+                                                        href="{{ route('userNoim.preview-document', 'preview-declaration-of-no-legal-impediment-to-marriage') }}"><img
                                                             src="/images/icons/uploading/eye.svg" class="img-fluid"
                                                             alt="eye"></a>
-                                                    <a class="me-2"><img src="/images/icons/uploading/download.svg"
-                                                            class="img-fluid" alt="download"></a>
+                                                    <a class="me-2"
+                                                        href="{{ route('userNoim.preview-document', 'download-declaration-of-no-legal-impediment-to-marriage') }}"><img
+                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
+                                                            alt="download"></a>
                                                 </div>
                                             </div>
                                             <div class="created-date">Created Feb 27, 2022</div>
@@ -75,32 +80,36 @@
                                                 <p id="filename" class="h4 neutral-100 mb-3">Certificate of Faithful
                                                     performance of Interpreter</p>
                                                 <div>
-                                                    <a class="me-2" href="/user/signature"><img
+                                                    <a class="me-2"
+                                                        href="{{ route('userNoim.preview-document', 'preview-certificate-of-faithful-performance-by-interpreter') }}"><img
                                                             src="/images/icons/uploading/eye.svg" class="img-fluid"
                                                             alt="eye"></a>
-                                                    <a class="me-2"><img src="/images/icons/uploading/download.svg"
-                                                            class="img-fluid" alt="download"></a>
+                                                    <a class="me-2"
+                                                        href="{{ route('userNoim.preview-document', 'download-certificate-of-faithful-performance-by-interpreter') }}"><img
+                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
+                                                            alt="download"></a>
                                                 </div>
                                             </div>
                                             <div class="created-date">Created Feb 27, 2022</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                                    {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
                                         <div class="document-box">
                                             <div class="uploaded-content">
                                                 <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
                                                     Marriage</p>
                                                 <div>
-                                                    <a class="me-2" href="/user/signature"><img
+                                                    <a class="me-2" href="javascript::void(0)"><img
                                                             src="/images/icons/uploading/eye.svg" class="img-fluid"
                                                             alt="eye"></a>
-                                                    <a class="me-2"><img src="/images/icons/uploading/download.svg"
-                                                            class="img-fluid" alt="download"></a>
+                                                    <a class="me-2" href="javascript::void(0)"><img
+                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
+                                                            alt="download"></a>
                                                 </div>
                                             </div>
                                             <div class="created-date">Created Feb 27, 2022</div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -120,8 +129,12 @@
                                                 witnessed on this website?</label>
                                             <select name="is_document_electronically_signed" id="digital-signature"
                                                 class="js-placeholder-single-input form-control col-12">
-                                                <option value="1" selected="">Yes</option>
-                                                <option value="2">No, I will need to upload the NOIM</option>
+                                                <option value="1"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['is_document_electronically_signed'] == 1 ? 'selected' : '' }}>
+                                                    Yes</option>
+                                                <option value="2"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['is_document_electronically_signed'] == 2 ? 'selected' : '' }}>
+                                                    No, I will need to upload the NOIM</option>
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
@@ -138,21 +151,29 @@
                                             <select name="how_did_you_have_noim_witnessed" id="NoIM-witnessed"
                                                 class="js-placeholder-single-input form-control col-12" required>
                                                 <option value="">Select here</option>
-                                                <option value="1">Live video</option>
-                                                <option value="2">Video recording</option>
-                                                <option value="3">In person</option>
+                                                <option value="1"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['how_did_you_have_noim_witnessed'] == 1 ? 'selected' : '' }}>
+                                                    Live video</option>
+                                                <option value="2"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['how_did_you_have_noim_witnessed'] == 2 ? 'selected' : '' }}>
+                                                    Video recording</option>
+                                                <option value="3"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['how_did_you_have_noim_witnessed'] == 3 ? 'selected' : '' }}>
+                                                    In person</option>
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-6 col-xl-5 d-none" id="authorization-code-section">
+                                        <div class="col-12 col-md-6 col-xl-5 {{ $userMarriageDocument && $userMarriageDocument['how_did_you_have_noim_witnessed'] == 1 ? '' : 'd-none' }}"
+                                            id="authorization-code-section">
                                             <label for="authorization-code"
                                                 class="form-label small-text2 col-12 mb-2 ms-2">Insert
                                                 authorization code</label>
                                             <input type="text" id="authorization-code" class="form-control"
-                                                name="authorization_code">
+                                                name="authorization_code"
+                                                value="{{ $userMarriageDocument && $userMarriageDocument['authorization_code'] ? $userMarriageDocument['authorization_code'] : '' }}">
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -167,11 +188,21 @@
                                             <select name="who_signed_person_1_witness" id="who_signed_person_1_witness"
                                                 class="js-placeholder-single-input form-control col-12" required>
                                                 <option value="">Select here</option>
-                                                <option value="1">Authorised Marriage Celebrant</option>
-                                                <option value="2">Justice of the Peace</option>
-                                                <option value="3">Legal Practitioner</option>
-                                                <option value="4">Notary Public</option>
-                                                <option value="5">Other Authorised Person</option>
+                                                <option value="1"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_1_witness'] == 1 ? 'selected' : '' }}>
+                                                    Authorised Marriage Celebrant</option>
+                                                <option value="2"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_1_witness'] == 2 ? 'selected' : '' }}>
+                                                    Justice of the Peace</option>
+                                                <option value="3"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_1_witness'] == 3 ? 'selected' : '' }}>
+                                                    Legal Practitioner</option>
+                                                <option value="4"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_1_witness'] == 4 ? 'selected' : '' }}>
+                                                    Notary Public</option>
+                                                <option value="5"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_1_witness'] == 5 ? 'selected' : '' }}>
+                                                    Other Authorised Person</option>
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
@@ -187,11 +218,21 @@
                                                 <option value="">
                                                     Select
                                                     here</option>
-                                                <option value="1">Authorised Marriage Celebrant</option>
-                                                <option value="2">Justice of the Peace</option>
-                                                <option value="3">Legal Practitioner</option>
-                                                <option value="4">Notary Public</option>
-                                                <option value="5">Other Authorised Person</option>
+                                                <option value="1"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_2_witness'] == 1 ? 'selected' : '' }}>
+                                                    Authorised Marriage Celebrant</option>
+                                                <option value="2"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_2_witness'] == 2 ? 'selected' : '' }}>
+                                                    Justice of the Peace</option>
+                                                <option value="3"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_2_witness'] == 3 ? 'selected' : '' }}>
+                                                    Legal Practitioner</option>
+                                                <option value="4"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_2_witness'] == 4 ? 'selected' : '' }}>
+                                                    Notary Public</option>
+                                                <option value="5"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['who_signed_person_2_witness'] == 5 ? 'selected' : '' }}>
+                                                    Other Authorised Person</option>
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
@@ -206,7 +247,9 @@
                                             <input type="text" id="person_1_witness_occupation_name"
                                                 class="form-control body-1 netural-100"
                                                 placeholder="Type occupation name "
-                                                name="person_1_witness_occupation_name" required>
+                                                name="person_1_witness_occupation_name"
+                                                value="{{ $userMarriageDocument && $userMarriageDocument['person_1_witness_occupation_name'] ? $userMarriageDocument['person_1_witness_occupation_name'] : '' }}"
+                                                required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -217,7 +260,9 @@
                                                 class="form-label small-text2 col-12 mb-2 ms-2">Occupation name</label>
                                             <input type="text" id="person_2_witness_occupation_name"
                                                 class="form-control body-1 netural-100" placeholder="Type occupation name"
-                                                name="person_2_witness_occupation_name" required>
+                                                name="person_2_witness_occupation_name"
+                                                value="{{ $userMarriageDocument && $userMarriageDocument['person_2_witness_occupation_name'] ? $userMarriageDocument['person_2_witness_occupation_name'] : '' }}"
+                                                required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -232,7 +277,9 @@
                                                 Person 1 on the NoIM</label>
                                             <input type="text" placeholder="Type your witness' name here"
                                                 class="form-control body-1 netural-100" name="person_1_witness_name"
-                                                id="person_1_witness_name" required>
+                                                id="person_1_witness_name"
+                                                value="{{ $userMarriageDocument && $userMarriageDocument['person_1_witness_name'] ? $userMarriageDocument['person_1_witness_name'] : '' }}"
+                                                required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -245,7 +292,9 @@
                                                 Person 2 on the NoIM</label>
                                             <input type="text" placeholder="Type your witness' name here"
                                                 class="form-control body-1 netural-100" name="person_2_witness_name"
-                                                id="person_2_witness_name" required>
+                                                id="person_2_witness_name"
+                                                value="{{ $userMarriageDocument && $userMarriageDocument['person_2_witness_name'] ? $userMarriageDocument['person_2_witness_name'] : '' }}"
+                                                required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -279,6 +328,20 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!--uploaded-box  -->
+                                        <div class="conjugal_document_perview attach-document-box uploaded-box noim-document-box d-none"
+                                            style="position: relative;">
+                                            <div class="d-flex justify-content-center uploaded-content">
+                                                <div class="align-self-center">
+                                                    <p class="h4 neutral-100 mb-0 document-name">
+                                                        sample.pdf
+                                                    </p>
+                                                </div>
+                                                <div class="align-self-center"><img src="/images/icons/cross.svg"
+                                                        alt="cross" class="img-fluid ms-3"></div>
+                                            </div>
+                                        </div>
+                                        <!--  -->
                                     </div>
                                 </div>
                             </div>
@@ -293,23 +356,34 @@
                                                 understand english?</label>
                                             <select name="party_not_speak_english" id="english-not-speak-parties"
                                                 class="js-placeholder-single-input form-control" required>
-                                                <option value="1" selected>Yes</option>
-                                                <option value="0">No</option>
+                                                <option value="1"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 1 ? 'selected' : '' }}>
+                                                    Yes</option>
+                                                <option value="0"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 0 ? 'selected' : '' }}>
+                                                    No</option>
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-4 align-self-end need-interpreter d-none">
+                                        <div
+                                            class="col-md-6 mb-4 align-self-end need-interpreter {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 0 ? '' : 'd-none' }}">
                                             <label for="language-speak" class="form-label  small-text2 neutral-100 ">What
                                                 language they speak?</label>
                                             <select name="language_speak" id="language-speak"
                                                 class="js-placeholder-single-input form-control">
                                                 <option value="">Select answer here</option>
-                                                <option value="english"> English </option>
-                                                <option value="russian"> Russian </option>
-                                                <option value="arabic"> Arabic </option>
+                                                <option value="english"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['language_speak'] == 'english' ? 'selected' : '' }}>
+                                                    English </option>
+                                                <option value="russian"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['language_speak'] == 'russian' ? 'selected' : '' }}>
+                                                    Russian </option>
+                                                <option value="arabic"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['language_speak'] == 'arabic' ? 'selected' : '' }}>
+                                                    Arabic </option>
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field
@@ -317,27 +391,29 @@
                                                 required
                                             </div>
                                         </div>
-                                        <div class="need-interpreter row d-none">
+                                        <div
+                                            class="need-interpreter row  {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 0 ? '' : 'd-none' }}">
                                             <div class="col-md-6 align-self-end">
                                                 <label for="interpreter-full-name"
                                                     class="form-label small-text2 neutral-100 ">Enter
                                                     full name of your interpreter</label>
-                                                <input type="text" class="form-control" id="interpreter-full-name"
-                                                    name="interpreter_full_name"
-                                                    placeholder="Type your interpreter's full name">
+                                                <input type="text" class="form-control body-1 netural-100"
+                                                    id="interpreter-full-name" name="interpreter_full_name"
+                                                    placeholder="Type your interpreter's full name"
+                                                    value="{{ $userMarriageDocument && $userMarriageDocument['interpreter_full_name'] ? $userMarriageDocument['interpreter_full_name'] : '' }}">
                                                 <div class="invalid-feedback"> <span><img class="me-2"
                                                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field
-                                                    is
-                                                    required
+                                                    is required
                                                 </div>
                                             </div>
                                             <div class="col-md-6 align-self-end">
                                                 <label for="interpreter-address"
                                                     class="form-label small-text2 neutral-100 ">Enter address of your
                                                     interpreter</label>
-                                                <input type="text" class="form-control" id="interpreter-address"
-                                                    name="interpreter_address"
-                                                    placeholder="Type your interpreter's address">
+                                                <input type="text" class="form-control body-1 netural-100"
+                                                    id="interpreter-address" name="interpreter_address"
+                                                    placeholder="Type your interpreter's address"
+                                                    value="{{ $userMarriageDocument && $userMarriageDocument['interpreter_address'] ? $userMarriageDocument['interpreter_address'] : '' }}">
                                                 <div class="invalid-feedback"> <span><img class="me-2"
                                                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field
                                                     is
@@ -348,9 +424,10 @@
                                                 <label for="interpreter-occupation"
                                                     class="form-label small-text2 neutral-100 ">Enter occupation of your
                                                     interpreter</label>
-                                                <input type="text" class="form-control" id="interpreter-occupation"
-                                                    name="interpreter_occupation"
-                                                    placeholder="Type your interpreter's occupation">
+                                                <input type="text" class="form-control body-1 netural-100"
+                                                    id="interpreter-occupation" name="interpreter_occupation"
+                                                    placeholder="Type your interpreter's occupation"
+                                                    value="{{ $userMarriageDocument && $userMarriageDocument['interpreter_occupation'] ? $userMarriageDocument['interpreter_occupation'] : '' }}">
                                                 <div class="invalid-feedback"> <span><img class="me-2"
                                                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field
                                                     is

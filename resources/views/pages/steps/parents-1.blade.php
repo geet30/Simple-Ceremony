@@ -110,7 +110,7 @@ $personParentElement = 'person0Parent';
                     Parent 2</label>
                 <input type="text" class="form-control body-1 netural-100"
                     name="{{ $personParent }}[1][current_name]" id="{{ $personParentElement }}1CurrentName"
-                    value="{{ $parent && $parent[1]['current_name'] }}" required>
+                    value="{{ $parent && $parent[1]['current_name'] ?? $parent[1]['current_name'] }}" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required</div>
