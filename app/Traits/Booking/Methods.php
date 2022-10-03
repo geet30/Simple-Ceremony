@@ -120,6 +120,8 @@ trait Methods
                 $userBookingAddon['booking_id']= $booking_id;
                 $userBookingAddon['package_id']= $package->package_id;
                 $userBookingAddon['partner_id']= $package->partner_id;
+                $userBookingAddon['addon_type']= 2;
+                
                 UserBookingAddon::create($userBookingAddon);
             }
             return true;
