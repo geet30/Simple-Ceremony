@@ -30,4 +30,16 @@ class UserNoim extends Model
     {
         return  $this->hasMany(UserParent::class, 'user_noim_id', 'id');
     }
+    public function marriageDocument()
+    {
+        return $this->hasOne(UserMarriageDocument::class, 'booking_id', 'booking_id');
+    }
+    public function marriageDocumentPdfNoim()
+    {
+        return $this->hasOne(UserMarriagePdf::class, 'booking_id', 'booking_id')->where('document_name', 'noim');
+    }
+    public function marriageDocumentPdfOfficialMarriageCertificate()
+    {
+        return $this->hasOne(UserMarriagePdf::class, 'booking_id', 'booking_id')->where('document_name', 'offical-certificate-of-marriage');
+    }
 }

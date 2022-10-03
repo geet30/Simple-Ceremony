@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
-use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations ,InvoicesController as CelebrantInvoices};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices};
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,9 @@ use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as
 
 
 $websiteRoutes = function () {
+    Route::get('e-signature', function () {
+        return view('user.sample.e-signature');
+    });
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
@@ -133,9 +136,10 @@ $websiteRoutes = function () {
             Route::get('add-ons', 'App\Http\Controllers\User\UserController@addons')->name('user-add-ons');
             Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
             Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
-            Route::get('documents', function () {
-                return view('user.documents.lisiting');
-            });
+            Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
+            Route::get('preview-document/{page}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
+            Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
+            Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('userNoim.documents.signature');
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
@@ -156,7 +160,7 @@ $websiteRoutes = function () {
         Route::get('add-ons-gallery', function () {
             return view('user.overview.addons.gallery');
         });
-       
+
         Route::get('account-details', function () {
             return view('user.account.account-details');
         });
@@ -243,14 +247,14 @@ $adminRoutes = function () {
         Route::get('edit-booking-confirmation', function () {
             return view('admin.triggers-and-emails.edit-booking-confirmation');
         });
-       
+
         Route::get('all-payments/{slug}', [InvoicesController::class, 'index'])->name('admin.payments');
         Route::resource('payments', InvoicesController::class);
-        Route::get('couple-info',[InvoicesController::class, 'getUserInfo']);
-        Route::get('recipient-info',[InvoicesController::class, 'getRecipientInfo']);
+        Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
+        Route::get('recipient-info', [InvoicesController::class, 'getRecipientInfo']);
         Route::post('search-payments', [InvoicesController::class, 'searchByStatusDate']);
         Route::get('search-by-invoice', [InvoicesController::class, 'searchByInvoice']);
-     
+
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
@@ -275,7 +279,7 @@ $adminRoutes = function () {
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
         });
         Route::group(['prefix' => 'marriages'], function () {
-            
+
             Route::get('/{slug?}', [MarriagesController::class, 'index'])->name('admin.marriages');
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
@@ -284,7 +288,7 @@ $adminRoutes = function () {
             Route::post('search-by-user', [MarriagesController::class, 'searchMarriagesByUser']);
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
         });
-       
+
         Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
         Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
@@ -293,7 +297,7 @@ $adminRoutes = function () {
         Route::post('saveFeedback', [DashboardController::class, 'bookingFeedback'])->name('celebrant.saveFeedback');
         Route::post('deleteRecord', [DashboardController::class, 'deleteRecord']);
         Route::post('saveRecord', [DashboardController::class, 'saveRecord'])->name('celebrant.saveRecord');
-       
+
         Route::get('create-partners-invoice', function () {
             return view('admin.payments.create-partners-invoice');
         });
@@ -348,7 +352,7 @@ $adminRoutes = function () {
         Route::get('booked-order-details', function () {
             return view('admin.marriages.booked-order-details');
         });
-   
+
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
@@ -463,9 +467,8 @@ $celebrantRoutes = function () {
         Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
         // Route::get('all-invoices/{slug}', [CelebrantInvoices::class, 'index'])->name('celebrant.invoices');
         Route::resource('invoices', CelebrantInvoices::class);
-        Route::get('couple-info',[InvoicesController::class, 'getUserInfo']);
+        Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
-       
     });
 
     Route::get('availablity-overview', function () {
@@ -484,7 +487,7 @@ $celebrantRoutes = function () {
     Route::get('total-fee', function () {
         return view('celebrant.total-fee.listing');
     });
-  
+
     Route::get('financial-report', function () {
         return view('celebrant.financial-report.listing');
     });
