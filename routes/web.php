@@ -137,7 +137,7 @@ $websiteRoutes = function () {
             Route::get('addons/detail/{id}', 'App\Http\Controllers\User\UserController@addonDetail')->name('user-addons-detail');
             Route::get('addons/gallery/{id}/{addonid}', [App\Http\Controllers\User\UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
-            Route::get('preview-document/{page}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
+            Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
             Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
             Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('userNoim.documents.signature');
             Route::get('NoIM', function () {

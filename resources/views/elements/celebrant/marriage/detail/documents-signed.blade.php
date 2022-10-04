@@ -14,6 +14,75 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
         <div class=" col-lg-9 col-xl-9 mt-3 mt-lg-0">
             <div class="row">
                 <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                    <div class="document-box">
+                        <div class="uploaded-content ">
+                            <p id="filename" class="h4 neutral-100 mb-3">Notice of Intended Marriage
+                                form.pdf</p>
+                            <div>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', ['page' => 'noim-perview', 'id' => $couple[0]->user_id]) }}"
+                                    target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
+                                        alt="eye"></a>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', ['page' => 'noim-download', 'id' => $couple[0]->user_id]) }}"><img
+                                        src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                            </div>
+                        </div>
+                        <div class="created-date">Created Feb 27, 2022</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                    <div class="document-box">
+                        <div class="uploaded-content">
+                            <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
+                                Marriage</p>
+                            <div>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', 'preview-official-certificate-of-marriage') }}"><img
+                                        src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', 'download-official-certificate-of-marriage') }}"><img
+                                        src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                            </div>
+                        </div>
+                        <div class="created-date">Created Feb 27, 2022</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                    <div class="document-box">
+                        <div class="uploaded-content ">
+                            <p id="filename" class="h4 neutral-100 mb-3">Declaration of No legal
+                                Impediment</p>
+                            <div>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', 'preview-declaration-of-no-legal-impediment-to-marriage') }}"><img
+                                        src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', 'download-declaration-of-no-legal-impediment-to-marriage') }}"><img
+                                        src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                            </div>
+                        </div>
+                        <div class="created-date">Created Feb 27, 2022</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                    <div class="document-box">
+                        <div class="uploaded-content ">
+                            <p id="filename" class="h4 neutral-100 mb-3">Certificate of Faithful
+                                performance of Interpreter</p>
+                            <div>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', 'preview-certificate-of-faithful-performance-by-interpreter') }}"><img
+                                        src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
+                                <a class="me-2"
+                                    href="{{ route('userNoim.preview-document', 'download-certificate-of-faithful-performance-by-interpreter') }}"><img
+                                        src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                            </div>
+                        </div>
+                        <div class="created-date">Created Feb 27, 2022</div>
+                    </div>
+                </div>
+                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
                     <div class="attach-document-box position-relative  d-none">
                         <input id="fileupload" class="fileupload" type="file" name="files[]">
                         <div class="inner-content">
@@ -57,8 +126,8 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
                         <div class="created-date">Created Feb 29, 2022</div>
                     </div>
                     <!--  -->
-                </div>
-                <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
+                </div> --}}
+                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
                     <div class="attach-document-box position-relative d-none">
                         <input id="fileupload" class="fileupload" type="file" name="files[]">
                         <div class="inner-content">
@@ -102,8 +171,8 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
                         <div class="created-date">Created Feb 29, 2022</div>
                     </div>
                     <!--  -->
-                </div>
-                <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
+                </div> --}}
+                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
                     <div class="attach-document-box position-relative">
                         <input id="fileupload" class="fileupload" type="file" name="files[]">
                         <div class="inner-content">
@@ -147,7 +216,7 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
                         <div class="created-date">Created Feb 29, 2022</div>
                     </div>
                     <!--  -->
-                </div>
+                </div> --}}
                 <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
                     <div class="attach-document-box position-relative">
                         <input id="fileupload" class="fileupload" type="file" name="files[]">
@@ -193,7 +262,7 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
                     </div>
                     <!--  -->
                 </div>
-                <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
+                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
                     <div class="attach-document-box position-relative">
                         <input id="fileupload" class="fileupload" type="file" name="files[]">
                         <div class="inner-content">
@@ -237,7 +306,7 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
                         <div class="created-date">Created Feb 29, 2022</div>
                     </div>
                     <!--  -->
-                </div>
+                </div> --}}
                 <div class="col-12">
                     <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download all documents</a>
                 </div>
@@ -325,11 +394,11 @@ $documentDetail = $couple && $couple[0]->signedDocumentDetail ? $couple[0]->sign
     </div>
 </form>
 <script>
-    $(document).ready(function() {
-        setTimeout(() => {
-            $('#exampleModal').modal('show');
-        }, 500);
-    });
+    // $(document).ready(function() {
+    //     setTimeout(() => {
+    //         $('#exampleModal').modal('show');
+    //     }, 500);
+    // });
     var cl = console.log;
     // $(document).ready(function() {
     $('button#copy_code').click(function() {
