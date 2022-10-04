@@ -50,6 +50,10 @@ class UserNoim extends Model
     {
         return $this->hasOne(UserMarriagePdf::class, 'booking_id', 'booking_id')->where('document_name', 'declaration-of-no-legal-impediment-to-marriage');
     }
+    public function marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter()
+    {
+        return $this->hasOne(UserMarriagePdf::class, 'booking_id', 'booking_id')->where('document_name', 'certificate-of-faithful-performance-by-interpreter');
+    }
     public function userDetail()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
