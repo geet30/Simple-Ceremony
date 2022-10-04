@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -6,8 +6,9 @@
         @include('elements.common.user-sidebar')
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
-        @include('elements.user-header')
-         <a href="/user/addons/detail/{{$addonid}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+        @include('elements.common.panel-header')
+        
+         <a href="/user/add-ons/detail/{{$addonid}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
             <div class="card-body">
                <section class="pt-40  mb-5 add-ons-detail">

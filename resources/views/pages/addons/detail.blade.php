@@ -57,7 +57,7 @@
                      <h2 class="h3 neutral-100">{{$package['package_name']}} • ${{number_format($package['total_fee'])}}</h2>
                   </div>
                   <div class="align-self-center">
-                     <a class="theme-btn primary-btn d-inline-flex open-add-to-wedding" data-id="{{$package['id']}}" data-package_name="{{$package['package_name']}}" data-terms="{{$package['title_term']}}" data-price="{{$package['total_fee']}}" data-bs-toggle="modal"
+                     <a class="theme-btn primary-btn d-inline-flex open-add-to-wedding" data-package_id="{{$package['id']}}" data-partner_id="{{$package['user_id']}}" data-package_name="{{$package['package_name']}}" data-terms="{{$package['title_term']}}" data-price="{{$package['total_fee']}}" data-bs-toggle="modal"
                         data-bs-target="#termsModal">
                         <img class="me-2" src="/images/shopping-icon.svg" alt="shopping-icon">
                         Add to my wedding

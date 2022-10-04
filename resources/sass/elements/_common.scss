@@ -440,6 +440,20 @@
             background-color: #ffb800;
         }
     }
+    &.waiting-approval{
+        color: #ffb800;
+        background: #fff6de;
+        &::before {
+            background-color: #ffb800;
+        }
+    }
+    &.rejected{
+        color: #ff4545;
+        background: #fdd1d1;
+        &::before {
+            background-color: #ff4545;
+        }
+    }
     &.non-legal {
         color: #1482e3;
         background: #f1f3f5;
@@ -448,6 +462,14 @@
         }
     }
     &.registered {
+        color: #1b801b;
+        background: #e0fce0;
+        &::before {
+            background-color: #1b801b;
+        }
+    }
+    
+    &.approved {
         color: #1b801b;
         background: #e0fce0;
         &::before {

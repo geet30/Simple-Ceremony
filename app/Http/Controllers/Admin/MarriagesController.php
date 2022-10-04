@@ -4,31 +4,32 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking,Locations,UserNoim,User};
+use App\Models\{Booking, Locations, UserNoim, User};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use View;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
+
 class MarriagesController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, $slug)
     {
-       
-        try {          
+
+        try {
             $records = 10;
             $req_page = 1;
-            if($request->has('page')){
-                $req_page = $request->page; 
+            if ($request->has('page')) {
+                $req_page = $request->page;
             }
             $celebrants = Locations::celebrants()->get();
-            $locations = Locations::all(); 
+            $locations = Locations::all();
             $data  = MarriagesMethods::fetch_all_marriages();
-           
-           
+
+
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
             $booking_marriages = (clone $data)->where('status', 1)->paginate($records, ['*'], 'page', $req_page);
             $lodged_marriages = (clone $data)->where('status', 2)->paginate($records, ['*'], 'page', $req_page);
@@ -55,7 +56,7 @@ class MarriagesController extends Controller
                 return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray]);
             }
             // dd($dataArray);
-            return view('admin.marriages.view', compact('dataArray','locations','celebrants'));
+            return view('admin.marriages.view', compact('dataArray', 'locations', 'celebrants'));
         } catch (\Exception $ex) {
 
             dd($ex);
@@ -73,20 +74,18 @@ class MarriagesController extends Controller
     public function searchBooking(Request $request)
     {
         try {
-            $columns = ['name','id','price','address','town','why_this_location','cover_image'];
+            $columns = ['name', 'id', 'price', 'address', 'town', 'why_this_location', 'cover_image'];
 
-            if($request->booking_date=='' && $request->booking_start_time=='' && $request->booking_end_time=='' && $request->id!=''){
-                $data = Locations::getLocations($request->id,$columns)->get();
+            if ($request->booking_date == '' && $request->booking_start_time == '' && $request->booking_end_time == '' && $request->id != '') {
+                $data = Locations::getLocations($request->id, $columns)->get();
                 return View::make('pages.home.search-location', ['locations' => $data]);
-            }else{
+            } else {
                 $data = Booking::searchBooking($request);
                 return View::make('pages.home.search-booking', ['locations' => $data]);
             }
-        }
-        catch (\Exception $ex) {
+        } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
- 
     }
     /**
      * search the specified booking location in storage.
@@ -96,12 +95,13 @@ class MarriagesController extends Controller
      * @return \Illuminate\Http\Response
      * */
 
-    public function searchMarriagesByDate(Request $request){
+    public function searchMarriagesByDate(Request $request)
+    {
         try {
             $data =   MarriagesMethods::searchMarriagesByDate($request);
             return View::make('elements.admin.marriage.search-marriages', ['data' => $data]);
         } catch (\Exception $ex) {
-           
+
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
@@ -112,7 +112,8 @@ class MarriagesController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      * */
-    public function searchMarriageByLocation(Request $request){
+    public function searchMarriageByLocation(Request $request)
+    {
         try {
             $data =   MarriagesMethods::searchMarriageLocation($request);
             // dd($data);
@@ -120,7 +121,7 @@ class MarriagesController extends Controller
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-    }   
+    }
     /**
      * search the specified booking location in storage.
      *
@@ -128,7 +129,8 @@ class MarriagesController extends Controller
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
      * */
-    public function searchMarriagesByUser(Request $request){
+    public function searchMarriagesByUser(Request $request)
+    {
         try {
             $data = MarriagesMethods::searchByUser($request);
             // dd($data);
@@ -136,17 +138,18 @@ class MarriagesController extends Controller
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-    }      
-    
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function saveCelebrant(Request $request){
+    public function saveCelebrant(Request $request)
+    {
         try {
-           
+
             $id = $request->input('id');
             $celebrant_id = $request->input('celebrant_id');
             Booking::where('id', $id)->update(['celebrant_id' => $celebrant_id]);
@@ -156,28 +159,27 @@ class MarriagesController extends Controller
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
         }
     }
- /**
+    /**
      * View the detail of resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail(Request $request,$id){
+    public function detail(Request $request, $id)
+    {
         try {
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = MarriagesMethods::marriage_detail($id)->first();
-           
-            
-            $couple = UserNoim::where('booking_id',$id )->with(['booking','birthDocument'])->get();
-            $UserId=booking::whereId($id)->pluck('celebrant_id')->first();     
-                          
-            $celebrant_details =User::where('id',$UserId)->with('celebrant')->first();            
-            return view('admin.marriages.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
-            
+
+
+            $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'signedDocumentDetail', 'parents'])->get();
+            $UserId = booking::whereId($id)->pluck('celebrant_id')->first();
+
+            $celebrant_details = User::where('id', $UserId)->with('celebrant')->first();
+            return view('admin.marriages.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id'));
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-
     }
 }

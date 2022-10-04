@@ -51,7 +51,7 @@ aria-hidden="true">
                <div class="d-flex">
                   <a role="button" class="theme-btn primary-btn  me-md-4 mb-3 mb-lg-0 w-100-sm"
                      data-bs-toggle="offcanvas" data-bs-target="#reschedule_ceremony_sidebar"
-                     aria-controls="offcanvasRight">Continue</a>
+                     aria-controls="offcanvasRight" onclick="closeDialog('reschedule_ceremony_popup')">Continue</a>
                </div>
                <div class="d-flex">
                   <a role="button" class="theme-btn primary-btn-border w-100-sm" data-bs-dismiss="modal" aria-label="Close">Cancel</a>
