@@ -16,7 +16,7 @@ class UserNoim extends Model
     }
     public function birthDocument()
     {
-        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 1);
+        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 1)->latest();
     }
     public function signedDocumentDetail()
     {
@@ -24,7 +24,7 @@ class UserNoim extends Model
     }
     public function divorceOrWidowedDocument()
     {
-        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 2);
+        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 2)->latest();
     }
     public function witness()
     {
