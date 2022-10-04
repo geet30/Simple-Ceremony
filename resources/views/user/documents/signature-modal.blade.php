@@ -4,7 +4,7 @@
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="signature-tabs nav nav-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
                         data-bs-target="#{{ $target }}e-signature" type="button" role="tab"
@@ -16,7 +16,7 @@
                         signature</button>
                 </li>
             </ul>
-            <div class="tab-content"">
+            <div class="tab-content">
                 <div class="tab-pane fade show active" id="{{ $target }}e-signature" role="tabpanel"
                     aria-labelledby="home-tab">
                     <form method="POST" action="{{ route('userNoim.documents.signature') }}">
@@ -25,7 +25,7 @@
                                 @csrf
                                 <input type="hidden" name="document_name" value="{{ $document_name }}">
                                 <div class="col-md-12">
-                                    <label class="" for="">Signature:</label>
+                                    <label class="mb-3" for="">Signature:</label>
                                     <div id="{{ $signatureId }}">
                                     </div>
                                     <textarea id="{{ $signatureId }}signature64" name="signed" style="display: none"></textarea>
@@ -35,9 +35,9 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="{{ $signatureId }}clear" class="btn btn-danger btn-sm">Clear
+                            <button type="button" id="{{ $signatureId }}clear" class="clear-signature-btn">Clear
                                 Signature</button>
-                            <button class="btn btn-success">Save</button>
+                            <button class="save-signature-btn">Save</button>
                         </div>
                     </form>
                 </div>
@@ -95,9 +95,9 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="{{ $signatureId }}clear" class="btn btn-danger btn-sm">Clear
+                            <button type="button" id="{{ $signatureId }}clear" class="clear-signature-btn">Clear
                                 Signature</button>
-                            <button class="btn btn-success">Save</button>
+                            <button class="save-signature-btn">Save</button>
                         </div>
                     </form>
                 </div>
@@ -105,3 +105,40 @@
         </div>
     </div>
 </div>
+<style>
+.signature-tabs li button {
+    color: #333 !important;
+    font-weight: 500 !important;
+    font-size: 14px;
+}
+.clear-signature-btn {
+    padding: 10px 29px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #62cbca;
+}
+.save-signature-btn {
+    padding: 10px 29px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #62CBC9;
+    color: #ffffff;
+    border: 1px solid #62cbca;
+}
+.modal-footer {
+    border: 0;
+}
+.modal-header {
+    border: 0;
+}
+</style>
