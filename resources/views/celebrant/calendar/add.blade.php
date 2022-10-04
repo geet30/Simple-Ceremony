@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
 <div class="row">
@@ -51,4 +51,15 @@
    </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script src="/datepicker/main.js"></script>
+<script>
+   $('.date').datepicker({
+      multidate: true,
+      format: 'dd-mm-yyyy'
+   });
+
+</script>
 @endsection

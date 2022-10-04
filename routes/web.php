@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController,UserController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
-use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
 /*
 |--------------------------------------------------------------------------
@@ -461,6 +461,8 @@ $celebrantRoutes = function () {
         Route::resource('invoices', CelebrantInvoices::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
+
+        Route::get('calendar', [CalendarController::class,'index']);
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
@@ -491,9 +493,11 @@ $celebrantRoutes = function () {
     Route::get('location', function () {
         return view('celebrant.financial-report.location');
     });
-    Route::get('calendar', function () {
-        return view('celebrant.calendar.availability');
+    
+    Route::get('calendar-design', function(){
+        return view('celebrant.calendar.design');
     });
+
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });
