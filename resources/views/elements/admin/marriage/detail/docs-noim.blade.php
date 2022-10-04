@@ -91,6 +91,34 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <input type="text" value="{{ $conjugal_status }}" class="form-control body-1 netural-100"
                         name="name" id="preferredname2" readonly>
                 </div>
+                <div id="divorce-section" class="row {{ $couple1->conjugal_status == 2 ? '' : 'd-none' }}">
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Court location</label>
+                        <input type="text" value="{{ $couple1->divorceOrWidowedDocument->court_location }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
+                            ended</label>
+                        <input type="text"
+                            value="{{ $couple1->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
+                </div>
+                <div id="widowed-section" class="row {{ $couple1->conjugal_status == 4 ? '' : 'd-none' }}">
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Certificate number</label>
+                        <input type="text" value="{{ $couple1->divorceOrWidowedDocument->certificate_number }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
+                            ended</label>
+                        <input type="text"
+                            value="{{ $couple1->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
+                </div>
             </div>
             <h4 class="h4  neutral-100 align-self-center mb-0 ms-2 mb-3">Person 1 ID</h4>
             <div class="row mb-4">
@@ -198,17 +226,33 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <input type="text" value="{{ $conjugal_status2 }}" class="form-control body-1 netural-100"
                         name="name" id="preferredname2" readonly>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage ended</label>
-                    <input type="text" value="Say" class="form-control body-1 netural-100" name="name"
-                        id="preferredname2" readonly>
+                <div id="divorce-section" class="row {{ $couple2->conjugal_status == 2 ? '' : 'd-none' }}">
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Court location</label>
+                        <input type="text" value="{{ $couple2->divorceOrWidowedDocument->court_location }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
+                            ended</label>
+                        <input type="text"
+                            value="{{ $couple2->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <label for="preferredname2" class="form-label small-text2 ps-2">Court Location</label>
-                    <input type="text" value="Say" class="form-control body-1 netural-100" name="name"
-                        id="preferredname2" readonly>
+                <div id="widowed-section" class="row {{ $couple2->conjugal_status == 4 ? '' : 'd-none' }}">
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Certificate number</label>
+                        <input type="text" value="{{ $couple2->divorceOrWidowedDocument->certificate_number }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
+                            ended</label>
+                        <input type="text"
+                            value="{{ $couple2->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                            class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
+                    </div>
                 </div>
             </div>
 
