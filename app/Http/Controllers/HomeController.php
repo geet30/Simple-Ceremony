@@ -57,6 +57,7 @@ class HomeController extends Controller
      */
     public function searchBookingAddon(Request $request){
         try {
+           
             $data =   Addons::searchAddon($request);
             return View::make('pages.home.search-addon', ['addons' => $data]);
         }
@@ -70,8 +71,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function addonDetail($id){
+     
         try{
             $data = Addons::products()->where('id',$id)->first()->toArray();
+            // dd($data);
             return view('pages.addons.detail',compact(['data','id']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);

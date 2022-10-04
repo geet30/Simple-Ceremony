@@ -185,10 +185,11 @@ class UserNoimController extends Controller
         UserMarriageDocument::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
         return $request->all();
     }
-    public function previewDocument(Request $request, $document)
+    public function previewDocument(Request $request, $document, $userId = null)
     {
-        $loggedInUserId = Auth::user()->id;
-        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate')->whereUserId($loggedInUserId)->get();
+        $loggedInUserId = $userId ?? Auth::user()->id;
+        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage')->whereUserId($loggedInUserId)->get();
+
         switch ($document) {
             case 'noim-perview':
                 return view('user.documents.noim',  ['person' => $person, 'button' => true]);
@@ -212,10 +213,10 @@ class UserNoimController extends Controller
                 return $officialCertificateOfMarriage->download('official-certificate-of-marriage.pdf');
                 break;
             case 'preview-declaration-of-no-legal-impediment-to-marriage':
-                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', compact('person'));
+                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => true]);
                 break;
             case 'download-declaration-of-no-legal-impediment-to-marriage':
-                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person]);
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
                 return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
                 break;
 
@@ -228,19 +229,25 @@ class UserNoimController extends Controller
     {
         $loggedInUserId = Auth::user()->id;
         $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
-        $img = self::convertBase64ToImage($request->signed);
-        $imageName = rand(777777, 777777777) . time() . '-' . rand(9999, 999999999) . '.' . 'png';
-        $folder = 'base64toimg/';
-        if (!is_dir($folder)) {
-            //Directory does not exist, so lets create it.
-            \File::makeDirectory(public_path() . '/' . $folder, 0777, true);
+        if ($request->hasFile('signature-file')) {
+            $imgName = uploadFile($request['signature-file'], 'user-signature');
+            $imgName = 'user-signature/' . $imgName;
+        } else {
+            $img = self::convertBase64ToImage($request->signed);
+            $imageName = rand(777777, 777777777) . time() . '-' . rand(9999, 999999999) . '.' . 'png';
+            $folder = 'base64toimg/';
+            if (!is_dir($folder)) {
+                //Directory does not exist, so lets create it.
+                \File::makeDirectory(public_path() . '/' . $folder, 0777, true);
+            }
+            file_put_contents(public_path($folder) . $imageName, $img);
+            $imgName = $folder . $imageName;
         }
-        file_put_contents(public_path($folder) . $imageName, $img);
 
         $request->merge([
             'user_id' => $loggedInUserId,
             'booking_id' => $bookingId,
-            $request->key => $folder . $imageName
+            $request->key => $imgName
         ]);
         UserMarriagePdf::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'document_name' => $request->document_name], $request->all());
         return redirect()->back();

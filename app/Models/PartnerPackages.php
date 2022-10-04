@@ -31,9 +31,9 @@ class PartnerPackages extends Model
     {
         return $this->hasMany('App\Models\PackageImages','package_id','id');
     }
-    // public function product()
-    // {
-    //     return $this->belongsTo('App\Models\PartnerProducts','product_id','id');
-    // }
+    public function product()
+    {
+        return $this->belongsTo('App\Models\PartnerProducts','product_id','id');
+    }
    
 }

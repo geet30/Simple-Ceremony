@@ -1,29 +1,31 @@
 <?php
 
 namespace App\Http\Controllers\Celebrants;
+
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,User,UserNoim,CeremonyFeedback};
+use App\Models\{Locations, User, UserNoim, CeremonyFeedback, BookingDetails};
 use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    
-    public function index(Request $request,$slug){
-        try {          
+
+    public function index(Request $request, $slug)
+    {
+        try {
             $records = 10;
             $req_page = 1;
-            if($request->has('page')){
-                $req_page = $request->page; 
+            if ($request->has('page')) {
+                $req_page = $request->page;
             }
             $celebrants = Locations::celebrants()->get();
-            $locations = Locations::all(); 
+            $locations = Locations::all();
             $data  = CelebrantMethods::fetch_marriages();
-          
-           
-            
+
+
+
             $all_marriages = (clone $data)->paginate($records, ['*'], 'page', $req_page);
             $booking_marriages = (clone $data)->where('status', 1)->paginate($records, ['*'], 'page', $req_page);
             $lodged_marriages = (clone $data)->where('status', 2)->paginate($records, ['*'], 'page', $req_page);
@@ -50,22 +52,21 @@ class DashboardController extends Controller
                 return View::make($viewurl, ['req_page' => $req_page, 'dataArray' => $dataArray]);
             }
             // dd($dataArray);
-            return view('celebrant.upcoming.listing', compact('dataArray','locations','celebrants'));
+            return view('celebrant.upcoming.listing', compact('dataArray', 'locations', 'celebrants'));
         } catch (\Exception $ex) {
 
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-
     }
-       /**
+    /**
      * Search Marriages with status
      *
      * @return \Illuminate\Http\Response
      */
     public function searchCelebrantMarriagesWithStatus(Request $request)
     {
-        
+
         try {
             $data =   CelebrantMethods::searchCelebrantMarriagesWithStatus($request);
             return View::make('elements.celebrant.marriage.search-marriages', ['data' => $data]);
@@ -80,7 +81,7 @@ class DashboardController extends Controller
      */
     public function searchCelebrantMarriagesWithDate(Request $request)
     {
-        
+
         try {
             $data =   CelebrantMethods::searchCelebrantMarriagesWithDate($request);
             return View::make('elements.celebrant.marriage.search-marriages', ['data' => $data]);
@@ -88,30 +89,27 @@ class DashboardController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
-    
+
     /**
      * View the detail of resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function detail(Request $request,$id){
+    public function detail(Request $request, $id)
+    {
         try {
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = CelebrantMethods::marriage_detail($id)->first();
-          
-            $celebrant_details = User::where('id',Auth::user()->id )->with('celebrant')->first();
-            
-            $couple = UserNoim::where('booking_id',$id )->with(['booking','birthDocument'])->get();
-           
-            return view('celebrant.upcoming.detail',compact('celebrants','locations','data','celebrant_details','couple','id'));
-            
-            
+
+            $celebrant_details = User::where('id', Auth::user()->id)->with('celebrant')->first();
+            $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'signedDocumentDetail', 'parents'])->get();
+            // return $couple;
+            return view('celebrant.upcoming.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id'));
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-
     }
     /**
      * Store a newly created feedback in storage.
@@ -133,70 +131,68 @@ class DashboardController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
-       
+
     /**
      * save the detail of resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function saveDocs(Request $request,$id){
-        
+    public function saveDocs(Request $request, $id)
+    {
+
         try {
-            $detail = CelebrantMethods::update_booking_docs($request,$id);
-            return response()->json(['status' => $detail['status'], "message" => $detail['message'],'result'=>$detail['data']]);
-           
+            $detail = CelebrantMethods::update_booking_docs($request, $id);
+            return response()->json(['status' => $detail['status'], "message" => $detail['message'], 'result' => $detail['data']]);
         } catch (\Exception $ex) {
 
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-
     }
-       
+
     /**
      * save the detail of resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function saveRecord(Request $request){
+    public function saveRecord(Request $request)
+    {
         try {
             $detail = CelebrantMethods::update_booking_details($request);
             return response()->json(['status' => $detail['status'], "message" => $detail['message']]);
-           
         } catch (\Exception $ex) {
 
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-
     }
-       
+
     /**
      * Delete the detail of resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function deleteRecord(Request $request){
-       
+    public function deleteRecord(Request $request)
+    {
+
         try {
-           
+
             $detail = CelebrantMethods::delete_booking_record($request);
             return response()->json(['status' => $detail['status'], "message" => $detail['message']]);
-           
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-
     }
- 
+
     /**
      * search the specified booking location in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Booking  $booking
      * @return \Illuminate\Http\Response
-    * */
+     * */
 
-    public function searchMarriagesByUser(Request $request){
+    public function searchMarriagesByUser(Request $request)
+    {
         try {
             $data = CelebrantMethods::searchByUser($request);
             // dd($data);
@@ -204,7 +200,15 @@ class DashboardController extends Controller
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-    }   
+    }
 
-    
+    public function saveSignedDocumentDetail(Request $request, $bookingId)
+    {
+        $request->merge([
+            'have_you_ordered_certificate' => $request->have_you_ordered_certificate === "on" ? true : false
+        ]);
+        // dd($request->all());
+        BookingDetails::updateOrCreate(['booking_id' => $bookingId], $request->all());
+        return redirect()->back();
+    }
 }

@@ -11,6 +11,7 @@ $(document).ready(function(){
       html = '';total_fee =0;
       $('#basket_table').find('tbody').empty();    
       $.each(data, function(key, value) {
+         console.log(data);
          total_fee += parseInt(value.price);
          html +=  `<tr class="keyCart">
          <td><input type="text" class="form-control body-1 netural-100" name="name"
@@ -24,6 +25,10 @@ $(document).ready(function(){
          <td data-id="${value.package_id}" onclick="remove('keyCart',this,'keyCartBody','cart')">
             <img src="/images/item-delete.svg" class="img-fluid" alt="Delete">
          </td>
+         </tr>
+         <tr>
+         <td><a href="/addons/detail/${value.package_id}" class="ms-0 ms-md-2 mt-2 mt-md-0 button-3 turquoise-100 text-decoration-none faq-link">Read detail item</a></td>
+        
          </tr>`;
 
       });
