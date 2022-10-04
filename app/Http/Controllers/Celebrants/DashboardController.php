@@ -103,7 +103,7 @@ class DashboardController extends Controller
             $data = CelebrantMethods::marriage_detail($id)->first();
 
             $celebrant_details = User::where('id', Auth::user()->id)->with('celebrant')->first();
-            $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'marriageDocument', 'signedDocumentDetail', 'parents'])->get();
+            $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'marriageDocument', 'signedDocumentDetail', 'parents', 'divorceOrWidowedDocument'])->get();
             // return $couple;
             return view('celebrant.upcoming.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id'));
         } catch (\Exception $ex) {
