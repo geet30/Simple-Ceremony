@@ -469,6 +469,8 @@ $celebrantRoutes = function () {
         Route::resource('invoices', CelebrantInvoices::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
+
+        Route::get('calendar', [CalendarController::class,'index']);
     });
 
     Route::get('availablity-overview', function () {
@@ -494,7 +496,7 @@ $celebrantRoutes = function () {
     Route::get('location', function () {
         return view('celebrant.financial-report.location');
     });
-    Route::get('calendar', [CalendarController::class,'index']);
+    
     Route::get('calendar-design', function(){
         return view('celebrant.calendar.design');
     });

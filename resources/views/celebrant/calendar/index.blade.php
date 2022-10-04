@@ -1,4 +1,8 @@
 @extends('layouts.panels')
+@section('css')
+<link rel="stylesheet" href="./fullcalendar/main.css">
+@endsection
+
 @section('content')
 <div class="container-fluid">
 <div class="row">
@@ -93,12 +97,12 @@
    }
    td.fc-day-sun { background-color:red; }
 </style>
-<link rel="stylesheet" href="./fullcalendar/main.css">
 <script src="./fullcalendar/main.js"></script>
 <script>
    var bookingData = @json($booking);
-   // console.log('====================================');
-   // console.log(bookingData);
+   console.log('====================================');
+   console.log(bookingData);
+   console.log('====================================');
    var sortBookingData = [];
    function addressFormatter(element) {
       let address = element.booking_start_time+ ' - '+element.booking_end_time
@@ -119,10 +123,10 @@
       });
       // start: element.booking_date+' '+element.booking_end_time
    });
-//   console.log('====================================');
-//   console.log('sortBookingData -', sortBookingData);
-//   console.log('====================================');
-//    console.log('====================================');
+  console.log('====================================');
+  console.log('sortBookingData -', sortBookingData);
+  console.log('====================================');
+
    var calendarEl = document.getElementById('calendar-js');
    var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
