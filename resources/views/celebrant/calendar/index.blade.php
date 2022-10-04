@@ -1,6 +1,7 @@
 @extends('layouts.panels')
 @section('css')
 <link rel="stylesheet" href="./fullcalendar/main.css">
+<link rel="stylesheet" href="./fullcalendar/calendar.css">
 @endsection
 
 @section('content')
@@ -90,13 +91,7 @@
 @endsection
 
 @section('scripts')
-<style>
-   .fc-gap-button{
-      background: transparent !important;
-       border: 0px !important;
-   }
-   td.fc-day-sun { background-color:red; }
-</style>
+
 <script src="./fullcalendar/main.js"></script>
 <script>
    var bookingData = @json($booking);
