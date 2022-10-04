@@ -15,7 +15,7 @@ class BookingDetails extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'booking_id','notes', 'checked'
+        'booking_id', 'notes', 'checked', 'marriage_certificate_number', 'registry_number', 'have_you_ordered_certificate', 'event_comment'
     ];
 
     /**
@@ -27,5 +27,4 @@ class BookingDetails extends Model
         'created_at',
         'updated_at',
     ];
-  
 }

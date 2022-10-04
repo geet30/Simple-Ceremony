@@ -6,7 +6,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css"
+        rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+    <style>
+        .kbw-signature {
+            width: 100%;
+            height: 200px;
+        }
+
+        #sig canvas {
+            width: 100% !important;
+            height: auto;
+        }
+    </style>
 </head>
 @php
 $person1 = isset($person) && isset($person[0]) ? $person[0] : null;
@@ -153,8 +173,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     married</label>
                                                             </div>
                                                             <div style=" width:40%;display: flex;align-self:center;">
-                                                                <input type="checkbox" class="checkbox" id="value12"
-                                                                    name="value12"
+                                                                <input type="checkbox" class="checkbox"
+                                                                    id="value12" name="value12"
                                                                     {{ $person1 && $person1['conjugal_status'] == 4 ? 'checked' : '' }}>
                                                                 <label
                                                                     style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -424,16 +444,50 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     <td style="font-size: 12px; color: black;text-align: right;">
                                                         Signature of each person <br />making the declaration </td>
                                                     <td style="font-size: 18px; color: black; font-weight: bold;">
-                                                        <input type="text" value=""
-                                                            style="  width: 100%;  height: 20px;">
+                                                        @if ($person1 && $person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage)
+                                                            @if (file_exists($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person1_signature))
+                                                                <img src="{{ asset($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person1_signature) }}"
+                                                                    alt="" style="width: 100%;  height:40px;">
+                                                            @endif
+                                                        @endif
+                                                        @if (isset($button) && $button)
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#person1signature"
+                                                                onclick="readySignature('person1signaturePad')">Edit</button>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'person1signature',
+                                                                'signatureId' => 'person1signaturePad',
+                                                                'field_name' => 'person1_signature',
+                                                                'document_name' =>
+                                                                    'declaration-of-no-legal-impediment-to-marriage',
+                                                            ])
+                                                            <button type="button">Delete</button>
+                                                        @endif
                                                         <span
                                                             style="font-size: 12px; color: black; font-weight: normal;text-align: center ">(Person
                                                             1)</span>
                                                     </td>
                                                     <td>&nbsp;</td>
                                                     <td style="font-size: 18px; color: black; font-weight: bold;">
-                                                        <input type="text" value=""
-                                                            style="  width: 100%;  height: 20px;">
+                                                        @if ($person1 && $person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage)
+                                                            @if (file_exists($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person2_signature))
+                                                                <img src="{{ asset($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person2_signature) }}"
+                                                                    alt="" style="width: 100%;  height:40px;">
+                                                            @endif
+                                                        @endif
+                                                        @if (isset($button) && $button)
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#person2signature"
+                                                                onclick="readySignature('person2signaturePad')">Edit</button>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'person2signature',
+                                                                'signatureId' => 'person2signaturePad',
+                                                                'field_name' => 'person2_signature',
+                                                                'document_name' =>
+                                                                    'declaration-of-no-legal-impediment-to-marriage',
+                                                            ])
+                                                            <button type="button">Delete</button>
+                                                        @endif
                                                         <span
                                                             style="font-size: 12px; color: black; font-weight: normal;text-align: center; ">(Person
                                                             2)</span>
@@ -529,8 +583,25 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         Celebrant’s signature
                                                     </td>
                                                     <td style="font-size: 18px; color: black; font-weight: bold;">
-                                                        <input type="text" value=""
-                                                            style="  width: 100%;  height: 20px;">
+                                                        @if ($person1 && $person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage)
+                                                            @if (file_exists($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->celebrant_signature))
+                                                                <img src="{{ asset($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->celebrant_signature) }}"
+                                                                    alt="" style="width: 100%;  height:40px;">
+                                                            @endif
+                                                        @endif
+                                                        @if (isset($button) && $button)
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#celebrantsignature"
+                                                                onclick="readySignature('celebrantsignaturePad')">Edit</button>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'celebrantsignature',
+                                                                'signatureId' => 'celebrantsignaturePad',
+                                                                'field_name' => 'celebrant_signature',
+                                                                'document_name' =>
+                                                                    'declaration-of-no-legal-impediment-to-marriage',
+                                                            ])
+                                                            <button type="button">Delete</button>
+                                                        @endif
                                                     </td>
                                                     <td>&nbsp;</td>
                                                     <td style="font-size: 18px; color: black; font-weight: bold;">
@@ -573,5 +644,22 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
         </tbody>
     </table>
 </body>
+<script>
+    $(document).ready(function() {})
+
+    function readySignature(id) {
+        let signId = "#" + id;
+        var sig = $(signId).signature({
+            syncField: signId + 'signature64',
+            syncFormat: 'PNG'
+        });
+        $(signId + 'clear').click(function(e) {
+            e.preventDefault();
+            sig.signature('clear');
+            $(signId + "signature64").val('');
+        });
+
+    }
+</script>
 
 </html>

@@ -499,54 +499,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-toggle="modal" data-target="person1signature"
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#person1signature"
                                                                 onclick="readySignature('person1signaturePad')">Edit</button>
-                                                            <div class="modal--" id="person1signature">
-                                                                <div class="modal-dialog--">
-                                                                    <div class="modal-content">
-                                                                        <!-- Modal body -->
-                                                                        <div class="modal-body">
-                                                                            <div class="card-body">
-                                                                                @if ($message = Session::get('success'))
-                                                                                    <div
-                                                                                        class="alert alert-success  alert-dismissible">
-                                                                                        <button type="button"
-                                                                                            class="close"
-                                                                                            data-dismiss="alert">×</button>
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </div>
-                                                                                @endif
-                                                                                <form method="POST"
-                                                                                    action="{{ route('userNoim.documents.signature') }}">
-                                                                                    @csrf
-                                                                                    <input type="hidden"
-                                                                                        name="document_name"
-                                                                                        value="offical-certificate-of-marriage">
-                                                                                    <div class="col-md-12">
-                                                                                        <label class=""
-                                                                                            for="">Signature:</label>
-                                                                                        <br />
-                                                                                        <div id="person1signaturePad">
-                                                                                        </div>
-                                                                                        <br />
-                                                                                        <button type="button"
-                                                                                            id="person1signaturePadclear"
-                                                                                            class="btn btn-danger btn-sm">Clear
-                                                                                            Signature</button>
-                                                                                        <textarea id="person1signaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                                        <input type="hidden"
-                                                                                            name="key"
-                                                                                            value="person1_signature">
-                                                                                    </div>
-                                                                                    <br />
-                                                                                    <button
-                                                                                        class="btn btn-success">Save</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'person1signature',
+                                                                'signatureId' => 'person1signaturePad',
+                                                                'field_name' => 'person1_signature',
+                                                                'document_name' =>
+                                                                    'offical-certificate-of-marriage',
+                                                            ])
                                                             <button type="button">Delete</button>
                                                         @endif
                                                     </td>
@@ -559,54 +521,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-toggle="modal" data-target="person2signature"
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#person2signature"
                                                                 onclick="readySignature('person2signaturePad')">Edit</button>
-                                                            <div class="modal--" id="person2signature">
-                                                                <div class="modal-dialog--">
-                                                                    <div class="modal-content">
-                                                                        <!-- Modal body -->
-                                                                        <div class="modal-body">
-                                                                            <div class="card-body">
-                                                                                @if ($message = Session::get('success'))
-                                                                                    <div
-                                                                                        class="alert alert-success  alert-dismissible">
-                                                                                        <button type="button"
-                                                                                            class="close"
-                                                                                            data-dismiss="alert">×</button>
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </div>
-                                                                                @endif
-                                                                                <form method="POST"
-                                                                                    action="{{ route('userNoim.documents.signature') }}">
-                                                                                    @csrf
-                                                                                    <input type="hidden"
-                                                                                        name="document_name"
-                                                                                        value="offical-certificate-of-marriage">
-                                                                                    <div class="col-md-12">
-                                                                                        <label class=""
-                                                                                            for="">Signature:</label>
-                                                                                        <br />
-                                                                                        <div id="person2signaturePad">
-                                                                                        </div>
-                                                                                        <br />
-                                                                                        <button type="button"
-                                                                                            id="person2signaturePadclear"
-                                                                                            class="btn btn-danger btn-sm">Clear
-                                                                                            Signature</button>
-                                                                                        <textarea id="person2signaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                                        <input type="hidden"
-                                                                                            name="key"
-                                                                                            value="person2_signature">
-                                                                                    </div>
-                                                                                    <br />
-                                                                                    <button
-                                                                                        class="btn btn-success">Save</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'person2signature',
+                                                                'signatureId' => 'person2signaturePad',
+                                                                'field_name' => 'person2_signature',
+                                                                'document_name' =>
+                                                                    'offical-certificate-of-marriage',
+                                                            ])
                                                             <button type="button">Delete</button>
                                                         @endif
                                                     </td>
@@ -640,56 +564,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-toggle="modal"
-                                                                data-target="person1Witnesssignature"
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#person1Witnesssignature"
                                                                 onclick="readySignature('person1WitnesssignaturePad')">Edit</button>
-                                                            <div class="modal--" id="person1Witnesssignature">
-                                                                <div class="modal-dialog--">
-                                                                    <div class="modal-content">
-                                                                        <!-- Modal body -->
-                                                                        <div class="modal-body">
-                                                                            <div class="card-body">
-                                                                                @if ($message = Session::get('success'))
-                                                                                    <div
-                                                                                        class="alert alert-success  alert-dismissible">
-                                                                                        <button type="button"
-                                                                                            class="close"
-                                                                                            data-dismiss="alert">×</button>
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </div>
-                                                                                @endif
-                                                                                <form method="POST"
-                                                                                    action="{{ route('userNoim.documents.signature') }}">
-                                                                                    @csrf
-                                                                                    <input type="hidden"
-                                                                                        name="document_name"
-                                                                                        value="offical-certificate-of-marriage">
-                                                                                    <div class="col-md-12">
-                                                                                        <label class=""
-                                                                                            for="">Signature:</label>
-                                                                                        <br />
-                                                                                        <div
-                                                                                            id="person1WitnesssignaturePad">
-                                                                                        </div>
-                                                                                        <br />
-                                                                                        <button type="button"
-                                                                                            id="person1WitnesssignaturePadclear"
-                                                                                            class="btn btn-danger btn-sm">Clear
-                                                                                            Signature</button>
-                                                                                        <textarea id="person2WitnesssignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                                        <input type="hidden"
-                                                                                            name="key"
-                                                                                            value="person1witness_signature">
-                                                                                    </div>
-                                                                                    <br />
-                                                                                    <button
-                                                                                        class="btn btn-success">Save</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'person1Witnesssignature',
+                                                                'signatureId' => 'person1WitnesssignaturePad',
+                                                                'field_name' => 'person1witness_signature',
+                                                                'document_name' =>
+                                                                    'offical-certificate-of-marriage',
+                                                            ])
                                                             <button type="button">Delete</button>
                                                         @endif
                                                         {{-- <input type="text" value=""
@@ -706,56 +590,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-toggle="modal"
-                                                                data-target="person2Witnesssignature"
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#person2Witnesssignature"
                                                                 onclick="readySignature('person2WitnesssignaturePad')">Edit</button>
-                                                            <div class="modal--" id="person2Witnesssignature">
-                                                                <div class="modal-dialog--">
-                                                                    <div class="modal-content">
-                                                                        <!-- Modal body -->
-                                                                        <div class="modal-body">
-                                                                            <div class="card-body">
-                                                                                @if ($message = Session::get('success'))
-                                                                                    <div
-                                                                                        class="alert alert-success  alert-dismissible">
-                                                                                        <button type="button"
-                                                                                            class="close"
-                                                                                            data-dismiss="alert">×</button>
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </div>
-                                                                                @endif
-                                                                                <form method="POST"
-                                                                                    action="{{ route('userNoim.documents.signature') }}">
-                                                                                    @csrf
-                                                                                    <input type="hidden"
-                                                                                        name="document_name"
-                                                                                        value="offical-certificate-of-marriage">
-                                                                                    <div class="col-md-12">
-                                                                                        <label class=""
-                                                                                            for="">Signature:</label>
-                                                                                        <br />
-                                                                                        <div
-                                                                                            id="person2WitnesssignaturePad">
-                                                                                        </div>
-                                                                                        <br />
-                                                                                        <button type="button"
-                                                                                            id="person2WitnesssignaturePadclear"
-                                                                                            class="btn btn-danger btn-sm">Clear
-                                                                                            Signature</button>
-                                                                                        <textarea id="person2WitnesssignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                                        <input type="hidden"
-                                                                                            name="key"
-                                                                                            value="person2witness_signature">
-                                                                                    </div>
-                                                                                    <br />
-                                                                                    <button
-                                                                                        class="btn btn-success">Save</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'person2Witnesssignature',
+                                                                'signatureId' => 'person2WitnesssignaturePad',
+                                                                'field_name' => 'person2witness_signature',
+                                                                'document_name' =>
+                                                                    'offical-certificate-of-marriage',
+                                                            ])
                                                             <button type="button">Delete</button>
                                                         @endif
                                                         {{-- <input type="text" value=""
@@ -816,56 +660,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-toggle="modal"
-                                                                data-target="celebrantSignature"
+                                                            <button data-bs-toggle="modal"
+                                                                data-bs-target="#celebrantSignature"
                                                                 onclick="readySignature('celebrantSignaturePad')">Edit</button>
-                                                            <div class="modal--" id="celebrantSignature">
-                                                                <div class="modal-dialog--">
-                                                                    <div class="modal-content">
-                                                                        <!-- Modal body -->
-                                                                        <div class="modal-body">
-                                                                            <div class="card-body">
-                                                                                @if ($message = Session::get('success'))
-                                                                                    <div
-                                                                                        class="alert alert-success  alert-dismissible">
-                                                                                        <button type="button"
-                                                                                            class="close"
-                                                                                            data-dismiss="alert">×</button>
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </div>
-                                                                                @endif
-                                                                                <form method="POST"
-                                                                                    action="{{ route('userNoim.documents.signature') }}">
-                                                                                    @csrf
-                                                                                    <input type="hidden"
-                                                                                        name="document_name"
-                                                                                        value="offical-certificate-of-marriage">
-                                                                                    <div class="col-md-12">
-                                                                                        <label class=""
-                                                                                            for="">Signature:</label>
-                                                                                        <br />
-                                                                                        <div
-                                                                                            id="celebrantSignaturePad">
-                                                                                        </div>
-                                                                                        <br />
-                                                                                        <button type="button"
-                                                                                            id="celebrantSignaturePadclear"
-                                                                                            class="btn btn-danger btn-sm">Clear
-                                                                                            Signature</button>
-                                                                                        <textarea id="celebrantSignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                                        <input type="hidden"
-                                                                                            name="key"
-                                                                                            value="celebrant_signature">
-                                                                                    </div>
-                                                                                    <br />
-                                                                                    <button
-                                                                                        class="btn btn-success">Save</button>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            @include('user.documents.signature-modal', [
+                                                                'target' => 'celebrantSignature',
+                                                                'signatureId' => 'celebrantSignaturePad',
+                                                                'field_name' => 'celebrant_signature',
+                                                                'document_name' =>
+                                                                    'offical-certificate-of-marriage',
+                                                            ])
                                                             <button type="button">Delete</button>
                                                         @endif
                                                         <span
