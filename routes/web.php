@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController,UserController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
-use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
 /*
 |--------------------------------------------------------------------------
@@ -140,7 +140,7 @@ $websiteRoutes = function () {
             Route::get('add-ons/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('package/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
-            Route::get('preview-document/{page}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
+            Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
             Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
             Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('userNoim.documents.signature');
 
@@ -439,6 +439,7 @@ $celebrantRoutes = function () {
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
+            Route::post('save-detail/{id}', [DashboardController::class, 'saveSignedDocumentDetail'])->name('celebrant.marriage.save-detail');
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
@@ -464,6 +465,13 @@ $celebrantRoutes = function () {
         Route::resource('invoices', CelebrantInvoices::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
+
+        Route::get('calendar', [CalendarController::class,'index']);
+        Route::get('routes', function () {
+            $routeCollection = Route::getRoutes();
+            $title = "Route List";
+            return view('routes', compact('routeCollection', 'title'));
+        });
     });
 
     Route::get('availablity-overview', function () {
@@ -489,9 +497,11 @@ $celebrantRoutes = function () {
     Route::get('location', function () {
         return view('celebrant.financial-report.location');
     });
-    Route::get('calendar', function () {
-        return view('celebrant.calendar.availability');
+    
+    Route::get('calendar-design', function(){
+        return view('celebrant.calendar.design');
     });
+
     Route::get('add', function () {
         return view('celebrant.calendar.add');
     });

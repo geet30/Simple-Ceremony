@@ -1,0 +1,152 @@
+th.fc-col-header-cell {
+    background: #62CBC9 !important;
+    border: 0 !important;
+    padding: 15px 0;
+}
+th.fc-col-header-cell:first-child {
+    border-top-left-radius: 5px;
+}
+th.fc-col-header-cell:last-child {
+    border-top-right-radius: 5px;
+}
+th.fc-col-header-cell a.fc-col-header-cell-cushion {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0;
+}
+.fc .fc-scrollgrid-liquid tbody {
+    border: 1px solid #E2F3F2;
+    box-shadow: 0px 2px 16px #E8F9F7;
+    border-radius: 10px;
+}
+.fc .fc-scrollgrid-liquid {
+    border: 0;
+}
+.fc-day-past {
+    background: #e9f0f1 !important;
+}
+.fc .fc-daygrid-day-number {
+    padding: 0;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    top: 13px;
+    right: 15px;
+}
+.fc-day-today .fc-daygrid-day-number {
+    background: #62cbca;
+    color: #fff;
+    border-radius: 50px;
+    position: relative;
+    right: 10px;
+    top: 10px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+}
+.fc-theme-standard td {
+    border: 1px solid #B6CED0;
+    border-right: 0;
+    background: #fff;
+}
+.fc-theme-standard th{
+    border: 0;
+}
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: transparent;
+    background-color: transparent;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
+    color: #fff;
+    color: #000;
+    background-color: #62cbca;
+    background-color: transparent;
+    border-color: #62cbca;
+    border-color: transparent;
+    border-bottom: 2px solid #62cbca;
+}
+.fc .fc-button-primary {
+    color: #fff;
+    color: #000;
+    background-color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    border-color: transparent;
+    outline: 0;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #1C1C1C;
+}
+.fc .fc-button-primary:hover {
+    color: #fff;
+    color: #000;
+    background-color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+}
+.fc .fc-toolbar-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    color: #1C1C1C;
+}
+.fc .fc-button-primary:focus, .fc .fc-button-primary:not(:disabled).fc-button-active:focus, .fc .fc-button-primary:not(:disabled):active:focus {
+    box-shadow: none;
+    outline: 0;
+}
+.fc-prev-button {
+    background: #62cbca !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    margin-left: 15px !important;
+}
+.fc-next-button {
+    background: #62cbca !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+}
+.fc .fc-timegrid-slot-minor {
+    border-top-style: none;
+}
+.fc .fc-timegrid-axis-cushion {
+    max-width: 65px;
+}
+.fc .fc-timegrid-divider {
+    display: none;
+}
+.fc-v-event {
+    border: 1px solid #ffdecf;
+    border: #ffdecf;
+    background-color: #ffdecf;
+    background-color: #ffdecf;
+}
+.fc-v-event .fc-event-main {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #1C1C1C;
+}
+.fc-timegrid-event-harness-inset .fc-timegrid-event, .fc-timegrid-event.fc-event-mirror, .fc-timegrid-more-link {
+    box-shadow: unset;
+    box-shadow: unset;
+}
+.fc .fc-daygrid-event {
+    font-weight: 600 !important;
+    font-size: 14px;
+    line-height: 18px;
+    color: #1C1C1C;
+}
+.fc-daygrid-event-dot {
+    border: calc(var(--fc-daygrid-event-dot-width,8px)/ 2) solid var(--fc-event-border-color,#1C1C1C);
+}
