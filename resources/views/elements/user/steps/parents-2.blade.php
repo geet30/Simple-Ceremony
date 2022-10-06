@@ -94,7 +94,7 @@ $personParentElement = 'person1Parent';
                     <option value="">Select country here</option>
                     @foreach (Config::get('userConstants.countries') as $key => $country)
                         <option value="{{ $key }}"
-                            {{ $parent && $parent[0]['birth_place'] == $key ? 'selected' : '' }}>
+                            {{ $parent && strtolower($parent[0]['birth_place']) == $key ? 'selected' : '' }}>
                             {{ Config::get('userConstants.countries')[$key]['name'] }}</option>
                     @endforeach
                 </select>
@@ -175,7 +175,7 @@ $personParentElement = 'person1Parent';
                     <option value="">Select country here</option>
                     @foreach (Config::get('userConstants.countries') as $key => $country)
                         <option value="{{ $key }}"
-                            {{ $parent && $parent[1]['birth_place'] == $key ? 'selected' : '' }}>
+                            {{ $parent && strtolower($parent[1]['birth_place']) == $key ? 'selected' : '' }}>
                             {{ Config::get('userConstants.countries')[$key]['name'] }}</option>
                     @endforeach
                 </select>
