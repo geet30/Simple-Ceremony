@@ -137,7 +137,7 @@
     </div>
     <script>
         $(document).ready(function() {
-            $("#documents-tab").click();
+            $("#docs-tab").click();
         });
     </script>
     @include('pages.alert.change_marriage_status')

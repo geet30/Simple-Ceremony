@@ -161,7 +161,9 @@ $websiteRoutes = function () {
             });
             Route::get('getPay{id?}', [UserController::class, 'getPay'])->name('user.pay');
             Route::post('postPay', [UserController::class, 'postPay'])->name('user.payment');
-           
+            Route::get('reschedule-info', [UserController::class, 'getRescheduleInfo']); 
+            Route::post('reschedule-pay', [UserController::class, 'getReschedulePay'])->name('reschedule.pay');
+            Route::post('reschedulePay', [UserController::class, 'reschedulePay'])->name('reschedule.payment');
         });
 
     });
@@ -243,6 +245,8 @@ $adminRoutes = function () {
         Route::resource('payments', InvoicesController::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::get('recipient-info', [InvoicesController::class, 'getRecipientInfo']);
+       
+        
         Route::post('search-payments', [InvoicesController::class, 'searchByStatusDate']);
         Route::get('search-by-invoice', [InvoicesController::class, 'searchByInvoice']);
 

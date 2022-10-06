@@ -1,7 +1,7 @@
 <?php
 return [
     'conjugal_status' => [
-        1 => 'New validly married',
+        1 => 'Never validly married',
         2 => 'Divorced',
         3 => 'Divorce pending',
         4 => 'Widowed'

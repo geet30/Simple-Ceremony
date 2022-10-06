@@ -16,7 +16,7 @@ class UserNoim extends Model
     }
     public function birthDocument()
     {
-        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 1);
+        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 1)->latest();
     }
     public function signedDocumentDetail()
     {
@@ -24,7 +24,7 @@ class UserNoim extends Model
     }
     public function divorceOrWidowedDocument()
     {
-        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 2);
+        return $this->hasOne(UserDocument::class, 'user_noim_id', 'id')->where('document_type', 2)->latest();
     }
     public function witness()
     {
@@ -49,6 +49,10 @@ class UserNoim extends Model
     public function marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage()
     {
         return $this->hasOne(UserMarriagePdf::class, 'booking_id', 'booking_id')->where('document_name', 'declaration-of-no-legal-impediment-to-marriage');
+    }
+    public function marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter()
+    {
+        return $this->hasOne(UserMarriagePdf::class, 'booking_id', 'booking_id')->where('document_name', 'certificate-of-faithful-performance-by-interpreter');
     }
     public function userDetail()
     {

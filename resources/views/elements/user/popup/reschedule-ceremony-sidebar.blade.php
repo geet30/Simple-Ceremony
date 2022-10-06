@@ -5,65 +5,72 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
    </div>
    <div class="offcanvas-body">
-      <form>
+      <form class="needs-validation" novalidate="" action="{{route('reschedule.pay')}}" id="reschedule-pay" method="POST">
+         @csrf
          <div class="col-md-12 mb-4">
             <label for="selectinput" class="form-label small-text2">Location</label>
-            <select required="" name="customer_type" id="selectinput" class="js-placeholder-single-input form-control">
+            <select required="" name="locationId" id="selectinput" class="js-placeholder-single-input form-control" onchange="findRescheduleInfo('reschedule-info',this)">
                <option value="" disabled="" selected="" hidden="">Select location</option>
-               <option value="1">Add location name here</option>
-               <option value="2">Add location name here</option>
-               <option value="3">Add location name here</option>
-               <option value="4">Add location name here</option>
-               <option value="5">Custom location</option>
+               @foreach ($locations as $location)
+               <option value="{{ $location->id}}">{{$location->name}}</option>
+               @endforeach
             </select>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Select location required</div>
          </div>
-         <div class="col-md-12 mb-4">
+         <!-- <div class="col-md-12 mb-4">
             <label class="form-label small-text2">Custom location</label>
             <input type="text" placeholder="Add name location here" class="form-control body-1 netural-100" name="name">
-         </div>
+         </div> -->
          <div class="col-md-8">
             <div class="row">
                <div class="col-md-7 mb-4">
                   <label for="InputName" class="form-label small-text2">Location fee</label>
                   <div class="d-flex align-items-center">
-                     <input type="text" value="$ Fill location fee" class="form-control body-1 netural-100" name="name" id="InputName" required="">
+                     <input type="text" value="$ Fill location fee" class="form-control body-1 netural-100 commonFirstEmpty location_fee" name="location_fee" id="location_fee" required="" readonly>
                      <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Select the location first,after that location fee will appear">
                      <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
                      </span>
                   </div>
-                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
+                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>fee is required</div>
                </div>
                <div class="col-md-5 mb-4">
                   <label class="form-label small-text2">Reschedule fee</label>
-                  <input type="text" value="$ 85" class="form-control body-1 netural-100" name="name">
+                  <input type="text" value="$ 85" class="form-control body-1 netural-100 reschedule_fee commonFirstEmpty" name="reschedule_fee" required readonly>
                </div>
             </div>
          </div>
-         <div class="col-md-8">
+         <div class="col-md-12">
             <div class="row">
-               <div class="col-md-7 mb-4">
-                  <label class="form-label small-text2">Event date</label>
-                  <input role="button" type="text" placeholder="Choose date here" class="form-control body-1 netural-100" name="name" readonly data-bs-toggle="modal" data-bs-target="#user_calendarmodal">
-               </div>
+                 <div class="col-md-6 event_date">
+                     <label for="event_date" class="form-label small-text2">Event date</label>
+                     <div class="input-group date theme-datepicker">
+                        <input role="button" type="text" class="form-control body-1 netural-100 event_date_input" id="event_date" name="booking_date"  placeholder="Choose date here" required/>
+                        <span class="input-group-append">
+                        </span>
+                        <div class="invalid-feedback event_date_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event date is required</div>
+                     </div>
+
+
+                  </div>
                <div class="col-md-5 mb-4">
                   <label class="form-label small-text2">Time</label>
-                  <select name="time_hr" id="time_hr" class="js-placeholder-single-input form-control">
+                  <select name="booking_start_time" id="booking_start_time" class="js-placeholder-single-input form-control" required>
                      <option value="" disabled="" selected="" hidden="">--:--</option>
-                     <option value="1">09:00</option>
-                     <option value="2">09:30</option>
-                     <option value="3">10:00</option>
-                     <option value="4">10:30</option>
-                     <option value="5">11:00</option>
-                     <option value="6">11:30</option>
-                     <option value="7">12:00</option>
-                     <option value="8">12:30</option>
+                     <option value="09:00">09:00</option>
+                     <option value="09:30">09:30</option>
+                     <option value="10:00">10:00</option>
+                     <option value="10:30">10:30</option>
+                     <option value="11:00">11:00</option>
+                     <option value="11:30">11:30</option>
+                     <option value="12:00">12:00</option>
+                     <option value="12:30">12:30</option>
                   </select>
                </div>
             </div>
          </div>
          <div class="d-lg-flex">
-            <a href="#" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Pay</a>
+            <input type="submit" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0" value="Pay">
+            <!-- <a href="#" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Pay</a> -->
          </div>
       </form>
       <div class="warning-text mt-4">
@@ -73,3 +80,9 @@
       </div>
    </div>
 </div>
+@include('elements.common.js')
+<style type="text/css">
+span.select2-container.select2-container--default.select2-container--open {
+    z-index: 9999999;
+}
+</style>

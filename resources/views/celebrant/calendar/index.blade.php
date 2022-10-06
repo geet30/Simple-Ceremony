@@ -40,7 +40,7 @@
             </a>
          </div>
       </div>
-      <div class="row">
+      {{-- <div class="row">
          <div class="col-lg-4 col-xl-5 align-self-center">
             <ul class="nav theme-tabs border-0">
                <li class="nav-item">
@@ -75,9 +75,9 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> --}}
       <div class="row">
-         <div class="col-12">
+         <div class="col-12 mb-5">
             <!-- tab content -->
             <div id='calendar-js'></div>
             

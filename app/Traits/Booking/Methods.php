@@ -400,4 +400,9 @@ trait Methods
 
 
     }
+    static function getRescheduleInfo($id){
+       
+        return Locations::where('id',$id)->value('price');
+        // dd($location_detail);
+    }
 }

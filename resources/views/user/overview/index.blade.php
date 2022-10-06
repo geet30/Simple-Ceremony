@@ -57,7 +57,7 @@
                         </div>
                         <div class="col-md-12 mb-5">
                            <label for="InputName" class="form-label small-text2">Name marriage celebrant</label>
-                           <input type="text" value="{{$booking->celebrant->first_name}}" class="form-control body-1 netural-100" readonly="">
+                           <input type="text" value="{{(isset($booking->celebrant->first_name))?$booking->celebrant->first_name:'' }}" class="form-control body-1 netural-100" readonly="">
                         </div>
                         <div class="col-12 mb-2">
                            <div class="d-flex align-items-start align-items-md-center flex-column flex-md-row">

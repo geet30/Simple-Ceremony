@@ -188,8 +188,7 @@ class UserNoimController extends Controller
     public function previewDocument(Request $request, $document, $userId = null)
     {
         $loggedInUserId = $userId ?? Auth::user()->id;
-        $person = UserNoim::with('birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage')->whereUserId($loggedInUserId)->get();
-
+        $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($loggedInUserId)->get();
         switch ($document) {
             case 'noim-perview':
                 return view('user.documents.noim',  ['person' => $person, 'button' => true]);
@@ -199,10 +198,10 @@ class UserNoimController extends Controller
                 return $NOIMpdf->download('NOIM.pdf');
                 break;
             case 'preview-certificate-of-faithful-performance-by-interpreter':
-                return view('user.documents.certificate-of-faithful-performance-by-interpreter', compact('person'));
+                return view('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'button' => true]);
                 break;
             case 'download-certificate-of-faithful-performance-by-interpreter':
-                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person]);
+                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'button' => false]);
                 return $faithFullCertificate->download('certificate-of-faithful-performance-by-interpreter.pdf');
                 break;
             case 'preview-official-certificate-of-marriage':
@@ -218,6 +217,13 @@ class UserNoimController extends Controller
             case 'download-declaration-of-no-legal-impediment-to-marriage':
                 $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
                 return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
+                break;
+            case 'preview-certificate-of-marriage':
+                return view('user.documents.certificate-of-marriage', ['person' => $person, 'button' => true]);
+                break;
+            case 'download-certificate-of-marriage':
+                $certificateOfMarriage = PDF::loadView('user.documents.certificate-of-marriage', ['person' => $person, 'button' => false]);
+                return $certificateOfMarriage->download('certificate-of-marriage.pdf');
                 break;
 
             default:
