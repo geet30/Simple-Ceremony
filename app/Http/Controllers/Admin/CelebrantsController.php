@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\{User, Locations};
+use App\Models\{User, Locations,Booking};
 use Illuminate\Http\Request;
 use View;
 use Redirect;
@@ -96,7 +96,8 @@ class CelebrantsController extends Controller
             $data = User::where('id', $id)->with(['celebrant', 'celebrantLocations.location' => function ($query) {
                 $query->select('name', 'id');
             }])->first();
-            return view('admin.marriage-celebrants.detail', compact(['data', 'id', 'allLocations']));
+            $booking = Booking::with('location')->where('celebrant_id',$id)->get();
+            return view('admin.marriage-celebrants.detail', compact(['data', 'id', 'allLocations','booking']));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
