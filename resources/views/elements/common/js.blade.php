@@ -73,5 +73,38 @@ $(document).ready(function(){
 
     
     }
+    window.findRescheduleInfo = function(url,that){        
+        var id = $(that).val();
+        if(id !=''){
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: {
+                    'id': id
+                },
+                dataType: 'json',
+                cache: false,
+                success: function(response) {
+                    if (response.status) {
+                        var reschedule_fee = <?=json_encode(config("env.RESCHEDULE_FEE"));?>;
+                        var temp =  $('.commonFirstEmpty');
+                        temp.val('');
+                        $('.reschedule_fee').val(reschedule_fee);
+                        $('.location_fee').val(response.data);
+                        // $('.location_fee').val(response);
+                    }
+                    
+                },
+                error: function(response) { // handle the error                  
+
+                },
+                
+
+            })
+        }
+        
+
+    
+    }
 });
 </script>

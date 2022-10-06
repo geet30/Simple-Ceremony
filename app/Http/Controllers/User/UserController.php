@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\{User,Addons,Booking,UserBookingAddon,BookingPayments};
+use App\Models\{User,Addons,Booking,UserBookingAddon,BookingPayments,Locations};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 use Cookie;
-
+use Illuminate\Support\Carbon;
 class UserController extends Controller
 {
 
@@ -21,6 +21,7 @@ class UserController extends Controller
             $user_id = Auth::user()->id;
             $booking=Booking::marriages()->where('user_id',$user_id)->first();          
             $bookingId =  Booking::whereUserId($user_id)->pluck('id')->first();
+            $locations = Locations::all();
             if(isset($request->session_id) && !empty($request->session_id)){
                 $cart = json_decode(Cookie::get('myCart'));  
 
@@ -29,11 +30,16 @@ class UserController extends Controller
                 BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>2]);
                 $cookie = Cookie::queue(Cookie::forget('myCart'));
             }
+            if(isset($request->reschedule_session_id) && !empty($request->reschedule_session_id)){
+                $savePaymentDetail = Booking::savePaymentDetail($request->reschedule_session_id, $user_id,$bookingId);
+                BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>3]);
+            }
+            
            
          
             $addons = UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->get();
             // dd($addons);
-            return view('user.overview.index',compact(['addons','booking']));
+            return view('user.overview.index',compact(['addons','booking','locations']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
@@ -63,16 +69,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function addonDetail($id){
-       
-        try{
-            
-            $data = Addons::products()->where('id',$id)->first();
-            
-            return view('user.addons.details',compact(['data','id']));
-           
+        try{           
+            $data = Addons::products()->where('id',$id)->first();           
+            return view('user.addons.details',compact(['data','id']));          
         }catch (\Exception $e) {
-            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
-            
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);           
         }   
     }
     
@@ -157,13 +158,9 @@ class UserController extends Controller
      */
     
     public function getPay($id=null){ 
-       
         try{
             $user_id =Auth::user()->id;
             $data = array();
-           
-            // dd($data);
-           
             return view('user.overview.pay',compact(['data','user_id']));
         }catch (\Exception $e) {
             dd($e);
@@ -202,7 +199,98 @@ class UserController extends Controller
             dd($e);
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
         }
-    }   
+    }  
+    
+      /**
+     * Get Reschedule Info
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function getRescheduleInfo(Request $request){
+        try {
+            $getReschedulelocationInfo = Booking::getRescheduleInfo($request->id);
+            $user_id = Auth::user()->id;
+            $booking=Booking::marriages()->where('user_id',$user_id)->where('status','!=',8)->first();
+            $bookingDate = new \DateTime($booking->booking_date);
+            $price = 0;
+
+            if (33 - ((new \Carbon\Carbon($bookingDate, 'UTC'))->diffInDays()) < 0) {
+                //"The date is older than 33 days";
+                $bookedlocationId =  Booking::whereUserId($user_id)->pluck('locationId')->where('status','!=',8)->first(); 
+                $getbookedLocationInfo = Booking::getRescheduleInfo($bookedlocationId); 
+                $price = abs($getReschedulelocationInfo - $getbookedLocationInfo);
+                
+            } else{
+                $price = $getReschedulelocationInfo;// date is less than 32 days
+            }
+            
+            // $booking=Booking::marriages()->where('user_id',$user_id)->where('status','!=',8)->first();  
+            // $bookingId =  Booking::whereUserId($user_id)->pluck('id')->where('status','!=',8)->first();  // will be used on reschedule post    
+           
+
+            if (!empty($getReschedulelocationInfo)) {
+                return $this->successResponse($price, 'data found successfully.');
+            }
+            return response()->json(['status' => false, "message" => 'something went wrong']);
+        } catch (\Exception $ex) {
+            dd($ex);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
+
+    
+      /**
+     * Get Reschedule Info
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function getReschedulePay(Request $request){
+        try{
+            // dd($request->all());
+            // $input = $request->except('_token');         
+            // $input['enquiry_date'] = date('Y-m-d');
+            $user_id =Auth::user()->id;
+            $data = $request->all();
+            return view('user.overview.reschedule-pay',compact(['data','user_id']));
+        }catch (\Exception $e) {
+            dd($e);
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+            
+        }
+    }
+       /**
+     * Reschedule Payment
+     *
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function reschedulePay(Request $request){ 
+        try{
+            
+            
+            $data = unserialize($request->data);
+            $total_fee = $data['location_fee'] + $data['reschedule_fee'];
+            // dd($total_fee);
+            $DOMAIN = config('env.WEBSITE');
+            $success_url = $DOMAIN . '/user/overview?reschedule_session_id={CHECKOUT_SESSION_ID}';
+            $cancel_url = $DOMAIN . '/payment-cancel';
+            $send_paramter = [
+                'name' => "Reschedule Payment",
+                'price' => $total_fee,
+                'img' => asset('/images/loader.svg')
+                // 'img' => 'http://simpleceremoniesacc.crebos.online/images/loader.svg'
+            ];
+            return Booking::stripePayment($send_paramter,$success_url,$cancel_url);
+              
+            
+        }catch (\Exception $e) {
+            dd($e);
+            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+        }
+    }  
+    
 
 }
 ?>
