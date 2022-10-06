@@ -56,12 +56,13 @@
                   <div class="col-md-12 col-lg-9 col-xl-9 col-xxl-8">
                      <form class="needs-validation" method="POST" novalidate action="{{ route('updateCelebrantAccount') }}" enctype="multipart/form-data">
                      @csrf
-                     @method('PUT')
+                     @method('PUT')                    
                         <div class="row">
                            <input class="form-control body-1 netural-100 d-none imageInput" type="file" name="user[image]" onchange="readURL(this)">
                           
                            <div class="col-md-6 mb-4">
                               <label for="username" class="form-label small-text2 ms-2 ">Username</label>
+                              
                               <input type="text" value="{{ auth()->user()->username }}" class="form-control body-1 netural-100 readonlyInput" name="user[username]" id="username" required readonly>
                               <div class="invalid-feedback"> <span><img class="me-2"
                                  src="/images/require-iocn.svg" alt="Require Icon"></span>Username is required
