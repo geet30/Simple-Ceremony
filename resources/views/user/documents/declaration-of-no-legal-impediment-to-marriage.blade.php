@@ -43,7 +43,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                 <td>
                     <table align="left" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
                         <tr>
-                            <td><img src="ag.png" style="height: 110px;"></td>
+                            <td><img src="{{ asset('document-logo.jpg') }}" style="height: 110px;"></td>
                         </tr>
                     </table>
                 </td>
@@ -461,7 +461,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'declaration-of-no-legal-impediment-to-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button data-bs-target="#person1SignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' => 'person1SignatureConfirmDelete',
+                                                                    'field_name' => 'person1_signature',
+                                                                    'document_name' =>
+                                                                        'declaration-of-no-legal-impediment-to-marriage',
+                                                                ])
                                                         @endif
                                                         <span
                                                             style="font-size: 12px; color: black; font-weight: normal;text-align: center ">(Person
@@ -486,7 +495,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'declaration-of-no-legal-impediment-to-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button data-bs-target="#person2SignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' => 'person2SignatureConfirmDelete',
+                                                                    'field_name' => 'person2_signature',
+                                                                    'document_name' =>
+                                                                        'declaration-of-no-legal-impediment-to-marriage',
+                                                                ])
                                                         @endif
                                                         <span
                                                             style="font-size: 12px; color: black; font-weight: normal;text-align: center; ">(Person
@@ -590,17 +608,30 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-bs-toggle="modal"
-                                                                data-bs-target="#celebrantsignature"
-                                                                onclick="readySignature('celebrantsignaturePad')">Edit</button>
-                                                            @include('user.documents.signature-modal', [
-                                                                'target' => 'celebrantsignature',
-                                                                'signatureId' => 'celebrantsignaturePad',
-                                                                'field_name' => 'celebrant_signature',
-                                                                'document_name' =>
-                                                                    'declaration-of-no-legal-impediment-to-marriage',
-                                                            ])
-                                                            <button type="button">Delete</button>
+                                                            @if (Auth::user()->user_type != 2)
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#celebrantsignature"
+                                                                    onclick="readySignature('celebrantsignaturePad')">Edit</button>
+                                                                @include('user.documents.signature-modal', [
+                                                                    'target' => 'celebrantsignature',
+                                                                    'signatureId' => 'celebrantsignaturePad',
+                                                                    'field_name' => 'celebrant_signature',
+                                                                    'document_name' =>
+                                                                        'declaration-of-no-legal-impediment-to-marriage',
+                                                                ])
+                                                                <button
+                                                                    data-bs-target="#celebrantSignatureConfirmDelete"
+                                                                    data-bs-toggle="modal"
+                                                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                                @include('user.documents.delete-signature-modal',
+                                                                    [
+                                                                        'target' =>
+                                                                            'celebrantSignatureConfirmDelete',
+                                                                        'field_name' => 'celebrant_signature',
+                                                                        'document_name' =>
+                                                                            'declaration-of-no-legal-impediment-to-marriage',
+                                                                    ])
+                                                            @endif
                                                         @endif
                                                     </td>
                                                     <td>&nbsp;</td>

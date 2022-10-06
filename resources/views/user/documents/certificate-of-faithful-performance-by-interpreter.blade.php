@@ -228,7 +228,15 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                             'document_name' =>
                                                 'certificate-of-faithful-performance-by-interpreter',
                                         ])
-                                        <button>Delete</button>
+                                        <button data-bs-target="#personMakingDeclarationSignatureConfirmDelete"
+                                            data-bs-toggle="modal"
+                                            style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                        @include('user.documents.delete-signature-modal', [
+                                            'target' => 'personMakingDeclarationSignatureConfirmDelete',
+                                            'field_name' => 'declaration_person_signature',
+                                            'document_name' =>
+                                                'certificate-of-faithful-performance-by-interpreter',
+                                        ])
                                     @endif
                                 </div>
                             </td>
@@ -308,7 +316,16 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                             'document_name' =>
                                                 'certificate-of-faithful-performance-by-interpreter',
                                         ])
-                                        <button>Delete</button>
+                                        <button
+                                            data-bs-target="#personBeforeWhomMakingDeclarationSignatureConfirmDelete"
+                                            data-bs-toggle="modal"
+                                            style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                        @include('user.documents.delete-signature-modal', [
+                                            'target' => 'personBeforeWhomMakingDeclarationSignatureConfirmDelete',
+                                            'field_name' => 'person_before_whom_made_declaration_signature',
+                                            'document_name' =>
+                                                'certificate-of-faithful-performance-by-interpreter',
+                                        ])
                                     @endif
                                 </div>
                             </td>
@@ -579,7 +596,13 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                     'field_name' => 'interpreter_signature',
                                     'document_name' => 'certificate-of-faithful-performance-by-interpreter',
                                 ])
-                                <button>Delete</button>
+                                <button data-bs-target="#interpreterSignatureConfirmDelete" data-bs-toggle="modal"
+                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                @include('user.documents.delete-signature-modal', [
+                                    'target' => 'interpreterSignatureConfirmDelete',
+                                    'field_name' => 'interpreter_signature',
+                                    'document_name' => 'certificate-of-faithful-performance-by-interpreter',
+                                ])
                             @endif
                         </div>
                         <div style="font-size: 15px; color: black;">(Signature of interpreter)</div>
@@ -602,7 +625,14 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                     'field_name' => 'interpreter_witness_signature',
                                     'document_name' => 'certificate-of-faithful-performance-by-interpreter',
                                 ])
-                                <button>Delete</button>
+                                <button data-bs-target="#interpreterWitnessSignatureConfirmDelete"
+                                    data-bs-toggle="modal"
+                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                @include('user.documents.delete-signature-modal', [
+                                    'target' => 'interpreterWitnessSignatureConfirmDelete',
+                                    'field_name' => 'interpreter_witness_signature',
+                                    'document_name' => 'certificate-of-faithful-performance-by-interpreter',
+                                ])
                             @endif
                         </div>
                         <div style="font-size: 15px; color: black;">Witness: (full name and signature)</div>

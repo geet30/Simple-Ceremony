@@ -106,39 +106,43 @@
     </div>
 </div>
 <style>
-.signature-tabs li button {
-    color: #333 !important;
-    font-weight: 500 !important;
-    font-size: 14px;
-}
-.clear-signature-btn {
-    padding: 10px 29px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    background-color: transparent;
-    color: #333;
-    border: 1px solid #62cbca;
-}
-.save-signature-btn {
-    padding: 10px 29px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    background-color: #62CBC9;
-    color: #ffffff;
-    border: 1px solid #62cbca;
-}
-.modal-footer {
-    border: 0;
-}
-.modal-header {
-    border: 0;
-}
+    .signature-tabs li button {
+        color: #333 !important;
+        font-weight: 500 !important;
+        font-size: 14px;
+    }
+
+    .clear-signature-btn {
+        padding: 10px 29px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        background-color: transparent;
+        color: #333;
+        border: 1px solid #62cbca;
+    }
+
+    .save-signature-btn {
+        padding: 10px 29px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        background-color: #62CBC9;
+        color: #ffffff;
+        border: 1px solid #62cbca;
+    }
+
+    .modal-footer {
+        border: 0;
+    }
+
+    .modal-header {
+        border: 0;
+    }
 </style>
