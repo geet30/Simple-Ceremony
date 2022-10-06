@@ -46,9 +46,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                         <table align="left" border="0" cellpadding="0" cellspacing="0" height="100%"
                             width="100%">
                             <tr>
-                                {{--
-                                <td><img src="logo.jpg" style="height: 80px;"></td>
-                                --}}
+                                <td><img src="{{ asset('document-logo.jpg') }}" style="height: 80px;"></td>
                             </tr>
                         </table>
                     </td>
