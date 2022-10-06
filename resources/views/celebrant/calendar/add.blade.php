@@ -56,9 +56,12 @@
 @section('scripts')
 <script src="/datepicker/main.js"></script>
 <script>
-   $('.date').datepicker({
+   // $('.calendar-wrapper').datepicker('remove');
+   $('.date-picker-js-ns').datepicker({
       multidate: true,
-      format: 'dd-mm-yyyy'
+      date: new Date().toLocaleDateString("fr-CA"),
+      format: 'dd-mm-yyyy',
+      weekDayLength: 2,
    });
 
 </script>

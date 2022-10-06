@@ -33,13 +33,20 @@
    </div>
    <div class="col-12 pt-31">
       <div class="col-12">
+         <h2 class="h4 text-black">Step 2 - Fill data</h2>
+            <div class="col-9 col-md-6 col-xl-4 col-xxl-3 mx-auto text-center py-4">
+               <p class="h4 neutral-100">Please, choose the date(s) first,
+                  after that form will be appear
+               </p>
+               <img src="/images/emplty-folder.png" class="img-fluid mt-5" alt="emplty-folder">
+            </div>
          <div class="card  panel-card">
             <div class="card-body">
-            <h2 class="h4 text-black mb-3">Step 2 - Fill data</h2>
+               <h2 class="h4 text-black mb-3">Step 2 - Fill data</h2>
                <div class="d-flex mb-3">
                   <div class="align-self-center me-3 h4 text-black mb-0" >16-17 April 2022</div>
                   <div class="align-self-center"><img src="/images/icons/delete.svg" class="img-fluid" alt="delete"></div>
-</div>
+               </div>
                <div class="table-responsive">
                   <table class="table align-middle calander-table">
                      <thead>
@@ -189,7 +196,7 @@
                            </td>
                         </tr>
                         <tr>
-                          <td colspan="7" class="pb-5"><a href="" class="text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
+                           <td colspan="7" class="pb-5"><a href="" class="text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
                               Add more available times</a>
                            </td>
                         </tr>
@@ -199,7 +206,7 @@
                <div class="d-flex mb-3">
                   <div class="align-self-center me-3 h4 text-black mb-0" >19-22 April 2022</div>
                   <div class="align-self-center"><img src="/images/icons/delete.svg" class="img-fluid" alt="delete"></div>
-</div>
+               </div>
                <div class="table-responsive">
                   <table class="table align-middle calander-table">
                      <thead>
@@ -278,11 +285,11 @@
                               </div>
                            </td>
                            <td>
-                          &nbsp;
+                              &nbsp;
                            </td>
                         </tr>
                         <tr>
-                          <td colspan="7" class="pb-5"><a href="" class="text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
+                           <td colspan="7" class="pb-5"><a href="" class="text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
                               Add more available times</a>
                            </td>
                         </tr>

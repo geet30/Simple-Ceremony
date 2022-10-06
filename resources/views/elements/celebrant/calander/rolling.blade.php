@@ -30,7 +30,7 @@
                      <div class="col-lg-5 mt-3 mt-lg-0">
                         <div class="card  panel-card ">
                            <div class="card-body">
-                              <div class="calendar-wrapper no-border-calander" ></div>
+                              <div class="calendar-wrappers date-picker-js-ns no-border-calander" ></div>
                            </div>
                         </div>
                      </div>

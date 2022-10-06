@@ -1,4 +1,8 @@
 @extends('layouts.panels')
+@section('css')
+<link rel="stylesheet" href="/fullcalendar/main.css">
+<link rel="stylesheet" href="/fullcalendar/calendar.css">
+@endsection
 @section('page-name') {{ $data->username }} @stop
 @section('content')
     <div class="container-fluid">
@@ -48,9 +52,10 @@
                         <div class="tab-content" id="tabContent">
                             <div class="tab-pane fade show active" id="information" role="tabpanel"
                                 aria-labelledby="information-tab">
-                                <a role="button" data-bs-toggle="modal" data-bs-target="#calendar_detail_modal">
+                                {{-- <a role="button" data-bs-toggle="modal" data-bs-target="#calendar_detail_modal">
                                     <img src="/images/marriage-calendar.png" alt="Calendar" class="img-fluid">
-                                </a>
+                                </a> --}}
+                                <div id='calendar-js'></div>
                             </div>
                             <div class="tab-pane fade" id="celebrants" role="tabpanel" aria-labelledby="celebrants-tab">
                                 <h1 class="h4 netural-100 mb-4">My account</h1>
@@ -359,4 +364,12 @@
     @include('elements.admin.calendar.calendar-detail-modal')
     @include('elements.admin.celebrant.delete-alert')
 
+@endsection
+@section('scripts')
+
+<script src="/fullcalendar/main.js"></script>
+<script src="/fullcalendar/init.js"></script>
+<script>
+   initCalander('calendar-js',@json($booking))
+</script>
 @endsection
