@@ -5,17 +5,14 @@
     <title>NOIM</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css"
         rel="stylesheet">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
-
     <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
     <style>
         .kbw-signature {
@@ -29,17 +26,15 @@
         }
     </style>
 </head>
-
-
 @php
 $person1 = isset($person) && isset($person[0]) ? $person[0] : null;
 $person2 = isset($person) && isset($person[1]) ? $person[1] : null;
 $person1parent = isset($person) && isset($person[0]['parents']) ? $person[0]['parents'] : null;
 $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['parents'] : null;
-
 @endphp
 
 <body>
+    <div class="container">
     <table align="left" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"
         style="font-family: 'Roboto', sans-serif;" id="noim-document">
         <tbody>
@@ -47,7 +42,9 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                 <td>
                     <table align="left" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
                         <tr>
-                            {{-- <td><img src="logo.jpg" style="height: 80px;"></td> --}}
+                            {{--
+                                <td><img src="logo.jpg" style="height: 80px;"></td>
+                                --}}
                         </tr>
                     </table>
                 </td>
@@ -331,17 +328,17 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 1</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 1</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 2</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 2</td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">1.</td>
                                         <td style="font-size: 12px; color: black;">Description of part</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;">
                                                 <div style="margin-right: 12px; display: flex;align-self: center;">
-                                                    <input type="checkbox" class="checkbox" id="vehicle1"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="vehicle1"
                                                         name="vehicle1" value="Bike"
                                                         {{ $person1 && $person1['person_description'] == 1 ? 'checked' : '' }}>
                                                     <label
@@ -349,7 +346,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         for="vehicle1"> Partner</label>
                                                 </div>
                                                 <div style="margin-right: 12px; display: flex;align-self: center">
-                                                    <input type="checkbox" class="checkbox" id="vehicle2"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="vehicle2"
                                                         name="vehicle2" value="Car"
                                                         {{ $person1 && $person1['person_description'] == 2 ? 'checked' : '' }}>
                                                     <label
@@ -357,7 +354,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         for="vehicle2"> Bride</label>
                                                 </div>
                                                 <div style="margin-right: 12px; display: flex;align-self: center">
-                                                    <input type="checkbox" class="checkbox" id="vehicle3"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="vehicle3"
                                                         name="vehicle3" value="Boat"
                                                         {{ $person1 && $person1['person_description'] == 3 ? 'checked' : '' }}>
                                                     <label
@@ -367,17 +364,17 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             </div>
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;">
                                                 <div style="margin-right: 12px;display: flex">
-                                                    <input type="checkbox" class="checkbox" id="value1"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value1"
                                                         name="value1" value="value1"
                                                         {{ $person2 && $person2['person_description'] == 1 ? 'checked' : '' }}>
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                         for="value1"> Partner</label>
                                                 </div>
-                                                <div style="margin-right: 12px;display: flex"><input type="checkbox"
+                                                <div style="margin-right: 12px;display: flex"><input type="checkbox" style="margin-right: 10px;"
                                                         class="checkbox" id="value2" name="value2"
                                                         value="value2"
                                                         {{ $person2 && $person2['person_description'] == 2 ? 'checked' : '' }}>
@@ -385,7 +382,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                         for="value2"> Bride</label>
                                                 </div>
-                                                <div style="margin-right: 12px;display: flex"> <input type="checkbox"
+                                                <div style="margin-right: 12px;display: flex"> <input type="checkbox" style="margin-right: 10px;"
                                                         class="checkbox" id="value3" name="value3"
                                                         value="value3"
                                                         {{ $person2 && $person2['person_description'] == 3 ? 'checked' : '' }}>
@@ -402,47 +399,47 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     <tr>
                                         <td style="font-size: 12px; color: black;">2.</td>
                                         <td style="font-size: 12px; color: black;">Family name</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1 && $person1['family_name'] ? $person1['family_name'] : '' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2 && $person2['family_name'] ? $person2['family_name'] : '' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">2.</td>
                                         <td style="font-size: 12px; color: black;">Given name(s)</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1 && $person1['person_first_name'] ? $person1['person_first_name'] : '' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2 && $person2['person_first_name'] ? $person2['person_first_name'] : '' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">4.</td>
                                         <td style="font-size: 12px; color: black;">Gender (optional)</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;">
                                                 <div style="margin-right: 12px;display: flex">
-                                                    <input type="checkbox" class="checkbox" id="vehicle1"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="vehicle1"
                                                         name="vehicle1" value="Bike"
                                                         {{ $person1 && $person1['gender'] == 2 ? 'checked' : '' }}>
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                         for="vehicle1"> Female</label>
                                                 </div>
-                                                <div style="margin-right: 12px;display: flex"><input type="checkbox"
+                                                <div style="margin-right: 12px;display: flex"><input type="checkbox" style="margin-right: 10px;"
                                                         class="checkbox" id="vehicle2" name="vehicle2"
                                                         value="Car"
                                                         {{ $person1 && $person1['gender'] == 1 ? 'checked' : '' }}>
@@ -450,7 +447,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                         for="vehicle2"> Male</label>
                                                 </div>
-                                                <div style="margin-right: 12px;display: flex"> <input type="checkbox"
+                                                <div style="margin-right: 12px;display: flex"> <input type="checkbox" style="margin-right: 10px;"
                                                         class="checkbox" id="vehicle3" name="vehicle3"
                                                         value="Boat"
                                                         {{ $person1 && $person1['gender'] == 3 ? 'checked' : '' }}>
@@ -461,10 +458,10 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             </div>
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex; align-self: center;">
                                                 <div style="margin-right: 12px;display: flex;align-self: center;">
-                                                    <input type="checkbox" class="checkbox" id="value1"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value1"
                                                         name="value1" value="value1"
                                                         {{ $person2 && $person2['gender'] == 2 ? 'checked' : '' }}>
                                                     <label
@@ -472,7 +469,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         for="value1"> Female</label>
                                                 </div>
                                                 <div style="margin-right: 12px;display: flex;align-self: center;">
-                                                    <input type="checkbox" class="checkbox" id="value2"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value2"
                                                         name="value2" value="value2"
                                                         {{ $person2 && $person2['gender'] == 1 ? 'checked' : '' }}>
                                                     <label
@@ -480,7 +477,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         for="value2"> Male</label>
                                                 </div>
                                                 <div style="margin-right: 12px;display: flex;align-self: center;">
-                                                    <input type="checkbox" class="checkbox" id="value3"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value3"
                                                         name="value3" value="value3"
                                                         {{ $person2 && $person2['gender'] == 3 ? 'checked' : '' }}>
                                                     <label
@@ -496,16 +493,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     <tr>
                                         <td style="font-size: 12px; color: black;">5.</td>
                                         <td style="font-size: 12px; color: black;">Usual occupation</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1 && $person1['occupation'] ? $person1['occupation'] : '' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2 && $person2['occupation'] ? $person2['occupation'] : '' }}"
-                                                style=" width: 100%;   height: 20px;">
+                                                style=" width: 100%;   height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -516,16 +513,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Usual place <br /> of residence
                                             <br /> <i>(full address)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1 && $person1['residence_place'] ? $person1['residence_place'] : '' }}"
-                                                style=" width: 100%;   height:36px;">
+                                                style=" width: 100%;   height:36px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2 && $person2['residence_place'] ? $person2['residence_place'] : '' }}"
-                                                style=" width: 100%;   height: 36px;">
+                                                style=" width: 100%;   height: 36px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -533,19 +530,19 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Conjugal status
                                             <br /> <i>(see page 2)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;margin-bottom: 20px;">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value11"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value11"
                                                         name="value11"
                                                         {{ $person1 && $person1['conjugal_status'] == 1 ? 'checked' : '' }}>
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
                                                         for="value11">Never validly married</label>
                                                 </div>
                                                 <div style=" width:50%;display: flex;align-self:center"><input
-                                                        type="checkbox" class="checkbox" id="value12"
+                                                        type="checkbox" style="margin-right: 10px;" class="checkbox" id="value12"
                                                         name="value12"
                                                         {{ $person1 && $person1['conjugal_status'] == 4 ? 'checked' : '' }}>
                                                     <label
@@ -556,7 +553,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <div style="    display: flex;">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value13"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                         name="value12"
                                                         {{ $person1 && $person1['conjugal_status'] == 2 ? 'checked' : '' }}>
                                                     <label
@@ -564,29 +561,29 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         for="value13"> Divorced</label>
                                                 </div>
                                                 <div style=" width:50%;display: flex;align-self:center"> <input
-                                                        type="checkbox" class="checkbox" id="value14"
+                                                        type="checkbox" style="margin-right: 10px;" class="checkbox" id="value14"
                                                         name="value14"
                                                         {{ $person1 && $person1['conjugal_status'] == 3 ? 'checked' : '' }}>
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;"
                                                         for="value14"> Divorce<br /> pending</label>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;margin-bottom: 20px;">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value15"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value15"
                                                         name="value15"
                                                         {{ $person2 && $person2['conjugal_status'] == 1 ? 'checked' : '' }}>
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal ;  line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal ;  line-height: 13px;"
                                                         for="value15">Never validly married</label>
                                                 </div>
                                                 <div style=" width:50%;display: flex;align-self:center"><input
-                                                        type="checkbox" class="checkbox" id="value16"
+                                                        type="checkbox" style="margin-right: 10px;" class="checkbox" id="value16"
                                                         name="value16"
                                                         {{ $person2 && $person2['conjugal_status'] == 4 ? 'checked' : '' }}>
                                                     <label
@@ -597,7 +594,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <div style="    display: flex;">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value17"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value17"
                                                         name="value17"
                                                         {{ $person2 && $person2['conjugal_status'] == 2 ? 'checked' : '' }}>
                                                     <label
@@ -605,7 +602,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         for="value17"> Divorced</label>
                                                 </div>
                                                 <div style=" width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value18"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value18"
                                                         name="value18"
                                                         {{ $person2 && $person2['conjugal_status'] == 3 ? 'checked' : '' }}>
                                                     <label
@@ -623,47 +620,47 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Birthplace
                                             <br /><i>(see page 2)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1 && $person1['birth_place'] ? $person1['birth_place'] : '' }}"
-                                                style=" width: 100%;   height:20px;">
+                                                style=" width: 100%;   height:20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2 && $person2['birth_place'] ? $person2['birth_place'] : '' }}"
-                                                style=" width: 100%;   height: 20px;">
+                                                style=" width: 100%;   height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">9.</td>
                                         <td style="font-size: 12px; color: black;">Date of birth</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1 && $person1['date_of_birth'] ? $person1['date_of_birth'] : '' }}"
-                                                style=" width: 100%;   height:20px;">
+                                                style=" width: 100%;   height:20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2 && $person2['date_of_birth'] ? $person2['date_of_birth'] : '' }}"
-                                                style=" width: 100%;   height:20px;">
+                                                style=" width: 100%;   height:20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">10.</td>
                                         <td style="font-size: 12px; color: black;">Description of part</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;align-self:center">
                                                 <div style="margin-right: 12px;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value-1"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value-1"
                                                         name="value-1">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                         for="value-1"> No</label>
                                                 </div>
                                                 <div style="margin-right: 12px;display: flex;align-self:center"><input
-                                                        type="checkbox" class="checkbox" id="value-2"
+                                                        type="checkbox" style="margin-right: 10px;" class="checkbox" id="value-2"
                                                         name="value-2">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -672,8 +669,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             </div>
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
-                                            <input type="text" style=" width: 100%;   height:20px;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <input type="text" style=" width: 100%;   height:20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                 </table>
@@ -701,25 +698,25 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 1</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 1</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 2</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 2</td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">11.</td>
                                         <td style="font-size: 12px; color: black;">Parent 1’s
                                             <br />full current name <br />(or write ‘unknown’)
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[0]['current_name'] ? $person1parent[0]['current_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2parent && $person2parent[0]['current_name'] ? $person2parent[0]['current_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -728,16 +725,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <br /> full birth name
                                             <br /><i>(or write ‘unknown’)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[0]['birth_name'] ? $person1parent[0]['birth_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[0]['birth_name'] ? $person1parent[0]['birth_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -746,16 +743,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             current name
                                             <br /><i>(or write ‘unknown’)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[1]['current_name'] ? $person1parent[1]['current_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2parent && $person1parent[1]['current_name'] ? $person2parent[1]['current_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -764,16 +761,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             2’s<br />full birth name
                                             <br /><i>(or write ‘unknown’)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[1]['birth_name'] ? $person1parent[1]['birth_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2parent && $person2parent[1]['birth_name'] ? $person2parent[1]['birth_name'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -781,16 +778,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Parent 1’s<br />country of birth
                                             <br /><i>(or write ‘unknown’)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[0]['borth_place'] ? $person1parent[0]['borth_place'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2parent && $person2parent[0]['birth_place'] ? $person2parent[0]['birth_place'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -799,16 +796,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             2’s<br />country of birth
                                             <br /><i>(or write ‘unknown’)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person1parent && $person1parent[1]['birth_place'] ? $person1parent[1]['birth_place'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text"
                                                 value="{{ $person2parent && $person2parent[1]['birth_place'] ? $person2parent[1]['birth_place'] : 'unknown' }}"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                 </table>
@@ -857,282 +854,143 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     height="100%" width="100%">
                                     <tr>
                                         <td style="width: 150px">&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 1</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 1</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 2</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 2</td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right">Signature of
+                                        <td style="font-size: 12px; color: black;text-align: left;">Signature of
                                             parties
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             @if ($person1 && $person1->marriageDocumentPdfNoim)
                                                 @if (file_exists($person1->marriageDocumentPdfNoim->person1_signature))
                                                     <img src="{{ asset($person1->marriageDocumentPdfNoim->person1_signature) }}"
-                                                        alt="" style="width: 100%;  height:40px;">
+                                                        alt="" style="height:40px;object-fit: contain;padding-right: 10px;">
                                                 @endif
                                             @endif
                                             @if (isset($button) && $button)
-                                                <button data-toggle="modal" data-target="#editPerson1Signature"
-                                                    data-bs-toggle="modal"
+                                                <button data-bs-target="#editPerson1Signature" data-bs-toggle="modal" style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
                                                     onclick="readySignature('editPerson1SignaturePad')">Edit</button>
-                                                <div class="modal--" id="editPerson1Signature">
-                                                    <div class="modal-dialog--">
-                                                        <div class="modal-content">
-                                                            <!-- Modal Header -->
-                                                            {{-- <div class="modal-header">
-                                                                <h4 class="modal-title">Modal Heading</h4>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal"></button>
-                                                            </div> --}}
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <div class="card-body">
-                                                                    <form method="POST"
-                                                                        action="{{ route('userNoim.documents.signature') }}">
-                                                                        @csrf
-                                                                        <input type="hidden" name="document_name"
-                                                                            value="noim">
-                                                                        <div class="col-md-12">
-                                                                            <label class=""
-                                                                                for="">Signature:</label>
-                                                                            <br />
-                                                                            <div id="editPerson1SignaturePad"></div>
-                                                                            <br />
-                                                                            <button type="button"
-                                                                                id="editPerson1SignaturePadclear"
-                                                                                class="btn btn-danger btn-sm">Clear
-                                                                                Signature</button>
-                                                                            <textarea id="editPerson1SignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                            <input type="hidden" name="key"
-                                                                                value="person1_signature">
-                                                                        </div>
-                                                                        <br />
-                                                                        <button class="btn btn-success">Save</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button>Delete</button>
+                                                @include('user.documents.signature-modal', [
+                                                    'target' => 'editPerson1Signature',
+                                                    'signatureId' => 'editPerson1SignaturePad',
+                                                    'field_name' => 'person1_signature',
+                                                    'document_name' => 'noim',
+                                                ])
+                                                <button style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
                                             @endif
                                             {{-- <input type="text" value=""
-                                                style="  width: 100%;  height:40px;"> --}}
+                                                    style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             @if ($person2 && $person2->marriageDocumentPdfNoim)
                                                 @if (file_exists($person2->marriageDocumentPdfNoim->person2_signature))
                                                     <img src="{{ asset($person2->marriageDocumentPdfNoim->person2_signature) }}"
-                                                        alt="" style="width: 100%;  height:40px;">
+                                                        alt="" style="height:40px;object-fit: contain;padding-right: 10px;">
                                                 @endif
                                             @endif
                                             @if (isset($button) && $button)
-                                                <button data-toggle="modal" data-target="#editPerson1Signature"
+                                                <button data-bs-toggle="modal" style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;" data-bs-target="#editPerson2Signature"
                                                     onclick="readySignature('editPerson2SignaturePad')">Edit</button>
-                                                <div class="modal--" id="editPerson1Signature">
-                                                    <div class="modal-dialog--">
-                                                        <div class="modal-content">
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <div class="card-body">
-                                                                    @if ($message = Session::get('success'))
-                                                                        <div
-                                                                            class="alert alert-success  alert-dismissible">
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="alert">×</button>
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </div>
-                                                                    @endif
-                                                                    <form method="POST"
-                                                                        action="{{ route('userNoim.documents.signature') }}">
-                                                                        @csrf
-                                                                        <input type="hidden" name="document_name"
-                                                                            value="noim">
-                                                                        <div class="col-md-12">
-                                                                            <label class=""
-                                                                                for="">Signature:</label>
-                                                                            <br />
-                                                                            <div id="editPerson2SignaturePad"></div>
-                                                                            <br />
-                                                                            <button type="button"
-                                                                                id="editPersonwSignaturePadclear"
-                                                                                class="btn btn-danger btn-sm">Clear
-                                                                                Signature</button>
-                                                                            <textarea id="editPerson2SignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                            <input type="hidden" name="key"
-                                                                                value="person2_signature">
-                                                                        </div>
-                                                                        <br />
-                                                                        <button class="btn btn-success">Save</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button>Delete</button>
+                                                @include('user.documents.signature-modal', [
+                                                    'target' => 'editPerson2Signature',
+                                                    'signatureId' => 'editPerson2SignaturePad',
+                                                    'field_name' => 'person2_signature',
+                                                    'document_name' => 'noim',
+                                                ])
+                                                <button style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
                                             @endif
                                             {{-- <input type="text" value=""
-                                                style="  width: 100%;  height: 40px;"> --}}
+                                                    style="  width: 100%;  height: 40px;padding: 20px 15px;"> --}}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right">Date</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 12px; color: black;text-align: left;">Date</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right">Full name of
+                                        <td style="font-size: 12px; color: black;text-align: left;">Full name of
                                             witness
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
-                                            <input type="text" style="  width: 100%;  height: 20px;"
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <input type="text" style="  width: 100%;  height: 20px;padding: 20px 15px;"
                                                 value="{{ $person1 && $person1->marriageDocument ? $person1->marriageDocument->person_1_witness_name : '' }}">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
-                                            <input type="text" style="  width: 100%;  height: 20px;"
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <input type="text" style="  width: 100%;  height: 20px;padding: 20px 15px;"
                                                 value="{{ $person2 && $person2->marriageDocument ? $person2->marriageDocument->person_2_witness_name : '' }}">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;">Authorised
+                                        <td style="font-size: 12px; color: black;text-align: left;">Authorised
                                             witness<br /><i>(see above)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right">Signature of
+                                        <td style="font-size: 12px; color: black;text-align: left;">Signature of
                                             witness
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             {{-- <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;"> --}}
+                                                    style="width: 100%;height: 20px;padding: 20px 15px;"> --}}
                                             @if ($person1 && $person1->marriageDocumentPdfNoim)
                                                 @if (file_exists($person1->marriageDocumentPdfNoim->person1witness_signature))
                                                     <img src="{{ asset($person1->marriageDocumentPdfNoim->person1witness_signature) }}"
-                                                        alt="" style="width: 100%;  height:40px;">
+                                                        alt="" style="height:40px;object-fit: contain;padding-right: 10px;">
                                                 @endif
                                             @endif
                                             @if (isset($button) && $button)
-                                                <button data-toggle="modal" data-target="person1WitnessSignature"
+                                                <button type="button" data-bs-toggle="modal" style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
+                                                    data-bs-target="#person1WitnessSignature"
                                                     onclick="readySignature('person1WitnessSignaturePad')">Edit</button>
-                                                <div class="modal--" id="person1WitnessSignature">
-                                                    <div class="modal-dialog--">
-                                                        <div class="modal-content">
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <div class="card-body">
-                                                                    @if ($message = Session::get('success'))
-                                                                        <div
-                                                                            class="alert alert-success  alert-dismissible">
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="alert">×</button>
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </div>
-                                                                    @endif
-                                                                    <form method="POST"
-                                                                        action="{{ route('userNoim.documents.signature') }}">
-                                                                        @csrf
-                                                                        <input type="hidden" name="document_name"
-                                                                            value="noim">
-                                                                        <div class="col-md-12">
-                                                                            <label class=""
-                                                                                for="">Signature:</label>
-                                                                            <br />
-                                                                            <div id="person1WitnessSignaturePad"></div>
-                                                                            <br />
-                                                                            <button type="button"
-                                                                                id="person1WitnessSignaturePadclear"
-                                                                                class="btn btn-danger btn-sm">Clear
-                                                                                Signature</button>
-                                                                            <textarea id="person1WitnessSignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                            <input type="hidden" name="key"
-                                                                                value="person1witness_signature">
-                                                                        </div>
-                                                                        <br />
-                                                                        <button class="btn btn-success">Save</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button>Delete</button>
+                                                @include('user.documents.signature-modal', [
+                                                    'target' => 'person1WitnessSignature',
+                                                    'signatureId' => 'person1WitnessSignaturePad',
+                                                    'field_name' => 'person1witness_signature',
+                                                    'document_name' => 'noim',
+                                                ])
+                                                <button style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
                                             @endif
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
-                                            {{-- <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;"> --}}
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             @if ($person2 && $person2->marriageDocumentPdfNoim)
                                                 @if (file_exists($person2->marriageDocumentPdfNoim->person2witness_signature))
                                                     <img src="{{ asset($person2->marriageDocumentPdfNoim->person2witness_signature) }}"
-                                                        alt="" style="width: 100%;  height:40px;">
+                                                        alt="" style="height:40px;object-fit: contain;padding-right: 10px;">
                                                 @endif
                                             @endif
                                             @if (isset($button) && $button)
-                                                <button data-toggle="modal" data-target="person2WitnessSignature"
+                                                <button data-bs-toggle="modal" style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
+                                                    data-bs-target="#person2WitnessSignature"
                                                     onclick="readySignature('person2WitnessSignaturePad')">Edit</button>
-                                                <div class="modal--" id="person2WitnessSignature">
-                                                    <div class="modal-dialog--">
-                                                        <div class="modal-content">
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <div class="card-body">
-                                                                    @if ($message = Session::get('success'))
-                                                                        <div
-                                                                            class="alert alert-success  alert-dismissible">
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="alert">×</button>
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </div>
-                                                                    @endif
-                                                                    <form method="POST"
-                                                                        action="{{ route('userNoim.documents.signature') }}">
-                                                                        @csrf
-                                                                        <input type="hidden" name="document_name"
-                                                                            value="noim">
-                                                                        <div class="col-md-12">
-                                                                            <label class=""
-                                                                                for="">Signature:</label>
-                                                                            <br />
-                                                                            <div id="person2WitnessSignaturePad"></div>
-                                                                            <br />
-                                                                            <button type="button"
-                                                                                id="person2WitnessSignaturePadclear"
-                                                                                class="btn btn-danger btn-sm">Clear
-                                                                                Signature</button>
-                                                                            <textarea id="person2WitnessSignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                            <input type="hidden" name="key"
-                                                                                value="person2witness_signature">
-                                                                        </div>
-                                                                        <br />
-                                                                        <button class="btn btn-success">Save</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button>Delete</button>
+                                                @include('user.documents.signature-modal', [
+                                                    'target' => 'person2WitnessSignature',
+                                                    'signatureId' => 'person2WitnessSignaturePad',
+                                                    'field_name' => 'person2witness_signature',
+                                                    'document_name' => 'noim',
+                                                ])
+                                                <button style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
                                             @endif
                                         </td>
                                     </tr>
@@ -1168,12 +1026,12 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     <tr>
                                         <td style="font-size: 12px; color: black;">17.</td>
                                         <td style="font-size: 12px; color: black;">Full name of celebrant </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="Michael John Teulon"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="display: flex;">
                                                 <div
                                                     style="font-size: 12px; color: black;font-weight: normal; margin-right: 20px;">
@@ -1184,16 +1042,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     Date notice received
                                                 </div>
                                                 <div style="width: 100%;"><input type="text" value="Des HAMMOND"
-                                                        style="  width: 100%;  height: 20px;font-weight: normal"></div>
+                                                        style="  width: 100%;  height: 20px;font-weight: normal;padding: 20px 15px;"></div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 1</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 1</td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">PERSON 2</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px;color: black;font-weight: bold;text-align: center;">PERSON 2</td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">19.</td>
@@ -1201,78 +1059,78 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <br /> and place of birth
                                             <br /><i>(see page 2)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;margin-bottom: 20px;">
                                                 <div style="margin-right: 12px; width:50%;display: flex">
-                                                    <input type="checkbox" class="checkbox" id="value11"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value11"
                                                         name="value11">
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
                                                         for="value11">Birthcertificateor official extract</label>
                                                 </div>
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value12"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value12"
                                                         name="value12">
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
                                                         for="value12"> Overseas passport</label>
                                                 </div>
                                             </div>
                                             <div style="    display: flex;">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value13"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                         name="value12">
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
                                                         for="value13"> Statutory declaration</label>
                                                 </div>
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value14"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value14"
                                                         name="value14" checked>
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal;line-height: 16px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal;line-height: 16px;"
                                                         for="value14"> Overseas passport</label>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex ;margin-bottom: 20px">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value11"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value11"
                                                         name="value11">
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
                                                         for="value11">Birthcertificateor official extract</label>
                                                 </div>
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value12"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value12"
                                                         name="value12">
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
                                                         for="value12"> Overseas passport</label>
                                                 </div>
                                             </div>
                                             <div style="    display: flex;">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value13"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                         name="value12">
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;"
                                                         for="value13"> Statutory declaration</label>
                                                 </div>
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value14"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value14"
                                                         name="value14" checked>
                                                     <label
-                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;position: relative;    top: 6px;"
+                                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
                                                         for="value14"> Overseas passport</label>
                                                 </div>
                                             </div>
@@ -1286,14 +1144,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Document number
                                             <br /><i>(if any)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="PA234567"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="BC1233"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -1301,20 +1159,19 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Identity confirmed
                                             <br /><i>(see page 2)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="display: flex;align-self:center">
-                                                <input type="checkbox" class="checkbox" id="value14"
+                                                <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value14"
                                                     name="value14" checked>
                                                 <label
                                                     style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                     for="value14"> Confirmed</label>
                                             </div>
-
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="display: flex;align-self:center">
-                                                <input type="checkbox" class="checkbox" id="value14"
+                                                <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value14"
                                                     name="value14" checked>
                                                 <label
                                                     style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1330,14 +1187,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Type of ID<br />document provided
                                             <br /><i>(see page 2)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="Passport"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="Current drivers licence"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -1345,28 +1202,28 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Document number <br /><i>(if
                                                 any)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="PA234567"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="1521BM"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td style="font-size: 12px; color: black;">24.</td>
                                         <td style="font-size: 12px; color: black;">State, territory or country of issue
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="Australia"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="NSW"
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -1374,14 +1231,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Date last marriage ended <br /><i>
                                                 (if applicable)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -1390,11 +1247,11 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <br /> on how last <br /> marriage ended
                                             <br /><i>(see page 2)</i>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;">
                                                 <div
                                                     style="margin-right: 12px; width:50%; display: flex;;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value11"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value11"
                                                         name="value11">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
@@ -1402,7 +1259,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                 </div>
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value12"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value12"
                                                         name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1412,7 +1269,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <div style="    display: flex;;align-self:center">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value13"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                         name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1421,11 +1278,11 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             </div>
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <div style="    display: flex;align-self:center">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value11"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value11"
                                                         name="value11">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
@@ -1433,7 +1290,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                 </div>
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value12"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value12"
                                                         name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1443,7 +1300,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <div style="    display: flex;align-self:center">
                                                 <div
                                                     style="margin-right: 12px; width:50%;display: flex;align-self:center">
-                                                    <input type="checkbox" class="checkbox" id="value13"
+                                                    <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                         name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1453,22 +1310,18 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="5"></td>
-                                    </tr>
-
-                                    <tr>
                                         <td style="font-size: 12px; color: black;">27.</td>
                                         <td style="font-size: 12px; color: black;">Death certificate
                                             <br />number<b>OR</b>
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                         <td>&nbsp;</td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height: 20px;">
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
@@ -1476,72 +1329,63 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         <td style="font-size: 12px; color: black;">Court location
                                             <br /><i>(if divorce or nullity)</i>
                                         </td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <input type="text" value="Sydney"
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <input type="text" value=""
+                                                style="width: 100%;height: 20px;padding: 20px 15px;">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 12px; color: black;">29.</td>
+                                        <td style="font-size: 12px; color: black;">Document referred <br />to in s42(5A) of the
+                                            <br /> Act provided to the <br /> parties
+                                        </td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <div style="display: flex;">
+                                                <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13" name="value12">
+                                                <label
+                                                    style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
+                                                    for="value13"> Person 1</label>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <div style="display: flex;"><input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
+                                                    name="value12">
+                                                <label
+                                                    style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
+                                                    for="value13"> Person 2</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 12px; color: black;">30.</td>
+                                        <td style="font-size: 12px; color: black;"> If a party is under <br> 18 years </td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <div style="display: flex;">
+                                                <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13" name="value12">
+                                                <label
+                                                    style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
+                                                    for="value13"> Consents received</label>
+                                            </div>
+                                        </td>
+                                        <td>&nbsp;</td>
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
+                                            <div style="display: flex;">
+                                                <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13" name="value12">
+                                                <label
+                                                    style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
+                                                    for="value13"> Court approval</label>
+                                            </div>
+                                        </td>
                                     </tr>
                                 </table>
                             </td>
-                            <td style="font-size: 18px; color: black; font-weight: bold;">
-                                <input type="text" value="Sydney" style="  width: 100%;  height: 20px;">
-                            </td>
-                            <td>&nbsp;</td>
-                            <td style="font-size: 18px; color: black; font-weight: bold;">
-                                <input type="text" value="" style="  width: 100%;  height: 20px;">
-                            </td>
                         </tr>
-                        <tr>
-                            <td style="font-size: 12px; color: black;">29.</td>
-                            <td style="font-size: 12px; color: black;">Document referred <br />to in s42(5A) of the
-                                <br /> Act provided to the <br /> parties
-                            </td>
-                            <td style="font-size: 18px; color: black; font-weight: bold;">
-                                <div style="display: flex;">
-                                    <input type="checkbox" class="checkbox" id="value13" name="value12">
-                                    <label
-                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                        for="value13"> Person 1</label>
-                                </div>
-
-                            </td>
-                            <td>&nbsp;</td>
-                            <td style="font-size: 18px; color: black; font-weight: bold;">
-                                <div style="display: flex;"><input type="checkbox" class="checkbox" id="value13"
-                                        name="value12">
-                                    <label
-                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                        for="value13"> Person 2</label>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5"></td>
-                        </tr>
-
-                        <tr>
-                            <td style="font-size: 12px; color: black;">30.</td>
-                            <td style="font-size: 12px; color: black;"> If a party is under 18 years </td>
-                            <td style="font-size: 18px; color: black; font-weight: bold;">
-                                <div style="display: flex;">
-                                    <input type="checkbox" class="checkbox" id="value13" name="value12">
-                                    <label
-                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                        for="value13"> Consents received</label>
-                                </div>
-                            </td>
-                            <td>&nbsp;</td>
-                            <td style="font-size: 18px; color: black; font-weight: bold;">
-                                <div style="display: flex;">
-                                    <input type="checkbox" class="checkbox" id="value13" name="value12">
-                                    <label
-                                        style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                        for="value13"> Court approval</label>
-                                </div>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5"></td>
-                        </tr>
-
                     </table>
                 </td>
             </tr>
@@ -1579,7 +1423,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     </td>
                                                     <td>
                                                         <div style="display: flex;">
-                                                            <input type="checkbox" class="checkbox" id="value13"
+                                                            <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                                 name="value12" checked>
                                                             <label
                                                                 style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1588,7 +1432,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     </td>
                                                     <td>
                                                         <div style="display: flex;">
-                                                            <input type="checkbox" class="checkbox" id="value13"
+                                                            <input type="checkbox" style="margin-right: 10px;" class="checkbox" id="value13"
                                                                 name="value12">
                                                             <label
                                                                 style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
@@ -1651,20 +1495,20 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                 <table align="left" border="0" cellpadding="0" cellspacing="10"
                                     height="100%" width="100%">
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">Date
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">Date
                                             marriage<br /> solemnised
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="25/02/2022"
-                                                style="  width: 100%;  height:20px;">
+                                                style="  width: 100%;  height:20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">At
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">At
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="Bondi Beach - In the sand, Bondi, 2026, NSW"
-                                                style="  width: 100%;  height:20px;">
+                                                style="  width: 100%;  height:20px;padding: 20px 15px;">
                                             <span
                                                 style="font-size: 12px; color: black; font-weight: normal; ">Location,
                                                 including suburb or town, city, state or territory and postcode where
@@ -1672,12 +1516,12 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">
                                             Ceremony used
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="Marriage Act 1961"
-                                                style="  width: 100%;  height:20px;">
+                                                style="  width: 100%;  height:20px;padding: 20px 15px;">
                                             <span
                                                 style="font-size: 12px; color: black; font-weight: normal; ">Religious
                                                 rites or civil ceremony according to the Marriage Act 1961 (Cth)
@@ -1685,74 +1529,38 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">
                                             Celebrant’s signature
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             {{-- <input type="text" value=""
-                                                style="  width: 100%;  height:40px;"> --}}
+                                                    style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
                                             @if ($person1 && $person1->marriageDocumentPdfNoim)
                                                 @if (file_exists($person1->marriageDocumentPdfNoim->celebrant_signature))
                                                     <img src="{{ asset($person1->marriageDocumentPdfNoim->celebrant_signature) }}"
-                                                        alt="" style="width: 100%;  height:40px;">
+                                                        alt="" style="height:40px;object-fit: contain;padding-right: 10px;">
                                                 @endif
                                             @endif
                                             @if (isset($button) && $button)
-                                                <button data-toggle="modal" data-target="celebrantSignature"
+                                                <button data-bs-toggle="modal" style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;" data-bs-target="#celebrantSignature"
                                                     onclick="readySignature('celebrantSignaturePad')">Edit</button>
-                                                <div class="modal--" id="celebrantSignature">
-                                                    <div class="modal-dialog--">
-                                                        <div class="modal-content">
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <div class="card-body">
-                                                                    @if ($message = Session::get('success'))
-                                                                        <div
-                                                                            class="alert alert-success  alert-dismissible">
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="alert">×</button>
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </div>
-                                                                    @endif
-                                                                    <form method="POST"
-                                                                        action="{{ route('userNoim.documents.signature') }}">
-                                                                        @csrf
-                                                                        <input type="hidden" name="document_name"
-                                                                            value="noim">
-                                                                        <div class="col-md-12">
-                                                                            <label class=""
-                                                                                for="">Signature:</label>
-                                                                            <br />
-                                                                            <div id="celebrantSignaturePad">
-                                                                            </div>
-                                                                            <br />
-                                                                            <button type="button"
-                                                                                id="celebrantSignaturePadclear"
-                                                                                class="btn btn-danger btn-sm">Clear
-                                                                                Signature</button>
-                                                                            <textarea id="celebrantSignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                            <input type="hidden" name="key"
-                                                                                value="celebrant_signature">
-                                                                        </div>
-                                                                        <br />
-                                                                        <button class="btn btn-success">Save</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button>Delete</button>
+                                                @include('user.documents.signature-modal', [
+                                                    'target' => 'celebrantSignature',
+                                                    'signatureId' => 'celebrantSignaturePad',
+                                                    'field_name' => 'celebrant_signature',
+                                                    'document_name' => 'noim',
+                                                ])
+                                                <button style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
                                             @endif
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">
                                             Celebrant’s <br /> authorisation number
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value="A6330"
-                                                style="  width: 100%;  height:20px;">
+                                                style="  width: 100%;  height:20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                 </table>
@@ -1782,92 +1590,56 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                 <table align="left" border="0" cellpadding="0" cellspacing="10"
                                     height="100%" width="100%">
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">Name
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">Name
                                             of new <br />celebrant <br /> solemnised
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height:20px;">
+                                                style="  width: 100%;  height:20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">
                                             Authorisation number <br /> of new celebrant
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height:20px;">
+                                                style="  width: 100%;  height:20px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">
                                             Signature<br /> of new celebrant
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             {{-- <input type="text" value=""
-                                                style="  width: 100%;  height:20px;"> --}}
+                                                    style="  width: 100%;  height:20px;padding: 20px 15px;"> --}}
                                             @if ($person1 && $person1->marriageDocumentPdfNoim)
                                                 @if (file_exists($person1->marriageDocumentPdfNoim->new_celebrant_signature))
                                                     <img src="{{ asset($person1->marriageDocumentPdfNoim->new_celebrant_signature) }}"
-                                                        alt="" style="width: 100%;  height:40px;">
+                                                        alt="" style="height:40px;object-fit: contain;padding-right: 10px;">
                                                 @endif
                                             @endif
                                             @if (isset($button) && $button)
-                                                <button data-toggle="modal" data-target="newCelebrantSignature"
+                                                <button data-bs-toggle="modal" style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;" data-bs-target="#newCelebrantSignature"
                                                     onclick="readySignature('newCelebrantSignaturePad')">Edit</button>
-                                                <div class="modal--" id="newCelebrantSignature">
-                                                    <div class="modal-dialog--">
-                                                        <div class="modal-content">
-                                                            <!-- Modal body -->
-                                                            <div class="modal-body">
-                                                                <div class="card-body">
-                                                                    @if ($message = Session::get('success'))
-                                                                        <div
-                                                                            class="alert alert-success  alert-dismissible">
-                                                                            <button type="button" class="close"
-                                                                                data-dismiss="alert">×</button>
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </div>
-                                                                    @endif
-                                                                    <form method="POST"
-                                                                        action="{{ route('userNoim.documents.signature') }}">
-                                                                        @csrf
-                                                                        <input type="hidden" name="document_name"
-                                                                            value="noim">
-                                                                        <div class="col-md-12">
-                                                                            <label class=""
-                                                                                for="">Signature:</label>
-                                                                            <br />
-                                                                            <div id="newCelebrantSignaturePad">
-                                                                            </div>
-                                                                            <br />
-                                                                            <button type="button"
-                                                                                id="newCelebrantSignaturePadclear"
-                                                                                class="btn btn-danger btn-sm">Clear
-                                                                                Signature</button>
-                                                                            <textarea id="newCelebrantSignaturePadsignature64" name="signed" style="display: none"></textarea>
-                                                                            <input type="hidden" name="key"
-                                                                                value="new_celebrant_signature">
-                                                                        </div>
-                                                                        <br />
-                                                                        <button class="btn btn-success">Save</button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button>Delete</button>
+                                                @include('user.documents.signature-modal', [
+                                                    'target' => 'newCelebrantSignature',
+                                                    'signatureId' => 'newCelebrantSignaturePad',
+                                                    'field_name' => 'new_celebrant_signature',
+                                                    'document_name' => 'noim',
+                                                ])
+                                                <button style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
                                             @endif
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td style="font-size: 12px; color: black;text-align: right;width: 150px;">Date
+                                        <td style="font-size: 12px; color: black;text-align: left;width: 150px;">Date
                                             of transfer
                                         </td>
-                                        <td style="font-size: 18px; color: black; font-weight: bold;">
+                                        <td style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                             <input type="text" value=""
-                                                style="  width: 100%;  height:40px;">
+                                                style="  width: 100%;  height:40px;padding: 20px 15px;">
                                         </td>
                                     </tr>
                                 </table>
@@ -1878,6 +1650,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
             </tr>
         </tbody>
     </table>
+</div>
 </body>
 <script type="text/javascript">
     $(document).ready(function() {})
