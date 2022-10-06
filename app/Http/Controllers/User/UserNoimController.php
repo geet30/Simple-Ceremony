@@ -185,6 +185,7 @@ class UserNoimController extends Controller
         UserMarriageDocument::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
         return $request->all();
     }
+
     public function previewDocument(Request $request, $document, $userId = null)
     {
         $loggedInUserId = $userId ?? Auth::user()->id;
@@ -231,6 +232,12 @@ class UserNoimController extends Controller
         }
     }
 
+    public function deleteDocumentSignature(Request $request)
+    {
+        // dd($request->all());
+        UserMarriagePdf::where(['document_name' => $request->document_name])->update([$request->field => '']);
+        return redirect()->back();
+    }
     public function saveSignature(Request $request)
     {
         $loggedInUserId = Auth::user()->id;

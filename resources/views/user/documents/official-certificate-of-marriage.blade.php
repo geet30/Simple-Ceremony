@@ -509,7 +509,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'offical-certificate-of-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button data-bs-target="#person1SignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' => 'person1SignatureConfirmDelete',
+                                                                    'field_name' => 'person1_signature',
+                                                                    'document_name' =>
+                                                                        'offical-certificate-of-marriage',
+                                                                ])
                                                         @endif
                                                     </td>
                                                     <td>&nbsp;</td>
@@ -531,7 +540,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'offical-certificate-of-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button data-bs-target="#person2SignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' => 'person2SignatureConfirmDelete',
+                                                                    'field_name' => 'person2_signature',
+                                                                    'document_name' =>
+                                                                        'offical-certificate-of-marriage',
+                                                                ])
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -574,7 +592,18 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'offical-certificate-of-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button
+                                                                data-bs-target="#person1witnessSignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' =>
+                                                                        'person1witnessSignatureConfirmDelete',
+                                                                    'field_name' => 'person1witness_signature',
+                                                                    'document_name' =>
+                                                                        'offical-certificate-of-marriage',
+                                                                ])
                                                         @endif
                                                         {{-- <input type="text" value=""
                                                             style="  width: 100%;  height: 20px;"> --}}
@@ -600,7 +629,18 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'offical-certificate-of-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button
+                                                                data-bs-target="#person2witnessSignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' =>
+                                                                        'person2witnessSignatureConfirmDelete',
+                                                                    'field_name' => 'person2witness_signature',
+                                                                    'document_name' =>
+                                                                        'offical-certificate-of-marriage',
+                                                                ])
                                                         @endif
                                                         {{-- <input type="text" value=""
                                                             style="  width: 100%;  height: 20px;"> --}}
@@ -670,7 +710,16 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                 'document_name' =>
                                                                     'offical-certificate-of-marriage',
                                                             ])
-                                                            <button type="button">Delete</button>
+                                                            <button data-bs-target="#celebrantSignatureConfirmDelete"
+                                                                data-bs-toggle="modal"
+                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                            @include('user.documents.delete-signature-modal',
+                                                                [
+                                                                    'target' => 'celebrantSignatureConfirmDelete',
+                                                                    'field_name' => 'celebrant_signature',
+                                                                    'document_name' =>
+                                                                        'offical-certificate-of-marriage',
+                                                                ])
                                                         @endif
                                                         <span
                                                             style="font-size: 12px; color: black; font-weight: normal;margin-left: 6px; ">Celebrant’s

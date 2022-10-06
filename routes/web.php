@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\{BookingController, UserNoimController,UserController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController,InvoicesController};
+use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
@@ -132,22 +132,23 @@ $websiteRoutes = function () {
     });
     Route::middleware('auth')->group(function () {
         Route::prefix('user')->group(function () {
-            Route::get('overview{id?}', [UserController::class,'index'])->name('user-overview');
-            Route::get('add-ons',  [UserController::class,'addons'])->name('user-add-ons');
-            Route::get('overview/location/{id}', [UserController::class,'locationDetail'])->name('user-location');
-            Route::get('add-ons/detail/{id}', [UserController::class,'addonDetail'])->name('user-addons-detail');
-            Route::get('package/detail/{id}', [UserController::class,'packageDetail'])->name('package-detail');
+            Route::get('overview{id?}', [UserController::class, 'index'])->name('user-overview');
+            Route::get('add-ons',  [UserController::class, 'addons'])->name('user-add-ons');
+            Route::get('overview/location/{id}', [UserController::class, 'locationDetail'])->name('user-location');
+            Route::get('add-ons/detail/{id}', [UserController::class, 'addonDetail'])->name('user-addons-detail');
+            Route::get('package/detail/{id}', [UserController::class, 'packageDetail'])->name('package-detail');
             Route::get('add-ons/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('package/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
             Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
+            Route::post('delete-document-signature', [UserNoimController::class, 'deleteDocumentSignature'])->name('userNoim.delete-document-signature');
             Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
             Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('userNoim.documents.signature');
 
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
-            
+
             Route::resource('user-noim', UserNoimController::class);
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
             Route::get('step-2', [UserNoimController::class, 'step2'])->name('user-noim.steps2.get');
@@ -161,50 +162,48 @@ $websiteRoutes = function () {
             });
             Route::get('getPay{id?}', [UserController::class, 'getPay'])->name('user.pay');
             Route::post('postPay', [UserController::class, 'postPay'])->name('user.payment');
-            Route::get('reschedule-info', [UserController::class, 'getRescheduleInfo']); 
+            Route::get('reschedule-info', [UserController::class, 'getRescheduleInfo']);
             Route::post('reschedule-pay', [UserController::class, 'getReschedulePay'])->name('reschedule.pay');
             Route::post('reschedulePay', [UserController::class, 'reschedulePay'])->name('reschedule.payment');
         });
-
     });
-     
-        Route::get('all-invoices', function () {
-            return view('user.invoices.all-invoices');
-        });
-        Route::get('notes', function () {
-            return view('user.notes.lisiting');
-        });
-        Route::get('lisiting-to-do', function () {
-            return view('user.notes.lisiting-to-do');
-        });
-        Route::get('create', function () {
-            return view('user.notes.create');
-        });
-        Route::get('edit', function () {
-            return view('user.notes.edit');
-        });
-        Route::get('detail', function () {
-            return view('user.notes.detail');
-        });
-       
-       
-        Route::get('activity-history', function () {
-            return view('user.activity-history.lisiting');
-        });
 
-        Route::get('signature', function () {
-            return view('user.documents.signature');
-        });
-        Route::get('edit-signature', function () {
-            return view('user.documents.edit-signature');
-        });
+    Route::get('all-invoices', function () {
+        return view('user.invoices.all-invoices');
+    });
+    Route::get('notes', function () {
+        return view('user.notes.lisiting');
+    });
+    Route::get('lisiting-to-do', function () {
+        return view('user.notes.lisiting-to-do');
+    });
+    Route::get('create', function () {
+        return view('user.notes.create');
+    });
+    Route::get('edit', function () {
+        return view('user.notes.edit');
+    });
+    Route::get('detail', function () {
+        return view('user.notes.detail');
+    });
 
-        Route::get('routes', function () {
-            $routeCollection = Route::getRoutes();
-            $title = "Route List";
-            return view('routes', compact('routeCollection', 'title'));
-        });
-   
+
+    Route::get('activity-history', function () {
+        return view('user.activity-history.lisiting');
+    });
+
+    Route::get('signature', function () {
+        return view('user.documents.signature');
+    });
+    Route::get('edit-signature', function () {
+        return view('user.documents.edit-signature');
+    });
+
+    Route::get('routes', function () {
+        $routeCollection = Route::getRoutes();
+        $title = "Route List";
+        return view('routes', compact('routeCollection', 'title'));
+    });
 };
 $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
@@ -245,8 +244,8 @@ $adminRoutes = function () {
         Route::resource('payments', InvoicesController::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::get('recipient-info', [InvoicesController::class, 'getRecipientInfo']);
-       
-        
+
+
         Route::post('search-payments', [InvoicesController::class, 'searchByStatusDate']);
         Route::get('search-by-invoice', [InvoicesController::class, 'searchByInvoice']);
 
@@ -466,7 +465,7 @@ $celebrantRoutes = function () {
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
 
-        Route::get('calendar', [CalendarController::class,'index']);
+        Route::get('calendar', [CalendarController::class, 'index']);
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
@@ -497,8 +496,8 @@ $celebrantRoutes = function () {
     Route::get('location', function () {
         return view('celebrant.financial-report.location');
     });
-    
-    Route::get('calendar-design', function(){
+
+    Route::get('calendar-design', function () {
         return view('celebrant.calendar.design');
     });
 

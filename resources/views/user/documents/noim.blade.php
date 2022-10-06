@@ -1007,8 +1007,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'field_name' => 'person1_signature',
                                                         'document_name' => 'noim',
                                                     ])
-                                                    <button
+                                                    <button data-bs-target="#person1SignatureConfirmDelete"
+                                                        data-bs-toggle="modal"
                                                         style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                    @include('user.documents.delete-signature-modal', [
+                                                        'target' => 'person1SignatureConfirmDelete',
+                                                        'field_name' => 'person1_signature',
+                                                        'document_name' => 'noim',
+                                                    ])
                                                 @endif
                                                 {{-- <input type="text" value=""
                                                     style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
@@ -1034,8 +1040,15 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'field_name' => 'person2_signature',
                                                         'document_name' => 'noim',
                                                     ])
-                                                    <button
+
+                                                    <button data-bs-target="#person2SignatureConfirmDelete"
+                                                        data-bs-toggle="modal"
                                                         style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                    @include('user.documents.delete-signature-modal', [
+                                                        'target' => 'person2SignatureConfirmDelete',
+                                                        'field_name' => 'person2_signature',
+                                                        'document_name' => 'noim',
+                                                    ])
                                                 @endif
                                                 {{-- <input type="text" value=""
                                                     style="  width: 100%;  height: 40px;padding: 20px 15px;"> --}}
@@ -1115,8 +1128,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'field_name' => 'person1witness_signature',
                                                         'document_name' => 'noim',
                                                     ])
-                                                    <button
+                                                    <button data-bs-target="#person1witnessSignatureConfirmDelete"
+                                                        data-bs-toggle="modal"
                                                         style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                    @include('user.documents.delete-signature-modal', [
+                                                        'target' => 'person1witnessSignatureConfirmDelete',
+                                                        'field_name' => 'person1witness_signature',
+                                                        'document_name' => 'noim',
+                                                    ])
                                                 @endif
                                             </td>
                                             <td>&nbsp;</td>
@@ -1140,8 +1159,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'field_name' => 'person2witness_signature',
                                                         'document_name' => 'noim',
                                                     ])
-                                                    <button
+                                                    <button data-bs-target="#person2witnessSignatureConfirmDelete"
+                                                        data-bs-toggle="modal"
                                                         style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                    @include('user.documents.delete-signature-modal', [
+                                                        'target' => 'person2witnessSignatureConfirmDelete',
+                                                        'field_name' => 'person2witness_signature',
+                                                        'document_name' => 'noim',
+                                                    ])
                                                 @endif
                                             </td>
                                         </tr>
@@ -1754,8 +1779,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'field_name' => 'celebrant_signature',
                                                         'document_name' => 'noim',
                                                     ])
-                                                    <button
+                                                    <button data-bs-target="#celebrantSignatureConfirmDelete"
+                                                        data-bs-toggle="modal"
                                                         style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                    @include('user.documents.delete-signature-modal', [
+                                                        'target' => 'celebrantSignatureConfirmDelete',
+                                                        'field_name' => 'celebrant_signature',
+                                                        'document_name' => 'noim',
+                                                    ])
                                                 @endif
                                             </td>
                                         </tr>
@@ -1842,8 +1873,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'field_name' => 'new_celebrant_signature',
                                                         'document_name' => 'noim',
                                                     ])
-                                                    <button
-                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>`
+                                                    <button data-bs-target="#newCelebrantSignatureConfirmDelete"
+                                                        data-bs-toggle="modal"
+                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                    @include('user.documents.delete-signature-modal', [
+                                                        'target' => 'newCelebrantSignatureConfirmDelete',
+                                                        'field_name' => 'new_celebrant_signature',
+                                                        'document_name' => 'noim',
+                                                    ])
                                                 @endif
                                             </td>
                                         </tr>
