@@ -81,7 +81,7 @@
                     $("#add-on-reject").html(response);
                     
                 } 
-                if (current_url[1] == 'upcoming' && (window.location.pathname.split('/')[2] == 'all-records-tab' || window.location.pathname
+                if ((current_url[1] == 'upcoming' || current_url[1] == 'marriages')&& (window.location.pathname.split('/')[2] == 'all-records-tab' || window.location.pathname
                     .split('/')[2] == 'all')) {
                     $("#all-records").html(response);
                 } else if (window.location.pathname.split('/')[2] == 'booked-tab') {
@@ -90,6 +90,21 @@
                     $("#lodged").html(response);
                 } else if (window.location.pathname.split('/')[2] == 'lodged-pending-tab') {
                     $("#lodged-pending").html(response);
+                } 
+                else if (window.location.pathname.split('/')[2] == 'non-legal-tab') {
+                    $("#non-legal").html(response);
+                } 
+                else if (window.location.pathname.split('/')[2] == 'registered-tab') {
+                    $("#lregistered").html(response);
+                } 
+                else if (window.location.pathname.split('/')[2] == 'finalised-tab') {
+                    $("#finalised").html(response);
+                } 
+                else if (window.location.pathname.split('/')[2] == 'cancelled-tab') {
+                    $("#cancelled").html(response);
+                } 
+                else if (window.location.pathname.split('/')[2] == 'settled-tab') {
+                    $("#settled").html(response);
                 } 
 
                 // if (current_url[1] == 'all-payments' && (window.location.pathname.split('/')[2] == 'celebrants-invoice')) {
