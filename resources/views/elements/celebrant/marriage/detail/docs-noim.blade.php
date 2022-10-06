@@ -95,14 +95,15 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div id="divorce-section" class="row {{ $couple1->conjugal_status == 2 ? '' : 'd-none' }}">
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Court location</label>
-                            <input type="text" value="{{ $couple1->divorceOrWidowedDocument->court_location }}"
+                            <input type="text"
+                                value="{{ $couple1->divorceOrWidowedDocument ? $couple1->divorceOrWidowedDocument->court_location : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
                                 ended</label>
                             <input type="text"
-                                value="{{ $couple1->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                                value="{{ $couple1->divorceOrWidowedDocument ? $couple1->divorceOrWidowedDocument->date_last_marriage_ended : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                     </div>
@@ -110,14 +111,14 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Certificate number</label>
                             <input type="text"
-                                value="{{ $couple1->divorceOrWidowedDocument->certificate_number }}"
+                                value="{{ $couple1->divorceOrWidowedDocument ? $couple1->divorceOrWidowedDocument->certificate_number : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
                                 ended</label>
                             <input type="text"
-                                value="{{ $couple1->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                                value="{{ $couple1->divorceOrWidowedDocument ? $couple1->divorceOrWidowedDocument->date_last_marriage_ended : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                     </div>
@@ -232,14 +233,15 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div id="divorce-section" class="row {{ $couple2->conjugal_status == 2 ? '' : 'd-none' }}">
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Court location</label>
-                            <input type="text" value="{{ $couple2->divorceOrWidowedDocument->court_location }}"
+                            <input type="text"
+                                value="{{ $couple2->divorceOrWidowedDocument ? $couple2->divorceOrWidowedDocument->court_location : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
                                 ended</label>
                             <input type="text"
-                                value="{{ $couple2->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                                value="{{ $couple2->divorceOrWidowedDocument ? $couple2->divorceOrWidowedDocument->date_last_marriage_ended : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                     </div>
@@ -247,14 +249,14 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Certificate number</label>
                             <input type="text"
-                                value="{{ $couple2->divorceOrWidowedDocument->certificate_number }}"
+                                value="{{ $couple2->divorceOrWidowedDocument ? $couple2->divorceOrWidowedDocument->certificate_number : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Date last marriage
                                 ended</label>
                             <input type="text"
-                                value="{{ $couple2->divorceOrWidowedDocument->date_last_marriage_ended }}"
+                                value="{{ $couple2->divorceOrWidowedDocument ? $couple2->divorceOrWidowedDocument->date_last_marriage_ended : '' }}"
                                 class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                         </div>
                     </div>
@@ -336,14 +338,14 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                 <label for="preferredname2" class="form-label small-text2 ps-2">Who has witnessed Person 1 sign the
                     NOIM</label>
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $witnessArr[$couple1->marriageDocument->who_signed_person_1_witness] : '' }}"
+                    value="{{ $couple1 && $couple1->marriageDocument ? $witnessArr[$couple1->marriageDocument->who_signed_person_1_witness] : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Authorization Person's Name who
                     witnessed Person 1 on the NOIM</label>
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $couple1->marriageDocument->person_1_witness_name : '' }}"
+                    value="{{ $couple1 && $couple1->marriageDocument ? $couple1->marriageDocument->person_1_witness_name : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
         </div>
@@ -352,7 +354,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                 <label for="preferredname2" class="form-label small-text2 ps-2">Who has witnessed Person 2 sign the
                     NOIM</label>
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $witnessArr[$couple1->marriageDocument->who_signed_person_2_witness] : '' }}"
+                    value="{{ $couple1 && $couple1->marriageDocument ? $witnessArr[$couple1->marriageDocument->who_signed_person_2_witness] : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
 
@@ -361,14 +363,14 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Occupation name</label>
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $couple1->marriageDocument->person_1_witness_occupation_name : '' }}"
+                    value="{{ $couple1 && $couple1->marriageDocument ? $couple1->marriageDocument->person_1_witness_occupation_name : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2 ">Authorization Person's Name who
                     witnessed Person 2 on the NOIM</label>
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $couple1->marriageDocument->person_2_witness_name : '' }}"
+                    value="{{ $couple1 && $couple1->marriageDocument ? $couple1->marriageDocument->person_2_witness_name : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
         </div>
@@ -388,12 +390,12 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div class="card-body text-center">
                         <h3 class="button-1 neutral-100 title ">Notice of Intended Marriage form</h3>
                         <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'noim-perview', 'id' => $couple1->user_id]) }}">View</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'noim-perview', 'id' => $couple1 ? $couple1->user_id : '']) }}">View</a>
                         </p>
 
                         <!-- <p class="mb-10"> <a href="availablity-upcoming-docs" class="theme-btn primary-btn-border  cursor-pointer d-inline-flex">View</a></p> -->
                         <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'noim-download', 'id' => $couple1->user_id]) }}">Download</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'noim-download', 'id' => $couple1 ? $couple1->user_id : '']) }}">Download</a>
                         </p>
                     </div>
                     <div class="card-footer  text-center">
@@ -407,10 +409,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div class="card-body text-center">
                         <h3 class="button-1 neutral-100 title ">Official Certificate of Marriage</h3>
                         <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => $couple[0]->user_id]) }}">View</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => $couple1 ? $couple1->user_id : '']) }}">View</a>
                         </p>
                         <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'download-official-certificate-of-marriage', 'id' => $couple[0]->user_id]) }}">Download</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'download-official-certificate-of-marriage', 'id' => $couple1 ? $couple1->user_id : '']) }}">Download</a>
                         </p>
                     </div>
                     <div class="card-footer  text-center">
@@ -424,10 +426,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div class="card-body text-center">
                         <h3 class="button-1 neutral-100 title ">Declaration of No legal Impediment</h3>
                         <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => $couple[0]->user_id]) }}">View</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => $couple1 ? $couple1->user_id : '']) }}">View</a>
                         </p>
                         <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'download-declaration-of-no-legal-impediment-to-marriage', 'id' => $couple[0]->user_id]) }}">Download</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'download-declaration-of-no-legal-impediment-to-marriage', 'id' => $couple1 ? $couple1->user_id : '']) }}">Download</a>
                         </p>
                     </div>
                     <div class="card-footer  text-center">
@@ -441,10 +443,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div class="card-body text-center">
                         <h3 class="button-1 neutral-100 title ">Certificate of Marriage-Form 15</h3>
                         <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'preview-certificate-of-marriage', 'id' => $couple[0]->user_id]) }}">View</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'preview-certificate-of-marriage', 'id' => $couple1 ? $couple1->user_id : '']) }}">View</a>
                         </p>
                         <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => $couple[0]->user_id]) }}">Download</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => $couple1 ? $couple1->user_id : '']) }}">Download</a>
                         </p>
                     </div>
                     <div class="card-footer  text-center">
@@ -457,10 +459,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <div class="card-body text-center">
                         <h3 class="button-1 neutral-100 title ">Certificate of Faithful performance of Interpreter</h3>
                         <p class="mb-10"> <a class="theme-btn primary-btn-border  cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => $couple[0]->user_id]) }}">View</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => $couple1 ? $couple1->user_id : '']) }}">View</a>
                         </p>
                         <p class="mb-0"> <a class="theme-btn primary-btn   cursor-pointer d-inline-flex"
-                                href="{{ route('userNoim.preview-document', ['page' => 'download-certificate-of-faithful-performance-by-interpreter', 'id' => $couple[0]->user_id]) }}">Download</a>
+                                href="{{ route('userNoim.preview-document', ['page' => 'download-certificate-of-faithful-performance-by-interpreter', 'id' => $couple1 ? $couple1->user_id : '']) }}">Download</a>
                         </p>
                     </div>
                     <div class="card-footer  text-center">
