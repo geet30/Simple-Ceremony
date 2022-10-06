@@ -408,7 +408,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="vehicle1" name="vehicle1"
                                                             value="Bike"
-                                                            {{ $person1 && $person1['person_description'] == 1 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['person_description'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                             for="vehicle1"> Partner</label>
@@ -417,7 +417,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="vehicle2" name="vehicle2"
                                                             value="Car"
-                                                            {{ $person1 && $person1['person_description'] == 2 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['person_description'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="vehicle2"> Bride</label>
@@ -426,7 +426,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="vehicle3" name="vehicle3"
                                                             value="Boat"
-                                                            {{ $person1 && $person1['person_description'] == 3 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['person_description'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="vehicle3"> Groom</label>
@@ -441,7 +441,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value1" name="value1"
                                                             value="value1"
-                                                            {{ $person2 && $person2['person_description'] == 1 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['person_description'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                             for="value1"> Partner</label>
@@ -450,7 +450,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value2" name="value2"
                                                             value="value2"
-                                                            {{ $person2 && $person2['person_description'] == 2 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['person_description'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value2"> Bride</label>
@@ -459,7 +459,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value3" name="value3"
                                                             value="value3"
-                                                            {{ $person2 && $person2['person_description'] == 3 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['person_description'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value3"> Groom</label>
@@ -514,7 +514,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="vehicle1" name="vehicle1"
                                                             value="Bike"
-                                                            {{ $person1 && $person1['gender'] == 2 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['gender'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                             for="vehicle1"> Female</label>
@@ -523,7 +523,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="vehicle2" name="vehicle2"
                                                             value="Car"
-                                                            {{ $person1 && $person1['gender'] == 1 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['gender'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="vehicle2"> Male</label>
@@ -532,7 +532,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="vehicle3" name="vehicle3"
                                                             value="Boat"
-                                                            {{ $person1 && $person1['gender'] == 3 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['gender'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="vehicle3"> Non-binary</label>
@@ -547,7 +547,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value1" name="value1"
                                                             value="value1"
-                                                            {{ $person2 && $person2['gender'] == 2 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['gender'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                             for="value1"> Female</label>
@@ -556,7 +556,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value2" name="value2"
                                                             value="value2"
-                                                            {{ $person2 && $person2['gender'] == 1 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['gender'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value2"> Male</label>
@@ -565,7 +565,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value3" name="value3"
                                                             value="value3"
-                                                            {{ $person2 && $person2['gender'] == 3 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['gender'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value3"> Non-binary</label>
@@ -627,7 +627,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value11" name="value11"
-                                                            {{ $person1 && $person1['conjugal_status'] == 1 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['conjugal_status'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
                                                             for="value11">Never validly married</label>
@@ -635,7 +635,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     <div style=" width:50%;display: flex;align-self:center"><input
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value12" name="value12"
-                                                            {{ $person1 && $person1['conjugal_status'] == 4 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['conjugal_status'] == 4 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value12"> Widowed</label>
@@ -646,7 +646,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value13" name="value12"
-                                                            {{ $person1 && $person1['conjugal_status'] == 2 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['conjugal_status'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value13"> Divorced</label>
@@ -654,7 +654,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     <div style=" width:50%;display: flex;align-self:center"> <input
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value14" name="value14"
-                                                            {{ $person1 && $person1['conjugal_status'] == 3 ? 'checked' : '' }}>
+                                                            {{ $person1 && $person1['conjugal_status'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;"
                                                             for="value14"> Divorce<br /> pending</label>
@@ -669,7 +669,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value15" name="value15"
-                                                            {{ $person2 && $person2['conjugal_status'] == 1 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['conjugal_status'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ;  line-height: 13px;"
                                                             for="value15">Never validly married</label>
@@ -677,7 +677,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     <div style=" width:50%;display: flex;align-self:center"><input
                                                             type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value16" name="value16"
-                                                            {{ $person2 && $person2['conjugal_status'] == 4 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['conjugal_status'] == 4 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value16"> Widowed</label>
@@ -688,7 +688,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value17" name="value17"
-                                                            {{ $person2 && $person2['conjugal_status'] == 2 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['conjugal_status'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="value17"> Divorced</label>
@@ -696,7 +696,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     <div style=" width:50%;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
                                                             class="checkbox" id="value18" name="value18"
-                                                            {{ $person2 && $person2['conjugal_status'] == 3 ? 'checked' : '' }}>
+                                                            {{ $person2 && $person2['conjugal_status'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;position: relative; top: 6px;"
                                                             for="value18"> Divorce<br /> pending</label>
@@ -1845,7 +1845,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'document_name' => 'noim',
                                                     ])
                                                     <button
-                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>`
                                                 @endif
                                             </td>
                                         </tr>

@@ -274,7 +274,7 @@
     'textarea[name="sections:2:section:container:brideResidentialAddress:secondary:switchGroup:internationalAddress:address:edit"]'
     ).val("");
 
-    $('select[name="sections:2:section:container:brideMaritalStatus:edit"]').val("{{ $person ? Config::get('userConstants.conjugal_status')[$person2->conjugal_status] : '' }}");
+    $('select[name="sections:2:section:container:brideMaritalStatus:edit"]').val("{{ $person2 && $person2->conjugal_status ? Config::get('userConstants.conjugal_status')[$person2->conjugal_status] : '' }}");
 
     $(
     'select[name="sections:2:section:container:brideMaritalStatus:edit"]'
