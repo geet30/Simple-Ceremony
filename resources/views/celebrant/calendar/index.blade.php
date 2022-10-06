@@ -40,42 +40,7 @@
             </a>
          </div>
       </div>
-      {{-- <div class="row">
-         <div class="col-lg-4 col-xl-5 align-self-center">
-            <ul class="nav theme-tabs border-0">
-               <li class="nav-item">
-                  <a class="nav-link active" id="month-tab" data-bs-toggle="tab" data-bs-target="#month" href="#">Month</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link " id="week-tab" data-bs-toggle="tab" data-bs-target="#week" href="#">Week</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link " id="day-tab" data-bs-toggle="tab" data-bs-target="#day" href="#">Day</a>
-               </li>
-            </ul>
-         </div>
-         <div class="col-lg-8 col-xl-7 mt-3 mt-xl-0 align-self-center">
-            <div class="d-md-flex h-100 justify-content-lg-end">
-               <div class="me-md-2 mb-3 mb-md-0">
-                  <a role="button" class="theme-btn primary-btn d-flex justify-content-center " >Share with google calendar</a>
-               </div>
-               <div class="me-md-2 mb-3 mb-md-0">
-                  <a role="button" class="theme-btn primary-btn d-flex justify-content-center " data-bs-toggle="modal" data-bs-target="#calendarmodal">
-                  <img class="me-2" src="/images/icons/date.svg" alt="calander-icon">
-                  March, 2022
-                  </a>
-               </div>
-               <div class="me-md-2 mb-3 mb-md-0"> <a role="button" class="theme-btn primary-btn d-flex justify-content-center h-100" >
-                  <img class="" src="/images/icons/arrow-left.svg" alt="allow-left">
-                  </a>
-               </div>
-               <div> <a role="button" class="theme-btn primary-btn d-flex justify-content-center h-100" >
-                  <img class="" src="/images/icons/arrow-right.svg" alt="allow-left">
-                  </a>
-               </div>
-            </div>
-         </div>
-      </div> --}}
+      
       <div class="row">
          <div class="col-12 mb-5">
             <!-- tab content -->
@@ -93,59 +58,8 @@
 @section('scripts')
 
 <script src="./fullcalendar/main.js"></script>
+<script src="./fullcalendar/init.js"></script>
 <script>
-   var bookingData = @json($booking);
-   console.log('====================================');
-   console.log(bookingData);
-   console.log('====================================');
-   var sortBookingData = [];
-   function addressFormatter(element) {
-      let address = element.booking_start_time+ ' - '+element.booking_end_time
-      let location = element.location?.name || '';
-      // return address +'\n '+ location;
-      return '\n '+location;
-   }
-
-   bookingData.forEach(element => {
-      // console.log('====================================');
-      // console.log(new Date(element.booking_date+'T'+element.booking_end_time));
-      // console.log('====================================');
-      sortBookingData.push({
-         id: element.id,
-         title: addressFormatter(element),
-         start: new Date(element.booking_date+'T'+element.booking_start_time),
-         end: new Date(element.booking_date+'T'+element.booking_end_time)
-      });
-      // start: element.booking_date+' '+element.booking_end_time
-   });
-  console.log('====================================');
-  console.log('sortBookingData -', sortBookingData);
-  console.log('====================================');
-
-   var calendarEl = document.getElementById('calendar-js');
-   var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth',
-      timeZone: 'UTC',
-      events:sortBookingData,
-      // contentHeight:"auto",
-      headerToolbar: { left: 'dayGridMonth,timeGridWeek,timeGridDay',center:'title',right:'gap,prev,gap,next'},
-      views:{
-         dayGridMonth:{
-            buttonText: 'Month'
-         },
-         timeGridWeek:{
-            buttonText: 'Week'
-         },
-         timeGridDay:{
-            buttonText: 'Day'
-         },
-         monthGrid:{
-            buttonText: 'asdgahjs'
-         }
-      },
-   });
-   calendar.render();
+   initCalander('calendar-js',@json($booking))
 </script>
 @endsection
-
-{{-- ./fullcalendar/main.min.js --}}
