@@ -743,20 +743,22 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                         </tr>
                                         <tr>
                                             <td style="font-size: 12px; color: black;">10.</td>
-                                            <td style="font-size: 12px; color: black;">Description of part</td>
+                                            <td style="font-size: 12px; color: black;">Are the parties related?</td>
                                             <td
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 <div style="    display: flex;align-self:center">
                                                     <div style="margin-right: 12px;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
-                                                            class="checkbox" id="value-1" name="value-1">
+                                                            class="checkbox" id="value-1" name="value-1"
+                                                            {{ $person1 && $person1['are_parties_related'] == 0 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
                                                             for="value-1"> No</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
-                                                            class="checkbox" id="value-2" name="value-2">
+                                                            class="checkbox" id="value-2" name="value-2"
+                                                            {{ $person1 && $person1['are_parties_related'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
                                                             for="vehicle2"> Yes – state relationship:</label>
@@ -767,7 +769,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <td
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 <input type="text"
-                                                    style=" width: 100%;   height:20px;padding: 20px 15px;">
+                                                    style=" width: 100%;   height:20px;padding: 20px 15px;"
+                                                    value="{{ $person1 && $person1['are_parties_related'] == 1 ? $person1['how_they_related'] : '' }}">
                                             </td>
                                         </tr>
                                     </table>
@@ -1118,24 +1121,26 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     @endif
                                                 @endif
                                                 @if (isset($button) && $button)
-                                                    <button type="button" data-bs-toggle="modal"
-                                                        style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
-                                                        data-bs-target="#person1WitnessSignature"
-                                                        onclick="readySignature('person1WitnessSignaturePad')">Edit</button>
-                                                    @include('user.documents.signature-modal', [
-                                                        'target' => 'person1WitnessSignature',
-                                                        'signatureId' => 'person1WitnessSignaturePad',
-                                                        'field_name' => 'person1witness_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
-                                                    <button data-bs-target="#person1witnessSignatureConfirmDelete"
-                                                        data-bs-toggle="modal"
-                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                    @include('user.documents.delete-signature-modal', [
-                                                        'target' => 'person1witnessSignatureConfirmDelete',
-                                                        'field_name' => 'person1witness_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
+                                                    @if (Auth::user()->user_type != 2)
+                                                        <button type="button" data-bs-toggle="modal"
+                                                            style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
+                                                            data-bs-target="#person1WitnessSignature"
+                                                            onclick="readySignature('person1WitnessSignaturePad')">Edit</button>
+                                                        @include('user.documents.signature-modal', [
+                                                            'target' => 'person1WitnessSignature',
+                                                            'signatureId' => 'person1WitnessSignaturePad',
+                                                            'field_name' => 'person1witness_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                        <button data-bs-target="#person1witnessSignatureConfirmDelete"
+                                                            data-bs-toggle="modal"
+                                                            style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                        @include('user.documents.delete-signature-modal', [
+                                                            'target' => 'person1witnessSignatureConfirmDelete',
+                                                            'field_name' => 'person1witness_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                    @endif
                                                 @endif
                                             </td>
                                             <td>&nbsp;</td>
@@ -1149,24 +1154,26 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     @endif
                                                 @endif
                                                 @if (isset($button) && $button)
-                                                    <button data-bs-toggle="modal"
-                                                        style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
-                                                        data-bs-target="#person2WitnessSignature"
-                                                        onclick="readySignature('person2WitnessSignaturePad')">Edit</button>
-                                                    @include('user.documents.signature-modal', [
-                                                        'target' => 'person2WitnessSignature',
-                                                        'signatureId' => 'person2WitnessSignaturePad',
-                                                        'field_name' => 'person2witness_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
-                                                    <button data-bs-target="#person2witnessSignatureConfirmDelete"
-                                                        data-bs-toggle="modal"
-                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                    @include('user.documents.delete-signature-modal', [
-                                                        'target' => 'person2witnessSignatureConfirmDelete',
-                                                        'field_name' => 'person2witness_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
+                                                    @if (Auth::user()->user_type != 2)
+                                                        <button data-bs-toggle="modal"
+                                                            style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
+                                                            data-bs-target="#person2WitnessSignature"
+                                                            onclick="readySignature('person2WitnessSignaturePad')">Edit</button>
+                                                        @include('user.documents.signature-modal', [
+                                                            'target' => 'person2WitnessSignature',
+                                                            'signatureId' => 'person2WitnessSignaturePad',
+                                                            'field_name' => 'person2witness_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                        <button data-bs-target="#person2witnessSignatureConfirmDelete"
+                                                            data-bs-toggle="modal"
+                                                            style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                        @include('user.documents.delete-signature-modal', [
+                                                            'target' => 'person2witnessSignatureConfirmDelete',
+                                                            'field_name' => 'person2witness_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>
@@ -1769,24 +1776,26 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     @endif
                                                 @endif
                                                 @if (isset($button) && $button)
-                                                    <button data-bs-toggle="modal"
-                                                        style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
-                                                        data-bs-target="#celebrantSignature"
-                                                        onclick="readySignature('celebrantSignaturePad')">Edit</button>
-                                                    @include('user.documents.signature-modal', [
-                                                        'target' => 'celebrantSignature',
-                                                        'signatureId' => 'celebrantSignaturePad',
-                                                        'field_name' => 'celebrant_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
-                                                    <button data-bs-target="#celebrantSignatureConfirmDelete"
-                                                        data-bs-toggle="modal"
-                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                    @include('user.documents.delete-signature-modal', [
-                                                        'target' => 'celebrantSignatureConfirmDelete',
-                                                        'field_name' => 'celebrant_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
+                                                    @if (Auth::user()->user_type != 2)
+                                                        <button data-bs-toggle="modal"
+                                                            style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
+                                                            data-bs-target="#celebrantSignature"
+                                                            onclick="readySignature('celebrantSignaturePad')">Edit</button>
+                                                        @include('user.documents.signature-modal', [
+                                                            'target' => 'celebrantSignature',
+                                                            'signatureId' => 'celebrantSignaturePad',
+                                                            'field_name' => 'celebrant_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                        <button data-bs-target="#celebrantSignatureConfirmDelete"
+                                                            data-bs-toggle="modal"
+                                                            style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                        @include('user.documents.delete-signature-modal', [
+                                                            'target' => 'celebrantSignatureConfirmDelete',
+                                                            'field_name' => 'celebrant_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>
@@ -1863,24 +1872,26 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     @endif
                                                 @endif
                                                 @if (isset($button) && $button)
-                                                    <button data-bs-toggle="modal"
-                                                        style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
-                                                        data-bs-target="#newCelebrantSignature"
-                                                        onclick="readySignature('newCelebrantSignaturePad')">Edit</button>
-                                                    @include('user.documents.signature-modal', [
-                                                        'target' => 'newCelebrantSignature',
-                                                        'signatureId' => 'newCelebrantSignaturePad',
-                                                        'field_name' => 'new_celebrant_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
-                                                    <button data-bs-target="#newCelebrantSignatureConfirmDelete"
-                                                        data-bs-toggle="modal"
-                                                        style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                    @include('user.documents.delete-signature-modal', [
-                                                        'target' => 'newCelebrantSignatureConfirmDelete',
-                                                        'field_name' => 'new_celebrant_signature',
-                                                        'document_name' => 'noim',
-                                                    ])
+                                                    @if (Auth::user()->user_type != 2)
+                                                        <button data-bs-toggle="modal"
+                                                            style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
+                                                            data-bs-target="#newCelebrantSignature"
+                                                            onclick="readySignature('newCelebrantSignaturePad')">Edit</button>
+                                                        @include('user.documents.signature-modal', [
+                                                            'target' => 'newCelebrantSignature',
+                                                            'signatureId' => 'newCelebrantSignaturePad',
+                                                            'field_name' => 'new_celebrant_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                        <button data-bs-target="#newCelebrantSignatureConfirmDelete"
+                                                            data-bs-toggle="modal"
+                                                            style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                        @include('user.documents.delete-signature-modal', [
+                                                            'target' => 'newCelebrantSignatureConfirmDelete',
+                                                            'field_name' => 'new_celebrant_signature',
+                                                            'document_name' => 'noim',
+                                                        ])
+                                                    @endif
                                                 @endif
                                             </td>
                                         </tr>

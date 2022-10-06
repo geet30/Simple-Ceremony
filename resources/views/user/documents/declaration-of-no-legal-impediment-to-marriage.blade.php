@@ -608,26 +608,30 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-bs-toggle="modal"
-                                                                data-bs-target="#celebrantsignature"
-                                                                onclick="readySignature('celebrantsignaturePad')">Edit</button>
-                                                            @include('user.documents.signature-modal', [
-                                                                'target' => 'celebrantsignature',
-                                                                'signatureId' => 'celebrantsignaturePad',
-                                                                'field_name' => 'celebrant_signature',
-                                                                'document_name' =>
-                                                                    'declaration-of-no-legal-impediment-to-marriage',
-                                                            ])
-                                                            <button data-bs-target="#celebrantSignatureConfirmDelete"
-                                                                data-bs-toggle="modal"
-                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                            @include('user.documents.delete-signature-modal',
-                                                                [
-                                                                    'target' => 'celebrantSignatureConfirmDelete',
+                                                            @if (Auth::user()->user_type != 2)
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#celebrantsignature"
+                                                                    onclick="readySignature('celebrantsignaturePad')">Edit</button>
+                                                                @include('user.documents.signature-modal', [
+                                                                    'target' => 'celebrantsignature',
+                                                                    'signatureId' => 'celebrantsignaturePad',
                                                                     'field_name' => 'celebrant_signature',
                                                                     'document_name' =>
                                                                         'declaration-of-no-legal-impediment-to-marriage',
                                                                 ])
+                                                                <button
+                                                                    data-bs-target="#celebrantSignatureConfirmDelete"
+                                                                    data-bs-toggle="modal"
+                                                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                                @include('user.documents.delete-signature-modal',
+                                                                    [
+                                                                        'target' =>
+                                                                            'celebrantSignatureConfirmDelete',
+                                                                        'field_name' => 'celebrant_signature',
+                                                                        'document_name' =>
+                                                                            'declaration-of-no-legal-impediment-to-marriage',
+                                                                    ])
+                                                            @endif
                                                         @endif
                                                     </td>
                                                     <td>&nbsp;</td>

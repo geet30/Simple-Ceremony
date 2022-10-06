@@ -582,28 +582,30 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-bs-toggle="modal"
-                                                                data-bs-target="#person1Witnesssignature"
-                                                                onclick="readySignature('person1WitnesssignaturePad')">Edit</button>
-                                                            @include('user.documents.signature-modal', [
-                                                                'target' => 'person1Witnesssignature',
-                                                                'signatureId' => 'person1WitnesssignaturePad',
-                                                                'field_name' => 'person1witness_signature',
-                                                                'document_name' =>
-                                                                    'offical-certificate-of-marriage',
-                                                            ])
-                                                            <button
-                                                                data-bs-target="#person1witnessSignatureConfirmDelete"
-                                                                data-bs-toggle="modal"
-                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                            @include('user.documents.delete-signature-modal',
-                                                                [
-                                                                    'target' =>
-                                                                        'person1witnessSignatureConfirmDelete',
+                                                            @if (Auth::user()->user_type != 2)
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#person1Witnesssignature"
+                                                                    onclick="readySignature('person1WitnesssignaturePad')">Edit</button>
+                                                                @include('user.documents.signature-modal', [
+                                                                    'target' => 'person1Witnesssignature',
+                                                                    'signatureId' => 'person1WitnesssignaturePad',
                                                                     'field_name' => 'person1witness_signature',
                                                                     'document_name' =>
                                                                         'offical-certificate-of-marriage',
                                                                 ])
+                                                                <button
+                                                                    data-bs-target="#person1witnessSignatureConfirmDelete"
+                                                                    data-bs-toggle="modal"
+                                                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                                @include('user.documents.delete-signature-modal',
+                                                                    [
+                                                                        'target' =>
+                                                                            'person1witnessSignatureConfirmDelete',
+                                                                        'field_name' => 'person1witness_signature',
+                                                                        'document_name' =>
+                                                                            'offical-certificate-of-marriage',
+                                                                    ])
+                                                            @endif
                                                         @endif
                                                         {{-- <input type="text" value=""
                                                             style="  width: 100%;  height: 20px;"> --}}
@@ -619,28 +621,30 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-bs-toggle="modal"
-                                                                data-bs-target="#person2Witnesssignature"
-                                                                onclick="readySignature('person2WitnesssignaturePad')">Edit</button>
-                                                            @include('user.documents.signature-modal', [
-                                                                'target' => 'person2Witnesssignature',
-                                                                'signatureId' => 'person2WitnesssignaturePad',
-                                                                'field_name' => 'person2witness_signature',
-                                                                'document_name' =>
-                                                                    'offical-certificate-of-marriage',
-                                                            ])
-                                                            <button
-                                                                data-bs-target="#person2witnessSignatureConfirmDelete"
-                                                                data-bs-toggle="modal"
-                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                            @include('user.documents.delete-signature-modal',
-                                                                [
-                                                                    'target' =>
-                                                                        'person2witnessSignatureConfirmDelete',
+                                                            @if (Auth::user()->user_type != 2)
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#person2Witnesssignature"
+                                                                    onclick="readySignature('person2WitnesssignaturePad')">Edit</button>
+                                                                @include('user.documents.signature-modal', [
+                                                                    'target' => 'person2Witnesssignature',
+                                                                    'signatureId' => 'person2WitnesssignaturePad',
                                                                     'field_name' => 'person2witness_signature',
                                                                     'document_name' =>
                                                                         'offical-certificate-of-marriage',
                                                                 ])
+                                                                <button
+                                                                    data-bs-target="#person2witnessSignatureConfirmDelete"
+                                                                    data-bs-toggle="modal"
+                                                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                                @include('user.documents.delete-signature-modal',
+                                                                    [
+                                                                        'target' =>
+                                                                            'person2witnessSignatureConfirmDelete',
+                                                                        'field_name' => 'person2witness_signature',
+                                                                        'document_name' =>
+                                                                            'offical-certificate-of-marriage',
+                                                                    ])
+                                                            @endif
                                                         @endif
                                                         {{-- <input type="text" value=""
                                                             style="  width: 100%;  height: 20px;"> --}}
@@ -700,26 +704,30 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @endif
                                                         @endif
                                                         @if (isset($button) && $button)
-                                                            <button data-bs-toggle="modal"
-                                                                data-bs-target="#celebrantSignature"
-                                                                onclick="readySignature('celebrantSignaturePad')">Edit</button>
-                                                            @include('user.documents.signature-modal', [
-                                                                'target' => 'celebrantSignature',
-                                                                'signatureId' => 'celebrantSignaturePad',
-                                                                'field_name' => 'celebrant_signature',
-                                                                'document_name' =>
-                                                                    'offical-certificate-of-marriage',
-                                                            ])
-                                                            <button data-bs-target="#celebrantSignatureConfirmDelete"
-                                                                data-bs-toggle="modal"
-                                                                style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
-                                                            @include('user.documents.delete-signature-modal',
-                                                                [
-                                                                    'target' => 'celebrantSignatureConfirmDelete',
+                                                            @if (Auth::user()->user_type != 2)
+                                                                <button data-bs-toggle="modal"
+                                                                    data-bs-target="#celebrantSignature"
+                                                                    onclick="readySignature('celebrantSignaturePad')">Edit</button>
+                                                                @include('user.documents.signature-modal', [
+                                                                    'target' => 'celebrantSignature',
+                                                                    'signatureId' => 'celebrantSignaturePad',
                                                                     'field_name' => 'celebrant_signature',
                                                                     'document_name' =>
                                                                         'offical-certificate-of-marriage',
                                                                 ])
+                                                                <button
+                                                                    data-bs-target="#celebrantSignatureConfirmDelete"
+                                                                    data-bs-toggle="modal"
+                                                                    style="border: 0;background: #dc3545;color: #fff;border-radius: 5px;padding: 5px 20px;">Delete</button>
+                                                                @include('user.documents.delete-signature-modal',
+                                                                    [
+                                                                        'target' =>
+                                                                            'celebrantSignatureConfirmDelete',
+                                                                        'field_name' => 'celebrant_signature',
+                                                                        'document_name' =>
+                                                                            'offical-certificate-of-marriage',
+                                                                    ])
+                                                            @endif
                                                         @endif
                                                         <span
                                                             style="font-size: 12px; color: black; font-weight: normal;margin-left: 6px; ">Celebrant’s
