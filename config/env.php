@@ -37,8 +37,10 @@ return [
         6 => 'Bendigo Bank',
         7 => 'AMP Bank Ltd'
     ],
-    'SERVERURL' => 'http://simpleceremoniesacc.crebos.online',
-    'COUNTRY' => 'Australia'
+    'SERVERURL' =>'http://simpleceremoniesacc.crebos.online',
+    'COUNTRY' =>'Australia',
+    'RESCHEDULE_FEE' =>'85',
+
 
 
 ];
