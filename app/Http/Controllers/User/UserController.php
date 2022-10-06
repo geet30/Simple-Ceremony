@@ -31,8 +31,8 @@ class UserController extends Controller
                 $cookie = Cookie::queue(Cookie::forget('myCart'));
             }
             if(isset($request->reschedule_session_id) && !empty($request->reschedule_session_id)){
-                $savePaymentDetail = Booking::savePaymentDetail($request->reschedule_session_id, $user_id,$bookingId);
-                BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>3]);
+                // $savePaymentDetail = Booking::savePaymentDetail($request->reschedule_session_id, $user_id,$bookingId);
+                // BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>3]);
             }
             
            
