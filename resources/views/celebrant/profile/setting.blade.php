@@ -58,6 +58,7 @@
                      @csrf
                      @method('PUT')
                         <div class="row">
+                        <input class="form-control body-1 netural-100 d-none imageInput" type="file" name="user[image]" onchange="readURL(this)">
                            <div class="col-md-6 mb-4">
                               <label for="username" class="form-label small-text2 ms-2 ">Username</label>
                               <input type="text" value="{{ auth()->user()->username }}" class="form-control body-1 netural-100 readonlyInput" name="user[username]" id="username" required readonly>
