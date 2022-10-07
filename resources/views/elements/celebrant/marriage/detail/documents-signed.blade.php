@@ -20,11 +20,11 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 form.pdf</p>
                             <div>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'noim-perview', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-perview', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"
                                     target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
                                         alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'noim-download', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-download', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -38,10 +38,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 Marriage</p>
                             <div>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'download-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -55,10 +55,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 Impediment</p>
                             <div>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'download-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -72,10 +72,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 performance of Interpreter</p>
                             <div>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('userNoim.preview-document', ['page' => 'download-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -254,10 +254,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                             <p id="filename" class="h4 neutral-100 mb-4"></p>
                             <p id="filename" class="h4 neutral-100 mb-3">Certificate of Marriage - Form 15</p>
                             <a class="me-2"
-                                href="{{ route('userNoim.preview-document', ['page' => 'preview-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                     src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                             <a class="me-2"
-                                href="{{ route('userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                     src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                         </div>
                         <div class="created-date">Created Feb 29, 2022</div>

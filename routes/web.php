@@ -209,6 +209,7 @@ $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
+        Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('admin.userNoim.preview-document');
         Route::get('test-google-calender-event', [CalanderController::class, 'createGoogleCalendarEvent']);
         Route::resource('marriage-celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
@@ -435,6 +436,7 @@ $celebrantRoutes = function () {
     Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
 
     Route::middleware('auth')->group(function () {
+        Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('celebrant.userNoim.preview-document');
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
