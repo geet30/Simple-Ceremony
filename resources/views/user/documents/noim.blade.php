@@ -46,7 +46,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                         <table align="left" border="0" cellpadding="0" cellspacing="0" height="100%"
                             width="100%">
                             <tr>
-                                <td><img src="{{ asset('document-logo.jpg') }}" style="height: 80px;"></td>
+                                <td style="padding-bottom: 15px;"><img src="{{ asset('document-logo.jpg') }}" style="height: 80px;"></td>
                             </tr>
                         </table>
                     </td>
@@ -294,13 +294,13 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                             width="100%">
                             <tbody>
                                 <tr>
-                                    <td style="width:60%">
+                                    <td style="width:60%;padding-top:20px;padding-bottom:20px;">
                                         <table align="left" border="0" cellpadding="0" cellspacing="0"
                                             height="100%" width="100%">
-                                            <thead style="background-color: black; ">
+                                            <thead>
                                                 <tr>
                                                     <td colspan="2"
-                                                        style="font-size: 12px; color: white;  text-align:center;  padding: 7px;">
+                                                        style="font-size: 12px; color: white;  text-align:center;  padding: 7px;background-color: black;1px solid black">
                                                         FOR CELEBRANT USE ONLY – BOOKING INFORMATION
                                                     </td>
                                                 </tr>
@@ -333,10 +333,10 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                     <td style="width:30%">
                                         <table align="left" border="0" cellpadding="0" cellspacing="0"
                                             height="100%" width="100%">
-                                            <thead style="background-color: black; ">
+                                            <thead>
                                                 <tr>
                                                     <td
-                                                        style="font-size: 12px; color: white;  text-align:center;  padding: 7px;">
+                                                        style="font-size: 12px; color: white;  text-align:center;  padding: 7px;background-color: black;1px solid black">
                                                         For use only by Registries of Births, Deaths & Marriages
                                                     </td>
                                                 </tr>
@@ -409,7 +409,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['person_description'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="vehicle1"> Partner</label>
+                                                            > Partner</label>
                                                     </div>
                                                     <div style="margin-right: 12px; display: flex;align-self: center">
                                                         <input type="checkbox" style="margin-right: 10px;"
@@ -418,7 +418,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['person_description'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="vehicle2"> Bride</label>
+                                                            > Bride</label>
                                                     </div>
                                                     <div style="margin-right: 12px; display: flex;align-self: center">
                                                         <input type="checkbox" style="margin-right: 10px;"
@@ -427,7 +427,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['person_description'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="vehicle3"> Groom</label>
+                                                            > Groom</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -442,7 +442,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['person_description'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="value1"> Partner</label>
+                                                            > Partner</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex"><input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -451,7 +451,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['person_description'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value2"> Bride</label>
+                                                            > Bride</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex"> <input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -460,7 +460,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['person_description'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value3"> Groom</label>
+                                                            > Groom</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -515,7 +515,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['gender'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="vehicle1"> Female</label>
+                                                            > Female</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex"><input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -524,7 +524,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['gender'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="vehicle2"> Male</label>
+                                                            > Male</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex"> <input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -533,7 +533,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['gender'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="vehicle3"> Non-binary</label>
+                                                            > Non-binary</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -548,7 +548,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['gender'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="value1"> Female</label>
+                                                            > Female</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex;align-self: center;">
                                                         <input type="checkbox" style="margin-right: 10px;"
@@ -557,7 +557,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['gender'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value2"> Male</label>
+                                                            > Male</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex;align-self: center;">
                                                         <input type="checkbox" style="margin-right: 10px;"
@@ -566,7 +566,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['gender'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value3"> Non-binary</label>
+                                                            > Non-binary</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -628,7 +628,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['conjugal_status'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
-                                                            for="value11">Never validly married</label>
+                                                            >Never validly married</label>
                                                     </div>
                                                     <div style=" width:50%;display: flex;align-self:center"><input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -636,7 +636,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['conjugal_status'] == 4 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value12"> Widowed</label>
+                                                            > Widowed</label>
                                                     </div>
                                                 </div>
                                                 <div style="    display: flex;">
@@ -647,7 +647,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['conjugal_status'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value13"> Divorced</label>
+                                                            > Divorced</label>
                                                     </div>
                                                     <div style=" width:50%;display: flex;align-self:center"> <input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -655,7 +655,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['conjugal_status'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;"
-                                                            for="value14"> Divorce<br /> pending</label>
+                                                            > Divorce<br /> pending</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -670,7 +670,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['conjugal_status'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ;  line-height: 13px;"
-                                                            for="value15">Never validly married</label>
+                                                            >Never validly married</label>
                                                     </div>
                                                     <div style=" width:50%;display: flex;align-self:center"><input
                                                             type="checkbox" style="margin-right: 10px;"
@@ -678,7 +678,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['conjugal_status'] == 4 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value16"> Widowed</label>
+                                                            > Widowed</label>
                                                     </div>
                                                 </div>
                                                 <div style="    display: flex;">
@@ -689,7 +689,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['conjugal_status'] == 2 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value17"> Divorced</label>
+                                                            > Divorced</label>
                                                     </div>
                                                     <div style=" width:50%;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
@@ -697,7 +697,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person2 && $person2['conjugal_status'] == 3 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;position: relative; top: 6px;"
-                                                            for="value18"> Divorce<br /> pending</label>
+                                                            > Divorce<br /> pending</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -753,7 +753,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['are_parties_related'] == 0 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="value-1"> No</label>
+                                                            > No</label>
                                                     </div>
                                                     <div style="margin-right: 12px;display: flex;align-self:center">
                                                         <input type="checkbox" style="margin-right: 10px;"
@@ -761,7 +761,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{ $person1 && $person1['are_parties_related'] == 1 ? 'checked=checked' : '' }}>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="vehicle2"> Yes – state relationship:</label>
+                                                            > Yes – state relationship:</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1214,23 +1214,14 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                 <input type="text" value="Michael John Teulon"
                                                     style="width: 100%;height: 20px;padding: 20px 15px;">
                                             </td>
-                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-size: 12px; color: black;">18.</td>
+                                            <td style="font-size: 12px; color: black;">Date notice received</td>
                                             <td
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
-                                                <div style="display: flex;">
-                                                    <div
-                                                        style="font-size: 12px; color: black;font-weight: normal; margin-right: 20px;">
-                                                        18.
-                                                    </div>
-                                                    <div
-                                                        style="font-size: 12px; color: black;font-weight: normal;margin-right: 20px">
-                                                        Date notice received
-                                                    </div>
-                                                    <div style="width: 100%;"><input type="text"
-                                                            value="Des HAMMOND"
-                                                            style="  width: 100%;  height: 20px;font-weight: normal;padding: 20px 15px;">
-                                                    </div>
-                                                </div>
+                                                <input type="text" value="Des HAMMOND"
+                                                    style="width: 100%;height: 20px;padding: 20px 15px;">
                                             </td>
                                         </tr>
                                         <tr>
@@ -1258,7 +1249,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value11" name="value11">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
-                                                            for="value11">Birthcertificateor official extract</label>
+                                                            >Birthcertificateor official extract</label>
                                                     </div>
                                                     <div
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
@@ -1266,7 +1257,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value12" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
-                                                            for="value12"> Overseas passport</label>
+                                                            > Overseas passport</label>
                                                     </div>
                                                 </div>
                                                 <div style="    display: flex;">
@@ -1276,7 +1267,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value13" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
-                                                            for="value13"> Statutory declaration</label>
+                                                            > Statutory declaration</label>
                                                     </div>
                                                     <div
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
@@ -1284,7 +1275,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value14" name="value14" checked>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal;line-height: 16px;"
-                                                            for="value14"> Overseas passport</label>
+                                                            > Overseas passport</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1298,7 +1289,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value11" name="value11">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 13px;"
-                                                            for="value11">Birthcertificateor official extract</label>
+                                                            >Birthcertificateor official extract</label>
                                                     </div>
                                                     <div
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
@@ -1306,7 +1297,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value12" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
-                                                            for="value12"> Overseas passport</label>
+                                                            > Overseas passport</label>
                                                     </div>
                                                 </div>
                                                 <div style="    display: flex;">
@@ -1316,7 +1307,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value13" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal;  line-height: 13px;"
-                                                            for="value13"> Statutory declaration</label>
+                                                            > Statutory declaration</label>
                                                     </div>
                                                     <div
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
@@ -1324,7 +1315,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value14" name="value14" checked>
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 13px;"
-                                                            for="value14"> Overseas passport</label>
+                                                            > Overseas passport</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1361,7 +1352,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         class="checkbox" id="value14" name="value14" checked>
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                        for="value14"> Confirmed</label>
+                                                        > Confirmed</label>
                                                 </div>
                                             </td>
                                             <td>&nbsp;</td>
@@ -1372,7 +1363,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         class="checkbox" id="value14" name="value14" checked>
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                        for="value14"> Confirmed</label>
+                                                        > Confirmed</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1464,7 +1455,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value11" name="value11">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="value11">Death</label>
+                                                            >Death</label>
                                                     </div>
                                                     <div
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
@@ -1472,7 +1463,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value12" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value12"> Nullity</label>
+                                                            > Nullity</label>
                                                     </div>
                                                 </div>
                                                 <div style="    display: flex;;align-self:center">
@@ -1482,7 +1473,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value13" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value13"> Divorce</label>
+                                                            > Divorce</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1496,7 +1487,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value11" name="value11">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal ; line-height: 19px;"
-                                                            for="value11">Death</label>
+                                                            >Death</label>
                                                     </div>
                                                     <div
                                                         style="margin-right: 12px; width:50%;display: flex;align-self:center">
@@ -1504,7 +1495,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value12" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value12"> Nullity</label>
+                                                            > Nullity</label>
                                                     </div>
                                                 </div>
                                                 <div style="    display: flex;align-self:center">
@@ -1514,7 +1505,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             class="checkbox" id="value13" name="value12">
                                                         <label
                                                             style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                            for="value13"> Divorce</label>
+                                                            > Divorce</label>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1566,7 +1557,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         class="checkbox" id="value13" name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                        for="value13"> Person 1</label>
+                                                        > Person 1</label>
                                                 </div>
                                             </td>
                                             <td>&nbsp;</td>
@@ -1577,7 +1568,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                        for="value13"> Person 2</label>
+                                                        > Person 2</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1592,7 +1583,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         class="checkbox" id="value13" name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                        for="value13"> Consents received</label>
+                                                        > Consents received</label>
                                                 </div>
                                             </td>
                                             <td>&nbsp;</td>
@@ -1603,7 +1594,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         class="checkbox" id="value13" name="value12">
                                                     <label
                                                         style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                        for="value13"> Court approval</label>
+                                                        > Court approval</label>
                                                 </div>
                                             </td>
                                         </tr>
@@ -1653,7 +1644,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     checked>
                                                                 <label
                                                                     style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                                    for="value13"> Not applicable</label>
+                                                                    > Not applicable</label>
                                                             </div>
                                                         </td>
                                                         <td>
@@ -1662,7 +1653,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     class="checkbox" id="value13" name="value12">
                                                                 <label
                                                                     style="font-size: 12px; color: black; font-weight: normal; line-height: 19px;"
-                                                                    for="value13">Granted</label>
+                                                                    >Granted</label>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -1672,15 +1663,15 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <td style="width:50%">
                                                 <table align="left" border="0" cellpadding="0" cellspacing="0"
                                                     height="100%" width="100%">
-                                                    <thead style="background-color: black; ">
+                                                    <thead>
                                                         <tr>
-                                                            <td style="padding: 7px;">
+                                                            <td style="padding: 7px;background-color: black;text-align:center;1px solid black">
                                                                 <p
-                                                                    style="font-size: 12px; color: white;  text-align:center;">
+                                                                    style="font-size: 12px; color: white;">
                                                                     FOR OFFICIAL USE ONLY
                                                                 </p>
                                                                 <p
-                                                                    style="font-size: 12px; color: white;  text-align:center; font-weight: normal;">
+                                                                    style="font-size: 12px; color: white;font-weight: normal;">
                                                                     To be used by a prescribed authority when granting a
                                                                     shortening of time
                                                                 </p>
@@ -1738,7 +1729,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 <input type="text"
                                                     value="Bondi Beach - In the sand, Bondi, 2026, NSW"
-                                                    style="  width: 100%;  height:20px;padding: 20px 15px;">
+                                                    style="  width: 100%;  height:20px;padding: 20px 15px;"><br>
                                                 <span
                                                     style="font-size: 12px; color: black; font-weight: normal; ">Location,
                                                     including suburb or town, city, state or territory and postcode
@@ -1753,7 +1744,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <td
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 <input type="text" value="Marriage Act 1961"
-                                                    style="  width: 100%;  height:20px;padding: 20px 15px;">
+                                                    style="  width: 100%;  height:20px;padding: 20px 15px;"><br>
                                                 <span
                                                     style="font-size: 12px; color: black; font-weight: normal; ">Religious
                                                     rites or civil ceremony according to the Marriage Act 1961 (Cth)

@@ -25,7 +25,7 @@
                                 @csrf
                                 <input type="hidden" name="document_name" value="{{ $document_name }}">
                                 <div class="col-md-12">
-                                    <label class="mb-3" for="">Signature:</label>
+                                    <label class="mb-3 info-ttitle" for="">Signature:</label>
                                     <div id="{{ $signatureId }}">
                                     </div>
                                     <textarea id="{{ $signatureId }}signature64" name="signed" style="display: none"></textarea>
@@ -61,18 +61,7 @@
                                             <div class="d-md-flex ">
                                                 <div
                                                     class="d-flex d-md-block  justify-content-center justify-content-md-start">
-                                                    <img src="/images/icons/uploading.svg"
-                                                        class="img-fluid mb-2 align-self-center">
-                                                    <p
-                                                        class="text-1 text-black align-self-center mb-0 mt-mb-0 ms-md-0 ms-2">
-                                                        Compatible
-                                                        file .pdf .docx</p>
-                                                </div>
-                                                <div class="align-self-center ms-md-3 text-center mt-3 mt-md-0">
-                                                    <p class="body-2 text-black mb-1">Upload signature
-                                                    </p>
-                                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse
-                                                        file</p>
+                                                    <p class="mt-3 info-ttitle">Compatible file .pdf .docx</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,4 +134,8 @@
     .modal-header {
         border: 0;
     }
+    .info-ttitle {
+    font-size: 16px;
+    font-weight: 400;
+}
 </style>
