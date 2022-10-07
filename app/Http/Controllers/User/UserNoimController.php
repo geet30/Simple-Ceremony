@@ -183,7 +183,7 @@ class UserNoimController extends Controller
             'booking_id' => $bookingId,
         ]);
         UserMarriageDocument::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
-        return $request->all();
+        return redirect()->back();
     }
 
     public function previewDocument(Request $request, $document, $userId = null)
