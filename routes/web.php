@@ -511,6 +511,9 @@ $celebrantRoutes = function () {
     Route::get('password-reset', function () {
         return view('celebrant.password-reset');
     });
+
+    // component render
+    Route::get('day-sub-slots',[CalendarController::class,'subSlots'])->name('sub-slots-html-component');
 };
 
 Route::group(array('domain' => config('env.PARTNER')), $partnerRoutes);

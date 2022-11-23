@@ -63,6 +63,50 @@
       format: 'dd-mm-yyyy',
       weekDayLength: 2,
    });
-
+   $('#submit-first-rolling-form').click(function(){
+      let start_date = $('#choose-date').val();
+      let end_date = $('#end-date').val();
+      console.log(start_date,end_date);
+      if(start_date && end_date) $('#form-2-after-1st').removeClass('d-none');
+   })
+   $(document).on('click','.get-sub-slots',function(){
+      let data = $(this).data();
+      let day = data.day;
+      let url = data.url;
+      let className = data.class;
+      let key = $('.'+className+':last').data('keyid') || 1;
+      console.log(data);
+      key++;
+      $.ajax({
+         url:url,
+         data:{day:day,key:key},
+         success : function(rs){
+            // console.log(rs);
+            $('.'+className+':last').after(rs);
+         },
+         error: function(er){
+            console.log(er);
+         }
+      })
+   });
+   $(document).on('click','.ns-event-checkbox-uncheck',function(){
+      let data = $(this).parent().parent().parent().data()
+      let classes = $(this).parent().parent().parent().attr('class')
+      $('.'+data.target).show()
+      $('.'+classes).hide()
+      console.log('unchecked',data);
+      console.log('classes',classes);
+   });
+   $(document).on('click','.ns-event-checkbox-check',function(){
+      let data = $(this).parent().parent().parent().data()
+      let classes = $(this).parent().parent().parent().attr('class')
+      console.log('checked',data);
+      console.log('classes',classes);
+      $('.'+data.target).show()
+      $('.'+classes).hide()
+   })
+   // function ajaxRequest($url,callback){
+   //    $ajax
+   // }
 </script>
 @endsection

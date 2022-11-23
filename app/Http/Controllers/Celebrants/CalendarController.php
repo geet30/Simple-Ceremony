@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Celebrants;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\{Booking};
+use App\View\Components\daySubSlots;
 
 class CalendarController extends Controller
 {
@@ -83,5 +84,10 @@ class CalendarController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function subSlots(Request $request)
+    {
+        return view('celebrant.calendar.subslots',['key' => $request->key ?? 1,'day' => $request->day ?? '']);
     }
 }
