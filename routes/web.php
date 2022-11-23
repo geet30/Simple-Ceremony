@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
@@ -223,7 +223,8 @@ $adminRoutes = function () {
         Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
         Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
-
+        Route::resource('financial-report', FinancialReportController::class);
+        Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
         Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);
@@ -321,12 +322,7 @@ $adminRoutes = function () {
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
 
 
-        Route::get('all-reports', function () {
-            return view('admin.financial-report.all-reports');
-        });
-        Route::get('reports-location', function () {
-            return view('admin.financial-report.reports-location');
-        });
+     
 
         Route::get('all-referrers', function () {
             return view('admin.referrers.all-referrers');

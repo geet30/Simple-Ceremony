@@ -1,45 +1,23 @@
 <?php
 
-namespace App\Traits\Invoices;
+namespace App\Traits\FinancialReport;
 
-use App\Models\{User, Booking, Invoices};
+use App\Models\{User, Booking, Locations};
 
 trait Methods
 {
 
-    public static function fetch_all_payments($slug=null,$celebrant_id = null)
+    public static function fetch_all_reports($id=null)
     {   
+        $data = Locations::whereHas('booking')->with(['booking']);
+        if($id !=null){
+            $data = $data->where('id',$id);
+        }
         
-       
-        $data =   Invoices::with([
-            'booking' => function ($query) {
-                $query->select( 'id', 'booking_date', 'price', 'first_couple_name', 'second_couple_name', 'status','ceremony_type');
-            },
-        ]);
-       
-
-        // if($slug =='invoice-couple'){
-
-        // }else 
-        
-        if($slug == 'celebrants-invoice'){  
-            $type = config('env.userType.Celebrant');
-            $data = $data->where(function ($query) use ($type){
-              
-                $common_type = config('env.userType.Admin');
-                $query->where('user_type', '=', $type)
-                      ->orWhere('user_type', '=', $common_type);
-            });
-            
-        } 
-        if($celebrant_id != null){
-            $data = $data->where('celebrant_id',$celebrant_id);
-        }          
-   
         return $data;
-    }
-   
+    }  
     public static function createCustomInvoice($data){
+        // dd($data->all());
         
         $booking =  Booking::where('id',$data->booking_id)->first();
               
@@ -176,75 +154,5 @@ trait Methods
         // dd($data->toSql());
        
     }
-    public static function getUserInfo($id=null){
-        $getUserInfo =   Booking::with([
-            'celebrant_details' => function ($query) {
-                $query->select( 'id', 'admin_fee', 'standard_fee','celebrant_id');
-            },
-        ]);
-
-        if($id != ''){
-            $getUserInfo = $getUserInfo->where('id',$id);
-        }
-        $getUserInfo =$getUserInfo->first();
-        return $getUserInfo;
-    }
-    public static function getRecipientInfo($id=null){
-        return User::where('id',$id)->first();
-    }
-    public static function searchCelebrantInvoices($request)
-    {
-       
-        try{
-            $req_page = 1;
-            $records = 10;
-            $slug = '';
-                 
-            $data = self::fetch_all_payments($slug);
-            if ($request->has('bookingStatus') && $request->filled('bookingStatus')) {
-            
-                $status = $request->bookingStatus;
-               
-                $data = $data->whereHas('booking', (function ($q) use ($status) {
-                    
-                    $q->WhereIn('status', $status);
-                    
-                }));
-            }
-
-            if ($request->has('payment_date') && !empty($request->payment_date) && $request->has('ceremony_date') && !empty($request->ceremony_date)) {
-                $date =  $request->booking_date;
-                $data = $data->whereHas('booking', (function ($q) use ( $date) {
-    
-                    $q->where('booking_date', $date);
-                    
-                })); 
-            }else if($request->has('payment_date') && !empty($request->payment_date)){// this needs to be changed when we will have the booking payment made to celebrant
-                $date =  $request->booking_date;
-                $data = $data->whereHas('booking', (function ($q) use ( $date) {
-    
-                    $q->where('booking_date', $date);
-                    
-                })); 
-            }
-            else if($request->has('ceremony_date') && !empty($request->ceremony_date)){
-               
-                $date =  $request->booking_date;
-                $data = $data->whereHas('booking', (function ($q) use ( $date) {
-    
-                    $q->where('booking_date', $date);
-                    
-                })); 
-            }        
-            
-           
-         
-            return $data->paginate($records, ['*'], 'page', $req_page);
-        }catch (\Exception $ex) {
-            dd($ex);
-         }
-       
-        // dd($data->toSql());
-       
-    }   
+  
 }
