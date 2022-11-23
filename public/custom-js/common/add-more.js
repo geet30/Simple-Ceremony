@@ -115,7 +115,7 @@ $(document).ready(function(){
                         <div class="upload__btn-box">
                            <label class="theme-btn primary-btn ">
                               <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
-                              <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile-${counter}" name="partner_packages[${counter}][package_images][image_name][]" required>
+                              <input type="file" multiple="" data-max_length="20" class="upload_multiple_inputfile" id="upload_multiple_inputfile-${counter}" name="partner_packages[${counter}][package_images][image_name][]" required>
                               <div class="invalid-feedback" style="position: absolute;bottom: -24px;left: 40px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                            </label>
                         </div>
@@ -241,7 +241,12 @@ $(document).ready(function(){
       $('.'+parentClass).append(htmlCode); 
       $('.select_partner').select2();
       $('.packages').select2();
-      ImgUpload(counter);
+      if ($('.upload__inputfile').length > 0) {
+         ImgUpload(counter);
+      }else{
+         ImgUploadMultiple(counter);
+      }
+      
    }
    function showTotals(){
       total_fee =0;    

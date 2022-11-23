@@ -220,7 +220,7 @@
                                     <div class="upload__btn-box">
                                        <label class="theme-btn primary-btn ">
                                           <p class="mb-0"> <img src="/images/icons/photo.svg"  class="img-fluid me-2">Upload images</p>
-                                          <input type="file" multiple="" data-max_length="20" class="upload__inputfile" id="upload__inputfile" name="partner_packages[0][package_images][image_name][]" required>
+                                          <input type="file" multiple="" data-max_length="20" class="upload_multiple_inputfile" id="upload_multiple_inputfile" name="partner_packages[0][package_images][image_name][]" required>
                                           <div class="invalid-feedback" style="position: absolute;bottom: -24px;left: 40px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Images are required</div>
                                        </label>
                                     </div>

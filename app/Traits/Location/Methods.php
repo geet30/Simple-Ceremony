@@ -13,6 +13,7 @@ trait Methods
    
   
     static function addData($data){    
+       
         try{          
             $input = $data->all();
             $input['added_by'] = Auth::user()->id;
@@ -107,8 +108,8 @@ trait Methods
 
     }
     static function locationExtras($data,$id,$type=null){
-        if($data->has('location_images')){
-            foreach($data->location_images as $file){
+        if($data->has('gallery_images')){
+            foreach($data->gallery_images as $file){
                 if($type != ''){
                     $image['location_type'] = $type; 
                     $image['request_location_id'] = $id;
@@ -117,7 +118,9 @@ trait Methods
                     $image['location_id'] = $id;
                 }
               
-                $image['image'] = uploadImage($file, 'locations');
+                // $image['image'] = uploadImage($file, 'locations');
+                $image['image'] = uploadBase64Image($file, 'locations');
+                
                 LocationImages::create($image);
             }   
         }

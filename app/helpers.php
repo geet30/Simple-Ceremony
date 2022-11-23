@@ -97,6 +97,31 @@ function uploadImage($image, $folder)
         return false;
     }
 }
+/** get image from base64 */
+function uploadBase64Image($base64_image, $folder)
+{
+   $folderPath = "uploads/images/" . $folder . '/';
+   //Check if the directory already exists.
+   if (!is_dir($folderPath)) {
+      //Directory does not exist, so lets create it.
+      mkdir($folderPath, 0755);
+   }
+   $image_parts = explode(";base64,", $base64_image);
+   $image_type_aux = explode("image/", $image_parts[0]);
+   if (!empty($image_type_aux[1])) {
+      $image_type = $image_type_aux[1];
+      if ($image_type == 'svg+xml') {
+         $image_type = 'svg';
+      }
+      $image_base64 = base64_decode($image_parts[1]);
+      $filename = uniqid() . '.' . trim($image_type);
+      $file = $folderPath . $filename;
+      file_put_contents($file, $image_base64);
+      return $filename;
+   } else {
+      return false;
+   }
+}
 /**
  *  function to upload the document
  */

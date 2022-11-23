@@ -219,6 +219,7 @@ class LocationsController extends Controller
     public function store(Request $request)
     {
         try {
+           
             $locations = Locations::addData($request);
             if ($locations['status'] == false) {
                 return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();

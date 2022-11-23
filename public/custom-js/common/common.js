@@ -158,13 +158,20 @@ function updateThumbnail(dropZoneElement, file) {
 }
 //
 let imgId = ".upload__inputfile";
+let imgmultipleId = ".upload_multiple_inputfile";
 $(document).ready(function () {
     if ($(".alert").is(":visible")) {
         //  $('html, body').animate({ scrollTop: $('.alert:first').offset().top - 10 }, 500);
         $(".alert").slideDown(300).delay(3000).slideUp(300);
     }
     $("#loading").hide();
-    ImgUpload();
+    if ($('.upload__inputfile').length > 0) {
+        ImgUpload();
+    }else{
+        ImgUploadMultiple();
+    }
+    
+   
     $(".calendar-wrapper").calendar(defaultConfig);
     $(document).on("click", ".delete_append_id", function () {
         var id = $(this).data("id");
@@ -232,25 +239,18 @@ window.changeButtonColor = function (findclass, text) {
     $("." + findclass).html(text);
 };
 function ImgUpload(counter = null) {
-    var imgWrap = "";
-    var imgArray = [];
-
-    if (counter != null) {
-        imgId = "#upload__inputfile-" + counter;
-    }
-    $(imgId).each(function () {
-        $(this).on("change", function (e) {
+    if (window.File && window.FileList && window.FileReader){
+       
+        var imgWrap = "";
+        var imgArray = [];
+        $(".upload__inputfile").on("change", function(e) {
+            var file = e.target.files,
+            imagefiles = $(".upload__inputfile")[0].files;
             imgWrap = $(this).closest(".upload__box").find(".upload__img-wrap");
             var maxLength = $(this).attr("data-max_length");
-
-            var files = e.target.files;
-            var filesArr = Array.prototype.slice.call(files);
             var iterator = 0;
-            filesArr.forEach(function (f, index) {
-                if (!f.type.match("image.*") && !f.type.match("video.*")) {
-                    // if (!f.type.match('image.*')) {
-                    return;
-                }
+            var files = e.target.files;
+            $.each(imagefiles, function(f, index){
                 if (imgArray.length > maxLength) {
                     return false;
                 } else {
@@ -262,13 +262,21 @@ function ImgUpload(counter = null) {
                     }
                     if (len > maxLength) {
                         return false;
-                    } else {
+                    } else {                      
+                        var f = files[iterator];                      
                         imgArray.push(f);
-                        console.log(imgArray);
 
                         var reader = new FileReader();
                         reader.onload = function (e) {
-                            if (f.type.match("video.*")) {
+                            var match = reader.result.match(/^data:([^/]+)\/([^;]+);/) || [];
+                            var type = match[1];
+
+                            if (type !='video' && type !='image') {
+                                return;
+                            }
+
+                            
+                            if (type == 'video') {
                                 var html = `<div class='upload__img-box'>
                                 <div class="video-container" id="video-container" data-number='${
                                     $(".upload__img-close").length
@@ -284,7 +292,7 @@ function ImgUpload(counter = null) {
                                           e.target.result
                                       }" type="video/mp4">
                                     </video>
-                                    <div class="upload__img-close" style="right:20px"></div>
+                                    <div class="upload__img-close" style="right:20px"></div><input type=\"hidden\" name=\"gallery_images[]\" value="${e.target.result}">
                                   </div>
                             </div>`;
                             } else {
@@ -295,7 +303,87 @@ function ImgUpload(counter = null) {
                                     $(".upload__img-close").length +
                                     "' data-file='" +
                                     f.name +
-                                    "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+                                    "' class='img-bg'><div class='upload__img-close'></div></div></div><input type=\"hidden\" name=\"gallery_images[]\" value=\"" + e.target.result + "\">";
+                            }
+
+                            imgWrap.append(html);
+                            iterator++;
+                        };
+                        reader.readAsDataURL(f);
+                    }
+                }
+            });
+        });
+    } else {
+        alert("Your browser doesn't support to File API")
+    }
+}
+function ImgUploadMultiple(counter = 0) {
+    var imgWrap = "";
+    var imgArray = [];
+
+    if (counter != 0) {
+        imgmultipleId = "#upload_multiple_inputfile-" + counter;
+    }
+    $(imgmultipleId).each(function () {
+        $(this).on("change", function (e) {
+            imagefiles = $(this)[0].files;
+            console.log(imagefiles);
+            imgWrap = $(this).closest(".upload__box").find(".upload__img-wrap");
+            var maxLength = $(this).attr("data-max_length");
+
+            var files = e.target.files;
+            var filesArr = $(this)[0].files;
+            var iterator = 0;
+            $.each(imagefiles, function(f, index){
+                if (imgArray.length > maxLength) {
+                    return false;
+                } else {
+                    var len = 0;
+                    for (var i = 0; i < imgArray.length; i++) {
+                        if (imgArray[i] !== undefined) {
+                            len++;
+                        }
+                    }
+                    if (len > maxLength) {
+                        return false;
+                    } else {                      
+                        var f = files[iterator];                      
+                        imgArray.push(f);
+
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            var match = reader.result.match(/^data:([^/]+)\/([^;]+);/) || [];
+                            var type = match[1];
+
+                            if (type !='video' && type !='image') {
+                                return;
+                            }
+
+                            
+                            if (type == 'video') {
+                                
+                                var html = `<div class='upload__img-box'>
+                                <div class="video-container" id="video-container" data-number='${
+                                    $(".upload__img-close").length
+                                }' data-file='${f.name}'>
+                                    <video controls width="100%" data-number='${
+                                        $(".upload__img-close").length}' data-file='${f.name}' class=''  id="video" preload="metadata" poster="${e.target.result}">
+                                      <source src="${e.target.result}" type="video/mp4">
+                                    </video>
+                                    <div class="upload__img-close" style="right:20px"></div><input type=\"hidden\" name=\"partner_packages[${counter}][gallery_images][image_name][]\" value="${e.target.result}">
+                                  </div>
+                            </div>`;
+                            } else {
+                                var html =
+                                    "<div class='upload__img-box'><div style='background-image: url(" +
+                                    e.target.result +
+                                    ")' data-number='" +
+                                    $(".upload__img-close").length +
+                                    "' data-file='" +
+                                    f.name +
+                                    "' class='img-bg'><div class='upload__img-close'></div></div></div><input type=\"hidden\" name=\"partner_packages["+counter+"][gallery_images][image_name][]\" value=\"" + e.target.result + "\">";
+                                    
                             }
 
                             imgWrap.append(html);
@@ -323,7 +411,7 @@ function ImgUpload(counter = null) {
             // $(this).parents('.images_outer_div').find('.images_required').addClass('d-block');
             $(this)
                 .parents(".images_outer_div")
-                .find(".upload__inputfile")
+                .find(".upload_multiple_inputfile")
                 .prop("required", true);
         }
 
@@ -339,6 +427,112 @@ function ImgUpload(counter = null) {
         $(this).parent().parent().remove();
     });
 }
+// function ImgUpload(counter = null) {
+//     var imgWrap = "";
+//     var imgArray = [];
+
+//     if (counter != null) {
+//         imgId = "#upload__inputfile-" + counter;
+//     }
+//     $(imgId).each(function () {
+//         $(this).on("change", function (e) {
+//             imgWrap = $(this).closest(".upload__box").find(".upload__img-wrap");
+//             var maxLength = $(this).attr("data-max_length");
+
+//             var files = e.target.files;
+//             var filesArr = Array.prototype.slice.call(files);
+//             var iterator = 0;
+//             filesArr.forEach(function (f, index) {
+//                 if (!f.type.match("image.*") && !f.type.match("video.*")) {
+//                     return;
+//                 }
+//                 if (imgArray.length > maxLength) {
+//                     return false;
+//                 } else {
+//                     var len = 0;
+//                     for (var i = 0; i < imgArray.length; i++) {
+//                         if (imgArray[i] !== undefined) {
+//                             len++;
+//                         }
+//                     }
+//                     if (len > maxLength) {
+//                         return false;
+//                     } else {
+//                         imgArray.push(f);
+
+//                         var reader = new FileReader();
+//                         reader.onload = function (e) {
+//                             if (f.type.match("video.*")) {
+//                                 var html = `<div class='upload__img-box'>
+//                                 <div class="video-container" id="video-container" data-number='${
+//                                     $(".upload__img-close").length
+//                                 }' data-file='${f.name}'>
+//                                     <video controls width="100%" data-number='${
+//                                         $(".upload__img-close").length
+//                                     }' data-file='${
+//                                     f.name
+//                                 }' class=''  id="video" preload="metadata" poster="${
+//                                     e.target.result
+//                                 }">
+//                                       <source src="${
+//                                           e.target.result
+//                                       }" type="video/mp4">
+//                                     </video>
+//                                     <div class="upload__img-close" style="right:20px"></div>
+//                                   </div>
+//                             </div>`;
+//                             } else {
+//                                 var html =
+//                                     "<div class='upload__img-box'><div style='background-image: url(" +
+//                                     e.target.result +
+//                                     ")' data-number='" +
+//                                     $(".upload__img-close").length +
+//                                     "' data-file='" +
+//                                     f.name +
+//                                     "' class='img-bg'><div class='upload__img-close'></div></div></div>";
+//                             }
+
+//                             imgWrap.append(html);
+//                             iterator++;
+//                         };
+//                         reader.readAsDataURL(f);
+//                     }
+//                 }
+//             });
+//         });
+//     });
+
+//     var image_id_array = [];
+//     var x = 0;
+//     $("body").on("click", ".upload__img-close", function (e) {
+//         var file = $(this).parent().data("file");
+//         image_id_array[x] = $(this).parent().data("image_id");
+
+//         var length_outer = $(this)
+//             .closest(".upload__box")
+//             .find(".upload__img-wrap")
+//             .find(".upload__img-box").length;
+//         console.log(length_outer);
+//         if (length_outer == 1) {
+//             // $(this).parents('.images_outer_div').find('.images_required').addClass('d-block');
+//             $(this)
+//                 .parents(".images_outer_div")
+//                 .find(".upload__inputfile")
+//                 .prop("required", true);
+//         }
+
+//         x++;
+//         $("#image_id").val(image_id_array);
+//         $(".image_id").val(image_id_array);
+//         for (var i = 0; i < imgArray.length; i++) {
+//             if (imgArray[i].name === file) {
+//                 imgArray.splice(i, 1);
+//                 break;
+//             }
+//         }
+//         $(this).parent().parent().remove();
+//     });
+// }
 //
 
 (function ($) {

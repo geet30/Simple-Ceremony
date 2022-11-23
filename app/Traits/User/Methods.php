@@ -28,7 +28,6 @@ trait Methods
     ###### Create Parter ###########
     static function createPartner($data)
     {
-        // dd($data);
         $user_inputs = $data['user'];
         $random_password = Str::random(8);
         $user_inputs['password'] = Hash::make($random_password);
@@ -94,8 +93,10 @@ trait Methods
                 $partner_packages_inputs['product_id'] = $id;
                 $partner_packages_inputs['user_id'] = $user_id;
                 $PartnerPackages = PartnerPackages::create($partner_packages_inputs);
-                foreach ($packages['package_images']['image_name'] as $file) {
-                    $package_images_inputs['image_name'] = uploadImage($file, 'package');
+                
+                foreach ($packages['gallery_images']['image_name'] as $file) {
+                // foreach ($packages['package_images']['image_name'] as $file) {
+                    $package_images_inputs['image_name'] = uploadBase64Image($file, 'package');
                     $package_images_inputs['package_id'] = $PartnerPackages->id;
                     $package_images_inputs['user_id'] = $user_id;
                     PackageImages::create($package_images_inputs);
@@ -146,9 +147,9 @@ trait Methods
             $partner_packages_inputs['terms'] = $packages['terms'];
             PartnerPackages::where('id', $packages['id'])->update($partner_packages_inputs);
 
-            if (isset($packages['package_images']) && !empty($packages['package_images'])) {
-                foreach ($packages['package_images']['image_name'] as $file) {
-                    $package_images_inputs['image_name'] = uploadImage($file, 'package');
+            if (isset($packages['gallery_images']) && !empty($packages['gallery_images'])) {
+                foreach ($packages['gallery_images']['image_name'] as $file) {
+                    $package_images_inputs['image_name'] = uploadBase64Image($file, 'package');
                     $package_images_inputs['package_id'] = $packages['id'];
                     $package_images_inputs['user_id'] = $user_id;
                     PackageImages::create($package_images_inputs);
