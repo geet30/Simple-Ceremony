@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
@@ -225,6 +225,8 @@ $adminRoutes = function () {
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
         Route::resource('financial-report', FinancialReportController::class);
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
+        Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
+        
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
         Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);

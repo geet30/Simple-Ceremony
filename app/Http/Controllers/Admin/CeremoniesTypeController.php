@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\{User,Booking,Locations};
 use Illuminate\Support\Facades\{Auth};
 use View;
-use App\Traits\FinancialReport\{Methods as FinancialReport};
-class FinancialReportController extends Controller
+use App\Traits\Ceremonies\{Methods as Ceremonies};
+
+class CeremoniesTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +27,7 @@ class FinancialReportController extends Controller
             $locations = Locations::all();
 
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = FinancialReport::fetch_all_reports()->paginate($records, ['*'], 'page', $req_page);
+            $data  = Ceremonies::fetch_all_ceremonies()->paginate($records, ['*'], 'page', $req_page);
             // dd($data);
            
             if ($request->ajax()) {            
@@ -34,7 +35,7 @@ class FinancialReportController extends Controller
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
            
-            return view('admin.financial-report.index', compact('data','celebrants','locations')); 
+            return view('admin.type-ceremonies.index', compact('data','celebrants','locations')); 
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
