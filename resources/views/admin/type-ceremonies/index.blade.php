@@ -7,13 +7,15 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.common.panel-header')
-       
-       
          <div class="row">
+            <div class="col-md-12 mb-4">
+               <a class="theme-btn primary-btn d-inline-block" href="#">
+                  <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">Add new type
+              </a>
+            </div>
             <div class="col-md-12">
                <div class="table-responsive typeCeremoniesListing" id="typeCeremoniesListing">
                   @include('elements.admin.type-ceremonies.listing')
-                 
                </div>
             </div>
          </div>

@@ -23,6 +23,28 @@
     opacity: 1;
 }
 
+.simple-switcher-toggle{
+    .form-check-input {
+        width: 2em !important;
+        height: 1em !important;
+        margin-left: -2.5em;
+        background-image: url("/images/icons/ellipse-off.svg") !important;
+        background-position: left center;
+        border-radius: 2em;
+        background-repeat: no-repeat;
+        transition: background-position 0.15s ease-in-out;
+        border-color: #b3b3b3 !important;
+        cursor: pointer;
+        background-size: contain;
+        &:checked{
+            background-position: right center;
+            background-image: url("/images/icons/ellipse-on.svg") !important;
+            background-color: $turquoise-20;
+            border-color: $turquoise-100 !important;
+        }
+    }
+}
+
 .form-check-input:checked {
     background-color: $turquoise-100;
     border-color: $turquoise-100;
