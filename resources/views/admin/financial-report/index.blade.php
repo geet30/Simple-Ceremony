@@ -1,14 +1,14 @@
 @extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-2 col-md-3 col-lg-2 px-0">
-              @include('elements.common.admin-sidebar')
-          </div>
-          <div class="col-10 col-md-9 col-lg-10 px-4">
-           @include('elements.common.panel-header')
-         <a href="{{url('financial-report')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+   <div class="row">
+      <div class="col-2 col-md-3 col-lg-2 px-0">
+         @include('elements.common.admin-sidebar')
+      </div>
+      <div class="col-10 col-md-9 col-lg-10 px-4">
+         @include('elements.common.panel-header')
          @include('admin.financial-report.filter')
+       
          <ul class="row add-on-list-nav p-0 mb-0 list-unstyled mb-2 mt-2">
             <li class="col-md-6 col-lg-4 col-xl-4 col-xxl-4 mb-3">
                <div class="nav-link">
@@ -52,13 +52,13 @@
          </ul>
          <div class="row">
             <div class="col-md-12">
-               <div class="table-responsive financialReportLocationListing" id="financialReportLocationListing">
-                  @include('elements.admin.financial-report.location-listing')
+               <div class="table-responsive financialReportListing" id="financialReportListing">
+                  @include('elements.admin.financial-report.listing')
                  
                </div>
             </div>
          </div>
-    </div>
-</div>
-@include('elements.common.calander')
-@endsection
+      </div>
+   </div>
+   @include('elements.common.calander')
+   @endsection
