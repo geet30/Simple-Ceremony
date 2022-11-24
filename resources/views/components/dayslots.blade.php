@@ -1,5 +1,6 @@
 <tr class="custom-class-{{$day}}" data-keyid="0" data-target="custom-class-{{$day}}-unavailable">
     <td>
+        <input type="checkbox" class="custom-class-{{$day}} custom-class-{{$day}}-unavailable" name="day[{{$day}}][available]" style="display:none">
         <div class="form-check">
             <input class="form-check-input ns-event-checkbox-uncheck" type="checkbox" name="day[{{$day}}]" id="1" checked autocomplete="off">
         </div>
@@ -77,7 +78,7 @@
     <td colspan="8" class="pb-5"><a data-day="{{$day}}" data-class="custom-class-{{$day}}" data-url="{{ route('sub-slots-html-component') }}" class="get-sub-slots text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
     Add more available times</a></td>
 </tr>
-<tr class="custom-class-{{$day}}-unavailable" data-target="custom-class-{{$day}}">
+<tr class="custom-class-{{$day}}-unavailable" data-target="custom-class-{{$day}}" style="display:none">
     <td>
         <div class="form-check">
             <input class="form-check-input ns-event-checkbox-check" type="checkbox" name="day[{{$day}}]" id="1"  autocomplete="off">

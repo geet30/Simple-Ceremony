@@ -69,6 +69,7 @@
       console.log(start_date,end_date);
       if(start_date && end_date) $('#form-2-after-1st').removeClass('d-none');
    })
+   $('#form-2-after-1st').removeClass('d-none');
    $(document).on('click','.get-sub-slots',function(){
       let data = $(this).data();
       let day = data.day;
@@ -76,13 +77,14 @@
       let className = data.class;
       let key = $('.'+className+':last').data('keyid') || 1;
       console.log(data);
+      // console.log(key);
       key++;
       $.ajax({
          url:url,
          data:{day:day,key:key},
          success : function(rs){
             // console.log(rs);
-            $('.'+className+':last').after(rs);
+            $('tr.'+className+':last').after(rs);
          },
          error: function(er){
             console.log(er);
@@ -90,18 +92,24 @@
       })
    });
    $(document).on('click','.ns-event-checkbox-uncheck',function(){
+      $(this).prop('checked',true)
       let data = $(this).parent().parent().parent().data()
       let classes = $(this).parent().parent().parent().attr('class')
       $('.'+data.target).show()
+      $('input.'+data.target).prop('checked',false)
       $('.'+classes).hide()
-      console.log('unchecked',data);
-      console.log('classes',classes);
+      $('.'+classes+'-addon').hide()
+      console.log('1 target',data.target);
+      console.log('1 classes',classes);
    });
    $(document).on('click','.ns-event-checkbox-check',function(){
       let data = $(this).parent().parent().parent().data()
+      $(this).prop('checked',false)
       let classes = $(this).parent().parent().parent().attr('class')
-      console.log('checked',data);
-      console.log('classes',classes);
+      // console.log('2 target',data.target);
+      // console.log('2 classes',classes);
+      $('input.'+data.target).prop('checked',true)
+      $('.'+data.target+'-addon').show()
       $('.'+data.target).show()
       $('.'+classes).hide()
    })
