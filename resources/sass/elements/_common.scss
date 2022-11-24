@@ -794,3 +794,35 @@
         }
     }
 }
+
+
+.all-type-of-ceremonies-table{
+    tbody{
+        tr{
+            td {
+                padding-bottom: 25px !important;
+                padding-top: 25px !important;
+                .table-long-description {
+                    height: 272px;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    padding-right: 20px;
+                    &::-webkit-scrollbar-track {
+                        background: $turquoise-50;
+                        border-radius: 25px;
+                    }
+                    &::-webkit-scrollbar {
+                        width: 6px;
+                        border-radius: 25px;
+                        background-color: $turquoise-50;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: $turquoise-100;
+                        border-radius: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
