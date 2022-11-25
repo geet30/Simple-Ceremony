@@ -467,11 +467,18 @@ $celebrantRoutes = function () {
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
 
-        Route::get('calendar', [CalendarController::class, 'index']);
+        Route::resource('calendar', CalendarController::class);
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
             return view('routes', compact('routeCollection', 'title'));
+        });
+
+        // Route::get('add', function () {
+        //     return view('celebrant.calendar.add');
+        // });
+        Route::post('add', function () {
+            return view('celebrant.calendar.add');
         });
     });
 
@@ -503,9 +510,7 @@ $celebrantRoutes = function () {
         return view('celebrant.calendar.design');
     });
 
-    Route::get('add', function () {
-        return view('celebrant.calendar.add');
-    });
+    
 
 
     Route::get('password-reset', function () {

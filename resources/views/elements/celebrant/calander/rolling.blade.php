@@ -1,11 +1,12 @@
-<form class="row">
+<form class="row" method="post" action="{{ route('calendar.store') }}">
+   @csrf
    <div class="col-lg-4">
       <div class="card  panel-card h-100">
          <div class="card-body">
             <h2 class="h4 neutral-100 mb-4">Step 1 - Choose time(s) range</h2>
             <div class="col-md-12 mb-4">
                <label for="choose-date" class="form-label small-text2">Start date</label>
-               <select name="choose_date" id="choose-date" class="js-placeholder-single-input form-control">
+               <select name="starting_from" id="choose-date" class="js-placeholder-single-input form-control">
                   <option value="" disabled="" selected="" hidden="">Choose date</option>
                   <option value="30">1 month from today</option>
                   <option value="60">60 days from today</option>
@@ -574,7 +575,7 @@
                   </table>
                </div>
                <div class="col-12">
-               <a class="theme-btn primary-btn d-inline-flex justify-content-center">Set the time</a>
+               <button class="theme-btn primary-btn d-inline-flex justify-content-center">Set the time</button>
                </div>
             </div>
          </div>

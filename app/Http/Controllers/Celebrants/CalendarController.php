@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking};
+use App\Models\{Booking,CelebrantDate,CelebrantDaySlot};
 use App\View\Components\daySubSlots;
+use Carbon\Carbon;
+
 
 class CalendarController extends Controller
 {
@@ -27,7 +29,7 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        //
+        return view('celebrant.calendar.add');
     }
 
     /**
@@ -38,7 +40,32 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = Carbon::now();
+        $celebrantDate = CelebrantDate::create([
+            'user_id' => auth()->user()->id,
+            'start_date' => $date->addDays($request->starting_from),
+            'end_date' => $date->addDays($request->end_date)
+        ]);
+        foreach($request->day as $day =>  $daySlots)
+        {
+            foreach ($daySlots['slots'] as $key => $value) {
+                if((!isset($daySlots['unavailable'])))
+                {
+                    $celebrantDate->day_slots()->create([
+                        'day' => $day,
+                        'dayText' => $daySlots['name'],
+                        'start_time' => $value['start'],
+                        'end_time'=> $value['end'],
+                        'booking_length'=> $value['booking_length'],
+                        'your_fee'=> $value['your_fee'],
+                        'admin_fee'=> $value['admin_fee'],
+                        'location_id'=> $value['location'],
+                        'location_fee'=> $value['location_fee'],
+                    ]);
+                }
+            }
+        }
+        return redirect()->back()->with(['success' => 'Data saved successfully']);
     }
 
     /**

@@ -12,6 +12,9 @@
          <div class="col-12">
             <div class="card d panel-card ">
                <div class="card-body">
+                  @if(Session::get('success'))
+                  <p>{{ Session::get('success') }}</p>
+                  @endif
                   <h1 class="h3 neutral-100 mb-4 align-self-center">Set your standard hours</h1>
                   <div class="d-flex align-self-center w-100">
                      <ul class=" calendar-btn nav nav-pills d-flex align-self-center mb-3 mt-3" id="pills-tab" role="tablist">
@@ -69,7 +72,7 @@
       console.log(start_date,end_date);
       if(start_date && end_date) $('#form-2-after-1st').removeClass('d-none');
    })
-   $('#form-2-after-1st').removeClass('d-none');
+   // $('#form-2-after-1st').removeClass('d-none');
    $(document).on('click','.get-sub-slots',function(){
       let data = $(this).data();
       let day = data.day;
@@ -85,36 +88,59 @@
          success : function(rs){
             // console.log(rs);
             $('tr.'+className+':last').after(rs);
+            $('tr.'+className+':last select').select2({
+               minimumResultsForSearch:Infinity
+            });
          },
          error: function(er){
             console.log(er);
          }
       })
    });
-   $(document).on('click','.ns-event-checkbox-uncheck',function(){
+   $(document).on('change','.ns-event-checkbox-uncheck',function(){
       $(this).prop('checked',true)
       let data = $(this).parent().parent().parent().data()
       let classes = $(this).parent().parent().parent().attr('class')
       $('.'+data.target).show()
-      $('input.'+data.target).prop('checked',false)
+      $('input.'+data.target).prop('checked',true)
       $('.'+classes).hide()
       $('.'+classes+'-addon').hide()
-      console.log('1 target',data.target);
-      console.log('1 classes',classes);
+      // console.log($(document).find($(this)));
+      $(document).find('.'+classes+' .ns-required').attr('required',false)
+      // console.log('1 target',data.target);
+      // console.log('1 classes',classes);
    });
-   $(document).on('click','.ns-event-checkbox-check',function(){
+   $(document).on('change','.ns-event-checkbox-check',function(){
       let data = $(this).parent().parent().parent().data()
       $(this).prop('checked',false)
       let classes = $(this).parent().parent().parent().attr('class')
       // console.log('2 target',data.target);
       // console.log('2 classes',classes);
-      $('input.'+data.target).prop('checked',true)
+      $('input.'+data.target).prop('checked',false)
       $('.'+data.target+'-addon').show()
       $('.'+data.target).show()
+      $(document).find('.'+data.target+' .ns-required').attr('required',true)
       $('.'+classes).hide()
    })
-   // function ajaxRequest($url,callback){
-   //    $ajax
-   // }
+   $(document).on('change','.location-select-ns',function(){
+      if(!$(this).val() || $(this).val() == ' ') 
+      {
+         $(this).parent().parent().find('input.total_fee').val('');
+          return false;
+
+      }
+      let location = parseFloat($(this).val()) || 0;
+      let admin_fee = parseFloat($(this).parent().parent().find('input.admin_fee').val()) || 0;
+      let your_fee = parseFloat($(this).parent().parent().find('input.your_fee').val()) || 0;
+      let location_price = parseFloat($(this).find('option[value="'+location+'"').data('price')) || 0;
+      let total = location_price + admin_fee + your_fee;
+
+      $(this).parent().find('input.input-location_fee').val(location_price)
+      // console.log('location_price => ',location_price);
+      // console.log('admin_fee => ',admin_fee);
+      // console.log('your_fee => ',your_fee);
+      // console.log('total => ',total);
+      $(this).parent().parent().find('input.total_fee').val(total)
+   })
 </script>
 @endsection
