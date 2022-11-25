@@ -1,0 +1,1 @@
+<x-daySubSlots :key="$key" :day="$day" />
