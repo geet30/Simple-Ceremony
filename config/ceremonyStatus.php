@@ -8,6 +8,18 @@ return [
         4 => 'A naming day',
         5 => 'A memorial ceremony',
     ],
+    'CeremonyAdditional' => [
+        1 => 'Full name of person 1',
+        2 => 'Full name of person 2',
+        3 => 'Full name of witness 1',
+        4 => 'Full name of witness 2',
+        5 => 'Full name of child',
+        6 => 'Full name of parent 1',
+        7 => 'Full name of parent 2',
+        8 => 'Full name of Sponsor(Non god parent) 1',
+        9 => 'Full name of Sponsor(Non god parent) 2',
+        
+    ],
     'status' => [
         'Booked' => 1,
         'Lodged' => 2,

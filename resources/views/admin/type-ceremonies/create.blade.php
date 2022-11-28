@@ -14,17 +14,19 @@
             <div class="col-md-12">
                <div class="card panel-card mb-5">
                   <div class="card-body">
-                     <form action="">
+                        <form class="needs-validation" method="POST" novalidate
+                                    action="{{ route('all-type-of-ceremonies.store') }}">
+                        @csrf
                         <div class="row">
                            <div class="col-md-6 mb-4">
                               <label class="form-label small-text2">Type of ceremony</label>
-                              <input type="text" class="form-control body-1 netural-100" placeholder="Type of ceremony here">
+                              <input type="text" name="ceremony_name" class="form-control body-1 netural-100" placeholder="Type of ceremony here">
                            </div>
                            <div class="col-md-6 mb-4">
                               <label class="form-label small-text2 ms-2">Fee adjustment</label>
                               <div class="position-relative">
                                   <span class="currency-sign body-1 netural-100">$</span>
-                                  <input type="number" class="form-control body-1 netural-100 ps-4">
+                                  <input type="number" name="fee_adjustment" class="form-control body-1 netural-100 ps-4">
                               </div>
                           </div>
                            <div class="col-md-12 mb-4">
@@ -46,22 +48,46 @@
                                  </svg>
                                  Add hyperlink text
                               </a>
-                              <textarea class="form-control body-1 netural-100" cols="30" rows="10" placeholder="Type ceremony conditions here"></textarea>
+                              <textarea class="form-control body-1 netural-100" cols="30" rows="10" name="conditions" placeholder="Type ceremony conditions here"></textarea>
                            </div>
                            <div class="col-md-12 mb-4">
                               <label class="form-label small-text2">Additional informations</label>
                               <div class="p-4" style="border: 1px solid #E2F3F2;border-radius: 6px;">
                                  <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" type="checkbox" role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of Person 1</label>
+                                    <input class="form-check-input" name="additional_info[]" type="checkbox" value="1" role="switch">
+                                    <label class="form-check-label body-1 netural-100"> Full name of person 1</label>
                                  </div>
                                  <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" type="checkbox" role="switch" checked>
-                                    <label class="form-check-label body-1 netural-100">Full name of Person 1</label>
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" role="switch" value="2">
+                                    <label class="form-check-label body-1 netural-100">Full name of Person 2</label>
                                  </div>
                                  <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" type="checkbox" role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of Person 1</label>
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="3"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of witness 1</label>
+                                 </div>
+                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="4"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of witness 2</label>
+                                 </div>
+                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="5"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of child</label>
+                                 </div>
+                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="6"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of parent 1</label>
+                                 </div>
+                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="7"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of parent 2</label>
+                                 </div>
+                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="8"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of Sponsor(Non god parent) 1</label>
+                                 </div>
+                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="9"  role="switch">
+                                    <label class="form-check-label body-1 netural-100">Full name of Sponsor(Non god parent) 2</label>
                                  </div>
                              </div>
                            </div>

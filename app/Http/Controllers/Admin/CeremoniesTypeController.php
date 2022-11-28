@@ -27,7 +27,7 @@ class CeremoniesTypeController extends Controller
             $locations = Locations::all();
 
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = Ceremonies::fetch_all_ceremonies()->paginate($records, ['*'], 'page', $req_page);
+            $data  = Ceremonies::fetch_all_ceremony_type()->paginate($records, ['*'], 'page', $req_page);
             // dd($data);
            
             if ($request->ajax()) {            
@@ -66,13 +66,19 @@ class CeremoniesTypeController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         try {
             $input = $request->except('_token');
-                    
-            $result = CeremonyType::create($input);
-            if ($result) {
-                return redirect('all-type-of-ceremonies')->with('message', 'Ceremony Type created successfully.');
+            
+            $locations = CeremonyType::addData($request);
+            if ($locations['status'] == false) {
+                return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
+            } else {
+                $route = 'all-type-of-ceremonies';
+
+                return redirect($route)->with(['message' => $locations['message'], 'class' => 'alert-success']);
             }
+
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

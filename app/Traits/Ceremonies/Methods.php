@@ -2,14 +2,14 @@
 
 namespace App\Traits\Ceremonies;
 
-use App\Models\{User, Booking, Locations};
+use App\Models\{User, Booking, CeremonyType};
 
 trait Methods
 {
 
-    public static function fetch_all_ceremonies($id=null)
+    public static function fetch_all_ceremony_type($id=null)
     {   
-        $data = Locations::whereHas('booking')->with(['booking']);
+        $data = CeremonyType::with(['additonal_info']);
         if($id !=null){
             $data = $data->where('id',$id);
         }

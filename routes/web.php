@@ -226,9 +226,10 @@ $adminRoutes = function () {
         Route::resource('financial-report', FinancialReportController::class);
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
         Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
-        Route::get('ceremonies/create', function () {
-            return view('admin.type-ceremonies.create');
-        });
+        // Route::get('all-type-of-ceremonies/create', function () {
+        //     return view('admin.type-ceremonies.create');
+        // });
+       
         Route::get('ceremonies/edit', function () {
             return view('admin.type-ceremonies.edit');
         });

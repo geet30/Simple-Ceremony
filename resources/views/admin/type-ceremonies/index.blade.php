@@ -9,7 +9,7 @@
          @include('elements.common.panel-header')
          <div class="row">
             <div class="col-md-12 mb-4">
-               <a class="theme-btn primary-btn d-inline-block" href="#">
+               <a class="theme-btn primary-btn d-inline-block" href="{{url('all-type-of-ceremonies/create')}}">
                   <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">Add new type
               </a>
             </div>
