@@ -4,6 +4,8 @@
       <div class="card  panel-card h-100">
          <div class="card-body">
             <h2 class="h4 neutral-100 mb-4">Step 1 - Choose time(s) range</h2>
+            <input type="hidden" id="starting_date-ns" name="starting_date" value="" />
+            <input type="hidden" id="ending_date-ns" name="ending_date" value="" />
             <div class="col-md-12 mb-4">
                <label for="choose-date" class="form-label small-text2">Start date</label>
                <select name="starting_from" id="choose-date" class="js-placeholder-single-input form-control">
@@ -31,7 +33,7 @@
    <div class="col-lg-5 mt-3 mt-lg-0">
       <div class="card  panel-card ">
          <div class="card-body">
-            <div class="calendar-wrappers date-picker-js-ns no-border-calander" ></div>
+            <div class="calendar-wrappers date-picker-js-ns no-border-calander " ></div>
          </div>
       </div>
    </div>

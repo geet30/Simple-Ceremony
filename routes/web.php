@@ -473,6 +473,7 @@ $celebrantRoutes = function () {
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
 
         Route::resource('calendar', CalendarController::class);
+        Route::post('celebrant-location-check', [CalendarController::class,'checkCelebrantLocation'])->name('celebrant-location-check');
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";

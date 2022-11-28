@@ -10,7 +10,7 @@
     <td style="min-width:200px">
         <div class="row">
             <div class="align-self-center col-lg-5 mb-3 mb-md-0">
-            <select name="day[{{$day}}][slots][0][start]" id="day[{{$day}}][slots][0][start]" class="js-placeholder-single-input form-control ns-required" required>
+            <select name="day[{{$day}}][slots][0][start]" id="day[{{$day}}][slots][0][start]" class="js-placeholder-single-input form-control ns-required start-time" required>
                 <option value="" disabled="" selected="" hidden="">--:--</option>
                 @foreach($slots as $va)
                 <option value="{{ $va }}">{{ $va }}</option>
@@ -19,7 +19,7 @@
             </div>
             <div class="align-self-center col-lg-2 text-center mb-3 mb-md-0">-</div>
             <div class="align-self-center col-lg-5">
-            <select name="day[{{$day}}][slots][0][end]" id="day[{{$day}}][slots][0][end]" class="js-placeholder-single-input form-control ns-required" required>
+            <select name="day[{{$day}}][slots][0][end]" id="day[{{$day}}][slots][0][end]" class="js-placeholder-single-input form-control ns-required end-time" required>
                 <option value="" disabled="" selected="" hidden="">--:--</option>
                 @foreach($slots as $va)
                 <option value="{{ $va }}">{{ $va }}</option>
@@ -52,7 +52,7 @@
     </td>
     <td style="min-width:180px">
         <input type="hidden" name="day[{{$day}}][slots][0][location_fee]" class="input-location_fee" value="">
-        <select name="day[{{$day}}][slots][0][location]" id="day[{{$day}}][slots][0][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required>
+        <select name="day[{{$day}}][slots][0][location]" id="day[{{$day}}][slots][0][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required data-day="{{$day}}">
             <option value="" selected="">Name location</option>
             @foreach($location as $loc)
                 <option value="{{ $loc->id }}" data-price="{{ $loc->price }}">{{ $loc->name.' $'.$loc->price}}</option>

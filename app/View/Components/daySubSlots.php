@@ -23,7 +23,7 @@ class daySubSlots extends Component
         $this->key = $key;
         $this->day = $day;
         $this->price = CelebrantDetail::where('celebrant_id',auth()->user()->id)->first();
-        $this->location = RequestLocations::where('celebrant_id',auth()->user()->id)->where('type',2)->get();
+        $this->location = RequestLocations::where('celebrant_id',auth()->user()->id)->where('type',2)->where('status',1)->get();
         $this->slots = self::getTimeSlot(15,'00:00','23:00');
     }
 

@@ -29,7 +29,43 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        return view('celebrant.calendar.add');
+        $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
+        return view('celebrant.calendar.add',['slots' => $slots]);
+    }
+    public function checkCelebrantLocation(Request $request)
+    {
+        // return $request->all();
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+        $start_time = $request->start_time;
+        $end_time = $request->end_time;
+        $day = $request->day;
+        $location_id = $request->location_id;
+        try {
+            //code...
+            return CelebrantDate::whereRaw("(date(start_date) <= '{$start_date}' AND date(end_date) >= '{$start_date}') OR date(start_date) <= '{$end_date}' OR date(end_date) >= '{$end_date}'")
+                // ->where(function($end) use($end_date){
+                //     $end->whereRaw("date(start_date) <= {$end_date} OR date(end_date) >= {$end_date}");
+                // })
+                ->whereHas('day_slots',function($slots) use($start_time,$end_time,$location_id){
+                    $slots->where('location_id',$location_id)
+                        ->where(function($st) use($start_time){
+                            $st->whereTime('start_time','<=',$start_time)
+                                ->orWhere('end_time','>=',$start_time);
+                        })
+                        ->where(function($et) use($end_time){
+                            $et->whereTime('start_time','<=',$end_time)
+                                ->orWhere('end_time','>=',$end_time);
+                        })
+                        ->where('location_id',$location_id);
+                })
+                // ->get();
+                ->toSql();
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th->getMessage();
+        }
+
     }
 
     /**
@@ -43,8 +79,8 @@ class CalendarController extends Controller
         $date = Carbon::now();
         $celebrantDate = CelebrantDate::create([
             'user_id' => auth()->user()->id,
-            'start_date' => $date->addDays($request->starting_from),
-            'end_date' => $date->addDays($request->end_date)
+            'start_date' => ($request->starting_date && $request->starting_date != '') ? $request->starting_date : $date->addDays($request->starting_from),
+            'end_date' => ($request->ending_date && $request->ending_date != '') ? $request->ending_date : $date->addDays($request->end_date)
         ]);
         foreach($request->day as $day =>  $daySlots)
         {
