@@ -22,7 +22,7 @@
     <link href="/custom-css/style.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
- 
+    <!-- <script src="/ckeditor/ckeditor.js"></script> -->
     <script src="/custom-js/common/search.js"></script>
     
     <script src="/custom-js/admin/tab.js?version={{now()->timestamp}}"></script>
@@ -66,8 +66,13 @@
 <script src="/custom-js/admin/formsubmit.js"></script>
 <script src="/custom-js/common/upload-progress.js"></script>
 <script src="/custom-js/common/delete-record.js"></script>
+<script src="http://cdn.ckeditor.com/4.5.4/standard/ckeditor.js"></script>
 <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script>
+        var baseurl = "{{ asset('/') }}";
+        CKEDITOR.replaceAll('ckeditor');
+    </script>
     @hasSection('scripts')
         @yield('scripts')
     @endIf

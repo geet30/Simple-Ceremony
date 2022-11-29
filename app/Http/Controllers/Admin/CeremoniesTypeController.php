@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User,Booking,Locations};
+use App\Models\{User,CeremonyType,Locations};
 use Illuminate\Support\Facades\{Auth};
 use View;
 use App\Traits\Ceremonies\{Methods as Ceremonies};
@@ -27,11 +27,10 @@ class CeremoniesTypeController extends Controller
             $locations = Locations::all();
 
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = Ceremonies::fetch_all_ceremonies()->paginate($records, ['*'], 'page', $req_page);
-            // dd($data);
+            $data  = Ceremonies::fetch_all_ceremony_type()->paginate($records, ['*'], 'page', $req_page);
            
             if ($request->ajax()) {            
-                $viewurl = 'elements.admin.financial-report.listing';
+                $viewurl = 'elements.admin.type-ceremonies.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
            
@@ -43,36 +42,7 @@ class CeremoniesTypeController extends Controller
     }
 
 
-    
-       /**
-     * Display a location listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function getReportLocation(Request $request,$id)
-    {       
-        try {           
-            $records = 10;
-            $req_page = 1;
-            if ($request->has('page')) {
-                $req_page = $request->page;
-            }
-            $locations = Locations::all();
-
-            $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = FinancialReport::fetch_all_reports($id)->paginate($records, ['*'], 'page', $req_page);
-            // dd($data);
-           
-            if ($request->ajax()) {            
-                $viewurl = 'elements.admin.financial-report.listing';
-                return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
-            }
-            return view('admin.financial-report.reports-location', compact('data','celebrants','locations')); 
-        } catch (\Exception $ex) {
-            dd($ex);
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
-    }
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -81,9 +51,7 @@ class CeremoniesTypeController extends Controller
     public function create()
     {
         try {
-            $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $couples = Booking::select('first_couple_name','second_couple_name','id')->get();
-            return view('admin.invoices.create-invoice', compact('celebrants','couples'));
+            return view('admin.type-ceremonies.create');
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -97,7 +65,21 @@ class CeremoniesTypeController extends Controller
      */
     public function store(Request $request)
     {
-        
+       
+        try {
+            
+            $locations = CeremonyType::addData($request);
+            if ($locations['status'] == false) {
+                return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
+            } else {
+                $route = 'all-type-of-ceremonies';
+
+                return redirect($route)->with(['message' => $locations['message'], 'class' => 'alert-success']);
+            }
+
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**
@@ -119,7 +101,8 @@ class CeremoniesTypeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $detail =Ceremonies::fetch_all_ceremony_type($id)->first();
+        return view('admin.type-ceremonies.edit', compact(['detail','id']));
     }
 
     /**
@@ -131,7 +114,20 @@ class CeremoniesTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+        try {
+            
+            $locations = CeremonyType::updateData($request,$id);
+            if ($locations['status'] == false) {
+                return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
+            } else {
+                $route = 'all-type-of-ceremonies';
+
+                return redirect($route)->with(['message' => $locations['message'], 'class' => 'alert-success']);
+            }
+
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**
@@ -143,45 +139,8 @@ class CeremoniesTypeController extends Controller
     public function destroy(Request $request, $id)
     {
 
-       
-        
-        // deleteEntries($id,'App\Models\CelebrantLocations','request_location_id'); 
     }
-      /**
-     * search the specified booking location in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     * */
-
-    public function searchByStatusDate(Request $request){
-        try {
-            $data =   InvoicesMethod::searchPaymentsByDate($request);
-            return View::make('elements.admin.payments.search-payments', ['data' => $data]);
-        } catch (\Exception $ex) {
-           
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
-    }
-    
-          /**
-     * search the specified booking location in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     * */
-
-    public function searchByInvoice(Request $request){
-        try {
-            $data =   InvoicesMethod::searchByInvoice($request);
-            return View::make('elements.admin.payments.search-payments', ['data' => $data]);
-        } catch (\Exception $ex) {
-           
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
-    }
+   
 
     
 }

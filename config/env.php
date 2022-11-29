@@ -40,6 +40,7 @@ return [
     'SERVERURL' =>'http://simpleceremoniesacc.crebos.online',
     'COUNTRY' =>'Australia',
     'RESCHEDULE_FEE' =>'85',
+    
 
 
 
