@@ -9,7 +9,7 @@ trait Methods
 
     public static function fetch_all_ceremony_type($id=null)
     {   
-        $data = CeremonyType::with(['additonal_info']);
+        $data = CeremonyType::with(['additional_info']);
         if($id !=null){
             $data = $data->where('id',$id);
         }

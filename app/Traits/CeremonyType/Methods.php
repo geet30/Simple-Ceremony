@@ -11,7 +11,7 @@ trait Methods
 
     static function addData($data){    
         try{    
-            // dd($data);      
+            // dd($data->all());      
             $input = $data->all();
             $checkName = CeremonyType::where('ceremony_name',$data->ceremony_name)->first();
             if($checkName){
@@ -42,4 +42,34 @@ trait Methods
         }
 
     } 
+    static function updateData($data,$id){    
+        try{    
+               
+            $input = $data->all();
+            deleteEntries($id,'App\Models\CeremonyTypesAdditionalInfo','type_id'); 
+           
+            $CeremonyType = CeremonyType::find($id);
+            if($CeremonyType->fill($input)->save()){
+                if($data->has('additional_info')){
+                    foreach($data->additional_info as $info){
+                        if($info != ''){
+                            $additional_info['type_id'] = $id; 
+                            $additional_info['additional_info'] = $info;
+                            
+                        }
+                        CeremonyTypesAdditionalInfo::create($additional_info);
+                    }   
+                }
+                $msg = 'Ceremony Type additional info Successfully';
+                return ['status' => true,'message'=>$msg];   
+            }
+            $msg = 'Something went wrong';
+            return ['status' => false,'message'=>$msg];  
+
+        }
+        catch (\Exception $ex) {
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+
+    }
 }

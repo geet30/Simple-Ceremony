@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('ceremony_name')->nullable();
             $table->decimal('fee_adjustment', 10, 2)->default('0.00');
-            $table->string('hyperlink_url')->nullable();
-            $table->string('hyperlink_title')->nullable();
             $table->text('conditions')->nullable();
             $table->timestamps();
         });

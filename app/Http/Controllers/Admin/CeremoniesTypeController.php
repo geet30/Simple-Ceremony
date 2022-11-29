@@ -28,10 +28,9 @@ class CeremoniesTypeController extends Controller
 
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
             $data  = Ceremonies::fetch_all_ceremony_type()->paginate($records, ['*'], 'page', $req_page);
-            // dd($data);
            
             if ($request->ajax()) {            
-                $viewurl = 'elements.admin.financial-report.listing';
+                $viewurl = 'elements.admin.type-ceremonies.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
            
@@ -66,9 +65,8 @@ class CeremoniesTypeController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+       
         try {
-            $input = $request->except('_token');
             
             $locations = CeremonyType::addData($request);
             if ($locations['status'] == false) {
@@ -103,8 +101,8 @@ class CeremoniesTypeController extends Controller
      */
     public function edit($id)
     {
-        $detail = CeremonyType::find($id);
-        return view('admin.type-ceremonies.edit', compact(['detail']));
+        $detail =Ceremonies::fetch_all_ceremony_type($id)->first();
+        return view('admin.type-ceremonies.edit', compact(['detail','id']));
     }
 
     /**
@@ -117,12 +115,16 @@ class CeremoniesTypeController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $input = $request->except(['_token', '_method']);
-           
-            $result = CeremonyType::where('id', $id)->update($input);
-            if ($result) {
-                return redirect('all-type-of-ceremonies')->with('message', 'Ceremony Type updated successfully.');
+            
+            $locations = CeremonyType::updateData($request,$id);
+            if ($locations['status'] == false) {
+                return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
+            } else {
+                $route = 'all-type-of-ceremonies';
+
+                return redirect($route)->with(['message' => $locations['message'], 'class' => 'alert-success']);
             }
+
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

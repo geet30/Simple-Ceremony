@@ -9,9 +9,9 @@ class CeremonyType extends Model
 {
     use HasFactory,Methods,Relationship;
     protected $fillable = [
-        'ceremony_name', 'fee_adjustment', 'hyperlink_url', 'hyperlink_title', 'conditions'
+        'ceremony_name', 'fee_adjustment','conditions'
     ];
-    public function additonal_info()
+    public function additional_info()
     {
         return $this->hasMany('App\Models\CeremonyTypesAdditionalInfo', 'type_id', 'id');
         

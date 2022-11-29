@@ -9,7 +9,7 @@
          @include('elements.common.panel-header')
          <div class="row">
             <div class="col-md-12 mb-4">
-              <a href="" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+              <a href="{{url('all-type-of-ceremonies/')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-md-12">
                <div class="card panel-card mb-5">
@@ -20,18 +20,24 @@
                         <div class="row">
                            <div class="col-md-6 mb-4">
                               <label class="form-label small-text2">Type of ceremony</label>
-                              <input type="text" name="ceremony_name" class="form-control body-1 netural-100" placeholder="Type of ceremony here">
+                              <input type="text" name="ceremony_name" class="form-control body-1 netural-100" placeholder="Type of ceremony here" required>
+                              <div class="invalid-feedback">
+                                  Ceremony Name is required
+                              </div>
                            </div>
                            <div class="col-md-6 mb-4">
                               <label class="form-label small-text2 ms-2">Fee adjustment</label>
                               <div class="position-relative">
                                   <span class="currency-sign body-1 netural-100">$</span>
-                                  <input type="number" name="fee_adjustment" class="form-control body-1 netural-100 ps-4">
+                                  <input type="number" name="fee_adjustment" class="form-control body-1 netural-100 ps-4" required>
+                                  <div class="invalid-feedback" >
+                                  Fee Adjustment is required.
+                                 </div>
                               </div>
                           </div>
                            <div class="col-md-12 mb-4">
                               <label class="form-label small-text2 me-3">Conditions</label>
-                              <a data-bs-toggle="offcanvas" data-bs-target="#add-hyperlink" role="button" class="small-text1 text-decoration-none turquoise-100">
+                              <!-- <a data-bs-toggle="offcanvas" data-bs-target="#add-hyperlink" role="button" class="small-text1 text-decoration-none turquoise-100">
                               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                  <path d="M5.41307 5.77918C5.41291 5.77918 5.41316 5.77926 5.41307 5.77918V5.77918Z" fill="#62CBC9"/>
                                  <path d="M7.2421 6.73289C7.21329 6.74984 7.18389 6.76571 7.15466 6.78157C7.15458 6.78182 7.1545 6.78224 7.15433 6.78241C7.18239 6.76721 7.21187 6.75076 7.2421 6.73289Z" fill="#62CBC9"/>
@@ -47,48 +53,25 @@
                                  <path d="M5.80291 5.79913C5.80274 5.7988 5.80316 5.79787 5.80308 5.79645C5.80308 5.79712 5.80299 5.79838 5.80291 5.79913C5.80299 5.79905 5.80266 5.79905 5.80291 5.79913Z" fill="#62CBC9"/>
                                  </svg>
                                  Add hyperlink text
-                              </a>
-                              <textarea class="form-control body-1 netural-100" cols="30" rows="10" name="conditions" placeholder="Type ceremony conditions here"></textarea>
+                              </a> -->
+                              <textarea id="conditions" class="form-control body-1 netural-100 ckeditor" cols="30" rows="10" name="conditions" placeholder="Type ceremony conditions here"></textarea>
+                              <div class="invalid-feedback" >
+                                 Conditions is required.
+                              </div>
+
+                            
                            </div>
                            <div class="col-md-12 mb-4">
                               <label class="form-label small-text2">Additional informations</label>
                               <div class="p-4" style="border: 1px solid #E2F3F2;border-radius: 6px;">
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]" type="checkbox" value="1" role="switch">
-                                    <label class="form-check-label body-1 netural-100"> Full name of person 1</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" role="switch" value="2">
-                                    <label class="form-check-label body-1 netural-100">Full name of Person 2</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="3"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of witness 1</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="4"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of witness 2</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="5"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of child</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="6"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of parent 1</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="7"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of parent 2</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="8"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of Sponsor(Non god parent) 1</label>
-                                 </div>
-                                 <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                    <input class="form-check-input" name="additional_info[]"  type="checkbox" value="9"  role="switch">
-                                    <label class="form-check-label body-1 netural-100">Full name of Sponsor(Non god parent) 2</label>
-                                 </div>
+                                 <?php $ceremonyAdditional = config('ceremonyStatus.CeremonyAdditional');?>
+                                 @foreach($ceremonyAdditional as $key=>$value)
+                                    <div class="form-check form-switch simple-switcher-toggle mb-2">
+                                       <input class="form-check-input" name="additional_info[]" type="checkbox" value="{{$key}}"  role="switch">
+                                       <label class="form-check-label body-1 netural-100"> {{$value}}</label>
+                                    </div>
+                                 @endforeach
+                                
                              </div>
                            </div>
                            <div class="col-md-12">
