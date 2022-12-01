@@ -25,6 +25,10 @@ class CelebrantDaySlot extends Model
     
     public function dates()
     {
-        return $this->belongsTo(CelebrantDate::class);
+        return $this->belongsTo(CelebrantDate::class,'celebrant_date_id');
+    }
+    public function location()
+    {
+        return $this->belongsTo(Locations::class);
     }
 }

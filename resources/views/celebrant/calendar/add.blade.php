@@ -59,6 +59,28 @@
    </div>
 </div>
 
+<!-- modal -->
+   <div class="modal-success-form modal fade cancel-ceremony-popup" id="location_alert" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-body text-center">
+               <img class="mt-4" src="/images/user/exclamation.svg" alt="Exclamation">
+               <h4 class="h4 netural-100 mb-4 mt-4">Please select different time to create slots for this location, As we found some other person is already created slots for this location in your givin time
+               </h4>
+               <div class="d-flex justify-content-center mt-3">
+
+                     <button type="button" data-bs-dismiss="modal" aria-label="Close" role="button" class="theme-btn primary-btn me-3">Ok</button>
+                     <!-- <a role="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</a> -->
+
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
 @endsection
 
 @section('scripts')
@@ -66,11 +88,14 @@
 <!-- <script src="/datepicker/main.js"></script> -->
 <script src="{{ asset('pg-calendar/js/main.js') }}"></script>
 <script>
+   var FormError = false;
    $(document).ready(function(){
       $('.date-picker-js-ns').pignoseCalendar({
          multiple: true,
       });
       $('.pignose-calendar-body').css('pointer-events','none');
+
+      
 
    })
    const dateFormatNs = 'YYYY-MM-DD';
@@ -140,7 +165,7 @@
       $(document).find('.'+data.target+' .ns-required').attr('required',true)
       $('.'+classes).hide()
    })
-   $(document).on('change','.location-select-ns',function(){
+   $(document).on('change','.location-select-ns',async function(){
       if(!$(this).val() || $(this).val() == ' ') 
       {
          $(this).parent().parent().find('input.total_fee').val('');
@@ -152,13 +177,12 @@
       let location_price = parseFloat($(this).find('option[value="'+location+'"').data('price')) || 0;
       let total = location_price + admin_fee + your_fee;
 
-      $(this).parent().find('input.input-location_fee').val(location_price)
-      $(this).parent().parent().find('input.total_fee').val(total)
-
       let start_time =$(this).parent().parent().find('select.start-time').val();
       let end_time =$(this).parent().parent().find('select.end-time').val();
 
-      $.ajax({
+      // console.log('ajax hitting');
+      var element = $(this);
+      let result = await $.ajax({
          url : "{{ route('celebrant-location-check') }}",
          type : 'POST',
          data : {
@@ -170,9 +194,27 @@
             location_id:location,
          },
          success : function(rs){
+            console.log('console success result');
             console.log(rs);
+            if(rs.length != 0)
+            {
+               // $('#location_alert').modal('show');
+               // element.val('');
+               element.parent().parent().find('input.total_fee').val('');
+               // console.log(element.parent().parent().find('.location-error'));
+               element.parent().parent().find('.location-error').removeClass('d-none');
+               element.parent().parent().find('.location-error').show();
+            }
+            else
+            {
+               element.parent().find('input.input-location_fee').val(location_price)
+               element.parent().parent().find('input.total_fee').val(total)
+               element.parent().parent().find('.location-error').hide();
+               element.parent().parent().find('.location-error').addClass('d-none');
+            }
          },
          error : function(er){
+            console.log('console err result');
             console.log(er);
          }
       })
@@ -182,5 +224,74 @@
       $('#override').addClass('show')
       $('#override').show();
    @endif
+   function duplicate_check(target = '') {
+      let element = document.querySelectorAll('.ns-duplicate-check-validation .ns-required');
+      var data = [];
+      var count = 0;
+      element.forEach((el, index) => {
+         let day = el.closest('tr').classList[0].replace('custom-class-','');
+         let key = day;
+         // var dayObject = {start:'',end:''};
+         if(!data.find((ar) => {return ar.day === day})) data.push({day:day,data:[]});
+         let cl = el.classList.value.split(" ")
+         if(cl.indexOf('start-time') >= 0) 
+         {
+            let start = el.value;
+            data[data.length -1].data.push({start:start,end:''});
+         }
+         if(cl.indexOf('end-time') >= 0) 
+         {
+            let end = el.value;
+            let lastData = data[data.length -1].data.length;
+            data[data.length - 1].data[lastData - 1].end = end;
+         }
+      })
+      valueTestTime(data);
+   }
+   function valueTestTime(data){
+      var error = false;
+      data.forEach((val) => {
+         // console.log(val);
+         var slots = [];
+         if(error) return false;
+         val.data.forEach((tm) => {
+            console.log(tm);
+            if(tm.start >= tm.end){
+               error = true;
+               console.log(val.day+' has some invalid time');
+               return false;
+            }
+            if(!slots.find((e) => {
+               console.log('slots loop');
+               console.log(e.start +' <= '+ tm.start+' && '+e.end+' > '+ tm.start);
+               if(e.start <= tm.start && e.end > tm.start)
+               {
+                  console.log('start lied ',e.start);
+                  return false;
+               }
+               else if(e.start < tm.end && e.end >= tm.end)
+               {
+                  console.log('start lied ',e.start);
+                  return false;
+               }
+               // else if(e.start < tm.end && e.end >= tm.end)
+               return true;
+            }))
+            {
+               console.log('error find slot ==> ');
+            }
+            slots.push(tm)
+
+            // if(slots.find((e) => {
+            //    return ((e.start <= tm.start && e.end < tm.start) && (e.start < tm.end && e.end <= tm.end))
+            // })) 
+            // {
+            //    console.log(e);
+            //    return false;
+            // }
+         })
+      })
+   }
+   duplicate_check()
 </script>
 @endsection

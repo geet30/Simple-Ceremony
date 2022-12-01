@@ -1,9 +1,9 @@
-<form class="row" method="post" action="{{ route('calendar.store') }}">
+<form class="row needs-validation" method="post" action="{{ route('calendar.store') }}"  novalidate>
    @csrf
    <div class="col-lg-4">
       <div class="card  panel-card h-100">
          <div class="card-body">
-            <h2 class="h4 neutral-100 mb-4">Step 1 - Choose time(s) range</h2>
+            <h2 class="h4 neutral-100 mb-4">Step 1 - Choose time(s) range </h2>
             <input type="hidden" id="starting_date-ns" name="starting_date" value="" />
             <input type="hidden" id="ending_date-ns" name="ending_date" value="" />
             <div class="col-md-12 mb-4">
@@ -64,8 +64,8 @@
    <div class="col-12 pt-31">
       <div class="col-12">
          <div class="card  panel-card d-none" id="form-2-after-1st">
-            <div class="card-body">
-               <h2 class="h4 text-black">Step 2 - Fill data</h2>
+            <div class="card-body ns-duplicate-check-validation">
+               <h2 class="h4 text-black">Step 2 - Fill data <span class="common-error-ns"></span></h2>
                <div class="table-responsive">
                   <table class="table align-middle calander-table">
                      <thead>

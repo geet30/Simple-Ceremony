@@ -16,6 +16,12 @@
                 <option value="{{ $va }}">{{ $va }}</option>
                 @endforeach
             </select>
+            <div class="invalid-feedback">
+                <span>
+                    <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+                </span>
+                Required
+            </div>
             </div>
             <div class="align-self-center col-lg-2 text-center mb-3 mb-md-0">-</div>
             <div class="align-self-center col-lg-5">
@@ -25,6 +31,12 @@
                 <option value="{{ $va }}">{{ $va }}</option>
                 @endforeach
             </select>
+            <div class="invalid-feedback">
+                <span>
+                    <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+                </span>
+                Required
+            </div>
             </div>
         </div>
     </td>
@@ -36,6 +48,12 @@
             <option value="45">45 min</option>
             <option value="60">60 min</option>
             </select>
+        </div>
+        <div class="invalid-feedback">
+            <span>
+                <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+            </span>
+            Required
         </div>
     </td>
     <td style="min-width:100px">
@@ -62,6 +80,18 @@
             <option value="4">Add name location $320</option>
             <option value="5">Add name location $210</option> -->
         </select>
+        <div class="invalid-feedback">
+            <span>
+                <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+            </span>
+            Required
+        </div>
+        <div class="invalid-feedback location-error d-none">
+            <span>
+                <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+            </span>
+            Booking already exist For this time slot
+        </div>
     </td>
     <td style="min-width:100px">
         <div class=" theme-input-group">
