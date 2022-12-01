@@ -9,6 +9,6 @@ class CelebrantDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'celebrant_id','address','admin_fee','standard_fee', 'description'
+        'celebrant_id','address','admin_fee','standard_fee', 'description','follow_subject','follow_Description'
     ];
 }

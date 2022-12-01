@@ -48,6 +48,7 @@ class AccountController extends Controller
      */
     public function updateCelebrantAccount(Request $request)
     {
+       
         try {
             if ($request->ajax()) {
                 if ($request->has('current_password')) {
