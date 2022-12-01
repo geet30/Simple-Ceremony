@@ -4,21 +4,33 @@
     <td style="min-width:200px">
         <div class="row">
             <div class="align-self-center col-lg-5 mb-3 mb-md-0">
-            <select name="day[{{$day}}][slots][{{$key}}][start]" id="day[{{$day}}][slots][{{$key}}][start]" class="js-placeholder-single-input form-control ns-required" required>
+            <select name="day[{{$day}}][slots][{{$key}}][start]" id="day[{{$day}}][slots][{{$key}}][start]" class="js-placeholder-single-input form-control ns-required start-time" required>
                 <option value="" disabled="" selected="" hidden="">--:--</option>
                 @foreach($slots as $va)
                 <option value="{{ $va }}">{{ $va }}</option>
                 @endforeach
             </select>
+            <div class="invalid-feedback">
+                <span>
+                    <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+                </span>
+                Required
+            </div>
             </div>
             <div class="align-self-center col-lg-2 text-center mb-3 mb-md-0">-</div>
             <div class="align-self-center col-lg-5">
-            <select name="day[{{$day}}][slots][{{$key}}][end]" id="day[{{$day}}][slots][{{$key}}][end]" class="js-placeholder-single-input form-control ns-required" required>
+            <select name="day[{{$day}}][slots][{{$key}}][end]" id="day[{{$day}}][slots][{{$key}}][end]" class="js-placeholder-single-input form-control ns-required end-time" required>
                 <option value="" disabled="" selected="" hidden="">--:--</option>
                 @foreach($slots as $va)
                 <option value="{{ $va }}">{{ $va }}</option>
                 @endforeach
             </select>
+            <div class="invalid-feedback">
+                <span>
+                    <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+                </span>
+                Required
+            </div>
             </div>
         </div>
     </td>
@@ -30,6 +42,12 @@
             <option value="45">45 min</option>
             <option value="60">60 min</option>
             </select>
+            <div class="invalid-feedback">
+                <span>
+                    <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+                </span>
+                Required
+            </div>
         </div>
     </td>
     <td style="min-width:100px">
@@ -46,7 +64,7 @@
     </td>
     <td style="min-width:180px">
         <input type="hidden" name="day[{{$day}}][slots][{{$key}}][location_fee]" class="input-location_fee" value="">
-        <select name="day[{{$day}}][slots][{{$key}}][location]" id="day[{{$day}}][slots][{{$key}}][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required>
+        <select name="day[{{$day}}][slots][{{$key}}][location]" id="day[{{$day}}][slots][{{$key}}][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required data-day="{{$day}}">
             <option value="" selected="">Name location</option>
             @foreach($location as $loc)
                 <option value="{{ $loc->id }}" data-price="{{ $loc->price }}">{{ $loc->name.' $'.$loc->price}}</option>
@@ -56,6 +74,18 @@
             <option value="4">Add name location $320</option>
             <option value="5">Add name location $210</option> -->
         </select>
+        <div class="invalid-feedback">
+            <span>
+                <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+            </span>
+            Required
+        </div>
+        <div class="invalid-feedback location-error d-none">
+            <span>
+                <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon">
+            </span>
+            Booking already exist For this time slot
+        </div>
     </td>
     <td style="min-width:100px">
         <div class=" theme-input-group">

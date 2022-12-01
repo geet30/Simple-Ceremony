@@ -1,4 +1,7 @@
 @extends('layouts.panels')
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('pg-calendar/css/style.css') }}"/>
+@endsection
 @section('content')
 <div class="container-fluid">
 <div class="row">
@@ -19,12 +22,12 @@
                   <div class="d-flex align-self-center w-100">
                      <ul class=" calendar-btn nav nav-pills d-flex align-self-center mb-3 mt-3" id="pills-tab" role="tablist">
                         <li class="nav-item  me-3" role="presentation">
-                           <button class="nav-link active theme-btn primary-btn d-flex justify-content-center" id="rolling-tab" data-bs-toggle="pill" data-bs-target="#rolling" type="button" role="tab" aria-controls="rolling" aria-selected="true">
+                           <button class="nav-link @if($slots == 0) active @else disable @endif theme-btn primary-btn d-flex justify-content-center" id="rolling-tab" data-bs-toggle="pill" data-bs-target="#rolling" type="button" role="tab" aria-controls="rolling" aria-selected="true">
                            Rolling  Repeat form
                            </button>
                         </li>
                         <li class="nav-item  " role="presentation">
-                           <button class="nav-link theme-btn primary-btn-border" id="override-tab" data-bs-toggle="pill" data-bs-target="#override" type="button" role="tab" aria-controls="override" aria-selected="false">
+                           <button class="nav-link theme-btn primary-btn-border @if($slots != 0) active @endif" id="override-tab" data-bs-toggle="pill" data-bs-target="#override" type="button" role="tab" aria-controls="override" aria-selected="false">
                            Override form
                            </button>
                         </li>
@@ -41,11 +44,13 @@
       <div class="row pt-31">
          <div class="col-12">
             <div class="tab-content" id="pills-tabContent">
+               @if($slots == 0)
                <div class="tab-pane fade show active" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
                @include('elements.celebrant.calander.rolling')
                </div>
+               @endif
                <!-- override -->
-               <div class="tab-pane fade" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="1">
+               <div class="tab-pane fade @if($slots != 0) active show @endif" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="1">
                @include('elements.celebrant.calander.override')
                </div>
             </div>
@@ -54,23 +59,61 @@
    </div>
 </div>
 
+<!-- modal -->
+   <div class="modal-success-form modal fade cancel-ceremony-popup" id="location_alert" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-body text-center">
+               <img class="mt-4" src="/images/user/exclamation.svg" alt="Exclamation">
+               <h4 class="h4 netural-100 mb-4 mt-4">Please select different time to create slots for this location, As we found some other person is already created slots for this location in your givin time
+               </h4>
+               <div class="d-flex justify-content-center mt-3">
+
+                     <button type="button" data-bs-dismiss="modal" aria-label="Close" role="button" class="theme-btn primary-btn me-3">Ok</button>
+                     <!-- <a role="button" class="theme-btn primary-btn-border" data-bs-dismiss="modal"
+                        aria-label="Close">Cancel</a> -->
+
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+
 @endsection
 
 @section('scripts')
-<script src="/datepicker/main.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pg-calendar@1.4.31/dist/js/pignose.calendar.full.js"></script> -->
+<!-- <script src="/datepicker/main.js"></script> -->
+<script src="{{ asset('pg-calendar/js/main.js') }}"></script>
 <script>
-   // $('.calendar-wrapper').datepicker('remove');
-   $('.date-picker-js-ns').datepicker({
-      multidate: true,
-      date: new Date().toLocaleDateString("fr-CA"),
-      format: 'dd-mm-yyyy',
-      weekDayLength: 2,
-   });
+   var FormError = false;
+   $(document).ready(function(){
+      $('.date-picker-js-ns').pignoseCalendar({
+         multiple: true,
+      });
+      $('.pignose-calendar-body').css('pointer-events','none');
+
+      
+
+   })
+   const dateFormatNs = 'YYYY-MM-DD';
    $('#submit-first-rolling-form').click(function(){
-      let start_date = $('#choose-date').val();
-      let end_date = $('#end-date').val();
-      console.log(start_date,end_date);
-      if(start_date && end_date) $('#form-2-after-1st').removeClass('d-none');
+      let start_date = parseInt($('#choose-date').val());
+      let end_date = parseInt($('#end-date').val());
+      // console.log(start_date,end_date);
+      if(start_date && end_date) 
+      {
+         let startNs = moment().add(start_date,'day').format(dateFormatNs);
+         let endNs = moment().add(start_date + end_date,'day').format(dateFormatNs);
+         // console.log(startNs,endNs);
+         $('#form-2-after-1st').removeClass('d-none');
+         $('.date-picker-js-ns').pignoseCalendar('set', startNs+'~'+endNs);
+         $('#starting_date-ns').val(startNs);
+         $('#ending_date-ns').val(endNs);
+         $('.pignose-calendar-body').css('pointer-events','none');
+      }
    })
    // $('#form-2-after-1st').removeClass('d-none');
    $(document).on('click','.get-sub-slots',function(){
@@ -122,12 +165,11 @@
       $(document).find('.'+data.target+' .ns-required').attr('required',true)
       $('.'+classes).hide()
    })
-   $(document).on('change','.location-select-ns',function(){
+   $(document).on('change','.location-select-ns',async function(){
       if(!$(this).val() || $(this).val() == ' ') 
       {
          $(this).parent().parent().find('input.total_fee').val('');
           return false;
-
       }
       let location = parseFloat($(this).val()) || 0;
       let admin_fee = parseFloat($(this).parent().parent().find('input.admin_fee').val()) || 0;
@@ -135,12 +177,121 @@
       let location_price = parseFloat($(this).find('option[value="'+location+'"').data('price')) || 0;
       let total = location_price + admin_fee + your_fee;
 
-      $(this).parent().find('input.input-location_fee').val(location_price)
-      // console.log('location_price => ',location_price);
-      // console.log('admin_fee => ',admin_fee);
-      // console.log('your_fee => ',your_fee);
-      // console.log('total => ',total);
-      $(this).parent().parent().find('input.total_fee').val(total)
+      let start_time =$(this).parent().parent().find('select.start-time').val();
+      let end_time =$(this).parent().parent().find('select.end-time').val();
+
+      // console.log('ajax hitting');
+      var element = $(this);
+      let result = await $.ajax({
+         url : "{{ route('celebrant-location-check') }}",
+         type : 'POST',
+         data : {
+            start_date:$('#starting_date-ns').val(),
+            end_date:$('#ending_date-ns').val(),
+            start_time:start_time,
+            end_time:end_time,
+            day:$(this).data('day'),
+            location_id:location,
+         },
+         success : function(rs){
+            console.log('console success result');
+            console.log(rs);
+            if(rs.length != 0)
+            {
+               // $('#location_alert').modal('show');
+               // element.val('');
+               element.parent().parent().find('input.total_fee').val('');
+               // console.log(element.parent().parent().find('.location-error'));
+               element.parent().parent().find('.location-error').removeClass('d-none');
+               element.parent().parent().find('.location-error').show();
+            }
+            else
+            {
+               element.parent().find('input.input-location_fee').val(location_price)
+               element.parent().parent().find('input.total_fee').val(total)
+               element.parent().parent().find('.location-error').hide();
+               element.parent().parent().find('.location-error').addClass('d-none');
+            }
+         },
+         error : function(er){
+            console.log('console err result');
+            console.log(er);
+         }
+      })
    })
+   // console.log({{ $slots }});
+   @if($slots != 0)
+      $('#override').addClass('show')
+      $('#override').show();
+   @endif
+   function duplicate_check(target = '') {
+      let element = document.querySelectorAll('.ns-duplicate-check-validation .ns-required');
+      var data = [];
+      var count = 0;
+      element.forEach((el, index) => {
+         let day = el.closest('tr').classList[0].replace('custom-class-','');
+         let key = day;
+         // var dayObject = {start:'',end:''};
+         if(!data.find((ar) => {return ar.day === day})) data.push({day:day,data:[]});
+         let cl = el.classList.value.split(" ")
+         if(cl.indexOf('start-time') >= 0) 
+         {
+            let start = el.value;
+            data[data.length -1].data.push({start:start,end:''});
+         }
+         if(cl.indexOf('end-time') >= 0) 
+         {
+            let end = el.value;
+            let lastData = data[data.length -1].data.length;
+            data[data.length - 1].data[lastData - 1].end = end;
+         }
+      })
+      valueTestTime(data);
+   }
+   function valueTestTime(data){
+      var error = false;
+      data.forEach((val) => {
+         // console.log(val);
+         var slots = [];
+         if(error) return false;
+         val.data.forEach((tm) => {
+            console.log(tm);
+            if(tm.start >= tm.end){
+               error = true;
+               console.log(val.day+' has some invalid time');
+               return false;
+            }
+            if(!slots.find((e) => {
+               console.log('slots loop');
+               console.log(e.start +' <= '+ tm.start+' && '+e.end+' > '+ tm.start);
+               if(e.start <= tm.start && e.end > tm.start)
+               {
+                  console.log('start lied ',e.start);
+                  return false;
+               }
+               else if(e.start < tm.end && e.end >= tm.end)
+               {
+                  console.log('start lied ',e.start);
+                  return false;
+               }
+               // else if(e.start < tm.end && e.end >= tm.end)
+               return true;
+            }))
+            {
+               console.log('error find slot ==> ');
+            }
+            slots.push(tm)
+
+            // if(slots.find((e) => {
+            //    return ((e.start <= tm.start && e.end < tm.start) && (e.start < tm.end && e.end <= tm.end))
+            // })) 
+            // {
+            //    console.log(e);
+            //    return false;
+            // }
+         })
+      })
+   }
+   duplicate_check()
 </script>
 @endsection

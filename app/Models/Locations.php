@@ -33,7 +33,9 @@ class Locations extends Model
         'getting_there',
         'custom_location',
         'custom_location_id',
-        'status'
+        'status',
+        'latitude',
+        'longitude'
     ];
 
     /**
@@ -69,5 +71,13 @@ class Locations extends Model
     public function location_criteria()
     {
         return $this->hasMany('App\Models\LocationFilterCriterias', 'location_id', 'id');
+    }
+    public function request_location()
+    {
+        return $this->hasOne(RequestLocations::class,'id','custom_location_id');
+    }
+    public function active_slots()
+    {
+        return $this->hasMany(CelebrantDaySlot::class,'location_id');
     }
 }
