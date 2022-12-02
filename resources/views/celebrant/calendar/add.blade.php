@@ -219,13 +219,32 @@
          }
       })
    })
+   $(document).on('submit','.rolling-repeat-form-ns',function(e){
+      
+      duplicate_check('.ns-duplicate-check-validation .ns-required','common-error-ns');
+      if(FormError == true){
+         e.preventDefault();
+         setTimeout(() => {
+            
+         }, 100);
+         $("#loading").hide();
+         return false;
+      }
+   })
+   $(document).on('change','.ns-required.start-time,.ns-required.end-time',function(){
+      console.log($(this));
+      console.log($(this).parent().parent().parent());
+      // $(this).parent().parent().parent().find('.location-select-ns').trigger('change');
+      $('.location-select-ns').trigger('change');
+   })
    // console.log({{ $slots }});
    @if($slots != 0)
       $('#override').addClass('show')
       $('#override').show();
    @endif
-   function duplicate_check(target = '') {
-      let element = document.querySelectorAll('.ns-duplicate-check-validation .ns-required');
+   function duplicate_check(target = '',errorTarget = '') {
+      // document.querySelectorAll('.location-select-ns').onchange();
+      let element = document.querySelectorAll(target);
       var data = [];
       var count = 0;
       element.forEach((el, index) => {
@@ -246,52 +265,78 @@
             data[data.length - 1].data[lastData - 1].end = end;
          }
       })
-      valueTestTime(data);
+      return valueTestTime(data,errorTarget);
    }
-   function valueTestTime(data){
+   function valueTestTime(data,errorTarget){
+      // console.log(document.getElementById(errorTarget),errorTarget);
+      document.getElementById(errorTarget).innerHTML = '';
       var error = false;
+      FormError = false;
       data.forEach((val) => {
          // console.log(val);
          var slots = [];
          if(error) return false;
          val.data.forEach((tm) => {
-            console.log(tm);
+            // console.log(tm);
+            if(error) return false;
+
             if(tm.start >= tm.end){
                error = true;
-               console.log(val.day+' has some invalid time');
+               let message = val.day+' has start time grater then end time';
+               console.log(message);
+               document.getElementById(errorTarget).innerHTML = message;
                return false;
             }
-            if(!slots.find((e) => {
-               console.log('slots loop');
-               console.log(e.start +' <= '+ tm.start+' && '+e.end+' > '+ tm.start);
-               if(e.start <= tm.start && e.end > tm.start)
-               {
-                  console.log('start lied ',e.start);
-                  return false;
-               }
-               else if(e.start < tm.end && e.end >= tm.end)
-               {
-                  console.log('start lied ',e.start);
-                  return false;
-               }
-               // else if(e.start < tm.end && e.end >= tm.end)
-               return true;
-            }))
+            console.log('function test ',slotsSortCheck(slots,tm));
+            if(slotsSortCheck(slots,tm) == false)
             {
-               console.log('error find slot ==> ');
+               error = true;
+               let message = val.day+' has duplicate time'
+               console.log(message);
+               // console.log('error find slot ==> ');
+               console.log('target ',errorTarget);
+               document.getElementById(errorTarget).innerHTML = message;
+               FormError = true;
+               return false;
             }
-            slots.push(tm)
-
-            // if(slots.find((e) => {
-            //    return ((e.start <= tm.start && e.end < tm.start) && (e.start < tm.end && e.end <= tm.end))
-            // })) 
-            // {
-            //    console.log(e);
-            //    return false;
-            // }
+            // console.log(val.day+'  slots find log out side if condition');
+            slots.push(tm);
          })
       })
    }
-   duplicate_check()
+   function slotsSortCheck(slots,tm)
+   {
+      // console.log('slotsSortCheck function calling ========== ');
+      // console.log('slots',slots);
+      var error = true;
+      slots.forEach((e) => {
+         // console.log('slots loop');
+         // console.log(e.start +' <= '+ tm.start+' && '+e.end+' > '+ tm.start);
+         if(error == false) return error;
+         if(e.start <= tm.start && e.end > tm.start)
+         {
+            // console.log('start lied ',e.start);
+            error = false;
+         }
+         else if(e.start < tm.end && e.end >= tm.end)
+         {
+            // console.log('start lied ',e.start);
+            error = false;
+         }
+         else if(tm.start <= e.start && tm.end > e.start)
+         {
+            // console.log('start lied ',e.start);
+            error = false;
+         }
+         else if(tm.start < e.end && tm.end >= e.end)
+         {
+            // console.log('start lied ',e.start);
+            error = false;
+         }
+         return error;
+      });
+      return error;
+   }
+   
 </script>
 @endsection

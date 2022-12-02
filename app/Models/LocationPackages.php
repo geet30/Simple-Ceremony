@@ -20,4 +20,8 @@ class LocationPackages extends Model
     {
         return $this->hasMany('App\Models\PartnerPackages','id','package_id');
     }
+    public function get_packages()
+    {
+        return $this->hasOne('App\Models\PartnerPackages','id','package_id');
+    }
 }
