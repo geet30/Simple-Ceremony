@@ -292,14 +292,14 @@
             {
                error = true;
                let message = val.day+' has duplicate time'
-               console.log(message);
+               // console.log(message);
                // console.log('error find slot ==> ');
-               console.log('target ',errorTarget);
+               // console.log('target ',errorTarget);
                document.getElementById(errorTarget).innerHTML = message;
                FormError = true;
                return false;
             }
-            // console.log(val.day+'  slots find log out side if condition');
+            
             slots.push(tm);
          })
       })
