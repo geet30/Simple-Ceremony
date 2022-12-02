@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations};
 use App\View\Components\daySubSlots;
 use Carbon\Carbon;
+use App\View\Components\OverRideDays;
 
 
 class CalendarController extends Controller
@@ -43,7 +44,21 @@ class CalendarController extends Controller
         // print_r(Locations::get()->toArray());
         // die();
         $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
-        return view('celebrant.calendar.add',['slots' => $slots]);
+        if($slots > 0) return redirect()->route('calendar.over-ride');
+        $page = 'rolling-form';
+        return view('celebrant.calendar.add-rolling-data',['slots' => $slots,'page' => $page]);
+    }
+    public function overRideCreate(Request $request)
+    {
+        // die('==');
+        // $component = new OverRideDays();
+        // return $component->render();
+        $page = 'override-form';
+        $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
+        if($slots == 0) return redirect()->route('calendar.create');
+        $page = 'over-ride-form';
+        $slots_data = CelebrantDate::where('user_id',auth()->user()->id)->first();
+        return view('celebrant.calendar.add-rolling-data',['slots' => $slots,'page' => $page,'slots_data' => $slots_data]);
     }
     public function checkCelebrantLocation(Request $request)
     {

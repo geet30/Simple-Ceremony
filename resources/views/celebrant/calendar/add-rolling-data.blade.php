@@ -44,15 +44,16 @@
       <div class="row pt-31">
          <div class="col-12">
             <div class="tab-content" id="pills-tabContent">
-               @if($slots == 0)
-               <div class="tab-pane fade show active" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
-               @include('elements.celebrant.calander.rolling')
-               </div>
+               @if($page == 'rolling-form')
+                  <div class="tab-pane fade show active" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
+                  @include('elements.celebrant.calander.rolling')
+                  </div>
+               @else
+                  <!-- override -->
+                  <div class="tab-pane fade active show" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="1">
+                     @include('elements.celebrant.calander.override')
+                  </div>
                @endif
-               <!-- override -->
-               <div class="tab-pane fade @if($slots != 0) active show @endif" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="1">
-               @include('elements.celebrant.calander.override')
-               </div>
             </div>
          </div>
       </div>
@@ -86,7 +87,11 @@
 @section('scripts')
 <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pg-calendar@1.4.31/dist/js/pignose.calendar.full.js"></script> -->
 <!-- <script src="/datepicker/main.js"></script> -->
+<script>
+   const dateFormatNs = 'YYYY-MM-DD';
+</script>
 <script src="{{ asset('pg-calendar/js/main.js') }}"></script>
+@if($page == 'rolling-form')
 <script>
    var FormError = false;
    $(document).ready(function(){
@@ -94,11 +99,7 @@
          multiple: true,
       });
       $('.pignose-calendar-body').css('pointer-events','none');
-
-      
-
    })
-   const dateFormatNs = 'YYYY-MM-DD';
    $('#submit-first-rolling-form').click(function(){
       let start_date = parseInt($('#choose-date').val());
       let end_date = parseInt($('#end-date').val());
@@ -242,6 +243,43 @@
       $('#override').addClass('show')
       $('#override').show();
    @endif
+</script>
+@else
+<script>
+   $(document).ready(function(){
+      var over_ride_date_ar = [];
+      var over_ride = {
+         start : new Date('---'),
+         end : new Date('---')
+      }
+      console.log('before if ',over_ride);
+      over_ride.start = moment("{{ $slots_data->start_date }}").format(dateFormatNs)
+      over_ride.end = moment("{{ $slots_data->end_date }}").format(dateFormatNs)
+      $('.calendar-wrapper-ns').datepicker({
+         multidate: true,
+         format: 'dd-mm-yyyy',
+         startDate: over_ride.start,
+         // endDate: moment(over_ride.start).diff(moment(over_ride.end),'month',true)
+         // endDate: over_ride.end,
+      }).on('changeDate', function(e) {
+         console.log(e);
+         // over_ride_date_ar.pop();
+         // over_ride_date_ar.push(e.dates);
+         over_ride_date_ar = e.dates;
+         
+      });
+
+      $('#submit-first-over-ride-form').click(function(){
+         console.log(over_ride_date_ar);
+         // return false;
+         over_ride_date_ar.forEach((dates,i) => {
+            console.log(dates,i);
+         })
+      })
+   })
+</script>
+@endif
+<script>
    function duplicate_check(target = '',errorTarget = '') {
       // document.querySelectorAll('.location-select-ns').onchange();
       let element = document.querySelectorAll(target);
@@ -337,6 +375,5 @@
       });
       return error;
    }
-   
 </script>
 @endsection
