@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Location\{Methods, Relationship};
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Locations extends Model
 {
@@ -47,6 +48,9 @@ class Locations extends Model
         'created_at',
         'updated_at',
     ];
+    protected $appends = [
+        'package_price'
+    ];
     public function booking()
     {
         return $this->hasMany('App\Models\Booking', 'locationId', 'id');
@@ -80,4 +84,20 @@ class Locations extends Model
     {
         return $this->hasMany(CelebrantDaySlot::class,'location_id');
     }
+    public function packagePrice() : Attribute
+    {
+        $price = 0;
+        try {
+            $get_location_addons =  LocationPackages::with('get_packages')->where('location_id',$this->id)->get()->each(function($data){
+                $data->package_price = $data->get_packages->total_fee ?? 0;
+            });
+            $price = ($get_location_addons) ? $get_location_addons->sum('package_price') : 0;
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        return Attribute::make(
+            get: fn ($value) => $price,
+        );
+    }
+    
 }

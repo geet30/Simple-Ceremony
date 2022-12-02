@@ -39,6 +39,9 @@ class CalendarController extends Controller
         // echo "<pre>";
         // print_r($l);
         // die();
+        // echo "<pre>";
+        // print_r(Locations::get()->toArray());
+        // die();
         $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
         return view('celebrant.calendar.add',['slots' => $slots]);
     }

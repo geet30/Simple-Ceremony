@@ -1,4 +1,4 @@
-<form class="row needs-validation" method="post" action="{{ route('calendar.store') }}"  novalidate>
+<form class="row needs-validation rolling-repeat-form-ns" method="post" action="{{ route('calendar.store') }}"  novalidate>
    @csrf
    <div class="col-lg-4">
       <div class="card  panel-card h-100">
@@ -65,7 +65,7 @@
       <div class="col-12">
          <div class="card  panel-card d-none" id="form-2-after-1st">
             <div class="card-body ns-duplicate-check-validation">
-               <h2 class="h4 text-black">Step 2 - Fill data <span class="common-error-ns"></span></h2>
+               <h2 class="h4 text-black">Step 2 - Fill data <span id="common-error-ns"></span></h2>
                <div class="table-responsive">
                   <table class="table align-middle calander-table">
                      <thead>

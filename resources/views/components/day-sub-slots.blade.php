@@ -67,7 +67,7 @@
         <select name="day[{{$day}}][slots][{{$key}}][location]" id="day[{{$day}}][slots][{{$key}}][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required data-day="{{$day}}">
             <option value="" selected="">Name location</option>
             @foreach($location as $loc)
-                <option value="{{ $loc->id }}" data-price="{{ $loc->price }}">{{ $loc->name.' $'.$loc->price}}</option>
+                <option value="{{ $loc->id }}" data-price="{{ $loc->package_price }}">{{ $loc->name.' $'.$loc->price}}</option>
             @endforeach
             <!-- <option value="2">Add name location $0</option>
             <option value="3">Add name location $0</option>
