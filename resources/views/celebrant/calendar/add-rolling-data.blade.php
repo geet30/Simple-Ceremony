@@ -247,11 +247,14 @@
 @else
 <script>
    $(document).ready(function(){
+      var emptyForm2 = $('.ns-empty-form2');
+      var slotsForm2 = $('.ns-slots-form2');
       var over_ride_date_ar = [];
       var over_ride = {
          start : new Date('---'),
          end : new Date('---')
       }
+      slotsForm2.hide();
       console.log('before if ',over_ride);
       over_ride.start = moment("{{ $slots_data->start_date }}").format(dateFormatNs)
       over_ride.end = moment("{{ $slots_data->end_date }}").format(dateFormatNs)
@@ -270,11 +273,139 @@
       });
 
       $('#submit-first-over-ride-form').click(function(){
-         console.log(over_ride_date_ar);
+         // console.log(over_ride_date_ar);
          // return false;
+         if(over_ride_date_ar.length == 0){ slotsForm2.hide(); emptyForm2.show();}
+         else {slotsForm2.show(); emptyForm2.hide();}
+         // alert('sss');
+         console.log($('.ns-slots-form2'));
+         $('.ns-slots-form2 .ns-append-over-ride-slots').empty();
          over_ride_date_ar.forEach((dates,i) => {
+            let day = moment(dates).format('dddd').toLowerCase();
+            let dayText = moment(dates).format('ddd').toUpperCase();
+            let date = moment(dates).format("YYYY-MM-DD");
+            let dateText = moment(dates).format("DD MMMM YYYY");
             console.log(dates,i);
+            $.ajax({
+               url : "{{ route('calendar.overRideDay') }}",
+               data:{day:day,date:date,dayText:dayText,dateText:dateText},
+               success : function(rs){
+                  $("#loading").hide();
+                  // console.log(rs);
+                  
+                  $('.ns-slots-form2 .ns-append-over-ride-slots').append(rs);
+                  $('.ns-slots-form2 .ns-append-over-ride-slots .ns-custom-append-override:last select').select2({
+                     minimumResultsForSearch:Infinity
+                  });
+                  // $('.ns-empty-form').hide();
+                  // $('.ns-slots-form').show();
+                  // // $('tr.'+className+':last').after(rs);
+                  // $('.ns-slots-form .ns-append-over-ride-slots .over-ride-form-slots-ns:last select').select2({
+                  //    minimumResultsForSearch:Infinity
+                  // });
+               },
+               error: function(er){
+                  $("#loading").hide();
+                  console.log(er);
+               }
+            })
          })
+      })
+      $(document).on('click','.get-override-sub-slots',function(){
+         console.log($(this).data());
+         // let className = data.class;
+         let dataAttr = $(this).data();
+         let parentData = $(this).closest('tr').parent().find('.ns-slots:last').data();
+         let key = parentData?.key || 0;
+         key++;
+         var element = $(this);
+         console.log(key);
+         let data = {
+            key: key,
+            daytext : dataAttr.daytext,
+            day : dataAttr.day,
+            date : dataAttr.date,
+            datetext : dataAttr.datetext
+         }
+         // return false;
+         // console.log(key);
+         key++;
+         $.ajax({
+            url:dataAttr.url,
+            data:data,
+            success : function(rs){
+               console.log(rs);
+               element.closest('tr').parent().find('.ns-slots:last').after(rs);
+               // $('tr.'+className+':last').after(rs);
+               element.closest('tr').parent().find('.ns-slots:last select').select2({
+                  minimumResultsForSearch:Infinity
+               });
+            },
+            error: function(er){
+               console.log(er);
+            }
+         })
+      })
+      $(document).on('change','.over-ride-location-select-ns',async function(){
+         if(!$(this).val() || $(this).val() == ' ') 
+         {
+            $(this).parent().parent().find('input.total_fee').val('');
+            return false;
+         }
+         let location = parseFloat($(this).val()) || 0;
+         let admin_fee = parseFloat($(this).parent().parent().find('input.admin_fee').val()) || 0;
+         let your_fee = parseFloat($(this).parent().parent().find('input.your_fee').val()) || 0;
+         let location_price = parseFloat($(this).find('option[value="'+location+'"').data('price')) || 0;
+         let total = location_price + admin_fee + your_fee;
+         console.log(location,admin_fee,your_fee,location_price,total);
+         console.log($(this).data());
+         let dataAttr = $(this).data();
+         // return false;
+         let start_time = $(this).parent().parent().find('select.start-time').val();
+         let end_time =$(this).parent().parent().find('select.end-time').val();
+
+         // console.log('ajax hitting');
+         var element = $(this);
+         let result = await $.ajax({
+            url : "{{ route('celebrant-location-check') }}",
+            type : 'POST',
+            data : {
+               start_date : dataAttr.date,
+               end_date : dataAttr.date,
+               start_time:start_time,
+               end_time:end_time,
+               day : dataAttr.day,
+               location_id:location,
+            },
+            success : function(rs){
+               console.log('console success result');
+               console.log(rs);
+               if(rs.length != 0)
+               {
+                  element.parent().parent().find('input.total_fee').val('');
+                  // console.log(element.parent().parent().find('.location-error'));
+                  element.parent().parent().find('.location-error').removeClass('d-none');
+                  element.parent().parent().find('.location-error').show();
+               }
+               else
+               {
+                  element.parent().find('input.input-location_fee').val(location_price)
+                  element.parent().parent().find('input.total_fee').val(total)
+                  element.parent().parent().find('.location-error').hide();
+                  element.parent().parent().find('.location-error').addClass('d-none');
+               }
+            },
+            error : function(er){
+               console.log('console err result');
+               console.log(er);
+            }
+         })
+      })
+      $(document).on('change','.ns-required.start-time,.ns-required.end-time',function(){
+         console.log($(this));
+         console.log($(this).parent().parent().parent());
+         // $(this).parent().parent().parent().find('.location-select-ns').trigger('change');
+         $(this).closest('tr').find('.over-ride-location-select-ns').trigger('change');
       })
    })
 </script>

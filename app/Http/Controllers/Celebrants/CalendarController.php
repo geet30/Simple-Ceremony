@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations};
+use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations,CelebrantDetail};
 use App\View\Components\daySubSlots;
 use Carbon\Carbon;
 use App\View\Components\OverRideDays;
@@ -202,6 +202,11 @@ class CalendarController extends Controller
         return redirect()->back()->with(['success' => 'Data saved successfully']);
     }
 
+    public function overRideFormSubmit(Request $request)
+    {
+        echo "<pre>";
+        print_r($request->all());
+    }
     /**
      * Display the specified resource.
      *
@@ -250,5 +255,36 @@ class CalendarController extends Controller
     public function subSlots(Request $request)
     {
         return view('celebrant.calendar.subslots',['key' => $request->key ?? 1,'day' => $request->day ?? '']);
+    }
+    public function overRideDay(Request $request)
+    {
+        $date = $request->date;
+        $dateText = $request->dateText;
+        $day = $request->day;
+        $dayText = $request->dayText;
+        $location = Locations::whereHas('request_location',function($qr){
+                $qr->where('celebrant_id',auth()->user()->id);
+            })
+            // ->where('status',1)
+            ->get();
+        $price = CelebrantDetail::where('celebrant_id',auth()->user()->id)->first();
+        $slots = getTimeSlot(15,'00:00','23:00');
+        return view('components.over-ride-days',['day' => $day,'date' => $date, 'dateText' => $dateText,'dayText' => $dayText,'location' => $location, 'slots' => $slots,'price' => $price]);
+    }
+    public function overRideDaySlots(Request $request)
+    {
+        $key = $request->key;
+        $date = $request->date;
+        $dateText = $request->dateText;
+        $day = $request->day;
+        $dayText = $request->dayText;
+        $price = CelebrantDetail::where('celebrant_id',auth()->user()->id)->first();
+        $location = Locations::whereHas('request_location',function($qr){
+                $qr->where('celebrant_id',auth()->user()->id);
+            })
+            // ->where('status',1)
+            ->get();
+        $slots = getTimeSlot(15,'00:00','23:00');
+        return view('components.over-ride-day-slots',['day' => $day,'date' => $date, 'dateText' => $dateText,'dayText' => $dayText,'location' => $location, 'slots' => $slots,'key' => $key,'price' => $price]);
     }
 }

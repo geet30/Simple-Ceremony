@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use App\Models\{CelebrantDetail,RequestLocations,Locations};
 
 class OverRideDays extends Component
 {
@@ -25,6 +26,13 @@ class OverRideDays extends Component
         $this->dayText = $dayText;
         $this->date = $date;
         $this->dateText = $dateText;
+
+        $this->location = Locations::whereHas('request_location',function($qr){
+            $qr->where('celebrant_id',auth()->user()->id);
+        })
+        // ->where('status',1)
+        ->get();
+    $this->slots = self::getTimeSlot(15,'00:00','23:00');
     }
 
     /**
@@ -34,6 +42,31 @@ class OverRideDays extends Component
      */
     public function render()
     {
-        return view('components.over-ride-days');
+        // dd($this);
+        return view('components.over-ride-days',['day' => $day]);
+    }
+    private static function getTimeSlot($interval, $start_time, $end_time)
+    {
+        $start = new \DateTime($start_time);
+        $end = new \DateTime($end_time);
+        $startTime = $start->format('H:i');
+        $endTime = $end->format('H:i');
+        $i=0;
+        $time = [];
+        $last = '';
+        while(strtotime($startTime) <= strtotime($endTime)){
+            $start = $startTime;
+            $end = date('H:i',strtotime('+'.$interval.' minutes',strtotime($startTime)));
+            $startTime = date('H:i',strtotime('+'.$interval.' minutes',strtotime($startTime)));
+            $i++;
+            if(strtotime($startTime) <= strtotime($endTime)){
+                // $time[$i]['slot_start_time'] = $start;
+                // $time[$i]['slot_end_time'] = $end;
+                $time[$i] = $start;
+                $last = $end;
+            }
+        }
+        $time[++$i] = $last;
+        return $time;
     }
 }
