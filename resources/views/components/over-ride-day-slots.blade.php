@@ -1,4 +1,4 @@
-<tr class="ns-slots" data-key="{{$key}}">
+<tr class="ns-slots" data-key="{{$key}}" data-date="{{$date}}">
     <td>&nbsp;</td>
     <td class="h4 dark-blue-100">&nbsp;</td>
     <td style="min-width:200px">

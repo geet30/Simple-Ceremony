@@ -334,7 +334,7 @@
             url:dataAttr.url,
             data:data,
             success : function(rs){
-               console.log(rs);
+               // console.log(rs);
                element.closest('tr').parent().find('.ns-slots:last').after(rs);
                // $('tr.'+className+':last').after(rs);
                element.closest('tr').parent().find('.ns-slots:last select').select2({
@@ -357,8 +357,8 @@
          let your_fee = parseFloat($(this).parent().parent().find('input.your_fee').val()) || 0;
          let location_price = parseFloat($(this).find('option[value="'+location+'"').data('price')) || 0;
          let total = location_price + admin_fee + your_fee;
-         console.log(location,admin_fee,your_fee,location_price,total);
-         console.log($(this).data());
+         // console.log(location,admin_fee,your_fee,location_price,total);
+         // console.log($(this).data());
          let dataAttr = $(this).data();
          // return false;
          let start_time = $(this).parent().parent().find('select.start-time').val();
@@ -378,8 +378,8 @@
                location_id:location,
             },
             success : function(rs){
-               console.log('console success result');
-               console.log(rs);
+               // console.log('console success result');
+               // console.log(rs);
                if(rs.length != 0)
                {
                   element.parent().parent().find('input.total_fee').val('');
@@ -407,7 +407,84 @@
          // $(this).parent().parent().parent().find('.location-select-ns').trigger('change');
          $(this).closest('tr').find('.over-ride-location-select-ns').trigger('change');
       })
+      $(document).on('change','.ns-over-ride-checkbox-uncheck',function(){
+         let dataAttr = $(this).closest('tr').data()
+         $(this).prop('checked',true)
+         $('.'+dataAttr.show).show();
+         $(this).closest('tr').parent().find('tr.ns-slots').hide();
+         $('.'+dataAttr.date+'-date-class').hide()
+
+         $('.available-'+dataAttr.date).prop('checked',false)
+         $(this).closest('tr').parent().find('tr.ns-slots').each(function(){
+            // console.log($(this))
+            $(this).find('.ns-required').attr('required',false)
+         })
+      })
+      $(document).on('change','.ns-over-ride-checkbox-check',function(){
+         $(this).prop('checked',false)
+         let dataAttr = $(this).closest('tr').data()
+         console.log(dataAttr);
+         $('.'+dataAttr.show).show();
+         $(this).closest('tr').parent().find('tr.ns-slots').show();
+         $('.'+dataAttr.date+'-date-class').show()
+         $(this).closest('tr').hide();
+         
+         $('.available-'+dataAttr.date).prop('checked',true)
+
+         $('.'+dataAttr.show).parent().find('tr.ns-slots').each(function(){
+            // console.log($(this))
+            $(this).find('.ns-required').attr('required',true)
+         })
+      })
+      $(document).on('submit','.over-ride-form-ns',function(e){
+         makeData();
+         if(FormError == true){
+            e.preventDefault();
+            $("#loading").hide();
+            return false;
+         }
+      })
    })
+   function makeData() {
+      var count = 0;
+      var data = [];
+      var errorTarget = "error-custom-ns";
+      $('.ns-custom-append-override').each(function(){
+         // duplicate_check($(this).find('.error-custom-ns'))
+         // console.log($(this).find('.error-custom-ns'));
+         // console.log($(this).find('.ns-slots'));
+         // var dataAttr = $(this).find('tr:first').data();
+         console.log($(this).find('.error-custom-ns').data());
+         $(this).find('.ns-slots').each(function(){
+            // console.log($(this).closest('tr').data());
+            // console.log(dataAttr);
+            let el = $(this);
+            let dataAttr = $(this).data();
+            let day = dataAttr.date;
+            // el.closest('tr').classList[0].replace('custom-class-','');
+            let key = day;
+            // var dayObject = {start:'',end:''};
+            console.log($('input.available-'+day).prop('checked'));
+            if($('input.available-'+day).prop('checked') == true)
+            {
+               if(!data.find((ar) => {return ar.day === day})) data.push({day:day,data:[]});
+               // let cl = el.classList.value.split(" ")
+               if($(this).find('.start-time').length > 0) 
+               {
+                  let start = $(this).find('.start-time').val();
+                  data[data.length -1].data.push({start:start,end:''});
+               }
+               if($(this).find('.end-time').length > 0) 
+               {
+                  let end = $(this).find('.end-time').val();
+                  let lastData = data[data.length -1].data.length;
+                  data[data.length - 1].data[lastData - 1].end = end;
+               }
+            }
+         })
+      })
+      return valueTestTime(data,errorTarget);
+   }
 </script>
 @endif
 <script>

@@ -1,6 +1,7 @@
 <div class="col-md-12 ns-custom-append-override">
     <div class="d-flex mb-3">
         <div class="align-self-center me-3 h4 text-black mb-0" >{{ $dateText}}</div>
+        <div class="align-self-center me-3 h4 text-black mb-0 error-custom-ns" data-id="error-custom-ns-{{ $date }}" id="error-custom-ns-{{ $date }}" ></div>
         <div class="align-self-center" onclick="this.closest('.ns-custom-append-override').remove()"><img src="/images/icons/delete.svg" class="img-fluid" alt="delete"></div>
     </div>
     <div class="table-responsive">
@@ -21,9 +22,9 @@
         <tbody>
         <tr class="ns-slots {{$date}}-date-class" data-key="0" data-date="{{$date}}" data-show="{{$date}}-date-class-unavailable">
             <td>
-                <input type="checkbox" class="" name="override[{{$date}}][available]" style="display:none">
+                <input type="checkbox" class="available-{{$date}}" name="override[{{$date}}][available]" style="display:none" checked="true">
                 <div class="form-check">
-                    <input class="form-check-input ns-event-checkbox-uncheck" type="checkbox" name="override[{{$date}}][active]" id="1" checked autocomplete="off">
+                    <input class="form-check-input ns-over-ride-checkbox-uncheck" type="checkbox" name="override[{{$date}}][active]" id="1" checked autocomplete="off">
                     <input type="hidden" name="override[{{$date}}][day]" value="{{ $dayText }}">
                     <input type="hidden" name="override[{{$date}}][full_day]" value="{{ $day }}">
                 </div>
@@ -127,13 +128,13 @@
             <td colspan="8" class="pb-5"><a data-day="{{$day}}" data-dayText="{{$dayText}}" data-date="{{$date}}" data-dateText="{{$dateText}}" data-class="custom-class-{{$day}}" data-url="{{ route('calendar.overRideDay-slots') }}" class="get-override-sub-slots text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
             Add more available times</a></td>
         </tr>
-        <tr style="display:none" class="{{$date}}-date-class-unavailable" data-show="{{$date}}-date-class">
+        <tr style="display:none" class="{{$date}}-date-class-unavailable" data-show="{{$date}}-date-class" data-date="{{$date}}">
             <td>
                 <div class="form-check">
-                    <input class="form-check-input ns-event-checkbox-check" type="checkbox" name="override[{{$date}}][available_no]" id="1"  autocomplete="off">
+                    <input class="form-check-input ns-over-ride-checkbox-check"  type="checkbox" name="override[{{$date}}][available_no]" id="1"  autocomplete="off">
                 </div>
             </td>
-            <td class="h4 dark-blue-100 "></td>
+            <td class="h4 dark-blue-100 ">{{ $dayText }}</td>
             <td colspan="7" ><span class="neutral-50  body-2">Unavailable</span></td>
         </tr>
         </tbody>

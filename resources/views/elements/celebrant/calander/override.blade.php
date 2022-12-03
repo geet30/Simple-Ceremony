@@ -1,5 +1,5 @@
 <h2 class="h4 text-black mb-3">Step 1 - Choose date(s)</h2>
-<form class="row needs-validation rolling-repeat-form-ns" method="post" novalidate action="{{ route('calendar.overRide-form-save') }}">
+<form class="row needs-validation over-ride-form-ns" method="post" novalidate action="{{ route('calendar.overRide-form-save') }}">
    @csrf
    <div class=" col-lg-5 mb-3 mb-lg-0">
       <div class="card  panel-card ">
@@ -49,7 +49,7 @@
       <div class="col-12 ns-slots-form2">
          <div class="card  panel-card">
             <div class="card-body">
-               <h2 class="h4 text-black mb-3">Step 2 - Fill data</h2>
+               <h2 class="h4 text-black mb-3">Step 2 - Fill data <span id="error-custom-ns"></span></h2>
                <div class="card-body ns-append-over-ride-slots">
                   
                </div>
