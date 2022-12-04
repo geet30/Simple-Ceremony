@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations};
+use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations,CelebrantDetail,CelebrantDateOverRide};
 use App\View\Components\daySubSlots;
 use Carbon\Carbon;
+use App\View\Components\OverRideDays;
 
 
 class CalendarController extends Controller
@@ -43,7 +44,21 @@ class CalendarController extends Controller
         // print_r(Locations::get()->toArray());
         // die();
         $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
-        return view('celebrant.calendar.add',['slots' => $slots]);
+        if($slots > 0) return redirect()->route('calendar.over-ride');
+        $page = 'rolling-form';
+        return view('celebrant.calendar.add-rolling-data',['slots' => $slots,'page' => $page]);
+    }
+    public function overRideCreate(Request $request)
+    {
+        // die('==');
+        // $component = new OverRideDays();
+        // return $component->render();
+        $page = 'override-form';
+        $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
+        if($slots == 0) return redirect()->route('calendar.create');
+        $page = 'over-ride-form';
+        $slots_data = CelebrantDate::where('user_id',auth()->user()->id)->first();
+        return view('celebrant.calendar.add-rolling-data',['slots' => $slots,'page' => $page,'slots_data' => $slots_data]);
     }
     public function checkCelebrantLocation(Request $request)
     {
@@ -57,7 +72,7 @@ class CalendarController extends Controller
         try {
             //code...
             $location = Locations::find($request->location_id);
-            return $find = Locations::with(['active_slots' => function($qr) use($day){
+            $find = Locations::with(['active_slots' => function($qr) use($day){
                             $qr->where('day',$day)
                             ->with('dates');
                         }])
@@ -89,61 +104,45 @@ class CalendarController extends Controller
                         })
                         ->whereHas('dates',function($dateRangeSearch) use($start_date,$end_date){
                             // $dateRangeSearch->whereRaw("(date(start_date) <= '{$start_date}' AND date(end_date) >= '{$start_date}') OR date(start_date) <= '{$end_date}' OR date(end_date) >= '{$end_date}'");
-                            $dateRangeSearch->where(function($qra) use($start_date,$end_date){
-                                $qra->where(function($st) use($start_date,$end_date){
-                                    $st->whereDate('start_date','>=',$start_date)
-                                        ->whereDate('start_date','<',$end_date);
+                            $dateRangeSearch->where(function($dateRangeSearchQr) use($start_date,$end_date){
+                                $dateRangeSearchQr->where(function($qra) use($start_date,$end_date){
+                                    $qra->where(function($st) use($start_date,$end_date){
+                                        $st->whereDate('start_date','>=',$start_date)
+                                            ->whereDate('start_date','<',$end_date);
+                                    })
+                                    ->orWhere(function($et) use($start_date,$end_date){
+                                        $et->whereDate('end_date','>',$start_date)
+                                            ->whereDate('end_date','<=',$end_date);
+                                    });
                                 })
-                                ->orWhere(function($et) use($start_date,$end_date){
-                                    $et->whereDate('end_date','>',$start_date)
-                                        ->whereDate('end_date','<=',$end_date);
+                                ->orWhere(function($qra)use($start_date,$end_date){
+                                    $qra->where(function($st) use($start_date){
+                                        $st->whereDate('start_date','<=',$start_date)
+                                            ->whereDate('end_date','>',$start_date);
+                                    })
+                                    ->orWhere(function($et) use($end_date){
+                                        $et->whereDate('start_date','<',$end_date)
+                                            ->whereDate('end_date','>=',$end_date);
+                                    });
                                 });
                             })
-                            ->orWhere(function($qra)use($start_date,$end_date){
-                                $qra->where(function($st) use($start_date){
-                                    $st->whereDate('start_date','<=',$start_date)
-                                        ->whereDate('end_date','>',$start_date);
-                                })
-                                ->orWhere(function($et) use($end_date){
-                                    $et->whereDate('start_date','<',$end_date)
-                                        ->whereDate('end_date','>=',$end_date);
-                                });
-                            });
-
+                            ->where('user_id','!=',auth()->user()->id);
                         });
-
-                        // ->where(function($qra)use($start_time,$end_time){
-                        //     $qra->where(function($st) use($start_time){
-                        //         $st->whereTime('start_time','<=',$start_time)
-                        //             ->whereTime('end_time','>=',$start_time);
-                        //     })
-                        //     ->where(function($et) use($end_time){
-                        //         $et->whereTime('start_time','<=',$end_time)
-                        //             ->whereTime('end_time','>=',$end_time);
-                        //     });
-                        // });
-                        // ->whereRaw("start_time <= '{$start_time")
                     })
                     ->get();
-            return CelebrantDate::with('day_slots.location')->get();
-            // return CelebrantDate::whereRaw("(date(start_date) <= '{$start_date}' AND date(end_date) >= '{$start_date}') OR date(start_date) <= '{$end_date}' OR date(end_date) >= '{$end_date}'")
-            //     // ->where(function($end) use($end_date){
-            //     //     $end->whereRaw("date(start_date) <= {$end_date} OR date(end_date) >= {$end_date}");
-            //     // })
-            //     ->whereHas('day_slots',function($slots) use($start_time,$end_time,$location_id){
-            //         $slots->where('location_id',$location_id)
-            //             ->where(function($st) use($start_time){
-            //                 $st->whereTime('start_time','<=',$start_time)
-            //                     ->orWhere('end_time','>=',$start_time);
-            //             })
-            //             ->where(function($et) use($end_time){
-            //                 $et->whereTime('start_time','<=',$end_time)
-            //                     ->orWhere('end_time','>=',$end_time);
-            //             })
-            //             ->where('location_id',$location_id);
-            //     })
-            //     // ->get();
-            //     ->toSql();
+            if(!$find)
+            {
+                return CelebrantDateOverRide::where([
+                    ['location_id',$location->id],
+                    ['user_id','!=',auth()->user()->id],
+                    ['day',$day],
+                    ['is_available','yes']
+                ])
+                ->whereDate('override_date','>=',$start_date)
+                ->whereDate('override_date','<=',$end_date)
+                ->get();
+            }
+            return $find ;
         } catch (\Throwable $th) {
             //throw $th;
             return $th->getMessage();
@@ -187,6 +186,53 @@ class CalendarController extends Controller
         return redirect()->back()->with(['success' => 'Data saved successfully']);
     }
 
+    public function overRideFormSubmit(Request $request)
+    {
+        // echo "<pre>";
+        // print_r($request->all());
+        $insert = [];
+        foreach($request->override as $k => $val)
+        {
+            foreach($val['slots'] as $slot)
+            {
+                if(isset($val['available']))
+                {
+                    $insert = [
+                        'user_id' => auth()->user()->id,
+                        'is_available' => (isset($val['available'])) ? 'yes' : 'no',
+                        'override_date_start' => $k.' '.$slot['start'],
+                        'override_date_end' => $k.' '.$slot['end'],
+                        'override_date' => $k,
+                        'day' => $val['full_day'],
+                        'dayText' => $val['day'],
+                        'start_time' => $slot['start'],
+                        'end_time' => $slot['end'],
+                        'booking_length' => $slot['booking_length'],
+                        'your_fee' => $slot['your_fee'],
+                        'admin_fee' => $slot['admin_fee'],
+                        'location_fee' => $slot['location_fee'],
+                        'location_id' => $slot['location'],
+                        'total_fee' => $slot['total_fee']
+                    ];
+                }
+                else{
+                    $insert = [
+                        'user_id' => auth()->user()->id,
+                        'is_available' => (isset($val['available'])) ? 'yes' : 'no',
+                        'override_date' => $k,
+                        'day' => $val['full_day'],
+                        'dayText' => $val['day'],
+                    ];
+                }
+                if(CelebrantDateOverRide::where('override_date',$k)->count() > 0)
+                {
+                    CelebrantDateOverRide::where('override_date',$k)->delete();
+                }
+                CelebrantDateOverRide::create($insert);
+            }
+        }
+        return redirect()->back()->with(['success' => 'Data saved successfully']);
+    }
     /**
      * Display the specified resource.
      *
@@ -235,5 +281,36 @@ class CalendarController extends Controller
     public function subSlots(Request $request)
     {
         return view('celebrant.calendar.subslots',['key' => $request->key ?? 1,'day' => $request->day ?? '']);
+    }
+    public function overRideDay(Request $request)
+    {
+        $date = $request->date;
+        $dateText = $request->dateText;
+        $day = $request->day;
+        $dayText = $request->dayText;
+        $location = Locations::whereHas('request_location',function($qr){
+                $qr->where('celebrant_id',auth()->user()->id);
+            })
+            // ->where('status',1)
+            ->get();
+        $price = CelebrantDetail::where('celebrant_id',auth()->user()->id)->first();
+        $slots = getTimeSlot(15,'00:00','23:00');
+        return view('components.over-ride-days',['day' => $day,'date' => $date, 'dateText' => $dateText,'dayText' => $dayText,'location' => $location, 'slots' => $slots,'price' => $price]);
+    }
+    public function overRideDaySlots(Request $request)
+    {
+        $key = $request->key;
+        $date = $request->date;
+        $dateText = $request->dateText;
+        $day = $request->day;
+        $dayText = $request->dayText;
+        $price = CelebrantDetail::where('celebrant_id',auth()->user()->id)->first();
+        $location = Locations::whereHas('request_location',function($qr){
+                $qr->where('celebrant_id',auth()->user()->id);
+            })
+            // ->where('status',1)
+            ->get();
+        $slots = getTimeSlot(15,'00:00','23:00');
+        return view('components.over-ride-day-slots',['day' => $day,'date' => $date, 'dateText' => $dateText,'dayText' => $dayText,'location' => $location, 'slots' => $slots,'key' => $key,'price' => $price]);
     }
 }
