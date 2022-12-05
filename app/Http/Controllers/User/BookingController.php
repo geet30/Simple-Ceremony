@@ -189,8 +189,30 @@ class BookingController extends Controller
         }
  
     }
-   
+  
+    /**
+     * search the specified booking in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */ 
+    
+    public function getCelebrantAvailability(Request $request){
+        dd($request->all());
+        try {
+            
 
+            if($request->locationId=='' && $request->search==''){
+                // $data = Locations::getLocations($request->id,$columns)->get();
+                // return View::make('pages.home.search-location', ['locations' => $data]);
+            }
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+
+    }
     /**
      * Update the specified resource in storage.
      *

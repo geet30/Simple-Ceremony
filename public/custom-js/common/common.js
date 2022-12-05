@@ -62,12 +62,37 @@ function selectDate(date) {
         date: date,
     });
     $(".booking_date").val(new Date(date).toLocaleDateString("fr-CA"));
-
-    if (typeof getMarriageBookingsRequest == "function") {
-        date = new Date(date);
-        date = dateFormat(date, "MM/dd/yyyy");
-        getMarriageBookingsRequest(date);
+    if($('.getBookingsCalendar').length){
+       
+        if (typeof getMarriageBookingsRequest == "function") {
+            date = new Date(date);
+            date = dateFormat(date, "MM/dd/yyyy");
+            getMarriageBookingsRequest(date);
+        }
     }
+    if($('.bookingStepOne').length){
+        var url = '/get-celebrant-availability';
+        var locationId = $('#locationId').val();  
+        $.ajax({
+            type: "get",
+            url: url,
+            data: {
+                'search': new Date(date).toLocaleDateString('fr-CA'),'locationId':locationId
+                
+            },
+            dataType: 'json',
+            // cache: false,
+            success: function(response)
+            {  
+                
+                console.log(response);
+                // $('.'+cls).html(response);
+                
+            }
+        });
+       
+    }
+   
 }
 
 var defaultConfig = {
@@ -165,6 +190,7 @@ $(document).ready(function () {
     }
     $("#loading").hide();
     ImgUpload();
+   
     $(".calendar-wrapper").calendar(defaultConfig);
     $(document).on("click", ".delete_append_id", function () {
         var id = $(this).data("id");

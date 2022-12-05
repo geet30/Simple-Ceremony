@@ -27,6 +27,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
+    @hasSection('css')
+        @yield('css')
+    @endIf
 </head>
 
 <body class="antialiased" data-barba="wrapper">
@@ -40,30 +43,35 @@
         @yield('content')
         @include('elements.common.footer')
     </main>
+    
+    <script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.fileupload.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.iframe-transport.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
+    <!-- <script src="js/app.js" defer></script> -->
+    <script src="/custom-js/common/select2.js"></script>
+    <script src="/custom-js/admin/formsubmit.js"></script>
+    <script src="/custom-js/common/common.js"></script>
+    <script src="/custom-js/common/search.js"></script>
+    <script src="/custom-js/common/add-more.js"></script>
+    <script src="/custom-js/admin/tab.js"></script>
+    <script src="/custom-js/common/validation.js"></script>
+    <script src="/custom-js/common/tel-number.js"></script>
+    
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    
+    @hasSection('scripts')
+        @yield('scripts')
+    @endIf
 </body>
 
 
-<script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.fileupload.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-file-upload/9.22.0/js/jquery.iframe-transport.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/utils.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/wrick17/calendar-plugin@master/calendar.min.js"></script>
-<!-- <script src="js/app.js" defer></script> -->
-<script src="/custom-js/common/select2.js"></script>
-<script src="/custom-js/admin/formsubmit.js"></script>
-<script src="/custom-js/common/common.js"></script>
-<script src="/custom-js/common/search.js"></script>
-<script src="/custom-js/common/add-more.js"></script>
-<script src="/custom-js/admin/tab.js"></script>
-<script src="/custom-js/common/validation.js"></script>
-<script src="/custom-js/common/tel-number.js"></script>
-
-<script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-
 </html>
+

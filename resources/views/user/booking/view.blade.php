@@ -1,5 +1,9 @@
 @extends('layouts.master') 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('pg-calendar/css/style.css') }}"/>
+@endsection
 @section('content')
+
 <section class="location-banner">
    <div class="container">
       <div class="row">
@@ -1688,8 +1692,10 @@
             <div class="container-fluid">
                <div class="row">
                   <div class="col-md-12 col-lg-7 mb-lg-0 mb-4">
-                     <div class="calendar-wrapper " id="calendar-wrapper"></div>
-                     <input type="hidden" name="booking_date" id="calendar_date" class="booking_date">
+                     <!-- <div class="calendar-wrapper " id="calendar-wrapper"></div> -->
+                     <div class="date-picker-js no-border-calander " ></div>
+                     <input type="hidden" name="search_start_date" id="search_start_date" class="search_start_date">
+                     <input type="hidden" name="search_end_date" id="search_end_date" class="search_end_date">
                   </div>
                   <div class="col-md-12 col-lg-5">
                      <div class="calander-time mb-4">
@@ -1726,4 +1732,63 @@
       </div>
    </div>
 </div>
+@endsection
+@section('scripts')
+
+<script>
+   $(document).ready(function(){          
+     
+      $('.date-picker-js').datepicker({
+         format: "M yyyy",
+         singleDatePicker: true,
+         multidate: true,
+         multidateSeparator: ",",
+         autoClose:true,
+      }).on("changeDate",function(event){
+            var dates = event.dates, elem=$('.date-picker-js');
+            if(elem.data("selecteddates")==dates.join(",")) return; //To prevernt recursive call, that lead to lead the maximum stack in the browser.
+            if(dates.length>2) dates=dates.splice(dates.length-1);
+            dates.sort(function(a,b){return new Date(a).getTime()-new Date(b).getTime()});
+            elem.data("selecteddates",dates.join(",")).datepicker('setDates',dates);
+           
+            getDates();
+      });
+     
+      function getDates()
+      {
+         var get_dates = $(".date-picker-js").data('datepicker').getFormattedDate('yyyy-mm-dd');
+
+         get_dates = get_dates.split(',')
+         var start_date = get_dates[0] ? get_dates[0]:'';
+         var end_date = get_dates[1] ? get_dates[1]:'';
+         $('#search_start_date').val(start_date);
+         $('#search_end_date').val(end_date);
+
+         let range = dateRange(start_date, end_date);
+        
+         for (const element of range) {
+            var data_date = new Date(element).getTime();
+            $('td[data-date = '+data_date+']').addClass('range_selected');
+         }
+      }
+      function dateRange(startDate, endDate, steps = 1) {
+         const dateArray = [];
+         let currentDate = new Date(startDate);
+
+         while (currentDate <= new Date(endDate)) {
+           
+            dateArray.push(new Date(currentDate));
+            currentDate.setUTCDate(currentDate.getUTCDate() + steps);
+            // Use UTC date to prevent problems with time zones and DST
+           
+
+         }
+
+         return dateArray;
+      }
+      
+     
+   })
+      
+</script>
 @endsection
