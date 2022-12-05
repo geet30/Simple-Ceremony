@@ -43,11 +43,11 @@
         
         <div class="col-xxl-12 col-xl-12 col-md-12 mb-4">
            
-            <div class="calendar-wrapper" id="calendar-wrapper"></div>
+            <div class="calendar-wrapper bookingStepOne" id="calendar-wrapper"></div>
             <input type="hidden" name="booking_date" id="calendar_date" class="booking_date">
         </div>
         
-        <div class="col-md-12 mb-3">
+        <!-- <div class="col-md-12 mb-3">
             <h3 class="h3 Neutral/100 mb-4">Select time</h3>
             <div class="row">
                  <div class="col-md-6 mb-4">
@@ -73,6 +73,20 @@
                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Booking end time is required</div>
                 </div>
             </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <label for="InputName" class="form-label small-text2">Cost Starting From</label>
+                <div class="d-flex">
+                
+                    <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_total_fee]" id="InputName" required readonly>
+                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>cost is required</div>
+                
+                <span class="d-inline-block ms-2 align-self-start" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="cost will appear after you have chosen the date">
+                <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
+                </span>
+                </div>
+            </div>
         </div>
         <div class="col-md-12 mb-4">
             <h3 class="h3 neutral-100 mb-0">Click time to book</h3>
@@ -82,34 +96,7 @@
                 </svg>
                 Times will appear after you had chosen the date
             </p>
-            <div class="row">
-                <div class="col-4 col-xl-3 mt-4">
-                   <a href="" class="time-and-price body-2">
-                      <span class="netural-100 mb-1">09:00</span>
-                      <span class="turquoise-100 mb-2">$ 350</span>
-                      <span class="netural-100" style="font-size: 10px;">30 min</span>
-                   </a>
-                </div>
-                <div class="col-4 col-xl-3 mt-4">
-                   <a href="" class="time-and-price body-2">
-                      <span class="netural-100 mb-1">09:00</span>
-                      <span class="turquoise-100 mb-2">$ 350</span>
-                      <span class="netural-100" style="font-size: 10px;">30 min</span>
-                   </a>
-                </div>
-                <div class="col-4 col-xl-3 mt-4">
-                   <a href="" class="time-and-price body-2">
-                      <span class="netural-100 mb-1">09:00</span>
-                      <span class="turquoise-100 mb-2">$ 350</span>
-                      <span class="netural-100" style="font-size: 10px;">30 min</span>
-                   </a>
-                </div><div class="col-4 col-xl-3 mt-4">
-                   <a href="" class="time-and-price body-2">
-                      <span class="netural-100 mb-1">09:00</span>
-                      <span class="turquoise-100 mb-2">$ 350</span>
-                      <span class="netural-100" style="font-size: 10px;">30 min</span>
-                   </a>
-                </div>
+            <div class="row hide_timeslots">
                 <div class="col-4 col-xl-3 mt-4">
                    <a href="" class="time-and-price body-2">
                       <span class="netural-100 mb-1">09:00</span>
@@ -159,10 +146,38 @@
                       <span class="netural-100" style="font-size: 10px;">30 min</span>
                    </a>
                 </div>
-             </div>
+                <div class="col-4 col-xl-3 mt-4">
+                   <a href="" class="time-and-price body-2">
+                      <span class="netural-100 mb-1">09:00</span>
+                      <span class="turquoise-100 mb-2">$ 350</span>
+                      <span class="netural-100" style="font-size: 10px;">30 min</span>
+                   </a>
+                </div>
+                <div class="col-4 col-xl-3 mt-4">
+                   <a href="" class="time-and-price body-2">
+                      <span class="netural-100 mb-1">09:00</span>
+                      <span class="turquoise-100 mb-2">$ 350</span>
+                      <span class="netural-100" style="font-size: 10px;">30 min</span>
+                   </a>
+                </div>
+                <div class="col-4 col-xl-3 mt-4">
+                   <a href="" class="time-and-price body-2">
+                      <span class="netural-100 mb-1">09:00</span>
+                      <span class="turquoise-100 mb-2">$ 350</span>
+                      <span class="netural-100" style="font-size: 10px;">30 min</span>
+                   </a>
+                </div>
+                <div class="col-4 col-xl-3 mt-4">
+                   <a href="" class="time-and-price body-2">
+                      <span class="netural-100 mb-1">09:00</span>
+                      <span class="turquoise-100 mb-2">$ 350</span>
+                      <span class="netural-100" style="font-size: 10px;">30 min</span>
+                   </a>
+                </div>
+            </div>
         </div>
         <div class="col-md-12 text-end">
-        <button type="button" class="theme-btn primary-btn d-inline-flex" id="first-form">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button>
+        <button type="button" class="theme-btn primary-btn d-inline-flex hide_timeslots" id="first-form">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button>
         <!-- <button type="button" class="theme-btn primary-btn d-inline-flex" id="first-form" onClick="sendFirstFormValues('/post-booking-location-form','step-one','calendar_form')">Next <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon"></button> -->
             <!-- <a href="#" class="theme-btn primary-btn d-inline-flex">Next
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">

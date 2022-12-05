@@ -6,9 +6,21 @@ $(document).ready(function(){
         }
     });
     $('.set_date_time').click(function(){
+        var search_start_date = $('#search_start_date').val();
+        var search_end_date = $('#search_end_date').val();
+        var full_date = search_start_date;
+        if(search_end_date !='')
+        // var full_date = search_start_date +'/'+search_end_date;
+         full_date = search_start_date +'/'+search_end_date;
+         var mydate = new Date(search_start_date);
+        // mydate = mydate.toDateString().split(' ').slice(1).join(' ');
+
+        // date = dateFormat(search_start_date, "dd mm");
         
-        if($('#booking_date').val() !=''){
-            $('#set_date_time').html($('.booking_date').val());
+
+        // console.log(mydate.toString('MM/dd'));
+        if(full_date !=''){
+            $('#set_date_time').html(full_date);
         }else{
             $('#set_date_time').html(new Date().toLocaleDateString('fr-CA')); 
         }
@@ -62,12 +74,13 @@ $(document).ready(function(){
         });
         var filter = $('.filter_by_categories').val()
         var location= $('#search_location').val();
-        var calendar_date = '';
-        if($('#calendar_date').val() !=''){
-            var  calendar_date= $('#calendar_date').val();
-        }
+       
         var booking_start_time  = $('#booking_start_time').val();
         var booking_end_time  = $('#booking_end_time').val();
+
+        var search_start_date  = $('#search_start_date').val();
+        var search_end_date  = $('#search_end_date').val(); 
+
         var booking_date = $('.booking_date').val();
         var ceremony_date = $('.ceremony_date:checked').val();
         var payment_date = $('.payment_date:checked').val();
@@ -88,7 +101,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_date':calendar_date,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus    
+                'search': keyword,'id': location,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus ,'search_start_date':search_start_date,'search_end_date':search_end_date
             },
             dataType: 'html',
             cache: false,

@@ -3,19 +3,9 @@
 
         $('#list-profile-list').addClass("disable-click");
         $('#list-messages-list').addClass("disable-click");
+        $('.hide_timeslots').addClass("d-none");
         
-        $('.calendar-wrapper').calendar({
-            min: new Date().toLocaleDateString("fr-CA"),
-            onClickDate: function(date) {
-                $('#calendar-wrapper').updateCalendarOptions({
-                    date: date,
-                
-                });
-
-
-                $('#calendar_date').val(new Date(date).toLocaleDateString('fr-CA'));
-            }
-        });
+       
         $('#booking_start_time').change(function(e) {
 
             $("#booking_end_time option").removeAttr('disabled');
