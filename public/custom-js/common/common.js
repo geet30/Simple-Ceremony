@@ -71,6 +71,8 @@ function selectDate(date) {
         }
     }
     if($('.bookingStepOne').length){
+        $('.no_slots').addClass('d-none');
+        $('.cost').val('0');
         var url = '/get-celebrant-availability';
         var locationId = $('#locationId').val();  
         $.ajax({
@@ -85,8 +87,38 @@ function selectDate(date) {
             success: function(response)
             {  
                 
-                console.log(response);
-                // $('.'+cls).html(response);
+                var html = "";
+                if(response.data.length){
+                    var price = 0;
+                    const price_arr = [];
+                    $.each(response.data, function(key,val) {
+                       
+                        price = parseInt(val.your_fee) + parseInt(val.admin_fee) + parseInt(val.location_fee);
+                        // console.log(price);
+                        price_arr.push(price);
+                        const min = price_arr.reduce((a,b)=>Math.min(a,b), Infinity);
+                       
+
+                        html +=`<div class="col-4 col-xl-3 mt-4">
+                        <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.location.name}','${price}',${locationId})" data-id="${val.id}" class="time-and-price body-2">
+                        <input type="hidden" name="" value="" class="">
+                        <span class="netural-100 mb-1">${val.start_time}</span>
+                        <span class="turquoise-100 mb-2">$ ${price}</span>
+                        <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>
+                        </a>
+                    </div>`;
+                    $('.cost').val(min);
+                    });
+                }else{
+
+                    $('.no_slots').removeClass('d-none');
+                }
+                // console.log(response);
+                $('.hide_book_message').addClass('d-none');
+                
+                $('.timeslots_available').removeClass('d-none');
+
+                $('.timeslots_available').html(html);
                 
             }
         });

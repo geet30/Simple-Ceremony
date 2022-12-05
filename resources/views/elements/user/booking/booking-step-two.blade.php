@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <h3 class="h3 Neutral/100 mt-4 mb-4">Fill in the order form</h3>
+            <h3 class="h3 Neutral/100 mt-4 mb-4">Book your ceremony</h3>
         </div>
         <div class="col-md-6 mb-4">
             
@@ -32,46 +32,91 @@
             <div class="invalid-feedback duplicate_email"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email already Exist</div>
            
         </div>
-        <div class="col-md-6 mb-4">
        
-            <label for="phone" class="form-label small-text2">Your phone number</label>
-            <input type="hidden"  id="code" name ="country_code" value="61" >
-            <input class="form-control body-1 netural-100 phone" name="phone" type="tel" id="phone" placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" required>
-            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone Number is required</div>
-           
+        <div class="col-md-6 mb-4 phone_number">
+            <label for="phone" class="form-label small-text2">Your phone number *</label>
+            <input type="hidden" id="code" name="phone_code" value="61">
+            <input class="form-control body-1 netural-100 tel-input" type="tel" id="phone"
+                placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" name="phone" required>
+            <div class="invalid-feedback phone_number_required"> <span><img class="me-2"
+                        src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is
+                required</div>
+            <div class="invalid-feedback invalid-phone-number"> <span><img class="me-2"
+                        src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is
+                invalid</div>
         </div>
         <div class="col-md-6 mb-4">
+            
             <label for="selectinput" class="form-label small-text2">This ceremony is a</label>
             <select name="ceremony_type" id="ceremony_type" class="js-placeholder-single-input form-control" required>
-                <option value="" disabled="" selected="" hidden="">This ceremony is a</option>
-                @foreach(config('ceremonyStatus.typeOfCeremony') as $key=>$ceremony)
                
-                    <option value="{{$key}}" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == $key) ? 'selected' : '' }}>{{$ceremony}}</option>
+                @foreach($ceremonies_type as $key=>$ceremony)
+               
+                    <option value="{{$ceremony->id}}" {{ (isset(cache('booking')['ceremony_type']) && cache('booking')['ceremony_type'] == $ceremony->id) ? 'selected' : '' }}>{{$ceremony->ceremony_name}}</option>
                 @endforeach
             
             </select>
-            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Type is required</div>
+            
         </div>
+        <div class="col-md-6 mb-4">
+                <label for="cost" class="form-label small-text2">Total Fee</label>
+                <div class="d-flex position-relative">
+                <span class="currency-sign body-1 netural-100">$</span>
+                    <input type="number" step="0.01" class="form-control body-1 netural-100 readonlyInput ps-4 cost" name="cost" id="cost" value="{{ (isset(cache('booking')['price']) ? cache('booking')['price'] :'')}}" required readonly>
+                   
+                
+                </div>
+                <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cost is required</div>
+        </div>
+        @foreach($ceremonies_type as $key=>$ceremony)
+            @foreach($ceremony->additional_info as $result)
+                <div class="col-md-6 mb-4 ceremony_fields class-{{$ceremony->id}}">
+                    <label for="cost" class="form-label small-text2">{{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }}</label>
+                   
+                        <input type="text" placeholder="Type your {{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }}"  class="form-control body-1 netural-100 readonlyInput"  required readonly>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>{{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }} is required</div>
+                   
+                </div>
+            @endforeach
+        @endforeach
+       
 
+        <div class="col-md-6 mb-4">
+            <label for="InputName" class="form-label small-text2">Location</label>
+            <input type="text" class="form-control body-1 netural-100" name="location_name" id="second_couple_name" value="{{ (isset(cache('booking')['location_name']) ? cache('booking')['location_name'] :'')}}" required readonly>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Location is required</div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label for="InputName" class="form-label small-text2">Date</label>
+            <input type="text" class="form-control body-1 netural-100" name="date" id="date" value="{{ (isset(cache('booking')['calendar_date']) ? date('M,d Y',strtotime(cache('booking')['calendar_date'])) :'')}}" required>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Date is required</div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <label for="InputName" class="form-label small-text2">Time</label>
+            <input type="text" class="form-control body-1 netural-100" name="start_time" id="start_time" value="{{ (isset(cache('booking')['start_time']) ? cache('booking')['start_time'] :'')}}" required>
+            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>start time is required</div>
+        </div>
         
         <div class="col-md-12 mb-5 mt-3">
             <div class="form-term-condition p-5">
                 <h3 class="h3 netural-100 mb-4">Conditions of booking:</h3>
-                <p class="body-2 netural-100">
-                a) I understand that is my responsibility to ensure the Notice of Intended Marriage form is lodged with Simple Ceremonies at least one calendar month prior to the ceremony date.<br><br>
-                The Notice of Intended Marriage form must be prepared on this website and uploaded.<br><br>
-                b) I understand that the Commonwealth Government of Australia recommends all couples receive pre-marriage counselling. It is not compulsory but it is recommended.
-                    <a class="d-block mb-1" href="/faq">Click here to see some services</a><br>
-                c) I have read and accept the Terms as shown on this website. Click here to see 
-                    <a class="d-block mb-1" href="/term-and-condition">Terms and Conditions</a><br>
-                d) I understand that this booking is non-refundable. The booking can ONLY be changed, if one calendar month and two days notice is given prior to the scheduled ceremony date. If this is the case the rescheduling fee will be $85, otherwise you will need to re-book and pay again.<br><br>
-                e) I understand The maximum number of people at the ceremony is 20. That is 18 guests (including children above 5 yrs) and the 2 of you. At this location, this can not be increased.<br><br>
+                <p>Part 1</p>
+                
+                    @foreach($ceremonies_type as $key=>$ceremony)
+                    <div class="ceremony_fields ceremony-conditions-{{$ceremony->id}}">
+                    {!! nl2br($ceremony->conditions) !!}
+                    </div>
+                    @endforeach
+                
+               
                 </p>
+                <p>Part 2</p>
+                {{locationCustomTerms($locationId)}}
                 <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required="">
-                <label class="form-check-label body-1 netural-100" for="invalidCheck2">
-                    I Agree with the above Conditions (Required)
-                </label>
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required="">
+                    <label class="form-check-label body-1 netural-100" for="invalidCheck2">
+                        I Agree with the above Conditions (Required)
+                    </label>
                 </div>
             </div>
         </div>

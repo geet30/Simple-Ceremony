@@ -3,7 +3,7 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
+use App\Models\{User, CelebrantDaySlot,Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
@@ -78,7 +78,7 @@ trait Methods
 
             ];
            
-            $success_url = $DOMAIN . '/get-booking-calender/1?session_id={CHECKOUT_SESSION_ID}';
+            $success_url = $DOMAIN . '/get-booking-calender/{{$locationId}}?session_id={CHECKOUT_SESSION_ID}';
             $cancel_url = $DOMAIN . '/payment-cancel';
             return self::stripePayment($send_paramter,$success_url,$cancel_url);
         } catch (\Exception $ex) {
@@ -404,5 +404,19 @@ trait Methods
        
         return Locations::where('id',$id)->value('price');
         // dd($location_detail);
+    }
+          
+    static function getCalendarAvailability($request){
+        try{
+            
+            return CelebrantDaySlot::with('location','dates')->whereHas('dates',function($qr) use($request){
+                $qr->whereDate('start_date','<=',$request->search)
+                ->whereDate('end_date','>=',$request->search);
+        
+            })->get(); // we need  to add condition to get day and then its date and only those slots would be shown currently every slot is showing and also need to add condition to show only those slots which are not blocked
+        }catch (\Exception $ex) {
+            dd($ex);
+        }
+       
     }
 }

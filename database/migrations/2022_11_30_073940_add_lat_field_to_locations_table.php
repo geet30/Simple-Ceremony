@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('locations', function (Blueprint $table) {
-            $table->string('latitude')->default('');
-            $table->string('longitude')->default('');
-            $table->dropColumn('coordinates');
+            $table->string('latitude')->default('')->after('post_code');
+            $table->string('longitude')->default('')->after('post_code');
+            // $table->dropColumn('coordinates');
         });
         Schema::table('request_locations', function (Blueprint $table) {
-            $table->string('latitude')->default('');
-            $table->string('longitude')->default('');
-            $table->dropColumn('coordinates');
+            $table->string('latitude')->default('')->after('post_code');
+            $table->string('longitude')->default('')->after('post_code');
+            // $table->dropColumn('coordinates');
         });
     }
 

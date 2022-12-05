@@ -4,7 +4,7 @@
         $('#list-profile-list').addClass("disable-click");
         $('#list-messages-list').addClass("disable-click");
         $('.hide_timeslots').addClass("d-none");
-        
+        $('.ceremony_fields').addClass('d-none');
        
         $('#booking_start_time').change(function(e) {
 
@@ -14,45 +14,55 @@
             $("#booking_end_time").val(value).trigger("change");
 
         })
+        
         $('.country-list li').click(function() {
             // alert($(this).data('dial-code'));
             $("#code").val(($(this).data('dial-code')));
         })
-        $('#first-form').click(function(e) {
+        
+        $('.class-'+$('#ceremony_type option:selected').val()).removeClass('d-none');
+        $('.ceremony-conditions-'+$('#ceremony_type option:selected').val()).removeClass('d-none');
+        $('#ceremony_type').change(function(e) {
+            $('.ceremony_fields').addClass('d-none');
+            $('.class-'+$(this).val()).removeClass('d-none');
+            $('.ceremony-conditions-'+$(this).val()).removeClass('d-none');
+            
+        });
+        
+        window.submitFirstStep = function(event,id,start_time,location_name,price,locationId) {
+          
             var form = document.getElementById('calendar_form');
-            if (form.reportValidity()) {
+            if ($('#calendar_date').val() == '') {
+                alert('please select date from calendar')
+                return false;
+            }
+            // if (form.reportValidity()) {
                 var data = {}; //create an object
-
-                if ($('#calendar_date').val() != '') {
-                    data['calendar_date'] = $('#calendar_date').val();
-                } else {
-                    data['calendar_date'] = new Date().toLocaleDateString('fr-CA');
-                }
-                data['booking_start_time'] = $('#booking_start_time').val();
-                data['booking_end_time'] = $('#booking_end_time').val();
-                data['locationId'] = $('#locationId').val();
-                // console.log('data',data);return false;
+                data['calendar_date'] = $('#calendar_date').val();
+                
+                data['calendar_dayslot_id'] = id;
+                data['start_time'] = start_time;
+                data['location_name'] = location_name;
+                data['locationId'] = locationId;
+                data['price'] = price;
                 var url = '/post-booking-location-form';
                 var step = 'step-one';
-
+            
                 bookingSubmit(url, step, data);
 
-            } else {
-                form.classList.add('was-validated');
-                window.setTimeout(function() {
-                    var errors = $('.invalid-feedback:visible:first').prev();
-                    if (errors.length) {
-                        $('html, body').animate({
-                            scrollTop: errors.offset().top - 10
-                        }, 500);
-                    }
-                }, 0);
+            // } else {
+            //     form.classList.add('was-validated');
+            //     window.setTimeout(function() {
+            //         var errors = $('.invalid-feedback:visible:first').prev();
+            //         if (errors.length) {
+            //             $('html, body').animate({
+            //                 scrollTop: errors.offset().top - 10
+            //             }, 500);
+            //         }
+            //     }, 0);
 
-            }
-
-
-
-        })
+            // }
+        }
         $('#second-form').click(function(e) {
             e.preventDefault();
             var form = document.getElementById('userDetail');
@@ -70,18 +80,36 @@
 
                 var url = '/post-booking-user-detail';
                 var step = 'step-two';
-
+                
 
                 bookingSubmit(url, step, data);
 
             } else {
                 form.classList.add('was-validated');
-                window.setTimeout(function() {
-                    var errors = $('.invalid-feedback:visible:first').prev();
+                $(".tel-input").each(function () {
+                    let telInput = $(this).get(0);
+                    if (
+                        $(this).prop("required") &&
+                        !telInput.checkValidity()
+                    ) {
+                        $(this)
+                            .parents(".phone_number")
+                            .find(".phone_number_required")
+                            .addClass("d-block");
+                    } else {
+                        $(this)
+                            .parents(".phone_number")
+                            .find(".phone_number_required")
+                            .removeClass("d-block");
+                    }
+                });
+                window.setTimeout(function () {
+                    var errors = $(
+                        ".invalid-feedback:visible:first"
+                    ).prev();
                     if (errors.length) {
-                        $('html, body').animate({
-                            scrollTop: errors.offset().top - 10
-                        }, 500);
+                        $(window).scrollTop(0);
+                        // $('html, body').animate({ scrollTop: errors.offset().top - 10 }, 500);
                     }
                 }, 0);
 
@@ -89,6 +117,7 @@
         })
 
         window.bookingSubmit = function(url, step, data) {
+          
             $.ajax({
                 type: "post",
                 url: url,

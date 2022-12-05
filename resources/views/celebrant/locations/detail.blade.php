@@ -40,9 +40,15 @@
                         <input type="text" value="{{ (isset($data->post_code)) ? $data->post_code : '' }}" class="form-control body-1 netural-100" name="post_code" id="post_code" readonly>
                      </div>
                      <div class="col-md-5 mb-4">
-                        <label for="coordinates" class="form-label small-text2">Google coordinates</label>
-                        <input type="text" value="{{ (isset($data->coordinates)) ? $data->coordinates : '' }}" class="form-control body-1 netural-100" name="coordinates" id="coordinates" readonly>
+                        <label for="latitude" class="form-label small-text2">Latitude</label>
+                        <input type="text" value="{{ (isset($data->latitude)) ? $data->latitude : '' }}" class="form-control body-1 netural-100" name="latitude" id="latitude" readonly>
                      </div>
+                     <div class="col-md-5 mb-4">
+                        <label for="latitude" class="form-label small-text2">Longitude</label>
+                        <input type="text" value="{{ (isset($data->longitude)) ? $data->longitude : '' }}" class="form-control body-1 netural-100" name="longitude" id="longitude" readonly>
+                     </div>
+                    
+                     
                      <div class="col-md-5 mb-4">
                         <label for="direction" class="form-label small-text2">Specific directions</label>
                         <input type="text" value="{{ (isset($data->direction)) ? $data->direction : '' }}" class="form-control body-1 netural-100" name="direction" id="direction" readonly>
