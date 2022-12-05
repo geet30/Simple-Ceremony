@@ -19,8 +19,25 @@ class CalendarController extends Controller
      */
     public function index()
     {
+        // echo "<pre>";
+        // $booking = CelebrantDaySlot::with('dates')->whereHas('dates',function($qr){
+        //     $qr->where('user_id',auth()->user()->id);
+        // })->get();
+        // print_r($dates->toArray());
+        // die();
         $booking = Booking::with('location')->where('celebrant_id',auth()->user()->id)->get();
         return view('celebrant.calendar.index',['booking' => $booking]);
+    }
+    public function demo()
+    {
+        // echo "<pre>";
+        $booking = CelebrantDaySlot::with('location','dates')->whereHas('dates',function($qr){
+            $qr->where('user_id',auth()->user()->id);
+        })->get();
+        // print_r($dates->toArray());
+        // die();
+        // $booking = Booking::with('location')->where('celebrant_id',auth()->user()->id)->get();
+        return view('celebrant.calendar.demo',['booking' => $booking]);
     }
 
     /**
@@ -30,19 +47,6 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        // ,function($qr){
-        //     $qr->where('celebrant_id',auth()->user()->id);
-        // }
-        // echo auth()->user()->id;
-        // $l =  Locations::with('request_location')->whereHas('request_location')
-        // // ->where('status',1)
-        // ->get()->toArray();
-        // echo "<pre>";
-        // print_r($l);
-        // die();
-        // echo "<pre>";
-        // print_r(Locations::get()->toArray());
-        // die();
         $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
         if($slots > 0) return redirect()->route('calendar.over-ride');
         $page = 'rolling-form';
