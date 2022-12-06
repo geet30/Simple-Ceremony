@@ -275,3 +275,27 @@
         padding-bottom: 18px;
     }
 }
+
+
+.celebrant-profile{
+    border: 1px dashed #62cbca;
+    border-radius: 5px;
+    min-height: 150px;
+    .document-text {
+        font-weight: 700;
+        font-size: 13.0667px;
+        line-height: 18px;
+        color: $neutral-100;
+    }
+    .text {
+        font-weight: 400;
+        font-size: 7.68627px;
+        line-height: 12px;
+        color: #000000;
+    }
+    .darg {
+        font-weight: 700;
+        font-size: 10.7608px;
+        line-height: 15px;
+    }
+}

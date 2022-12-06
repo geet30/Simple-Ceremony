@@ -8,7 +8,7 @@
             <form action="{{ route('userNoim.delete-document-signature') }}" method="post">
                 @csrf
                 <div class="modal-body">
-                    <p> Are you sure to delete the signature?</p>
+                    <p class="info-ttitle"> Are you sure to delete the signature?</p>
                     <input type="hidden" name="field" value="{{ $field_name }}">
                     <input type="hidden" name="document_name" value="{{ $document_name }}">
                 </div>

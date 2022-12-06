@@ -3,6 +3,7 @@
 /public/uploads
 /public/base64toimg
 /public/storage
+/storage/framework/views
 /storage/*.key
 /vendor
 .env

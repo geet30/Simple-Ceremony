@@ -3,7 +3,7 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
+use App\Models\{User, CelebrantDaySlot,Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
@@ -65,20 +65,20 @@ trait Methods
                 }
             }
             // dd(Cache::get('booking'));
-            $addons_price = Cache::get('booking')->package_price;
-            $check_count_of_timeslots = self::calculateTimeslotsPrice();
-            $price = $data['price'] * $check_count_of_timeslots;
-            $total_price = $addons_price + $price;
+            // $addons_price = Cache::get('booking')->package_price;
+            // $check_count_of_timeslots = self::calculateTimeslotsPrice();
+            // $price = $data['price'] * $check_count_of_timeslots;
+            // $total_price = $addons_price + $price;
             $DOMAIN = config('env.WEBSITE');
             $send_paramter = [
                 'name' => $data['name'],
-                'price' => $total_price,
+                'price' => Cache::get('booking')->price,
                 'img' => $img,
                 'locationId' => $locationId,
 
             ];
            
-            $success_url = $DOMAIN . '/get-booking-calender/1?session_id={CHECKOUT_SESSION_ID}';
+            $success_url = $DOMAIN . '/get-booking-calender/'.$locationId.'?session_id={CHECKOUT_SESSION_ID}';
             $cancel_url = $DOMAIN . '/payment-cancel';
             return self::stripePayment($send_paramter,$success_url,$cancel_url);
         } catch (\Exception $ex) {
@@ -130,7 +130,7 @@ trait Methods
     }
     static function addBookingDetailToDB($sessionId, $data)
     {
-
+        dd($data);
         try {           
 
             $user_inputs['email'] = $data->email;
@@ -162,13 +162,23 @@ trait Methods
             }
             $booking_inputs['user_id']  = $user->id;
             $booking_inputs['locationId']  = $data->locationId;
-            // $booking_inputs['celebrant_id']  = $data->celebrant_id; // will be done
+            $booking_inputs['celebrant_id']  = $data->celebrant_id; // will be done
             $booking_inputs['booking_date']  = $data->booking_date;
             $booking_inputs['booking_start_time']  = $data->booking_start_time;
-            $booking_inputs['booking_end_time']  = $data->booking_end_time;
+            // $booking_inputs['booking_end_time']  = $data->booking_end_time;
             $booking_inputs['first_couple_name']  = $data->first_couple_name;
             $booking_inputs['second_couple_name']  = $data->second_couple_name;
             $booking_inputs['ceremony_type']  = $data->ceremony_type;
+            $booking_inputs['location_name']  = $data->location_name;
+            $booking_inputs['full_name_of_person_1']  = $data->full_name_of_person_1;
+            $booking_inputs['full_name_of_person_2']  = $data->full_name_of_person_2;
+            $booking_inputs['full_name_of_witness_1']  = $data->full_name_of_witness_1;
+            $booking_inputs['full_name_of_witness_2']  = $data->full_name_of_witness_2;
+            $booking_inputs['full_name_of_child']  = $data->full_name_of_child;
+            $booking_inputs['full_name_of_parent_1']  = $data->full_name_of_parent_1;
+            $booking_inputs['full_name_of_parent_2']  = $data->full_name_of_parent_2;
+            $booking_inputs['full_name_of_sponsor_1']  = $data->full_name_of_sponsor_1;
+            $booking_inputs['full_name_of_sponsor_2']  = $data->full_name_of_sponsor_2;
             $booking_inputs['status']  = config('ceremonyStatus.status.Booked');
 
             $booking = Booking::create($booking_inputs);
@@ -404,5 +414,20 @@ trait Methods
        
         return Locations::where('id',$id)->value('price');
         // dd($location_detail);
+    }
+          
+    static function getCalendarAvailability($request){
+        try{
+            
+            return CelebrantDaySlot::with('location','dates')->whereHas('dates',function($qr) use($request){
+                $qr->whereDate('start_date','<=',$request->search)
+                ->whereDate('end_date','>=',$request->search);
+        
+            })->where('day',strtolower($request->day))->where('location_id',$request->locationId)->get(); //  need to add condition to show only those slots which are not booked
+            
+        }catch (\Exception $ex) {
+            dd($ex);
+        }
+       
     }
 }

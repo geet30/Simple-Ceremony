@@ -34,16 +34,12 @@ trait Methods
         } 
         if($celebrant_id != null){
             $data = $data->where('celebrant_id',$celebrant_id);
-        }     
-        
-        // dd($data->toSql());      
+        }          
    
         return $data;
     }
-    // public static function fetch_all_payments($slug=null)
-    // fetch_payments
+   
     public static function createCustomInvoice($data){
-        // dd($data->all());
         
         $booking =  Booking::where('id',$data->booking_id)->first();
               

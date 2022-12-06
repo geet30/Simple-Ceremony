@@ -8,6 +8,7 @@ use View;
 use DB;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Cache;
+use App\Traits\Ceremonies\{Methods as Ceremonies};
 class BookingController extends Controller
 {
     /**
@@ -55,10 +56,10 @@ class BookingController extends Controller
      */
     public function getBookingLocationCalender(Request $request,$locationId){
         try {
-        //    $check =  Booking::createInvoice(5);
-        //    dd($check);
+      
 
             if(isset($request->session_id) && !empty($request->session_id)){
+                
                 $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
                 Cache::forget('booking');
             }
@@ -66,7 +67,9 @@ class BookingController extends Controller
             $timeslot  = timeslots();
             $get_location_addons =  Locations::getLocationPackages($locationId)->get()->toArray();
             $location_price = Locations::where('id',$locationId)->pluck('price','name');
-            return view('user.booking.book-location',compact('booking','timeslot','locationId','get_location_addons','location_price'));
+            $ceremonies_type  = Ceremonies::fetch_all_ceremony_type()->get();
+            // dd($ceremonies_type);
+            return view('user.booking.book-location',compact('booking','timeslot','locationId','get_location_addons','location_price','ceremonies_type'));
         }
         catch (\Exception $ex) {
             dd($ex);
@@ -81,17 +84,21 @@ class BookingController extends Controller
      */
     
     public function postBookingLocationForm(Request $request){
+      
         try {
+            
             $data = [
-                'booking_date' => $request->calendar_date,
+                'booking_date' => $request->booking_date,
+                'calendar_dayslot_id' => $request->calendar_dayslot_id,
+                'celebrant_id' => $request->celebrant_id,
                 'booking_start_time' => $request->booking_start_time,
-                'booking_end_time' => $request->booking_end_time,    
+                'location_name' => $request->location_name,
+                'locationId' =>$request->locationId,
+                'price' =>$request->price, 
             ];
-            $checkIfBookingExist =   Booking::checkIfBookingExist($data,$request->locationId);;
-            if($checkIfBookingExist){
-                return $this->errorResponse([], 'Booking already exist', 400);
-            }          
-            // dd(Cache::get('booking')) ;
+            // $checkIfBookingExist =   Booking::checkIfBookingExist($data,$request->locationId); // we dont need bcause we will only show those slots which are not booked 
+               
+            
             if(Cache::has('booking')){
                 $booking = Cache::get('booking');
                 $booking->fill($data);
@@ -100,11 +107,16 @@ class BookingController extends Controller
                 $booking = new \App\Models\Booking();
                 $booking->fill($data);
             }
+           
             $booking['locationId'] = $request->locationId;
-            $get_booking_total_price = Booking::getBookingPrice($request->locationId);
-            $booking['package_price'] = $get_booking_total_price;
+            $booking['celebrant_id'] = $request->celebrant_id;
+            $booking['price'] = $request->price;
+            $booking['calendar_dayslot_id'] = $request->calendar_dayslot_id;
+            $booking['booking_start_time'] = $request->booking_start_time;
+            $booking['location_name'] = $request->location_name;
+            $booking['booking_date'] = $request->booking_date;
             Cache::put('booking', $booking);
-            return $this->successResponse([],'Date added successfully.');
+            return $this->successResponse(Cache::get('booking'),'Data added successfully.');
         }
         catch (\Exception $ex) {
             dd($ex->getMessage());
@@ -121,11 +133,20 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postBookingLocationUserDetail(Request $request){
+        
         try {
             $data = [
                 'first_couple_name' => $request->first_couple_name,
                 'second_couple_name' => $request->second_couple_name,
                 'ceremony_type' => $request->ceremony_type,
+                'location_name' => $request->location_name,
+                'full_name_of_person_1' =>$request->full_name_of_person_1,
+                'full_name_of_person_2' =>$request->full_name_of_person_2,
+                'full_name_of_witness_1' =>$request->full_name_of_witness_1,
+                'full_name_of_witness_2' =>$request->full_name_of_witness_2,
+                'full_name_of_child' => $request->full_name_of_child,
+                'full_name_of_parent_1' =>$request->full_name_of_parent_1,'full_name_of_parent_2' =>$request->full_name_of_parent_2,
+                'full_name_of_sponsor_1' =>$request->full_name_of_sponsor_1,'full_name_of_sponsor_2' =>$request->full_name_of_sponsor_2,
             ];
             if(Cache::has('booking')){
                 $booking = Cache::get('booking');
@@ -139,7 +160,7 @@ class BookingController extends Controller
             $booking['phone'] = $request->phone;
             $booking['country_code'] = $request->country_code;
             Cache::put('booking', $booking);
-            return $this->successResponse([],'Date added successfully.');
+            return $this->successResponse(Cache::get('booking'),'Data added successfully.');
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -154,7 +175,7 @@ class BookingController extends Controller
      */
     public function postBookingLocationPayment(Request $request)
     {
-        
+        dd(Cache::get('booking'));
         try {           
            return  Booking::getLocationDetail();
         }
@@ -189,8 +210,28 @@ class BookingController extends Controller
         }
  
     }
-   
+  
+    /**
+     * search the specified booking in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */ 
+    
+    public function getCelebrantAvailability(Request $request){
+       
+        try {
+            $data = Booking::getCalendarAvailability($request);
+            return $this->successResponse($data, 'Fetched Successfully');
+            // return View::make('pages.home.search-location', ['data' => $data]);
+            
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
 
+    }
     /**
      * Update the specified resource in storage.
      *

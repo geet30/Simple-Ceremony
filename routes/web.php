@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController};
 use App\Http\Controllers\{HomeController, DownloadController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
@@ -46,6 +46,8 @@ $websiteRoutes = function () {
 
     Route::post('/post-booking-user-payment', [BookingController::class, 'postBookingLocationPayment']);
     Route::post('search-booking', [BookingController::class, 'searchBooking']);
+    Route::get('get-celebrant-availability', [BookingController::class, 'getCelebrantAvailability']);
+    
     Route::post('search-location', [HomeController::class, 'searchLocation']);
 
     Route::get('payment-success', function () {
@@ -223,7 +225,17 @@ $adminRoutes = function () {
         Route::get('all-enquiries/{slug}', [EnqueriesController::class, 'index'])->name('admin.enquiry');
         Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
-
+        Route::resource('financial-report', FinancialReportController::class);
+        Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
+        Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
+        // Route::get('all-type-of-ceremonies/create', function () {
+        //     return view('admin.type-ceremonies.create');
+        // });
+       
+        Route::get('ceremonies/edit', function () {
+            return view('admin.type-ceremonies.edit');
+        });
+        
         //common function to make user active and inactive
         Route::post('/change-user-status', [CelebrantsController::class, 'changeStatus']);
         Route::post('search-location', [LocationsController::class, 'searchAdminLocation']);
@@ -321,12 +333,7 @@ $adminRoutes = function () {
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
 
 
-        Route::get('all-reports', function () {
-            return view('admin.financial-report.all-reports');
-        });
-        Route::get('reports-location', function () {
-            return view('admin.financial-report.reports-location');
-        });
+     
 
         Route::get('all-referrers', function () {
             return view('admin.referrers.all-referrers');
@@ -467,11 +474,29 @@ $celebrantRoutes = function () {
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
 
-        Route::get('calendar', [CalendarController::class, 'index']);
+        Route::resource('calendar', CalendarController::class);
+        Route::get('calendar-demo', [CalendarController::class,'demo']);
+
+
+        Route::get('calendars/over-ride', [CalendarController::class,'overRideCreate'])->name('calendar.over-ride');
+
+        Route::get('over-ride-day', [CalendarController::class,'overRideDay'])->name('calendar.overRideDay');
+        Route::get('over-ride-day-slots', [CalendarController::class,'overRideDaySlots'])->name('calendar.overRideDay-slots');
+
+        Route::post('over-ride-form-save', [CalendarController::class,'overRideFormSubmit'])->name('calendar.overRide-form-save');
+
+        Route::post('celebrant-location-check', [CalendarController::class,'checkCelebrantLocation'])->name('celebrant-location-check');
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
             $title = "Route List";
             return view('routes', compact('routeCollection', 'title'));
+        });
+
+        // Route::get('add', function () {
+        //     return view('celebrant.calendar.add');
+        // });
+        Route::post('add', function () {
+            return view('celebrant.calendar.add');
         });
     });
 
@@ -503,14 +528,15 @@ $celebrantRoutes = function () {
         return view('celebrant.calendar.design');
     });
 
-    Route::get('add', function () {
-        return view('celebrant.calendar.add');
-    });
+    
 
 
     Route::get('password-reset', function () {
         return view('celebrant.password-reset');
     });
+
+    // component render
+    Route::get('day-sub-slots',[CalendarController::class,'subSlots'])->name('sub-slots-html-component');
 };
 
 Route::group(array('domain' => config('env.PARTNER')), $partnerRoutes);

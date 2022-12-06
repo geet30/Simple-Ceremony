@@ -214,10 +214,15 @@ trait Methods
             $userData['image'] = uploadImage($data['user']['image'], 'user');
         }
         User::where('id', $id)->update($userData);
+        User::where('id', $id)->update(['status'=>0]);
 
         //Add extra detail of celebrant
         $celebrant = $data['celebrant'];
         $celebrant['celebrant_id'] = $id;
+        if(isset($data['logo']) && !empty($data['logo'])){
+            $celebrant['image'] = uploadImage($data['logo'], 'logos');
+        }   
+       
         CelebrantDetail::where('celebrant_id', $id)->update($celebrant);
 
         //celebrant's locations
@@ -317,6 +322,7 @@ trait Methods
         if ($request->has('password')) {
             $userData['password'] = Hash::make($request->password);
         }
+       
         User::where('id', $id)->update($userData);
         return true;
     }

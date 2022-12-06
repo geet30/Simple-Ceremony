@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Location\{Methods, Relationship};
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Locations extends Model
 {
@@ -21,7 +22,6 @@ class Locations extends Model
         'address',
         'town',
         'post_code',
-        'coordinates',
         'direction',
         'general_location',
         'loc_number',
@@ -33,7 +33,9 @@ class Locations extends Model
         'getting_there',
         'custom_location',
         'custom_location_id',
-        'status'
+        'status',
+        'latitude',
+        'longitude'
     ];
 
     /**
@@ -45,6 +47,13 @@ class Locations extends Model
         'created_at',
         'updated_at',
     ];
+    protected $appends = [
+        'package_price'
+    ];
+    public function booking()
+    {
+        return $this->hasMany('App\Models\Booking', 'locationId', 'id');
+    }
     public function location_images()
     {
         return $this->hasMany('App\Models\LocationImages', 'location_id', 'id');
@@ -66,4 +75,28 @@ class Locations extends Model
     {
         return $this->hasMany('App\Models\LocationFilterCriterias', 'location_id', 'id');
     }
+    public function request_location()
+    {
+        return $this->hasOne(RequestLocations::class,'id','custom_location_id');
+    }
+    public function active_slots()
+    {
+        return $this->hasMany(CelebrantDaySlot::class,'location_id');
+    }
+    public function packagePrice() : Attribute
+    {
+        $price = 0;
+        try {
+            $get_location_addons =  LocationPackages::with('get_packages')->where('location_id',$this->id)->get()->each(function($data){
+                $data->package_price = $data->get_packages->total_fee ?? 0;
+            });
+            $price = ($get_location_addons) ? $get_location_addons->sum('package_price') : 0;
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+        return Attribute::make(
+            get: fn ($value) => $price,
+        );
+    }
+    
 }
