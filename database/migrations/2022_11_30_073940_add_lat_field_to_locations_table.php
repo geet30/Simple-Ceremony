@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::table('locations', function (Blueprint $table) {
             $table->string('latitude')->default('')->after('post_code');
             $table->string('longitude')->default('')->after('post_code');
-            // $table->dropColumn('coordinates');
+            $table->dropColumn('coordinates');
         });
         Schema::table('request_locations', function (Blueprint $table) {
             $table->string('latitude')->default('')->after('post_code');
             $table->string('longitude')->default('')->after('post_code');
-            // $table->dropColumn('coordinates');
+            $table->dropColumn('coordinates');
         });
     }
 

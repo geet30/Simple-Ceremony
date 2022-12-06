@@ -1,6 +1,7 @@
 
 <form class="needs-validation2" method="POST" name="userDetail" id="userDetail">
     <div class="row">
+    <input type="hidden" name="locationId" id="locationId" value="{{$locationId}}">
         <div class="col-4 col-md-3 col-lg-3 col-xl-2 mb-3">
             <p class="paragraph Neutral/100">Step 2</p>
         </div>
@@ -35,7 +36,7 @@
        
         <div class="col-md-6 mb-4 phone_number">
             <label for="phone" class="form-label small-text2">Your phone number *</label>
-            <input type="hidden" id="code" name="phone_code" value="61">
+            <input type="hidden" id="code" name="country_code" value="61">
             <input class="form-control body-1 netural-100 tel-input" type="tel" id="phone"
                 placeholder="e.g. +1 702 123 4567" value="{{ (isset(cache('booking')['phone']) ? cache('booking')['phone'] :'')}}" name="phone" required>
             <div class="invalid-feedback phone_number_required"> <span><img class="me-2"
@@ -58,22 +59,24 @@
             </select>
             
         </div>
+        <?php //dd(cache('booking'));?>
         <div class="col-md-6 mb-4">
                 <label for="cost" class="form-label small-text2">Total Fee</label>
                 <div class="d-flex position-relative">
                 <span class="currency-sign body-1 netural-100">$</span>
-                    <input type="number" step="0.01" class="form-control body-1 netural-100 readonlyInput ps-4 cost" name="cost" id="cost" value="{{ (isset(cache('booking')['price']) ? cache('booking')['price'] :'')}}" required readonly>
+                    <input type="number" step="0.01" class="form-control body-1 netural-100 readonlyInput ps-4 total_fee" name="cost" value="{{ (isset(cache('booking')['price']) ? cache('booking')['price'] :'')}}" required readonly>
                    
                 
                 </div>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cost is required</div>
         </div>
+        
         @foreach($ceremonies_type as $key=>$ceremony)
             @foreach($ceremony->additional_info as $result)
                 <div class="col-md-6 mb-4 ceremony_fields class-{{$ceremony->id}}">
                     <label for="cost" class="form-label small-text2">{{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }}</label>
-                   
-                        <input type="text" placeholder="Type your {{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }}"  class="form-control body-1 netural-100 readonlyInput"  required readonly>
+                    
+                        <input type="text" id="{{config('ceremonyStatus.CeremonyAdditionalFields.'.$result->additional_info) }}" placeholder="Type your {{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }}" name="{{config('ceremonyStatus.CeremonyAdditionalFields.'.$result->additional_info) }}"  value="{{ (isset(cache('booking')[config('ceremonyStatus.CeremonyAdditionalFields.'.$result->additional_info)]) ? cache('booking')[config('ceremonyStatus.CeremonyAdditionalFields.'.$result->additional_info)] :'')}}" class="form-control body-1 netural-100"  >
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>{{config('ceremonyStatus.CeremonyAdditional.'.$result->additional_info) }} is required</div>
                    
                 </div>
@@ -83,17 +86,20 @@
 
         <div class="col-md-6 mb-4">
             <label for="InputName" class="form-label small-text2">Location</label>
-            <input type="text" class="form-control body-1 netural-100" name="location_name" id="second_couple_name" value="{{ (isset(cache('booking')['location_name']) ? cache('booking')['location_name'] :'')}}" required readonly>
+            <input type="text" class="form-control body-1 netural-100 location_name" name="location_name" id="location_name" value="{{ (isset(cache('booking')['location_name']) ? cache('booking')['location_name'] :'')}}" required readonly>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Location is required</div>
         </div>
+        <input type="hidden" name="calendar_dayslot_id" class="calendar_dayslot_id" value="{{ (isset(cache('booking')['calendar_dayslot_id']) ? cache('booking')['calendar_dayslot_id'] :'')}}">
+        <input type="hidden" name="celebrant_id" class="celebrant_id" value="{{ (isset(cache('booking')['celebrant_id']) ? cache('booking')['celebrant_id'] :'')}}">
         <div class="col-md-3 mb-4">
             <label for="InputName" class="form-label small-text2">Date</label>
-            <input type="text" class="form-control body-1 netural-100" name="date" id="date" value="{{ (isset(cache('booking')['calendar_date']) ? date('M,d Y',strtotime(cache('booking')['calendar_date'])) :'')}}" required>
+            <input type="text" class="form-control body-1 netural-100 booking_date" name="booking_date" id="booking_date" value="{{ (isset(cache('booking')['booking_date']) ? date('M,d Y',strtotime(cache('booking')['booking_date'])) :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Date is required</div>
         </div>
+      
         <div class="col-md-3 mb-4">
             <label for="InputName" class="form-label small-text2">Time</label>
-            <input type="text" class="form-control body-1 netural-100" name="start_time" id="start_time" value="{{ (isset(cache('booking')['start_time']) ? cache('booking')['start_time'] :'')}}" required>
+            <input type="text" class="form-control body-1 netural-100 booking_start_time" name="booking_start_time" id="booking_start_time" value="{{ (isset(cache('booking')['booking_start_time']) ? cache('booking')['booking_start_time'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>start time is required</div>
         </div>
         

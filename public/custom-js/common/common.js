@@ -62,6 +62,8 @@ function selectDate(date) {
         date: date,
     });
     $(".booking_date").val(new Date(date).toLocaleDateString("fr-CA"));
+    $(".booking_day").val(new Date(date).toLocaleDateString("en-US",{weekday: 'long'}));
+   
     if($('.getBookingsCalendar').length){
        
         if (typeof getMarriageBookingsRequest == "function") {
@@ -71,22 +73,31 @@ function selectDate(date) {
         }
     }
     if($('.bookingStepOne').length){
-        $('.no_slots').addClass('d-none');
+       
         $('.cost').val('0');
+        $('.total_fee').val('0');
+        $('.booking_start_time').val('');
+        $('.calendar_dayslot_id').val('');
+        $('.location_name').val('');
+        $('.booking_date').val('');
+        $('.celebrant_id').val('');
+
+        $('.no_slots').addClass('d-none');
         var url = '/get-celebrant-availability';
         var locationId = $('#locationId').val();  
+
         $.ajax({
             type: "get",
             url: url,
             data: {
-                'search': new Date(date).toLocaleDateString('fr-CA'),'locationId':locationId
+                'search': new Date(date).toLocaleDateString('fr-CA'),'locationId':locationId,'day':new Date(date).toLocaleDateString("en-US",{weekday: 'long'})
                 
             },
             dataType: 'json',
             // cache: false,
             success: function(response)
             {  
-                
+                console.log(response.data);
                 var html = "";
                 if(response.data.length){
                     var price = 0;
@@ -100,14 +111,21 @@ function selectDate(date) {
                        
 
                         html +=`<div class="col-4 col-xl-3 mt-4">
-                        <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.location.name}','${price}',${locationId})" data-id="${val.id}" class="time-and-price body-2">
-                        <input type="hidden" name="" value="" class="">
+                        <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.location.name}','${price}',${locationId},${val.dates.user_id})" data-id="${val.id}" class="time-and-price body-2">
                         <span class="netural-100 mb-1">${val.start_time}</span>
                         <span class="turquoise-100 mb-2">$ ${price}</span>
                         <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>
                         </a>
                     </div>`;
+                    
+                    $('.total_fee').val(price);
+                    $('.booking_start_time').val(val.start_time);
                     $('.cost').val(min);
+                    $('.calendar_dayslot_id').val(val.id);
+                    $('.celebrant_id').val(val.dates.user_id);
+                    
+                    $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
+                    $('.location_name').val(val.location.name);
                     });
                 }else{
 

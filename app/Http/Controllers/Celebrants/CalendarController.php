@@ -175,6 +175,7 @@ class CalendarController extends Controller
                 {
                     $celebrantDate->day_slots()->create([
                         'day' => $day,
+                        'user_id' => auth()->user()->id,
                         'dayText' => $daySlots['name'],
                         'start_time' => $value['start'],
                         'end_time'=> $value['end'],

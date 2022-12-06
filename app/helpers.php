@@ -137,30 +137,30 @@ function notificationSave($sender_id, $receiver_id, $title, $body, $redirection,
 }
 
 // slots making
-// function getTimeSlot($interval, $start_time, $end_time)
-// {
-//     $start = new \DateTime($start_time);
-//     $end = new \DateTime($end_time);
-//     $startTime = $start->format('H:i');
-//     $endTime = $end->format('H:i');
-//     $i=0;
-//     $time = [];
-//     $last = '';
-//     while(strtotime($startTime) <= strtotime($endTime)){
-//         $start = $startTime;
-//         $end = date('H:i',strtotime('+'.$interval.' minutes',strtotime($startTime)));
-//         $startTime = date('H:i',strtotime('+'.$interval.' minutes',strtotime($startTime)));
-//         $i++;
-//         if(strtotime($startTime) <= strtotime($endTime)){
-//             // $time[$i]['slot_start_time'] = $start;
-//             // $time[$i]['slot_end_time'] = $end;
-//             $time[$i] = $start;
-//             $last = $end;
-//         }
-//     }
-//     $time[++$i] = $last;
-//     return $time;
-// }
+function getTimeSlot($interval, $start_time, $end_time)
+{
+    $start = new \DateTime($start_time);
+    $end = new \DateTime($end_time);
+    $startTime = $start->format('H:i');
+    $endTime = $end->format('H:i');
+    $i=0;
+    $time = [];
+    $last = '';
+    while(strtotime($startTime) <= strtotime($endTime)){
+        $start = $startTime;
+        $end = date('H:i',strtotime('+'.$interval.' minutes',strtotime($startTime)));
+        $startTime = date('H:i',strtotime('+'.$interval.' minutes',strtotime($startTime)));
+        $i++;
+        if(strtotime($startTime) <= strtotime($endTime)){
+            // $time[$i]['slot_start_time'] = $start;
+            // $time[$i]['slot_end_time'] = $end;
+            $time[$i] = $start;
+            $last = $end;
+        }
+    }
+    $time[++$i] = $last;
+    return $time;
+}
 function locationCustomTerms($locationId){
     return Locations::where('id',$locationId)->value('custom_terms');
     

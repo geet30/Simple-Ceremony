@@ -1,5 +1,5 @@
-<form  method="POST" novalidate id="calendar_form" name="postform">
-    @csrf
+<form  method="POST" novalidate id="calendar_form" name="calendar_form">
+   
     <div class="message"></div>
     
     <input type="hidden" name="locationId" id="locationId" value="{{$locationId}}">
@@ -45,6 +45,7 @@
            
             <div class="calendar-wrapper bookingStepOne" id="calendar-wrapper"></div>
             <input type="hidden" name="booking_date" id="calendar_date" class="booking_date">
+            <input type="hidden" name="booking_day" id="booking_day" class="booking_day">
         </div>
         <!-- <div class="col-md-6 mb-4">
                               <label for="InputName" class="form-label small-text2 ms-2">Fee adjustment</label>
@@ -59,7 +60,7 @@
                 <label for="cost" class="form-label small-text2">Cost Starting From</label>
                 <div class="d-flex position-relative">
                 <span class="currency-sign body-1 netural-100">$</span>
-                    <input type="number" step="0.01" class="form-control body-1 netural-100 readonlyInput ps-4 cost" name="cost" id="cost" required readonly>
+                    <input type="number" step="0.01" class="form-control body-1 netural-100 readonlyInput ps-4 cost" name="price" id="cost" required readonly>
                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>cost is required</div>
                 
                 <span class="d-inline-block ms-2 align-self-start" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="cost will appear after you have chosen the date">
