@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('celebrant_day_slots', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('celebrant_date_id');
+            $table->bigInteger('user_id');
             $table->string('day')->default('');
             $table->string('dayText')->default('');
             $table->time('start_time')->nullable();

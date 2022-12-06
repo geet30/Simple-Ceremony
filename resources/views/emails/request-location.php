@@ -55,7 +55,7 @@
                      <p> Suburb  :  <?php echo $data['town'] ?> </p>
                      <p> post Code  : <?php echo $data['post_code'] ?> </p>
                      <p> State  : <?php echo $data['state'] ?> </p> 
-                     <p> Co-ordinates  : <?php echo $data['coordinates'] ?> </p> 
+                     <p> Co-ordinates  : <?php echo $data['latitude'].' '.$data['longitude'] ?> </p> 
                      <p> Specific Location   :  <?php echo $data['direction'] ?> </p> 
                      <p> Parking Detail   : <?php echo $data['parking_details'] ?> </p> 
                      <p>Parking Cost   :  <?php echo $data['parking_cost'] ?></p>

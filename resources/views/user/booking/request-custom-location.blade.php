@@ -92,10 +92,17 @@
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Specific location is required</div>
                      </div>
                      <div class="col-md-4 mb-4">
-                        <label for="coordinates" class="form-label small-text2">GPS coordinates *</label>
-                        <input type="text" placeholder="Type your GPS coordinates here" class="form-control body-1 netural-100" name="coordinates" id="coordinates" required>
-                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>GPS coordinates is required</div>
+                        <label for="latitude" class="form-label small-text2">latitude*</label>
+                        <input type="text" placeholder="Type your latitude here" class="form-control body-1 netural-100" name="latitude" id="latitude" required>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>latitude is required</div>
                      </div>
+                     <div class="col-md-4 mb-4">
+                        <label for="longitude" class="form-label small-text2">Longitude*</label>
+                        <input type="text" placeholder="Type your Longitude here" class="form-control body-1 netural-100" name="longitude" id="longitude" required>
+                        <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>longitude is required</div>
+                     </div>
+                    
+
                      <div class="col-md-4 mb-4">
                         <label for="parking_details" class="form-label small-text2">Parking details *</label>
                         <input type="text" placeholder="Type parking details here" class="form-control body-1 netural-100" name="parking_details" id="parking_details" required>

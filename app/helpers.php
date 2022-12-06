@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\{Auth};
-use App\Models\{Users, Notification, User};
+use App\Models\{Users, Notification, User,Locations};
 
 function timeslots()
 {
@@ -160,4 +160,8 @@ function getTimeSlot($interval, $start_time, $end_time)
     }
     $time[++$i] = $last;
     return $time;
+}
+function locationCustomTerms($locationId){
+    return Locations::where('id',$locationId)->value('custom_terms');
+    
 }

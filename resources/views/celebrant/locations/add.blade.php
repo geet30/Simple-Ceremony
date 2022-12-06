@@ -66,8 +66,12 @@
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
-                           <label for="Google" class="form-label small-text2">Google coordinates</label>
-                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="coordinates" id="Google" value="{{old('coordinates')}}">
+                           <label for="Google" class="form-label small-text2">Latitude</label>
+                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="latitude" id="latitude" value="{{ isset($data['latitude']) ? $data['latitude'] : old('latitude') }}">
+                        </div>
+                        <div class="col-md-5 mb-4">
+                           <label for="Google" class="form-label small-text2">Longitude</label>
+                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="longitude" id="longitude" value="{{ isset($data['longitude']) ? $data['longitude'] : old('longitude') }}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="directions" class="form-label small-text2">Specific directions</label>

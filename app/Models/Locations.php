@@ -22,7 +22,6 @@ class Locations extends Model
         'address',
         'town',
         'post_code',
-        'coordinates',
         'direction',
         'general_location',
         'loc_number',

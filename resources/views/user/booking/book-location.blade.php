@@ -6,7 +6,7 @@
       <div class="row">
          <div class="col-md-4 p-0 sidebar-bg-color">
             <div class="form-sidebar py-50 ps-150 pe-40">
-               <a href="/location" class="theme-btn secondary-btn d-inline-flex back-btn"><img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">Back to home</a>
+               <a  data-bs-toggle="modal" data-bs-target="#booking-back-to-home-popup"  class="theme-btn secondary-btn d-inline-flex back-btn cursor-pointer"><img class="me-3" src="/images/single-location/left-icon.svg" alt="Back Icon">Back to home</a>
                <img class="d-block mt-4" style="max-width:227px;width: 100%;" src="/images/booking-form/sidebar-white-logo.svg"  alt="Logo">
                <h1 class="h3 text-white mt-4 mb-4">Follow these steps to complete your booking</h1>
                <div class="list-group list-tab-group" id="list-tab" role="tablist">
@@ -51,4 +51,5 @@
    </div>
 </section>
 @include('user.booking.js')
+@include('elements.user.popup.booking-back-to-home')
 @endsection

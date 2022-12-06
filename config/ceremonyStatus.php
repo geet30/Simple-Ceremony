@@ -20,6 +20,18 @@ return [
         9 => 'Full name of Sponsor(Non god parent) 2',
         
     ],
+    'CeremonyAdditionalFields' => [
+        1 => 'full_name_of_person_1',
+        2 => 'full_name_of_person_2',
+        3 => 'full_name_of_witness_1',
+        4 => 'full_name_of_witness_2',
+        5 => 'full_name_of_child',
+        6 => 'full_name_of_parent_1',
+        7 => 'full_name_of_parent_2',
+        8 => 'full_name_of_sponsor_1',
+        9 => 'full_name_of_sponsor_2',
+        
+    ],
     'status' => [
         'Booked' => 1,
         'Lodged' => 2,
