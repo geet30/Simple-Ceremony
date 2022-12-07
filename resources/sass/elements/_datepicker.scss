@@ -1108,3 +1108,72 @@
         padding: 5px;
     }
 }
+
+
+
+.date-range-picker{
+    .datepicker-inline {
+        width: 100%;
+    }
+    .range_selected {
+        background: #F7FCFC;
+        border-radius: 0;
+    }
+    td.active.day.range_selected {
+        border-radius: 10px;
+    }
+    table.table-condensed {
+        width: 100%;
+    }
+    .datepicker .prev:before {
+        font-size: 13px;
+        content: "";
+        width: 0.8em;
+        height: 0.8em;
+        border-style: solid;
+        border-width: 0.2em 0.2em 0 0;
+        display: inline-block;
+        transform-origin: center center;
+        color: #2c3855;
+        transform: rotate(-135deg);
+    }
+    .datepicker .prev{
+        font-size: 0px;
+        &::before {
+            font-size: 13px;
+            content: "";
+            width: 0.8em;
+            height: 0.8em;
+            border-style: solid;
+            border-width: 0.2em 0.2em 0 0;
+            display: inline-block;
+            transform-origin: center center;
+            color: #2c3855;
+            transform: rotate(-135deg);
+        }
+    }
+    .datepicker .next{
+        font-size: 0px;
+        &::after {
+            font-size: 13px;
+            content: "";
+            width: 0.8em;
+            height: 0.8em;
+            border-style: solid;
+            border-width: 0.2em 0.2em 0 0;
+            display: inline-block;
+            transform-origin: center center;
+            color: #2c3855;
+            transform: rotate(45deg);
+        }
+    }
+    .datepicker .datepicker-switch {
+        width: 145px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 17px;
+        color: #222834;
+        position: relative;
+        top: -4px;
+    }
+}
