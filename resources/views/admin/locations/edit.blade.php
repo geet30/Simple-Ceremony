@@ -148,7 +148,7 @@
                                  ?>
                                 
                                  <div class='upload__img-box'>
-                                    <div style='background-image: url({{$base64}})' data-number='{{$keys}}' data-file='{{$images["image"]}}' data-image_id="{{$images['id']}}" class='img-bg'><div class='upload__img-close'></div>
+                                    <div style='background-image: url({{$base64}})' data-number='{{$keys}}' data-file='{{$images["image"]}}' data-image_id="{{$images['id']}}" class='img-bg'><div class='upload__img-close'><a onclick="removeExisting({{$images['id']}},event)"></a></div>
                                     </div>
                                  </div>
                                  @endforeach

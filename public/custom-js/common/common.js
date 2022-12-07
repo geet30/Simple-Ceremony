@@ -474,6 +474,17 @@ function ImgUploadMultiple(counter = 0) {
 
     var image_id_array = [];
     var x = 0;
+    $(document).ready(function () {
+        window.removeExisting = function (id, e) {
+            alert('gfdg');
+
+            image_id_array[x] = id;
+            $(".image_id").val(image_id_array);
+            $(e.target).parent().parent().remove();
+            // $(this).parent().parent().remove();
+            x++;
+        }
+    });
     $("body").on("click", ".upload__img-close", function (e) {
         var file = $(this).parent().data("file");
         image_id_array[x] = $(this).parent().data("image_id");
