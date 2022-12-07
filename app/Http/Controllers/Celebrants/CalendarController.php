@@ -198,6 +198,10 @@ class CalendarController extends Controller
         $insert = [];
         foreach($request->override as $k => $val)
         {
+            if(CelebrantDateOverRide::where('override_date',$k)->where('user_id',auth()->user()->id)->count() > 0)
+            {
+                CelebrantDateOverRide::where('override_date',$k)->where('user_id',auth()->user()->id)->delete();
+            }
             foreach($val['slots'] as $slot)
             {
                 $celebrantdates = CelebrantDaySlot::where('day',$val['full_day'])
@@ -239,13 +243,12 @@ class CalendarController extends Controller
                         'dayText' => $val['day'],
                     ];
                 }
-                if(CelebrantDateOverRide::where('override_date',$k)->count() > 0)
-                {
-                    CelebrantDateOverRide::where('override_date',$k)->delete();
-                }
+                
                 CelebrantDateOverRide::create($insert);
             }
+           
         }
+        
         return redirect()->back()->with(['success' => 'Data saved successfully']);
     }
     /**
