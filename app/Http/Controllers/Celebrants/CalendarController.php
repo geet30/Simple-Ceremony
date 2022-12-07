@@ -200,10 +200,19 @@ class CalendarController extends Controller
         {
             foreach($val['slots'] as $slot)
             {
+                $celebrantdates = CelebrantDaySlot::where('day',$val['full_day'])
+                ->whereHas('dates',function($date) use($k){
+                    $date->whereDate('start_date','<=',$k)
+                    ->whereDate('end_date','>=',$k)
+                    ->where('user_id',auth()->user()->id);
+                })->first(); 
+                
                 if(isset($val['available']))
                 {
+                  
                     $insert = [
                         'user_id' => auth()->user()->id,
+                        'calendar_dayslot_id' => $celebrantdates->id,
                         'is_available' => (isset($val['available'])) ? 'yes' : 'no',
                         'override_date_start' => $k.' '.$slot['start'],
                         'override_date_end' => $k.' '.$slot['end'],
@@ -223,6 +232,7 @@ class CalendarController extends Controller
                 else{
                     $insert = [
                         'user_id' => auth()->user()->id,
+                        'calendar_dayslot_id' => $celebrantdates->id,
                         'is_available' => (isset($val['available'])) ? 'yes' : 'no',
                         'override_date' => $k,
                         'day' => $val['full_day'],

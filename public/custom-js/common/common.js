@@ -110,8 +110,9 @@ function selectDate(date) {
                         const min = price_arr.reduce((a,b)=>Math.min(a,b), Infinity);
                        
 
+                        
                         html +=`<div class="col-4 col-xl-3 mt-4">
-                        <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.location.name}','${price}',${locationId},${val.dates.user_id})" data-id="${val.id}" class="time-and-price body-2">
+                        <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.end_time}','${val.location.name}','${price}',${locationId},${val.dates.user_id})" data-id="${val.id}" class="time-and-price body-2">
                         <span class="netural-100 mb-1">${val.start_time}</span>
                         <span class="turquoise-100 mb-2">$ ${price}</span>
                         <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>

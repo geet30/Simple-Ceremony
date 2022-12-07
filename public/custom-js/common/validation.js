@@ -20,7 +20,9 @@
                                 event.preventDefault();
                                 event.stopPropagation();
                             }
+                            
                             form.classList.add("was-validated");
+                            $(document).find('.email_exist').find('.duplicate_email').addClass('d-none');
                             $(".tel-input").each(function () {
                                 let telInput = $(this).get(0);
                                 if (
