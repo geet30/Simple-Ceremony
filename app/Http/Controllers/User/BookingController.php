@@ -92,6 +92,7 @@ class BookingController extends Controller
                 'calendar_dayslot_id' => $request->calendar_dayslot_id,
                 'celebrant_id' => $request->celebrant_id,
                 'booking_start_time' => $request->booking_start_time,
+                'booking_end_time' => $request->booking_end_time,              
                 'location_name' => $request->location_name,
                 'locationId' =>$request->locationId,
                 'price' =>$request->price, 
@@ -113,6 +114,7 @@ class BookingController extends Controller
             $booking['price'] = $request->price;
             $booking['calendar_dayslot_id'] = $request->calendar_dayslot_id;
             $booking['booking_start_time'] = $request->booking_start_time;
+            $booking['booking_end_time'] = $request->booking_end_time;
             $booking['location_name'] = $request->location_name;
             $booking['booking_date'] = $request->booking_date;
             Cache::put('booking', $booking);
@@ -133,7 +135,7 @@ class BookingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postBookingLocationUserDetail(Request $request){
-        
+     
         try {
             $data = [
                 'first_couple_name' => $request->first_couple_name,
@@ -175,7 +177,7 @@ class BookingController extends Controller
      */
     public function postBookingLocationPayment(Request $request)
     {
-        dd(Cache::get('booking'));
+     
         try {           
            return  Booking::getLocationDetail();
         }
@@ -183,7 +185,24 @@ class BookingController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
+    /**
+     * get the specified ceremony type from storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */   
+    public function getBookingCeremonyType(Request $request){
+       
+        try {
+            $ceremony  = Ceremonies::fetch_all_ceremony_type($request->id)->get();
+            return View::make('elements.user.booking.ceremony-type', ['ceremonyInfo' => $ceremony]);
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
 
+    }
     /**
      * search the specified booking in storage.
      *

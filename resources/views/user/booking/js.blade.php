@@ -4,7 +4,7 @@
         $('#list-profile-list').addClass("disable-click");
         $('#list-messages-list').addClass("disable-click");
         $('.hide_timeslots').addClass("d-none");
-        $('.ceremony_fields').addClass('d-none');
+       
        
         $('#booking_start_time').change(function(e) {
 
@@ -19,21 +19,24 @@
             // alert($(this).data('dial-code'));
             $("#code").val(($(this).data('dial-code')));
         })
-        $('.ceremony_fields').find("input").prop('required',false);
-        $('.class-'+$('#ceremony_type option:selected').val()).removeClass('d-none');
-        $('.class-'+$('#ceremony_type option:selected').val()).find("input").prop('required',true);
-        $('.ceremony-conditions-'+$('#ceremony_type option:selected').val()).removeClass('d-none');
         $('#ceremony_type').change(function(e) {
+            var url = '/get-booking-ceremony-type';
+            $.ajax({
+                type: "get",
+                url: url,
+                data: {'id':$(this).val()},
+                dataType: 'html',
+                cache: false,             
+                success: function(response) {
+                    console.log(response);
+                    $('.CeremonyResult').html(response);
 
-            $('.ceremony_fields').addClass('d-none');
-            $('.ceremony_fields').find("input").prop('required',false);
-            $('.class-'+$(this).val()).find("input").prop('required',true);
-            $('.class-'+$(this).val()).removeClass('d-none');
-            $('.ceremony-conditions-'+$(this).val()).removeClass('d-none');
+                },
+            });
             
         });
         
-        window.submitFirstStep = function(event,id,start_time,location_name,price,locationId,celebrant_id) {
+        window.submitFirstStep = function(event,id,start_time,end_time,location_name,price,locationId,celebrant_id) {
           
             var form = document.getElementById('calendar_form');
             if ($('#calendar_date').val() == '') {
@@ -46,6 +49,7 @@
             formData.append('celebrant_id',celebrant_id);
             formData.append('location_name',location_name);
             formData.append('booking_start_time',start_time);
+            formData.append('booking_end_time',end_time);
 
             var url = '/post-booking-location-form';
             var step = 'step-one';
@@ -65,6 +69,8 @@
 
             } else {
                 form.classList.add('was-validated');
+               
+                $(document).find('.email_exist').find('.duplicate_email').addClass('d-none');
                 $(".tel-input").each(function () {
                     let telInput = $(this).get(0);
                     if (

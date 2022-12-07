@@ -130,7 +130,7 @@ trait Methods
     }
     static function addBookingDetailToDB($sessionId, $data)
     {
-        dd($data);
+       
         try {           
 
             $user_inputs['email'] = $data->email;
@@ -162,10 +162,12 @@ trait Methods
             }
             $booking_inputs['user_id']  = $user->id;
             $booking_inputs['locationId']  = $data->locationId;
-            $booking_inputs['celebrant_id']  = $data->celebrant_id; // will be done
+            $booking_inputs['celebrant_id']  = $data->celebrant_id;
+            $booking_inputs['calendar_dayslot_id']  = $data->calendar_dayslot_id;  
+            
             $booking_inputs['booking_date']  = $data->booking_date;
             $booking_inputs['booking_start_time']  = $data->booking_start_time;
-            // $booking_inputs['booking_end_time']  = $data->booking_end_time;
+            $booking_inputs['booking_end_time']  = $data->booking_end_time;
             $booking_inputs['first_couple_name']  = $data->first_couple_name;
             $booking_inputs['second_couple_name']  = $data->second_couple_name;
             $booking_inputs['ceremony_type']  = $data->ceremony_type;

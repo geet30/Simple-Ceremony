@@ -11,6 +11,7 @@ class CelebrantDateOverRide extends Model
 
     protected $fillable = [
         'user_id',
+        'calendar_dayslot_id',
         'is_available',
         'override_date_start',
         'override_date_end',

@@ -47,6 +47,7 @@ $websiteRoutes = function () {
     Route::post('/post-booking-user-payment', [BookingController::class, 'postBookingLocationPayment']);
     Route::post('search-booking', [BookingController::class, 'searchBooking']);
     Route::get('get-celebrant-availability', [BookingController::class, 'getCelebrantAvailability']);
+    Route::get('get-booking-ceremony-type', [BookingController::class, 'getBookingCeremonyType']);
     
     Route::post('search-location', [HomeController::class, 'searchLocation']);
 
