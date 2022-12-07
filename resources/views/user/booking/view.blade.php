@@ -1686,14 +1686,14 @@
 </section>
 {{-- calander modal --}}
 <div class="modal fade" id="calendarmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-   <div class="modal-dialog modal-xl">
+   <div class="modal-dialog modal-lg">
       <div class="modal-content">
          <div class="modal-body">
             <div class="container-fluid">
                <div class="row">
                   <div class="col-md-12 col-lg-7 mb-lg-0 mb-4">
                      <!-- <div class="calendar-wrapper " id="calendar-wrapper"></div> -->
-                     <div class="date-picker-js no-border-calander " ></div>
+                     <div class="date-picker-js no-border-calander date-range-picker"></div>
                      <input type="hidden" name="search_start_date" id="search_start_date" class="search_start_date">
                      <input type="hidden" name="search_end_date" id="search_end_date" class="search_end_date">
                   </div>
