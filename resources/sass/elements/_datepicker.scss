@@ -1116,11 +1116,29 @@
         width: 100%;
     }
     .range_selected {
-        background: #F7FCFC;
+        background: #c9eeed;
         border-radius: 0;
+        &:hover{
+            background: #c9eeed !important;
+        }
     }
     td.active.day.range_selected {
         border-radius: 10px;
+    }
+    td.active.day.starting_date.range_selected {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        &:hover{
+            background: #62cbc9 !important;
+        }
+    }
+    td.active.day.ending_date.range_selected {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background: #62cbca !important;
+        &:hover{
+            background: #62cbc9 !important;
+        }
     }
     table.table-condensed {
         width: 100%;
@@ -1175,5 +1193,36 @@
         color: #222834;
         position: relative;
         top: -4px;
+    }
+    .datepicker table tr td.highlighted {
+        color: #FF5C5C;
+        background: transparent;
+    }
+    .datepicker table tr td.highlighted.day.range_selected {
+        background: #c9eeed;
+    }
+}
+.override-form-picker{
+    .datepicker{
+        .datepicker-switch {
+            color: #62cbca;
+        }
+        td {
+            border-radius: 50%;
+        }
+        .prev{
+            &::before {
+                color: #62cbca;
+            }
+        }
+        .next{
+            &::after {
+                color: #62cbca;
+            }
+        }
+        table {
+            border-collapse: unset;
+            border-spacing: 7px;
+        }
     }
 }

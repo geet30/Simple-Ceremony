@@ -7,10 +7,10 @@
         </div>
     </td>
     <td class="h4 dark-blue-100">{{$dayText}}</td>
-    <td style="min-width:200px">
+    <td style="min-width:260px">
         <div class="row">
-            <div class="align-self-center col-lg-5 mb-3 mb-md-0">
-            <select name="day[{{$day}}][slots][0][start]" id="day[{{$day}}][slots][0][start]" class="js-placeholder-single-input form-control ns-required start-time" required>
+            <div class="align-self-center col-5 mb-3 mb-md-0">
+            <select name="day[{{$day}}][slots][0][start]" data-width="100%" id="day[{{$day}}][slots][0][start]" class="js-placeholder-single-input form-control ns-required start-time" required>
                 <option value="" disabled="" selected="" hidden="">--:--</option>
                 @foreach($slots as $va)
                 <option value="{{ $va }}">{{ $va }}</option>
@@ -23,9 +23,9 @@
                 Required
             </div>
             </div>
-            <div class="align-self-center col-lg-2 text-center mb-3 mb-md-0">-</div>
-            <div class="align-self-center col-lg-5">
-            <select name="day[{{$day}}][slots][0][end]" id="day[{{$day}}][slots][0][end]" class="js-placeholder-single-input form-control ns-required end-time" required>
+            <div class="align-self-center col-2 text-center mb-3 mb-md-0">-</div>
+            <div class="align-self-center col-5">
+            <select name="day[{{$day}}][slots][0][end]" data-width="100%" id="day[{{$day}}][slots][0][end]" class="js-placeholder-single-input form-control ns-required end-time" required>
                 <option value="" disabled="" selected="" hidden="">--:--</option>
                 @foreach($slots as $va)
                 <option value="{{ $va }}">{{ $va }}</option>
@@ -40,9 +40,9 @@
             </div>
         </div>
     </td>
-    <td>
-        <div class="align-self-center " style="min-width:200px">
-            <select name="day[{{$day}}][slots][0][booking_length]" id="day[{{$day}}][slots][0][booking_length]" class="js-placeholder-single-input form-control">
+    <td style="min-width:140px">
+        <div class="align-self-center">
+            <select name="day[{{$day}}][slots][0][booking_length]" data-width="100%" id="day[{{$day}}][slots][0][booking_length]" class="js-placeholder-single-input form-control">
             <option value="15" selected="">15 min</option>
             <option value="30">30 min</option>
             <option value="45">45 min</option>
@@ -70,7 +70,7 @@
     </td>
     <td style="min-width:180px">
         <input type="hidden" name="day[{{$day}}][slots][0][location_fee]" class="input-location_fee" value="">
-        <select name="day[{{$day}}][slots][0][location]" id="day[{{$day}}][slots][0][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required data-day="{{$day}}">
+        <select name="day[{{$day}}][slots][0][location]" data-width="100%" id="day[{{$day}}][slots][0][location]" class="js-placeholder-single-input form-control location-select-ns ns-required" required data-day="{{$day}}">
             <option value="" selected="">Name location</option>
             @foreach($location as $loc)
                 <option value="{{ $loc->id }}" data-price="{{ $loc->package_price }}">{{ $loc->name.' $'.$loc->price}}</option>
@@ -99,14 +99,14 @@
             <img src="{{ asset('/images/icons/dollor.svg') }}" class="img-fluid left-icon">
         </div>
     </td>
-    <td>
-        <img src="/images/icons/cross.svg" class="img-fluid " alt="cross-icon">
+    <td style="min-width:100px">
+        <img src="/images/icons/cross.svg" class="img-fluid cursor-pointer " alt="cross-icon">
     </td>
 </tr>
 <tr class="custom-class-{{$day}}-addon">
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td colspan="8" class="pb-5"><a data-day="{{$day}}" data-class="custom-class-{{$day}}" data-url="{{ route('sub-slots-html-component') }}" class="get-sub-slots text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
+    <td colspan="8" class="pb-5"><a data-day="{{$day}}" data-class="custom-class-{{$day}}" data-url="{{ route('sub-slots-html-component') }}" class="cursor-pointer get-sub-slots text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
     Add more available times</a></td>
 </tr>
 <tr class="custom-class-{{$day}}-unavailable" data-target="custom-class-{{$day}}" style="display:none">
