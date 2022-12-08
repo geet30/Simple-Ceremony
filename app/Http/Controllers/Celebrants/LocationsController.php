@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
 use Illuminate\Support\Facades\Auth; 
-
+use App\Traits\Pagination\CustomPagination;
 class LocationsController extends Controller
 {
 
- /**
+    use CustomPagination;
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -50,19 +51,10 @@ class LocationsController extends Controller
         // })->whereNotIn('id', $location_ids)->where('status',1)->get();\
         $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
             
-      
-        if ($request->has('search') && $request->filled('search')) {
-            // $search = $request->search;
-            // $data  = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
-            // $data  = CelebrantMethods::fetch_locations('',$search)->get();
-        } else {
-            // $data = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
-        }
         $data  = CelebrantMethods::fetch_locations('',$search)->get();
         $data = $getcelebrantAssignedLocation->concat($data);
-        // $data = collect($data)->paginate($records, ['*'], 'page', $req_page);
-        // $data[] = $getcelebrantAssignedLocation;
-        // dd($data);
+        $data = $this->customPaginate($data, $records, $req_page, ['*']);
+
         if ($request->ajax()) {
 
             $viewurl = 'celebrant.locations.listing';
