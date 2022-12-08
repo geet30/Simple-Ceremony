@@ -216,7 +216,9 @@ class BookingController extends Controller
         try {
             $columns = ['name','id','price','address','town','why_this_location','cover_image'];
 
-            if($request->booking_date=='' && $request->booking_start_time=='' && $request->booking_end_time=='' && $request->id!=''){
+            if($request->search_start_date=='' && $request->search_end_date=='' && $request->booking_start_time=='' && $request->booking_end_time=='' && $request->id!=''){
+                
+                
                 $data = Locations::getLocations($request->id,$columns)->get();
                 return View::make('pages.home.search-location', ['locations' => $data]);
             }else{

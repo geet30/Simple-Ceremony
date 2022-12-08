@@ -10,9 +10,11 @@
          </tr>
       </thead>
       <tbody>
+        
          @if(count($data) > 0)
          @foreach($data as $request)
          <?php
+         
             $status_class = 'pending';
             if ($request->status == 1) {
                $status = 'Active';
@@ -20,7 +22,7 @@
             } elseif ($request->status == 2) {
                $status = 'Inactive';
                $status_class = 'inactive';
-            } elseif ($data['status'] == 0) {
+            } elseif ($request->status == 0) {
                $status = 'Pending';
                $status_class = 'pending';
             }
@@ -51,13 +53,13 @@
       <tfoot>
          <tr>
             <td colspan="9">
-            @include('elements.pagination.pagination', [
+            {{--@include('elements.pagination.pagination', [
                   'title' => 'Locations',
                   '' => '',
                   'data' => $data,
                   'id' => '#celebrantLocations',
                   'class' => '.celebrantLocations',
-               ])
+               ])--}}
             </td>
          </tr>
       </tfoot>

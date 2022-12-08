@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::table('bookings', function (Blueprint $table) {
             $table->string('location_name')->nullable()->after('booking_end_time');
-            
             $table->bigInteger('calendar_dayslot_id')->nullable()->after('booking_end_time');
             $table->string('full_name_of_person_1')->nullable()->after('booking_end_time');
             $table->string('full_name_of_person_2')->nullable()->after('booking_end_time');
