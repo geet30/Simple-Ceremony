@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,LocationFilters,RequestLocations};
+use App\Models\{Locations,LocationFilters,RequestLocations,CelebrantLocations};
 use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
@@ -27,14 +27,42 @@ class LocationsController extends Controller
         if ($request->has('search')) {
             $search = $request->search;
         }
-        $locations = RequestLocations::all(); 
-        if ($request->has('search') && $request->filled('search')) {
-            $search = $request->search;
-            $data  = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
-        } else {
-            $data = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
+        $user_id = auth()->user()->id;
+        $locations = RequestLocations::where('celebrant_id', '=',$user_id)->get(); 
+        
+      
+        // $fetch_celebrant_locations =  Locations::with('location_celebrants')->whereHas('location_celebrants',function($qr) use($user_id){
+        //     $qr->where('celebrant_id', '=',$user_id);
+    
+        // })->select('id')->get();
+        $fetch_celebrant_locations =  CelebrantLocations::where('celebrant_id',$user_id)->get();
+            
+        $location_ids =[];
+        foreach($fetch_celebrant_locations as $celebrant_location){
+            $location_ids[] = $celebrant_location['location_id'];
+
         }
-       
+        $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
+
+        // $allLocations =  Locations::with('location_celebrants')->whereHas('location_celebrants',function($qr) use($user_id){
+        //     $qr->where('celebrant_id', '!=',$user_id);
+    
+        // })->whereNotIn('id', $location_ids)->where('status',1)->get();\
+        $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
+            
+      
+        if ($request->has('search') && $request->filled('search')) {
+            // $search = $request->search;
+            // $data  = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
+            // $data  = CelebrantMethods::fetch_locations('',$search)->get();
+        } else {
+            // $data = CelebrantMethods::fetch_locations('',$search)->paginate($records, ['*'], 'page', $req_page);
+        }
+        $data  = CelebrantMethods::fetch_locations('',$search)->get();
+        $data = $getcelebrantAssignedLocation->concat($data);
+        // $data = collect($data)->paginate($records, ['*'], 'page', $req_page);
+        // $data[] = $getcelebrantAssignedLocation;
+        // dd($data);
         if ($request->ajax()) {
 
             $viewurl = 'celebrant.locations.listing';
@@ -42,7 +70,7 @@ class LocationsController extends Controller
         }
         
         // dd($data);
-        return view('celebrant.locations.index',compact('data','locations'));
+        return view('celebrant.locations.index',compact('data','locations','allLocations'));
     }
 
     
@@ -61,6 +89,27 @@ class LocationsController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
+      /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function assignLocation(Request $request){
+        try {
+            if (isset($request->location)) {
+                $result = CelebrantMethods::saveCelebrantLocations($request->location, auth::user()->id);
+                if ($result) {
+                    return $this->successResponse($result, 'Location added successfully.');
+                }
+                return response()->json(['status' => false, "message" => 'something went wrong']);
+            }
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+
+       
+    }
+    
     
      /**
      * Show the form for creating a new resource.

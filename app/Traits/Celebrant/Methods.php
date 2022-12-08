@@ -2,7 +2,7 @@
 
 namespace App\Traits\Celebrant;
 
-use App\Models\{User, RequestLocations,Booking,BookingDetailsDocs,BookingDetails};
+use App\Models\{User, RequestLocations,Booking,BookingDetailsDocs,BookingDetails,CelebrantLocations};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Illuminate\Support\Facades\File;
@@ -32,6 +32,22 @@ trait Methods
     
         $data = $locations->select($columns);
         return $data; 
+    }
+    ####function to celebrant locations ######
+    static function saveCelebrantLocations($locations, $id)
+    {
+        $checkIfExist = CelebrantLocations::where('celebrant_id', $id)->where('location_id', $locations)->first();
+      
+        if($checkIfExist == null){
+            $loc['celebrant_id'] = $id;
+            $loc['location_id'] = $locations;
+            CelebrantLocations::create($loc);
+      
+        return true;
+        }
+       return false;
+           
+
     }
     static function fetch_locations($id=null,$search=null){
         $columns = ['*'];

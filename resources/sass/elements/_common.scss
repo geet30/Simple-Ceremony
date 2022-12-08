@@ -412,6 +412,13 @@
         margin-right: 6px;
         vertical-align: 0.155em;
     }
+    &.active {
+        color: #1b801b;
+        background: #e0fce0;
+        &::before {
+            background-color: #1b801b;
+        }
+    }
     &.booked {
         color: #1B801B;
         background-color: #E0FCE0;
@@ -476,6 +483,7 @@
             background-color: #1b801b;
         }
     }
+    
     &.cancelled {
         color: #ff4545;
         background: #fdd1d1;

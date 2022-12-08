@@ -71,4 +71,5 @@ class Booking extends Model
     {
         return $this->belongsTo(CelebrantDetail::class, 'celebrant_id', 'celebrant_id');
     }
+   
 }

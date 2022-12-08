@@ -311,12 +311,21 @@ trait Methods
             ]);
             $booking = (clone $get_result);
 
+            
+        
+
             if ($request->has('id')) {
                 $booking->where('locationId', $request->id);
             }
-            if ($request->has('booking_date') && $request->booking_date != '') {
-                $booking->where('booking_date', $request->booking_date);
+            if ($request->has('search_start_date') && $request->search_start_date != '' || $request->has('search_end_date') && $request->search_end_date != '') {
+                $booking->whereDate('booking_date','<=',$request->search_start_date)
+                ->whereDate('booking_date','>=',$request->search_end_date);
+
+                // $booking->where('booking_date', $request->search_start_date);
             }
+            // if ($request->has('search_end_date') && $request->search_end_date != '') {
+            //     $booking->where('booking_date', $request->search_end_date);
+            // }
             if ($request->has('booking_start_time') && $request->booking_start_time != '') {
                 $booking->where('booking_start_time', $request->booking_start_time);
             }
@@ -421,11 +430,20 @@ trait Methods
     static function getCalendarAvailability($request){
         try{
             
-            return CelebrantDaySlot::with('location','dates')->whereHas('dates',function($qr) use($request){
+            return $data =  CelebrantDaySlot::with('location','dates','calendardayslots')->whereHas('dates',function($qr) use($request){
                 $qr->whereDate('start_date','<=',$request->search)
                 ->whereDate('end_date','>=',$request->search);
         
-            })->where('day',strtolower($request->day))->where('location_id',$request->locationId)->get(); //  need to add condition to show only those slots which are not booked
+            })->whereHas('calendardayslots',function($qr) use($request){
+                $qr->whereDate('booking_date','!=',$request->search);
+                
+        
+            })->where('day',strtolower($request->day))->where('location_id',$request->locationId)
+            ->get()
+            ->each(function($data) use($request){
+                $data->overrideTest = $data->overrideSearch($request->search);
+            }); //  need to add condition to show only those slots which are not booked
+          
             
         }catch (\Exception $ex) {
             dd($ex);

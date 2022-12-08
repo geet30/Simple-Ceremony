@@ -14,7 +14,7 @@
          @endif
          <div class="row pt-31">
 
-            <div class="col-md-8 col-xl-8 col-xxl-9 d-flex align-self-center">
+            <div class="col-md-12 col-xl-6 col-xxl-6 d-flex align-self-center">
                <div class="dropdown ">
                   <a class="btn" role="button">
                   <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
@@ -41,7 +41,8 @@
                   <input type="text" class="form-control" placeholder="Search" onkeyup="searchWithoutTabs('/all-locations',this.value, 'celebrantLocations', '1')">
                </div>
             </div>
-            <div class="align-self-center col-md-4 col-xl-4 col-xxl-3 d-grid mt-3 mt-md-0">
+            <div class="align-self-center col-md-12 col-xl-6 col-xxl-6 d-flex align-items-center justify-content-xl-end mt-3 mt-xl-0">
+            <a class="theme-btn primary-btn me-3" data-bs-toggle="offcanvas" data-bs-target="#celebrant_assign_location" aria-controls="celebrant_assign_location">Add new location</a>
                <a class="theme-btn primary-btn d-flex justify-content-center text-nowrap" href="{{url('all-locations/create')}}">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Request new location
@@ -62,4 +63,5 @@
    </div>
 </div>
 @include('elements.celebrant.location.delete-alert')
+@include('elements.celebrant.celebrant-add-new-location')
 @endsection

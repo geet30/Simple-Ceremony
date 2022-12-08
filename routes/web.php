@@ -470,6 +470,7 @@ $celebrantRoutes = function () {
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
         Route::post('search-location', [CelebrantLocations::class, 'searchCelebrantLocationWithStatus']);
+        Route::post('assign-location', [CelebrantLocations::class, 'assignLocation']);
         // Route::get('all-invoices/{slug}', [CelebrantInvoices::class, 'index'])->name('celebrant.invoices');
         Route::resource('invoices', CelebrantInvoices::class);
         Route::get('couple-info', [InvoicesController::class, 'getUserInfo']);

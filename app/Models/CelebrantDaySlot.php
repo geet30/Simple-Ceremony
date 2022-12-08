@@ -48,5 +48,25 @@ class CelebrantDaySlot extends Model
             get: fn ($value) => $over_ride,
         );
     }  
+    public function calendardayslots()
+    {
+        return $this->belongsTo(Booking::class, 'id','calendar_dayslot_id');
+    }
+    public function overrideSearch($date)
+    {
+        try{
+            $celbrantdates = CelebrantDate::find($this->celebrant_date_id);
+            $over_ride = CelebrantDateOverRide::where('user_id',$celbrantdates->user_id)
+            ->whereDate('override_date','>=',$celbrantdates->start_date)
+            ->whereDate('override_date','<=',$celbrantdates->end_date)
+            ->whereDate('override_date','=',$date)
+            ->where('day',$this->day)->get();
+        }catch(\Exception $ex){
+            $over_ride = $ex->getMessage();
+            // dd($over_ride);
+        }
+        return $over_ride;
+       
+    }  
     
 }

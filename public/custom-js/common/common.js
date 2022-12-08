@@ -103,30 +103,29 @@ function selectDate(date) {
                     var price = 0;
                     const price_arr = [];
                     $.each(response.data, function(key,val) {
+                        // if(!empty(response.data.overrideTest){
                        
-                        price = parseInt(val.your_fee) + parseInt(val.admin_fee) + parseInt(val.location_fee);
-                        // console.log(price);
-                        price_arr.push(price);
-                        const min = price_arr.reduce((a,b)=>Math.min(a,b), Infinity);
-                       
-
+                            price = parseInt(val.your_fee) + parseInt(val.admin_fee) + parseInt(val.location_fee);
+                                // console.log(price);
+                            price_arr.push(price);
+                            const min = price_arr.reduce((a,b)=>Math.min(a,b), Infinity);
+                            html +=`<div class="col-4 col-xl-3 mt-4">
+                                <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.end_time}','${val.location.name}','${price}',${locationId},${val.user_id})" data-id="${val.id}" class="time-and-price body-2">
+                                <span class="netural-100 mb-1">${val.start_time}</span>
+                                <span class="turquoise-100 mb-2">$ ${price}</span>
+                                <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>
+                                </a>
+                            </div>`;    
                         
-                        html +=`<div class="col-4 col-xl-3 mt-4">
-                        <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.end_time}','${val.location.name}','${price}',${locationId},${val.dates.user_id})" data-id="${val.id}" class="time-and-price body-2">
-                        <span class="netural-100 mb-1">${val.start_time}</span>
-                        <span class="turquoise-100 mb-2">$ ${price}</span>
-                        <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>
-                        </a>
-                    </div>`;
-                    
-                    $('.total_fee').val(price);
-                    $('.booking_start_time').val(val.start_time);
-                    $('.cost').val(min);
-                    $('.calendar_dayslot_id').val(val.id);
-                    $('.celebrant_id').val(val.dates.user_id);
-                    
-                    $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
-                    $('.location_name').val(val.location.name);
+                            $('.total_fee').val(price);
+                            $('.booking_start_time').val(val.start_time);
+                            $('.cost').val(min);
+                            $('.calendar_dayslot_id').val(val.id);
+                            $('.celebrant_id').val(val.dates.user_id);
+                            
+                            $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
+                            $('.location_name').val(val.location.name);
+                        // }
                     });
                 }else{
 
@@ -265,6 +264,7 @@ $(document).ready(function () {
         $("ul.add-on-list-nav li:gt(4)").toggle();
     });
     window.submitThroughAjax = function (e, id, method, action) {
+        
         e.preventDefault();
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = $(e.target);

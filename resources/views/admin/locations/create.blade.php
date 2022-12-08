@@ -130,7 +130,7 @@
                                  </span>
                               @endif
                              
-                              <input type="file" name="cover_image" class="drop-zone__input" required>
+                              <input type="file" name="cover_image" class="drop-zone__input" {{$required}}>
                               <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cover photo is required.</div>
                            </div>
                         </div>
