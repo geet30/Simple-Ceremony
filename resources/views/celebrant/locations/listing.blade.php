@@ -53,13 +53,13 @@
       <tfoot>
          <tr>
             <td colspan="9">
-            {{--@include('elements.pagination.pagination', [
+            @include('elements.pagination.pagination', [
                   'title' => 'Locations',
                   '' => '',
                   'data' => $data,
                   'id' => '#celebrantLocations',
                   'class' => '.celebrantLocations',
-               ])--}}
+               ])
             </td>
          </tr>
       </tfoot>

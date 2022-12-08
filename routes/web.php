@@ -133,9 +133,7 @@ $websiteRoutes = function () {
     Route::get('create-password', function () {
         return view('user.create-password');
     });
-    Route::get('payment-failure', function () {
-        return view('elements.user.booking.payment-fail');
-    });
+    
     Route::middleware('auth')->group(function () {
         Route::prefix('user')->group(function () {
             Route::get('overview{id?}', [UserController::class, 'index'])->name('user-overview');

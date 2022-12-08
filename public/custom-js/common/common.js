@@ -121,7 +121,7 @@ function selectDate(date) {
                             $('.booking_start_time').val(val.start_time);
                             $('.cost').val(min);
                             $('.calendar_dayslot_id').val(val.id);
-                            $('.celebrant_id').val(val.dates.user_id);
+                            $('.celebrant_id').val(val.user_id);
                             
                             $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
                             $('.location_name').val(val.location.name);
