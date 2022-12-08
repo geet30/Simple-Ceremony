@@ -1744,6 +1744,8 @@
          multidate: true,
          multidateSeparator: ",",
          autoClose:true,
+         daysOfWeekHighlighted: "0,6",
+         weekStart: 1,
       }).on("changeDate",function(event){
             var dates = event.dates, elem=$('.date-picker-js');
             if(elem.data("selecteddates")==dates.join(",")) return; //To prevernt recursive call, that lead to lead the maximum stack in the browser.
@@ -1763,6 +1765,11 @@
          var end_date = get_dates[1] ? get_dates[1]:'';
          $('#search_start_date').val(start_date);
          $('#search_end_date').val(end_date);
+
+         var start_data_date = new Date(start_date).getTime();
+         $('td[data-date = '+start_data_date+']').addClass('starting_date');
+         var end_data_date = new Date(end_date).getTime();
+         $('td[data-date = '+end_data_date+']').addClass('ending_date');
 
          let range = dateRange(start_date, end_date);
         

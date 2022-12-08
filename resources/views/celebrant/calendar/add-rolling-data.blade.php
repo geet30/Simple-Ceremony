@@ -33,7 +33,7 @@
                         </li>
                      </ul>
                      <div class="align-self-center ms-3 info-icon">
-                        <a href="" class="theme-tip"><img src="/images/icons/Info-light.svg" class="img-fluid"><span>Override is to make certain time and
+                        <a href="" class="theme-tip"><img src="/images/icons/Info-light.svg" class="img-fluid" style="width: 22px;"><span>Override is to make certain time and
                         dates not available, for example to go on holiday</span></a>
                      </div>
                   </div>

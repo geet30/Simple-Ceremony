@@ -4,9 +4,9 @@
    <div class=" col-lg-5 mb-3 mb-lg-0">
       <div class="card  panel-card ">
          <div class="card-body">
-            <div class="calendar-wrapper-ns no-border-calander"></div>
+            <div class="calendar-wrapper-ns no-border-calander date-range-picker override-form-picker"></div>
          </div>
-         <div class="col-12 d-md-flex">
+         <div class="col-12 d-md-flex mt-4 justify-content-center">
             <button type="button" class="theme-btn primary-btn d-flex justify-content-center me-md-2 mb-3 mb-md-0" id="submit-first-over-ride-form">Apply</button>
             <button type="button" class="theme-btn primary-btn-border d-flex justify-content-center">Cancel</button>
          </div>

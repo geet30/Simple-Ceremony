@@ -1,10 +1,10 @@
-<div class="col-md-12 ns-custom-append-override">
-    <div class="d-flex mb-3">
-        <div class="align-self-center me-3 h4 text-black mb-0" >{{ $dateText}}</div>
-        <div class="align-self-center me-3 h4 text-black mb-0 error-custom-ns" data-id="error-custom-ns-{{ $date }}" id="error-custom-ns-{{ $date }}" ></div>
-        <div class="align-self-center" onclick="this.closest('.ns-custom-append-override').remove()"><img src="/images/icons/delete.svg" class="img-fluid" alt="delete"></div>
-    </div>
+<div class="ns-custom-append-override">
     <div class="table-responsive">
+        <div class="d-flex mb-3">
+            <div class="align-self-center me-3 h4 text-black mb-0" >{{ $dateText}}</div>
+            <div class="align-self-center me-3 h4 text-black mb-0 error-custom-ns" data-id="error-custom-ns-{{ $date }}" id="error-custom-ns-{{ $date }}" ></div>
+            <div class="align-self-center" onclick="this.closest('.ns-custom-append-override').remove()"><img src="/images/icons/delete.svg" class="img-fluid" alt="delete"></div>
+        </div>
         <table class="table align-middle calander-table">
         <thead>
             <tr>
@@ -30,10 +30,10 @@
                 </div>
             </td>
             <td class="h4 dark-blue-100">{{ $dayText }}</td>
-            <td style="min-width:200px">
+            <td style="min-width:260px">
                 <div class="row">
-                    <div class="align-self-center col-lg-5 mb-3 mb-md-0">
-                    <select name="override[{{$date}}][slots][0][start]" id="override[{{$date}}][slots][0][start]" class="js-placeholder-single-input form-control ns-required start-time" required>
+                    <div class="align-self-center col-5 mb-3 mb-md-0">
+                    <select name="override[{{$date}}][slots][0][start]" data-width="100%" id="override[{{$date}}][slots][0][start]" class="js-placeholder-single-input form-control ns-required start-time" required>
                         <option value="" disabled="" selected="" hidden="">--:--</option>
                         @foreach($slots as $va)
                         <option value="{{ $va }}">{{ $va }}</option>
@@ -46,9 +46,9 @@
                         Required
                     </div>
                     </div>
-                    <div class="align-self-center col-lg-2 text-center mb-3 mb-md-0">-</div>
-                    <div class="align-self-center col-lg-5">
-                    <select name="override[{{$date}}][slots][0][end]" id="override[{{$date}}][slots][0][end]" class="js-placeholder-single-input form-control ns-required end-time" required>
+                    <div class="align-self-center col-2 text-center mb-3 mb-md-0">-</div>
+                    <div class="align-self-center col-5">
+                    <select name="override[{{$date}}][slots][0][end]" data-width="100%" id="override[{{$date}}][slots][0][end]" class="js-placeholder-single-input form-control ns-required end-time" required>
                         <option value="" disabled="" selected="" hidden="">--:--</option>
                         @foreach($slots as $va)
                         <option value="{{ $va }}">{{ $va }}</option>
@@ -63,9 +63,9 @@
                     </div>
                 </div>
             </td>
-            <td>
-                <div class="align-self-center " style="min-width:200px">
-                    <select name="override[{{$date}}][slots][0][booking_length]" id="override[{{$date}}][slots][0][booking_length]" class="js-placeholder-single-input form-control">
+            <td style="min-width:140px">
+                <div class="align-self-center">
+                    <select name="override[{{$date}}][slots][0][booking_length]" data-width="100%" id="override[{{$date}}][slots][0][booking_length]" class="js-placeholder-single-input form-control">
                     <option value="15" selected="">15 min</option>
                     <option value="30">30 min</option>
                     <option value="45">45 min</option>
@@ -93,7 +93,7 @@
             </td>
             <td style="min-width:180px">
                 <input type="hidden" name="override[{{$date}}][slots][0][location_fee]" class="input-location_fee" value="">
-                <select name="override[{{$date}}][slots][0][location]" id="override[{{$date}}][slots][0][location]" class="js-placeholder-single-input form-control over-ride-location-select-ns ns-required" required data-day="{{$day}}" data-dayText="{{$dayText}}" data-date="{{$date}}" data-dateText="{{$dateText}}" >
+                <select name="override[{{$date}}][slots][0][location]" data-width="100%" id="override[{{$date}}][slots][0][location]" class="js-placeholder-single-input form-control over-ride-location-select-ns ns-required" required data-day="{{$day}}" data-dayText="{{$dayText}}" data-date="{{$date}}" data-dateText="{{$dateText}}" >
                     <option value="" selected="">Name location</option>
                     @foreach($location as $loc)
                         <option value="{{ $loc->id }}" data-price="{{ $loc->package_price }}">{{ $loc->name.' $'.$loc->price}}</option>
@@ -118,14 +118,14 @@
                     <img src="{{ asset('/images/icons/dollor.svg') }}" class="img-fluid left-icon">
                 </div>
             </td>
-            <td>
-                <img src="/images/icons/cross.svg" class="img-fluid " alt="cross-icon">
+            <td style="min-width:100px">
+                <img src="/images/icons/cross.svg" class="img-fluid cursor-pointer " alt="cross-icon">
             </td>
         </tr>
         <tr class="{{$date}}-date-class">
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-            <td colspan="8" class="pb-5"><a data-day="{{$day}}" data-dayText="{{$dayText}}" data-date="{{$date}}" data-dateText="{{$dateText}}" data-class="custom-class-{{$day}}" data-url="{{ route('calendar.overRideDay-slots') }}" class="get-override-sub-slots text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
+            <td colspan="8" class="pb-5"><a data-day="{{$day}}" data-dayText="{{$dayText}}" data-date="{{$date}}" data-dateText="{{$dateText}}" data-class="custom-class-{{$day}}" data-url="{{ route('calendar.overRideDay-slots') }}" class="cursor-pointer get-override-sub-slots text-decoration-none turquoise-100 button-1 link-text">  <img class="me-2" src="/images/icons/add-primary.svg" alt="add-primary">
             Add more available times</a></td>
         </tr>
         <tr style="display:none" class="{{$date}}-date-class-unavailable" data-show="{{$date}}-date-class" data-date="{{$date}}">
