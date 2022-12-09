@@ -44,7 +44,8 @@ class HomeController extends Controller
         try {
             $locations = Locations::getLocations()->get(); 
             $addons =  Addons::products()->get()->toArray();
-            return View::make('pages.addons.listing',compact(['locations' ,'addons'])); 
+            $category = Addons::all();
+            return View::make('pages.addons.listing',compact(['locations' ,'addons','category'])); 
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -59,6 +60,23 @@ class HomeController extends Controller
         try {
            
             $data =   Addons::searchAddon($request);
+            return View::make('pages.home.search-addon', ['addons' => $data]);
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }       
+    }
+       /**
+     * Search a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchAddonWithLocation(Request $request){
+        
+        try {
+           
+            $data =   Addons::searchAddon($request);
+            
             return View::make('pages.home.search-addon', ['addons' => $data]);
         }
         catch (\Exception $ex) {

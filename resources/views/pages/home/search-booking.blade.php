@@ -30,6 +30,7 @@
                                             <div class="location-search-grid">
                                                 <a class="location-date-link body-2" role="button">2 December</a>
                                                 <div class="row">
+                                                    
                                                     <div class="col-6 col-xl-4 mt-4">
                                                         <a href="" class="time-and-price body-2">
                                                             <span class="netural-100 mb-1">09:00</span>
@@ -37,6 +38,14 @@
                                                             <span class="netural-100" style="font-size: 10px;">30 min</span>
                                                         </a>
                                                     </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pseudo-item">
+                                            <div class="location-search-grid">
+                                                <a class="location-date-link body-2" role="button">2 December</a>
+                                                <div class="row">
                                                     <div class="col-6 col-xl-4 mt-4">
                                                         <a href="" class="time-and-price body-2">
                                                             <span class="netural-100 mb-1">09:00</span>
@@ -44,62 +53,16 @@
                                                             <span class="netural-100" style="font-size: 10px;">30 min</span>
                                                         </a>
                                                     </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pseudo-item">
+                                            <div class="location-search-grid">
+                                                <a class="location-date-link body-2" role="button">2 December</a>
+                                                <div class="row">
+                                                    
+                                                   
                                                     <div class="col-6 col-xl-4 mt-4">
                                                         <a href="" class="time-and-price body-2">
                                                             <span class="netural-100 mb-1">09:00</span>
@@ -121,76 +84,7 @@
                                                             <span class="netural-100" style="font-size: 10px;">30 min</span>
                                                         </a>
                                                     </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -205,331 +99,11 @@
                                                             <span class="netural-100" style="font-size: 10px;">30 min</span>
                                                         </a>
                                                     </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="pseudo-item">
-                                            <div class="location-search-grid">
-                                                <a class="location-date-link body-2" role="button">2 December</a>
-                                                <div class="row">
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="pseudo-item">
-                                            <div class="location-search-grid">
-                                                <a class="location-date-link body-2" role="button">2 December</a>
-                                                <div class="row">
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="pseudo-item">
-                                            <div class="location-search-grid">
-                                                <a class="location-date-link body-2" role="button">2 December</a>
-                                                <div class="row">
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col-6 col-xl-4 mt-4">
-                                                        <a href="" class="time-and-price body-2">
-                                                            <span class="netural-100 mb-1">09:00</span>
-                                                            <span class="turquoise-100 mb-2">$ 350</span>
-                                                            <span class="netural-100" style="font-size: 10px;">30 min</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>

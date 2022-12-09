@@ -84,12 +84,61 @@ trait Methods
        
         if ($request->has('search') && $request->filled('search')) {
             $addons = self::products()->where('product_name', 'like', '%' . $request->search . '%')->orderBy('id', 'DESC')->get();
-        } else {
+        } 
+        else if ($request->has('thirdOptgroup') && !empty($request->thirdOptgroup) && $request->has('secondOptgroup') && !empty($request->secondOptgroup)) {
+            $location_id = $request->secondOptgroup;
+            $addon_id = $request->thirdOptgroup;
+
+            $addons = self::products()->whereHas('product_location.locations', (function ($q) use ($location_id) {
+                $q->whereIn('id',$location_id);
+            }))->whereIn('business_category',  $addon_id)->get();
+        }else if($request->has('thirdOptgroup') && !empty($request->thirdOptgroup)){
+           
+            $addon_id = $request->thirdOptgroup;
+            $addons = self::products()->whereIn('business_category',  $addon_id)->orderBy('id', 'DESC')->get();
+            
+        }
+        else if($request->has('secondOptgroup') && !empty($request->secondOptgroup)){
+            $location_id = $request->secondOptgroup;
+            $addons = self::products()->whereHas('product_location.locations', (function ($q) use ($location_id) {
+                $q->whereIn('id',$location_id);
+            }))->get();
+        } 
+
+        else {
             $addons = self::products()->orderBy('id', 'DESC')->get();
         }
        
         return $addons;
     }
+    public static function searchAddonsWithLocation($request){
+        $req_page = 1;
+        $records = 10;
+        $marriages = self::fetch_marriages();     
+        if ($request->has('status') && $request->filled('status')) {
+            $whereClause = [
+                ['status', '=', $request->status]
+            ];
+            $data = $marriages->where($whereClause);
+        }
+        if ($request->has('firstOptgroup') && !empty($request->firstOptgroup) && $request->has('secondOptgroup') && !empty($request->secondOptgroup)) {
+            $data = $marriages->whereIn('status', $request->firstOptgroup)->whereIn('locationId', $request->secondOptgroup);
+        }else if($request->has('firstOptgroup') && !empty($request->firstOptgroup)){
+            $id = $request->firstOptgroup;
+            $data = $marriages->whereIn('status', $id);
+        }
+        else if($request->has('secondOptgroup') && !empty($request->secondOptgroup)){
+            $id = $request->secondOptgroup;
+            $data = $marriages->whereIn('locationId', $id);
+        }        
+        else{
+           
+            $data =  $marriages;
+        }
+        return $data->paginate($records, ['*'], 'page', $req_page);
+
+       
+    } 
     public static function searchAdminAddon($request)
     {
         $req_page = 1;

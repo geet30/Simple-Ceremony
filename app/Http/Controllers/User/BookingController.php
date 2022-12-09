@@ -213,6 +213,7 @@ class BookingController extends Controller
 
     public function searchBooking(Request $request)
     {
+        
         try {
             $columns = ['name','id','price','address','town','why_this_location','cover_image'];
 
@@ -222,6 +223,7 @@ class BookingController extends Controller
                 $data = Locations::getLocations($request->id,$columns)->get();
                 return View::make('pages.home.search-location', ['locations' => $data]);
             }else{
+             
                 $data = Booking::searchBooking($request);
                 return View::make('pages.home.search-booking', ['locations' => $data]);
             }
