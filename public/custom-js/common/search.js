@@ -64,9 +64,14 @@ $(document).ready(function(){
         $("#selectinput").select2("close");
         var firstOptgroup = [];
         var secondOptgroup = [];
+        var thirdOptgroup = [];
         $('.searchingMultiple option:selected').each(function () {
             if($(this).parent().attr('label') == 'Status') {
                 firstOptgroup.push($(this).val());    
+            }   
+            if($(this).parent().attr('label') == 'Category') {
+               
+                thirdOptgroup.push($(this).val());    
             }   
             if($(this).parent().attr('label') == 'Location') {
                 secondOptgroup.push($(this).val());    
@@ -101,7 +106,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus ,'search_start_date':search_start_date,'search_end_date':search_end_date
+                'search': keyword,'id': location,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'thirdOptgroup':thirdOptgroup,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus ,'search_start_date':search_start_date,'search_end_date':search_end_date
             },
             dataType: 'html',
             cache: false,

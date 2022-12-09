@@ -10,26 +10,46 @@
                   <div>
                      <p class="body-1 mb-0">Before booking below you will need to have booked your ceremony.</p>
                      <a href="/location" class="button-3">Register now</a>
+                   
                   </div>
+                 
+                  <div><button type="button" class="theme-btn-close" data-bs-dismiss="alert" aria-label="Close"><img src="images/cross-blue-white.svg" class="img-fluid" alt="cross-icon"></button></div>
+               </div>
+             
+               
+            </div>
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+               <div class="d-flex">
+                  <div class="me-3"><img src="images/info.svg" class="img-fluid" alt="info-icon"></div>
+                  <div>
+                     <p class="body-1 mb-0">Not all Add-ons are available at all site. Please check below before booking</p>
+                   
+                  </div>
+                 
                   <div><button type="button" class="theme-btn-close" data-bs-dismiss="alert" aria-label="Close"><img src="images/cross-blue-white.svg" class="img-fluid" alt="cross-icon"></button></div>
                </div>
             </div>
          </div>
          <div class="col-md-12  mt-5 d-flex">
+        
             <div class="dropdown">
                <a class="btn">
-               <img src="images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
+               <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                </a>
                <div class="select-with-checkbox">
-                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
-                     <option value="O1" data-badge="">All</option>
-                     <option value="O2" data-badge="">Harbour</option>
-                     <option value="O3" data-badge="">Beach</option>
-                     <option value="O4" data-badge="">Park</option>
-                     <option value="O5" data-badge="">River</option>
-                     <option value="O6" data-badge="">Outdoors</option>
-                     <option value="O7" data-badge="">Indoors</option>
-                     <option value="O7" data-badge="">Unique</option>
+                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control searchingMultiple location_categories_button" multiple="multiple">
+                     <optgroup label="Category">
+                     @foreach($category as $key=>$addon)
+                    
+                        <option value="{{ $addon->id }}" data-badge="">{{ $addon->name }}</option>
+                     @endforeach
+                     </optgroup>
+                     <optgroup label="Location">
+                        @foreach ($locations as $location)
+                           <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
+                              </option>
+                           @endforeach
+                     </optgroup>
                   </select>
                </div>
             </div>

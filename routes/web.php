@@ -28,6 +28,8 @@ $websiteRoutes = function () {
 
 
     Route::get('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
+    Route::post('search-addon-with-location', [HomeController::class, 'searchAddonWithLocation']);
+    
     // Route::get('add-to-cart',[HomeController::class, 'addToCart'])->name('addToCart');
 
     Route::get('addons/detail/{id}', [HomeController::class, 'addonDetail'])->name('add-ons-detail');

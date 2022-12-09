@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
 use Carbon\Carbon;
+use \Carbon\CarbonPeriod;
 use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail};
 use Illuminate\Support\Facades\Auth;
 
@@ -298,51 +299,191 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
+    // static function searchBookingOld($request)
+    // {
+        
+    //     $get_result = Booking::with([
+    //         'location' => function ($query) {
+    //             $query->select('name', 'id', 'price');
+    //         },
+    //         'location.location_images' => function ($query) {
+    //             $query->select('location_id', 'image');
+    //         }
+    //     ])->select('booking_date', 'id', 'locationId');
+
+    //     if ($request->has('search_start_date') && $request->filled('search_start_date')) {
+            
+            
+    //         $booking = (clone $get_result);    
+
+    //         if ($request->has('id') && $request->id !='') {
+               
+    //             $booking->where('locationId', $request->id);
+    //         }
+           
+    //         if ($request->has('search_start_date') && $request->search_start_date != '' || $request->has('search_end_date') && $request->search_end_date != '') {
+               
+                
+    //             $dateInfo = $request->search_start_date;
+    //             if($request->has('search_end_date') && $request->search_end_date!=''){
+    //                 $period =CarbonPeriod::create($request->search_start_date,$request->search_end_date);      
+    //                 $dateInfo = [];
+    //                 foreach($period as $date){
+    //                     $dateInfo[] = $date->format('Y-m-d');                   
+    //                 }  
+                   
+    //             }   
+                  
+    //             if ($request->has('search_start_date') && $request->search_start_date != '') {                  
+    //                 $booking->whereDate('booking_date','<=',$dateInfo);
+    //             }
+    //             if ($request->has('search_end_date') && $request->search_end_date != '') {
+    //                 $booking->whereBetween('booking_date','>=',$request->search_end_date);
+
+    //                 $booking->whereDate('booking_date','>=',$request->search_end_date);
+    //             }
+                
+    //             if($request->has('booking_start_time') && $request->booking_start_time != '' || $request->has('booking_end_time') && $request->booking_end_time != '') {
+                   
+    //                 $start_time = $request->booking_start_time;
+    //                 $end_time = $request->booking_end_time;  
+    //                 $booking->where(function($qrd)use($start_time,$end_time){
+    //                     $qrd->where(function($qra) use($start_time,$end_time){
+    //                         $qra->where(function($st) use($start_time,$end_time){
+    //                             $st->whereTime('booking_start_time','>=',$start_time)
+    //                                 ->whereTime('booking_start_time','<',$end_time)
+    //                                 ->whereTime('booking_start_time','=',$start_time)
+    //                                 ->whereTime('booking_end_time','=',$end_time);
+    //                         })
+    //                         ->orWhere(function($et) use($start_time,$end_time){
+    //                             $et->whereTime('booking_end_time','>',$start_time)
+    //                                 ->whereTime('booking_end_time','<=',$end_time)
+    //                                 ->whereTime('booking_start_time','=',$start_time)
+    //                                 ->whereTime('booking_end_time','=',$end_time);
+    //                         });
+    //                     })
+    //                     ->orWhere(function($qra)use($start_time,$end_time){
+    //                         $qra->where(function($st) use($start_time){
+    //                             $st->whereTime('booking_start_time','<=',$start_time)
+    //                                 ->whereTime('booking_end_time','>',$start_time)
+    //                                 ->whereTime('booking_start_time','=',$start_time);
+    //                         })
+    //                         ->orWhere(function($et) use($end_time){
+    //                             $et->whereTime('booking_start_time','<',$end_time)
+    //                                 ->whereTime('booking_end_time','>=',$end_time)
+    //                                 ->whereTime('booking_end_time','=',$end_time);
+    //                         });
+    //                     });
+    //                 });
+    //             }
+    //             return $booking->get();
+    //             // dd($booking->get());
+    //         }
+    //     } else {
+    //         return $get_result->get();
+    //     }
+        
+    // }
     static function searchBooking($request)
     {
-        if ($request->has('id') && $request->filled('id')) {
-            $get_result = Booking::with([
-                'location' => function ($query) {
-                    $query->select('name', 'id', 'price');
-                },
-                'location.location_images' => function ($query) {
-                    $query->select('location_id', 'image');
-                }
-            ]);
-            $booking = (clone $get_result);
+       
+        // $get_result = Booking::with([
+        //     'location' => function ($query) {
+        //         $query->select('name', 'id', 'price');
+        //     },
+        //     'location.location_images' => function ($query) {
+        //         $query->select('location_id', 'image');
+        //     }
+        // ])->select('booking_date', 'id', 'locationId');
 
+        if ($request->has('search_start_date') && $request->filled('search_start_date')) {
             
-        
+            // $booking = (clone $get_result);  
+                   
+            $day = Carbon::createFromFormat('Y-m-d', $request->search_start_date)->format('l');              
+           
+            $over_ride = CelebrantDateOverRide::with('location')
+            ->whereDate('override_date','>=',$request->search_start_date)
+            ->whereDate('override_date','<=',$request->search_start_date)
+            ->whereDate('override_date','=',$request->search_start_date)
+            // ->where('location_id',$request->locationId)
+            ->where('day',strtolower($day))
+            ->get();
+            
+            if(count($over_ride) > 0){
+                $data =  $over_ride;
 
-            if ($request->has('id')) {
-                $booking->where('locationId', $request->id);
-            }
-            if ($request->has('search_start_date') && $request->search_start_date != '' || $request->has('search_end_date') && $request->search_end_date != '') {
-                $booking->whereDate('booking_date','<=',$request->search_start_date)
-                ->whereDate('booking_date','>=',$request->search_end_date);
-
-                // $booking->where('booking_date', $request->search_start_date);
-            }
-            // if ($request->has('search_end_date') && $request->search_end_date != '') {
-            //     $booking->where('booking_date', $request->search_end_date);
-            // }
-            if ($request->has('booking_start_time') && $request->booking_start_time != '') {
-                $booking->where('booking_start_time', $request->booking_start_time);
-            }
-            if ($request->has('booking_end_time') && $request->booking_end_time != '') {
-                $booking->where('booking_end_time', $request->booking_end_time);
-            }
-            return $booking->select('booking_date', 'id', 'locationId')->get();
-        } else {
-            return Booking::with([
-                'location' => function ($query) {
-                    $query->select('name', 'id', 'price');
-                },
-                'location.location_images' => function ($query) {
-                    $query->select('location_id', 'image');
+            }else{
+              
+                $data =   CelebrantDaySlot::with('location','dates','calendardayslots')->whereHas('dates',function($qr) use($request){
+                        $qr->whereDate('start_date','<=',$request->search_start_date)
+                        ->whereDate('end_date','>=',$request->search_start_date);
+                
+                    })
+                    ->where('day',strtolower($day))
+                    // ->where('location_id',$request->locationId)
+                    ->get();
+                    
+            } 
+            $data2 =[];
+            if(count($data) > 0){   
+                  
+                foreach($data as $key=>$result){                   
+                    $start_time = $result->start_time;
+                    $end_time = $result->end_time;
+                    if(isset($result->override_date) && $result->override_date !=''){
+                        $booking_date = $result->override_date;
+                    }else{
+                        $booking_date = $result->dates->start_date;
+                    }
+                    
+                    $booking = Booking::where('locationId',$result->location_id)->where('booking_date', $booking_date)
+                    
+                    ->where(function($qrd)use($start_time,$end_time){
+                            $qrd->where(function($qra) use($start_time,$end_time){
+                                $qra->where(function($st) use($start_time,$end_time){
+                                    $st->whereTime('booking_start_time','>=',$start_time)
+                                        ->whereTime('booking_start_time','<',$end_time)
+                                        ->whereTime('booking_start_time','=',$start_time)
+                                        ->whereTime('booking_end_time','=',$end_time);
+                                })
+                                ->orWhere(function($et) use($start_time,$end_time){
+                                    $et->whereTime('booking_end_time','>',$start_time)
+                                        ->whereTime('booking_end_time','<=',$end_time)
+                                        ->whereTime('booking_start_time','=',$start_time)
+                                        ->whereTime('booking_end_time','=',$end_time);
+                                });
+                            })
+                            ->orWhere(function($qra)use($start_time,$end_time){
+                                $qra->where(function($st) use($start_time){
+                                    $st->whereTime('booking_start_time','<=',$start_time)
+                                        ->whereTime('booking_end_time','>',$start_time)
+                                        ->whereTime('booking_start_time','=',$start_time);
+                                })
+                                ->orWhere(function($et) use($end_time){
+                                    $et->whereTime('booking_start_time','<',$end_time)
+                                        ->whereTime('booking_end_time','>=',$end_time)
+                                        ->whereTime('booking_end_time','=',$end_time);
+                                });
+                            });
+                    })->get(); 
+                    
+                    if(count($booking) > 0){
+                      
+                        unset($data[$key]);
+                        $data2 = $data->values();                     
+                        
+                    } 
                 }
-            ])->select('booking_date', 'id', 'locationId')->get();
+              
+            }  
+            // dd($data2);      
+            return $data2; 
+            // dd($data2);
+        } else {
+            // return $get_result->get();
         }
+        
     }
     static function marriages()
     {
@@ -428,17 +569,13 @@ trait Methods
     }
           
     static function getCalendarAvailability($request){
-        try{
-            
-           
-           
+        try{                  
             $over_ride = CelebrantDateOverRide::with('location')
             ->whereDate('override_date','>=',$request->search)
             ->whereDate('override_date','<=',$request->search)
             ->whereDate('override_date','=',$request->search)
             ->where('location_id',$request->locationId)
             ->where('day',strtolower($request->day))->get();
-            // dd($over_ride);
             if(count($over_ride) > 0){
                 $data =  $over_ride;
 
@@ -449,14 +586,8 @@ trait Methods
                         ->whereDate('end_date','>=',$request->search);
                 
                     })
-                    // ->whereHas('calendardayslots',function($qr) use($request){
-                    //     $qr->whereDate('booking_date','!=',$request->search);
-                        
-                
-                    // })
                     ->where('day',strtolower($request->day))->where('location_id',$request->locationId)
                     ->get();
-                    // dd($data);
                     // ->each(function($data) use($request){
                     //     $data->overrideTest = $data->overrideSearch($request->search);
                     // }); 
@@ -508,9 +639,7 @@ trait Methods
                         
                     } 
                 }
-            }
-            
-           
+            }        
             return $data2;
             
             
@@ -519,4 +648,5 @@ trait Methods
         }
        
     }
+   
 }
