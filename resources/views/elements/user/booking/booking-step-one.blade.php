@@ -45,15 +45,15 @@
            
             <div class="calendar-wrapper bookingStepOne" id="calendar-wrapper"></div>
             <input type="hidden" name="booking_date" id="calendar_date" class="booking_date">
+           
+            @if(isset($selected_date)  && $selected_date !='')
+                <input type="hidden" name="get_booking_date" class="get_booking_date" value="{{(isset($selected_date))? $selected_date :''}}">
+
+            @endif
+        
             <input type="hidden" name="booking_day" id="booking_day" class="booking_day">
         </div>
-        <!-- <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2 ms-2">Fee adjustment</label>
-                              <div class=" position-relative">
-                                  <span class="currency-sign body-1 netural-100">$</span>
-                                  <input type="number" step="0.01" class="form-control body-1 netural-100 readonlyInput ps-4" id="InputName" value="12" name="celebrant[standard_fee]">
-                              </div>
-                          </div> -->
+       
        
         <div class="row">
             <div class="col-md-6 mb-4">

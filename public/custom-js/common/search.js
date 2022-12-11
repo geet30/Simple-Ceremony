@@ -8,22 +8,18 @@ $(document).ready(function(){
     $('.set_date_time').click(function(){
         var search_start_date = $('#search_start_date').val();
         var search_end_date = $('#search_end_date').val();
-        var full_date = search_start_date;
-        if(search_end_date !='')
-        // var full_date = search_start_date +'/'+search_end_date;
-         full_date = search_start_date +'/'+search_end_date;
-         var mydate = new Date(search_start_date);
-        // mydate = mydate.toDateString().split(' ').slice(1).join(' ');
-
-        // date = dateFormat(search_start_date, "dd mm");
+       
         
-
-        // console.log(mydate.toString('MM/dd'));
-        if(full_date !=''){
-            $('#set_date_time').html(full_date);
+        var mydate;
+        if(search_end_date !=''){
+            
+            mydate = new Date(search_start_date).toLocaleDateString('en-us', {  month:"short", day:"numeric"}) +'-'+new Date(search_end_date).toLocaleDateString('en-us', {  month:"short", day:"numeric"});
         }else{
-            $('#set_date_time').html(new Date().toLocaleDateString('fr-CA')); 
+            
+            mydate = new Date(search_start_date).toLocaleDateString('en-us', {  month:"short", day:"numeric"})
         }
+
+        $('#set_date_time').html(mydate);
 
     })
     
