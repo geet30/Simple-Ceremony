@@ -216,7 +216,7 @@ class CalendarController extends Controller
                   
                     $insert = [
                         'user_id' => auth()->user()->id,
-                        'calendar_dayslot_id' => $celebrantdates->id,
+                        // 'calendar_dayslot_id' => $celebrantdates->id,
                         'is_available' => (isset($val['available'])) ? 'yes' : 'no',
                         'override_date_start' => $k.' '.$slot['start'],
                         'override_date_end' => $k.' '.$slot['end'],
@@ -236,7 +236,7 @@ class CalendarController extends Controller
                 else{
                     $insert = [
                         'user_id' => auth()->user()->id,
-                        'calendar_dayslot_id' => $celebrantdates->id,
+                        // 'calendar_dayslot_id' => $celebrantdates->id,
                         'is_available' => (isset($val['available'])) ? 'yes' : 'no',
                         'override_date' => $k,
                         'day' => $val['full_day'],

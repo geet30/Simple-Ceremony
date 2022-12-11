@@ -41,7 +41,7 @@ $websiteRoutes = function () {
     Route::get('single-location/{id}', [BookingController::class, 'detail'])->name('user.booking.detail');
 
     Route::get('location', [BookingController::class, 'index'])->name('user.booking');
-    Route::get('get-booking-calender/{locationId}', [BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
+    Route::get('get-booking-calender/{locationId}/{date?}', [BookingController::class, 'getBookingLocationCalender'])->name('booking.getlocationCalender');
     Route::get('add-ons-gallery/{id}/{addonid}', [HomeController::class, 'gallery'])->name('addons.gallery');
     Route::post('/post-booking-location-form', [BookingController::class, 'postBookingLocationForm']);
     Route::post('/post-booking-user-detail', [BookingController::class, 'postBookingLocationUserDetail']);

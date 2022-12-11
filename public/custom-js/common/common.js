@@ -1,15 +1,3 @@
-//sidebar menu active
-// $(window).on('load', function () {
-//   $("#sidebarMenu li a").each(function() {
-// 	  var pageUrl = window.location.href.split(/[?#]/)[0];
-//     console.log('pageUrl',pageUrl);
-//     console.log('href',this.href);
-// 		if (this.href == pageUrl) {
-// 			$(this).addClass("active");
-// 		}
-// 	});
-// });
-
 // slick slider js
 $(".slider-for").slick({
     slidesToShow: 1,
@@ -57,7 +45,15 @@ function dateFormat(inputDate, format) {
     return format;
 }
 /////// calander Js
+var defaultConfig = {
+    weekDayLength: 2,
+    date: new Date().toLocaleDateString("fr-CA"),
+    onClickDate: selectDate,
+    showYearDropdown: true,
+    startOnMonday: true,
+};
 function selectDate(date) {
+   
     $("#calendar-wrapper").updateCalendarOptions({
         date: date,
     });
@@ -65,7 +61,7 @@ function selectDate(date) {
     $(".booking_day").val(new Date(date).toLocaleDateString("en-US",{weekday: 'long'}));
    
     if($('.getBookingsCalendar').length){
-       
+        
         if (typeof getMarriageBookingsRequest == "function") {
             date = new Date(date);
             date = dateFormat(date, "MM/dd/yyyy");
@@ -74,84 +70,32 @@ function selectDate(date) {
     }
     if($('.bookingStepOne').length){
        
-        $('.cost').val('0');
-        $('.total_fee').val('0');
-        $('.booking_start_time').val('');
-        $('.calendar_dayslot_id').val('');
-        $('.location_name').val('');
-        $('.booking_date').val('');
-        $('.celebrant_id').val('');
-
-        $('.no_slots').addClass('d-none');
-        var url = '/get-celebrant-availability';
         var locationId = $('#locationId').val();  
-
-        $.ajax({
-            type: "get",
-            url: url,
-            data: {
-                'search': new Date(date).toLocaleDateString('fr-CA'),'locationId':locationId,'day':new Date(date).toLocaleDateString("en-US",{weekday: 'long'})
-                
-            },
-            dataType: 'json',
-            // cache: false,
-            success: function(response)
-            {  
-                console.log(response.data);
-                var html = "";
-                if(response.data.length){
-                    var price = 0;
-                    const price_arr = [];
-                    $.each(response.data, function(key,val) {
-                        // if(!empty(response.data.overrideTest){
-                       
-                            price = parseInt(val.your_fee) + parseInt(val.admin_fee) + parseInt(val.location_fee);
-                                // console.log(price);
-                            price_arr.push(price);
-                            const min = price_arr.reduce((a,b)=>Math.min(a,b), Infinity);
-                            html +=`<div class="col-4 col-xl-3 mt-4">
-                                <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.end_time}','${val.location.name}','${price}',${locationId},${val.user_id})" data-id="${val.id}" class="time-and-price body-2">
-                                <span class="netural-100 mb-1">${val.start_time}</span>
-                                <span class="turquoise-100 mb-2">$ ${price}</span>
-                                <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>
-                                </a>
-                            </div>`;    
-                        
-                            $('.total_fee').val(price);
-                            $('.booking_start_time').val(val.start_time);
-                            $('.cost').val(min);
-                            $('.calendar_dayslot_id').val(val.id);
-                            $('.celebrant_id').val(val.user_id);
-                            
-                            $('.booking_date').val(new Date(date).toLocaleDateString('fr-CA'));
-                            $('.location_name').val(val.location.name);
-                        // }
-                    });
-                }else{
-
-                    $('.no_slots').removeClass('d-none');
-                }
-                // console.log(response);
-                $('.hide_book_message').addClass('d-none');
-                
-                $('.timeslots_available').removeClass('d-none');
-
-                $('.timeslots_available').html(html);
-                
-            }
-        });
+        showBookingSlots(date,locationId);
        
     }
    
+   
+}
+if($('.get_booking_date').length){
+    
+    var selected_date = $('.get_booking_date').val();
+
+    var locationId = $('#locationId').val();  
+    var defaultConfig = {
+        weekDayLength: 2,
+        date: new Date(selected_date).toLocaleDateString("fr-CA"),
+        onClickDate: selectDate,
+        showYearDropdown: true,
+        startOnMonday: true,
+    };
+    $(".calendar-wrapper").calendar(defaultConfig);
+   
+    showBookingSlots(selected_date,locationId);
+    
 }
 
-var defaultConfig = {
-    weekDayLength: 2,
-    date: new Date().toLocaleDateString("fr-CA"),
-    onClickDate: selectDate,
-    showYearDropdown: true,
-    startOnMonday: true,
-};
+
 
 /////// user sidebar
 $("#sidebarMenu li a").click(function () {
@@ -453,11 +397,6 @@ $(document).ready(function () {
         $(".hidden-footer").slideToggle("slow");
     });
 });
-function selectDateClass(date) {
-    $(".calendar-wrapper").updateCalendarOptions({
-        date: date,
-    });
-}
 
 (function ($) {
     $(".reply-btn").click(function () {

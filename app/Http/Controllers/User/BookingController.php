@@ -54,9 +54,9 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function getBookingLocationCalender(Request $request,$locationId){
+    public function getBookingLocationCalender(Request $request,$locationId,$selected_date=null){
         try {
-      
+     
 
             if(isset($request->session_id) && !empty($request->session_id)){
                 
@@ -64,12 +64,10 @@ class BookingController extends Controller
                 Cache::forget('booking');
             }
             $booking ='';
-            $timeslot  = timeslots();
             $get_location_addons =  Locations::getLocationPackages($locationId)->get()->toArray();
             $location_price = Locations::where('id',$locationId)->pluck('price','name');
             $ceremonies_type  = Ceremonies::fetch_all_ceremony_type()->get();
-            // dd($ceremonies_type);
-            return view('user.booking.book-location',compact('booking','timeslot','locationId','get_location_addons','location_price','ceremonies_type'));
+            return view('user.booking.book-location',compact('booking','locationId','get_location_addons','location_price','ceremonies_type','selected_date'));
         }
         catch (\Exception $ex) {
             dd($ex);
