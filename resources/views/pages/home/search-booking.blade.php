@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="row">
+                    <div class="row h-100">
                         <div class="upload-files-slider">
                             <div class="outer-wrapper">
                                 <div class="inner-wrapper">
