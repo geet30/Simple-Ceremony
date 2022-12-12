@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Locations,LocationFilters,RequestLocations,CelebrantLocations};
+use App\Models\{User,Locations,LocationFilters,RequestLocations,CelebrantLocations};
 use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
@@ -45,14 +45,12 @@ class LocationsController extends Controller
         }
         $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
 
-        // $allLocations =  Locations::with('location_celebrants')->whereHas('location_celebrants',function($qr) use($user_id){
-        //     $qr->where('celebrant_id', '!=',$user_id);
-    
-        // })->whereNotIn('id', $location_ids)->where('status',1)->get();\
+       
         $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
             
         $data  = CelebrantMethods::fetch_locations('',$search)->get();
         $data = $getcelebrantAssignedLocation->concat($data);
+      
         $data = $this->customPaginate($data, $records, $req_page, ['*']);
 
         if ($request->ajax()) {
@@ -60,8 +58,6 @@ class LocationsController extends Controller
             $viewurl = 'celebrant.locations.listing';
             return View::make($viewurl, ['req_page' => $req_page, 'data' => $data, 'search' => $search]);
         }
-        
-        // dd($data);
         return view('celebrant.locations.index',compact('data','locations','allLocations'));
     }
 
@@ -91,10 +87,12 @@ class LocationsController extends Controller
             if (isset($request->location)) {
                 $result = CelebrantMethods::saveCelebrantLocations($request->location, auth::user()->id);
                 if ($result) {
+                    User::where('id', auth::user()->id)->update(['status' => 0]);
                     return $this->successResponse($result, 'Location added successfully.');
                 }
                 return response()->json(['status' => false, "message" => 'something went wrong']);
             }
+            
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -206,6 +204,7 @@ class LocationsController extends Controller
      */
     public function destroy(Request $request,$id)
     {
+        
         try {
             $data = RequestLocations::where('id', '=', $request->id)->delete();
             

@@ -8,7 +8,7 @@ $personParentElement = 'person1Parent';
         <div class="d-md-flex w-100">
             <div class="d-flex add-ons-detail ">
                 <div class="numberCircle align-self-center">4</div>
-                <h2 class="h4 neutral-100 align-self-center mb-0 ms-2">Details of Person 2 Parents</h2>
+                <h2 class="h4 neutral-100 align-self-center mb-0 ms-2">Details of Person 2's Parents - <span class="details_of_person2"></span></h2>
             </div>
         </div>
     </div>
@@ -56,8 +56,8 @@ $personParentElement = 'person1Parent';
         </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Birth Name of Parent
-                    1</label>
+                <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Birth Parent 1 family name
+                    </label>
                 <input type="text" value="{{ $parent[0]['birth_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[0][birth_name]"
                     id="{{ $personParentElement }}0BirthName" required>
@@ -104,8 +104,7 @@ $personParentElement = 'person1Parent';
         </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}1CurrentName" class="form-label small-text2">Current Parent 2
-                    family name</label>
+                <label for="{{ $personParentElement }}1CurrentName" class="form-label small-text2">Current Parent 2 family name</label>
                 <input type="text" value="{{ $parent[1]['current_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][current_name]"
                     id="{{ $personParentElement }}1CurrentName" required>
@@ -116,8 +115,7 @@ $personParentElement = 'person1Parent';
         </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}1FirstName" class="form-label small-text2">Parent 2 first
-                    name</label>
+                <label for="{{ $personParentElement }}1FirstName" class="form-label small-text2">Parent 2 first name</label>
                 <input type="text" value="{{ $parent[1]['first_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][first_name]"
                     id="{{ $personParentElement }}1FirstName" required>
@@ -125,8 +123,7 @@ $personParentElement = 'person1Parent';
                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required</div>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given
-                    name(s)</label>
+                <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given name(s)</label>
                 <input type="text" value="{{ $parent[1]['other_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][other_name]"
                     id="{{ $personParentElement }}1OtherName" required>
@@ -136,8 +133,7 @@ $personParentElement = 'person1Parent';
         </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}1BirthName" class="form-label small-text2">Birth Name of Parent
-                    2</label>
+                <label for="{{ $personParentElement }}1BirthName" class="form-label small-text2">Birth Parent 2 family name</label>
                 <input type="text" value="{{ $parent[1]['birth_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][birth_name]"
                     id="{{ $personParentElement }}1BirthName" required>
@@ -148,8 +144,7 @@ $personParentElement = 'person1Parent';
         </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}1BirthFirstName" class="form-label small-text2">Parent 2 first
-                    name</label>
+                <label for="{{ $personParentElement }}1BirthFirstName" class="form-label small-text2">Parent 2 first name</label>
                 <input type="text" value="{{ $parent[1]['birth_first_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][birth_first_name]"
                     id="{{ $personParentElement }}1BirthFirstName" required>
@@ -157,8 +152,7 @@ $personParentElement = 'person1Parent';
                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required</div>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given
-                    name(s)</label>
+                <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given name(s)</label>
                 <input type="text" value="{{ $parent[1]['birth_other_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][birth_other_name]"
                     id="{{ $personParentElement }}1OtherName" required>
@@ -168,8 +162,7 @@ $personParentElement = 'person1Parent';
         </div>
         <div class="row">
             <div class="col-md-6  align-self-top">
-                <label for="{{ $personParentElement }}[1][birth_place]" class="form-label small-text2">Birth
-                    place</label>
+                <label for="{{ $personParentElement }}[1][birth_place]" class="form-label small-text2">Birth place</label>
                 <select name="{{ $personParent }}[1][birth_place]" id="{{ $personParentElement }}[1][birth_place]"
                     class="js-placeholder-single-input form-control" required>
                     <option value="">Select country here</option>

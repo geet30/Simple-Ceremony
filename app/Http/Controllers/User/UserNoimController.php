@@ -122,6 +122,7 @@ class UserNoimController extends Controller
     }
     public function referrer(Request $request)
     {
+        // dd($request->all());
         $loggedInUserId = Auth::user()->id;
         $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
         $request->merge([
@@ -129,6 +130,7 @@ class UserNoimController extends Controller
             'booking_id' => $bookingId
         ]);
         UserNoimReferrers::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
+        return redirect()->route('user-noim.steps');
         return redirect()->back();
         return $request->all();
     }

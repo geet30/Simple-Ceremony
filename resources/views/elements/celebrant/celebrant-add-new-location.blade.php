@@ -5,6 +5,7 @@
             aria-label="Close">Cancel</button>
     </div>
     <div class="offcanvas-body">
+    <div class="message"></div>
         <form method="post" id="assign-location" action="{{url('assign-location')}}" name="assign-location" onsubmit="return submitThroughAjax(event,'assign-location','post','/assign-location')">
         @csrf
             <div class="col-md-9 mb-4">

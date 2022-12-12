@@ -116,10 +116,16 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
         <div class="card card-turquoise-noim">
             <div class="card-body p-4">
                 <div class="d-flex justify-content-center">
-                    <div class="align-self-center me-3"><img src=" /images/icons/info.svg" class="img-fluid"
-                            alt="infoss-icon"> </div>
-                    <div class="button-1 text-black align-self-center ">Please use English character and don't use
-                        umlauts and accents</div>
+                    <div class="align-self-center me-3">
+                        <img src=" /images/icons/info.svg" class="img-fluid" alt="infoss-icon"></div>
+                    <div class="button-1 text-black align-self-center ">Important</div>
+                </div>
+                <p class="body-3-medium ">
+                A.Only English character are recognised by the governement website. That is, DON'T use:  ä, á, â etc.</p>
+                <p class="body-3-medium ">B.Only one word can be used for a First Name. If there is normally 2 or more words in a First Name move every other word, other than the first word, into Other Given Name(s)
+                </p>
+               
+                    
                 </div>
             </div>
         </div>
@@ -550,12 +556,12 @@ $person = isset($person) && isset($person[0]) ? $person[0] : null;
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
             </div>
-            <div class="col-md-6 mb-4 ">
+            <!-- <div class="col-md-6 mb-4 ">
                 <label for="person0how_they_related" class="form-label small-text2">How are they related </label>
                 <input type="text" placeholder="Type here" class="form-control body-1 netural-100"
                     name="person[0][how_they_related]" value="{{ $person['how_they_related'] ?? '' }}"
                     id="person0how_they_related">
-            </div>
+            </div> -->
             <div class="col-12 ">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="person[0][is_data_and_document_identical]"
