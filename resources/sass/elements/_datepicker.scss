@@ -1201,6 +1201,11 @@
     .datepicker table tr td.highlighted.day.range_selected {
         background: #c9eeed;
     }
+    td.active.highlighted.day.starting_date {
+        background: #62cbca;
+        border-radius: 10px;
+        color: #fff;
+    }
 }
 .override-form-picker{
     .datepicker{
