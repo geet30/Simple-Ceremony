@@ -62,13 +62,13 @@
                      <label for="loc_number" class="form-label small-text2">Location number</label>
                      <input type="text" value="{{ (isset($data->loc_number)) ? $data->loc_number : '' }}" class="form-control body-1 netural-100" name="loc_number" id="loc_number">
                   </div>
-                  <div class="col-md-5 mb-4">
+                  <!-- <div class="col-md-5 mb-4">
                      <label for="price" class="form-label small-text2">Price</label>
                      <div class=" theme-input-group">
                         <input type="text" value="{{ (isset($data->price)) ? round($data->price,0) : '' }}" class="form-control body-1 netural-100 pl-30" name="price" id="price">
                         <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                      </div>
-                  </div>
+                  </div> -->
                   
                   <div class="col-md-12 mb-5 d-flex flex-column">
                      <label for="InputName" class="form-label small-text2 mb-20">Upload cover photos</label>

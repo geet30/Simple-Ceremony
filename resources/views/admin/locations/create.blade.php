@@ -110,7 +110,9 @@
                            <label for="photos" class="form-label small-text2 mb-20">Upload cover photos *</label>
 
                            <div class="drop-zone text-center">
-                           <?php  $required = 'required'?>
+                           <?php  $required = 'required';
+                           $imageName = (isset($data->cover_image)) ? $data->cover_image:'';
+                           ?>
                               @if(isset($data->cover_image) && !empty($data->cover_image))
                                  <?php 
                               
@@ -122,6 +124,7 @@
 
                                  ?>
                                  <div class="drop-zone__thumb" data-label="{{$data->cover_image}}" style="background-image: url({{$base64}})"></div>
+                                 <input type="hidden" name="cover_image_from_request" value="{{$imageName}}">
                               @else
                                  
                                  <span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">
@@ -161,14 +164,18 @@
                                     $imgData = file_get_contents($path);
                                     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imgData);
 
+                                    $image_Arr[] = $images['id'];
+                                    // dd($image_Arr);
+
                                  ?>
                                  
                                  <div class='upload__img-box'>
                                     <div style='background-image: url({{$base64}})' data-number='{{$keys}}' data-file='{{$images["image"]}}' data-image_id="{{$images['id']}}" class='img-bg'><div class='upload__img-close'></div>
                                     </div>
                                  </div>
-                                 @endforeach
                                 
+                                 @endforeach
+                                 <input type="hidden" name="image_id_request" class="image_id_request" value="{{implode(',',$image_Arr)}}">
                               </div>
                               @else
                                  <div class="upload__img-wrap"></div>

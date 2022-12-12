@@ -13,10 +13,13 @@ trait Methods
    
   
     static function addData($data){    
-        try{          
+        try{       
+          
+              
             $input = $data->all();
             $input['added_by'] = Auth::user()->id;
-            $checkName = Locations::where('name',$data->name)->first();
+            $checkName = Locations::where('name',$data->name)->where('latitude',$data->latitude)->where('name',$data->longitude)->first();
+           
             if($checkName){
                 $msg = 'Location already exists with this name.';
                 return ['status' => false,'message'=>$msg];    
@@ -24,6 +27,11 @@ trait Methods
             if($data->hasFile('cover_image')){
                 $input['cover_image'] = uploadImage($data->cover_image, 'locations');
             }
+            
+            if($data->has('cover_image_from_request')){
+                $input['cover_image'] = $data->cover_image_from_request;
+            }
+           
             $result = Locations::create($input);
             if($result){
                 self::locationExtras($data,$result->id);
@@ -42,7 +50,7 @@ trait Methods
         try{          
             $input = $data->all();
             // $input['added_by'] = Auth::user()->id;
-            $checkName = RequestLocations::where('name',$data->name)->first();
+            $checkName = RequestLocations::where('name',$data->name)->where('latitude',$data->latitude)->where('name',$data->longitude)->first();
             if($checkName){
                 $msg = 'Location already exists with this name.';
                 return ['status' => false,'message'=>$msg];    
@@ -121,6 +129,18 @@ trait Methods
                 LocationImages::create($image);
             }   
         }
+        if($data->has('image_id_request')){
+            $imagesId = explode(',',$data->image_id_request);
+            $ImagesArr = LocationImages::whereIn('id',$imagesId)->pluck('image');
+
+            foreach($ImagesArr as $file){
+               
+                $image['location_type'] = 1; 
+                $image['location_id'] = $id;             
+                $image['image'] = $file;
+                LocationImages::create($image);
+            }   
+        } 
         if($data->has('location_category') && !empty($data->location_category)){
             foreach($data->location_category as $category){
                 if($type != ''){
@@ -382,7 +402,7 @@ trait Methods
     public static function request_custom_location_data(){
         $locations =   RequestLocations::with([
             'request_location_images' => function($query){               
-                $query->select('request_location_id', 'image');
+                $query->select('request_location_id', 'image','id');
             } ,
             'request_location_packages' => function($query){
                 $query->select('request_location_id','partner_id','package_id');

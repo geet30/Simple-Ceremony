@@ -86,7 +86,7 @@
                            <input type="number" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber" value="{{old('loc_number')}}">
                            
                         </div>
-                        <div class="col-md-5 mb-4">
+                        <!-- <div class="col-md-5 mb-4">
                            <label for="Price" class="form-label small-text2">Price *</label>
                            <div class=" theme-input-group">
                               <input type="number" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" value="{{old('price')}}" name="price" id="Price" required>
@@ -96,7 +96,7 @@
                            </div>
                            </div>
                            
-                        </div>
+                        </div> -->
                        
                         <div class="col-md-12 mb-4 d-flex flex-column position-relative">
                            <label for="photos" class="form-label small-text2 mb-20">Upload cover photos *</label>
