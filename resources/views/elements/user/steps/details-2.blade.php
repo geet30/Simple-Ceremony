@@ -8,7 +8,7 @@ $personIdenticalDocElement = 'person1DocElement';
         <div class="d-md-flex w-100">
             <div class="d-flex add-ons-detail ">
                 <div class="numberCircle align-self-center">6</div>
-                <h2 class="h4 neutral-100 align-self-center mb-0 ms-2">Person 2 documents - Ava</h2>
+                <h2 class="h4 neutral-100 align-self-center mb-0 ms-2">Person 2 documents - <span class="details_of_person2"></span></h2>
             </div>
         </div>
     </div>

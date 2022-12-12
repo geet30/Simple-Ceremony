@@ -3,6 +3,7 @@ $parent = isset($person) && isset($person[0]['parents']) ? $person[0]['parents']
 $personParent = 'person[0][parent]';
 $personParentElement = 'person0Parent';
 @endphp
+
 <div class="row pt-4">
     <div class="col-12 mb-4">
         <h2 class="h3 neutral-100 mb-0">Details of the parties’ parents</h2>
@@ -11,7 +12,7 @@ $personParentElement = 'person0Parent';
         <div class="d-md-flex w-100">
             <div class="d-flex add-ons-detail ">
                 <div class="numberCircle align-self-center">3</div>
-                <h2 class="h4 neutral-100 align-self-center mb-0 ms-2">Details of parent's details</h2>
+                <h2 class="h4 neutral-100 align-self-center mb-0 ms-2">Details of Person 1's parents - <span class="details_of_person1"></span></h2>
             </div>
         </div>
     </div>
@@ -27,9 +28,7 @@ $personParentElement = 'person0Parent';
     <div class="col-12 mt-4">
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}0CurrentName" class="form-label small-text2">Current Name of
-                    Parent
-                    1</label>
+                <label for="{{ $personParentElement }}0CurrentName" class="form-label small-text2">Current Name of Parent 1</label>
                 <input type="text" class="form-control body-1 netural-100"
                     name="{{ $personParent }}[0][current_name]" id="{{ $personParentElement }}0CurrentName"
                     value="{{ $parent[0]['current_name'] ?? '' }}" required>
@@ -58,8 +57,7 @@ $personParentElement = 'person0Parent';
         </div>
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
-                <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Birth Name of Parent
-                    1</label>
+                <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Birth Name of Parent 1</label>
                 <input type="text" class="form-control body-1 netural-100" name="{{ $personParent }}[0][birth_name]"
                     id="{{ $personParentElement }}0BirthName" value="{{ $parent[0]['birth_name'] ?? '' }}" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>

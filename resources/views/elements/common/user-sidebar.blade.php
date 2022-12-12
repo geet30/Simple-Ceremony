@@ -6,7 +6,7 @@
         </div>
 
         <ul class="nav flex-column" id="sidebar">
-            <li class="nav-item">
+            {{--<li class="nav-item">
             
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600  {{ Request::segment(2) == 'overview' ? 'active' : '' }}"
                     aria-current="page" href="{{url('user/overview')}}">
@@ -18,7 +18,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Overview</span>
                 </a>
-            </li>
+            </li>--}}
             <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ request()->is('user/NoIM') ? 'active' : '' }}"
                     href="{{url('user/NoIM')}}">
@@ -71,7 +71,7 @@
                     <span class="ms-3 d-none d-md-block">Documents</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{--<li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-invoices' || Request::segment(1) == 'invoices' ? 'active' : '' }} font-weight-600" href="{{url('user/invoices')}}" >
 
                     <svg width="25" height="26" viewBox="0 0 25 26" fill="none"
@@ -85,8 +85,8 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Invoices</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li>--}}
+            {{--<li class="nav-item">
             
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ Request::segment(2) == 'package' || Request::segment(2) == 'add-ons' ? 'active' : '' }}" href="{{url('user/add-ons')}}" >
                     <svg width="18" height="25" viewBox="0 0 18 25" fill="none"
@@ -103,7 +103,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Add-ons</span>
                 </a>
-            </li>
+            </li>--}}
             <!-- <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/activity-history">
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
@@ -115,7 +115,7 @@
                     <span class="ms-3 d-none d-md-block">Activity history</span>
                 </a>
             </li> -->
-            <li class="nav-item">
+            {{--<li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ Request::segment(2) == 'list-to-do' ? 'active' : '' }}" href="/user/list-to-do">
                     <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -134,8 +134,8 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">List to-do</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li>--}}
+            {{--<li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/notes">
                     <svg width="20" height="23" viewBox="0 0 20 23" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Notes</span>
                 </a>
-            </li>
+            </li>--}}
         </ul>
     </div>
 </nav>
