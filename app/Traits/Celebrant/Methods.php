@@ -17,7 +17,7 @@ trait Methods
     
         $locations =   RequestLocations::with([
             'request_location_images' => function($query){               
-                $query->select('request_location_id', 'image');
+                $query->select('request_location_id', 'image','id');
             } ,
             'request_location_packages' => function($query){
                 $query->select('request_location_id','partner_id','package_id');
@@ -54,7 +54,7 @@ trait Methods
         if($search !=''){
             $locations =   RequestLocations::with([
                 'request_location_images' => function($query){               
-                    $query->select('request_location_id', 'image');
+                    $query->select('request_location_id', 'image','id');
                 } ,
                 'request_location_packages' => function($query){
                     $query->select('request_location_id','partner_id','package_id');
@@ -75,7 +75,7 @@ trait Methods
         }else{
             $locations =   RequestLocations::with([
                 'request_location_images' => function($query){               
-                    $query->select('request_location_id', 'image');
+                    $query->select('request_location_id', 'image','id');
                 } ,
                 'request_location_packages' => function($query){
                     $query->select('request_location_id','partner_id','package_id');

@@ -59,7 +59,7 @@ class BookingController extends Controller
      
 
             if(isset($request->session_id) && !empty($request->session_id)){
-                
+               
                 $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
                 Cache::forget('booking');
             }
@@ -95,9 +95,7 @@ class BookingController extends Controller
                 'locationId' =>$request->locationId,
                 'price' =>$request->price, 
             ];
-            // $checkIfBookingExist =   Booking::checkIfBookingExist($data,$request->locationId); // we dont need bcause we will only show those slots which are not booked 
-               
-            
+          
             if(Cache::has('booking')){
                 $booking = Cache::get('booking');
                 $booking->fill($data);

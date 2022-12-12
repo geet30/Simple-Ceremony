@@ -351,6 +351,7 @@ function ImgUpload(counter = null) {
         x++;
         $("#image_id").val(image_id_array);
         $(".image_id").val(image_id_array);
+        $('.image_id_request').val(image_id_array);
         for (var i = 0; i < imgArray.length; i++) {
             if (imgArray[i].name === file) {
                 imgArray.splice(i, 1);
