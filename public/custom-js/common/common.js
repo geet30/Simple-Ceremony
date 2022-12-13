@@ -188,7 +188,10 @@ $(document).ready(function () {
     $(".calendar-wrapper").calendar(defaultConfig);
     $(document).on("click", ".delete_append_id", function () {
         var id = $(this).data("id");
+        var request_id = $(this).data("request_id");
+        
         $(".delete_form").find('input[name="id"]').val(id);
+        $(".delete_form").find('input[name="request_id"]').val(request_id);
     });
     window.closeDialog = function (id) {
         $("#" + id).modal("hide");

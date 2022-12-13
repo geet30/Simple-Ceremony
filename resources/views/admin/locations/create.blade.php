@@ -154,18 +154,17 @@
                               @if(isset($data->request_location_images) && !empty($data->request_location_images))
                               <div class="upload__img-wrap">
                               
-                                 
+                                 <?php $image_Arr =[];?>
                                  <input type="hidden" name="image_id" id="image_id">
                                  @foreach($data->request_location_images as $keys=>$images)
                                  <?php 
-                              
+                             
                                     $path = asset('uploads/images/locations/'.$images['image']);
                                     $type = pathinfo($path, PATHINFO_EXTENSION);
                                     $imgData = file_get_contents($path);
                                     $base64 = 'data:image/' . $type . ';base64,' . base64_encode($imgData);
 
                                     $image_Arr[] = $images['id'];
-                                    // dd($image_Arr);
 
                                  ?>
                                  

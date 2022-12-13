@@ -38,9 +38,12 @@
                </td>
                <td  style="min-width:300px;">
                   <ul class="mb-0 pl-0">
-                     <a href="/all-locations/{{ $request->id }}" class="table-link me-2">Open</a>
+                  
+                     <a href="{{route('all-locations.show',[$request->id, 'table' => $request->table ])}}" class="table-link me-2">Open</a>
+                     @if($request->celebrant_id == auth()->user()->id)
                      <a href="/all-locations/{{ $request->id }}/edit" class="table-link me-2">Edit</a>
-                     <a href="" role="button" data-bs-toggle="modal" data-bs-target="#delete_celebrant_location" class="table-link delete_append_id" data-id="{{ $request->id }}">Delete</a>
+                     @endif
+                     <a href="" role="button" data-bs-toggle="modal" data-bs-target="#delete_celebrant_location" class="table-link delete_append_id" data-id="{{ $request->id }}" data-request_id="{{ $request->custom_location_id }}">Delete</a>
                   </ul>
                </td>
             </tr>
