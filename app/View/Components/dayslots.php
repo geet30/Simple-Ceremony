@@ -3,8 +3,8 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use App\Models\{CelebrantDetail,RequestLocations,Locations};
-
+use App\Models\{CelebrantDetail,RequestLocations,Locations,CelebrantLocations};
+use App\Traits\Celebrant\{Methods as CelebrantMethods};
 class DaySlots extends Component
 {
     /**
@@ -27,6 +27,25 @@ class DaySlots extends Component
         })
         // ->where('status',1)
         ->get();
+        $fetch_celebrant_locations =  CelebrantLocations::where('celebrant_id',auth()->user()->id)->get();
+            
+        $location_ids =[];
+        foreach($fetch_celebrant_locations as $celebrant_location){
+            $location_ids[] = $celebrant_location['location_id'];
+
+        }
+
+        $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
+            
+       
+            
+        $data  = Locations::whereHas('request_location',function($qr){
+            $qr->where('celebrant_id',auth()->user()->id);
+        }) ->get();
+     
+        $this->location = $getcelebrantAssignedLocation->concat($data);
+
+        // dd($this->location);
         $this->slots = self::getTimeSlot(15,'00:00','23:00');
     }
 

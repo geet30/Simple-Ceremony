@@ -61,8 +61,7 @@ class Locations extends Model
     public function location_packages()
     {
         return $this->hasMany('App\Models\LocationPackages', 'location_id', 'id');
-    }
-   
+    } 
     public function location_advantages()
     {
         return $this->hasMany('App\Models\LocationKeyAdvantages', 'location_id', 'id');
