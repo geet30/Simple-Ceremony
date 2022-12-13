@@ -6,6 +6,7 @@
                   @method('DELETE')
                   @csrf
                   <input type="hidden" name="id">
+                  <input type="hidden" name="request_id">
                   <div class="modal-body text-center">
                       <img class="mt-4" src="/images/user/exclamation.svg" alt="Exclamation">
                       <h4 class="h4 netural-100 mb-4 mt-4">Are you sure you want to delete the location?

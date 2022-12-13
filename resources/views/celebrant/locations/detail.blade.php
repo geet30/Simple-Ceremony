@@ -224,8 +224,11 @@
                      </div>
                      
                      <div class="col-12 mt-3 mb-5">
+
+                     @if($table =='request_locations')
                     
-                     <a href="/all-locations/{{ $data->id }}/edit" class="theme-btn primary-btn ">Edit</a>
+                        <a href="/all-locations/{{ $data->id }}/edit" class="theme-btn primary-btn ">Edit</a>
+                     @endif
                      </div>
                </form>
             

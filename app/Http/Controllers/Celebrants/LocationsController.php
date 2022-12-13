@@ -31,11 +31,6 @@ class LocationsController extends Controller
         $user_id = auth()->user()->id;
         $locations = RequestLocations::where('celebrant_id', '=',$user_id)->get(); 
         
-      
-        // $fetch_celebrant_locations =  Locations::with('location_celebrants')->whereHas('location_celebrants',function($qr) use($user_id){
-        //     $qr->where('celebrant_id', '=',$user_id);
-    
-        // })->select('id')->get();
         $fetch_celebrant_locations =  CelebrantLocations::where('celebrant_id',$user_id)->get();
             
         $location_ids =[];
@@ -43,15 +38,28 @@ class LocationsController extends Controller
             $location_ids[] = $celebrant_location['location_id'];
 
         }
+        // $getcelebrantAssignedLocation['table'] = 'locations';
         $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
-
        
+
+        $getcelebrantAssignedLocation = collect($getcelebrantAssignedLocation)->map(function ($item) {
+            $item['table'] = 'locations';
+        
+            return $item;
+        });
+        
         $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
             
         $data  = CelebrantMethods::fetch_locations('',$search)->get();
+        $data = collect($data)->map(function ($item) {
+            $item['table'] = 'request_locations';
+        
+            return $item;
+        });
         $data = $getcelebrantAssignedLocation->concat($data);
       
         $data = $this->customPaginate($data, $records, $req_page, ['*']);
+    //    dd($data);
 
         if ($request->ajax()) {
 
@@ -147,14 +155,23 @@ class LocationsController extends Controller
      * @param  \App\Models\Locations  $Locations
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
+        // dd($request->table);
         $filters = LocationFilters::all();
+        $table = $request->table;
         $partners = Locations::partners();
-        $data  = CelebrantMethods::fetch_locations($id)->first();
+        // $get_if_not_custom_location = Locations::where('id',$id)->value('custom_location_id');
+        if($request->table == 'locations'){ // means its not a custom location
+            $data  =  Locations::getLocations($id, '*', 'packages')->first();
+        }else{
+            $data  = CelebrantMethods::fetch_locations($id)->first();
+        }
+      
+        
         $partnerspackages = Locations::getPartnerPackages();
      
-        return view('celebrant.locations.detail', compact(['data','filters','partners','partnerspackages']));
+        return view('celebrant.locations.detail', compact(['data','filters','partners','partnerspackages','table']));
     }
 
     /**
@@ -204,9 +221,12 @@ class LocationsController extends Controller
      */
     public function destroy(Request $request,$id)
     {
+        // dd($request->all());
         
         try {
-            $data = RequestLocations::where('id', '=', $request->id)->delete();
+            $data = RequestLocations::where('id', '=', $request->request_id)->delete();
+            $data = CelebrantLocations::where('location_id', '=', $request->id)->where('celebrant_id', '=', auth()->user()->id)->delete();
+            
             
             return redirect('all-locations')->with(['message' => 'Location deleted successfully', 'class' => 'alert-success']);
         } catch (\Exception $ex) {
