@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Models\{CelebrantDetail,RequestLocations,Locations};
 
-class dayslots extends Component
+class DaySlots extends Component
 {
     /**
      * Create a new component instance.
