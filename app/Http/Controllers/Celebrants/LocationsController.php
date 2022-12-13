@@ -38,29 +38,24 @@ class LocationsController extends Controller
             $location_ids[] = $celebrant_location['location_id'];
 
         }
-        // $getcelebrantAssignedLocation['table'] = 'locations';
-        $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
-       
 
+        $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
         $getcelebrantAssignedLocation = collect($getcelebrantAssignedLocation)->map(function ($item) {
             $item['table'] = 'locations';
-        
             return $item;
-        });
-        
-        $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
+        });       
+       
             
         $data  = CelebrantMethods::fetch_locations('',$search)->get();
         $data = collect($data)->map(function ($item) {
-            $item['table'] = 'request_locations';
-        
+            $item['table'] = 'request_locations';       
             return $item;
         });
         $data = $getcelebrantAssignedLocation->concat($data);
       
         $data = $this->customPaginate($data, $records, $req_page, ['*']);
-    //    dd($data);
-
+        
+        $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
         if ($request->ajax()) {
 
             $viewurl = 'celebrant.locations.listing';

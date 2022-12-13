@@ -69,10 +69,7 @@
             @foreach($location as $loc)
                 <option value="{{ $loc->id }}" data-price="{{ $loc->package_price }}">{{ $loc->name.' $'.$loc->price}}</option>
             @endforeach
-            <!-- <option value="2">Add name location $0</option>
-            <option value="3">Add name location $0</option>
-            <option value="4">Add name location $320</option>
-            <option value="5">Add name location $210</option> -->
+            
         </select>
         <div class="invalid-feedback">
             <span>
