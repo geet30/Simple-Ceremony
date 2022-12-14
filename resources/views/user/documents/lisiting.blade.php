@@ -6,22 +6,43 @@
                 @include('elements.common.user-sidebar')
             </div>
             <div class="col-10 col-md-9 col-lg-10 px-md-4">
+                
                 <div class="card panel-card ">
                     <div class="card-body">
+                        
                         <div class="row">
-                            <div class="col-md-12 text-md-end"> <a
-                                    class="theme-btn primary-btn d-inline-flex justify-content-center" href="/user/NoIM">
+                        <div class="numberCircle col-3 col-xl-1">1</div>
+                                <div class="ms-2 col-9 col-xl-10">
+                                    <h2 class="subheader-3 neutral-100 mb-0 ms-2">Sign the Notice of Intended Marriage Form</h2>
+                            <div class="col-md-12 text-md-end"> 
+                                
+                                <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="/user/NoIM">
                                     <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
                                     Edit
                                 </a>
                             </div>
+                            <div class="alert alert-primary show" role="alert">
+                                <div class="d-flex">
+                                    <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
+                                    <div>
+                                        <p class="body-1 mb-0">Instructions.</p>
+                                        <a href="/location" class="button-3">Click on the Notice of Intended Marriage form below (show the eye symbol) and review, in details. If the details are not 100% without omissions please make correction(s) by clicking the Edit button.  If all correct, you just need to sign in front of an Authorised Person - click here to see list of Authorised Persons. Note. If you are in Australia, you can sign via video.
+                                        Click here to see how</a>
+                                    
+                                    </div>
+                                    
+                                    <div><button type="button" class="theme-btn-close" data-bs-dismiss="alert" aria-label="Close"><img src="/images/cross-blue-white.svg" class="img-fluid" alt="cross-icon"></button></div>
+                                </div>
+                                
+                                
+                            </div>
                             <div class="col-12 col-xl-10 mt-4">
                                 <div class="row">
+                                    
                                     <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
                                         <div class="document-box">
                                             <div class="uploaded-content ">
-                                                <p id="filename" class="h4 neutral-100 mb-3">Notice of Intended Marriage
-                                                    form.pdf</p>
+                                                <p id="filename" class="h4 neutral-100 mb-3">Notice of Intended Marriage form.pdf</p>
                                                 <div>
                                                     <a class="me-2"
                                                         href="{{ route('userNoim.preview-document', 'noim-perview') }}"
@@ -36,7 +57,7 @@
                                             <div class="created-date">Created Feb 27, 2022</div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                                    {{--<div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
                                         <div class="document-box">
                                             <div class="uploaded-content">
                                                 <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
@@ -93,7 +114,7 @@
                                             <div class="created-date">Created Feb 27, 2022</div>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                                   <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
                                         <div class="document-box">
                                             <div class="uploaded-content">
                                                 <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
@@ -119,8 +140,7 @@
                             <div class="row">
                                 <div class="numberCircle col-3 col-xl-1">2</div>
                                 <div class="ms-2 col-9 col-xl-10">
-                                    <h2 class="subheader-3 neutral-100 mb-0 ms-2">How did you sign and have your signature
-                                        witnessed?</h2>
+                                    <h2 class="subheader-3 neutral-100 mb-0 ms-2">How did you sign and have your signature witnessed?</h2>
                                     <div class="row w-100 mt-3 mb-4">
                                         <div class="col-12 col-md-7 col-xl-6">
                                             <label for="digital-signature"
@@ -249,7 +269,7 @@
                                                 placeholder="Type occupation name "
                                                 name="person_1_witness_occupation_name"
                                                 value="{{ $userMarriageDocument && $userMarriageDocument['person_1_witness_occupation_name'] ? $userMarriageDocument['person_1_witness_occupation_name'] : '' }}"
-                                                required>
+                                                >
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -262,7 +282,7 @@
                                                 class="form-control body-1 netural-100" placeholder="Type occupation name"
                                                 name="person_2_witness_occupation_name"
                                                 value="{{ $userMarriageDocument && $userMarriageDocument['person_2_witness_occupation_name'] ? $userMarriageDocument['person_2_witness_occupation_name'] : '' }}"
-                                                required>
+                                                >
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
@@ -356,22 +376,23 @@
                                                 understand english?</label>
                                             <select name="party_not_speak_english" id="english-not-speak-parties"
                                                 class="js-placeholder-single-input form-control" required>
-                                                <option value="1"
-                                                    {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 1 ? 'selected' : '' }}>
-                                                    Yes</option>
                                                 <option value="0"
                                                     {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 0 ? 'selected' : '' }}>
                                                     No</option>
+                                                <option value="1"
+                                                    {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 1 ? 'selected' : '' }}>
+                                                    Yes</option>
+                                               
                                             </select>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Field is
                                                 required
                                             </div>
                                         </div>
+                                        
                                         <div
-                                            class="col-md-6 mb-4 align-self-end need-interpreter {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 0 ? '' : 'd-none' }}">
-                                            <label for="language-speak" class="form-label  small-text2 neutral-100 ">What
-                                                language they speak?</label>
+                                            class="col-md-6 mb-4 align-self-end need-interpreter {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 1 ? '' : 'd-none' }}">
+                                            <label for="language-speak" class="form-label  small-text2 neutral-100 ">What language do they speak?</label>
                                             <select name="language_speak" id="language-speak"
                                                 class="js-placeholder-single-input form-control">
                                                 <option value="">Select answer here</option>
@@ -391,8 +412,10 @@
                                                 required
                                             </div>
                                         </div>
+
+                                        <div><p>You will need to have an interpreter at your ceremony. They can be anyone (a friend or family member) who speaks english and the other language. Please complete the following details so we can prepare Certificate of Faithful performance of Interpreter - which is required for your ceremony</p></div>
                                         <div
-                                            class="need-interpreter row  {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 0 ? '' : 'd-none' }}">
+                                            class="need-interpreter row  {{ $userMarriageDocument && $userMarriageDocument['party_not_speak_english'] == 1 ? '' : 'd-none' }}">
                                             <div class="col-md-6 align-self-end">
                                                 <label for="interpreter-full-name"
                                                     class="form-label small-text2 neutral-100 ">Enter

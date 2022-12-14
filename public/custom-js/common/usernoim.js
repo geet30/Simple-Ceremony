@@ -111,13 +111,14 @@ $(document).ready(function () {
     $("#english-not-speak-parties").on("change", function () {
         let selectedVal = this.value;
         let elementClass = ".need-interpreter";
+        $(elementClass).children().children("input").val('');
         cl(selectedVal);
-        if (selectedVal === "0") {
+        if (selectedVal === "1") {
             $(elementClass).removeClass("d-none");
             $(elementClass).children("select").attr("required", true);
             $(elementClass).children().children("input").attr("required", true);
         }
-        if (selectedVal === "1") {
+        if (selectedVal === "0") {
             $(elementClass).addClass("d-none");
             $(elementClass).children("select").attr("required", false);
             $(elementClass)
