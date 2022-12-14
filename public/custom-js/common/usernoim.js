@@ -108,6 +108,7 @@ $(document).ready(function () {
                 .attr("required", false);
         }
     });
+    
     $("#english-not-speak-parties").on("change", function () {
         let selectedVal = this.value;
         let elementClass = ".need-interpreter";

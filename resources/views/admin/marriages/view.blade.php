@@ -148,7 +148,7 @@
                         </a>
                         <div class="select-with-checkbox">
                             <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control location_categories_button filter_by_categories" multiple="multiple">
-                                <optgroup label="Status">
+                                <optgroup label="Location">
                                     @foreach ($locations as $location)
                                     <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
                                     </option>

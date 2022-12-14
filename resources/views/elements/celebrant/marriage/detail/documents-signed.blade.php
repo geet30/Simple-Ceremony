@@ -18,6 +18,8 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                         <div class="uploaded-content ">
                             <p id="filename" class="h4 neutral-100 mb-3">Notice of Intended Marriage
                                 form.pdf</p>
+                                <input class="form-check-input download_doc" type="checkbox" name="download[]" value="1">
+                                <input type="hidden" name="user_id" class="user_id" value="{{$data->user_id}}">
                             <div>
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-perview', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"
@@ -36,6 +38,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                         <div class="uploaded-content">
                             <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
                                 Marriage</p>
+                                <input class="form-check-input download_doc" type="checkbox" name="download[]" value="2">
                             <div>
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
@@ -53,6 +56,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                         <div class="uploaded-content ">
                             <p id="filename" class="h4 neutral-100 mb-3">Declaration of No legal
                                 Impediment</p>
+                                <input class="form-check-input download_doc" type="checkbox" name="download[]" value="3">
                             <div>
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
@@ -70,6 +74,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                         <div class="uploaded-content ">
                             <p id="filename" class="h4 neutral-100 mb-3">Certificate of Faithful
                                 performance of Interpreter</p>
+                                <input class="form-check-input download_doc" type="checkbox" name="download[]" value="4">
                             <div>
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
@@ -310,7 +315,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                     <!--  -->
                 </div> --}}
                 <div class="col-12">
-                    <a class="theme-btn primary-btn   cursor-pointer d-inline-flex">Download all documents</a>
+                    <a class="theme-btn primary-btn   cursor-pointer d-inline-flex download_selected">Download selected documents</a>
                 </div>
             </div>
         </div>

@@ -165,3 +165,61 @@ function locationCustomTerms($locationId){
     return Locations::where('id',$locationId)->value('custom_terms');
     
 }
+function zipArchive($person,$ids)
+{
+    $selected_ids = explode(',',$ids);
+    // dd($selected_ids);
+
+    // PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person]);
+    $files = [];
+    foreach($selected_ids as $ids){
+        
+        if($ids == '1'){
+            // $files[$ids] = PDF::loadView('user.documents.noim', ['person' => $person]);//'user/documents/noim.blade.php';
+            $files[$ids] = 'user/documents/noim';
+        }
+    }
+    // dd($files);
+    
+    
+    // $files =   Comment::with(['commentDocuments'])->whereIn('id', $selected_ids)->get();
+    // $files = PDF::loadView('user.documents.noim', ['person' => $person]);
+    // return $NOIMpdf->download('NOIM.pdf');
+  
+
+   if(count($files) > 0){
+    $zip = new \ZipArchive;
+    $folderPath = "zip";
+    //Check if the directory already exists.
+    if (!is_dir($folderPath)) {
+        //Directory does not exist, so lets create it.
+        mkdir($folderPath, 0755);
+    }
+    $fileName = $folderPath.'/userDocuments'.uniqid().'.zip';
+    // dd(public_path($fileName));
+    if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE) {
+        
+        foreach ($files as $filesingle){
+               
+            $path =  resource_path($filesingle);
+            // dd($path);
+            if (file_exists($path)) {
+                die('dsfs');
+                $zip->addFile($path);
+            }
+            // dd($path);
+            // $relativeName = basename($filesingle);
+            // // dd($relativeName);
+            // $zip->addFile($path, $relativeName);
+                
+        }
+        $zip->close();
+
+    }
+    $file_path = public_path($fileName);
+    return response()->download($file_path);
+    }else{
+        return Redirect::back()->with('success','No document in this study!');
+    }
+
+}

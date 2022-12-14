@@ -26,16 +26,17 @@
                
                <input type="email" value="{{ (isset($data->ceremony_type)) ? config('ceremonyStatus.typeOfCeremony.'.$data->ceremony_type) : '' }}" class="form-control body-1 netural-100" id="email" readonly>
             </div>
-            <div class="col-md-6 mb-4 d-md-block"></div>
+            <!-- <div class="col-md-6 mb-4 d-md-block"></div> -->
             <div class="col-md-6  mb-4 ">
                <label for="celebrant" class="form-label small-text2 ps-2">Name of marriage celebrant</label>
                <input type="text" value="{{isset($data->celebrant->first_name) ? $data->celebrant->first_name : ''}}" class="form-control body-1" id="celebrant" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
-               <label for="celebrant" class="form-label small-text2 ps-2">Celebrant Fee</label>
+               <label for="celebrant" class="form-label small-text2 ps-2">Fee Paid</label>
                
-               <input type="text" value="${{isset($celebrant_details->celebrant->standard_fee ) ? $celebrant_details->celebrant->standard_fee : ''}}" class="form-control body-1" id="celebrant" readonly>
+               <input type="text" value="${{isset($data->price ) ? $data->price : ''}}" class="form-control body-1" id="celebrant" readonly>
             </div>
+            <div class="col-md-6 mb-4 d-md-block"></div>
 
             <div class="col-md-6  mb-4 ">
                <label for="location" class="form-label small-text2 ps-2">Location</label>
@@ -46,7 +47,7 @@
                <input type="text" value="{{ isset($data->location->address) ? $data->location->address : '' }}" class="form-control body-1 netural-100" id="address" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
-               <label for="date" class="form-label small-text2 ps-2">Date of marriage</label>
+               <label for="date" class="form-label small-text2 ps-2">Date of ceremony</label>
                <input type="text" value="{{date('M d,Y',strtotime($data->booking_start_time))}}" class="form-control body-1 netural-100" id="date" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
@@ -55,7 +56,7 @@
             </div>
 
             <div class="col-md-12 mb-4">
-               <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes about couples</label>
+               <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes</label>
 
                <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord')}}">
                   @csrf

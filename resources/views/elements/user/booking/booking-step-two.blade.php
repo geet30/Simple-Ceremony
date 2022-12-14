@@ -106,6 +106,8 @@
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Location is required</div>
         </div>
         <input type="hidden" name="calendar_dayslot_id" class="calendar_dayslot_id" value="{{ (isset(cache('booking')['calendar_dayslot_id']) ? cache('booking')['calendar_dayslot_id'] :'')}}">
+        <input type="hidden" name="price_info" class="price_info" value="{{ (isset(cache('booking')['price_info']) ? cache('booking')['price_info'] :'')}}">
+
         <input type="hidden" name="celebrant_id" class="celebrant_id" value="{{ (isset(cache('booking')['celebrant_id']) ? cache('booking')['celebrant_id'] :'')}}">
         <div class="col-md-3 mb-4">
             <label for="InputName" class="form-label small-text2">Date</label>

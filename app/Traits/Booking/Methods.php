@@ -174,6 +174,7 @@ trait Methods
             $booking_inputs['ceremony_type']  = $data->ceremony_type;
             $booking_inputs['location_name']  = $data->location_name;
             $booking_inputs['price']  = $data->price;
+            $booking_inputs['price_info']  = $data->price_info;
             $booking_inputs['full_name_of_person_1']  = $data->full_name_of_person_1;
             $booking_inputs['full_name_of_person_2']  = $data->full_name_of_person_2;
             $booking_inputs['full_name_of_witness_1']  = $data->full_name_of_witness_1;

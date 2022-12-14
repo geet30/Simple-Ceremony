@@ -163,7 +163,7 @@ class LocationsController extends Controller
             $data  = CelebrantMethods::fetch_locations($id)->first();
         }
       
-        
+       
         $partnerspackages = Locations::getPartnerPackages();
      
         return view('celebrant.locations.detail', compact(['data','filters','partners','partnerspackages','table']));

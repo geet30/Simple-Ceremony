@@ -19,23 +19,23 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <input type="text" value="{{ isset($couple1->preferred_name) ? $couple1->preferred_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname1" readonly>
                 </div>
-                <div class="col-md-6  mb-4 ">
+                
+            </div>
+            <div class="row">
+                <div class="col-md-4  mb-4 ">
                     <label for="preferredname2" class="form-label small-text2 ps-2">Person 1 first name</label>
                     <input type="text"
                         value="{{ isset($couple1->person_first_name) ? $couple1->person_first_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                 </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-6  mb-4 ">
+                <div class="col-md-4  mb-4 ">
                     <label for="preferredname2" class="form-label small-text2 ps-2">Person 1 other given
                         names(s)</label>
                     <input type="text"
                         value="{{ isset($couple1->person_other_name) ? $couple1->person_other_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                 </div>
-                <div class="col-md-6   mb-4">
+                <div class="col-md-4   mb-4">
                     <label for="preferredname2" class="form-label small-text2 ps-2">Person 1 Family Name</label>
                     <input type="text" value="{{ isset($couple1->family_name) ? $couple1->family_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
@@ -155,23 +155,23 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                         value="{{ isset($couple2->preferred_name) ? $couple2->preferred_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                 </div>
-                <div class="col-md-6  mb-4 ">
+                
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4 ">
                     <label for="preferredname2" class="form-label small-text2 ps-2">Person 2 first name</label>
                     <input type="text"
                         value="{{ isset($couple2->person_first_name) ? $couple2->person_first_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                 </div>
-            </div>
-            <div class="row">
-
-                <div class="col-md-6  mb-4 ">
+                <div class="col-md-4 mb-4 ">
                     <label for="preferredname2" class="form-label small-text2 ps-2">Person 2 other given
                         names(s)</label>
                     <input type="text"
                         value="{{ isset($couple2->person_other_name) ? $couple2->person_other_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
                 </div>
-                <div class="col-md-6  mb-4 ">
+                <div class="col-md-4 mb-4">
                     <label for="preferredname2" class="form-label small-text2 ps-2">Person 2 Family name</label>
                     <input type="text" value="{{ isset($couple2->family_name) ? $couple2->family_name : '' }}"
                         class="form-control body-1 netural-100" name="name" id="preferredname2" readonly>
@@ -320,13 +320,13 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     $arr = [1 => 'Live video', 2 => 'Video recording', 3 => 'In person'];
                 @endphp
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $arr[$couple1->marriageDocument->how_did_you_have_noim_witnessed] : '' }}"
+                    value="{{ (isset($couple1->marriageDocument)) ? $arr[$couple1->marriageDocument->how_did_you_have_noim_witnessed] : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Insert Authorization Code</label>
                 <input type="text"
-                    value="{{ $couple1->marriageDocument ? $couple1->marriageDocument->authorization_code : '' }}"
+                    value="{{ (isset($couple1->marriageDocument)) ? $couple1->marriageDocument->authorization_code : '' }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
         </div>

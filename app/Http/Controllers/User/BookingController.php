@@ -84,10 +84,12 @@ class BookingController extends Controller
     public function postBookingLocationForm(Request $request){
       
         try {
-            
+            // echo "<pre>";print_r($request->price_info);die;
+            // dd($request->price_info);
             $data = [
                 'booking_date' => $request->booking_date,
                 'calendar_dayslot_id' => $request->calendar_dayslot_id,
+                'price_info' => $request->price_info,
                 'celebrant_id' => $request->celebrant_id,
                 'booking_start_time' => $request->booking_start_time,
                 'booking_end_time' => $request->booking_end_time,              
@@ -108,6 +110,7 @@ class BookingController extends Controller
             $booking['locationId'] = $request->locationId;
             $booking['celebrant_id'] = $request->celebrant_id;
             $booking['price'] = $request->price;
+            $booking['price_info'] = $request->price_info;
             $booking['calendar_dayslot_id'] = $request->calendar_dayslot_id;
             $booking['booking_start_time'] = $request->booking_start_time;
             $booking['booking_end_time'] = $request->booking_end_time;

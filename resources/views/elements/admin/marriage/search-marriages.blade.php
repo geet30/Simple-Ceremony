@@ -8,7 +8,7 @@
             <th>Progress</th>
             <th>Marriage celebrant</th>
             <th>Location</th>
-            <th>Wedding date</th>
+            <th>Ceremony date</th>
             <th>No. of <span class="text-nowrap">Add-Ons</span></th>
             <th>Status</th>
             <th>Days till marriage</th>
