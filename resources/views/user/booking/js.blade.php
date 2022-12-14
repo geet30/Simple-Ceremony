@@ -37,8 +37,10 @@
         });
        
          
-        window.submitFirstStep = function(event,id,start_time,end_time,location_name,price,locationId,celebrant_id) {
-          
+        window.submitFirstStep = function(event,id,start_time,end_time,location_name,price,locationId,celebrant_id,price_info) {
+            var priceArray = JSON.stringify(price_info);
+            // console.log('jossn',jsonArray);
+            // return false;
             var form = document.getElementById('calendar_form');
             if ($('#calendar_date').val() == '') {
                 alert('please select date from calendar')
@@ -51,6 +53,13 @@
             formData.append('location_name',location_name);
             formData.append('booking_start_time',start_time);
             formData.append('booking_end_time',end_time);
+            formData.append('price_info',priceArray);
+          
+
+            // price_info.forEach(function (element) {
+            //     formData.append('price_info', element);
+            // })
+
 
             var url = '/post-booking-location-form';
             var step = 'step-one';
@@ -153,7 +162,7 @@
             $('.location_name').val('');
             $('.booking_date').val('');
             $('.celebrant_id').val('');
-
+            $('.price_info').val('');
             $('.no_slots').addClass('d-none');
             var url = '/get-celebrant-availability';
         
@@ -174,13 +183,20 @@
                     if(response.data.length){
                         var price = 0;
                         const price_arr = [];
+                        var price_info_arr = {};
                         $.each(response.data, function(key,val) {
-                        
+                                price_info_arr['your_fee'] = val.your_fee;
+                                price_info_arr['admin_fee'] = val.admin_fee;
+                                price_info_arr['location_fee'] = val.location_fee;
+                                
                                 price = parseInt(val.your_fee) + parseInt(val.admin_fee) + parseInt(val.location_fee);
                                 price_arr.push(price);
+                                console.log(price_info_arr);
+                                var priceInfo =JSON.stringify(price_info_arr);
+                                
                                 const min = price_arr.reduce((a,b)=>Math.min(a,b), Infinity);
                                 html +=`<div class="col-4 col-xl-3 mt-4">
-                                    <a onclick="submitFirstStep(event,${val.id},'${val.start_time}','${val.end_time}','${val.location.name}','${price}',${locationId},${val.user_id})" data-id="${val.id}" class="time-and-price body-2">
+                                <a onclick='submitFirstStep(event,${val.id},"${val.start_time}","${val.end_time}","${val.location.name}","${price}",${locationId},${val.user_id},`+priceInfo+`)' data-id="${val.id}" class="time-and-price body-2">
                                     <span class="netural-100 mb-1">${val.start_time}</span>
                                     <span class="turquoise-100 mb-2">$ ${price}</span>
                                     <span class="netural-100" style="font-size: 10px;">${val.booking_length} min</span>
@@ -190,6 +206,7 @@
                                 $('.total_fee').val(price);
                                 $('.booking_start_time').val(val.start_time);
                                 $('.cost').val(min);
+                                $('.price_info').val(JSON.stringify(price_info_arr));
                                 $('.calendar_dayslot_id').val(val.id);
                                 $('.celebrant_id').val(val.user_id);
                                 

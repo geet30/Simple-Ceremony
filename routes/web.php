@@ -448,6 +448,10 @@ $celebrantRoutes = function () {
 
     Route::middleware('auth')->group(function () {
         Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('celebrant.userNoim.preview-document');
+        Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('celebrant.userNoim.downloadSelectedDocument');
+
+        
+        
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');

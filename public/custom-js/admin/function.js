@@ -13,6 +13,35 @@ $(document).ready(function(){
         $('.'+parentClass).append(feedback)
         $('.'+close).click();
     }
+    var selected_ids =[];
+    $(".download_selected").on("click", function () {
+       
+        $('.download_doc:checkbox:checked').each(function () {
+            selected_ids.push($(this).val());
+           
+
+        });
+        var user_id = $('.user_id').val();
+        // var url ='download-selected-document';
+        var url = baseurl + "download-selected-document/" + selected_ids+'/'+user_id;
+        window.location = url;
+
+        $.ajax({
+            type: "get",
+            url: url,
+            data: {
+                'id': id,'status':status,
+            },
+            dataType: 'json',
+            cache: false,
+            success: function(response)
+            {
+                window.location.reload();
+            }
+        });
+        console.log(selected_ids);
+        
+    });
     //function to append selection locations in celebrant form  
     window.assignLocation = function(input,parentClass,close){ 
         const text = $('.'+input+" option:selected").text();

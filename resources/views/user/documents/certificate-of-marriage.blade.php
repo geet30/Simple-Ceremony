@@ -26,7 +26,7 @@ $person2 = isset($person) && isset($person[1]) ? $person[1] : null;
                                 <p style="text-align:center ; font-size: 16px; font-weight: normal;">Michael John Teulon
                                 </p>
                                 <p style="text-align:center ; font-size: 20px; font-weight: normal; ">
-                                    {{ $person ? $person1->booking->location->address : '' }}</p>
+                                    {{ (isset($person1)) ? $person1->booking->location->address : '' }}</p>
                                 <div style=" margin:80px 0px ">
                                     <p style="text-align:center ; font-size: 20px; font-weight: normal; ">
                                         {{ $person1 ? $person1->preferred_name : '' }}
@@ -37,12 +37,12 @@ $person2 = isset($person) && isset($person[1]) ? $person[1] : null;
                                 </div>
                                 <div style="display: flex;justify-content: space-between; width: 80%; margin: 0 auto;">
                                     <div style="text-align:center ; font-size: 20px; font-weight: normal;">
-                                        {{ $person ? date('d', strtotime($person1->booking->booking_date)) : '' }}</div>
+                                        {{ (isset($person1)) ? date('d', strtotime($person1->booking->booking_date)) : '' }}</div>
                                     <div style="text-align:center ; font-size: 20px; font-weight: normal;">
-                                        {{ $person ? date('F', strtotime($person1->booking->booking_date)) : '' }}
+                                        {{ (isset($person1)) ? date('F', strtotime($person1->booking->booking_date)) : '' }}
                                     </div>
                                     <div style="text-align:center ; font-size: 20px; font-weight: normal; ">
-                                        {{ $person ? date('Y', strtotime($person1->booking->booking_date)) : '' }}</div>
+                                        {{ (isset($person1)) ? date('Y', strtotime($person1->booking->booking_date)) : '' }}</div>
                                 </div>
                             </td>
                         </tr>

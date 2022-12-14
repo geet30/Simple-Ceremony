@@ -130,9 +130,8 @@ class UserNoimController extends Controller
             'booking_id' => $bookingId
         ]);
         UserNoimReferrers::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
-        return redirect()->route('user-noim.steps');
+        return redirect()->route('user-noim.steps2.get');
         return redirect()->back();
-        return $request->all();
     }
 
     public function userNoim($id)
@@ -233,7 +232,41 @@ class UserNoimController extends Controller
                 return redirect()->back();
         }
     }
+    public function downloadSelectedDocument(Request $request,$documentId,$userId)
+    {
+        
+       
+       
+        $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($userId)->get();
+        return zipArchive($person,$documentId);
+        switch ($documentId) {
+            
+            case '1':
+                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person, 'button' => false]);
+                return $NOIMpdf->download('NOIM.pdf');
+                break;
+            
+            case '2':
+                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'button' => false]);
+                return $faithFullCertificate->download('certificate-of-faithful-performance-by-interpreter.pdf');
+                break;
+            case  '3':
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.official-certificate-of-marriage', ['person' => $person, 'button' => false]);
+                return $officialCertificateOfMarriage->download('official-certificate-of-marriage.pdf');
+                break;
+            case '4':
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
+                return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
+                break;
+            case '5':
+                $certificateOfMarriage = PDF::loadView('user.documents.certificate-of-marriage', ['person' => $person, 'button' => false]);
+                return $certificateOfMarriage->download('certificate-of-marriage.pdf');
+                break;
 
+            default:
+                return redirect()->back();
+        }
+    }
     public function deleteDocumentSignature(Request $request)
     {
         // dd($request->all());

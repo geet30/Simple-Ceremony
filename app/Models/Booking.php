@@ -17,7 +17,11 @@ class Booking extends Model
     protected $fillable = [
         'user_id', 'locationId', 'booking_date','price', 'celebrant_id', 'booking_start_time', 'booking_end_time', 'status', 'first_couple_name', 'second_couple_name', 'ceremony_type',
         'location_name', 'full_name_of_person_1' ,'full_name_of_person_2' ,'full_name_of_witness_1' ,'full_name_of_witness_2' ,'full_name_of_child' ,
-        'full_name_of_parent_1' ,'full_name_of_parent_2','full_name_of_sponsor_1','full_name_of_sponsor_2','calendar_dayslot_id'
+        'full_name_of_parent_1' ,'full_name_of_parent_2','full_name_of_sponsor_1','full_name_of_sponsor_2','calendar_dayslot_id','price_info'
+    ];
+    protected $casts = [
+        
+        'price_info' => 'array', // Will convarted to (Array)
     ];
 
     /**

@@ -20,6 +20,7 @@
                <label for="email" class="form-label small-text2 ps-2">Email</label>
                <input type="email" value="{{ isset($data->user->email) ? $data->user->email : '' }}" class="form-control body-1 netural-100" id="email" readonly>
             </div>
+            
             <div class="col-md-6  mb-4 ">
              
                <label for="email" class="form-label small-text2 ps-2">Type of ceremony</label>
@@ -32,8 +33,10 @@
                <input type="text" value="{{isset($data->celebrant->first_name) ? $data->celebrant->first_name : ''}}" class="form-control body-1" id="celebrant" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
+               <?php 
+               $price_info = json_decode($data->price_info); ?>
                <label for="celebrant" class="form-label small-text2 ps-2">Celebrant Fee</label>
-               <input type="text" value="${{isset($celebrant_details->celebrant->standard_fee ) ? $celebrant_details->celebrant->standard_fee : ''}}" class="form-control body-1" id="celebrant" readonly>
+               <input type="text" value="${{isset($price_info ) ? $price_info->your_fee : ''}}" class="form-control body-1" id="celebrant" readonly>
             </div>
 
             <div class="col-md-6  mb-4 ">
@@ -45,7 +48,7 @@
                <input type="text" value="{{ isset($data->location->address) ? $data->location->address : '' }}" class="form-control body-1 netural-100" id="address" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
-               <label for="date" class="form-label small-text2 ps-2">Date of marriage</label>
+               <label for="date" class="form-label small-text2 ps-2">Date of ceremony</label>
                <input type="text" value="{{date('M d,Y',strtotime($data->booking_start_time))}}" class="form-control body-1 netural-100" id="date" readonly>
             </div>
             <div class="col-md-6  mb-4 ">
@@ -54,7 +57,7 @@
             </div>
 
             <div class="col-md-12 mb-4">
-               <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes about couples</label>
+               <label for="ceremonyplace" class="form-label small-text2  ps-2">General notes</label>
 
                <form method="POST" name="information" id="information" action="{{route('celebrant.saveRecord')}}">
                   @csrf
