@@ -1,3 +1,4 @@
+@
 <div class="row">
 
    <div class="col-xl-6 py-31">

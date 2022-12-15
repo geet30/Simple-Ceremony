@@ -42,11 +42,18 @@
                                             data-bs-target="#celebrants" href="#celebrants" aria-selected="false"
                                             role="tab" tabindex="-1">Personal data</a>
                                     </li>
+                                    <!-- <li class="nav-item" role="presentation">
+                                        <a class="nav-link" id="document-you-signed-tab" data-bs-toggle="tab"
+                                            data-bs-target="#document-you-signed" href="#document-you-signed" aria-selected="false"
+                                            role="tab" tabindex="-1">Documents you have signed</a>
+                                    </li> -->
                                 </ul>
                             </div>
                             <div class="col-lg-4 col-xl-3 col-xxl-2">
+                            
                                 <a role="button" data-bs-toggle="modal" data-bs-target="#delete_alert"
-                                    class="theme-btn primary-btn-border d-flex justify-content-center">Delete account</a>
+                                    class="theme-btn primary-btn-border d-flex justify-content-center"> <img src="/images/icons/delete.svg" alt="shopping-icon">
+                                Delete account</a>
                             </div>
                         </div>
                         <div class="tab-content" id="tabContent">
@@ -353,6 +360,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
