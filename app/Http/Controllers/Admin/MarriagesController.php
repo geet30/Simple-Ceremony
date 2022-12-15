@@ -174,6 +174,7 @@ class MarriagesController extends Controller
 
             $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'signedDocumentDetail', 'parents'])->get();
             $UserId = booking::whereId($id)->pluck('celebrant_id')->first();
+           
 
             $celebrant_details = User::where('id', $UserId)->with('celebrant')->first();
             return view('admin.marriages.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id'));

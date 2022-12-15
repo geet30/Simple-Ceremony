@@ -185,6 +185,7 @@
             </div>
             <div class="col-12 mb-4 d-flex justify-content-center justify-content-md-start">
                <!-- <button type="submit" class="theme-btn primary-btn">Save</button> -->
+               <a href="" class="theme-btn primary-btn">Confirm the data is complete</a>
             </div>
          </div>
       </div>

@@ -205,6 +205,7 @@ class DashboardController extends Controller
 
     public function saveSignedDocumentDetail(Request $request, $bookingId)
     {
+       
         $request->merge([
             'have_you_ordered_certificate' => $request->have_you_ordered_certificate === "on" ? true : false
         ]);
