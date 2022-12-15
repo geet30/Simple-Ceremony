@@ -26,7 +26,7 @@
                                     <div class="row">
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Username *</label>
-                                            <input type="text" placeholder="Type your username here"
+                                            <input type="text" placeholder="Type your username here" pattern="\S(.*\S)?"
                                                 class="form-control body-1 netural-100" name="user[username]" id="InputName"
                                                 required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -44,7 +44,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">First name *</label>
-                                            <input type="text" placeholder="Type your first name here"
+                                            <input type="text" placeholder="Type your first name here" pattern="\S(.*\S)?"
                                                 class="form-control body-1 netural-100" name="user[first_name]"
                                                 id="InputName" required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Other names *</label>
-                                            <input type="text" placeholder="Type your other names here"
+                                            <input type="text" placeholder="Type your other names here" pattern="\S(.*\S)?"
                                                 class="form-control body-1 netural-100" name="user[other_name]"
                                                 id="InputName" required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Surname *</label>
-                                            <input type="text" placeholder="Type your surname here"
+                                            <input type="text" placeholder="Type your surname here" pattern="\S(.*\S)?"
                                                 class="form-control body-1 netural-100" name="user[surname]" id="InputName"
                                                 required maxlength="15">
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">A number *</label>
-                                            <input type="text" placeholder="Type your A number here"
+                                            <input type="number" placeholder="Type your A number here" min="0"
                                                 class="form-control body-1 netural-100" name="user[a_number]" id="InputName"
                                                 required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">ABN Number *</label>
-                                            <input type="text" placeholder="Type your ABN number here"
+                                            <input type="number" placeholder="Type your ABN number here" min="0"
                                                 class="form-control body-1 netural-100" name="user[abn_number]"
                                                 id="InputName" required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -90,7 +90,7 @@
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">Address *</label>
                                             <input type="text" placeholder="Type your address here"
-                                                class="form-control body-1 netural-100" name="celebrant[address]"
+                                                class="form-control body-1 netural-100" name="celebrant[address]" pattern="\S(.*\S)?"
                                                 id="InputName" required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Address
@@ -149,7 +149,7 @@
                                         <div class="col-md-12 mb-4">
                                             <label for="InputName" class="form-label small-text2">Account number *</label>
                                             <input type="number" placeholder="09090909"
-                                                class="form-control body-1 netural-100" name="user[account_no]"
+                                                class="form-control body-1 netural-100" name="user[account_no]" min="0"
                                                 id="InputName" required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Account
@@ -180,7 +180,7 @@
                                                 fee</label>
                                             <div class=" position-relative">
                                                 <span class="currency-sign body-1 netural-100">$</span>
-                                                <input type="number" step="0.01"
+                                                <input type="number" step="0.01" min="0"
                                                     class="form-control body-1 netural-100 ps-4"
                                                     name="celebrant[standard_fee]" id="InputName">
                                                 <div class="invalid-feedback"> <span><img class="me-2"
@@ -194,7 +194,7 @@
                                                 fee</label>
                                             <div class=" position-relative">
                                                 <span class="currency-sign body-1 netural-100">$</span>
-                                                <input type="number" step="0.01"
+                                                <input type="number" step="0.01" min="0"
                                                     class="form-control body-1 netural-100 ps-4"
                                                     name="celebrant[admin_fee]" id="InputName">
                                                 <div class="invalid-feedback"> <span><img class="me-2"
