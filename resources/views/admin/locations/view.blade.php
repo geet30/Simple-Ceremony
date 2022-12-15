@@ -15,20 +15,25 @@
 
             <div class="col-12">
                <div class="row ">
+                  <?php //dd($data);?>
 
                   <div class="col-lg-6 col-xl-5 location-detail-slider">
                   
                      <div class="slider slider-for mb-11 ">
-                     @if(isset($data['request_location_images']) && !empty($data['request_location_images']))
-                        @foreach($data['request_location_images'] as $images)
-                           @if ($loop->first)
+                     @if(isset($data['cover_image']) && !empty($data['cover_image']))
+                       
                               <div>
-                                 <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="w-100 img-fluid" alt="slider Image">
+                                 <img src="{{ asset('/uploads/images/locations/'.$data['cover_image']) }}" class="w-100 img-fluid" alt="slider Image">
                               </div>
                            
+                     </div>
+                     @else
+                  
+                           <div>
+                              <img src="{{ asset('images/locations/default.png')}}" class="w-100 img-fluid" alt="slider Image">
                            </div>
-                           @endif
-                        @endforeach
+                           
+                     </div>
                      @endif
                      <div class="slider slider-nav">
                      @if(isset($data['request_location_images']) && !empty($data['request_location_images']))
@@ -52,12 +57,12 @@
                         Edit</a> -->
                      </div>
                      <h1 class="mb-0 col-xl-10">
-                        <span class="h1 netural-100">
-                           @if(isset($data->street_address) && !empty($data->street_address))
-                           {{$data->street_address}}
+                        <span class="h1 netural-100">{{$data->name}}
+                           @if(isset($data->address) && !empty($data->address))
+                           {{$data->address}}
                            @endif
-                           @if(isset($data->suburb ) && !empty($data->suburb ))
-                           ,{{$data->suburb }}
+                           @if(isset($data->town) && !empty($data->town))
+                                 ,{{$data->town}}
                            @endif
                         </span>
                      </h1>

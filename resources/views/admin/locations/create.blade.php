@@ -36,57 +36,57 @@
                         @endif
                         <div class="col-md-5 mb-4">
                            <label for="Location" class="form-label small-text2">Location *</label>
-                           <input type="text" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" value="{{ isset($data['name']) ? $data['name'] : old('name') }}" id="Location" required>
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type the name location" class="form-control body-1 netural-100" name="name" value="{{ isset($data['name']) ? $data['name'] : old('name') }}" id="Location" required>
                            <div class="invalid-feedback">
                               Location name is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Address" class="form-label small-text2">Address *</label>
-                           <input type="text" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['address']) ? $data['address'] : old('address') }}" id="Address" required>
+                           <input type="text"  pattern="\S(.*\S)?" placeholder="Type the address here" class="form-control body-1 netural-100" name="address" value="{{ isset($data['address']) ? $data['address'] : old('address') }}" id="Address" required>
                            <div class="invalid-feedback">
                               Address is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Town" class="form-label small-text2">Suburb/ Town *</label>
-                           <input type="text" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['town']) ? $data['town'] : old('town') }}"  name="town" id="Town" required>
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['town']) ? $data['town'] : old('town') }}"  name="town" id="Town" required>
                            <div class="invalid-feedback">
                               Suburb is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Code" class="form-label small-text2">Post Code *</label>
-                           <input type="text"  placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : old('post_code') }}" name="post_code" id="Code" required>
+                           <input type="text"  pattern="\S(.*\S)?" placeholder="Type the Post Code code here" class="form-control body-1 netural-100" value="{{ isset($data['post_code']) ? $data['post_code'] : old('post_code') }}" name="post_code" id="Code" required>
                            <div class="invalid-feedback">
                               Post code is required.
                            </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Latitude</label>
-                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="latitude" id="latitude" value="{{ isset($data['latitude']) ? $data['latitude'] : old('latitude') }}">
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="latitude" id="latitude" value="{{ isset($data['latitude']) ? $data['latitude'] : old('latitude') }}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Longitude</label>
-                           <input type="text" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="longitude" id="longitude" value="{{ isset($data['longitude']) ? $data['longitude'] : old('longitude') }}">
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="longitude" id="longitude" value="{{ isset($data['longitude']) ? $data['longitude'] : old('longitude') }}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="directions" class="form-label small-text2">Specific directions</label>
-                           <input type="text" placeholder="Type specific directions here" class="form-control body-1 netural-100" name="direction" id="directions" value="{{ isset($data['direction']) ? $data['direction'] : old('direction') }}">
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type specific directions here" class="form-control body-1 netural-100" name="direction" id="directions" value="{{ isset($data['direction']) ? $data['direction'] : old('direction') }}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Generallocation" class="form-label small-text2">General location</label>
-                           <input type="text" placeholder="Type general location here" class="form-control body-1 netural-100" name="general_location" id="Generallocation" value="{{ isset($data['general_location']) ? $data['general_location'] : old('general_location') }}">
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type general location here" class="form-control body-1 netural-100" name="general_location" id="Generallocation" value="{{ isset($data['general_location']) ? $data['general_location'] : old('general_location') }}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Locationnumber" class="form-label small-text2">Location number</label>
-                           <input type="number" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber" value="{{ isset($data['loc_number']) ? $data['loc_number'] : old('loc_number') }}">
+                           <input type="number" min="0" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber" value="{{ isset($data['loc_number']) ? $data['loc_number'] : old('loc_number') }}">
                            
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Price" class="form-label small-text2">Price *</label>
                            <div class=" theme-input-group">
-                              <input type="number" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" value="{{ isset($data['price']) ? $data['price'] : old('price') }}" name="price" id="Price" required>
+                              <input type="number" min="0" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" value="{{ isset($data['price']) ? $data['price'] : old('price') }}" name="price" id="Price" required>
                               <img src="/images/icons/dollor.svg" class="img-fluid left-icon">
                               <div class="invalid-feedback">
                               Price is required.
@@ -222,11 +222,11 @@
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="weather" class="form-label small-text2">Wet Weather Option</label>
-                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="weather_option" id="weather" value="{{ isset($data['custom_terms']) ? $data['custom_terms'] : old('custom_terms') }}">
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type here" class="form-control body-1 netural-100" name="weather_option" id="weather" value="{{ isset($data['custom_terms']) ? $data['custom_terms'] : old('custom_terms') }}">
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="gettingthere" class="form-label small-text2">Getting there</label>
-                           <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="getting_there" id="gettingthere" value="{{ isset($data['getting_there']) ? $data['getting_there'] : old('getting_there') }}">
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type here" class="form-control body-1 netural-100" name="getting_there" id="gettingthere" value="{{ isset($data['getting_there']) ? $data['getting_there'] : old('getting_there') }}">
                         </div>
                         <div class="col-md-12 mb-4">
                            <input class="form-check-input me-2" type="checkbox" name="custom_location" id="location" value="1"  autocomplete="off">
