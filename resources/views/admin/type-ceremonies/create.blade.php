@@ -12,10 +12,14 @@
               <a href="{{url('all-type-of-ceremonies/')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-md-12">
+     
               @if($errors->any())
                   <div class="alert alert-danger mb-3 alert-block">
-                     <button type="button" class="close" data-dismiss="alert">×</button>  
-                     {{$errors->first()}}
+                     <button type="button" class="close" data-dismiss="alert">×</button> 
+                   
+                     @foreach ($errors->all() as $error)
+                              <p>{{$error}}</p>
+                     @endforeach
                   </div>
                @endif
                <div class="card panel-card mb-5">
@@ -27,6 +31,7 @@
                            <div class="col-md-6 mb-4">
                               <label class="form-label small-text2">Type of ceremony</label>
                               <input type="text" name="ceremony_name" class="form-control body-1 netural-100" placeholder="Type of ceremony here" required>
+                             
                               <div class="invalid-feedback">
                                   Ceremony Name is required
                               </div>
@@ -45,6 +50,11 @@
                               <label class="form-label small-text2 me-3">Conditions</label>
                              
                               <textarea id="conditions" class="form-control body-1 netural-100 ckeditor" cols="30" rows="10" name="conditions" placeholder="Type ceremony conditions here" required></textarea>
+                              @error('conditions')
+                                 <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                 </span>
+                              @enderror
                               <div class="invalid-feedback conditions_error" >
                                  Conditions is required.
                               </div>
@@ -61,6 +71,11 @@
                                        <label class="form-check-label body-1 netural-100"> {{$value}}</label>
                                     </div>
                                  @endforeach
+                                 @error('additional_info')
+                                 <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                 </span>
+                                 @enderror
                                  <div class="invalid-feedback additional_information_error" >
                                  Additional Conditions is required.
                               </div>

@@ -13,7 +13,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="ms-md-5 mt-3 mt-md-0 w-md-25">
                 <label for="person1preferred_name" class="form-label small-text2">Person 2 Preferred name</label>
-                <input type="text" class="form-control body-1 netural-100" name="person[1][preferred_name]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="person[1][preferred_name]"
                     value="{{ $person['preferred_name'] ?? '' }}" id="person1preferred_name" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -139,7 +139,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person1family_name" class="form-label small-text2">Your family name</label>
-                <input type="text" value="{{ $person['family_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $person['family_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="person[1][family_name]" id="person1family_name"
                     oninput="this.value = this.value.toUpperCase()" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
@@ -148,14 +148,14 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person1person_first_name" class="form-label small-text2">Person 2 First Name</label>
-                <input type="text" class="form-control body-1 netural-100" name="person[1][person_first_name]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="person[1][person_first_name]"
                     value="{{ $person['person_first_name'] ?? '' }} " id="person1person_first_name" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person1person_other_name" class="form-label small-text2">Other given name(s)</label>
-                <input type="text" class="form-control body-1 netural-100" name="person[1][person_other_name]"
+                <input type="text"  pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="person[1][person_other_name]"
                     id="person1person_other_name" value="{{ $person['person_other_name'] ?? '' }}" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -163,7 +163,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             <div class="col-md-12 mb-4 align-self-top">
                 <label for="person1person_name_combination" class="form-label small-text2">Combination of your
                     name</label>
-                <input type="text" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                     name="person[1][person_name_combination]" value="{{ $person['person_name_combination'] ?? '' }}"
                     id="person1person_name_combination" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
@@ -197,7 +197,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="person1occupation" class="form-label small-text2">Usual occupation</label>
-                <input type="text" value="{{ $person['occupation'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $person['occupation'] ?? '' }}"
                     class="form-control body-1 netural-100" name="person[1][occupation]" id="person1occupation"
                     required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
@@ -220,7 +220,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             <div class="col-md-6"></div>
             <div class="col-md-6 mb-4 ">
                 <label for="person1address_line_1" class="form-label small-text2">Address line 1</label>
-                <input type="text" value="{{ $person['address_line_1'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $person['address_line_1'] ?? '' }}"
                     class="form-control body-1 netural-100" name="person[1][address_line_1]"
                     id="person1address_line_1" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
@@ -228,13 +228,13 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 ">
                 <label for="description" class="form-label small-text2">Address line 2</label>
-                <input type="text" class="form-control body-1 netural-100" name="person[1][address_line_2]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="person[1][address_line_2]"
                     value="{{ $person['address_line_2'] ?? '' }}" id="description">
             </div>
             <div class="col-md-6 mb-4 ">
                 <label for="person1residence_town_or_city_or_suburb"
                     class="form-label small-text2">Suburb/Town/City</label>
-                <input type="text" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                     name="person[1][residence_town_or_city_or_suburb]" id="person1residence_town_or_city_or_suburb"
                     value="{{ $person['residence_town_or_city_or_suburb'] ?? '' }}" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
@@ -258,7 +258,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 ">
                 <label for="person1postal_code" class="form-label small-text2">Post code / ZIP Code </label>
-                <input type="text" class="form-control body-1 netural-100" name="person[1][postal_code]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="person[1][postal_code]"
                     value="{{ $person['postal_code'] ?? '' }}" id="person1postal_code" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div>
@@ -322,7 +322,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
                         <div class="col-md-6 mb-4 ">
                             <label for="person1divorceCourtLocation" class="form-label small-text2">Court location(of
                                 divorce)</label>
-                            <input type="text" class="form-control body-1 netural-100"
+                            <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                                 name="person[1][conjugal_document][2][court_location]"
                                 id="person1divorceCourtLocation"
                                 value="{{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 2 ? $person->divorceOrWidowedDocument['court_location'] : '' }}"
@@ -335,7 +335,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
                             <label for="person1date_of_birth" class="form-label small-text2">Date last marrige
                                 ended</label>
                             <div class="input-group date ">
-                                <input role="button" type="text"
+                                <input role="button" type="text" pattern="\S(.*\S)?"
                                     class="form-control body-1 netural-100 event_date_input noim-user-calendar"
                                     id="person1date_of_birth"
                                     name="person[1][conjugal_document][2][date_last_marriage_ended]"
@@ -393,7 +393,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
                         <div class="col-md-6 mb-4 ">
                             <label for="person1divorceCourtLocation" class="form-label small-text2">Certificate
                                 number</label>
-                            <input type="text" class="form-control body-1 netural-100"
+                            <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                                 name="person[1][conjugal_document][4][certificate_number]"
                                 id="person1divorceCourtLocation"
                                 value="{{ $person && $person->divorceOrWidowedDocument && $person->divorceOrWidowedDocument['first_document_name'] == 4 ? $person->divorceOrWidowedDocument['certificate_number'] : '' }}"
@@ -406,7 +406,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
                             <label for="person1date_of_birth" class="form-label small-text2">Date last marrige
                                 ended</label>
                             <div class="input-group date ">
-                                <input role="button" type="text"
+                                <input role="button" type="text" pattern="\S(.*\S)?"
                                     class="form-control body-1 netural-100 event_date_input noim-user-calendar"
                                     id="person1date_of_birth"
                                     name="person[1][conjugal_document][4][date_last_marriage_ended]"
@@ -555,13 +555,13 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 ">
                 {{-- <label for="person1date_of_birth" class="form-label small-text2">Date of Birth </label>
-                <input type="text" class="form-control body-1 netural-100" name="person[1][date_of_birth]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="person[1][date_of_birth]"
                     id="person1date_of_birth" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                             alt="Require Icon"></span>Field is required</div> --}}
                 <label for="person1date_of_birth" class="form-label small-text2">Date of Birth</label>
                 <div class="input-group date {{-- theme-datepicker --}}">
-                    <input role="button" type="text"
+                    <input role="button" type="text" pattern="\S(.*\S)?"
                         class="form-control body-1 netural-100 event_date_input noim-user-calendar"
                         id="person1date_of_birth" name="person[1][date_of_birth]" placeholder="Choose date here"
                         value="{{ $person && $person['date_of_birth'] ? date('D, M d, Y', strtotime($person['date_of_birth'])) : date('D, M d, Y') }}"
@@ -590,7 +590,7 @@ $person = isset($person) && isset($person[1]) ? $person[1] : null;
             </div>
             <div class="col-md-6 mb-4 ">
                 <label for="person1how_they_related" class="form-label small-text2">How are they related </label>
-                <input type="text" placeholder="Type here" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?" placeholder="Type here" class="form-control body-1 netural-100"
                     name="person[1][how_they_related]" value="{{ $person['how_they_related'] ?? '' }}"
                     id="person1how_they_related">
             </div>

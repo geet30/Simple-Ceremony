@@ -29,7 +29,7 @@ $personParentElement = 'person0Parent';
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}0CurrentName" class="form-label small-text2">Current Name of Parent 1</label>
-                <input type="text" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                     name="{{ $personParent }}[0][current_name]" id="{{ $personParentElement }}0CurrentName"
                     value="{{ $parent[0]['current_name'] ?? '' }}" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
@@ -41,7 +41,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}0FirstName" class="form-label small-text2">Parent 1 first
                     name</label>
-                <input type="text" class="form-control body-1 netural-100" name="{{ $personParent }}[0][first_name]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="{{ $personParent }}[0][first_name]"
                     id="{{ $personParentElement }}0FirstName" value="{{ $parent[0]['first_name'] ?? '' }}" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required</div>
@@ -49,7 +49,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}oOtherName" class="form-label small-text2">Parent 1 other given
                     name(s)</label>
-                <input type="text" class="form-control body-1 netural-100" name="{{ $personParent }}[0][other_name]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="{{ $personParent }}[0][other_name]"
                     id="{{ $personParentElement }}0OtherName" value="{{ $parent[0]['other_name'] ?? '' }}" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
                             src="/images/require-iocn.svg" alt="Require Icon"></span>Field is required</div>
@@ -58,7 +58,7 @@ $personParentElement = 'person0Parent';
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}0BirthName" class="form-label small-text2">Birth Name of Parent 1</label>
-                <input type="text" class="form-control body-1 netural-100" name="{{ $personParent }}[0][birth_name]"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100" name="{{ $personParent }}[0][birth_name]"
                     id="{{ $personParentElement }}0BirthName" value="{{ $parent[0]['birth_name'] ?? '' }}" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -69,7 +69,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}0BirthFirstName" class="form-label small-text2">Parent 1 first
                     name</label>
-                <input type="text" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?"class="form-control body-1 netural-100"
                     name="{{ $personParent }}[0][birth_first_name]" id="{{ $personParentElement }}0BirthFirstName"
                     value="{{ $parent[0]['birth_first_name'] ?? '' }}" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -79,7 +79,7 @@ $personParentElement = 'person0Parent';
                 <label for="{{ $personParentElement }}0BirthOtherName" class="form-label small-text2">Parent 1 other
                     given
                     name(s)</label>
-                <input type="text" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                     name="{{ $personParent }}[0][birth_other_name]" id="{{ $personParentElement }}BirthOtherName"
                     value="{{ $parent[0]['birth_other_name'] ?? '' }}" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -106,7 +106,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1CurrentName" class="form-label small-text2">Current Name of
                     Parent 2</label>
-                <input type="text" class="form-control body-1 netural-100"
+                <input type="text" pattern="\S(.*\S)?" class="form-control body-1 netural-100"
                     name="{{ $personParent }}[1][current_name]" id="{{ $personParentElement }}1CurrentName"
                     value="{{ $parent && $parent[1]['current_name'] ? $parent[1]['current_name'] : '' }}" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
@@ -118,7 +118,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1FirstName" class="form-label small-text2">Parent 2 first
                     name</label>
-                <input type="text" value="{{ $parent[1]['first_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $parent[1]['first_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][first_name]"
                     id="{{ $personParentElement }}1FirstName" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -127,7 +127,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given
                     name(s)</label>
-                <input type="text" value="{{ $parent[1]['other_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $parent[1]['other_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][other_name]"
                     id="{{ $personParentElement }}1OtherName" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -138,7 +138,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1BirthName" class="form-label small-text2">Birth Name of Parent
                     2</label>
-                <input type="text" value="{{ $parent[1]['birth_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $parent[1]['birth_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][birth_name]"
                     id="{{ $personParentElement }}1BirthName" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
@@ -150,7 +150,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1BirthFirstName" class="form-label small-text2">Parent 2 first
                     name</label>
-                <input type="text" value="{{ $parent[1]['birth_first_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $parent[1]['birth_first_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][birth_first_name]"
                     id="{{ $personParentElement }}1BirthFirstName" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -159,7 +159,7 @@ $personParentElement = 'person0Parent';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personParentElement }}1OtherName" class="form-label small-text2">Parent 2 other given
                     name(s)</label>
-                <input type="text" value="{{ $parent[1]['other_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $parent[1]['other_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personParent }}[1][birth_other_name]"
                     id="{{ $personParentElement }}1OtherName" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"

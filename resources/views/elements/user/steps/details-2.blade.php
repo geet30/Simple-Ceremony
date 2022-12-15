@@ -32,7 +32,7 @@ $personIdenticalDocElement = 'person1DocElement';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personIdenticalDocElement }}Number" class="form-label small-text2">Document
                     Number</label>
-                <input type="text" value="{{ $person['birth_identical_document_number_first'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $person['birth_identical_document_number_first'] ?? '' }}"
                     class="form-control body-1 netural-100"
                     name="{{ $personIdenticalDoc }}[birth_identical_document_number_first]"
                     id="{{ $personIdenticalDocElement }}Number" required>
@@ -57,7 +57,7 @@ $personIdenticalDocElement = 'person1DocElement';
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personIdenticalDocElement }}Number2" class="form-label small-text2">Document
                     Number</label>
-                <input type="text"
+                <input type="text" pattern="\S(.*\S)?"
                     value="{{ $person && $person['birth_identical_document_number_second'] ? $person['birth_identical_document_number_second'] : '' }}"
                     class="form-control body-1 netural-100"
                     name="{{ $personIdenticalDoc }}[birth_identical_document_number_second]"
@@ -68,7 +68,7 @@ $personIdenticalDocElement = 'person1DocElement';
             <div class="col-md-6 align-self-top">
                 <label for="{{ $personIdenticalDocElement }}State1" class="form-label small-text2">State, Territory or
                     country of issue</label>
-                <input type="text"
+                <input type="text" pattern="\S(.*\S)?"
                     value="{{ $person && $person['birth_identical_document_issue_state'] ? $person['birth_identical_document_issue_state'] : '' }}"
                     class="form-control body-1 netural-100"
                     name="{{ $personIdenticalDoc }}[birth_identical_document_issue_state]"
