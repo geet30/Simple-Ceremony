@@ -12,6 +12,12 @@
               <a href="{{url('all-type-of-ceremonies/')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-md-12">
+               @if($errors->any())
+                  <div class="alert alert-danger mb-3 alert-block">
+                     <button type="button" class="close" data-dismiss="alert">×</button>  
+                     {{$errors->first()}}
+                  </div>
+               @endif   
                <div class="card panel-card mb-5">
                   <div class="card-body">
                         <form class="needs-validation" method="POST" novalidate
@@ -36,11 +42,11 @@
                                  </div>
                               </div>
                           </div>
-                           <div class="col-md-12 mb-4">
+                           <div class="col-md-12 mb-4 conditions">
                               <label class="form-label small-text2 me-3">Conditions</label>
                              
                               <textarea id="conditions" class="form-control body-1 netural-100 ckeditor" cols="30" rows="10" name="conditions" placeholder="Type ceremony conditions here">{{ $detail->conditions }}</textarea>
-                              <div class="invalid-feedback" >
+                              <div class="invalid-feedback conditions_error" >
                                  Conditions is required.
                               </div>
 
@@ -48,7 +54,7 @@
                            </div>
                           
                            
-                           <div class="col-md-12 mb-4">
+                           <div class="col-md-12 mb-4 additional_information">
                               <label class="form-label small-text2">Additional informations</label>
                               <div class="p-4" style="border: 1px solid #E2F3F2;border-radius: 6px;">
                               <?php $ceremonyAdditional = config('ceremonyStatus.CeremonyAdditional');
@@ -64,11 +70,14 @@
                              
                                  @foreach($ceremonyAdditional as $key=>$value)
                                     <div class="form-check form-switch simple-switcher-toggle mb-2">
-                                      <input class="form-check-input" name="additional_info[]" type="checkbox" value="{{$key}}"   {{(is_array($additional_info)&&in_array($key,$additional_info))?'checked':''}}  role="switch">
+                                      <input class="form-check-input additional_info_input" name="additional_info[]" type="checkbox" value="{{$key}}"   {{(is_array($additional_info)&&in_array($key,$additional_info))?'checked':''}}  role="switch">
                                        <label class="form-check-label body-1 netural-100"> {{$value}}</label>
                                        
                                     </div>
                                  @endforeach
+                                 <div class="invalid-feedback additional_information_error" >
+                                 Additional Conditions is required.
+                                 </div>
                                 
                              </div>
                            </div>

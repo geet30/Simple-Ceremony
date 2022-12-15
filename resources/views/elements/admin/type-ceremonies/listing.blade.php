@@ -26,7 +26,7 @@
                 {!! nl2br($value->conditions) !!}
             </div>
         </td>
-        <td class="text-center body-2 neutral-100" style="min-width: 150px;">-$ {{$value->fee_adjustment}}</td>
+        <td class="text-center body-2 neutral-100" style="min-width: 150px;">$ {{$value->fee_adjustment}}</td>
         <td class="text-center body-2 neutral-100" style="min-width: 150px;">
            <a href="/all-type-of-ceremonies/{{ $value->id }}/edit" role="button" class="table-link">Edit</a>
            
