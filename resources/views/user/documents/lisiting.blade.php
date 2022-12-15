@@ -26,7 +26,7 @@
                                     <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
                                     <div>
                                         <p class="body-1 mb-0">Instructions.</p>
-                                        <a href="/location" class="button-3">Click on the Notice of Intended Marriage form below (show the eye symbol) and review, in details. If the details are not 100% without omissions please make correction(s) by clicking the Edit button.  If all correct, you just need to sign in front of an Authorised Person - click here to see list of Authorised Persons. Note. If you are in Australia, you can sign via video.
+                                        <a class="button-3">Click on the Notice of Intended Marriage form below (show the eye symbol) and review, in details. If the details are not 100% without omissions please make correction(s) by clicking the Edit button.  If all correct, you just need to sign in front of an Authorised Person - click here to see list of Authorised Persons. Note. If you are in Australia, you can sign via video.
                                         Click here to see how</a>
                                     
                                     </div>

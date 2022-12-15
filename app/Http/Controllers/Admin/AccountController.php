@@ -9,7 +9,7 @@ use View;
 use Redirect;
 use Illuminate\Support\Facades\{Auth, Hash};
 use Illuminate\Support\Facades\Validator;
-
+use App\Mail\{SendFollowUpMail};
 
 class AccountController extends Controller
 {
@@ -37,6 +37,30 @@ class AccountController extends Controller
             }])->first();
             // dd($data);
             return view('celebrant.profile.setting',compact('allLocations','id','data'));
+        }catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        } 
+    }
+
+   /**
+     * Send follow up Email.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendFollowUpEmail(Request $request)
+    {
+        try {
+            $when = now()->addMinutes(1);
+            $dataMail  = array(
+                'email'=>auth()->user()->email,
+                'subject' => $request->follow_subject,
+                'body' => $request->follow_Description,
+                
+            );
+            $sendMail = new SendFollowUpMail($dataMail);
+             \Mail::to($request->email)->later($when, $sendMail);
+             return Redirect::back()->with('open_modal', 'yes');
+
         }catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         } 

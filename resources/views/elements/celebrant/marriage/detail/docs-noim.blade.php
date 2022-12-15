@@ -2,6 +2,7 @@
 $couple1 = isset($couple) && isset($couple[0]) ? $couple[0] : null;
 $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
 @endphp
+
 <div class="row pt-31">
     <div class="pe-xl-0  col-xl-2  mb-4 mb-xl-0">
         <div class="d-flex add-ons-detail">

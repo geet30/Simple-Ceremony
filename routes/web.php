@@ -450,7 +450,7 @@ $celebrantRoutes = function () {
         Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('celebrant.userNoim.preview-document');
         Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('celebrant.userNoim.downloadSelectedDocument');
 
-        
+
         
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
@@ -473,6 +473,9 @@ $celebrantRoutes = function () {
         Route::get('profile', [AccountController::class, 'getCelebrantAccount'])->name('getCelebrantAccount');
         Route::post('account', [AccountController::class, 'updateCelebrantAccount']);
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
+
+        Route::post('send-followup-email', [AccountController::class, 'sendFollowUpEmail'])->name('sendFollowUpEmail');
+        
         Route::resource('all-locations', CelebrantLocations::class);
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
