@@ -8,7 +8,7 @@ use App\Models\{User,CeremonyType,Locations};
 use Illuminate\Support\Facades\{Auth};
 use View;
 use App\Traits\Ceremonies\{Methods as Ceremonies};
-
+use Validator;
 class CeremoniesTypeController extends Controller
 {
     /**
@@ -67,10 +67,13 @@ class CeremoniesTypeController extends Controller
     {
        
         try {
-            $request->validate([
-                'conditions' => 'required',
-                'additional_info' => 'required',
+            $validator = Validator::make($request->all(), [
+                'conditions' => ['required'],
+                'additional_info' => ['required'],
             ]);
+            if($validator->fails()) {
+                return \Redirect::back()->withErrors($validator);
+            }
             $locations = CeremonyType::addData($request);
             if ($locations['status'] == false) {
                 return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
@@ -118,10 +121,15 @@ class CeremoniesTypeController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $request->validate([
-                'conditions' => 'required',
-                'additional_info' => 'required',
+           
+            $validator = Validator::make($request->all(), [
+                
+                'conditions' => ['required'],
+                'additional_info' => ['required'],
             ]);
+            if($validator->fails()) {
+                return Redirect::back()->withErrors($validator);
+            }
             $locations = CeremonyType::updateData($request,$id);
             if ($locations['status'] == false) {
                 return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();

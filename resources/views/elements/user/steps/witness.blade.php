@@ -25,7 +25,7 @@ $personWitnessElement = 'person0Witness';
         <div class="row">
             <div class="col-md-6 mb-4">
                 <label for="{{ $personWitnessElement }}FamilyName" class="form-label small-text2">Family name</label>
-                <input type="text" value="{{ $witness1['family_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $witness1['family_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personWitness }}[family_name]"
                     id="{{ $personWitnessElement }}FamilyName" required>
                 <span class="small-text2 text-black mt-1">*Must be in UPPERCASE</span>
@@ -36,7 +36,7 @@ $personWitnessElement = 'person0Witness';
         <div class="row">
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personWitnessElement }}firstName" class="form-label small-text2">First name</label>
-                <input type="text" value="{{ $witness1['first_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $witness1['first_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personWitness }}[first_name]"
                     id="{{ $personWitnessElement }}firstName" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"
@@ -44,7 +44,7 @@ $personWitnessElement = 'person0Witness';
             </div>
             <div class="col-md-6 mb-4 align-self-top">
                 <label for="{{ $personWitnessElement }}OtherName" class="form-label small-text2">Last/other name</label>
-                <input type="text" value="{{ $witness1['other_name'] ?? '' }}"
+                <input type="text" pattern="\S(.*\S)?" value="{{ $witness1['other_name'] ?? '' }}"
                     class="form-control body-1 netural-100" name="{{ $personWitness }}[other_name]"
                     id="{{ $personWitnessElement }}OtherName" required>
                 <div class="invalid-feedback event_date_required"> <span><img class="me-2"

@@ -1,3 +1,10 @@
+<?php
+$cart_count = 0;
+if (Cookie::get('myCart')) {
+    $cart = json_decode(Cookie::get('myCart'));
+    $cart_count = count($cart);
+}
+?>
 <header class="panel-header">
    <div class="row m-0">
       <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
@@ -6,7 +13,7 @@
                <a  href="/user/NoIM" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn "><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="progress body-1 w-75 align-self-center">
-               <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+               <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">{{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}</div>
             </div>
             <div class="booking-info ms-3">
                <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
@@ -31,7 +38,7 @@
                   <li class="nav-item dropdown align-self-center me-3 user-header-login">
                      <a role="button" class="cart-icon-header position-relative" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                      <img src="{{asset('/images/cart-icon.svg')}}" lass="img-fluid" alt="Cart Icon">
-                     <span class="cart-item-counting">3</span>
+                     <span class="cart-item-counting">{{ $cart_count }}</span>
                      </a>
                   </li>
                   <li class="nav-item dropdown align-self-center me-3">

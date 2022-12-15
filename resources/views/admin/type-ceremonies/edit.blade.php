@@ -64,10 +64,8 @@
                                    
                                     $additional_info[] = $info->additional_info;
                                  }
-                              }
-                             
-                              ?>
-                             
+                              }                            
+                              ?>                          
                                  @foreach($ceremonyAdditional as $key=>$value)
                                     <div class="form-check form-switch simple-switcher-toggle mb-2">
                                       <input class="form-check-input additional_info_input" name="additional_info[]" type="checkbox" value="{{$key}}"   {{(is_array($additional_info)&&in_array($key,$additional_info))?'checked':''}}  role="switch">

@@ -130,7 +130,9 @@ class UserNoimController extends Controller
             'booking_id' => $bookingId
         ]);
         UserNoimReferrers::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
-        return redirect()->route('user-noim.steps2.get');
+        // return redirect()->route('user-noim.steps');
+        return redirect('user/NoIM');
+
         return redirect()->back();
     }
 
