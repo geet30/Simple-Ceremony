@@ -18,6 +18,7 @@ trait Methods
               
             $input = $data->all();
             $input['added_by'] = Auth::user()->id;
+            $input['status'] = 1;
             $checkName = Locations::where('name',$data->name)->where('latitude',$data->latitude)->where('name',$data->longitude)->first();
            
             if($checkName){
@@ -49,7 +50,6 @@ trait Methods
     static function addRequestLocation($data){    
         try{          
             $input = $data->all();
-            // $input['added_by'] = Auth::user()->id;
             $checkName = RequestLocations::where('name',$data->name)->where('latitude',$data->latitude)->where('name',$data->longitude)->first();
             if($checkName){
                 $msg = 'Location already exists with this name.';
