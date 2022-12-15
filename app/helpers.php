@@ -217,7 +217,6 @@ function zipArchive($person,$ids,$userId)
             \File::makeDirectory(public_path() . '/' . $folderPath, 0755, true);
         }
        
-        // $fileName = $folderPath.'/userDocuments'.'/'.$userId.'.zip';
         $fileName = $folderPath.'/userDocuments.zip';
         if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE) {
             foreach ($files as $key => $value) {

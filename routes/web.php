@@ -232,10 +232,8 @@ $adminRoutes = function () {
         Route::resource('financial-report', FinancialReportController::class);
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
         Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
-        // Route::get('all-type-of-ceremonies/create', function () {
-        //     return view('admin.type-ceremonies.create');
-        // });
        
+        Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('celebrant.userNoim.downloadSelectedDocument');
         Route::get('ceremonies/edit', function () {
             return view('admin.type-ceremonies.edit');
         });
@@ -269,7 +267,7 @@ $adminRoutes = function () {
         Route::get('locations/{slug}', 'App\Http\Controllers\Admin\LocationsController@index')->name('locations.all-requests');
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
-
+        Route::post('send-followup-email', [AccountController::class, 'sendFollowUpEmail'])->name('sendFollowUpEmail');
         Route::group(['prefix' => 'location'], function () {
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
@@ -290,7 +288,7 @@ $adminRoutes = function () {
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
         });
         Route::group(['prefix' => 'marriages'], function () {
-
+            Route::post('save-detail/{id}', [DashboardController::class, 'saveSignedDocumentDetail'])->name('celebrant.marriage.save-detail');
             Route::get('/{slug?}', [MarriagesController::class, 'index'])->name('admin.marriages');
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');
