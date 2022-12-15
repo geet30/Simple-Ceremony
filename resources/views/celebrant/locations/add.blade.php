@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Town" class="form-label small-text2">Suburb/ Town *</label>
-                           <input type="text" pattern="\S(.*\S)?" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['suburb']) ? $data['suburb'] : old('town') }}"  name="town" id="Town" required>
+                           <input type="text" pattern="\S(.*\S)?" placeholder="Type the Suburb/ Town here" class="form-control body-1 netural-100" value="{{ isset($data['town']) ? $data['town'] : old('town') }}"  name="town" id="Town" required>
                            <div class="invalid-feedback">
                               Suburb is required.
                            </div>

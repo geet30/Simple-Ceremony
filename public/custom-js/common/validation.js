@@ -23,6 +23,23 @@
                             
                             form.classList.add("was-validated");
                             $(document).find('.email_exist').find('.duplicate_email').addClass('d-none');
+                            var conditions = CKEDITOR.instances['conditions'].getData();
+                            if( !conditions )
+                            {
+                                $(document).find('.conditions').find('.conditions_error').addClass('d-block');     
+                            }else{
+                                $(document).find('.conditions').find('.conditions_error').removeClass('d-block'); 
+                            }
+
+                           var additional_conditions =  $(".additional_info_input:checked").length; 
+                                                
+                            if( !additional_conditions )
+                            {
+                                $(document).find('.additional_information').find('.additional_information_error').addClass('d-block');
+                            }else{
+                                $(document).find('.additional_information').find('.additional_information_error').removeClass('d-block'); 
+                            }
+
                             $(".tel-input").each(function () {
                                 let telInput = $(this).get(0);
                                 if (

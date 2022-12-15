@@ -67,7 +67,10 @@ class CeremoniesTypeController extends Controller
     {
        
         try {
-            
+            $request->validate([
+                'conditions' => 'required',
+                'additional_info' => 'required',
+            ]);
             $locations = CeremonyType::addData($request);
             if ($locations['status'] == false) {
                 return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
@@ -115,7 +118,10 @@ class CeremoniesTypeController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            
+            $request->validate([
+                'conditions' => 'required',
+                'additional_info' => 'required',
+            ]);
             $locations = CeremonyType::updateData($request,$id);
             if ($locations['status'] == false) {
                 return redirect()->back()->with(['message' => $locations['message'], 'class' => 'alert-danger'])->withInput();
