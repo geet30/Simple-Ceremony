@@ -1,11 +1,10 @@
 <?php
 
 use Carbon\Carbon;
-use Illuminate\Http\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\{Auth};
 use App\Models\{Users, Notification, User,Locations};
-
+use Illuminate\Support\Facades\File;
 function timeslots()
 {
     $start = new \DateTime('00:00');
@@ -165,59 +164,77 @@ function locationCustomTerms($locationId){
     return Locations::where('id',$locationId)->value('custom_terms');
     
 }
-function zipArchive($person,$ids)
+function zipArchive($person,$ids,$userId)
 {
     $selected_ids = explode(',',$ids);
-    // dd($selected_ids);
-
-    // PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person]);
-    $files = [];
+    
     foreach($selected_ids as $ids){
-        
+        $folder ='pdfs/userDocuments/'.$userId;
+        if (!is_dir($folder)) {
+            \File::makeDirectory(public_path() . '/' . $folder, 0777, true);
+        }
         if($ids == '1'){
-            // $files[$ids] = PDF::loadView('user.documents.noim', ['person' => $person]);//'user/documents/noim.blade.php';
-            $files[$ids] = 'user/documents/noim';
+            $pdfnoim = PDF::loadView('user.documents.noim', ['person' => $person]);
+            $content = $pdfnoim->output();
+            $x= public_path($folder."/NOIM.pdf");
+            file_put_contents($x, $content);
+            // return $pdfnoim->stream("NOIM.pdf");
         }
-    }
-    // dd($files);
+        if($ids == '2'){          
+            $officialCertificateOfMarriage = PDF::loadView('user.documents.official-certificate-of-marriage', ['person' => $person]);
+            $content = $officialCertificateOfMarriage->output();
+            $x= public_path($folder."/official-certificate-of-marriage.pdf");
+            file_put_contents($x, $content);
+        }
+        if($ids == '3'){    
+            $declationOfLegalImpedimentToMarriage =  PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
+            $content = $declationOfLegalImpedimentToMarriage->output();
+            $x= public_path($folder."/declaration-of-no-legal-impediment-to-marriage.pdf");
+            file_put_contents($x, $content);
+        }
+        if($ids == '4'){          
+            $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person]);
+            $content = $faithFullCertificate->output();
+            $x= public_path($folder."/certificate-of-faithful-performance-by-interpreter.pdf");
+            file_put_contents($x, $content);
+        }
+       
+       
+        if($ids == '5'){  
+            $certificateOfMarriage = PDF::loadView('user.documents.certificate-of-marriage', ['person' => $person]);
+            $content = $certificateOfMarriage->output();
+            $x= public_path($folder."/certificate-of-marriage.pdf");
+            file_put_contents($x, $content);
+        }
+                   
+    }  
     
-    
-    // $files =   Comment::with(['commentDocuments'])->whereIn('id', $selected_ids)->get();
-    // $files = PDF::loadView('user.documents.noim', ['person' => $person]);
-    // return $NOIMpdf->download('NOIM.pdf');
-  
+    $files = File::files(public_path('pdfs/userDocuments/'.$userId));
+    if(count($files) > 0){
+        $zip = new \ZipArchive;
+        $folderPath = "zip";
+        if (!is_dir($folderPath)) {
+            \File::makeDirectory(public_path() . '/' . $folderPath, 0755, true);
+        }
+       
+        // $fileName = $folderPath.'/userDocuments'.'/'.$userId.'.zip';
+        $fileName = $folderPath.'/userDocuments.zip';
+        if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE) {
+            foreach ($files as $key => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+            }          
+            $zip->close();
 
-   if(count($files) > 0){
-    $zip = new \ZipArchive;
-    $folderPath = "zip";
-    //Check if the directory already exists.
-    if (!is_dir($folderPath)) {
-        //Directory does not exist, so lets create it.
-        mkdir($folderPath, 0755);
-    }
-    $fileName = $folderPath.'/userDocuments'.uniqid().'.zip';
-    // dd(public_path($fileName));
-    if ($zip->open(public_path($fileName), ZipArchive::CREATE) === TRUE) {
+        }
+        ob_end_clean();
+        $headers = array(
+            'Content-Type: application/pdf',
+        );
+       
+        \File::deleteDirectory(public_path('pdfs/userDocuments/'.$userId));
         
-        foreach ($files as $filesingle){
-               
-            $path =  resource_path($filesingle);
-            // dd($path);
-            if (file_exists($path)) {
-                die('dsfs');
-                $zip->addFile($path);
-            }
-            // dd($path);
-            // $relativeName = basename($filesingle);
-            // // dd($relativeName);
-            // $zip->addFile($path, $relativeName);
-                
-        }
-        $zip->close();
-
-    }
-    $file_path = public_path($fileName);
-    return response()->download($file_path);
+        return response()->download(public_path() . '/'.$fileName, 'documents.zip', $headers)->deleteFileAfterSend(true);
     }else{
         return Redirect::back()->with('success','No document in this study!');
     }

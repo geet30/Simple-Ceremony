@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 use PhpParser\Node\Stmt\TryCatch;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 use PDF;
-use Illuminate\Http\File;
+use Illuminate\Support\Facades\File;
 
 class UserNoimController extends Controller
 {
@@ -235,39 +235,10 @@ class UserNoimController extends Controller
         }
     }
     public function downloadSelectedDocument(Request $request,$documentId,$userId)
-    {
-        
-       
+    {  
        
         $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($userId)->get();
-        return zipArchive($person,$documentId);
-        switch ($documentId) {
-            
-            case '1':
-                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person, 'button' => false]);
-                return $NOIMpdf->download('NOIM.pdf');
-                break;
-            
-            case '2':
-                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'button' => false]);
-                return $faithFullCertificate->download('certificate-of-faithful-performance-by-interpreter.pdf');
-                break;
-            case  '3':
-                $officialCertificateOfMarriage = PDF::loadView('user.documents.official-certificate-of-marriage', ['person' => $person, 'button' => false]);
-                return $officialCertificateOfMarriage->download('official-certificate-of-marriage.pdf');
-                break;
-            case '4':
-                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
-                return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
-                break;
-            case '5':
-                $certificateOfMarriage = PDF::loadView('user.documents.certificate-of-marriage', ['person' => $person, 'button' => false]);
-                return $certificateOfMarriage->download('certificate-of-marriage.pdf');
-                break;
-
-            default:
-                return redirect()->back();
-        }
+        return zipArchive($person,$documentId,$userId);   
     }
     public function deleteDocumentSignature(Request $request)
     {

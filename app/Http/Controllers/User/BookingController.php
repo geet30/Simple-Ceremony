@@ -246,7 +246,6 @@ class BookingController extends Controller
         try {
             $data = Booking::getCalendarAvailability($request);
             return $this->successResponse($data, 'Fetched Successfully');
-            // return View::make('pages.home.search-location', ['data' => $data]);
             
         }
         catch (\Exception $ex) {

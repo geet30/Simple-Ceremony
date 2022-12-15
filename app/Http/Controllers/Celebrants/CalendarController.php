@@ -26,6 +26,7 @@ class CalendarController extends Controller
         // print_r($dates->toArray());
         // die();
         $booking = Booking::with('location')->where('celebrant_id',auth()->user()->id)->get();
+        // dd($booking);
         return view('celebrant.calendar.index',['booking' => $booking]);
     }
     public function demo()

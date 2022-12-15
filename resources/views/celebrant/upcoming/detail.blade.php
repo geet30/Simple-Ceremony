@@ -43,6 +43,7 @@
                                         <div class="col-7 align-self-center text-end d-md-none ">
                                             <span class="status registered text-nowrap ">30 days till marriage</span>
                                         </div>
+                                       
                                         <div
                                             class="col-md-4 col-xxl-4 align-self-center mt-2 mt-md-0 w-100 d-none d-md-flex">
                                             <div class="progress theme-progress body-1 w-40 align-self-center">
