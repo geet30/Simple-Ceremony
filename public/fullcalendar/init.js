@@ -26,8 +26,10 @@ function initCalander(targetId,bookingData) {
         let availableObj = {
             id: element.id,
             title: 'available',
-            start: element.dates.start_date,
-            end: element.dates.end_date,
+            // start: element.dates.start_date,
+            // end: element.dates.end_date,
+            start :element.booking_date,
+            end :element.booking_date,
             daysOfWeek:[findWeekDay(element.dayText)],
             allDay:true,
             classNames:['calendar-availability-ns']
@@ -38,8 +40,10 @@ function initCalander(targetId,bookingData) {
         sortBookingData.push({
             id: element.id,
             title: element.location.name + ' $ '+(parsePrice(element.admin_fee) + parsePrice(element.your_fee) + parsePrice(element.location_fee)),
-            start: element.dates.start_date,
-            end: element.dates.end_date,
+            // start: element.dates.start_date,
+            // end: element.dates.end_date,
+            start :element.booking_date,
+            end :element.booking_date,
             daysOfWeek:[findWeekDay(element.dayText)],
             // allDay:true,
             classNames:['calendar-slots-booked-ns'],

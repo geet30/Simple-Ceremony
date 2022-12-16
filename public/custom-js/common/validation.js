@@ -24,6 +24,7 @@
                             form.classList.add("was-validated");
                             $(document).find('.email_exist').find('.duplicate_email').addClass('d-none');
                             var conditions = CKEDITOR.instances['conditions'].getData();
+                            console.log('sdfs',conditions);
                             if( !conditions )
                             {
                                 $(document).find('.conditions').find('.conditions_error').addClass('d-block');     
