@@ -6,7 +6,7 @@
         </div>
 
         <ul class="nav flex-column" id="sidebar">
-            {{--<li class="nav-item">
+            <li class="nav-item">
             
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600  {{ Request::segment(2) == 'overview' ? 'active' : '' }}"
                     aria-current="page" href="{{url('user/overview')}}">
@@ -18,7 +18,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Overview</span>
                 </a>
-            </li>--}}
+            </li>
             <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ request()->is('user/NoIM') ? 'active' : '' }}"
                     href="{{url('user/NoIM')}}">

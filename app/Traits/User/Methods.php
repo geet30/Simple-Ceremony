@@ -266,8 +266,8 @@ trait Methods
             $redirection = 'add-ons';
         } else if ($request->route_name == 'user-login') {
             $role = 'User';
-            // $redirection = 'user/overview';
-            $redirection = 'user/NoIM';
+            $redirection = 'user/overview';
+            // $redirection = 'user/NoIM';
         }else if ($request->route_name == 'celebrant-login') {
             $role = 'Celebrant';
             $redirection = 'upcoming/all-records-tab';
