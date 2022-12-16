@@ -10,23 +10,30 @@
                 <div class="card panel-card ">
                     <div class="card-body">
                         
-                        <div class="row">
+                        <div class="row add-ons-detail">
                         <div class="numberCircle col-3 col-xl-1">1</div>
                                 <div class="ms-2 col-9 col-xl-10">
-                                    <h2 class="subheader-3 neutral-100 mb-0 ms-2">Sign the Notice of Intended Marriage Form</h2>
-                            <div class="col-md-12 text-md-end"> 
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h2 class="subheader-3 neutral-100 mb-0 ms-2">Sign the Notice of Intended Marriage Form</h2>
+                                        <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="/user/NoIM">
+                                            <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
+                                            Edit
+                                        </a>
+                                    </div>
+                                    
+                            {{-- <div class="col-md-12 text-md-end"> 
                                 
                                 <a class="theme-btn primary-btn d-inline-flex justify-content-center" href="/user/NoIM">
                                     <img class="me-2" src="/images/icons/edit.svg" alt="shopping-icon">
                                     Edit
                                 </a>
-                            </div>
-                            <div class="alert alert-primary show" role="alert">
+                            </div> --}}
+                            <div class="alert alert-primary show mt-4" role="alert">
                                 <div class="d-flex">
-                                    <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
+                                    <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon" style="width: 90px;height: 25px;"></div>
                                     <div>
-                                        <p class="body-1 mb-0">Instructions.</p>
-                                        <a class="button-3">Click on the Notice of Intended Marriage form below (show the eye symbol) and review, in details. If the details are not 100% without omissions please make correction(s) by clicking the Edit button.  If all correct, you just need to sign in front of an Authorised Person - click here to see list of Authorised Persons. Note. If you are in Australia, you can sign via video.
+                                        <p class="body-1 mb-2">Instructions.</p>
+                                        <a class="button-3 text-decoration-none d-block" style="width: 90%;">Click on the Notice of Intended Marriage form below (show the eye symbol) and review, in details. If the details are not 100% without omissions please make correction(s) by clicking the Edit button.  If all correct, you just need to sign in front of an Authorised Person - click here to see list of Authorised Persons. Note. If you are in Australia, you can sign via video.
                                         Click here to see how</a>
                                     
                                     </div>
@@ -43,8 +50,8 @@
                                         <div class="document-box">
                                             <div class="uploaded-content ">
                                                 <p id="filename" class="h4 neutral-100 mb-3">Notice of Intended Marriage form.pdf</p>
-                                                <div>
-                                                    <a class="me-2"
+                                                <div class="mb-2">
+                                <a class="me-2"
                                                         href="{{ route('userNoim.preview-document', 'noim-perview') }}"
                                                         target="_blank"><img src="/images/icons/uploading/eye.svg"
                                                             class="img-fluid" alt="eye"></a>
@@ -57,80 +64,6 @@
                                             <div class="created-date">Created Feb 27, 2022</div>
                                         </div>
                                     </div>
-                                    {{--<div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
-                                        <div class="document-box">
-                                            <div class="uploaded-content">
-                                                <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
-                                                    Marriage</p>
-                                                <div>
-                                                    <a class="me-2"
-                                                        href="{{ route('userNoim.preview-document', 'preview-official-certificate-of-marriage') }}"><img
-                                                            src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                                            alt="eye"></a>
-                                                    <a class="me-2"
-                                                        href="{{ route('userNoim.preview-document', 'download-official-certificate-of-marriage') }}"><img
-                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
-                                                            alt="download"></a>
-                                                </div>
-                                            </div>
-                                            <div class="created-date">Created Feb 27, 2022</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
-                                        <div class="document-box">
-                                            <div class="uploaded-content ">
-                                                <p id="filename" class="h4 neutral-100 mb-3">Declaration of No legal
-                                                    Impediment</p>
-                                                <div>
-                                                    <a class="me-2"
-                                                        href="{{ route('userNoim.preview-document', 'preview-declaration-of-no-legal-impediment-to-marriage') }}"><img
-                                                            src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                                            alt="eye"></a>
-                                                    <a class="me-2"
-                                                        href="{{ route('userNoim.preview-document', 'download-declaration-of-no-legal-impediment-to-marriage') }}"><img
-                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
-                                                            alt="download"></a>
-                                                </div>
-                                            </div>
-                                            <div class="created-date">Created Feb 27, 2022</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
-                                        <div class="document-box">
-                                            <div class="uploaded-content ">
-                                                <p id="filename" class="h4 neutral-100 mb-3">Certificate of Faithful
-                                                    performance of Interpreter</p>
-                                                <div>
-                                                    <a class="me-2"
-                                                        href="{{ route('userNoim.preview-document', 'preview-certificate-of-faithful-performance-by-interpreter') }}"><img
-                                                            src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                                            alt="eye"></a>
-                                                    <a class="me-2"
-                                                        href="{{ route('userNoim.preview-document', 'download-certificate-of-faithful-performance-by-interpreter') }}"><img
-                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
-                                                            alt="download"></a>
-                                                </div>
-                                            </div>
-                                            <div class="created-date">Created Feb 27, 2022</div>
-                                        </div>
-                                    </div>
-                                   <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
-                                        <div class="document-box">
-                                            <div class="uploaded-content">
-                                                <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
-                                                    Marriage</p>
-                                                <div>
-                                                    <a class="me-2" href="javascript::void(0)"><img
-                                                            src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                                            alt="eye"></a>
-                                                    <a class="me-2" href="javascript::void(0)"><img
-                                                            src="/images/icons/uploading/download.svg" class="img-fluid"
-                                                            alt="download"></a>
-                                                </div>
-                                            </div>
-                                            <div class="created-date">Created Feb 27, 2022</div>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>

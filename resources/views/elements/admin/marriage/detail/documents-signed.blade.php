@@ -20,7 +20,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 form.pdf</p>
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="1">
                                 <input type="hidden" name="user_id" class="user_id" value="{{$data->user_id}}">
-                            <div>
+                            <div class="mb-2">
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-perview', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"
                                     target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
@@ -39,7 +39,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                             <p id="filename" class="h4 neutral-100 mb-3">Official Certificate of
                                 Marriage</p>
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="2">
-                            <div>
+                            <div class="mb-2">
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
@@ -57,7 +57,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                             <p id="filename" class="h4 neutral-100 mb-3">Declaration of No legal
                                 Impediment</p>
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="3">
-                            <div>
+                            <div class="mb-2">
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
@@ -75,7 +75,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                             <p id="filename" class="h4 neutral-100 mb-3">Certificate of Faithful
                                 performance of Interpreter</p>
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="4">
-                            <div>
+                            <div class="mb-2">
                                 <a class="me-2"
                                     href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
@@ -87,233 +87,23 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                         <div class="created-date">Created Feb 27, 2022</div>
                     </div>
                 </div>
-                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
-                    <div class="attach-document-box position-relative  d-none">
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
-                        <div class="inner-content">
-                            <p class="document-text mb-4">Attach document</p>
-                            <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                            <p class="text">Compatible file .pdf .docx</p>
-                            <div class="d-flex justify-content-center">
-                                <div class="align-self-center">
-                                    <p class="darg neutral-100 mb-0">Drag or</p>
-                                </div>
-                                <div class="align-self-center ms-1">
-                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- progress-box -->
-                    <div class="attach-document-box progress-box text-center  d-none">
-                        <div class="progress-content">
-                            <p class="h4 neutral-100">Uploading 0%</p>
-                            <div id="progress" class="progress">
-                                <div class="progress-bar bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box ">
-                        <div class="d-flex form-check justify-content-end">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                autocomplete="off">
-                        </div>
-                        <div class="uploaded-content mt-3">
-                            <p id="filename" class="h4 neutral-100 mb-4">Notice of Intended Marriage form</p>
-                            <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                    alt="eye"></a>
-                            <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid"
-                                    alt="download"></a>
-                            <!-- <a><img src="/images/icons/uploading/delete.svg" class="img-fluid " alt="delete"></a> -->
-                        </div>
-                        <div class="created-date">Created Feb 29, 2022</div>
-                    </div>
-                    <!--  -->
-                </div> --}}
-                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
-                    <div class="attach-document-box position-relative d-none">
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
-                        <div class="inner-content">
-                            <p class="document-text mb-4">Attach document</p>
-                            <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                            <p class="text">Compatible file .pdf .docx</p>
-                            <div class="d-flex justify-content-center">
-                                <div class="align-self-center">
-                                    <p class="darg neutral-100 mb-0">Drag or</p>
-                                </div>
-                                <div class="align-self-center ms-1">
-                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- progress-box -->
-                    <div class="attach-document-box progress-box text-center d-none">
-                        <div class="progress-content">
-                            <p class="h4 neutral-100">Uploading 0%</p>
-                            <div id="progress" class="progress">
-                                <div class="progress-bar bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box ">
-                        <div class="d-flex form-check justify-content-end">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                autocomplete="off">
-                        </div>
-                        <div class="uploaded-content mt-3">
-                            <p id="filename" class="h4 neutral-100 mb-4">Notice of Intended Marriage form</p>
-                            <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                    alt="eye"></a>
-                            <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid"
-                                    alt="download"></a>
-                            <!-- <a><img src="/images/icons/uploading/delete.svg" class="img-fluid " alt="delete"></a> -->
-                        </div>
-                        <div class="created-date">Created Feb 29, 2022</div>
-                    </div>
-                    <!--  -->
-                </div> --}}
-                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
-                    <div class="attach-document-box position-relative">
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
-                        <div class="inner-content">
-                            <p class="document-text mb-4">Declaration of No Legal Impediment to Marriage</p>
-                            <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                            <p class="text">Compatible file .pdf .docx</p>
-                            <div class="d-flex justify-content-center">
-                                <div class="align-self-center">
-                                    <p class="darg neutral-100 mb-0">Drag or</p>
-                                </div>
-                                <div class="align-self-center ms-1">
-                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- progress-box -->
-                    <div class="attach-document-box progress-box text-center d-none">
-                        <div class="progress-content">
-                            <p class="h4 neutral-100">Uploading 0%</p>
-                            <div id="progress" class="progress">
-                                <div class="progress-bar bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box d-none">
-                        <div class="d-flex form-check justify-content-end">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                autocomplete="off">
-                        </div>
-                        <div class="uploaded-content">
-                            <p id="filename" class="h4 neutral-100 mb-4"></p>
-                            <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                    alt="eye"></a>
-                            <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid"
-                                    alt="download"></a>
-                            <a><img src="/images/icons/uploading/delete.svg" class="img-fluid" alt="delete"></a>
-                        </div>
-                        <div class="created-date">Created Feb 29, 2022</div>
-                    </div>
-                    <!--  -->
-                </div> --}}
-                <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
-                    {{-- <div class="attach-document-box position-relative d-none">
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
-                        <div class="inner-content">
-                            <p class="document-text mb-4">Certificate of Marriage - Form 15</p>
-                            <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                            <p class="text">Compatible file .pdf .docx</p>
-                            <div class="d-flex justify-content-center">
-                                <div class="align-self-center">
-                                    <p class="darg neutral-100 mb-0">Drag or</p>
-                                </div>
-                                <div class="align-self-center ms-1">
-                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- progress-box -->
-                    <div class="attach-document-box progress-box text-center d-none">
-                        <div class="progress-content">
-                            <p class="h4 neutral-100">Uploading 0%</p>
-                            <div id="progress" class="progress">
-                                <div class="progress-bar bar"></div>
-                            </div>
-                        </div>
-                    </div> --}}
-                    <!--  -->
-                    <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box">
-                        {{-- <div class="d-flex form-check justify-content-end">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                autocomplete="off">
-                        </div> --}}
-                        <div class="uploaded-content">
-                            <p id="filename" class="h4 neutral-100 mb-4"></p>
+                <div class="col-md-6 col-xl-4 text-center position-relative mb-4 ">
+                    <div class="document-box">
+                        <div class="uploaded-content ">
                             <p id="filename" class="h4 neutral-100 mb-3">Certificate of Marriage - Form 15</p>
-                            <a class="me-2"
+                                <input class="form-check-input download_doc" type="checkbox" name="download[]" value="5">
+                            <div class="mb-2">
+                                <a class="me-2"
                                 href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
                                     src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
-                            <a class="me-2"
-                                href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
-                                    src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                                    <a class="me-2"
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                        src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
+                            </div>
                         </div>
                         <div class="created-date">Created Feb 29, 2022</div>
                     </div>
-                    <!--  -->
                 </div>
-                {{-- <div class="col-md-6 col-xl-4 text-center position-relative mb-4">
-                    <div class="attach-document-box position-relative">
-                        <input id="fileupload" class="fileupload" type="file" name="files[]">
-                        <div class="inner-content">
-                            <p class="document-text mb-4">Certificate of Faithful performance of Interpreter</p>
-                            <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                            <p class="text">Compatible file .pdf .docx</p>
-                            <div class="d-flex justify-content-center">
-                                <div class="align-self-center">
-                                    <p class="darg neutral-100 mb-0">Drag or</p>
-                                </div>
-                                <div class="align-self-center ms-1">
-                                    <p class="darg turquoise-100 mb-0 text-decoration-underline">browse file</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- progress-box -->
-                    <div class="attach-document-box progress-box text-center d-none">
-                        <div class="progress-content">
-                            <p class="h4 neutral-100">Uploading 0%</p>
-                            <div id="progress" class="progress">
-                                <div class="progress-bar bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  -->
-                    <!--uploaded-box  -->
-                    <div class="attach-document-box uploaded-box d-none">
-                        <div class="d-flex form-check justify-content-end">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                autocomplete="off">
-                        </div>
-                        <div class="uploaded-content">
-                            <p id="filename" class="h4 neutral-100 mb-4"></p>
-                            <a class="me-2"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
-                                    alt="eye"></a>
-                            <a class="me-2"><img src="/images/icons/uploading/download.svg" class="img-fluid"
-                                    alt="download"></a>
-                            <a><img src="/images/icons/uploading/delete.svg" class="img-fluid" alt="delete"></a>
-                        </div>
-                        <div class="created-date">Created Feb 29, 2022</div>
-                    </div>
-                    <!--  -->
-                </div> --}}
                 <div class="col-12">
                     <a class="theme-btn primary-btn   cursor-pointer d-inline-flex download_selected">Download selected documents</a>
                 </div>

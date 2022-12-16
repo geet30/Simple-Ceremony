@@ -32,7 +32,7 @@
                      <td class="body-2 neutral-100" style="min-width:200px;">
                          <ul class="m-0 p-0">
                              @foreach ($celebrant->celebrantLocations as $location)
-                                 <li class="mb-3">{{ $location->location->name }}</li>
+                                 <li>{{ $location->location->name }}</li>
                              @endforeach
                          </ul>
                      </td>
@@ -41,7 +41,7 @@
                              <button class="btn dropdown-toggle {{ $status_class }}" type="button"
                                  id="dropdownMenuButton1-{{ $celebrant->id }}" data-bs-toggle="dropdown"
                                  aria-expanded="false">
-                                 <span id="change_status-{{ $celebrant->id }}">{{ $status }}</status>
+                                 <span id="change_status-{{ $celebrant->id }}">{{ $status }}</span>
                              </button>
                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                  <li><a class="dropdown-item approved"

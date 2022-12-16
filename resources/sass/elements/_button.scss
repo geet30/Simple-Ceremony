@@ -236,8 +236,30 @@
             }
         }
     }
-
 }
-.btn-link{
+
+.nav-pills {
+    &.celebrant-calendar{
+       li{
+            .nav-link {
+                &.active{
+                    &.primary-btn{
+                        background-color: $turquoise-100;
+                        &:hover{
+                            background-color: #5fe2e0;
+                        }
+                    }
+                    &.primary-btn-border{
+                        background-color: transparent;
+                        color: $turquoise-100;
+                        &:hover{
+                            color: #62CBC9;
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

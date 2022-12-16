@@ -2,18 +2,24 @@
     background: #F7FCFC;
     border: 1.53725px dashed #62CBC9;
     border-radius: 6.14902px;
-    height: 26vh;
     padding: 14px 16px;
     display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  .uploaded-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 26vh;
+    justify-content: space-between;
     flex-direction: column;
-  }
+    height: 100%;
+    .uploaded-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 25px;
+      .download_doc {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        cursor: pointer;
+      }
+    }
    .created-date {
         // position: absolute;
         // bottom: 7px;
