@@ -12,7 +12,7 @@ if (Cookie::get('myCart')) {
 
         
             @if( Request::segment(2) != 'profile')
-            <div class="col-md-12 col-lg-8 booking-custom-location align-self-center">
+            <div class="col-12 col-md-8 booking-custom-location align-self-center">
                 <div class="booking-process-bar d-flex align-items-center">
                     <span class="h4 text-nowrap mb-0 turquoise-100 me-3">Booking progress</span>
                     <div class="progress body-1 w-75">
@@ -38,7 +38,7 @@ if (Cookie::get('myCart')) {
             </div>
             @endif
         @endif
-        <div class="col-12 col-sm-6 d-flex justify-content-end order-md-2">
+        <div class="col-12 col-md-4 d-flex justify-content-end order-md-2">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -183,9 +183,8 @@ if (Cookie::get('myCart')) {
                 </div>
             </nav>
         </div>
-        
-        <div class="col-sm-6 align-self-center order-md-1">
         @if(Auth::user()->roles->first()->name !='User')
+        <div class="col-sm-6 align-self-center order-md-1">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <?php $segments = ''; ?>
@@ -204,8 +203,9 @@ if (Cookie::get('myCart')) {
                     @endforeach
                 </ol>
             </nav>
-        @endif
+        
         </div>
+        @endif
         
     </div>
 </header>

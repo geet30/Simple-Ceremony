@@ -811,7 +811,7 @@
                 padding-bottom: 25px !important;
                 padding-top: 25px !important;
                 .table-long-description {
-                    height: 272px;
+                    max-height: 272px;
                     overflow-y: auto;
                     overflow-x: hidden;
                     padding-right: 20px;

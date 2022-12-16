@@ -145,10 +145,10 @@
             </div>
         </div>
         <div class="col-md-12 d-flex justify-content-end">
-            <a href="#list-home" class="theme-btn primary-btn d-inline-flex me-3 back_button" data-id="list-home-list">
+            <a href="#list-home" class="theme-btn primary-btn d-inline-flex me-3 back_button align-items-center" data-id="list-home-list">
                 <img class="me-2" src="/images/single-location/left-icon.svg" alt="Back Icon">Back
             </a>
-            <button type="button" class="theme-btn primary-btn d-inline-flex submitBtn"  id="second-form">Next 
+            <button type="button" class="theme-btn primary-btn d-inline-flex submitBtn align-items-center"  id="second-form">Next 
                 <img class="ms-2" src="/images/booking-form/next-icon.svg" alt="Next Icon">
             </button>
             

@@ -2,7 +2,7 @@
 
    <div class="col-xl-6 py-31">
 
-      <div class="force-overflow  w-97">
+      <div class="ceremony_details_overflow">
          <div class=" row">
             <div class="col-md-6 mb-4 ">
                <label for="preferredname1" class="form-label small-text2 ps-2">Preferred name 1</label>
@@ -83,7 +83,7 @@
                               <div class="row">
                                 
                                  <div class="col-lg-8 col-xxl-9 text-center position-relative">
-                                    <div class="attach-document-box position-relative">
+                                    <div class="attach-document-box position-relative upload_docs">
 
 
                                        <div class="inner-content">
@@ -127,7 +127,7 @@
                            <div class="col-xxl-6 mb-4 documentDiv">
                               <div class="row">
                                  <div class="col-lg-8 col-xxl-9 text-center position-relative newdiv">
-                                    <div class="attach-document-box position-relative">
+                                    <div class="attach-document-box position-relative upload_docs">
                                        <input class="fileupload" type="file" name="document" onchange="uploadProgress(event,'{{$id}}','information','fileupload1')">
 
                                        <div class="inner-content">
