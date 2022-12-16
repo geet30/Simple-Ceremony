@@ -131,7 +131,7 @@ trait Methods
     }
     static function addBookingDetailToDB($sessionId, $data)
     {
-    //    dd($data);
+      
         try {           
 
             $user_inputs['email'] = $data->email;

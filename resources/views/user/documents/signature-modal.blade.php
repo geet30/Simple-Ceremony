@@ -61,7 +61,7 @@
                                             <div class="d-md-flex ">
                                                 <div
                                                     class="d-flex d-md-block  justify-content-center justify-content-md-start">
-                                                    <p class="mt-3 info-ttitle">Compatible file .pdf .docx</p>
+                                                    <p class="mt-3 info-ttitle">Compatible file .png .jpg .jpeg</p>
                                                 </div>
                                             </div>
                                         </div>

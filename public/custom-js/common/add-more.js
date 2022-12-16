@@ -27,7 +27,7 @@ $(document).ready(function(){
          </td>
          </tr>
          <tr>
-         <td><a href="/addons/detail/${value.package_id}" class="ms-0 ms-md-2 mt-2 mt-md-0 button-3 turquoise-100 text-decoration-none faq-link">Read detail item</a></td>
+         <td><a href="/user/add-ons/detail/${value.package_id}" class="ms-0 ms-md-2 mt-2 mt-md-0 button-3 turquoise-100 text-decoration-none faq-link">Read detail item</a></td>
         
          </tr>`;
 
