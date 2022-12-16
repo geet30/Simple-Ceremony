@@ -1,15 +1,13 @@
 
 @foreach ($locations as $location)
+
 <?php $btn = 'Learn More'; ?>
     <div class="col-md-4">
         <a href="{{ route('user.booking.detail', $location->id) }}" class="text-decoration-none">
             <div class="card image-card">
-                @foreach($location['location_images'] as $images)
-                    @if ($loop->first)  
-                    <img src="{{ asset('/uploads/images/locations/'.$images['image']) }}" class="card-img-top" alt="location-1">
-                    @endif
                 
-                @endforeach
+                    <img src="{{ asset('/uploads/images/locations/'.$location['cover_image']) }}" class="card-img-top" alt="location-1">
+                
                 <div class="card-body">
                 
                     <div class="d-flex justify-content-between mb-15"> <span class="paragraph netural-100 align-self-center">${{ number_format($location['price']) }}</span> <span class=" align-self-center"><i class="fa-regular fa-heart heart"></i></span> </div>
