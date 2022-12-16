@@ -32,7 +32,7 @@
                     <td class="body-2 neutral-100 text-center" style="min-width: 150px;">{{$result->invoice_number}}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width: 150px;">{{date('M d, Y',strtotime($result->created_at))}}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width: 150px;"> {{ $result->recipient_name }}</td>
-                    <td class="body-2 neutral-100 text-center" style="min-width: 100px;">{{date('M d, Y',strtotime($result->booking->booking_date))}}</td>
+                    <td class="body-2 neutral-100 text-center" style="min-width: 100px;">{{ (isset($result->booking->booking_date)) ? date('M d, Y',strtotime($result->booking->booking_date)) :''}}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width: 100px;">{{$result->booking->first_couple_name}} & {{$result->booking->second_couple_name}}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width: 100px;">${{$total_fee}}</td>
                     <td style="min-width:120px;">

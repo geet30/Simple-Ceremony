@@ -55,9 +55,7 @@ class CalendarController extends Controller
     }
     public function overRideCreate(Request $request)
     {
-        // die('==');
-        // $component = new OverRideDays();
-        // return $component->render();
+   
         $page = 'override-form';
         $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
         if($slots == 0) return redirect()->route('calendar.create');

@@ -18,7 +18,7 @@
                 
                     <tr>                   
                         <td  style="min-width:130px" class="body-2">{{date('M d, Y',strtotime($result->booking_date))}}</td>
-                        <td  style="min-width:130px" class="body-2">{{$result->booking_start_time}}</td>
+                        <td  style="min-width:130px" class="body-2">{{date('H:i',strtotime($result->booking_start_time)) }}</td>
                         
                         <td  style="min-width:130px" class="body-2">{{config('ceremonyStatus.typeOfCeremony.'.$result->ceremony_type) }}</td>
                         <td style="min-width:120px;">

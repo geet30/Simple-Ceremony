@@ -18,12 +18,12 @@
                   @if(Session::get('success'))
                   <p>{{ Session::get('success') }}</p>
                   @endif
+                 
                   <h1 class="h3 neutral-100 mb-4 align-self-center">Set your standard hours</h1>
                   <div class="d-flex align-self-center w-100">
                      <ul class=" calendar-btn nav nav-pills d-flex align-self-center mb-3 mt-3" id="pills-tab" role="tablist">
                         <li class="nav-item  me-3" role="presentation">
-                           <button class="nav-link @if($slots == 0) active @else disable @endif theme-btn primary-btn d-flex justify-content-center" id="rolling-tab" data-bs-toggle="pill" data-bs-target="#rolling" type="button" role="tab" aria-controls="rolling" aria-selected="true">
-                           Rolling  Repeat form
+                           <button class="nav-link @if($slots == 0) active @else disable @endif theme-btn primary-btn d-flex justify-content-center" id="rolling-tab" data-bs-toggle="pill" data-bs-target="#rolling" type="button" role="tab" aria-controls="rolling" aria-selected="true">Rolling  Repeat form
                            </button>
                         </li>
                         <li class="nav-item  " role="presentation">
@@ -43,6 +43,7 @@
       </div>
       <div class="row pt-31">
          <div class="col-12">
+           
             <div class="tab-content" id="pills-tabContent">
                @if($page == 'rolling-form')
                   <div class="tab-pane fade show active" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
