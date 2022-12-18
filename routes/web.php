@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController};
-use App\Http\Controllers\{HomeController, DownloadController};
+use App\Http\Controllers\{HomeController, DownloadController,TwilioSMSController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
 
 /*
@@ -19,6 +19,7 @@ use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as
 
 
 $websiteRoutes = function () {
+    Route::get('sendSMS', [TwilioSMSController::class, 'index']);
     Route::get('e-signature', function () {
         return view('user.sample.e-signature');
     });

@@ -19,16 +19,20 @@ class CalanderController extends Controller
      */
     public function index(Request $request)
     {
+       
         try {
             $date = Carbon::today();
             $date = $request->ajax() ? $request->date : $date->format('Y/m/d');
             $count['marriageBookings'] = Booking::count();
             $count['marriageCelebrant'] = Booking::whereNotNull('celebrant_id')->groupBy('celebrant_id')->count();
             $count['marriageLocation'] = Booking::whereNotNull('locationId')->groupBy('locationId')->count();
+           
             $bookings = MarriagesMethods::marriages($date)->get();
+            $all_bookings = MarriagesMethods::fetch_all_marriages()->get();
+            // dd($all_bookings);
             $celebrants = Locations::celebrants()->get();
 
-            return $request->ajax() ? View::make('admin.calander.dynamic-booking-list-ajax', compact('bookings')) : view('admin.calander.calander-overview', compact('bookings', 'celebrants', 'count'));
+            return $request->ajax() ? View::make('admin.calander.dynamic-booking-list-ajax', compact('bookings')) : view('admin.calander.calander-overview', compact('all_bookings','bookings', 'celebrants', 'count'));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
