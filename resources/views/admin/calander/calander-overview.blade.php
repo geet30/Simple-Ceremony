@@ -52,8 +52,10 @@
                     <div class="col-md-12 col-lg-12 col-xl-6 mb-4">
                         <div class="card panel-card">
                             <div class="card-body">
-                                <div class="calendar-wrapper no-border-calander getBookingsCalendar" id="calendar-wrapper">
-                                </div>
+                            <div id="color-calendar"></div>
+                            <div class="events-display"></div>
+                                <!-- <div class="calendar-wrapper no-border-calander getBookingsCalendar" id="calendar-wrapper">
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -65,6 +67,64 @@
                 </div>
             </div>
         </div>
+       
         @include('admin.marriages.js')
         @include('elements.admin.marriage.assign-marriage-celebrant')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-basic.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-glass.css" />
+<script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.min.js"></script>
+<script src="/custom-js/common/ajax-request.js"></script>
+    <script>
+    function dateFormat(inputDate, format) {
+        //parse the input date
+        const date = new Date(inputDate);
+
+        //extract the parts of the date
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        //replace the month
+        format = format.replace("MM", month.toString().padStart(2, "0"));
+
+        //replace the year
+        if (format.indexOf("yyyy") > -1) {
+            format = format.replace("yyyy", year.toString());
+        } else if (format.indexOf("yy") > -1) {
+            format = format.replace("yy", year.toString().substr(2, 2));
+        }
+
+        //replace the day
+        format = format.replace("dd", day.toString().padStart(2, "0"));
+
+        return format;
+    }
+    var bookings =  {!!json_encode($all_bookings) !!};
+    jsonObj = [];
+    const dateFormatCalendar = 'MM/dd/YYYY';
+   
+
+    $.each(bookings,function(field_name,value){
+        item = {}
+        item ["start"] = value.booking_date;
+        item ["end"] = value.booking_date;
+        jsonObj.push(item);
+           
+    })
+    new Calendar({
+        id: '#color-calendar',
+        calendarSize: 'large',
+        eventsData:jsonObj,
+    dateChanged: (currentDate, events) => {
+        const events_display = document.querySelector('.events-display');
+        let events_html = '';
+        date = new Date(currentDate);
+       
+        date = dateFormat(date, "MM/dd/yyyy");
+        console.log('date', date);
+        getMarriageBookingsRequest(date);
+    }
+})
+</script>
+
     @endsection
