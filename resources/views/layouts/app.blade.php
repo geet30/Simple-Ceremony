@@ -39,7 +39,6 @@
 <script src="/js/signature.js"></script>
 <script src="/js/app.js" defer></script>
 <script src="/js/add-more.js"></script>
-<script></script>
 <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 

@@ -20,6 +20,7 @@
     <link href="/custom-css/video-player.css" rel="stylesheet">
     <link href="/fonts/stylesheet.css" rel="stylesheet">
     <link href="/custom-css/style.css" rel="stylesheet">
+    <link href="/custom-css/event-calendar.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- <script src="/ckeditor/ckeditor.js"></script> -->
