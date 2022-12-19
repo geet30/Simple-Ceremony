@@ -493,6 +493,13 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             Signature of parties<br /> to the marriage
                                                         </td>
                                                         <td style="font-size: 18px; color: black; font-weight: bold;padding-bottom: 15px;padding-top: 15px;">
+                                                        <?php 
+                                                        
+                                                            $route_name = Route::current()->getName();
+                                                            $explode = explode('.',$route_name);
+                                                            $action = $explode[0].'.documents.signature';
+                                                            $delete_action = $explode[0].'.delete-document-signature';
+                                                        ?>
                                                             @if ($person1 && $person1->marriageDocumentPdfOfficialMarriageCertificate)
                                                                 @if (file_exists($person1->marriageDocumentPdfOfficialMarriageCertificate->person1_signature))
                                                                     <img src="{{ asset($person1->marriageDocumentPdfOfficialMarriageCertificate->person1_signature) }}"
@@ -509,6 +516,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     'field_name' => 'person1_signature',
                                                                     'document_name' =>
                                                                         'offical-certificate-of-marriage',
+                                                                    'action'=>$action,
+                                                                    'booking_id' =>$bookingId
                                                                 ])
                                                                 <button data-bs-target="#person1SignatureConfirmDelete"
                                                                     data-bs-toggle="modal"
@@ -519,6 +528,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'person1_signature',
                                                                         'document_name' =>
                                                                             'offical-certificate-of-marriage',
+                                                                        'delete_action'=>$delete_action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                             @endif
                                                         </td>
@@ -540,6 +551,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     'field_name' => 'person2_signature',
                                                                     'document_name' =>
                                                                         'offical-certificate-of-marriage',
+                                                                    'action'=>$action,
+                                                                    'booking_id' =>$bookingId
                                                                 ])
                                                                 <button data-bs-target="#person2SignatureConfirmDelete"
                                                                     data-bs-toggle="modal"
@@ -550,6 +563,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'person2_signature',
                                                                         'document_name' =>
                                                                             'offical-certificate-of-marriage',
+                                                                        'delete_action'=>$delete_action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                             @endif
                                                         </td>
@@ -593,6 +608,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'person1witness_signature',
                                                                         'document_name' =>
                                                                             'offical-certificate-of-marriage',
+                                                                        'action'=>$action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                                     <button
                                                                         data-bs-target="#person1witnessSignatureConfirmDelete"
@@ -605,6 +622,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                             'field_name' => 'person1witness_signature',
                                                                             'document_name' =>
                                                                                 'offical-certificate-of-marriage',
+                                                                            'delete_action'=>$delete_action,
+                                                                            'booking_id' =>$bookingId
                                                                         ])
                                                                 @endif
                                                             @endif
@@ -632,6 +651,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'person2witness_signature',
                                                                         'document_name' =>
                                                                             'offical-certificate-of-marriage',
+                                                                        'action'=>$action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                                     <button
                                                                         data-bs-target="#person2witnessSignatureConfirmDelete"
@@ -644,6 +665,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                             'field_name' => 'person2witness_signature',
                                                                             'document_name' =>
                                                                                 'offical-certificate-of-marriage',
+                                                                            'delete_action'=>$delete_action,
+                                                                            'booking_id' =>$bookingId
                                                                         ])
                                                                 @endif
                                                             @endif
@@ -727,6 +750,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'celebrant_signature',
                                                                         'document_name' =>
                                                                             'offical-certificate-of-marriage',
+                                                                        'action'=>$action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                                     <button
                                                                         data-bs-target="#celebrantSignatureConfirmDelete"
@@ -739,6 +764,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                             'field_name' => 'celebrant_signature',
                                                                             'document_name' =>
                                                                                 'offical-certificate-of-marriage',
+                                                                            'delete_action'=>$delete_action,
+                                                                            'booking_id' =>$bookingId
                                                                         ])
                                                                 @endif
                                                             @endif

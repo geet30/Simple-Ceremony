@@ -191,42 +191,50 @@ class UserNoimController extends Controller
 
     public function previewDocument(Request $request, $document, $userId = null)
     {
-        $loggedInUserId = $userId ?? Auth::user()->id;
-        $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($loggedInUserId)->get();
+        $loggedInUserId = $userId ?? Auth::user()->id;    
+        if($request->bookingId != null){
+            $bookingId =  $request->bookingId;
+            // $userId = booking::where('$loggedInUserId)->pluck('id')->first();
+        }else{
+            $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        }
+        // dd($bookingId);
+        // $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($loggedInUserId)->get();
+        $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->where('booking_id',$bookingId)->get();
         switch ($document) {
             case 'noim-perview':
-                return view('user.documents.noim',  ['person' => $person, 'button' => true]);
+                return view('user.documents.noim',  ['person' => $person, 'bookingId'=>$bookingId,'button' => true]);
                 break;
             case 'noim-download':
-                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person, 'button' => false]);
+                $NOIMpdf = PDF::loadView('user.documents.noim', ['person' => $person,'bookingId'=>$bookingId, 'button' => false]);
                 return $NOIMpdf->download('NOIM.pdf');
                 break;
             case 'preview-certificate-of-faithful-performance-by-interpreter':
-                return view('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'button' => true]);
+                return view('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'bookingId'=>$bookingId,'button' => true]);
                 break;
             case 'download-certificate-of-faithful-performance-by-interpreter':
-                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person, 'button' => false]);
+                $faithFullCertificate = PDF::loadView('user.documents.certificate-of-faithful-performance-by-interpreter', ['person' => $person,'bookingId'=>$bookingId, 'button' => false]);
                 return $faithFullCertificate->download('certificate-of-faithful-performance-by-interpreter.pdf');
                 break;
             case 'preview-official-certificate-of-marriage':
-                return view('user.documents.official-certificate-of-marriage', ['person' => $person, 'button' => true]);
+                return view('user.documents.official-certificate-of-marriage', ['person' => $person, 'bookingId'=>$bookingId,'button' => true]);
                 break;
             case  'download-official-certificate-of-marriage':
-                $officialCertificateOfMarriage = PDF::loadView('user.documents.official-certificate-of-marriage', ['person' => $person, 'button' => false]);
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.official-certificate-of-marriage', ['person' => $person, 'bookingId'=>$bookingId,'button' => false]);
                 return $officialCertificateOfMarriage->download('official-certificate-of-marriage.pdf');
                 break;
             case 'preview-declaration-of-no-legal-impediment-to-marriage':
-                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => true]);
+                return view('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person,'bookingId'=>$bookingId, 'button' => true]);
                 break;
             case 'download-declaration-of-no-legal-impediment-to-marriage':
-                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person, 'button' => false]);
+                $officialCertificateOfMarriage = PDF::loadView('user.documents.declaration-of-no-legal-impediment-to-marriage', ['person' => $person,'bookingId'=>$bookingId, 'button' => false]);
                 return $officialCertificateOfMarriage->download('declaration-of-no-legal-impediment-to-marriage.pdf');
                 break;
             case 'preview-certificate-of-marriage':
-                return view('user.documents.certificate-of-marriage', ['person' => $person, 'button' => true]);
+                return view('user.documents.certificate-of-marriage', ['person' => $person,'bookingId'=>$bookingId, 'button' => true]);
                 break;
             case 'download-certificate-of-marriage':
-                $certificateOfMarriage = PDF::loadView('user.documents.certificate-of-marriage', ['person' => $person, 'button' => false]);
+                $certificateOfMarriage = PDF::loadView('user.documents.certificate-of-marriage', ['person' => $person,'bookingId'=>$bookingId, 'button' => false]);
                 return $certificateOfMarriage->download('certificate-of-marriage.pdf');
                 break;
 
@@ -236,7 +244,7 @@ class UserNoimController extends Controller
     }
     public function downloadSelectedDocument(Request $request,$documentId,$userId)
     {  
-       
+     
         $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($userId)->get();
         return zipArchive($person,$documentId,$userId);   
     }
@@ -248,8 +256,11 @@ class UserNoimController extends Controller
     }
     public function saveSignature(Request $request)
     {
+    
         $loggedInUserId = Auth::user()->id;
-        $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        // $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
+        $bookingId =  $request->bookingId;
+        $bookingUser = booking::where('id',$bookingId)->pluck('user_id')->first();
         if ($request->hasFile('signature-file')) {
             $imgName = uploadFile($request['signature-file'], 'user-signature');
             $imgName = 'user-signature/' . $imgName;
@@ -266,11 +277,11 @@ class UserNoimController extends Controller
         }
 
         $request->merge([
-            'user_id' => $loggedInUserId,
+            'user_id' => $bookingUser,
             'booking_id' => $bookingId,
             $request->key => $imgName
         ]);
-        UserMarriagePdf::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId, 'document_name' => $request->document_name], $request->all());
+        UserMarriagePdf::updateOrCreate(['user_id' => $bookingUser, 'booking_id' => $bookingId, 'document_name' => $request->document_name], $request->all());
         return redirect()->back();
     }
 

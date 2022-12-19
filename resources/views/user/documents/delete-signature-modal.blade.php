@@ -5,12 +5,13 @@
             <div class="modal-header">
 
             </div>
-            <form action="{{ route('userNoim.delete-document-signature') }}" method="post">
+            <form action="{{ route($delete_action)}}" method="post">
                 @csrf
                 <div class="modal-body">
                     <p class="info-ttitle"> Are you sure to delete the signature?</p>
                     <input type="hidden" name="field" value="{{ $field_name }}">
                     <input type="hidden" name="document_name" value="{{ $document_name }}">
+                    <input type="hidden" name="bookingId" value="{{ $bookingId }}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancel</button>

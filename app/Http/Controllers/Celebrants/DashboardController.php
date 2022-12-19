@@ -97,7 +97,7 @@ class DashboardController extends Controller
      */
     public function detail(Request $request, $id)
     {
-        
+       
         try {
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
