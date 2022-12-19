@@ -452,6 +452,13 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         alt="" style="width: 100%;  height:40px;">
                                                                 @endif
                                                             @endif
+                                                            <?php 
+                                                        
+                                                                $route_name = Route::current()->getName();
+                                                                $explode = explode('.',$route_name);
+                                                                $action = $explode[0].'.documents.signature';
+                                                                $delete_action = $explode[0].'.delete-document-signature';
+                                                            ?>
                                                             @if (isset($button) && $button)
                                                                 <button data-bs-toggle="modal"
                                                                     data-bs-target="#person1signature"
@@ -462,6 +469,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     'field_name' => 'person1_signature',
                                                                     'document_name' =>
                                                                         'declaration-of-no-legal-impediment-to-marriage',
+                                                                    'action'=>$action,
+                                                                    'booking_id' =>$bookingId
                                                                 ])
                                                                 <button data-bs-target="#person1SignatureConfirmDelete"
                                                                     data-bs-toggle="modal"
@@ -472,6 +481,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'person1_signature',
                                                                         'document_name' =>
                                                                             'declaration-of-no-legal-impediment-to-marriage',
+                                                                        'delete_action'=>$delete_action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                             @endif
                                                             <span
@@ -496,6 +507,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                     'field_name' => 'person2_signature',
                                                                     'document_name' =>
                                                                         'declaration-of-no-legal-impediment-to-marriage',
+                                                                    'action'=>$action,
+                                                                    'booking_id' =>$bookingId
                                                                 ])
                                                                 <button data-bs-target="#person2SignatureConfirmDelete"
                                                                     data-bs-toggle="modal"
@@ -506,6 +519,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'person2_signature',
                                                                         'document_name' =>
                                                                             'declaration-of-no-legal-impediment-to-marriage',
+                                                                        'delete_action'=>$delete_action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                             @endif
                                                             <span
@@ -620,6 +635,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                         'field_name' => 'celebrant_signature',
                                                                         'document_name' =>
                                                                             'declaration-of-no-legal-impediment-to-marriage',
+                                                                        'action'=>$action,
+                                                                        'booking_id' =>$bookingId
                                                                     ])
                                                                     <button
                                                                         data-bs-target="#celebrantSignatureConfirmDelete"
@@ -632,6 +649,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                                             'field_name' => 'celebrant_signature',
                                                                             'document_name' =>
                                                                                 'declaration-of-no-legal-impediment-to-marriage',
+                                                                            'delete_action'=>$delete_action,
+                                                                            'booking_id' =>$bookingId
                                                                         ])
                                                                 @endif
                                                             @endif

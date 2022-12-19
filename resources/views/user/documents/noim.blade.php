@@ -1004,11 +1004,20 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         data-bs-toggle="modal"
                                                         style="border: 0;background: #62CBC9;color: #fff;border-radius: 5px;padding: 5px 20px;"
                                                         onclick="readySignature('editPerson1SignaturePad')">Edit</button>
+                                                        <?php 
+                                                        
+                                                        $route_name = Route::current()->getName();
+                                                        $explode = explode('.',$route_name);
+                                                        $action = $explode[0].'.documents.signature';
+                                                        $delete_action = $explode[0].'.delete-document-signature';
+                                                        ?>
                                                     @include('user.documents.signature-modal', [
                                                         'target' => 'editPerson1Signature',
                                                         'signatureId' => 'editPerson1SignaturePad',
                                                         'field_name' => 'person1_signature',
                                                         'document_name' => 'noim',
+                                                        'action'=>$action,
+                                                        'booking_id' =>$bookingId
                                                     ])
                                                     <button data-bs-target="#person1SignatureConfirmDelete"
                                                         data-bs-toggle="modal"
@@ -1017,6 +1026,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'target' => 'person1SignatureConfirmDelete',
                                                         'field_name' => 'person1_signature',
                                                         'document_name' => 'noim',
+                                                        'delete_action'=>$delete_action,
+                                                        'booking_id' =>$bookingId
                                                     ])
                                                 @endif
                                                 {{-- <input type="text" value=""
@@ -1042,6 +1053,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'signatureId' => 'editPerson2SignaturePad',
                                                         'field_name' => 'person2_signature',
                                                         'document_name' => 'noim',
+                                                        'action'=>$action,
+                                                        'booking_id' =>$bookingId
                                                     ])
 
                                                     <button data-bs-target="#person2SignatureConfirmDelete"
@@ -1051,6 +1064,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         'target' => 'person2SignatureConfirmDelete',
                                                         'field_name' => 'person2_signature',
                                                         'document_name' => 'noim',
+                                                        'delete_action'=>$delete_action,
+                                                        'booking_id' =>$bookingId
                                                     ])
                                                 @endif
                                                 {{-- <input type="text" value=""
@@ -1113,6 +1128,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 {{-- <input type="text" value=""
                                                     style="width: 100%;height: 20px;padding: 20px 15px;"> --}}
+                                                   
                                                 @if ($person1 && $person1->marriageDocumentPdfNoim)
                                                     @if (file_exists($person1->marriageDocumentPdfNoim->person1witness_signature))
                                                         <img src="{{ asset($person1->marriageDocumentPdfNoim->person1witness_signature) }}"
@@ -1131,6 +1147,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'signatureId' => 'person1WitnessSignaturePad',
                                                             'field_name' => 'person1witness_signature',
                                                             'document_name' => 'noim',
+                                                            'action'=>$action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                         <button data-bs-target="#person1witnessSignatureConfirmDelete"
                                                             data-bs-toggle="modal"
@@ -1139,6 +1157,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'target' => 'person1witnessSignatureConfirmDelete',
                                                             'field_name' => 'person1witness_signature',
                                                             'document_name' => 'noim',
+                                                            'delete_action'=>$delete_action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                     @endif
                                                 @endif
@@ -1164,6 +1184,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'signatureId' => 'person2WitnessSignaturePad',
                                                             'field_name' => 'person2witness_signature',
                                                             'document_name' => 'noim',
+                                                            'action'=>$action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                         <button data-bs-target="#person2witnessSignatureConfirmDelete"
                                                             data-bs-toggle="modal"
@@ -1172,6 +1194,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'target' => 'person2witnessSignatureConfirmDelete',
                                                             'field_name' => 'person2witness_signature',
                                                             'document_name' => 'noim',
+                                                            'delete_action'=>$delete_action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                     @endif
                                                 @endif
@@ -1777,6 +1801,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'signatureId' => 'celebrantSignaturePad',
                                                             'field_name' => 'celebrant_signature',
                                                             'document_name' => 'noim',
+                                                            'action'=>$action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                         <button data-bs-target="#celebrantSignatureConfirmDelete"
                                                             data-bs-toggle="modal"
@@ -1785,6 +1811,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'target' => 'celebrantSignatureConfirmDelete',
                                                             'field_name' => 'celebrant_signature',
                                                             'document_name' => 'noim',
+                                                            'delete_action'=>$delete_action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                     @endif
                                                 @endif
@@ -1873,6 +1901,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'signatureId' => 'newCelebrantSignaturePad',
                                                             'field_name' => 'new_celebrant_signature',
                                                             'document_name' => 'noim',
+                                                            'action'=>$action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                         <button data-bs-target="#newCelebrantSignatureConfirmDelete"
                                                             data-bs-toggle="modal"
@@ -1881,6 +1911,8 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             'target' => 'newCelebrantSignatureConfirmDelete',
                                                             'field_name' => 'new_celebrant_signature',
                                                             'document_name' => 'noim',
+                                                            'delete_action'=>$delete_action,
+                                                            'booking_id' =>$bookingId
                                                         ])
                                                     @endif
                                                 @endif

@@ -19,11 +19,12 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="{{ $target }}e-signature" role="tabpanel"
                     aria-labelledby="home-tab">
-                    <form method="POST" action="{{ route('userNoim.documents.signature') }}">
+                    <form method="POST" action="{{ route($action) }}">
                         <div class="modal-body">
                             <div class="card-body">
                                 @csrf
                                 <input type="hidden" name="document_name" value="{{ $document_name }}">
+                                <input type="hidden" name="bookingId" value="{{ $bookingId }}">
                                 <div class="col-md-12">
                                     <label class="mb-3 info-ttitle" for="">Signature:</label>
                                     <div id="{{ $signatureId }}">

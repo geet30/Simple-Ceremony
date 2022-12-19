@@ -1,5 +1,24 @@
 
 $(document).ready(function(){
+    var selected_ids =[];
+    $(".download_selected").on("click", function () {
+       
+        $('.download_doc:checkbox:checked').each(function () {
+            selected_ids.push($(this).val());
+           
+
+        });
+       
+        if(selected_ids == ''){
+            alert("Please check at least one.");
+            return false;
+        }
+        var user_id = $('.user_id').val();
+        var url = baseurl + "download-selected-document/" + selected_ids+'/'+user_id;
+        window.location = url;
+       
+        
+    });
     window.showFeedback = function(text,parentClass,close){ 
         var feedback =` <div class="alert alert-primary alert-dismissible" role="alert">
         <div class="d-flex">
@@ -13,35 +32,7 @@ $(document).ready(function(){
         $('.'+parentClass).append(feedback)
         $('.'+close).click();
     }
-    var selected_ids =[];
-    $(".download_selected").on("click", function () {
-       
-        $('.download_doc:checkbox:checked').each(function () {
-            selected_ids.push($(this).val());
-           
-
-        });
-        var user_id = $('.user_id').val();
-        // var url ='download-selected-document';
-        var url = baseurl + "download-selected-document/" + selected_ids+'/'+user_id;
-        window.location = url;
-
-        $.ajax({
-            type: "get",
-            url: url,
-            data: {
-                'id': id,'status':status,
-            },
-            dataType: 'json',
-            cache: false,
-            success: function(response)
-            {
-                window.location.reload();
-            }
-        });
-        console.log(selected_ids);
-        
-    });
+   
     //function to append selection locations in celebrant form  
     window.assignLocation = function(input,parentClass,close){ 
         const text = $('.'+input+" option:selected").text();

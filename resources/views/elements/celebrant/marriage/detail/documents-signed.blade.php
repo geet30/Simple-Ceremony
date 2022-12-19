@@ -2,7 +2,6 @@
 $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $couple[0]->signedDocumentDetail : null;
 
 @endphp
-
 <form class=" pt-31" method="post" action="{{ route('celebrant.marriage.save-detail', $id) }}">
     @csrf
     <div class="row">
@@ -23,11 +22,11 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 <input type="hidden" name="user_id" class="user_id" value="{{$data->user_id}}">
                             <div class="mb-2">
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-perview', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-perview', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"
                                     target="_blank"><img src="/images/icons/uploading/eye.svg" class="img-fluid"
                                         alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-download', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'noim-download','id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -42,10 +41,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="2">
                             <div class="mb-2">
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-official-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -60,10 +59,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="3">
                             <div class="mb-2">
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-declaration-of-no-legal-impediment-to-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-declaration-of-no-legal-impediment-to-marriage','id' => !$couple->isEmpty() ? $couple[0]->user_id : '', 'bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -78,10 +77,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="4">
                             <div class="mb-2">
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                 <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-faithful-performance-by-interpreter', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-faithful-performance-by-interpreter','id' => !$couple->isEmpty() ? $couple[0]->user_id : '', 'bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>
@@ -95,10 +94,10 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                                 <input class="form-check-input download_doc" type="checkbox" name="download[]" value="5">
                             <div class="mb-2">
                                 <a class="me-2"
-                                href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                href="{{ route('celebrant.userNoim.preview-document', ['page' => 'preview-certificate-of-marriage','id' => !$couple->isEmpty() ? $couple[0]->user_id : '','bookingId'=>$id]) }}"><img
                                     src="/images/icons/uploading/eye.svg" class="img-fluid" alt="eye"></a>
                                     <a class="me-2"
-                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-marriage', 'id' => !$couple->isEmpty() ? $couple[0]->user_id : '']) }}"><img
+                                    href="{{ route('celebrant.userNoim.preview-document', ['page' => 'download-certificate-of-marriage','id' => !$couple->isEmpty() ? $couple[0]->user_id : '', 'bookingId'=>$id]) }}"><img
                                         src="/images/icons/uploading/download.svg" class="img-fluid" alt="download"></a>
                             </div>
                         </div>

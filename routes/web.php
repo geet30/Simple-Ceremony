@@ -147,7 +147,7 @@ $websiteRoutes = function () {
             Route::get('add-ons/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('package/gallery/{id}/{addonid}', [UserController::class, 'gallery'])->name('user.addons.gallery');
             Route::get('documents', [UserNoimController::class, 'documents'])->name('userNoim.documents.get');
-            Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
+            Route::get('preview-document/{page}/{id?}/{bookingId?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
             Route::post('delete-document-signature', [UserNoimController::class, 'deleteDocumentSignature'])->name('userNoim.delete-document-signature');
             Route::post('documents', [UserNoimController::class, 'documentSave'])->name('userNoim.documents.post');
             Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('userNoim.documents.signature');
@@ -216,7 +216,17 @@ $adminRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('admin-login');
     Route::middleware('auth')->group(function () {
-        Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('admin.userNoim.preview-document');
+        Route::group(['as'=>'admin.'], function () {
+            Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
+
+            Route::post('delete-document-signature', [UserNoimController::class, 'deleteDocumentSignature'])->name('delete-document-signature');
+
+            Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('documents.signature');
+            Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('downloadSelectedDocument');
+           
+        });
+
+
         Route::get('test-google-calender-event', [CalanderController::class, 'createGoogleCalendarEvent']);
         Route::resource('marriage-celebrants', CelebrantsController::class);
         Route::resource('account', AccountController::class);
@@ -234,7 +244,7 @@ $adminRoutes = function () {
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
         Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
        
-        Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('celebrant.userNoim.downloadSelectedDocument');
+       
         Route::get('ceremonies/edit', function () {
             return view('admin.type-ceremonies.edit');
         });
@@ -446,10 +456,18 @@ $celebrantRoutes = function () {
     Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
 
     Route::middleware('auth')->group(function () {
-        Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('celebrant.userNoim.preview-document');
-        Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('celebrant.userNoim.downloadSelectedDocument');
+        Route::group(['as'=>'celebrant.'], function () {
+            Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
 
+            Route::post('delete-document-signature', [UserNoimController::class, 'deleteDocumentSignature'])->name('delete-document-signature');
 
+            Route::post('document-signature', [UserNoimController::class, 'saveSignature'])->name('documents.signature');
+            Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('downloadSelectedDocument');
+           
+        });
+        
+
+       
         
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
