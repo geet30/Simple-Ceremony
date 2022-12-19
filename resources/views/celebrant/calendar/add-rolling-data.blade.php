@@ -41,20 +41,33 @@
             </div>
          </div>
       </div>
-      <div class="row mt-5">
-         <div class="col-12">
-            <h1 class="h3 neutral-100 mb-0 align-self-center">Comming soon</h1>
-         </div>
-      </div>
+     
       <div class="row pt-31">
          <div class="col-12">
+          
             <div class="tab-content" id="pills-tabContent">
+               
                @if($page == 'rolling-form')
                   <div class="tab-pane fade show active" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
                   @include('elements.celebrant.calander.rolling')
                   </div>
+                  <div class="tab-pane fade" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="0">
+                     <div class="row mt-5 already-added-slots">
+                        <div class="col-12">
+                           <h2 class="h3 neutral-100 mb-0 align-self-center">Please select the slots from rolling repeat form first.</h2>
+                        </div>
+                     </div>
+                  </div>
                @else
                   <!-- override -->
+                  <div class="tab-pane fade" id="rolling" role="tabpanel" aria-labelledby="rolling-tab" tabindex="0">
+                     <div class="row mt-5 already-added-slots">
+                        <div class="col-12">
+                           <h2 class="h3 neutral-100 mb-0 align-self-center">You have already added the slots.</h2>
+                        </div>
+                     </div>
+                  </div>
+
                   <div class="tab-pane fade active show" id="override" role="tabpanel" aria-labelledby="override-tab" tabindex="1">
                      @include('elements.celebrant.calander.override')
                   </div>
