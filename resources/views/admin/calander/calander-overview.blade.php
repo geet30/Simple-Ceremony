@@ -70,8 +70,6 @@
        
         @include('admin.marriages.js')
         @include('elements.admin.marriage.assign-marriage-celebrant')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-basic.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/color-calendar/dist/css/theme-glass.css" />
 <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.min.js"></script>
 <script src="/custom-js/common/ajax-request.js"></script>
     <script>
