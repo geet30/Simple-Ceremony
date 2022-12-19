@@ -39,7 +39,9 @@ function initCalander(targetId,bookingData) {
         };
         sortBookingData.push({
             id: element.id,
-            title: element.location.name + ' $ '+(parsePrice(element.admin_fee) + parsePrice(element.your_fee) + parsePrice(element.location_fee)),
+            // title: element.location.name + ' $ '+(parsePrice(element.admin_fee) + parsePrice(element.your_fee) + parsePrice(element.location_fee)),
+            title: element.location.name,
+            
             // start: element.dates.start_date,
             // end: element.dates.end_date,
             start :element.booking_date,
