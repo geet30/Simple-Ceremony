@@ -2,14 +2,7 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    // $('.edit-addon').click(function(){
-        
-    //     var name = $(this).data('name');
-    //     var id = $(this).data('id');
-    //     $('#update-addons').find('input[name="name"]').val(name);
-    //     $('#update-addons').find('input[name="id"]').val(id);
-
-    // })
+   
 
     $('.getEditData').click(function(){
        
