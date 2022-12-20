@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController};
 use App\Http\Controllers\{HomeController, DownloadController,TwilioSMSController};
-use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController};
+use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController,CertificateRegisterController};
 
 /*
 |--------------------------------------------------------------------------
@@ -241,6 +241,8 @@ $adminRoutes = function () {
         Route::post('search-enquries', [EnqueriesController::class, 'searchEnquiries']);
         Route::post('change-enquiry-status', [EnqueriesController::class, 'changeStatus']);
         Route::resource('financial-report', FinancialReportController::class);
+        
+        
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
         Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
        
@@ -465,10 +467,9 @@ $celebrantRoutes = function () {
             Route::get('download-selected-document/{id}/{user_id}', [UserNoimController::class, 'downloadSelectedDocument'])->name('downloadSelectedDocument');
            
         });
-        
+        Route::resource('certificate-register', CertificateRegisterController::class);
 
-       
-        
+             
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
             Route::get('detail/{id}', [DashboardController::class, 'detail'])->name('celebrant.marriage.detail');
