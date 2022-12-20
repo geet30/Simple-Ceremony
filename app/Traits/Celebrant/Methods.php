@@ -2,7 +2,7 @@
 
 namespace App\Traits\Celebrant;
 
-use App\Models\{User, RequestLocations,Booking,BookingDetailsDocs,BookingDetails,CelebrantLocations};
+use App\Models\{User, RequestLocations,Booking,BookingDetailsDocs,BookingDetails,CelebrantLocations,MarriageCertificateNumber};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Illuminate\Support\Facades\File;
@@ -282,10 +282,6 @@ trait Methods
             if(isset($request->checked)){
                 $input['checked'] =  $request->checked;
             }
-            // dd($input);
-            
-          
-           
             if(isset($request->booking_id) && !empty( $request->booking_id)){
                 
                 $data =BookingDetails::where('booking_id','=',$request->booking_id)->first();
@@ -294,15 +290,11 @@ trait Methods
                 }else{
                     BookingDetails::create($input);
                 }
-
-                
                 $msg = 'Saved Successfully';
                 return ['status' => true,'message'=>$msg]; 
             }
             $msg = 'Something went wrong';
-            return ['status' => false,'message'=>$msg]; 
-            
-           
+            return ['status' => false,'message'=>$msg];           
         }
         catch (\Exception $ex) {
             return ['status' => false,'message'=>$ex->getMessage()]; 
@@ -310,6 +302,31 @@ trait Methods
         
 
     }
+    
+    public static function fetch_marriage_certificate_numbers($celebrant_id){
+        $marriage_certificate = MarriageCertificateNumber::where('user_id',$celebrant_id)->get();
+        $certificate_no = [];
+        foreach($marriage_certificate as $result){
+           
+            $certificate_no[] = $result->certificate_prefix.$result->first_certificate_no.$result->certificate_suffix;
+        }
+       
+        // return $data;
+        // $booking_Ids = Booking::with('booking_details')->where('celebrant_id',$celebrant_id)->pluck('id');
+       
+
+        // $data =BookingDetails::whereIn('booking_id',$booking_Ids)->whereIn('marriage_certificate_number',$certificate_no);
+
+       
+
+        $data = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
+            $qr->whereIn('marriage_certificate_number',$certificate_no);
+        })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',$celebrant_id);
+        
+        return $data;
+
+    }
+
     public static function delete_booking_record($request){
         try{
             if(isset($request->id) && !empty($request->id)){
@@ -323,15 +340,10 @@ trait Methods
             }
             $msg = 'Something went wrong';
             return ['status' => false,'message'=>$msg]; 
-            
-            
-           
         }
         catch (\Exception $ex) {
             return ['status' => false,'message'=>$ex->getMessage()]; 
         }
-        
-
     }
     
 }

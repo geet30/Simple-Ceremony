@@ -190,7 +190,22 @@ if (Cookie::get('myCart')) {
                     <?php $segments = ''; ?>
 
                     @foreach (Request::segments() as $segment)
-                        <?php $segments .= '/' . $segment; ?>
+                        <?php 
+                        
+                            
+                            if($segment =='marriages' || $segment =='all-records-tab'){
+                                $segments = '/marriages/all-records-tab';
+                            }
+                            else if($segment =='locations' || $segment == 'all-requests'){
+                                $segments = '/locations/all-requests';
+                            }
+                           
+                            else if($segment =='all-payments' || $segment =='invoice-couple' || $segment =='celebrants-invoice'){
+                                $segments = '/all-payments/celebrants-invoice';
+                            }else{
+                                $segments .= '/' . $segment;
+                            } 
+                        ?>
                         <li class="breadcrumb-item" style="text-transform: capitalize;">
                             <?php  if(is_numeric($segment)){?>
                             @if (trim($__env->yieldContent('page-name')))
