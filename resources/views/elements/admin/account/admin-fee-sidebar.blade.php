@@ -22,10 +22,9 @@
             <div class="col-md-10 col-12 mb-4">
                 <label for="partner_tax" class="form-label small-text2">Admin fee for partners</label>
                 <div class=" position-relative">
-                    <span class="currency-sign body-1 netural-100">$</span>
-                    <input type="number" step="0.1" value="{{ auth()->user()->taxdetail->partner_tax ?? '' }}"
-                        class="form-control body-1 netural-100 ps-4" name="partner_tax" id="partner_tax" maxlength="4"
-                        required>
+                   
+                    <input type="number" value="{{ auth()->user()->taxdetail->partner_tax ?? '' }}" class="form-control body-1 netural-100 ps-2" name="partner_tax" id="partner_tax" maxlength="4" required>
+                    <span class="percentage-sign body-1 netural-100">%</span>
                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg"
                                 alt="Require Icon"></span>Partner fee is required</div>
                 </div>
