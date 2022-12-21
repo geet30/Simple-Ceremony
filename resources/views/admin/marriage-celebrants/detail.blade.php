@@ -375,9 +375,11 @@
 @endsection
 @section('scripts')
 
-<script src="/fullcalendar/main.js"></script>
-<script src="/fullcalendar/init.js"></script>
+
+<script src="{{asset('fullcalendar/main.js')}}"></script>
+<script src="{{asset('fullcalendar/init.js')}}"></script>
+<script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
 <script>
-   initCalander('calendar-js',@json($booking))
+   initCalander('calendar-js',@json($bookingData))
 </script>
 @endsection
