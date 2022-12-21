@@ -13,7 +13,7 @@ function parsePrice(p)
 function initCalander(targetId,bookingData) {
     if(!targetId) return false;
     var bookingData = bookingData;
-    console.log('====================================');
+    console.log('=============BOOKING DATA=======================');
     console.log(bookingData);
     console.log('====================================');
     var availibitySlots = [];
@@ -54,31 +54,38 @@ function initCalander(targetId,bookingData) {
     // })
     setbookingData = [];
    
-    var cermonies_count = 0;
-    $.each(bookingData,function(field_name,element){
-        console.log(element,'element');
-        var price_info = JSON.parse(element.price_info);
-        var price =  ' $ '+(parsePrice(price_info.admin_fee) + parsePrice(price_info.your_fee) + parsePrice(price_info.location_fee));
-        
-        item = {}
-        item ["id"] = element.id;
-        item ["title"] = element.location_name;
-
-        item ["start"] = element.booking_date+'T'+element.booking_start_time;
-        item ["end"] = element.booking_date+'T'+element.booking_end_time;
-        item ["classNames"] =['calendar-availability-class'];
-        item ["price"] =price;
-        item ["ceremonies"] =cermonies_count;
-        // item ["extendedProps"]=  [
-        //     "department" = 'BioChemistry'
-        // ];
+   
+    $.each(bookingData,function(booking_date,response){
+        var price_info = availability =ceremonies_count=0;
+        // console.log(response.slotsInfo.availability_slots_count,'safdsf');
+        $.each(response.data,function(field_name,element){
+            if(element.price_info){
+                price_info = JSON.parse(element.price_info);
+            }        
             
-          
-        // item ["startTime"] = element.booking_start_time;
-        // item ["endTime"] = element.booking_end_time;
-        // item ["daysOfWeek"] = [findWeekDay(element.dayText)];
-        setbookingData.push(item);
-        cermonies_count++;
+            availability = response.slotsInfo.availability_slots_count +'/' + response.slotsInfo.total_slots;
+        
+            ceremonies_count = response.slotsInfo.ceremonies_count;
+           
+            console.log(element.ceremonies_count,'ceremonies_count');
+            var price =  ' $ '+(parsePrice(price_info.admin_fee) + parsePrice(price_info.your_fee) + parsePrice(price_info.location_fee));
+            
+            item = {}
+            item ["id"] = element.id;
+            item ["title"] = element.location_name;
+    
+            item ["start"] = booking_date+'T'+element.booking_start_time;
+            item ["end"] = booking_date+'T'+element.booking_end_time;
+            item ["classNames"] =['calendar-availability-class'];
+            item ["price"] =price;
+            item ["availability"] =availability;
+            item ["ceremonies"] =ceremonies_count;
+            item ["couple"] =element.first_couple_name+' & '+element.second_couple_name;
+            item ["start_time"] =element.booking_start_time;
+            item ["location"] =element.location_name; 
+            setbookingData.push(item);
+        });
+        
            
     })
 
@@ -98,8 +105,14 @@ function initCalander(targetId,bookingData) {
             // if(info.view.type == 'dayGridMonth' || info.view.type == 'timeGridWeek' || info.view.type == 'timeGridDay' ){
                 var element = $(info.el);
                 console.log(info.event.extendedProps.price);
+                
+                element.find('.fc-event-title').before(`<div class="fc-event-availability">${info.event.extendedProps.availability}</div>`);
                 element.find('.fc-event-title').after(`<div class="fc-event-price">${info.event.extendedProps.price}</div>`);
                 element.find('.fc-event-price').after(`<div class="fc-event-ceremonies">${info.event.extendedProps.ceremonies}</div>`);
+                element.find('.fc-event-ceremonies').after(`<div class="fc-event-couple">${info.event.extendedProps.couple}</div>`);
+                element.find('.fc-event-couple').after(`<div class="fc-event-starttime">${info.event.extendedProps.start_time}</div>`);
+                element.find('.fc-event-starttime').after(`<div class="fc-event-location">${info.event.extendedProps.location}</div>`);
+                
             //}
             
         },

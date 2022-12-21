@@ -19,15 +19,18 @@ class CalendarController extends Controller
      */
     public function index()
     {
-        // echo "<pre>";
-        // $booking = CelebrantDaySlot::with('dates')->whereHas('dates',function($qr){
-        //     $qr->where('user_id',auth()->user()->id);
-        // })->get();
-        // print_r($dates->toArray());
-        // die();
-        $booking = Booking::with('location')->where('celebrant_id',auth()->user()->id)->get();
-        // dd($booking);
-        return view('celebrant.calendar.index',['booking' => $booking]);
+        try {
+            $booking = Booking::getCalendarBooking(auth()->user()->id);
+            // dd($booking);
+            return view('celebrant.calendar.index',['booking' => $booking]);
+            
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+        
+        
+        
     }
     public function demo()
     {
