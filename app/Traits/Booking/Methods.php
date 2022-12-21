@@ -403,17 +403,25 @@ trait Methods
                             if(count($checkBooking) > 0){
                                 $slotsInfo['ceremonies_count']++;
                                 unset($dataresponse[$key]); 
-                                $data2[$bookingDate] = $dataresponse->values();    
+                                
+                                $data2[$bookingDate] = $dataresponse->values();  
+                                // $data2[$bookingDate] = array_values($dataresponse);   
+                                // dd($data2); 
                             } 
                             else{
-                                $data2[$bookingDate] =$dataresponse;
+                                $data2[$bookingDate] =$dataresponse->values();
                             }
                             
                         }
-                        // dd($data2);
+                    
                 }
               
             } 
+            
+            foreach($data2 as $res){
+                $response[$date]['available_slots'] =$res;
+            }
+            
 
             $slotsInfo['availability_slots_count'] =  $slotsInfo['total_slots'] - $slotsInfo['ceremonies_count'];
             $response[$date]['slotsInfo'] =$slotsInfo;
