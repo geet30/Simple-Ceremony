@@ -97,7 +97,9 @@ class CelebrantsController extends Controller
                 $query->select('name', 'id');
             }])->first();
             $booking = Booking::with('location')->where('celebrant_id',$id)->get();
-            return view('admin.marriage-celebrants.detail', compact(['data', 'id', 'allLocations','booking']));
+           
+            $bookingData = Booking::getCalendarBooking($id);
+            return view('admin.marriage-celebrants.detail', compact(['data', 'id', 'allLocations','booking','bookingData']));
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

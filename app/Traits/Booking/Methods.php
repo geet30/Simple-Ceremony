@@ -301,9 +301,9 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
-    static function getCalendarBooking($request)
+    static function getCalendarBooking($user_id)
     {
-        $booking = Booking::with('location')->where('celebrant_id',auth()->user()->id)->get()->groupBy('booking_date');
+        $booking = Booking::with('location')->where('celebrant_id',$user_id)->get()->groupBy('booking_date');
         $response = [];
         foreach($booking as $date=>$resultResponse){
 
