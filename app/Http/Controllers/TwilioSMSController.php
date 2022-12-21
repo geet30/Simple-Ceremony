@@ -32,29 +32,21 @@ class TwilioSMSController extends Controller
             $booking = Booking::with('user')->where('booking_date', '=', $check_date)->get();
             $count = 0;
             $client = new Client($account_sid, $auth_token);
-            $phone_number = "+917986169826";
-            // $phone_number = "+917018652465";
-            $client->messages->create(
-                $phone_number,
-                [
-                    'from' => $twilio_number,
-                    'body' => $message,
-                ]
-            );
-            // foreach($booking as $sendSms){
-            //    
-            //     // $phone_number = '+'.$sendSms->user->country_code.$sendSms->user->phone;
-            //     $count++;
+            
+            foreach($booking as $sendSms){
+               
+                $phone_number = '+'.$sendSms->user->country_code.$sendSms->user->phone;
+                $count++;
 
-            //     $client->messages->create(
-            //         $phone_number,
-            //         [
-            //             'from' => $twilio_number,
-            //             'body' => $message,
-            //         ]
-            //     );
+                $client->messages->create(
+                    $phone_number,
+                    [
+                        'from' => $twilio_number,
+                        'body' => $message,
+                    ]
+                );
                 
-            // }
+            }
   
             dd('SMS Sent Successfully.');
   

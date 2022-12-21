@@ -47,7 +47,7 @@ class SendBookingPriorMsg extends Command
             $count = 0;
             $client = new Client($account_sid, $auth_token);
             foreach($booking as $sendSms){
-                $phone_number = "+918699569925";
+               
                 $phone_number = '+'.$sendSms->user->country_code.$sendSms->user->phone;
                 $count++;
 
