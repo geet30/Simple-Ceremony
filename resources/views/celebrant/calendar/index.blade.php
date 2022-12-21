@@ -59,6 +59,7 @@
 
 <script src="./fullcalendar/main.js"></script>
 <script src="./fullcalendar/init.js"></script>
+<script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
 <script>
    initCalander('calendar-js',@json($booking))
 </script>
