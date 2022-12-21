@@ -9,7 +9,7 @@
                     <label class="small-text2">Filter {{ $counter+1}}</label>
                     <span class="body-1 neutral-100 me-4 mb-3">{{ ucfirst($filter->name) }}</span>
                     <div class="d-flex">
-                        <a href="{{ route('filters.destroy', $filter->id) }}" class=""><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
+                        <a href="{{ route('filters.destroy', $filter->id) }}" class="me-2"><img src="/images/admin/add-ons/add-on-delete.svg" alt="Delete"></a>
                         <a class="edit-filter" class="ms-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvaseditlocationfilter" data-name="{{$filter->name }}" data-id="{{$filter->id}}" aria-controls="offcanvaseditlocationfilter"><img src="/images/admin/add-ons/add-on-edit.svg" alt="Edit"></a>
                     
                     

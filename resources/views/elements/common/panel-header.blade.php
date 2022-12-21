@@ -7,7 +7,7 @@ if (Cookie::get('myCart')) {
 }
 ?>
 <header class="panel-header">
-    <div class="row m-0">
+    <div class="row m-0 justify-content-between">
         @if(Auth::user()->roles->first()->name =='User')
 
         
@@ -38,7 +38,7 @@ if (Cookie::get('myCart')) {
             </div>
             @endif
         @endif
-        <div class="col-12 col-md-4 d-flex justify-content-end order-md-2">
+        <div class="col-12 col-md-4 d-flex justify-content-md-end mb-4 mb-md-0 order-md-2">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -127,7 +127,7 @@ if (Cookie::get('myCart')) {
                             <a class="nav-link dropdown-toggle d-flex admin-profile py-0" href="#"
                                 id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                <div class="align-self-center"><img src="/images/icons/header-logo.svg"  class="img-fluid me-2"></div>
+                                <div class="align-self-center"><img src="/images/icons/header-logo.svg"  class="img-fluid me-2" style="min-width: 51px;"></div>
                                 <div class="align-self-center">
 
                                    @if(Auth::user()->roles->first()->name =='User')
