@@ -301,16 +301,22 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
-    static function getCalendarBooking($user_id)
+    static function getCalendarBooking($user_id,$locationId=null)
     {
         $booking = Booking::with('location')->where('celebrant_id',$user_id)->get()->groupBy('booking_date');
         $response = [];
+        $locationId ='';
+        
         foreach($booking as $date=>$resultResponse){
 
             $response[$date]['data'] =$resultResponse;
             $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
             $over_ride = CelebrantDateOverRide::with('location')
             ->where('override_date',$date);
+            if($locationId !=''){
+                $over_ride = $over_ride->where('location_id',$locationId);
+            }
+            
             $over_ride = $over_ride->where('day',strtolower($start_day))        
             ->get();  
            
@@ -326,28 +332,16 @@ trait Methods
                         $qr->whereDate('start_date','<=',$date)
                         ->whereDate('end_date','>=',$date);              
                     });
+                if($locationId !=''){
+                    $slotsWithoutOverride = $slotsWithoutOverride->where('location_id',$locationId);
+                }
                   
                 $slotsWithoutOverride =$slotsWithoutOverride->where('day',strtolower($start_day))->get();
-                
-               
-                //$slots_array = [];
-            
-                // foreach($dateInfo as $key=>$info){              
-                //     foreach($slotsWithoutOverride as $location_id=>$slotsWithoutOverride_info){                
-                //         foreach($slotsWithoutOverride_info as $detail){
-                           
-                //             if (($info >= $detail->availabilitydates->start_date) && ($info <= $detail->availabilitydates->end_date)){ 
-                //                 $slots_array[$location_id][$info][] = $detail;
-                //             }
-                //         }                  
-                //     }                
-                // }
                 if(count($slotsWithoutOverride) > 0){
                 
                     $dataArr[$date] =  $slotsWithoutOverride;
     
                 }
-                // dd($slots_array);
 
             } 
             $slotsInfo = [];
@@ -355,87 +349,71 @@ trait Methods
             $slotsInfo['availability_slots_count'] = 0;
             $slotsInfo['ceremonies_count'] = 0;
             $data2 =[];
-            if(count($dataArr) > 0){ 
-                                  
-                foreach($dataArr as $bookingDate=>$dataresponse){ 
-                    
-                        $slotsInfo['total_slots'] = count($dataresponse);
-                        
-                        foreach($dataresponse as $key=>$result){ 
-                            $start_time = $result->start_time;
-                            $end_time = $result->end_time;
-                            if(isset($result->override_date) && $result->override_date !=''){
-                                $booking_date = $result->override_date;
-                            }else{
-                                $booking_date = $bookingDate;
-                            }
-                            $checkBooking = Booking::where('locationId',$result->location_id)->where('booking_date', $booking_date)
-                            
-                            ->where(function($qrd)use($start_time,$end_time){
-                                    $qrd->where(function($qra) use($start_time,$end_time){
-                                        $qra->where(function($st) use($start_time,$end_time){
-                                            $st->whereTime('booking_start_time','>=',$start_time)
-                                                ->whereTime('booking_start_time','<',$end_time)
-                                                ->whereTime('booking_start_time','=',$start_time)
-                                                ->whereTime('booking_end_time','=',$end_time);
-                                        })
-                                        ->orWhere(function($et) use($start_time,$end_time){
-                                            $et->whereTime('booking_end_time','>',$start_time)
-                                                ->whereTime('booking_end_time','<=',$end_time)
-                                                ->whereTime('booking_start_time','=',$start_time)
-                                                ->whereTime('booking_end_time','=',$end_time);
-                                        });
-                                    })
-                                    ->orWhere(function($qra)use($start_time,$end_time){
-                                        $qra->where(function($st) use($start_time){
-                                            $st->whereTime('booking_start_time','<=',$start_time)
-                                                ->whereTime('booking_end_time','>',$start_time)
-                                                ->whereTime('booking_start_time','=',$start_time);
-                                        })
-                                        ->orWhere(function($et) use($end_time){
-                                            $et->whereTime('booking_start_time','<',$end_time)
-                                                ->whereTime('booking_end_time','>=',$end_time)
-                                                ->whereTime('booking_end_time','=',$end_time);
-                                        });
-                                    });
-                            })->get(); 
-                            
-                            if(count($checkBooking) > 0){
-                                $slotsInfo['ceremonies_count']++;
-                                unset($dataresponse[$key]); 
-                                
-                                $data2[$bookingDate] = $dataresponse->values();  
-                                // $data2[$bookingDate] = array_values($dataresponse);   
-                                // dd($data2); 
-                            } 
-                            else{
-                                $data2[$bookingDate] =$dataresponse->values();
-                            }
-                            
+            if(count($dataArr) > 0){                                    
+                foreach($dataArr as $bookingDate=>$dataresponse){                    
+                    $slotsInfo['total_slots'] = count($dataresponse);                   
+                    foreach($dataresponse as $key=>$result){ 
+                        $start_time = $result->start_time;
+                        $end_time = $result->end_time;
+                        if(isset($result->override_date) && $result->override_date !=''){
+                            $booking_date = $result->override_date;
+                        }else{
+                            $booking_date = $bookingDate;
                         }
-                    
-                }
-              
-            } 
-            
+                        $checkBooking = Booking::where('locationId',$result->location_id)->where('booking_date', $booking_date)
+                        
+                        ->where(function($qrd)use($start_time,$end_time){
+                                $qrd->where(function($qra) use($start_time,$end_time){
+                                    $qra->where(function($st) use($start_time,$end_time){
+                                        $st->whereTime('booking_start_time','>=',$start_time)
+                                            ->whereTime('booking_start_time','<',$end_time)
+                                            ->whereTime('booking_start_time','=',$start_time)
+                                            ->whereTime('booking_end_time','=',$end_time);
+                                    })
+                                    ->orWhere(function($et) use($start_time,$end_time){
+                                        $et->whereTime('booking_end_time','>',$start_time)
+                                            ->whereTime('booking_end_time','<=',$end_time)
+                                            ->whereTime('booking_start_time','=',$start_time)
+                                            ->whereTime('booking_end_time','=',$end_time);
+                                    });
+                                })
+                                ->orWhere(function($qra)use($start_time,$end_time){
+                                    $qra->where(function($st) use($start_time){
+                                        $st->whereTime('booking_start_time','<=',$start_time)
+                                            ->whereTime('booking_end_time','>',$start_time)
+                                            ->whereTime('booking_start_time','=',$start_time);
+                                    })
+                                    ->orWhere(function($et) use($end_time){
+                                        $et->whereTime('booking_start_time','<',$end_time)
+                                            ->whereTime('booking_end_time','>=',$end_time)
+                                            ->whereTime('booking_end_time','=',$end_time);
+                                    });
+                                });
+                        })->get(); 
+                        
+                        if(count($checkBooking) > 0){
+                            $slotsInfo['ceremonies_count']++;
+                            unset($dataresponse[$key]);                                
+                            $data2[$bookingDate] = $dataresponse->values(); 
+                        } 
+                        else{
+                            $data2[$bookingDate] =$dataresponse->values();
+                        }
+                        
+                    }                   
+                }             
+            }            
             foreach($data2 as $res){
                 $response[$date]['available_slots'] =$res;
             }
-            
-
             $slotsInfo['availability_slots_count'] =  $slotsInfo['total_slots'] - $slotsInfo['ceremonies_count'];
             $response[$date]['slotsInfo'] =$slotsInfo;
            
            
         }
         return $response;
-        // dd($response);
-        // array_push($slotsInfo,$booking);
-        // $boo
-       
-        dd($data2);
-        // $booking
-        
+        dd($response);   
+        dd($data2);      
     }
     static function searchBooking($request)
     {

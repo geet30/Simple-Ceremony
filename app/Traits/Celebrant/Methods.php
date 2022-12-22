@@ -2,7 +2,7 @@
 
 namespace App\Traits\Celebrant;
 
-use App\Models\{User, RequestLocations,Booking,BookingDetailsDocs,BookingDetails,CelebrantLocations,MarriageCertificateNumber};
+use App\Models\{User,Locations, RequestLocations,Booking,BookingDetailsDocs,BookingDetails,CelebrantLocations,MarriageCertificateNumber};
 use Illuminate\Support\Facades\Cache;
 use Str;
 use Illuminate\Support\Facades\File;
@@ -345,5 +345,65 @@ trait Methods
             return ['status' => false,'message'=>$ex->getMessage()]; 
         }
     }
-    
+    public static function searchCalendarByLocation($request){
+      
+        $ceremonies = Booking::getCalendarBooking(auth()->user()->id,$request->secondOptgroup);   
+        dd($ceremonies);
+      
+        // if ($request->has('secondOptgroup') && !empty($request->secondOptgroup)) {
+        //     $data = $ceremonies->whereIn('locationId', $request->secondOptgroup);
+        // }
+              
+        // else{
+           
+        //     $data =  $ceremonies;
+        // }
+        // return $data->get();
+
+       
+    } 
+     
+    public static function searchCalendarByCouple($request){
+       
+        $search = $request->search;
+        $data = self::fetch_marriages();
+        if ($request->has('status') && $request->filled('status')) {
+            $whereClause = [
+                ['status', '=', $request->status]
+            ];
+            $data = $data->where($whereClause);
+        }
+        $data = $data->where(function ($query) use($search) {
+            $query->where('first_couple_name', 'like', '%' . $search . '%')
+                ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+        });
+        return $data->get();
+    }
+    public static function fetch_celebrant_locations($user_id){
+        $fetch_celebrant_locations =  CelebrantLocations::where('celebrant_id',$user_id)->get();
+            
+        $location_ids =[];
+        foreach($fetch_celebrant_locations as $celebrant_location){
+            $location_ids[] = $celebrant_location['location_id'];
+
+        }
+
+        $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
+        $getcelebrantAssignedLocation = collect($getcelebrantAssignedLocation)->map(function ($item) {
+            $item['table'] = 'locations';
+            return $item;
+        });       
+       
+            
+        $data  = self::fetch_locations()->get();
+        $data = collect($data)->map(function ($item) {
+            $item['table'] = 'request_locations';       
+            return $item;
+        });
+        $data = $getcelebrantAssignedLocation->concat($data);
+        // dd($data);
+        $allLocations =  Locations::whereNotIn('id', $location_ids)->get();
+        return $allLocations;
+
+    }
 }
