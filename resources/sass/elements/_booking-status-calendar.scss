@@ -4,6 +4,9 @@
     font-weight: 700 !important;
     font-size: 13px !important;
     line-height: 16px !important;
+    &:hover{
+        background: transparent !important;
+    }
     .fc-event-availability { 
         color: #197CD8;
         background: #EDF6FF;
@@ -13,6 +16,8 @@
         font-weight: 700;
         font-size: 13px;
         line-height: 16px;
+        margin-bottom: 10px;
+        margin-left: -10px;
     }
 }
 .fc .fc-daygrid-event-harness {
@@ -24,21 +29,158 @@
     overflow-x: hidden;
     direction: rtl;
     margin-top: 8px;
-    margin-left: 5px;
-    padding-left: 5px;
-    &::-webkit-scrollbar-track
-    {
-        border-radius: 16px;
-        background-color: #B6CED0;
+    margin-left: 3px;
+    padding-left: 15px;
+    margin-bottom: 8px;
+    // &::-webkit-scrollbar-track
+    // {
+    //     background-color: #B6CED0;
+    //     border-radius: 100px;
+    // }
+    // &::-webkit-scrollbar
+    // {
+    //     width: 3px;
+    // }
+    // &::-webkit-scrollbar-thumb
+    // {
+    //     background-color: #6F8B8D;
+    //     border-radius: 100px;
+    // }
+}
+.availability-details {
+    margin-bottom: 15px;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 6px;
+        background: #1C1C1C;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
     }
-    &::-webkit-scrollbar
-    {
-        width: 3px;
-        background-color: #B6CED0;
+}
+.booking-slot{
+    .fc-event-ceremonies_count {
+        color: #197CD8;
+        background: #EDF6FF;
+        border-radius: 31px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 10px;
+        margin-left: -10px;
     }
-    &::-webkit-scrollbar-thumb
-    {
-        border-radius: 9px;
-        background-color: #6F8B8D;
+    .booking-details {
+        margin-bottom: 15px;
+        position: relative;
+        white-space: normal;
+        &:before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 6px;
+            background: #1C1C1C;
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+        }
+    }
+    .fc-event-no_cermeony {
+        position: relative;
+        white-space: normal;
+        &:before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 6px;
+            background: #1C1C1C;
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+        }
+    }
+}
+.fc-day-past.ceremonies_exist {
+    .fc-daygrid-day-events {
+        &::-webkit-scrollbar-track
+        {
+            background-color: #B6CED0;
+            border-radius: 100px;
+        }
+        &::-webkit-scrollbar
+        {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: #6F8B8D;
+            border-radius: 100px;
+        }
+    }
+    .fc-event-availability { 
+        color: #EDF1F1;
+        background: #B6CED0;
+        border-radius: 31px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 10px;
+        margin-left: -10px;
+    }
+    .fc-event-ceremonies_count {
+        color: #EDF1F1;
+        background: #B6CED0;
+        border-radius: 31px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+        margin-bottom: 10px;
+        margin-left: -10px;
+    }
+}
+.fc-day-future.ceremonies_empty {
+    background: transparent;
+    .fc-daygrid-day-events {
+        &::-webkit-scrollbar-track
+        {
+            background-color: #E2F3F2;
+            border-radius: 100px;
+        }
+        &::-webkit-scrollbar
+        {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: #62CBC9;
+            border-radius: 100px;
+        }
+    }
+}
+.fc-day-future.ceremonies_exist {
+    background: #FFDECF;
+    .fc-daygrid-day-events {
+        &::-webkit-scrollbar-track
+        {
+            background-color: #FFFFFF;
+            border-radius: 100px;
+        }
+        &::-webkit-scrollbar
+        {
+            width: 3px;
+        }
+        &::-webkit-scrollbar-thumb
+        {
+            background-color: #F8A985;
+            border-radius: 100px;
+        }
     }
 }
