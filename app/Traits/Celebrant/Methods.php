@@ -317,8 +317,6 @@ trait Methods
 
         // $data =BookingDetails::whereIn('booking_id',$booking_Ids)->whereIn('marriage_certificate_number',$certificate_no);
 
-       
-
         $data = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
             $qr->whereIn('marriage_certificate_number',$certificate_no);
         })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',$celebrant_id);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
-use App\Models\{Locations, User, UserNoim, CeremonyFeedback, BookingDetails};
+use App\Models\{Locations, User, UserNoim, CeremonyFeedback, BookingDetails,MarriageCertificateNumber};
 use Illuminate\Http\Request;
 use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
@@ -102,11 +102,12 @@ class DashboardController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = CelebrantMethods::marriage_detail($id)->first();
-
+            $allCertificates = MarriageCertificateNumber::where('user_id',Auth::user()->id)->get();
             $celebrant_details = User::where('id', Auth::user()->id)->with('celebrant')->first();
             $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'marriageDocument', 'signedDocumentDetail', 'parents', 'divorceOrWidowedDocument'])->get();
+            // dd($couple);
            
-            return view('celebrant.upcoming.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id'));
+            return view('celebrant.upcoming.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id','allCertificates'));
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -205,12 +206,20 @@ class DashboardController extends Controller
 
     public function saveSignedDocumentDetail(Request $request, $bookingId)
     {
-       
+    
         $request->merge([
             'have_you_ordered_certificate' => $request->have_you_ordered_certificate === "on" ? true : false
         ]);
-        // dd($request->all());
         BookingDetails::updateOrCreate(['booking_id' => $bookingId], $request->all());
-        return redirect()->back();
+        // return redirect()->back();
+        if (Auth::user()->roles->first()->name == 'Admin') {
+            $route = 'marriages/detail/' . $bookingId;
+        }
+        else if (Auth::user()->roles->first()->name == 'Celebrant') {
+            $route = 'upcoming/detail/' . $bookingId;
+        }  
+        return redirect($route)->with(['message' =>'Document updated successfully.', 'class' => 'alert-success']);
+           
+        
     }
 }

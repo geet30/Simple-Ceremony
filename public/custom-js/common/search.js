@@ -53,7 +53,33 @@ $(document).ready(function(){
             }
         });
     }
-
+    window.SearchCalendarFilter = function(url,keyword=null){
+        closedDiv('filter_div');
+        var locationId = [];
+        $('.searchingMultiple option:selected').each(function () {
+             
+            if($(this).parent().attr('label') == 'Location') {
+                locationId.push($(this).val());    
+            }       
+        });
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                'search': keyword,'locationId':locationId ,
+            },
+            dataType: 'json',
+            cache: false,
+            
+            success: function(response)
+            {
+                
+                initCalander('calendar-js',response.data)
+                
+              
+            }
+        });
+    }
     window.SearchMultipleFilter = function(url,keyword=null,cls=null){
         closedDiv('filter_date_div');
         const sub_tab_id = $("ul.add-on-list-nav li button.active").attr("id");
@@ -116,6 +142,7 @@ $(document).ready(function(){
                     if(cls =='simpletabs'){
                         $("."+current_url[2]).html(response);
                     }else{
+                        // $('#calendar-js').fullCalendar('refetchEvents');
                         $("."+cls).html(response); // this is if we don't have tabs
                     }
             }

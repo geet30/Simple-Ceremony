@@ -301,24 +301,33 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
-    static function getCalendarBooking($user_id,$locationId=null)
+    static function getCalendarBooking($user_id,$locationId=null,$couple=null)
     {
-        $booking = Booking::with('location')->where('celebrant_id',$user_id)->get()->groupBy('booking_date');
-        $response = [];
-        $locationId ='';
-        
+        $booking = Booking::with('location')->where('celebrant_id',$user_id);
+        if(!empty($locationId)){
+            $booking = $booking->whereIn('locationId',$locationId);
+        }
+        if(!empty($couple)){
+            $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
+                    ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
+        }
+
+        $booking = $booking->get()->groupBy('booking_date');      
+        $response = [];      
         foreach($booking as $date=>$resultResponse){
 
             $response[$date]['data'] =$resultResponse;
             $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
             $over_ride = CelebrantDateOverRide::with('location')
             ->where('override_date',$date);
-            if($locationId !=''){
-                $over_ride = $over_ride->where('location_id',$locationId);
+            
+            if(!empty($locationId)){
+               
+                $over_ride = $over_ride->whereIn('location_id',$locationId);
             }
             
             $over_ride = $over_ride->where('day',strtolower($start_day))        
-            ->get();  
+            ->get(); 
            
             
             $dataArr = [];
@@ -327,16 +336,18 @@ trait Methods
                 $dataArr[$date] =  $over_ride;
 
             }else{
-           
+               
                 $slotsWithoutOverride =   CelebrantDaySlot::with('location','availabilitydates','calendardayslots')->whereHas('dates',function($qr) use($date){                 
                         $qr->whereDate('start_date','<=',$date)
                         ->whereDate('end_date','>=',$date);              
                     });
-                if($locationId !=''){
-                    $slotsWithoutOverride = $slotsWithoutOverride->where('location_id',$locationId);
+                if(!empty($locationId)){
+                  
+                    $slotsWithoutOverride = $slotsWithoutOverride->whereIn('location_id',$locationId);
                 }
                   
                 $slotsWithoutOverride =$slotsWithoutOverride->where('day',strtolower($start_day))->get();
+              
                 if(count($slotsWithoutOverride) > 0){
                 
                     $dataArr[$date] =  $slotsWithoutOverride;
@@ -349,7 +360,8 @@ trait Methods
             $slotsInfo['availability_slots_count'] = 0;
             $slotsInfo['ceremonies_count'] = 0;
             $data2 =[];
-            if(count($dataArr) > 0){                                    
+            if(count($dataArr) > 0){ 
+                                               
                 foreach($dataArr as $bookingDate=>$dataresponse){                    
                     $slotsInfo['total_slots'] = count($dataresponse);                   
                     foreach($dataresponse as $key=>$result){ 
@@ -402,17 +414,19 @@ trait Methods
                         
                     }                   
                 }             
-            }            
-            foreach($data2 as $res){
-                $response[$date]['available_slots'] =$res;
-            }
+            }          
+            if(!empty($data2)){
+                foreach($data2 as $res){
+                    $response[$date]['available_slots'] =$res;
+                }
+            }         
+            
             $slotsInfo['availability_slots_count'] =  $slotsInfo['total_slots'] - $slotsInfo['ceremonies_count'];
             $response[$date]['slotsInfo'] =$slotsInfo;
-           
+            // dd($response); 
            
         }
-        return $response;
-        dd($response);   
+        return $response;        
         dd($data2);      
     }
     static function searchBooking($request)
@@ -434,21 +448,15 @@ trait Methods
             if ($request->filled('id')) {
                 $locationId = $request->id;
             }
-            
-
             $over_ride = CelebrantDateOverRide::with('location')
             ->whereBetween('override_date',[$dateInfo[0],end($dateInfo)]);
             if($locationId !=''){
                 $over_ride = $over_ride->where('location_id',$locationId);
             }
-            
-
             $over_ride = $over_ride->whereIn('day',$days_arr)          
             ->get()->groupBy('location_id');   
-           
-           
-            $over_ride_array = [];
-            
+                    
+            $over_ride_array = [];           
             foreach($dateInfo as $key=>$info){              
                 foreach($over_ride as $location_id=>$over_ride_info){                
                     foreach($over_ride_info as $detail){
@@ -458,10 +466,8 @@ trait Methods
                         }
                     }                  
                 }                
-            }
-           
-           
-           $dataArr = [];
+            }         
+            $dataArr = [];
             if(count($over_ride_array) > 0){
                 
                 $dataArr =  $over_ride_array;

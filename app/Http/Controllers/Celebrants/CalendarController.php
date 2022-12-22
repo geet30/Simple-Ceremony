@@ -20,10 +20,8 @@ class CalendarController extends Controller
     public function index()
     {
         try {
-            $booking = Booking::getCalendarBooking(auth()->user()->id);
-          
-            $celebrant_locations = CelebrantMethods::fetch_celebrant_locations(auth()->user()->id);
-           
+            $booking = Booking::getCalendarBooking(auth()->user()->id);        
+            $celebrant_locations = CelebrantMethods::fetch_celebrant_locations(auth()->user()->id);          
             return view('celebrant.calendar.index',['booking' => $booking,'celebrant_locations'=>$celebrant_locations]);
             
         }
@@ -39,8 +37,8 @@ class CalendarController extends Controller
      */
     public function searchCalendarByLocation(Request $request){
         try {
-            $data =   CelebrantMethods::searchCalendarByLocation($request);
-            return View::make('elements.celebrant.marriage.search-marriages', ['data' => $data]);
+            $booking = Booking::getCalendarBooking(auth()->user()->id,$request->locationId); 
+            return $this->successResponse($booking, 'Calendar updated successfully.');
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
@@ -53,8 +51,8 @@ class CalendarController extends Controller
      */
     public function searchCalendarByCouple(Request $request){
         try {
-            $data =   CelebrantMethods::searchCalendarByCouple($request);
-            return View::make('elements.celebrant.marriage.search-marriages', ['data' => $data]);
+            $booking = Booking::getCalendarBooking(auth()->user()->id,'',$request->search); 
+            return $this->successResponse($booking, 'Calendar updated successfully.');
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }

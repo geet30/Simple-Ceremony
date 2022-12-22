@@ -6,65 +6,94 @@
 
 @section('content')
 <div class="container-fluid">
-<div class="row">
-   <div class="col-2 col-md-3 col-lg-2 px-0">
-      @include('elements.celebrant.celebrant-sidebar')
-   </div>
-   <div class="col-10 col-md-9 col-lg-10 px-md-4">
-      @include('elements.common.panel-header')
-      <div class="row pt-31 mb-4">
-         <div class="col-md-8 col-xl-9 d-flex align-self-center">
-            <?php //dd($celebrant_locations);?>
-            <div class="dropdown ">
+   <div class="row">
+      <div class="col-2 col-md-3 col-lg-2 px-0">
+         @include('elements.celebrant.celebrant-sidebar')
+      </div>
+      <div class="col-10 col-md-9 col-lg-10 px-md-4">
+         @include('elements.common.panel-header')
+         <div class="row pt-31 mb-4">
+            <div class="col-md-8 col-xl-9 d-flex align-self-center">
+               <?php //dd($celebrant_locations);
+               ?>
+               <!-- <div class="dropdown filter_date_div">
+                  <a role="button" class="theme-btn d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon"></a>
+                  <div class="dropdown-menu p-3 filter_date_div">
+                     <div class="filter-date-calendar" style="width:200px;">
+                        <form method="post">
+                           <div class="row">
+
+                              <div class="col-6">
+
+                                 <h4 class="h4 neutral-100 mb-3">Locations</h4>
+                                 @foreach ($celebrant_locations as $location)
+
+                                 <div class="form-check mb-3 d-flex align-items-center ">
+                                    <input class="form-check-input me-2 searchingMultiple" type="checkbox" name="filter_by_categories[]" value="{{$location->id}}">
+                                    <label class="form-check-labe body-2 neutral-100">{{ $location->name }}</label>
+                                 </div>
+                                 @endforeach
+                                 <a onclick="SearchCalendarFilter('/search-calendar-by-location','','show_calendar')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a>
+                              </div>
+
+
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div> -->
+               <div class="dropdown filter_date_div">
                   <a class="btn" role="button">
-                  <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
+                     <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                   </a>
                   <div class="select-with-checkbox">
                      <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control location_categories_button searchingMultiple" multiple="multiple">
-                       
+
                         <optgroup label="Location">
                            @foreach ($celebrant_locations as $location)
-                                <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
-                                </option>
-                            @endforeach
+                           <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
+                           </option>
+                           @endforeach
                         </optgroup>
                      </select>
                   </div>
-         
+
                </div>
-            <div class="form-group has-search w-100 ms-4 position-relative">
-                <input type="text" class="form-control" placeholder="Search couple name" onkeyup="searchWithoutTabs('/search-calendar-with-couple',this.value, 'celebrantLocations', '1')">
-               <span class="fa fa-search form-control-feedback"></span>
+               <div class="form-group has-search w-100 ms-4 position-relative">
+                  <input type="text" class="form-control" placeholder="Search couple name" onkeyup="SearchCalendarFilter('/search-calendar-with-couple',this.value)">
+                  <span class="fa fa-search form-control-feedback"></span>
+               </div>
+               <!--  -->
+
+            </div>
+            <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
+               <a class="theme-btn primary-btn d-flex justify-content-center" href="{{ route('calendar.create') }}">
+                  <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
+                  Add new availability
+               </a>
             </div>
          </div>
-         <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-            <a class="theme-btn primary-btn d-flex justify-content-center" href="{{ route('calendar.create') }}">
-            <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
-            Add new availability
-            </a>
-         </div>
-      </div>
-      
-      <div class="row">
-         <div class="col-12 mb-5">
-            <!-- tab content -->
-            <div id='calendar-js'></div>
-            
-            <!-- tab content -->
+
+         <div class="row">
+            <div class="col-12 mb-5">
+               <!-- tab content -->
+               <div id='calendar-js'></div>
+
+               <!-- tab content -->
+            </div>
          </div>
       </div>
    </div>
-</div>
-@include('elements.common.calander')
+   @include('elements.common.calander')
 
-@endsection
+   @endsection
 
-@section('scripts')
+   @section('scripts')
 
-<script src="./fullcalendar/main.js"></script>
-<script src="./fullcalendar/init.js"></script>
-<script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
-<script>
-   initCalander('calendar-js',@json($booking))
-</script>
-@endsection
+   <script src="./fullcalendar/main.js"></script>
+   <script src="./fullcalendar/init.js"></script>
+   <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+   <script>
+      initCalander('calendar-js', @json($booking))
+   </script>
+   @endsection
