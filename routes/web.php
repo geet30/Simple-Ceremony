@@ -505,7 +505,9 @@ $celebrantRoutes = function () {
         Route::post('search-invoices', [CelebrantInvoices::class, 'searchCelebrantInvoices']);
 
         Route::resource('calendar', CalendarController::class);
-        Route::get('calendar-demo', [CalendarController::class,'demo']);
+        Route::post('search-calendar-by-location',[CalendarController::class, 'searchCalendarByLocation']);
+        Route::post('search-calendar-with-couple',[CalendarController::class, 'searchCalendarByCouple']);
+        
 
 
         Route::get('calendars/over-ride', [CalendarController::class,'overRideCreate'])->name('calendar.over-ride');
