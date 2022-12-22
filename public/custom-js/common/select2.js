@@ -14,7 +14,7 @@ else if(current_url[1] =='add-ons'){
 }
 else if(current_url[1]=='calendar'){
   
-  var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('/search-calendar-by-location','','searchCalendar')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
+  var filter= `<div class="search-location"><a onclick="SearchCalendarFilter('/search-calendar-by-location')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
 }
 else{
   var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('search-location','','searchResult')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
@@ -55,6 +55,7 @@ $(".js-example-placeholder-single").select2({
 $(".select2Popup").select2({
   dropdownParent: $("#celebrant_addlocation")
 });
+$(".select2DocumentPopup").select2();
 $(".select2partnerPopup").select2({
   dropdownParent: $(".offcanvasCommonClass")
 });

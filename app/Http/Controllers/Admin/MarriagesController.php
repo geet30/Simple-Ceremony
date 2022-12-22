@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking, Locations, UserNoim, User};
+use App\Models\{Booking, Locations, UserNoim, User,MarriageCertificateNumber};
 use App\Traits\Marriages\{Methods as MarriagesMethods};
 use View;
 use Illuminate\Support\Facades\Auth;
@@ -170,14 +170,15 @@ class MarriagesController extends Controller
             $celebrants = Locations::celebrants()->get();
             $locations = Locations::all();
             $data = MarriagesMethods::marriage_detail($id)->first();
-
+            $allCertificates = MarriageCertificateNumber::all();
 
             $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'signedDocumentDetail', 'parents'])->get();
+            // dd($couple);
             $UserId = booking::whereId($id)->pluck('celebrant_id')->first();
            
 
             $celebrant_details = User::where('id', $UserId)->with('celebrant')->first();
-            return view('admin.marriages.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id'));
+            return view('admin.marriages.detail', compact('celebrants', 'locations', 'data', 'celebrant_details', 'couple', 'id','allCertificates'));
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

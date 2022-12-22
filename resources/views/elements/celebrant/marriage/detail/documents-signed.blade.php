@@ -120,13 +120,18 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
         <div class=" col-lg-9 col-xl-9 mt-3 mt-lg-0">
             <div class="row">
                 <div class="col-md-6  mb-4 ">
-                    <label for="marriage_certificate_number" class="form-label small-text2 ps-2">Fill marriage
-                        certificate
-                        number</label>
+                    <label for="marriage_certificate_number" class="form-label small-text2 ps-2">Fill marriage certificate number</label>
+           
+                    <select class="select2DocumentPopup form-control" name="marriage_certificate_number">
+                        <option value="" disabled="" selected="" hidden="">Type marriage certificate number here</option>
+                        @foreach ($allCertificates as $certificates)
+                            <option value="{{ $certificates->id }}" {{ (isset($documentDetail->marriage_certificate_number) && $documentDetail->marriage_certificate_number == $certificates->id) ? 'selected' : '' }}>{{ $certificates->certificate_prefix.$certificates->first_certificate_no.$certificates->certificate_suffix }}</option>
+                        @endforeach
+                    </select>
+<!-- 
                     <input type="text" placeholder="Type marriage certificate number here"
                         class="form-control body-1 netural-100" name="marriage_certificate_number"
-                        value="{{ $documentDetail ? $documentDetail->marriage_certificate_number : '' }}"
-                        id="marriage_certificate_number">
+                        value="{{ $documentDetail ? $documentDetail->marriage_certificate_number : '' }}" id="marriage_certificate_number"> -->
                 </div>
                 <div class="col-12 mb-5">
                     <a role="button" class="theme-btn primary-btn cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0"
@@ -189,6 +194,11 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
         </div>
     </div>
 </form>
+<style type="text/css">
+span.select2-container.select2-container--default.select2-container--open {
+    z-index: 9999999;
+}
+</style>
 <script>
     // $(document).ready(function() {
     //     setTimeout(() => {

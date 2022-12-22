@@ -301,7 +301,7 @@ $adminRoutes = function () {
             Route::post('update/{id}', [PartnerController::class, 'update'])->name('partner.update');
         });
         Route::group(['prefix' => 'marriages'], function () {
-            Route::post('save-detail/{id}', [DashboardController::class, 'saveSignedDocumentDetail'])->name('celebrant.marriage.save-detail');
+            Route::post('save-detail/{id}', [DashboardController::class, 'saveSignedDocumentDetail'])->name('admin.marriage.save-detail');
             Route::get('/{slug?}', [MarriagesController::class, 'index'])->name('admin.marriages');
             Route::post('save-celebrant', [MarriagesController::class, 'saveCelebrant'])->name('save-celebrant');
             Route::get('detail/{id}', [MarriagesController::class, 'detail'])->name('marriage.detail');

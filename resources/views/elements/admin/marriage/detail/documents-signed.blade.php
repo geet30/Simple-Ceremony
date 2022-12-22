@@ -2,7 +2,9 @@
 $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $couple[0]->signedDocumentDetail : null;
 
 @endphp
-<form class=" pt-31" method="post" action="{{ route('celebrant.marriage.save-detail', $id) }}">
+<?php //dd($couple);?>
+
+<form class=" pt-31" method="post" action="{{ route('admin.marriage.save-detail', $id) }}">
     @csrf
     <div class="row">
         <div class="pe-xl-0  col-xl-2  mb-4 mb-xl-0">
@@ -123,10 +125,16 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                     <label for="marriage_certificate_number" class="form-label small-text2 ps-2">Fill marriage
                         certificate
                         number</label>
-                    <input type="text" placeholder="Type marriage certificate number here"
+                        <select class="select2DocumentPopup form-control" name="marriage_certificate_number">
+                            <option value="" disabled="" selected="" hidden="">Type marriage certificate number here</option>
+                            @foreach ($allCertificates as $certificates)
+                                <option value="{{ $certificates->id }}" {{ (isset($documentDetail->marriage_certificate_number) && $documentDetail->marriage_certificate_number == $certificates->id) ? 'selected' : '' }}>{{ $certificates->certificate_prefix.$certificates->first_certificate_no.$certificates->certificate_suffix }}</option>
+                            @endforeach
+                        </select>
+                    <!-- <input type="text" placeholder="Type marriage certificate number here"
                         class="form-control body-1 netural-100" name="marriage_certificate_number"
                         value="{{ $documentDetail ? $documentDetail->marriage_certificate_number : '' }}"
-                        id="marriage_certificate_number">
+                        id="marriage_certificate_number"> -->
                 </div>
                 <div class="col-12 mb-5">
                     <a role="button" class="theme-btn primary-btn cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0"
@@ -155,6 +163,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                         data-bs-toggle="offcanvas" data-id="{{$data->user->email}}" data-bs-target="#view-message" aria-controls="view-message">View message before sending</a>
                     <a class="theme-btn primary-btn-border  d-inline-flex me-lg-3 mb-4 mb-lg-0 ">Send</a>
                 </div>
+                
                 <div class="col-md-12 mb-4">
                     <label for="event_comment" class="form-label small-text2  ps-2">Event Summary Comments</label>
                     <textarea class="form-control body-1 netural-100" id="event_comment" placeholder="Type here" rows="10"
@@ -189,6 +198,11 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
         </div>
     </div>
 </form>
+<style type="text/css">
+span.select2-container.select2-container--default.select2-container--open {
+    z-index: 9999999;
+}
+</style>
 <script>
    
     var cl = console.log;
