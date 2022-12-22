@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-lg-4 col-xl-3 col-xxl-2">
                                 <a role="button" data-bs-toggle="modal" data-bs-target="#delete_alert"
-                                    class="theme-btn primary-btn-border d-flex justify-content-center">Delete account</a>
+                                    class="theme-btn primary-btn-border d-flex justify-content-center align-items-center"><img class="me-2" src="/images/icons/delete.svg" alt="shopping-icon">Delete account</a>
                             </div>
                         </div>
                         <div class="tab-content" id="tabContent">
