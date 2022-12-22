@@ -12,6 +12,10 @@ if(current_url[1] =='upcoming'){
 else if(current_url[1] =='add-ons'){
   var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('/search-addon-with-location','','searchAddon')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
 }
+else if(current_url[1]=='calendar'){
+  
+  var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('/search-calendar-by-location','','searchCalendar')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
+}
 else{
   var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('search-location','','searchResult')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
 }

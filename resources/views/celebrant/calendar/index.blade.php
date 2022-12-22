@@ -14,22 +14,26 @@
       @include('elements.common.panel-header')
       <div class="row pt-31 mb-4">
          <div class="col-md-8 col-xl-9 d-flex align-self-center">
+            <?php //dd($celebrant_locations);?>
             <div class="dropdown ">
-               <a class="btn" role="button">
-               <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
-               </a>
-               <div class="select-with-checkbox">
-                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
-                     <optgroup label="Location">
-                        <option value="O1" data-badge="">Blue point</option>
-                        <option value="O2" data-badge="">Tech Park</option>
-                        <option value="O3" data-badge="">Bradfield Park</option>
-                     </optgroup>
-                  </select>
+                  <a class="btn" role="button">
+                  <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
+                  </a>
+                  <div class="select-with-checkbox">
+                     <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control location_categories_button searchingMultiple" multiple="multiple">
+                       
+                        <optgroup label="Location">
+                           @foreach ($celebrant_locations as $location)
+                                <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
+                                </option>
+                            @endforeach
+                        </optgroup>
+                     </select>
+                  </div>
+         
                </div>
-            </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
-                <input type="text" class="form-control" placeholder="Search couple name">
+                <input type="text" class="form-control" placeholder="Search couple name" onkeyup="searchWithoutTabs('/search-calendar-with-couple',this.value, 'celebrantLocations', '1')">
                <span class="fa fa-search form-control-feedback"></span>
             </div>
          </div>

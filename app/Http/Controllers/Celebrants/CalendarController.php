@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Celebrants;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations,CelebrantDetail,CelebrantDateOverRide};
+use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations,CelebrantDetail,CelebrantDateOverRide,CelebrantLocations};
 use App\View\Components\daySubSlots;
 use Carbon\Carbon;
 use App\View\Components\OverRideDays;
-
+use App\Traits\Celebrant\{Methods as CelebrantMethods};
 
 class CalendarController extends Controller
 {
@@ -21,29 +21,44 @@ class CalendarController extends Controller
     {
         try {
             $booking = Booking::getCalendarBooking(auth()->user()->id);
-            // dd($booking);
-            return view('celebrant.calendar.index',['booking' => $booking]);
+          
+            $celebrant_locations = CelebrantMethods::fetch_celebrant_locations(auth()->user()->id);
+           
+            return view('celebrant.calendar.index',['booking' => $booking,'celebrant_locations'=>$celebrant_locations]);
             
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }    
+        
+    }
+     /**
+     * Search Calendar By Location.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchCalendarByLocation(Request $request){
+        try {
+            $data =   CelebrantMethods::searchCalendarByLocation($request);
+            return View::make('elements.celebrant.marriage.search-marriages', ['data' => $data]);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
-        
-        
-        
     }
-    public function demo()
-    {
-        // echo "<pre>";
-        $booking = CelebrantDaySlot::with('location','dates')->whereHas('dates',function($qr){
-            $qr->where('user_id',auth()->user()->id);
-        })->get();
-        // print_r($dates->toArray());
-        // die();
-        // $booking = Booking::with('location')->where('celebrant_id',auth()->user()->id)->get();
-        return view('celebrant.calendar.demo',['booking' => $booking]);
+    
+        /**
+     * Search Calendar By Couple.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchCalendarByCouple(Request $request){
+        try {
+            $data =   CelebrantMethods::searchCalendarByCouple($request);
+            return View::make('elements.celebrant.marriage.search-marriages', ['data' => $data]);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
-
     /**
      * Show the form for creating a new resource.
      *
