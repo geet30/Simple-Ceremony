@@ -1,0 +1,44 @@
+.calendar-availability-class {
+    display: block !important;
+    color: #1C1C1C !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    line-height: 16px !important;
+    .fc-event-availability {
+        color: #197CD8;
+        background: #EDF6FF;
+        border-radius: 31px;
+        display: inline-block;
+        padding: 5px 10px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 16px;
+    }
+}
+.fc .fc-daygrid-event-harness {
+    direction: ltr;
+}
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    height: 160px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    direction: rtl;
+    margin-top: 8px;
+    margin-left: 5px;
+    padding-left: 5px;
+    &::-webkit-scrollbar-track
+    {
+        border-radius: 16px;
+        background-color: #B6CED0;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 3px;
+        background-color: #B6CED0;
+    }
+    &::-webkit-scrollbar-thumb
+    {
+        border-radius: 9px;
+        background-color: #6F8B8D;
+    }
+}

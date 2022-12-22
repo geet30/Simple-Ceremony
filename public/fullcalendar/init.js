@@ -78,8 +78,8 @@ function initCalander(targetId,bookingData) {
             item ["end"] = booking_date+'T'+element.booking_end_time;
             item ["classNames"] =['calendar-availability-class'];
             item ["price"] =price;
-            item ["availability"] =availability;
-            item ["ceremonies"] =ceremonies_count;
+            item ["availability"] =availability+' availability';
+            item ["ceremonies"] =ceremonies_count+' ceremonies';
             item ["couple"] =element.first_couple_name+' & '+element.second_couple_name;
             item ["start_time"] =element.booking_start_time;
             item ["location"] =element.location_name; 
@@ -89,9 +89,6 @@ function initCalander(targetId,bookingData) {
            
     })
 
-    console.log('====================================');
-    console.log('sortBookingData -', sortBookingData);
-    console.log('====================================');
     
     var calendarEl = document.getElementById(targetId);
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -106,12 +103,12 @@ function initCalander(targetId,bookingData) {
                 var element = $(info.el);
                 console.log(info.event.extendedProps.price);
                 
-                element.find('.fc-event-title').before(`<div class="fc-event-availability">${info.event.extendedProps.availability}</div>`);
-                element.find('.fc-event-title').after(`<div class="fc-event-price">${info.event.extendedProps.price}</div>`);
-                element.find('.fc-event-price').after(`<div class="fc-event-ceremonies">${info.event.extendedProps.ceremonies}</div>`);
-                element.find('.fc-event-ceremonies').after(`<div class="fc-event-couple">${info.event.extendedProps.couple}</div>`);
-                element.find('.fc-event-couple').after(`<div class="fc-event-starttime">${info.event.extendedProps.start_time}</div>`);
-                element.find('.fc-event-starttime').after(`<div class="fc-event-location">${info.event.extendedProps.location}</div>`);
+                element.find('.fc-daygrid-event-dot').before(`<div class="fc-event-availability mb-2">${info.event.extendedProps.availability}</div>`);
+                element.find('.fc-event-time').after(`<div class="fc-event-price mb-2">${info.event.extendedProps.price}</div>`);
+                // element.find('.fc-event-time').after(`<div class="fc-event-location mb-2">${info.event.extendedProps.location}</div>`);
+                element.find('.fc-event-price').after(`<div class="fc-event-ceremonies mb-2">${info.event.extendedProps.ceremonies}</div>`);
+                element.find('.fc-event-ceremonies').after(`<div class="fc-event-couple mb-2">${info.event.extendedProps.couple}</div>`);
+                element.find('.fc-event-couple').after(`<div class="fc-event-starttime mb-2">${info.event.extendedProps.start_time}</div>`);
                 
             //}
             
