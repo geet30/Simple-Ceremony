@@ -15,9 +15,15 @@
                 <a href="{{url('upcoming/detail',$id)}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
                 @endif
             </div>
+                @if(Auth::user()->roles->first()->name =='Admin')
+                    @php $action = 'admin.';@endphp
+                @elseif(Auth::user()->roles->first()->name =='Celebrant')
+                    @php $action = 'celebrant.';@endphp
+                @endif
+                
                 <div class="card noim-card mb-4">
                     <form class="card-body needs-validation pb-5 px-0 pt-0" method="POST"
-                        action="{{ route('user-noims.update',$id) }}" novalidate enctype="multipart/form-data">
+                        action="{{ route($action.'user-noims.update',$id) }}" novalidate enctype="multipart/form-data">
                         @csrf
                         <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="100"
                             class="scrollspy-example" tabindex="0">

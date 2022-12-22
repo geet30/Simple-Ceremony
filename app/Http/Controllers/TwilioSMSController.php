@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Exception;
 use Twilio\Rest\Client;
 use Carbon\Carbon;
-use App\Models\{Booking};
+use App\Models\{Booking,User};
 
 class TwilioSMSController extends Controller
 {
@@ -27,13 +27,34 @@ class TwilioSMSController extends Controller
             $account_sid = getenv("TWILIO_SID");  
             $auth_token = getenv("TWILIO_TOKEN");
             $twilio_number = getenv("TWILIO_FROM");
-            $message = " Hi {Person 1 Preferred Name} and {Person 2 Preferred Name}, All set for your ceremony at {Start time and Date} at {Location} - Google Pin {Locatin google pin}. Click here to log in to your portal to ensure all is set - [Link to sign in to Portal]. If you have any questions on the day please call me on {marriage celebrants phone number}. See you soon, {Marriage celebrants name}.";
+           
 
             $booking = Booking::with('user')->where('booking_date', '=', $check_date)->get();
+           
+            // dd($booking);
             $count = 0;
             $client = new Client($account_sid, $auth_token);
             
             foreach($booking as $sendSms){
+                $first_couple_name = $sendSms->first_couple_name;
+                $second_couple_name = $sendSms->second_couple_name;
+                $booking_start_time = date('H:i',strtotime($sendSms->booking_start_time));
+                $booking_date = date('M d, Y',strtotime($sendSms->booking_date));
+                $location_name =  $sendSms->location_name;
+                $website_url = config('env.WEBSITE');
+                $celebrant_details = User::where('id',$sendSms->celebrant_id)->select('country_code','phone','name')->first();
+               
+                
+                   
+                $celebrant_phone_number = '+'.$celebrant_details->country_code.$celebrant_details->phone;
+                $celebrant_name = $celebrant_details->name;
+                
+                
+                
+
+                $message = " Hi ".$first_couple_name." and ".$second_couple_name.", All set for your ceremony at ".$booking_start_time." and ".$booking_date."  at ".$location_name.". Click here to log in to your portal to ensure all is set - ".$website_url.". If you have any questions on the day please call me on ".$celebrant_phone_number.". See you soon, ".$celebrant_name;
+                // dd($message);
+
                
                 $phone_number = '+'.$sendSms->user->country_code.$sendSms->user->phone;
                 $count++;

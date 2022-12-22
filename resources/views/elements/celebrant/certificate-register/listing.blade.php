@@ -13,15 +13,16 @@
          @if(count($data) > 0)
          @foreach($data as $request)
             <?php 
-                // $certificate_no  = $request->certificate_prefix.$request->first_certificate_no.$request->certificate_suffix;
-                $certificate_no = $request->booking_details->marriage_certificate_number;
-                $couple_name = $request->first_couple_name.'&'.$request->second_couple_name;
+                $certificate_no  = $request->certificate_prefix.$request->first_certificate_no.$request->certificate_suffix;
+               //  $certificate_no = $request->booking_details->marriage_certificate_number;
+                $couple_name =(isset($request->booking_result)) ?$request->booking_result->first_couple_name.'&'.$request->booking_result->second_couple_name :'';
+                $created_at = (isset($request->booking_result)) ? date('M d,Y',strtotime($request->booking_result->booking_details->created_at)):'';
             ?>
          
             <tr>
                <td class="body-2 neutral-100">{{$certificate_no}}</td>
-               <td class="body-2 neutral-100">{{date('M d,Y',strtotime($request->booking_details->created_at))}}</td>
-               <td class="body-2 neutral-100">{{$request->first_couple_name}} & {{$request->second_couple_name}}</td>
+               <td class="body-2 neutral-100">{{$created_at}}</td>
+               <td class="body-2 neutral-100">{{$couple_name}}</td>
                <td class="body-2 neutral-100"></td>
               
                <td  style="min-width:300px;">
