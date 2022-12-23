@@ -49,6 +49,9 @@ function initCalander(targetId,bookingData) {
                 item ["ceremonies_count"] =ceremonies_booked_count;
                 item ["couple"] =element2.first_couple_name+' & '+element2.second_couple_name;
                 item ["start_time"] =element2.booking_start_time;
+                item ["end_time"] =element2.booking_end_time;
+                item ["start"] = element2.booking_date+'T'+element2.booking_start_time;
+                item ["end"] = element2.booking_date+'T'+element2.booking_end_time;
                 item ["location"] =element2.location_name;
             
                 if(ceremonies_booked_count == 0){
@@ -69,7 +72,7 @@ function initCalander(targetId,bookingData) {
             
         })
     }
-
+console.log('setbookingData',setbookingData);
     
     var calendarEl = document.getElementById(targetId);
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -77,9 +80,9 @@ function initCalander(targetId,bookingData) {
         timeZone: 'UTC',
         events:setbookingData,
        
-       
+      
         eventDidMount: function(info) {
-            console.log(info.view.type,'type');
+            console.log(info);
             // if(info.view.type == 'dayGridMonth' || info.view.type == 'timeGridWeek' || info.view.type == 'timeGridDay' ){
             var element = $(info.el);
             element.parent().parent().parent().parent().removeClass('ceremonies_empty');
@@ -93,9 +96,23 @@ function initCalander(targetId,bookingData) {
             
             element.html('');
             element.append(info.event.extendedProps.htmlcustom); 
-            if(info.view.type == 'timeGridWeek'){ 
+            if(info.view.type == 'dayGridMonth'){ // month
+                if($('.fc-scrollgrid-liquid').length){
+                    $('.fc-scrollgrid-liquid').addClass('monthlyClass');
+                } 
+            }
+            if(info.view.type == 'timeGridWeek'){ //week
                 element.find('.availability-slot').addClass('d-none');
-            }        
+                if($('.fc-scrollgrid-liquid').length){
+                    $('.fc-scrollgrid-liquid').addClass('weeklyClass');
+                }
+                element.find('.fc-event-ceremonies_count').addClass('d-none');
+            } 
+            if(info.view.type == 'timeGridDay'){//day
+                if($('.fc-scrollgrid-liquid').length){
+                    $('.fc-scrollgrid-liquid').addClass('dayClass');
+                }  
+            }       
         },
 
         
