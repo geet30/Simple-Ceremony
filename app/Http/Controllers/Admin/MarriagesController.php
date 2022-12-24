@@ -173,7 +173,6 @@ class MarriagesController extends Controller
             $allCertificates = MarriageCertificateNumber::all();
 
             $couple = UserNoim::where('booking_id', $id)->with(['userDetail', 'booking.location', 'birthDocument', 'signedDocumentDetail', 'parents'])->get();
-            // dd($couple);
             $UserId = booking::whereId($id)->pluck('celebrant_id')->first();
            
 

@@ -26,13 +26,13 @@
                         </div>
                         <div class="calendar-wrapper" id="calendar-wrapper"></div>
                         <input type="hidden" name="booking_date" class="booking_date">
-                        <a onclick="SearchMultipleFilter('search-marriage-by-date')" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
+                        <a onclick="SearchMultipleFilter('search-by-date','','searchResult')" class="theme-btn primary-btn d-inline-block mt-3">Filter</a>
                      </div>
                   </div>
                 </div>
             </div>
             <div class="form-group has-search w-100 ms-4 position-relative">
-                <input type="text" class="form-control" placeholder="Search couple name">
+                <input type="text" class="form-control" placeholder="Search couple name" onkeyup="searchWithoutTabs('search-by-date',this.value, 'searchResult', '1')">
                <span class="fa fa-search form-control-feedback"></span>
             </div>
          </div>

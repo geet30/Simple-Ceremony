@@ -244,6 +244,8 @@ $adminRoutes = function () {
         
         
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
+        Route::post('search-financial-report-date',[FinancialReportController::class, 'searchReportByDate']);
+
         Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
        
        
@@ -311,8 +313,8 @@ $adminRoutes = function () {
             Route::post('detail/{id}', [DashboardController::class, 'saveDocs'])->name('celebrant.marriage.saveDocs');
         });
 
-        Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
-        Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
+        Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('admin.user-noims.update');
+        Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('admin.user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
         Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
         Route::get('download-invoice/{id}', [DownloadController::class, 'downloadInvoices'])->name('downloadInvoices');
@@ -468,7 +470,7 @@ $celebrantRoutes = function () {
            
         });
         Route::resource('certificate-register', CertificateRegisterController::class);
-
+        Route::any('search-by-date', [CertificateRegisterController::class, 'searchCertificateByDate']);
              
         Route::group(['prefix' => 'upcoming'], function () {
             Route::get('/{slug?}', [DashboardController::class, 'index'])->name('celebrant.marriages');
@@ -478,8 +480,8 @@ $celebrantRoutes = function () {
             Route::post('search-marriage', [DashboardController::class, 'searchCelebrantMarriagesWithStatus']);
             Route::post('search-marriage-by-date', [DashboardController::class, 'searchCelebrantMarriagesWithDate']);
         });
-        Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('user-noims.update');
-        Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('user-noim.steps');
+        Route::post('user-noims/update/{id}', [UserNoimController::class, 'updateUserNoim'])->name('celebrant.user-noims.update');
+        Route::get('user/noim/{id}', [UserNoimController::class, 'userNoim'])->name('celebrant.user-noim.steps');
         Route::get('download/{file}', [DownloadController::class, 'downloadDocument'])->name('downloadDocument');
         Route::get('view/{file}', [DownloadController::class, 'viewDocument'])->name('viewDocument');
         Route::get('download-invoice/{id}', [DownloadController::class, 'downloadInvoices'])->name('downloadInvoices');

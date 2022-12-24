@@ -9,141 +9,137 @@ trait Methods
 
     public static function fetch_all_reports($id=null)
     {   
-        $data = Locations::whereHas('booking')->with(['booking']);
-        if($id !=null){
-            $data = $data->where('id',$id);
-        }
-        
+       
+        $data = Locations::whereHas('booking')->with(['booking','booking.type_of_ceremony','booking.booking_addons.partner','booking.booking_addons.packages'])->groupby('id');
         return $data;
-    }  
-    public static function createCustomInvoice($data){
-        // dd($data->all());
-        
-        $booking =  Booking::where('id',$data->booking_id)->first();
-              
-        $invoices_data['user_id']  = $booking->user_id;
-        $invoices_data['booking_id']  = $booking->id;
-       
-        if(isset($data->recipient_name) && !empty($data->recipient_name)){
-            $celebrant_details =User::where('id',$data->recipient_name)->with('celebrant')->first();
-           
-            $invoices_data['celebrant_id']  = $data->recipient_name;
-            $invoices_data['recipient_name']  = $celebrant_details->first_name;//celebrant name;
-            $invoices_data['abn_number']  =$celebrant_details->abn_number;
-            $invoices_data['bank_name']  = $celebrant_details->bank;
-            $invoices_data['bank_number']  = $celebrant_details->account_no;
-        }
-
-        // $invoices_data['invoice_number']  = 1111666;       
-        $invoices_data['amount']  = $booking->price;
-        $invoices_data['notes']  = $data->notes;
-        
-        $invoices_data['status']  = config('ceremonyStatus.status.Booked');
-        Invoices::create($invoices_data);
-        return true;
-
     }
-    public static function createCelebrantCustomInvoice($data){
-
-        
-        $booking =  Booking::where('id',$data->booking_id)->first();
-              
-        $invoices_data['user_id']  = $booking->user_id;
-        $invoices_data['booking_id']  = $booking->id;
-       
-        // if(isset($data->recipient_name) && !empty($data->recipient_name)){
-        $celebrant_details =User::where('id',$booking->celebrant_id)->with('celebrant')->first();
-        
-        $invoices_data['celebrant_id']  = $booking->celebrant_id;
-        $invoices_data['recipient_name']  = $celebrant_details->first_name;//celebrant name;
-        $invoices_data['abn_number']  =$celebrant_details->abn_number;
-        $invoices_data['bank_name']  = $celebrant_details->bank;
-        $invoices_data['bank_number']  = $celebrant_details->account_no;
-        // }
-     
-        $invoices_data['amount']  = $booking->price;
-        $invoices_data['notes']  = $data->notes;
-        
-        $invoices_data['status']  = config('ceremonyStatus.status.Booked');
-        Invoices::create($invoices_data);
-        return true;
-
+    public static function fetch_all_location_reports($id){
+        $data = Booking::whereHas('location')->with(['type_of_ceremony','booking_addons.partner','booking_addons.packages'])->where('locationId',$id);
+        return $data;
     }
-    public static function searchByInvoice($request){
+   
+    public static function searchReportByDate($request)
+    {
+        
         try{
             $req_page = 1;
             $records = 10;
-            $search = $request->search;
-            $slug = '';
-            if(isset($request->current_url[2]) && !empty($request->current_url[2])){
-                $slug = $request->current_url[2];
+            $data = self::fetch_all_reports();
+            // dd($request->all());
+           
+            if ($request->has('celebrants') && $request->filled('celebrants')) {           
+                $celebrant_id = $request->celebrants;              
+                $data = $data->whereHas('booking', (function ($q) use ($celebrant_id) {                   
+                    $q->WhereIn('celebrant_id', $celebrant_id);
+                    
+                }));               
             }
-            $data = self::fetch_all_payments($slug);
-            if( $search !=''){
-                $data = $data->where(function ($query) use($search) {
-                    $query->where('invoice_number', '=', $search);
-                });
+            if ($request->has('ceremonies') && $request->filled('ceremonies')) {           
+                $ceremony_type = $request->ceremonies;              
+                $data = $data->whereHas('booking', (function ($q) use ($ceremony_type) {                   
+                    $q->WhereIn('ceremony_type', $ceremony_type);                   
+                }));
+                
             }
+            
+            if ($request->has('partners') && $request->filled('partners')) {           
+                $partner_id = $request->partners;              
+                $data = $data->whereHas('booking.booking_addons.partner', (function ($q) use ($partner_id) {                   
+                    $q->WhereIn('id', $partner_id);
+                    
+                }));               
+            }
+            
+            if ($request->has('locationId') && $request->filled('locationId')) {
+            
+                $locationId = $request->locationId;
+                $data = $data->WhereIn('id', $locationId);
+                
+            }
+            $end_date = '';
+            if($request->filled('search_end_date')){
+                $end_date =$request->search_end_date;
+            }
+            if ($request->filled('search_start_date') && $end_date =='') {
+                $start_date =$request->search_start_date;
+                // $end_date = date('Y-m-d');
+                $data = $data->whereHas('booking', (function ($q) use ($start_date) {
+                    $q->whereDate('booking_date','=',$start_date);
+                    
+                }));                
+                          
+            }
+            if($end_date !=''){
+                $start_date =$request->search_start_date;
+                
+                $data = $data->whereHas('booking', (function ($q) use ($start_date,$end_date) {
+                        
+
+                    $q->whereDate('booking_date','>=',$start_date)
+                    ->whereDate('booking_date','<=',$end_date);
+                    
+                })); 
+            }
+         
             return $data->paginate($records, ['*'], 'page', $req_page);
         }catch (\Exception $ex) {
-           dd($ex);
-        }
-        
+            dd($ex);
+         }
+       
+        // dd($data->toSql());
+       
     }
-    public static function searchPaymentsByDate($request)
+    public static function searchReportForLocation($request)
     {
-        // dd($request->all());
+        
         try{
             $req_page = 1;
             $records = 10;
-            $slug = '';
-            $whereClause = [];
-            if(isset($request->current_url[2]) && !empty($request->current_url[2])){
-                $slug = $request->current_url[2];
+            $data = self::fetch_all_location_reports($request->current_url[3]);
+            // dd($request->all());
+           
+            if ($request->has('celebrants') && $request->filled('celebrants')) {           
+                $celebrant_id = $request->celebrants;              
+                $data = $data->WhereIn('celebrant_id', $celebrant_id);
+                              
             }
-           
-           
-            $data = self::fetch_all_payments($slug);
-            if ($request->has('bookingStatus') && $request->filled('bookingStatus')) {
-            
-                $status = $request->bookingStatus;
+            if ($request->has('ceremonies') && $request->filled('ceremonies')) {           
+                $ceremony_type = $request->ceremonies;              
+                $data = $data->WhereIn('ceremony_type', $ceremony_type);                   
                
-                $data = $data->whereHas('booking', (function ($q) use ($status) {
-                    
-                    $q->WhereIn('status', $status);
-                    
-                }));
-                // $data = $data->whereIn($whereClause);
-            }
-            else if (($request->has('bookingStatus') && $request->filled('bookingStatus')) && ($request->has('celebrants') && $request->filled('celebrants'))) {
-                $input['status']= $request->bookingStatus;
-                $input['celebrants']= $request->celebrants;
                 
-                $data = $data->whereHas('booking', (function ($q) use ($input) {
-                    $q->WhereIn('status',$input['status'])
-                    ->orWhereIn('celebrant_id',  $input['celebrants']);
-                }));
             }
-            else if ($request->has('celebrants') && $request->filled('celebrants')) {
+            
+            if ($request->has('partners') && $request->filled('partners')) {           
+                $partner_id = $request->partners;              
+                $data = $data->whereHas('booking_addons.partner', (function ($q) use ($partner_id) {                   
+                    $q->WhereIn('id', $partner_id);
+                    
+                }));               
+            }
+            
+            if ($request->has('locationId') && $request->filled('locationId')) {
+            
+                $locationId = $request->locationId;
+                $data = $data->WhereIn('id', $locationId);
                 
-                $celebrants = $request->celebrants;
-                $data = $data->whereHas('booking', (function ($q) use ($celebrants) {
-                    
-                    $q->WhereIn('celebrant_id', $celebrants);
-                    
-                }));
             }
-            if ($request->has('booking_date') && $request->filled('booking_date')) {
-             
-                $date = date('Y-m-d', strtotime($request->booking_date));
-                $data = $data->whereHas('booking', (function ($q) use ($date) {
-    
-                    $q->Where('booking_date', 'like', '%' . $date . '%')
-                    ->orWhere('created_at', 'like', '%' . $date . '%');
-                    
-                }));           
-            } else {
-                $data = $data->orderBy('id', 'DESC');
+            $end_date = '';
+            if($request->filled('search_end_date')){
+                $end_date =$request->search_end_date;
+            }
+            if ($request->filled('search_start_date') && $end_date =='') {
+                $start_date =$request->search_start_date;
+                $data = $data->whereDate('booking_date','=',$start_date);
+                               
+                          
+            }
+            if($end_date !=''){
+                $start_date =$request->search_start_date;
+                
+                $data = $data->whereDate('booking_date','>=',$start_date)
+                    ->whereDate('booking_date','<=',$end_date);
+                  
             }
          
             return $data->paginate($records, ['*'], 'page', $req_page);

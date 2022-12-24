@@ -125,7 +125,7 @@ class InvoicesController extends Controller
         
         // deleteEntries($id,'App\Models\CelebrantLocations','request_location_id'); 
     }
-      /**
+    /**
      * search the specified booking location in storage.
      *
      * @param  \Illuminate\Http\Request  $request

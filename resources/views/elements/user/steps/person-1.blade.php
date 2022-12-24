@@ -1,5 +1,6 @@
 @php
 $person = isset($person) && isset($person[0]) ? $person[0] : null;
+
 @endphp
 <input type="hidden" name="person[0][uuid]" value="{{ $person && $person['uuid'] ? $person['uuid'] : '' }}">
 <div class="row">

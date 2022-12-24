@@ -54,14 +54,14 @@ $(document).ready(function(){
         });
     }
     window.SearchCalendarFilter = function(url,keyword=null){
-        closedDiv('filter_div');
+        
+        closedDiv('filter_date_div');
+       
         var locationId = [];
-        $('.searchingMultiple option:selected').each(function () {
-             
-            if($(this).parent().attr('label') == 'Location') {
-                locationId.push($(this).val());    
-            }       
+        $('.locations:checked').each(function(i){
+            locationId[i] = $(this).val();
         });
+       
         $.ajax({
             type: "post",
             url: url,
@@ -121,6 +121,19 @@ $(document).ready(function(){
         $('.bookingStatus:checked').each(function(i){
             bookingStatus[i] = $(this).val();
         });
+
+        var ceremonies = [];
+        $('.ceremonies:checked').each(function(i){
+            ceremonies[i] = $(this).val();
+        });
+        var locationId = [];
+        $('.locations:checked').each(function(i){
+            locationId[i] = $(this).val();
+        });
+        var partners = [];
+        $('.partners:checked').each(function(i){
+            partners[i] = $(this).val();
+        });
         var current_url = window.location.pathname.split('/');
         if(sub_tab_id != undefined) // if we don't have tabs then we need to do this
             var divId= sub_tab_id.slice(0, -4)
@@ -128,7 +141,7 @@ $(document).ready(function(){
             type: "post",
             url: url,
             data: {
-                'search': keyword,'id': location,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'thirdOptgroup':thirdOptgroup,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus ,'search_start_date':search_start_date,'search_end_date':search_end_date
+                'search': keyword,'id': location,'booking_start_time':booking_start_time,'booking_end_time':booking_end_time,'filter':filter,'firstOptgroup':firstOptgroup,'secondOptgroup':secondOptgroup ,'thirdOptgroup':thirdOptgroup,'payment_date':payment_date, 'ceremony_date':ceremony_date,'booking_date':booking_date ,'status':status,'current_url':current_url,'celebrants':celebrants,'bookingStatus':bookingStatus ,'search_start_date':search_start_date,'search_end_date':search_end_date,'ceremonies':ceremonies,'locationId':locationId,'partners':partners
             },
             dataType: 'html',
             cache: false,

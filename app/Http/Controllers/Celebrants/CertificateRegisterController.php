@@ -9,8 +9,10 @@ use View;
 use Redirect;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
 use Illuminate\Support\Facades\Auth;
+use App\Traits\Pagination\CustomPagination;
 class CertificateRegisterController extends Controller
 {
+    use CustomPagination;
     /**
      * Display a listing of the resource.
      *
@@ -26,8 +28,9 @@ class CertificateRegisterController extends Controller
                 $req_page = $request->page;
             }
 
-            $data  = CelebrantMethods::fetch_marriage_certificate_numbers(Auth::user()->id)->paginate($records, ['*'], 'page', $req_page);
+            $data  = CelebrantMethods::fetch_marriage_certificate_numbers(Auth::user()->id);
             // dd($data);
+            $data = $this->customPaginate($data, $records, $req_page, ['*']);
             if ($request->ajax()) {
                 $viewurl = 'elements.celebrant.certificate-register.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
@@ -46,15 +49,12 @@ class CertificateRegisterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-      
-        try {
-            // $input = $request->except('_token');    
+    {    
+        try {  
             $input = $request->all();  
             $input['user_id'] = Auth::user()->id;                
             $result = MarriageCertificateNumber::create($input);
-            if ($result) {
-               
+            if ($result) {              
                 $msg = 'Marriage Certificate added successfully.';
                 return response()->json(['status' => true, "message" => $msg, "data" => $result]);
             }
@@ -63,9 +63,6 @@ class CertificateRegisterController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
-
- 
-
     /**
      * Update the specified resource in storage.
      *
@@ -75,7 +72,7 @@ class CertificateRegisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        die('sad');
+        
         try {
             $input = $request->except(['_token', '_method']);
            
@@ -88,52 +85,24 @@ class CertificateRegisterController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
+      /**
+     * Update the Certiificates by couple and date specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Enqueries  $enqueries
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        try {
-            $data = Enqueries::where('id', $id)->delete();
-            return redirect('all-enquiries/all-records-tab')->with('message', 'Celebrant deleted successfully.');
-        } catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
-    }
-
-   
-
-    //search function
-    public function searchEnquiries(Request $request)
-    {
+    public function searchCertificateByDate(Request $request){
         $req_page = 1;
         $records = 10;
         try {
-            $whereClause = [];
-            $data = new Enqueries();
-            if ($request->has('status') && $request->filled('status')) {
-                $whereClause = [
-                    ['status', '=', $request->status]
-                ];
-            }
-            if ($request->has('search') && $request->filled('search')) {
-                $data = $data->where(function ($query) use ($request) {
-                    $query->where('couple_one', 'like', '%' . $request->search . '%')
-                        ->orWhere('couple_two', 'like', '%' . $request->search . '%')
-                        ->orWhere('phone', 'like', '%' . $request->search . '%')
-                        ->orWhere('enquiry_date', 'like', '%' . date('Y-m-d',strtotime($request->search)) . '%')
-                        ->orWhere('marriage_date', 'like', '%' . date('Y-m-d',strtotime($request->search)) . '%');
-                })->where($whereClause)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-            } else {
-                $data = $data->orderBy('id', 'DESC')->where($whereClause)->paginate($records, ['*'], 'page', $req_page);
-            }
-            return View::make('admin.enquiries.search-list', ['data' => $data]);
-        } catch (\Exception $e) {
-            return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
+            $data = CelebrantMethods::searchCertificateByDate($request);
+            // dd($data);
+            $data = $this->customPaginate($data, $records, $req_page, ['*']);
+            return View::make('elements.celebrant.certificate-register.listing', ['data' => $data]);
+        } catch (\Exception $ex) {
+           
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
 }

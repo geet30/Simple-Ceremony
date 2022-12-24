@@ -75,5 +75,9 @@ class Booking extends Model
     {
         return $this->belongsTo(CelebrantDetail::class, 'celebrant_id', 'celebrant_id');
     }
+    public function type_of_ceremony()
+    {
+        return $this->hasOne(CeremonyType::class, 'id', 'ceremony_type');
+    }
    
 }

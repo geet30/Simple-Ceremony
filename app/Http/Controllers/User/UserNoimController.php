@@ -138,11 +138,13 @@ class UserNoimController extends Controller
 
     public function userNoim($id)
     {
+
         $person = UserNoim::where('booking_id', $id)->with(['birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness'])->get();
         return view('pages.steps.index', compact('person', 'id'));
     }
     public function updateUserNoim(Request $request, $id)
     {
+        
         $loggedInUserId =  booking::whereId($id)->pluck('user_id')->first();
         $bookingId = $id;
         UserParent::whereUserIdAndBookingId($loggedInUserId, $bookingId)->delete();

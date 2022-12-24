@@ -196,6 +196,46 @@ trait Methods
 
        
     } 
+    public static function searchCertificateByDate($request){
+
+        $marriage_certificate = MarriageCertificateNumber::where('user_id',Auth::user()->id)->get();
+       
+        $certificate_no = '';
+        $response = [];
+      
+        foreach($marriage_certificate as $key=>$result){
+            $response[$key] = $result;
+            $certificate_no = $result->id;
+            $booking_date = $request->booking_date;
+            $search = $request->search;
+            // dd($search);
+            
+            $booking = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
+                $qr->where('marriage_certificate_number',$certificate_no);
+            })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',Auth::user()->id);
+            if(isset($booking_date) && !empty($booking_date)){
+                $booking->whereHas('booking_details',function($qr) use ($booking_date){        
+                            
+                    $qr->whereDate('created_at',$booking_date);
+                });
+            }
+            if(isset($search) && !empty($search)){
+                $booking = $booking->where(function ($query) use($search) {
+                    $query->where('first_couple_name', 'like', '%' . $search . '%')
+                        ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+                });
+            }
+            $booking = $booking->first();
+            if(!empty($booking)){
+                
+                $response[$key]['booking_result'] = $booking;
+            }    
+
+        }
+        // dd($response);
+        return $response;        
+        // dd($response);
+    }
     public static function searchByUser($request)
     {
         $req_page = 1;
@@ -305,24 +345,20 @@ trait Methods
     
     public static function fetch_marriage_certificate_numbers($celebrant_id){
         $marriage_certificate = MarriageCertificateNumber::where('user_id',$celebrant_id)->get();
-        $certificate_no = [];
-        foreach($marriage_certificate as $result){
+       
+        $certificate_no = '';
+        $response = [];
+        $data = [];
+        foreach($marriage_certificate as $key=>$result){
+            $response[$key] = $result;
+            $certificate_no = $result->id;
            
-            $certificate_no[] = $result->certificate_prefix.$result->first_certificate_no.$result->certificate_suffix;
+            $response[$key]['booking_result'] = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
+                $qr->where('marriage_certificate_number',$certificate_no);
+            })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',$celebrant_id)->first();
+
         }
-       
-        // return $data;
-        // $booking_Ids = Booking::with('booking_details')->where('celebrant_id',$celebrant_id)->pluck('id');
-       
-
-        // $data =BookingDetails::whereIn('booking_id',$booking_Ids)->whereIn('marriage_certificate_number',$certificate_no);
-
-        $data = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
-            $qr->whereIn('marriage_certificate_number',$certificate_no);
-        })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',$celebrant_id);
-        
-        return $data;
-
+        return $response;
     }
 
     public static function delete_booking_record($request){
@@ -343,24 +379,7 @@ trait Methods
             return ['status' => false,'message'=>$ex->getMessage()]; 
         }
     }
-    public static function searchCalendarByLocation($request){
-      
-        $ceremonies = Booking::getCalendarBooking(auth()->user()->id,$request->secondOptgroup);   
-        dd($ceremonies);
-      
-        // if ($request->has('secondOptgroup') && !empty($request->secondOptgroup)) {
-        //     $data = $ceremonies->whereIn('locationId', $request->secondOptgroup);
-        // }
-              
-        // else{
-           
-        //     $data =  $ceremonies;
-        // }
-        // return $data->get();
-
-       
-    } 
-     
+  
     public static function searchCalendarByCouple($request){
        
         $search = $request->search;
