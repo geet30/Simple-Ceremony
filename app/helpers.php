@@ -164,6 +164,82 @@ function locationCustomTerms($locationId){
     return Locations::where('id',$locationId)->value('custom_terms');
     
 }
+
+function locationTotalRevenue($data){
+    $revenues = 0;
+    foreach($data as $bookings){
+        $price_info = json_decode($bookings->price_info); 
+        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;      
+    }
+    return $revenues;
+           
+}
+function locationTotalCofgs($data){
+    $CofGS = $revenues =0;
+    foreach($data as $bookings){
+                        
+        $price_info = json_decode($bookings->price_info); 
+        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;            
+        $CofGS +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;                 
+    }
+    $totalCofgs= $revenues - $CofGS;   
+    return $totalCofgs;         
+}
+function locationTotalMargin($data){
+    $CofGS = $revenues =$Margin =$admin_fee_adjustment =0;
+    foreach($data as $bookings){          
+        $price_info = json_decode($bookings->price_info); 
+        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;        
+        $admin_fee_adjustment +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;          
+        
+    }              
+    $CofGS = $revenues - $admin_fee_adjustment;
+    $Margin = $revenues -  $CofGS; 
+    return $Margin;        
+}
+function totalRevenue($data){
+    $revenues = 0;
+    foreach($data as $value){
+        
+        foreach($value->booking as $bookings){
+            $price_info = json_decode($bookings->price_info); 
+            $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee; 
+        }       
+    }
+    return $revenues;
+           
+}
+function totalCofgs($data){
+    $CofGS = $revenues =0;
+    foreach($data as $value){
+        foreach($value->booking as $bookings)
+        {                  
+            $price_info = json_decode($bookings->price_info); 
+            $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;            
+            $CofGS +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;            
+        }
+       
+    }
+    $totalCofgs= $revenues - $CofGS;   
+    return $totalCofgs;         
+}
+
+function totalMargin($data){
+    $CofGS = $revenues =$Margin =$admin_fee_adjustment =0;
+    foreach($data as $value){
+
+        foreach($value->booking as $bookings)
+        {     
+            $price_info = json_decode($bookings->price_info); 
+            $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee; 
+            
+            $admin_fee_adjustment +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;          
+        }
+    }              
+    $CofGS = $revenues - $admin_fee_adjustment;
+    $Margin = $revenues -  $CofGS; 
+    return $Margin;        
+}
 function zipArchive($person,$ids,$userId)
 {
     $selected_ids = explode(',',$ids);

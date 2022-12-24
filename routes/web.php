@@ -244,6 +244,8 @@ $adminRoutes = function () {
         
         
         Route::get('financial-report/locations/{id}', [FinancialReportController::class, 'getReportLocation']);
+        Route::post('search-financial-report-date',[FinancialReportController::class, 'searchReportByDate']);
+
         Route::resource('all-type-of-ceremonies', CeremoniesTypeController::class);
        
        

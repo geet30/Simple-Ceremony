@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User,Booking,Locations};
+use App\Models\{User,Booking,Locations,CeremonyType};
 use Illuminate\Support\Facades\{Auth};
+use App\Traits\Pagination\CustomPagination;
 use View;
 use App\Traits\FinancialReport\{Methods as FinancialReport};
 class FinancialReportController extends Controller
 {
+    use CustomPagination;
     /**
      * Display a listing of the resource.
      *
@@ -24,17 +26,21 @@ class FinancialReportController extends Controller
                 $req_page = $request->page;
             }
             $locations = Locations::all();
+            $type_ceremonies = CeremonyType::all();
+            $partners = User::role('Partner')->select('name','id')->get();
 
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = FinancialReport::fetch_all_reports()->paginate($records, ['*'], 'page', $req_page);
+            $data  = FinancialReport::fetch_all_reports()->get();
+
             // dd($data);
+            $data = $this->customPaginate($data, $records, $req_page, ['*']);
            
             if ($request->ajax()) {            
                 $viewurl = 'elements.admin.financial-report.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
            
-            return view('admin.financial-report.index', compact('data','celebrants','locations')); 
+            return view('admin.financial-report.index', compact('data','celebrants','locations','type_ceremonies','partners')); 
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -57,16 +63,51 @@ class FinancialReportController extends Controller
                 $req_page = $request->page;
             }
             $locations = Locations::all();
-
+            $type_ceremonies = CeremonyType::all();
+            $partners = User::role('Partner')->select('name','id')->get();          
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
-            $data  = FinancialReport::fetch_all_reports($id)->paginate($records, ['*'], 'page', $req_page);
-            // dd($data);
-           
+            $data  = FinancialReport::fetch_all_location_reports($id)->paginate($records, ['*'], 'page', $req_page);
+            // $data2 =[];
+            // foreach($data as $key=>$value){
+                
+            //     foreach($value->booking as $result){
+            //         $data2[]=  $result;
+            //     }
+
+            // }
+            
+            // dd($data); 
+                   
             if ($request->ajax()) {            
-                $viewurl = 'elements.admin.financial-report.listing';
+                $viewurl = 'elements.admin.financial-report.location-listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
-            return view('admin.financial-report.reports-location', compact('data','celebrants','locations')); 
+            return view('admin.financial-report.reports-location', compact('data','celebrants','locations','type_ceremonies','partners')); 
+        } catch (\Exception $ex) {
+            dd($ex);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
+    /**
+     * Search Report By Date.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchReportByDate(Request $request){
+        try {     
+            
+            // dd($request->current_url);  
+            if(isset($request->current_url[2]) && $request->current_url[2] !=''){
+               
+                $data = FinancialReport::searchReportForLocation($request);
+
+                return View::make('elements.admin.financial-report.location-listing', ['data' => $data]);
+            }  else{
+                $data = FinancialReport::searchReportByDate($request);
+
+                return View::make('elements.admin.financial-report.listing', ['data' => $data]);
+            } 
+            
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -142,45 +183,9 @@ class FinancialReportController extends Controller
     public function destroy(Request $request, $id)
     {
 
-       
-        
-        // deleteEntries($id,'App\Models\CelebrantLocations','request_location_id'); 
-    }
-      /**
-     * search the specified booking location in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     * */
-
-    public function searchByStatusDate(Request $request){
-        try {
-            $data =   InvoicesMethod::searchPaymentsByDate($request);
-            return View::make('elements.admin.payments.search-payments', ['data' => $data]);
-        } catch (\Exception $ex) {
-           
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
-    }
-    
-          /**
-     * search the specified booking location in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     * */
-
-    public function searchByInvoice(Request $request){
-        try {
-            $data =   InvoicesMethod::searchByInvoice($request);
-            return View::make('elements.admin.payments.search-payments', ['data' => $data]);
-        } catch (\Exception $ex) {
-           
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
-        }
     }
 
     
+ 
+   
 }

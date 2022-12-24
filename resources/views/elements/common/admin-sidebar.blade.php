@@ -185,7 +185,7 @@
                     </svg>
                     <span class="ms-3  d-none d-md-block  font-weight-600">Payments</span>
                 </a>
-            </li> --}}
+            </li> 
             <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-enquiries' || Request::segment(1) == 'enquiries' ? 'active' : '' }}"
                     href="/all-enquiries/all-records-tab">
@@ -197,7 +197,7 @@
                     </svg>
                     <span class="ms-3  d-none d-md-block  font-weight-600">Enquiries</span>
                 </a>
-            </li>
+            </li>--}}
             <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'financial-report' ? 'active' : '' }}"
                     href="/financial-report">

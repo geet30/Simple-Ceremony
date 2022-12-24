@@ -53,7 +53,6 @@ class TwilioSMSController extends Controller
                 
 
                 $message = " Hi ".$first_couple_name." and ".$second_couple_name.", All set for your ceremony at ".$booking_start_time." and ".$booking_date."  at ".$location_name.". Click here to log in to your portal to ensure all is set - ".$website_url.". If you have any questions on the day please call me on ".$celebrant_phone_number.". See you soon, ".$celebrant_name;
-                // dd($message);
 
                
                 $phone_number = '+'.$sendSms->user->country_code.$sendSms->user->phone;

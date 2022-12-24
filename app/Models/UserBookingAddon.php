@@ -14,4 +14,8 @@ class UserBookingAddon extends Model
     {
         return $this->hasMany('App\Models\PartnerPackages','id','package_id');
     }
+    public function partner()
+    {
+        return $this->belongsTo('App\Models\User','partner_id','id');
+    }
 }

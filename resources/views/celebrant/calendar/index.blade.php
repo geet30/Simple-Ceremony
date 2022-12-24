@@ -16,10 +16,10 @@
             <div class="col-md-8 col-xl-9 d-flex align-self-center">
                <?php //dd($celebrant_locations);
                ?>
-               <!-- <div class="dropdown filter_date_div">
+               <div class="dropdown filter_date_div">
                   <a role="button" class="theme-btn d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon"></a>
                   <div class="dropdown-menu p-3 filter_date_div">
-                     <div class="filter-date-calendar" style="width:200px;">
+                     <div class="filter-date-calendar" style="width:400px;">
                         <form method="post">
                            <div class="row">
 
@@ -27,38 +27,24 @@
 
                                  <h4 class="h4 neutral-100 mb-3">Locations</h4>
                                  @foreach ($celebrant_locations as $location)
-
-                                 <div class="form-check mb-3 d-flex align-items-center ">
-                                    <input class="form-check-input me-2 searchingMultiple" type="checkbox" name="filter_by_categories[]" value="{{$location->id}}">
-                                    <label class="form-check-labe body-2 neutral-100">{{ $location->name }}</label>
-                                 </div>
+                                    
+                                    <div class="form-check mb-3 d-flex align-items-center ">
+                                       <input class="form-check-input me-2 locations" type="checkbox" name="locations[]" value="{{$location->id}}">
+                                       <label class="form-check-labe body-2 neutral-100">{{ $location->name }}</label>
+                                    </div>
                                  @endforeach
-                                 <a onclick="SearchCalendarFilter('/search-calendar-by-location','','show_calendar')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a>
-                              </div>
 
+                              
+                                 <a onclick="SearchCalendarFilter('/search-calendar-by-location')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a>
+                              </div>
 
                            </div>
                         </form>
                      </div>
                   </div>
-               </div> -->
-               <div class="dropdown filter_date_div">
-                  <a class="btn" role="button">
-                     <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
-                  </a>
-                  <div class="select-with-checkbox">
-                     <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control location_categories_button searchingMultiple" multiple="multiple">
-
-                        <optgroup label="Location">
-                           @foreach ($celebrant_locations as $location)
-                           <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
-                           </option>
-                           @endforeach
-                        </optgroup>
-                     </select>
-                  </div>
-
                </div>
+               
+              
                <div class="form-group has-search w-100 ms-4 position-relative">
                   <input type="text" class="form-control" placeholder="Search couple name" onkeyup="SearchCalendarFilter('/search-calendar-with-couple',this.value)">
                   <span class="fa fa-search form-control-feedback"></span>
