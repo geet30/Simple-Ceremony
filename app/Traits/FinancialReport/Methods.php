@@ -130,23 +130,16 @@ trait Methods
             }
             if ($request->filled('search_start_date') && $end_date =='') {
                 $start_date =$request->search_start_date;
-                // $end_date = date('Y-m-d');
-                $data = $data->whereHas('booking', (function ($q) use ($start_date) {
-                    $q->whereDate('booking_date','=',$start_date);
-                    
-                }));                
+                $data = $data->whereDate('booking_date','=',$start_date);
+                               
                           
             }
             if($end_date !=''){
                 $start_date =$request->search_start_date;
                 
-                $data = $data->whereHas('booking', (function ($q) use ($start_date,$end_date) {
-                        
-
-                    $q->whereDate('booking_date','>=',$start_date)
+                $data = $data->whereDate('booking_date','>=',$start_date)
                     ->whereDate('booking_date','<=',$end_date);
-                    
-                })); 
+                  
             }
          
             return $data->paginate($records, ['*'], 'page', $req_page);
