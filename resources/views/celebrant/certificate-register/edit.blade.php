@@ -7,9 +7,12 @@
    <div class="offcanvas-body">
    <div class="message"></div>
    <?php $id =0;?>
-      <form method="PUT" id="update-certificate"  name="update-certificate">
+      <form method="post" id="update-certificate"  name="update-certificate">
          @csrf
-         @method('PUT')
+         @method('post')
+         <input type="hidden" name="id" id="id">
+         <input type="hidden" name="booking_id" id="booking_id">
+         
          <div class="row mb-4">
             <div class="col-md-6">
                 <label for="partnerstatus" class="form-label small-text2 mb-2">Certificate Number</label>
@@ -19,7 +22,6 @@
                         <option value="{{ $certificates->id }}">{{ $certificates->certificate_prefix.$certificates->first_certificate_no.$certificates->certificate_suffix }}</option>
                      @endforeach
                   </select>
-                <!-- <input type="text" name="first_certificate_no" id="certificate_no" class="form-control body-3 netural-100"  required> -->
             </div>
          </div>
          <div class="row mb-4">
@@ -29,14 +31,18 @@
                 <input type="text" name="name_of_couple" id="name_of_couple" class="form-control body-3 netural-100" required readonly>
             </div>
             <div class="col-md-6">
-                <label for="partnerstatus" class="form-label small-text2 mb-2">Date use</label>
-            
-                <input type="text" name="date" id="date_use" class="form-control body-3 netural-100" required >
+               <label for="event_date" class="form-label small-text2">Date Use</label>
+               <div class="input-group date theme-datepicker">
+                  <input role="button" type="text" class="form-control body-1 netural-100 date_use_input" id="date_use" name="date_use"  placeholder="Choose date here" required/>
+                  <span class="input-group-append">
+                  </span>
+                  <!-- <div class="invalid-feedback date_use_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Date use is required</div> -->
+               </div>
             </div>
          </div>
          <div class="row mb-4">
             <div class="col-md-12 mb-2">
-               <input class="form-check-input me-2" type="checkbox" name="status" id="status" value="1"  autocomplete="off">
+               <input class="form-check-input me-2" type="checkbox" name="status" id="status" value="1">
                <label class="form-check-label body-1" for="customlocation">
                         Check the checkbox if certificate is destroyed</label>
             </div>

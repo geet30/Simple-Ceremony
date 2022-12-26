@@ -79,5 +79,6 @@ class Booking extends Model
     {
         return $this->hasOne(CeremonyType::class, 'id', 'ceremony_type');
     }
+    
    
 }

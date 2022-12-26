@@ -27,4 +27,8 @@ class BookingDetails extends Model
         'created_at',
         'updated_at',
     ];
+    public function marriage_certificate()
+    {
+        return $this->hasOne(MarriageCertificateNumber::class, 'id', 'marriage_certificate_number');
+    }
 }
