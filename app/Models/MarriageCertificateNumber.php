@@ -14,6 +14,9 @@ class MarriageCertificateNumber extends Model
         'certificate_suffix',
         'first_certificate_no',
         'no_of_certificates',
+        'status',
+        'details',
+        'date_of_use'
     ];
    
 }

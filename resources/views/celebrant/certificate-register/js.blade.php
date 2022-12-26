@@ -12,6 +12,8 @@ $(document).ready(function(){
         $("#update-certificate").prop("action",$(this).data('action'));
 
         $("#update-certificate").find('#certificate_no').val(certificate_no);
+        // $('#certificate_no').val('selectedvalue');
+        $("#update-certificate").find('#certificate_no [value='+certificate_no+']').attr('selected', 'true');
         $('#name_of_couple').val(couple_name);
 
     })

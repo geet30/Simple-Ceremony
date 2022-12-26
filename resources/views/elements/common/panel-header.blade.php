@@ -151,12 +151,12 @@ if (Cookie::get('myCart')) {
                                 
                                 <li>
                                     @if(Auth::user()->roles->first()->name =='Admin')
-                                        <a class="dropdown-item" href="/account"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                        <a class="dropdown-item" href="/account"><img src="/images/icons/team.svg" class="img-fluid">Settings Profile</a>
                                     
                                     @elseif(Auth::user()->roles->first()->name =='Celebrant')
-                                        <a class="dropdown-item" href="{{route('getCelebrantAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                        <a class="dropdown-item" href="{{route('getCelebrantAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Settings Profile</a>
                                     @elseif(Auth::user()->roles->first()->name =='User')
-                                        <a class="dropdown-item" href="{{route('getUserAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Setting Profile</a>
+                                        <a class="dropdown-item" href="{{route('getUserAccount')}}"><img src="/images/icons/team.svg" class="img-fluid">Settings Profile</a>
                                     @endif
                                 </li>
                                 {{-- <li><a class="dropdown-item" href="role"><img src="/images/icons/roles.svg" class="img-fluid">Roles & right</a></li> --}}
@@ -164,7 +164,7 @@ if (Cookie::get('myCart')) {
                               
                                 @if(Auth::user()->roles->first()->name =='Admin')
                                 <li>
-                                    <a role="button" class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax-icon.svg" class="img-fluid">Setting admin tax</a>
+                                    <a role="button" class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#admin_fee_sidebar"><img src="/images/icons/tax-icon.svg" class="img-fluid">Settings admin tax</a>
                                 </li>
                                 @endif
 

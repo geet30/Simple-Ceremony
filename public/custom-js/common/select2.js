@@ -60,6 +60,10 @@ $(".select2partnerPopup").select2({
   dropdownParent: $(".offcanvasCommonClass")
 });
 
+$(".select2CertificatePopup").select2({
+  dropdownParent: $("#edit-certificate-register")
+});
+
 
 
 
