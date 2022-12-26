@@ -470,6 +470,8 @@ $celebrantRoutes = function () {
            
         });
         Route::resource('certificate-register', CertificateRegisterController::class);
+       
+        Route::post('/certificate-register-update/{id}', [CertificateRegisterController::class, 'update'])->name('certificate-register.update');
         Route::any('search-by-date', [CertificateRegisterController::class, 'searchCertificateByDate']);
              
         Route::group(['prefix' => 'upcoming'], function () {

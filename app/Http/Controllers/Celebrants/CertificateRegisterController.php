@@ -29,7 +29,6 @@ class CertificateRegisterController extends Controller
             }
 
             $data  = CelebrantMethods::fetch_marriage_certificate_numbers(Auth::user()->id);
-            // dd($data);
             $allCertificates = MarriageCertificateNumber::all();
             $data = $this->customPaginate($data, $records, $req_page, ['*']);
             if ($request->ajax()) {
@@ -73,11 +72,10 @@ class CertificateRegisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
         try {
             $input = $request->except(['_token', '_method']);
            
-            $result = MarriageCertificateNumber::where('id', $id)->update($input);
+            $result = CelebrantMethods::updateCertificate($input);
             if ($result) {
                 $msg = 'Marriage Certificate updated successfully.';
                 return response()->json(['status' => true, "message" => $msg, "data" => $result]);
@@ -97,10 +95,20 @@ class CertificateRegisterController extends Controller
         $req_page = 1;
         $records = 10;
         try {
-            $data = CelebrantMethods::searchCertificateByDate($request);
+            if($request->search !='' || $request->booking_date !=''){
+                $data = CelebrantMethods::searchCertificateByDate($request);
+                $data = $this->customPaginate($data, $records, $req_page, ['*']);
+                return View::make('elements.celebrant.certificate-register.search-register', ['data' => $data]);
+               
+            }else{
+                $data  = CelebrantMethods::fetch_marriage_certificate_numbers(Auth::user()->id);
+                $data = $this->customPaginate($data, $records, $req_page, ['*']);
+                return View::make('elements.celebrant.certificate-register.listing', ['data' => $data]);
+            }
+            
+            
             // dd($data);
-            $data = $this->customPaginate($data, $records, $req_page, ['*']);
-            return View::make('elements.celebrant.certificate-register.listing', ['data' => $data]);
+           
         } catch (\Exception $ex) {
            
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

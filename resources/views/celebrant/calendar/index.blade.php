@@ -71,7 +71,7 @@
       </div>
    </div>
    @include('elements.common.calander')
-
+   @include('pages.alert.calendar_modal')
    @endsection
 
    @section('scripts')
