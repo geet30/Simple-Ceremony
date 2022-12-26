@@ -13,15 +13,20 @@
          <div class="row mb-4">
             <div class="col-md-6">
                 <label for="partnerstatus" class="form-label small-text2 mb-2">Certificate Number</label>
-            
-                <input type="text" name="first_certificate_no" id="certificate_no" class="form-control body-3 netural-100" readonly required>
+                  <select class="select2CertificatePopup form-control" name="first_certificate_no" id="certificate_no">
+                     <option value="" disabled="" selected="" hidden="">Type marriage certificate number here</option>
+                     @foreach ($allCertificates as $certificates)
+                        <option value="{{ $certificates->id }}">{{ $certificates->certificate_prefix.$certificates->first_certificate_no.$certificates->certificate_suffix }}</option>
+                     @endforeach
+                  </select>
+                <!-- <input type="text" name="first_certificate_no" id="certificate_no" class="form-control body-3 netural-100"  required> -->
             </div>
          </div>
          <div class="row mb-4">
             <div class="col-md-6">
                 <label for="partnerstatus" class="form-label small-text2 mb-2">Name of couple</label>
             
-                <input type="text" name="name_of_couple" id="name_of_couple" class="form-control body-3 netural-100" required>
+                <input type="text" name="name_of_couple" id="name_of_couple" class="form-control body-3 netural-100" required readonly>
             </div>
             <div class="col-md-6">
                 <label for="partnerstatus" class="form-label small-text2 mb-2">Date use</label>
@@ -30,6 +35,11 @@
             </div>
          </div>
          <div class="row mb-4">
+            <div class="col-md-12 mb-2">
+               <input class="form-check-input me-2" type="checkbox" name="status" id="status" value="1"  autocomplete="off">
+               <label class="form-check-label body-1" for="customlocation">
+                        Check the checkbox if certificate is destroyed</label>
+            </div>
             <div class="col-md-12">
                 <label for="details" class="form-label small-text2 mb-2">Details</label>
                 <textarea name="details" id="details" class="form-control body-3 netural-100"></textarea>

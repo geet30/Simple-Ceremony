@@ -20,6 +20,11 @@ return new class extends Migration
             $table->string('certificate_suffix',30)->nullable();
             $table->string('first_certificate_no')->nullable();
             $table->string('no_of_certificates',10)->nullable();
+            $table->date('date_of_use')->nullable();
+            $table->text('details')->nullable();
+            $table->smallInteger('status')->comment(
+                '1 =destroyed, 0 = not destroyed')->default(0);
+       
             $table->timestamps();
         });
     }

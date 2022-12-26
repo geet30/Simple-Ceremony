@@ -30,12 +30,13 @@ class CertificateRegisterController extends Controller
 
             $data  = CelebrantMethods::fetch_marriage_certificate_numbers(Auth::user()->id);
             // dd($data);
+            $allCertificates = MarriageCertificateNumber::all();
             $data = $this->customPaginate($data, $records, $req_page, ['*']);
             if ($request->ajax()) {
                 $viewurl = 'elements.celebrant.certificate-register.listing';
                 return View::make($viewurl, ['req_page' => $req_page, 'data' => $data]);
             }
-            return view('celebrant.certificate-register.index', compact('data'));
+            return view('celebrant.certificate-register.index', compact('data','allCertificates'));
         } catch (\Exception $ex) {
             dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -72,7 +73,7 @@ class CertificateRegisterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        dd($request->all());
         try {
             $input = $request->except(['_token', '_method']);
            

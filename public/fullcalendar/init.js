@@ -20,54 +20,67 @@ function initCalander(targetId,bookingData) {
     
     var setbookingData = [];
     if(bookingData.length !== 0){
-        console.log('exist');
+       
         $.each(bookingData,function(booking_date,response){
+            itemArr = [];
+            singleitem =[];
             ceremonies_booked_count = 0;
             var price =price_info = availability =0;
             availability = response.slotsInfo.ceremonies_count +'/' + response.slotsInfo.total_slots;
             ceremonies_booked_count = response.slotsInfo.ceremonies_count;
-            console.log('eachtime',ceremonies_booked_count);
-            item = {}
-            item['htmlcustom'] = `<div class="availability-slot"><div class="fc-event-availability">${availability} availability</div>`;
+            
+            
+            singleitem['htmlcustom'] = `<div class="availability-slot"><div class="fc-event-availability">${availability} availability</div>`;
+          
+           
+
             $.each(response.available_slots,function(field_name,element){
+                item ={};
                 var price =  ' $ '+(parsePrice(element.admin_fee) + parsePrice(element.your_fee) + parsePrice(element.location_fee));
                 
                 item ["start"] = booking_date+'T'+element.start_time;
                 item ["end"] = booking_date+'T'+element.end_time;
                 item ["classNames"] =['calendar-availability-class'];
-                item ["price"] =price;
-                item ["availability"] =availability+' availability';
                 item['htmlcustom'] += `<div class="availability-details"><div class="fc-event-availability-slots">${element.start_time} - ${element.end_time}</div>
                 <div class="fc-event-availability_location">${element.location.name}</div>
-                <div class="fc-event-availability_slot_price">${price}</div></div>
-            `;
-            });
-            item['htmlcustom'] += `</div><div class="booking-slot"><div class="fc-event-ceremonies_count">${ceremonies_booked_count} ceremonies</div>`;
-            $.each(response.data,function(field_name,element2){
-                var time_format= moment(element2.booking_date+' '+element2.booking_start_time).format('HH:mm');
-                item ["ceremonies"] =ceremonies_booked_count+ ' cermonies';
-                item ["ceremonies_count"] =ceremonies_booked_count;
-                item ["couple"] =element2.first_couple_name+' & '+element2.second_couple_name;
-                item ["start_time"] =element2.booking_start_time;
-                item ["end_time"] =element2.booking_end_time;
-                item ["start"] = element2.booking_date+'T'+element2.booking_start_time;
-                item ["end"] = element2.booking_date+'T'+element2.booking_end_time;
-                item ["location"] =element2.location_name;
-            
-                if(ceremonies_booked_count == 0){
-                    item['htmlcustom'] += `<div class="fc-event-no_cermeony">You don't have ceremony</div>`;
-                }else{
-                    item['htmlcustom'] += `
-                    <div class="booking-details"><div class="fc-event-booking_couple">${element2.first_couple_name+' & '+element2.second_couple_name}</div>
-                    <div class="fc-event-booking_start">${time_format}</div>
-                    <div class="fc-event-booking_location">${element2.location_name}</div></div>
-                    `;
-                }
-
+                <div class="fc-event-availability_slot_price">${price}</div></div>`;
+                itemArr.push(item);
                 
             });
-            item['htmlcustom'] += '</div></div>';
-            setbookingData.push(item);
+
+            $.each(response.data,function(field_name,element2){
+                item ={};
+                var time_format= moment(element2.booking_date+' '+element2.booking_start_time).format('HH:mm');
+                item['title'] = 'dasd';
+                item["start"] = element2.booking_date+'T'+element2.booking_start_time;
+                item["end"] = element2.booking_date+'T'+element2.booking_end_time;
+            
+                if(ceremonies_booked_count == 0){
+                    singleitem['htmlcustom'] += `<div class="fc-event-no_cermeony">You don't have ceremony</div>`;
+                }else{
+                    singleitem['htmlcustom'] += `
+                    <div class="booking-details"><div class="fc-event-booking_couple">${element2.first_couple_name+' & '+element2.second_couple_name}</div>
+                    <div class="fc-event-booking_start">${time_format}</div>
+                    <div class="fc-event-booking_location">${element2.location_name}</div></div>`;
+                }
+                // console.log(item,'item');
+                itemArr.push(item);
+               
+                
+            });
+           
+            
+            singleitem['htmlcustom'] += `</div><div class="booking-slot"><div class="fc-event-ceremonies_count">${ceremonies_booked_count} ceremonies</div>`;
+            
+            singleitem['htmlcustom'] += '</div></div>';
+            itemArr.push(singleitem);
+            // $.each( itemArr.push(item);)
+            $.each(itemArr,function(field_name,element){
+           
+                setbookingData.push(element);
+            
+            });
+            // setbookingData.push(itemArr);
             
             
         })
@@ -79,10 +92,23 @@ console.log('setbookingData',setbookingData);
         initialView: 'dayGridMonth',
         timeZone: 'UTC',
         events:setbookingData,
-       
+    //    events:[
+    //         {
+    //         id: 'a',
+    //         title: 'my event',
+    //         start: '2022-12-30T01:00',
+    //         end: '2022-12-30T01:30',
+    //       },
+    //       {
+    //         id: 'b',
+    //         title: 'my event2',
+    //         start: '2022-12-30T00:00',
+    //         end: '2022-12-30T00:30',
+    //       }
+    //     ],
       
         eventDidMount: function(info) {
-            console.log(info);
+            // console.log(info);
             // if(info.view.type == 'dayGridMonth' || info.view.type == 'timeGridWeek' || info.view.type == 'timeGridDay' ){
             var element = $(info.el);
             element.parent().parent().parent().parent().removeClass('ceremonies_empty');
@@ -94,9 +120,10 @@ console.log('setbookingData',setbookingData);
                 element.parent().parent().parent().parent().addClass('ceremonies_exist');               
             }           
             
-            element.html('');
-            element.append(info.event.extendedProps.htmlcustom); 
+         
             if(info.view.type == 'dayGridMonth'){ // month
+                // element.html('');
+                element.append(info.event.extendedProps.htmlcustom); 
                 if($('.fc-scrollgrid-liquid').length){
                     $('.fc-scrollgrid-liquid').addClass('monthlyClass');
                 } 

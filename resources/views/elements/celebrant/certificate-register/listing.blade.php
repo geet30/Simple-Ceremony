@@ -27,7 +27,7 @@
               
                <td  style="min-width:300px;">
                   <ul class="mb-0 pl-0">
-                  <a href="" role="button" data-couple_name="{{$couple_name}}" data-id="{{$request->id}}" data-certificate_no="{{$certificate_no}}" data-action="{{ route('certificate-register.update', $request->id)}}" class="table-link getEditData" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register">Edit</a>
+                  <a href="" role="button" data-couple_name="{{$couple_name}}" data-id="{{$request->id}}" data-certificate_no="{{$certificate_no}}" data-action="{{ route('certificate-register.update', $request->id)}}" class="table-link getEditData offcanvasCommonClass" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register">Edit</a>
                 
                   </ul>
                </td>
