@@ -8,6 +8,8 @@ use View;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
 use Illuminate\Support\Facades\Auth; 
 use App\Traits\Pagination\CustomPagination;
+use Validator;
+
 class LocationsController extends Controller
 {
 
@@ -87,6 +89,16 @@ class LocationsController extends Controller
      */
     public function assignLocation(Request $request){
         try {
+           
+            
+            $validator = Validator::make($request->all(), [
+                'location' => ['required'],
+                
+            ]);
+            if($validator->fails()){
+                // dd($validator->messages());
+                return response()->json(['status' => false, "message" => $validator->errors()->first()]);
+             }
             if (isset($request->location)) {
                 $result = CelebrantMethods::saveCelebrantLocations($request->location, auth::user()->id);
                 if ($result) {
