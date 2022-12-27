@@ -36,15 +36,24 @@ class CalendarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function celebrantCalendarData(Request $request,$date,$id){
+    public function celebrantCalendarData(Request $request,$date,$type){
         try {
-            // dd($id);
-            // $data = CelebrantMethods::fetch_celebrant_data_ajax($date,$id);  
-            $data = Booking::getCalendarBooking(auth()->user()->id,'','',$date); 
-        //    dd($data);
-            return View::make('elements.celebrant.calander.calendar-data-ajax', compact('data'));
-            // return $this->successResponse($booking, 'Calendar data fetched successfully.');
+             
+            $data = Booking::getCalendarBooking(auth()->user()->id,'','',$date,$type); 
+            
+            // foreach($data as $res){
+            //     // dd($res['available_slots']);
+                
+            //     if(isset($res['available_slots']) && !empty($res['available_slots'])){
+            //         echo "<pre>";
+            //         print_r($res['available_slots']);
+            //     }
+                
+            // }
+            // die;
+            return View::make('elements.celebrant.calander.calendar-data-ajax', compact('date','data','type'));
         } catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }

@@ -526,7 +526,7 @@ $celebrantRoutes = function () {
 
         Route::post('over-ride-form-save', [CalendarController::class,'overRideFormSubmit'])->name('calendar.overRide-form-save');
 
-        Route::get('celebrant-calendar-data/{date}/{id}', [CalendarController::class, 'celebrantCalendarData'])->name('celebrantCalendarData');
+        Route::get('celebrant-calendar-data/{date}/{type}', [CalendarController::class, 'celebrantCalendarData'])->name('celebrantCalendarData');
         
         Route::post('celebrant-location-check', [CalendarController::class,'checkCelebrantLocation'])->name('celebrant-location-check');
         Route::get('routes', function () {
