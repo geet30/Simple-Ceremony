@@ -283,6 +283,9 @@ $adminRoutes = function () {
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
         Route::post('send-followup-email', [AccountController::class, 'sendFollowUpEmail'])->name('sendFollowUpEmail');
+        
+        Route::get('send-followup-email-button/{userid}/{celebrantId}', [AccountController::class, 'sendFollowUpEmailOnButton'])->name('admin.sendFollowUpEmailOnButton');
+
         Route::group(['prefix' => 'location'], function () {
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
@@ -497,7 +500,7 @@ $celebrantRoutes = function () {
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
 
         Route::post('send-followup-email', [AccountController::class, 'sendFollowUpEmail'])->name('sendFollowUpEmail');
-        
+        Route::get('send-followup-email-button/{userid}/{celebrantId}', [AccountController::class, 'sendFollowUpEmailOnButton'])->name('celebrant.sendFollowUpEmailOnButton');
         Route::resource('all-locations', CelebrantLocations::class);
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);

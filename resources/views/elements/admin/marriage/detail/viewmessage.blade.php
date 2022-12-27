@@ -5,7 +5,7 @@
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">Cancel</button>
    </div>
    <div class="offcanvas-body">
-   <form class="needs-validation" method="POST" novalidate action="{{ route('sendFollowUpEmail') }}">
+      <form class="needs-validation" method="POST" novalidate action="{{ route('sendFollowUpEmail') }}">
          @csrf
          <div class="col-md-12 mb-4 ">
             <label for="email" class="form-label small-text2 ps-2 ">Email couples</label>
