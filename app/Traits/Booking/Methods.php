@@ -301,15 +301,18 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
-    static function getCalendarBooking($user_id,$locationId=null,$couple=null)
+    static function getCalendarBooking($user_id,$locationId=null,$couple=null,$booking_date =null)
     {
-        $booking = Booking::with('location')->where('celebrant_id',$user_id);
+        $booking = Booking::with(['location','type_of_ceremony'])->where('celebrant_id',$user_id);
         if(!empty($locationId)){
             $booking = $booking->whereIn('locationId',$locationId);
         }
         if(!empty($couple)){
             $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
                     ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
+        }
+        if(!empty($booking_date)){
+            $booking =  $booking->whereDate('booking_date', $booking_date . '%');
         }
 
         $booking = $booking->get()->groupBy('booking_date');      

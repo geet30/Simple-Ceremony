@@ -9,7 +9,7 @@ use App\View\Components\daySubSlots;
 use Carbon\Carbon;
 use App\View\Components\OverRideDays;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
-
+use View;
 class CalendarController extends Controller
 {
     /**
@@ -29,6 +29,24 @@ class CalendarController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }    
         
+    }
+    
+    /**
+     * Get celebrant calendar data.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function celebrantCalendarData(Request $request,$date,$id){
+        try {
+            // dd($id);
+            // $data = CelebrantMethods::fetch_celebrant_data_ajax($date,$id);  
+            $data = Booking::getCalendarBooking(auth()->user()->id,'','',$date); 
+        //    dd($data);
+            return View::make('elements.celebrant.calander.calendar-data-ajax', compact('data'));
+            // return $this->successResponse($booking, 'Calendar data fetched successfully.');
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
      /**
      * Search Calendar By Location.
@@ -70,8 +88,7 @@ class CalendarController extends Controller
         return view('celebrant.calendar.add-rolling-data',['slots' => $slots,'page' => $page]);
     }
     public function overRideCreate(Request $request)
-    {
-   
+    { 
         $page = 'override-form';
         $slots = CelebrantDate::where('user_id',auth()->user()->id)->count();
         if($slots == 0) return redirect()->route('calendar.create');

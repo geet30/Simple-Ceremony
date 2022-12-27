@@ -25,23 +25,12 @@ class DownloadController extends Controller
         
         $file_path = public_path('uploads/documents/user/'.$file_name);
         $ext =File::extension($file_name);
-        // dd($ext);
-        // dd($file_path);
-        // return response()->file($file_path);
         if($ext == 'pdf'){
             $headers = [
                 'Content-Type' => 'application/pdf',  
-            ];
-            
-        }
-        // else{
-        //     $headers = [
-        //         'Content-Type' => 'application/docx',  
-        //     ];
-        // }
+            ];           
+        }     
         return response()->file($file_path, $headers);
-       
-
         
     }  
     public function downloadInvoices($id) {

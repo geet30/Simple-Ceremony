@@ -398,7 +398,6 @@ trait Methods
             return ['status' => false,'message'=>$ex->getMessage()]; 
         }
     }
-  
     public static function searchCalendarByCouple($request){
        
         $search = $request->search;
@@ -460,4 +459,6 @@ trait Methods
         return true;
         
     }
+   
+    
 }

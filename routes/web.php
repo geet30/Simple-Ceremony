@@ -462,6 +462,8 @@ $celebrantRoutes = function () {
     Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showCelebrantSignupForm')->name('celebrant-signup');
     Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
 
+   
+
     Route::middleware('auth')->group(function () {
         Route::group(['as'=>'celebrant.'], function () {
             Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
@@ -524,6 +526,8 @@ $celebrantRoutes = function () {
 
         Route::post('over-ride-form-save', [CalendarController::class,'overRideFormSubmit'])->name('calendar.overRide-form-save');
 
+        Route::get('celebrant-calendar-data/{date}/{id}', [CalendarController::class, 'celebrantCalendarData'])->name('celebrantCalendarData');
+        
         Route::post('celebrant-location-check', [CalendarController::class,'checkCelebrantLocation'])->name('celebrant-location-check');
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();
