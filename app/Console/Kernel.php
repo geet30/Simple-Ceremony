@@ -9,7 +9,8 @@ class Kernel extends ConsoleKernel
 {
     protected $commands = [
         'App\Console\Commands\SendNoimReminderEmail',
-        'App\Console\Commands\SendBookingPriorMsg'
+        'App\Console\Commands\SendBookingPriorMsg',
+        'App\Console\Commands\SendNoimReminderMsg'
     ];
     /**
      * Define the application's command schedule.
@@ -22,6 +23,7 @@ class Kernel extends ConsoleKernel
         
         $schedule->command('fortyeighthours:msg')->daily();
         $schedule->command('noimreminder:emails')->daily();
+        $schedule->command('noimreminder:msg')->daily();
     }
 
     /**
