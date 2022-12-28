@@ -9,7 +9,7 @@ use Stripe\Stripe;
 use Str;
 use Carbon\Carbon;
 use \Carbon\CarbonPeriod;
-use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail};
+use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail,SendBookingConfirmationMail};
 use Illuminate\Support\Facades\Auth;
 
 trait Methods
@@ -65,11 +65,6 @@ trait Methods
                     }
                 }
             }
-            // dd(Cache::get('booking'));
-            // $addons_price = Cache::get('booking')->package_price;
-            // $check_count_of_timeslots = self::calculateTimeslotsPrice();
-            // $price = $data['price'] * $check_count_of_timeslots;
-            // $total_price = $addons_price + $price;
             $DOMAIN = config('env.WEBSITE');
             $send_paramter = [
                 'name' => $data['name'],
@@ -96,6 +91,52 @@ trait Methods
         $sendMail = new RequestLocationEmail($dataMail);
         return \Mail::to($mail_id)->later($when, $sendMail);
     }
+    static function bookingConfirmationEmail($booking_id)
+    {
+        $booking_details =  Booking::with([
+            'user' => function ($query) {
+                $query->select('email', 'phone', 'country_code', 'id');
+            },           
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
+            },
+            'location' => function ($query) {
+                $query->select('name', 'id', 'price','address');
+            },
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id','email');
+            },
+            'type_of_ceremony' => function($query){
+                $query->select('ceremony_name', 'id');
+            },
+        ])->where('id',$booking_id)->first();
+        // dd($booking_details);
+        $when = now()->addMinutes(1);
+        $dataMail  = $booking_details;
+        $price_info = json_decode($booking_details['price_info']); 
+
+        $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+        $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+        $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+        $total_fee = $price_your_fee + $price_admin_fee+$price_location_fee;
+
+        $mailArray= [];
+        $admin_subject = 'New Booking: '.date("M d, Y",strtotime($booking_details["booking_date"])).' at '.$booking_details["location_name"].' Fee $'.$total_fee;
+
+        $celebrant_subject = 'New Booking: '.date("M d, Y",strtotime($booking_details["booking_date"])).' at '.$booking_details["location_name"].' Fee $'.$price_your_fee;
+
+        $mailArray[$booking_details->user->email] = ['emails.booking-confirmation.couple-email','Confirmation of your ceremony booking'];
+        $mailArray[$booking_details->celebrant->email] = ['emails.booking-confirmation.celebrant-email',$celebrant_subject];
+        $mailArray[config('env.FROM_EMAIL')] = ['emails.booking-confirmation.admin-email',$admin_subject];
+      
+    
+        foreach($mailArray as $mail => $view){
+            
+            $sendMail = new SendBookingConfirmationMail($dataMail,$view[0],$view[1]);
+            \Mail::to($mail)->later($when, $sendMail);
+        }
+       
+    }
     static function contactUsEmail($data)
     {
 
@@ -107,7 +148,6 @@ trait Methods
             'country_code' => $data['phone_code'],
             'description' => $data['enquiry']
         );
-        // dd($dataMail);
 
         $mail_id = config('env.CONTACTUS_EMAIL');
         $sendMail = new ContactUsMail($dataMail);
@@ -144,6 +184,8 @@ trait Methods
 
             $user = User::create($user_inputs);
             $user->assignRole('User');
+
+            ########## Send Register Mail ##########
             $when = now()->addMinutes(1);
             $dataMail  = array(
                 'email' => $user_inputs['email'],
@@ -153,6 +195,8 @@ trait Methods
             $mail_id = $user_inputs['email'];
             $sendMail = new RegisterUserMail($dataMail);
             $mail = \Mail::to($mail_id)->later($when, $sendMail);
+
+            ###########################################
 
             $booking['userId'] = $user->id;
 
@@ -191,7 +235,7 @@ trait Methods
             self::savePaymentDetail($sessionId, $user->id,$booking->id);
             self::createInvoice($booking->id);
 
-            return true;
+            return $booking->id;
         } catch (\Exception $ex) {
             echo "<pre>";
             print_r($ex->getMessage());

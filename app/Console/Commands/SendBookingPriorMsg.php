@@ -45,7 +45,6 @@ class SendBookingPriorMsg extends Command
 
             $booking = Booking::with('user')->where('booking_date', '=', $check_date)->get();
            
-            // dd($booking);
             $count = 0;
             $client = new Client($account_sid, $auth_token);
             

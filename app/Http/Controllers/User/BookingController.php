@@ -9,6 +9,9 @@ use DB;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Cache;
 use App\Traits\Ceremonies\{Methods as Ceremonies};
+use App\Mail\{SendNoimReminderMail};
+use Twilio\Rest\Client;
+
 class BookingController extends Controller
 {
     /**
@@ -56,12 +59,17 @@ class BookingController extends Controller
      */
     public function getBookingLocationCalender(Request $request,$locationId,$selected_date=null){
         try {
-     
+           
+
+           
+            ##################################
 
             if(isset($request->session_id) && !empty($request->session_id)){
                
                 $Booking= Booking::addBookingDetailToDB($request->session_id,Cache::get('booking'));
                 Cache::forget('booking');
+                ########### Send Confirmation Email for booking #########
+                $sendMail= Booking::bookingConfirmationEmail($Booking);
             }
             $booking ='';
             $get_location_addons =  Locations::getLocationPackages($locationId)->get()->toArray();
