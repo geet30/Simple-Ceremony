@@ -21,20 +21,23 @@
                     
 
                         <?php $jobs_count = $admin_fee_adjustment = $jobs_pending = 0;
-                        $net_fee_settled = $net_fee_pending  = $revenues = $CofGS = $Margin = 0;0; ?>
+                        $net_fee_settled = $net_fee_pending  = $revenues = $CofGS = $Margin = 0;$price_your_fee =$price_admin_fee = $price_location_fee =0; ?>
                        
                         @foreach($value->booking as $bookings)
                         <?php 
                         $price_info = json_decode($bookings->price_info);
-                        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee; 
-                        // $CofGS +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment; 
+                        $price_your_fee =(isset($price_info->your_fee ))?$price_info->your_fee :0;
+                        $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+                        $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+                        
+                        $revenues +=  $price_your_fee + $price_admin_fee + $price_location_fee; 
 
-                        $admin_fee_adjustment += $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;                      
+                        $admin_fee_adjustment += $price_admin_fee -  $bookings->type_of_ceremony->fee_adjustment;                      
                         if ($bookings->status != 7) {
                             $jobs_pending = $jobs_count++;
-                            $net_fee_pending  += $price_info->your_fee;
+                            $net_fee_pending  += $price_your_fee;
                         } else {
-                            $net_fee_settled = $price_info->your_fee;
+                            $net_fee_settled = $price_your_fee;
                         }
                         ?>
                         @endforeach
