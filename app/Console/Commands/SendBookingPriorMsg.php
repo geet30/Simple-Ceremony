@@ -15,7 +15,7 @@ class SendBookingPriorMsg extends Command
      *
      * @var string
      */
-    protected $signature = 'fortyeighthours:msg';
+    protected $signature = 'fortyEightHours:msg';
 
     /**
      * The console command description.

@@ -8,21 +8,21 @@ use App\Mail\SendNoimReminderMail;
 use Illuminate\Http\Request;
 use Exception;
 Use Mail;
-class SendNoimReminderEmail extends Command
+class SendNoimTwelveHoursEmail extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'noimReminder:emails';
+    protected $signature = 'noimremindertwelvehours:emails';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Complete your Noim -Reminder';
+    protected $description = 'Complete your Noim -Reminder twelve hours plus calendar month';
 
     /**
      * Execute the console command.
@@ -38,10 +38,12 @@ class SendNoimReminderEmail extends Command
 
                 $carbon_date = \Carbon\Carbon::parse($send->booking_date);
                 $one_month_calendar_date = $carbon_date->subMonth();
+                $one_month_calendar_date2 = $one_month_calendar_date->addHour(12);
+               
                 $date = today()->format('Y-m-d H:i:s');
                 $today_date = \Carbon\Carbon::parse($date);
                 
-                if($today_date == $one_month_calendar_date){
+                if($today_date == $one_month_calendar_date2){
                     
                     if($send->user_noim == null){
                         $sendMail = new SendNoimReminderMail($send);
