@@ -90,7 +90,7 @@
                                        <div class="inner-content">
                                           <p class="document-text mb-4">Attach document</p>
                                           <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                                          <p class="text">Compatible file .pdf .docx</p>
+                                          <p class="text">Compatible file .pdf</p>
                                           <div class="d-flex justify-content-center">
                                              <div class="align-self-center">
                                                 <p class="darg neutral-100 mb-0">Drag or</p>
@@ -129,12 +129,12 @@
                               <div class="row">
                                  <div class="col-lg-8 col-xxl-9 text-center position-relative newdiv">
                                     <div class="attach-document-box position-relative upload_docs">
-                                       <input class="fileupload" type="file" name="document" onchange="uploadProgress(event,'{{$id}}','information','fileupload1')">
+                                       <input class="fileupload" type="file" name="document" onchange="uploadProgress(event,'{{$id}}','information','fileupload1')" accept=".pdf" />
 
                                        <div class="inner-content">
                                           <p class="document-text mb-4">Attach document</p>
                                           <img src="/images/icons/uploading.svg" class="img-fluid mb-2">
-                                          <p class="text">Compatible file .pdf .docx</p>
+                                          <p class="text">Compatible file .pdf</p>
                                           <div class="d-flex justify-content-center">
                                              <div class="align-self-center">
                                                 <p class="darg neutral-100 mb-0">Drag or</p>

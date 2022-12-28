@@ -161,7 +161,7 @@ $documentDetail = !$couple->isEmpty() && $couple[0]->signedDocumentDetail ? $cou
                 <div class="col-12 mb-4">
                     <a class="theme-btn primary-btn cursor-pointer d-inline-flex me-lg-3 mb-4 mb-lg-0 follow-up-email"
                         data-bs-toggle="offcanvas" data-id="{{$data->user->email}}" data-bs-target="#view-message" aria-controls="view-message">View message before sending</a>
-                    <a class="theme-btn primary-btn-border  d-inline-flex me-lg-3 mb-4 mb-lg-0 ">Send</a>
+                        <a href="{{route('admin.sendFollowUpEmailOnButton',[$data->user->id,$celebrant_details->celebrant->celebrant_id])}}" class="theme-btn primary-btn-border  d-inline-flex me-lg-3 mb-4 mb-lg-0 ">Send</a>
                 </div>
                 
                 <div class="col-md-12 mb-4">

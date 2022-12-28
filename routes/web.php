@@ -283,6 +283,9 @@ $adminRoutes = function () {
 
         Route::post('store-location', 'App\Http\Controllers\Admin\LocationsController@store')->name('locations.store');
         Route::post('send-followup-email', [AccountController::class, 'sendFollowUpEmail'])->name('sendFollowUpEmail');
+        
+        Route::get('send-followup-email-button/{userid}/{celebrantId}', [AccountController::class, 'sendFollowUpEmailOnButton'])->name('admin.sendFollowUpEmailOnButton');
+
         Route::group(['prefix' => 'location'], function () {
             Route::post('submit-celebrant', 'App\Http\Controllers\Admin\LocationsController@storeCelebrant')->name('submit-celebrant');
             Route::DELETE('delete-celebrant/{id}', 'App\Http\Controllers\Admin\LocationsController@destroyCelebrant')->name('delete-celebrant');
@@ -459,6 +462,8 @@ $celebrantRoutes = function () {
     Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showCelebrantSignupForm')->name('celebrant-signup');
     Route::post('celebrant/register', 'App\Http\Controllers\Auth\RegisterController@celebrantRegister')->name('celebrantRegister');
 
+   
+
     Route::middleware('auth')->group(function () {
         Route::group(['as'=>'celebrant.'], function () {
             Route::get('preview-document/{page}/{id?}', [UserNoimController::class, 'previewDocument'])->name('userNoim.preview-document');
@@ -497,7 +502,7 @@ $celebrantRoutes = function () {
         Route::put('account/update', [AccountController::class, 'updateCelebrantAccount'])->name('updateCelebrantAccount');
 
         Route::post('send-followup-email', [AccountController::class, 'sendFollowUpEmail'])->name('sendFollowUpEmail');
-        
+        Route::get('send-followup-email-button/{userid}/{celebrantId}', [AccountController::class, 'sendFollowUpEmailOnButton'])->name('celebrant.sendFollowUpEmailOnButton');
         Route::resource('all-locations', CelebrantLocations::class);
 
         Route::post('get-packages', [LocationsController::class, 'getPackages']);
@@ -521,6 +526,8 @@ $celebrantRoutes = function () {
 
         Route::post('over-ride-form-save', [CalendarController::class,'overRideFormSubmit'])->name('calendar.overRide-form-save');
 
+        Route::get('celebrant-calendar-data/{date}/{type}', [CalendarController::class, 'celebrantCalendarData'])->name('celebrantCalendarData');
+        
         Route::post('celebrant-location-check', [CalendarController::class,'checkCelebrantLocation'])->name('celebrant-location-check');
         Route::get('routes', function () {
             $routeCollection = Route::getRoutes();

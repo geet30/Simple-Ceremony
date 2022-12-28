@@ -18,6 +18,25 @@
                     </div>
                 @endif
                 <div class=" card panel-card mb-4">
+                    @if(!empty(Session::get('open_modal')) && Session::get('open_modal') == 'yes')
+                        <script>
+                        $(document).ready(function() {
+                            $("#documents-tab").click();
+                        });
+                        </script>
+                        <div class="alert alert-primary show" role="alert">
+                            <div class="d-flex">
+                                <div class="me-3"><img src="/images/info.svg" class="img-fluid" alt="info-icon"></div>
+                                <div>
+                                    <!-- <p class="body-1 mb-0">Instructions.</p> -->
+                                    <a class="button-3">You have successfully sent a message to couples</a>
+                                
+                                </div>
+                                
+                                <div><button type="button" class="theme-btn-close" data-bs-dismiss="alert" aria-label="Close"><img src="/images/cross-blue-white.svg" class="img-fluid" alt="cross-icon"></button></div>
+                            </div>
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="col-12">
                             <div class="row align-items-center">

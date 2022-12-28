@@ -10,7 +10,7 @@ use Redirect;
 use Illuminate\Support\Facades\{Auth, Hash};
 use Illuminate\Support\Facades\Validator;
 use App\Mail\{SendFollowUpMail};
-
+use App\Traits\Celebrant\{Methods as CelebrantMethods};
 class AccountController extends Controller
 {
     /**
@@ -47,19 +47,22 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sendFollowUpEmail(Request $request)
+    public function sendFollowUpEmailOnButton(Request $request,$user_id,$celebrant_id)
     {
+      $user_email = User::where('id', $user_id)->value('email');
+      $data = User::where('id', $celebrant_id)->with('celebrant')->first();
+    
         try {
             $when = now()->addMinutes(1);
             $dataMail  = array(
-                'email'=>auth()->user()->email,
-                'subject' => $request->follow_subject,
-                'body' => $request->follow_Description,
+                'email'=>$data->email,
+                'subject' => $data->celebrant->follow_subject,
+                'body' => $data->celebrant->follow_Description,
                 
             );
             $sendMail = new SendFollowUpMail($dataMail);
-             \Mail::to($request->email)->later($when, $sendMail);
-             return Redirect::back()->with('open_modal', 'yes');
+            \Mail::to($user_email)->later($when, $sendMail);
+            return Redirect::back()->with('open_modal', 'yes');
 
         }catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

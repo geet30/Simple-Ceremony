@@ -166,31 +166,43 @@ function locationCustomTerms($locationId){
 }
 
 function locationTotalRevenue($data){
-    $revenues = 0;
+    $revenues = 0;$price_your_fee =$price_admin_fee = $price_location_fee =0;
     foreach($data as $bookings){
         $price_info = json_decode($bookings->price_info); 
-        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;      
+        $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+        $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+        $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+
+        $revenues +=  $price_your_fee + $price_admin_fee + $price_location_fee;      
     }
     return $revenues;
            
 }
 function locationTotalCofgs($data){
-    $CofGS = $revenues =0;
+    $CofGS = $revenues =0;$price_your_fee =$price_admin_fee = $price_location_fee =0;
     foreach($data as $bookings){
                         
-        $price_info = json_decode($bookings->price_info); 
-        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;            
-        $CofGS +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;                 
+        $price_info = json_decode($bookings->price_info);
+        $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+        $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+        $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+
+        $revenues += $price_your_fee + $price_admin_fee + $price_location_fee;             
+        $CofGS +=  $price_admin_fee -  $bookings->type_of_ceremony->fee_adjustment;                 
     }
     $totalCofgs= $revenues - $CofGS;   
     return $totalCofgs;         
 }
 function locationTotalMargin($data){
-    $CofGS = $revenues =$Margin =$admin_fee_adjustment =0;
+    $CofGS = $revenues =$Margin =$admin_fee_adjustment =0;$price_your_fee =$price_admin_fee = $price_location_fee =0;
     foreach($data as $bookings){          
         $price_info = json_decode($bookings->price_info); 
-        $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;        
-        $admin_fee_adjustment +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;          
+        $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+        $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+        $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+
+        $revenues += $price_your_fee + $price_admin_fee + $price_location_fee;       
+        $admin_fee_adjustment +=  $price_your_fee -  $bookings->type_of_ceremony->fee_adjustment;          
         
     }              
     $CofGS = $revenues - $admin_fee_adjustment;
@@ -198,25 +210,33 @@ function locationTotalMargin($data){
     return $Margin;        
 }
 function totalRevenue($data){
-    $revenues = 0;
+    $revenues = 0;$price_your_fee =$price_admin_fee = $price_location_fee =0;
     foreach($data as $value){
         
         foreach($value->booking as $bookings){
             $price_info = json_decode($bookings->price_info); 
-            $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee; 
+            $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+            $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+            $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+            
+            $revenues += $price_your_fee + $price_admin_fee + $price_location_fee; 
         }       
     }
     return $revenues;
            
 }
 function totalCofgs($data){
-    $CofGS = $revenues =0;
+    $CofGS = $revenues =0;$price_your_fee =$price_admin_fee = $price_location_fee =0;
     foreach($data as $value){
         foreach($value->booking as $bookings)
         {                  
             $price_info = json_decode($bookings->price_info); 
-            $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;            
-            $CofGS +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;            
+            $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+            $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+            $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+
+            $revenues += $price_your_fee + $price_admin_fee + $price_location_fee;            
+            $CofGS +=  $price_admin_fee -  $bookings->type_of_ceremony->fee_adjustment;            
         }
        
     }
@@ -225,15 +245,19 @@ function totalCofgs($data){
 }
 
 function totalMargin($data){
-    $CofGS = $revenues =$Margin =$admin_fee_adjustment =0;
+    $CofGS = $revenues =$Margin =$admin_fee_adjustment =$price_your_fee=$price_admin_fee=$price_location_fee =0;
     foreach($data as $value){
 
         foreach($value->booking as $bookings)
         {     
             $price_info = json_decode($bookings->price_info); 
-            $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee; 
+            $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+            $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+            $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+
+            $revenues += $price_your_fee + $price_admin_fee + $price_location_fee; 
             
-            $admin_fee_adjustment +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;          
+            $admin_fee_adjustment +=  $price_admin_fee -  $bookings->type_of_ceremony->fee_adjustment;          
         }
     }              
     $CofGS = $revenues - $admin_fee_adjustment;

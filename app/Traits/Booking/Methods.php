@@ -301,9 +301,10 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
-    static function getCalendarBooking($user_id,$locationId=null,$couple=null)
+    static function getCalendarBooking($user_id,$locationId=null,$couple=null,$booking_date =null,$type = null)
     {
-        $booking = Booking::with('location')->where('celebrant_id',$user_id);
+        // dd($type);
+        $booking = Booking::with(['location','type_of_ceremony'])->where('celebrant_id',$user_id);
         if(!empty($locationId)){
             $booking = $booking->whereIn('locationId',$locationId);
         }
@@ -311,24 +312,35 @@ trait Methods
             $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
                     ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
         }
+        if(isset($type) && $type =='booking'){
+            if(!empty($booking_date)){
+                $booking =  $booking->whereDate('booking_date', $booking_date . '%');
+            }
+        }
+        
 
         $booking = $booking->get()->groupBy('booking_date');      
         $response = [];      
         foreach($booking as $date=>$resultResponse){
 
             $response[$date]['data'] =$resultResponse;
-            $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
-            $over_ride = CelebrantDateOverRide::with('location')
-            ->where('override_date',$date);
+            // $over_ride = CelebrantDateOverRide::with('location')
+            // ->where('override_date',$date);
+            $over_ride = CelebrantDateOverRide::with('location');
             
             if(!empty($locationId)){
                
                 $over_ride = $over_ride->whereIn('location_id',$locationId);
             }
-            
-            $over_ride = $over_ride->where('day',strtolower($start_day))        
-            ->get(); 
-           
+            if(isset($type) && $type =='availability'){ 
+                if(!empty($booking_date)){
+                    $date = $booking_date;                   
+                }
+
+            }
+            $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
+            $over_ride = $over_ride->where('override_date',$date)->where('day',strtolower($start_day)); 
+            $over_ride = $over_ride->get();   
             
             $dataArr = [];
             if(count($over_ride) > 0){
@@ -337,16 +349,24 @@ trait Methods
 
             }else{
                
-                $slotsWithoutOverride =   CelebrantDaySlot::with('location','availabilitydates','calendardayslots')->whereHas('dates',function($qr) use($date){                 
-                        $qr->whereDate('start_date','<=',$date)
-                        ->whereDate('end_date','>=',$date);              
-                    });
+                $slotsWithoutOverride =CelebrantDaySlot::with('location','availabilitydates','calendardayslots');
+
                 if(!empty($locationId)){
                   
                     $slotsWithoutOverride = $slotsWithoutOverride->whereIn('location_id',$locationId);
                 }
-                  
-                $slotsWithoutOverride =$slotsWithoutOverride->where('day',strtolower($start_day))->get();
+                if(isset($type) && $type =='availability'){
+                   $date = $booking_date;
+                    
+                }
+                $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l'); 
+                $slotsWithoutOverride = $slotsWithoutOverride->whereHas('dates',function($qr) use($date){                 
+                    $qr->whereDate('start_date','<=',$date)
+                    ->whereDate('end_date','>=',$date);              
+                });
+                $slotsWithoutOverride =  $slotsWithoutOverride->where('day',strtolower($start_day));
+                $slotsWithoutOverride =$slotsWithoutOverride->get();
+               
               
                 if(count($slotsWithoutOverride) > 0){
                 
@@ -427,7 +447,7 @@ trait Methods
            
         }
         return $response;        
-        dd($data2);      
+            
     }
     static function searchBooking($request)
     {
