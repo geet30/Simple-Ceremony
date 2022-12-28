@@ -29,19 +29,23 @@
 
                     $jobs_pending = 0;
                     $net_fee_settled = $net_fee_pending = $admin_fee_adjustment = $revenues = $CofGS = $Margin = 0;
-
+                    $price_your_fee =$price_admin_fee = $price_location_fee =0; 
                     $price_info = json_decode($bookings->price_info);
-                    $revenues += $price_info->your_fee + $price_info->admin_fee + $price_info->location_fee;
+                    $price_your_fee =(isset($price_info->your_fee ))?$price_info->your_fee :0;
+                    $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+                    $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
 
-                    $admin_fee_adjustment +=  $price_info->admin_fee -  $bookings->type_of_ceremony->fee_adjustment;
+                    $revenues += $price_your_fee + $price_admin_fee + $price_location_fee; 
+
+                    $admin_fee_adjustment +=  $price_admin_fee -  $bookings->type_of_ceremony->fee_adjustment;
                     $CofGS = $revenues - $admin_fee_adjustment;
                     $Margin = $revenues -  $CofGS;
                     if ($bookings->status != 7) {
                         $jobs_pending = $jobs_count++; // Job still pending is the number of jobs that do not have a status of "Settled"
-                        $net_fee_pending  += $price_info->your_fee;
+                        $net_fee_pending  += $price_your_fee;
                         // Net fee pending is the amount that is still owed to the celebrant ie not "settled"
                     } else {
-                        $net_fee_settled = $price_info->your_fee;
+                        $net_fee_settled = $price_your_fee;
                     }
                     ?>
 
