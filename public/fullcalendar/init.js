@@ -31,8 +31,11 @@ function initCalander(targetId,bookingData) {
     
     var setbookingData = [];
     if(bookingData.length !== 0){
-       
+      
         $.each(bookingData,function(booking_date,response){
+
+            
+
             itemArr =[];
             ceremonies_booked_count = 0;
             var price =price_info = availability =0;
@@ -67,6 +70,7 @@ function initCalander(targetId,bookingData) {
                 itemArr.push(item);
                 
             });
+            
             var slotIndex = (itemArr.length) ? itemArr.length:0;
             
             $.each(response.data,function(keyData,element2){
@@ -127,7 +131,7 @@ function initCalander(targetId,bookingData) {
    
       
         eventDidMount: function(info) {
-            console.log('info', info.event.extendedProps.weeklyHtml);
+            console.log('info', info.event.extendedProps.htmlcustom);
             var element = $(info.el);
             element.parent().parent().parent().parent().removeClass('ceremonies_empty');
             element.parent().parent().parent().parent().removeClass('ceremonies_exist');
