@@ -5,7 +5,7 @@
                 <th>Add-ons</th>
                 <th>Category</th>
                 <th>Description</th>
-                <th>Name partners</th>
+                <th>Name partner</th>
                 <th>Status</th>
                 <th></th>
             </tr>
@@ -38,7 +38,7 @@
                         @endif
                     </td>
 
-                    <td class="body-2 neutral-100">{{$addon->user->contact_name}}</td>
+                    <td class="body-2 neutral-100"  style="min-width:200px;">{{$addon->user->contact_name}}</td>
                     <td style="min-width:200px;">
                         <div class="dropdown table-dropdown">
                             <button class="btn dropdown-toggle {{ $status_class }}" type="button"
@@ -58,7 +58,7 @@
                             </ul>
                         </div>
                     </td>
-                    <td style="min-width:230px;">
+                    <td style="min-width:230px;" class="text-end">
                         @if ($addon->status == 0)
                             <a onClick="changeStatus('/change-status',{{ $addon->id }},1,'','tab_id','addon')"
                                 class="table-link me-3">Confirm</a>

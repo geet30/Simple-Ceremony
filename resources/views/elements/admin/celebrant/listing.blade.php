@@ -22,28 +22,28 @@
                          $status_class = 'rejected';
                      }
                  @endphp
-                 <tr>
+                 <tr class='clickable-row' data-href="/marriage-celebrants/{{ $celebrant->id }}">
                      <td class="body-2 neutral-100" style="min-width:180px;">{{ $celebrant->first_name }}
                          {{ $celebrant->surname }}</td>
                      <td class="body-2 neutral-100" style="min-width:180px;">
                          {{ $celebrant->country_code != '' ? '+' : '' }}{{ $celebrant->country_code }}{{ $celebrant->country_code != '' ? '-' : '' }}{{ $celebrant->phone }}
                      </td>
-                     <td class="body-2 neutral-100" style="min-width:180px;">{{ $celebrant->email }}</td>
+                     <td class="body-2 neutral-100" style="min-width:250px;">{{ $celebrant->email }}</td>
                      <td class="body-2 neutral-100" style="min-width:200px;">
-                         <ul class="m-0 p-0">
+                         <ul class="m-0 p-0 ">
                              @foreach ($celebrant->celebrantLocations as $location)
                                  <li>{{ $location->location->name }}</li>
                              @endforeach
                          </ul>
                      </td>
-                     <td style="min-width:200px;">
+                     <td style="min-width:150px;">
                          <div class="dropdown table-dropdown">
                              <button class="btn dropdown-toggle {{ $status_class }}" type="button"
                                  id="dropdownMenuButton1-{{ $celebrant->id }}" data-bs-toggle="dropdown"
                                  aria-expanded="false">
                                  <span id="change_status-{{ $celebrant->id }}">{{ $status }}</span>
                              </button>
-                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                             <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
                                  <li><a class="dropdown-item approved"
                                          onClick="changeStatusWithouttab('/change-user-status',{{ $celebrant->id }}, 1)">Active</a>
                                  </li>
@@ -53,7 +53,7 @@
                              </ul>
                          </div>
                      </td>
-                     <td style="min-width:180px;">
+                     <td style="min-width:150px; " class="text-end">
                          <a href="/marriage-celebrants/{{ $celebrant->id }}" class="table-link">View info</a>
                      </td>
                  </tr>
@@ -61,7 +61,7 @@
          @else
              <tr>
                  <td colspan="6">
-                     <center>No record found</center>
+                     <center>No records found</center>
                  </td>
              </tr>
          @endIf

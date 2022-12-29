@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="add-ons-nav-data text-start ">
                                     <h3 class="h3">{{ $rejected_addons->total() }}</h3>
-                                    <p class="subheader-2">Reject</p>
+                                    <p class="subheader-2">Rejected</p>
                                 </div>
                             </div>
                         </button>
@@ -79,7 +79,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="celebrants-tab" data-bs-toggle="tab" data-bs-target="#celebrants"
-                                    href="#addons-setting">Add-ons setting</a>
+                                    href="#addons-setting">Add-ons settings</a>
                             </li>
                         </ul>
                     </div>

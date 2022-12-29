@@ -19,8 +19,9 @@
         <tbody>
            
             @foreach($data as $result)
-                
+         
                 @include('elements.admin.marriage.common-tr-view', ['title' => 'All marriages','data' => $data])
+
             
                 
             @endforeach

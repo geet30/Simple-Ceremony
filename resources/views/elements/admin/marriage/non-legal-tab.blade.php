@@ -19,8 +19,9 @@
         </thead>
         <tbody>
             @foreach ($dataArray['non_legal_marriages'] as $result)
-            
+         
                 @include('elements.admin.marriage.common-tr-view', ['title' => 'All marriages','data' => $dataArray['non_legal_marriages']])
+
                 
             @endforeach
             @if($dataArray['non_legal_marriages']->total()==0)

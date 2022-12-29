@@ -815,6 +815,9 @@
                     overflow-y: auto;
                     overflow-x: hidden;
                     padding-right: 20px;
+                   p{
+                    margin-bottom: 0px ;
+                   }
                     &::-webkit-scrollbar-track {
                         background: $turquoise-50;
                         border-radius: 25px;

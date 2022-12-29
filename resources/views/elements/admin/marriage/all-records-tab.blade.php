@@ -19,10 +19,8 @@
         </thead>
         <tbody>
             @foreach ($dataArray['all_marriages'] as $result)
-            
-                @include('elements.admin.marriage.common-tr-view', ['title' => 'All marriages','data' => $dataArray['all_marriages']])
-                
-            @endforeach
+               @include('elements.admin.marriage.common-tr-view', ['title' => 'All marriages','data' => $dataArray['all_marriages']])
+ @endforeach
             @if($dataArray['all_marriages']->total()==0)
                 <tr>
                     <td colspan="12">

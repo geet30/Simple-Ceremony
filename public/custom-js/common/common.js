@@ -458,4 +458,7 @@ $(function () {
         autoclose: true,
         endDate: new Date(),
     });
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
 });
