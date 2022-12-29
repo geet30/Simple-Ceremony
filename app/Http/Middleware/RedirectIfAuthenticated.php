@@ -34,7 +34,7 @@ class RedirectIfAuthenticated
             
             if (Auth::guard($guard)->check()) {
                 if (Auth::user()->roles->first()->name == 'Admin') {
-                    return redirect('/locations/all-requests');
+                    return redirect('/marriages/all-records-tab');
                 }else if (Auth::user()->roles->first()->name == 'Partner') {
                     return redirect('add-ons');
                 }
