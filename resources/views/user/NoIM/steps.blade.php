@@ -36,12 +36,22 @@
                                 @include('elements.user.steps.witness')
                             </div>
                             <div class="col-12 mb-4">
-                                <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue
+                                <button href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">
+                                    <div class="d-flex">
+                                        <div class="align-self-center">Save and continue
                                     to
                                     fill
-                                    referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></button>
-                                {{-- <a href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">Save and continue to fill
-                                        referrers <img src="/images/icons/right-arrow.svg" class="img-fluid ms-2"></a> --}}
+                                    referrers </div>
+                                    <div class="ms-2 align-self-center"><img src="/images/icons/right-arrow.svg" class="img-fluid"></div>
+                                    </div>
+                                </button>
+                                {{-- <a href="/user/step-2" class="d-inline-flex theme-btn primary-btn ">
+                                    <div class="d-flex">
+                                        <div class="align-self-center">Save and continue to fill
+                                        referrers</div>
+                                        <div class="ms-2 align-self-center"> <img src="/images/icons/right-arrow.svg" class="img-fluid "></div>
+                                    </div>
+                                </a> --}}
                             </div>
                         </div>
                     </form>

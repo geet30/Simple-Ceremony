@@ -1031,7 +1031,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                     ])
                                                 @endif
                                                 {{-- <input type="text" value=""
-                                                    style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
+                                                    style="max-width: 100%;  height:40px;padding: 20px 15px;"> --}}
                                             </td>
                                             <td>&nbsp;</td>
                                             <td
@@ -1782,7 +1782,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <td
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 {{-- <input type="text" value=""
-                                                    style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
+                                                    style="  max-width: 100%;  height:40px;padding: 20px 15px;"> --}}
                                                 @if ($person1 && $person1->marriageDocumentPdfNoim)
                                                     @if (file_exists($person1->marriageDocumentPdfNoim->celebrant_signature))
                                                         <img src="{{ asset($person1->marriageDocumentPdfNoim->celebrant_signature) }}"
@@ -1926,7 +1926,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                             <td
                                                 style="font-size: 18px;padding-bottom: 15px;padding-top: 15px; color: black; font-weight: bold;">
                                                 <input type="text" value=""
-                                                    style="  width: 100%;  height:40px;padding: 20px 15px;">
+                                                    style="  max-width: 100%;  height:40px;padding: 20px 15px;">
                                             </td>
                                         </tr>
                                     </table>

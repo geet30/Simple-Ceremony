@@ -449,7 +449,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @if ($person1 && $person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage)
                                                                 @if (file_exists($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person1_signature))
                                                                     <img src="{{ asset($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person1_signature) }}"
-                                                                        alt="" style="width: 100%;  height:40px;">
+                                                                        alt="" style="height:40px;">
                                                                 @endif
                                                             @endif
                                                             <?php 
@@ -494,7 +494,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @if ($person1 && $person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage)
                                                                 @if (file_exists($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person2_signature))
                                                                     <img src="{{ asset($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->person2_signature) }}"
-                                                                        alt="" style="width: 100%;  height:40px;">
+                                                                        alt="" style="max-width: 100%;  height:40px;">
                                                                 @endif
                                                             @endif
                                                             @if (isset($button) && $button)
@@ -590,7 +590,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                         </td>
                                                         <td style="font-size: 18px; color: black; font-weight: bold;">
                                                             <input type="text" value=""
-                                                                style="  width: 100%;  height:40px;padding: 20px 15px;">
+                                                                style="  max-width: 100%;  height:40px;padding: 20px 15px;">
                                                         </td>
                                                         <td>&nbsp;</td>
                                                         <td style="font-size: 18px; color: black; font-weight: bold;">
@@ -621,7 +621,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             @if ($person1 && $person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage)
                                                                 @if (file_exists($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->celebrant_signature))
                                                                     <img src="{{ asset($person1->marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage->celebrant_signature) }}"
-                                                                        alt="" style="width: 100%;  height:40px;">
+                                                                        alt="" style="max-width: 100%;  height:40px;">
                                                                 @endif
                                                             @endif
                                                             @if (isset($button) && $button)
