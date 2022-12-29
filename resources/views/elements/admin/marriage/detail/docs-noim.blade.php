@@ -333,8 +333,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Authorization Person's Name who
                     witnessed Person 1 on the NOIM</label>
+                    <?php $person_1_witness_name = (isset($couple1->marriageDocument)) ? $$couple1->marriageDocument->person_1_witness_name : '' ?>
+
                 <input type="text"
-                    value="{{ $couple1 && $couple1->marriageDocument ? $couple1->marriageDocument->person_1_witness_name : '' }}"
+                    value="{{ $person_1_witness_name }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
         </div>
@@ -352,15 +354,17 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
         <div class="row align-items-baseline">
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Occupation name</label>
+                <?php $person_1_witness_occupation_name = (isset($couple1->marriageDocument)) ? $$couple1->marriageDocument->person_1_witness_occupation_name : '' ?>
                 <input type="text"
-                    value="{{ $couple1 && $couple1->marriageDocument ? $couple1->marriageDocument->person_1_witness_occupation_name : '' }}"
+                    value="{{ $person_1_witness_occupation_name }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2 ">Authorization Person's Name who
                     witnessed Person 2 on the NOIM</label>
+                <?php $person_2_witness_name = (isset($couple1->marriageDocument)) ? $$couple1->marriageDocument->person_2_witness_name : '' ?>
                 <input type="text"
-                    value="{{ $couple1 && $couple1->marriageDocument ? $couple1->marriageDocument->person_2_witness_name : '' }}"
+                    value="{{ $person_2_witness_name }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
         </div>
