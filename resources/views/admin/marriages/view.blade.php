@@ -140,8 +140,8 @@
             <div class="col-12 pt-20 pb-32 d-flex justify-content-center upcomming-marriage-top">
                 <a class="position-relative collapse_ul" type="button"> </a>
             </div>
-            <div class="row mb-4 pt-32">
-                <div class="col-md-7 col-xl-8 d-flex align-self-center">
+            <div class="row mb-4 pt-32 justify-content-md-between">
+                <div class="col-lg-7 col-xl-8 d-flex align-self-center">
                     <div class="dropdown">
                         <a class="btn">
                             <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
@@ -163,9 +163,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-3 date theme-datepicker position-relative ms-auto" id="calanderInput">
+                <div class="col-md-12 col-lg-4 col-xl-4 col-xxl-3  mt-3 mt-lg-0 date theme-datepicker position-relative d-flex justify-content-lg-end align-self-center" id="calanderInput">
                     <div class="calendar-icon-input"><img class="" src="/images/icons/date.svg" alt="shopping-icon"></div>
-                    <input role="button" type="text" class="calendar-with-input form-control body-1 ps-5" onchange="searchWithTabs('search-marriages',this.value, 'date')" placeholder="Select a specific date" />
+                    <input role="button" type="text" class="w-auto calendar-with-input form-control body-1 ps-5" onchange="searchWithTabs('search-marriages',this.value, 'date')" placeholder="Select a specific date" />
                     <span class="input-group-append">
                     </span>
                 </div>
