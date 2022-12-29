@@ -38,7 +38,7 @@ if (Cookie::get('myCart')) {
             </div>
             @endif
         @endif
-        <div class="col-12 col-md-4 d-flex justify-content-md-end mb-4 mb-md-0 order-md-2">
+        <div class="col-12 col-md-4 d-flex justify-content-md-end mb-4 mb-md-0 order-md-2 ms-auto">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
