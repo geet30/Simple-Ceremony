@@ -28,6 +28,6 @@
 </div>
 <style type="text/css">
     .select2-container {
-        z-index: 99999;
+        z-index: 99;
     }
 </style>
