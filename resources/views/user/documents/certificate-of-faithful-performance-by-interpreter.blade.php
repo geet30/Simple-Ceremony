@@ -36,6 +36,7 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
 
 
 <body>
+<div class="container">
     <table align="left" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%"
         style="font-family: 'Roboto', sans-serif;">
         <tbody>
@@ -215,7 +216,7 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                         @if (file_exists(
                                             $person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->declaration_person_signature))
                                             <img src="{{ asset($person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->declaration_person_signature) }}"
-                                                alt="" style="width: 100%;  height:40px;">
+                                                alt="" style="height:40px;">
                                         @endif
                                     @endif
                                     @if (isset($button) && $button)
@@ -313,7 +314,7 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                         @if (file_exists(
                                             $person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->person_before_whom_made_declaration_signature))
                                             <img src="{{ asset($person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->person_before_whom_made_declaration_signature) }}"
-                                                alt="" style="width: 100%;  height:40px;">
+                                                alt="" style=" height:40px;">
                                         @endif
                                     @endif
                                     @if (isset($button) && $button)
@@ -607,7 +608,7 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                 @if (file_exists(
                                     $person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->interpreter_signature))
                                     <img src="{{ asset($person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->interpreter_signature) }}"
-                                        alt="" style="width: 100%;  height:40px;">
+                                        alt="" style="max-width: 100%;  height:40px;">
                                 @endif
                             @endif
                             @if (isset($button) && $button)
@@ -640,7 +641,7 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
                                 @if (file_exists(
                                     $person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->interpreter_witness_signature))
                                     <img src="{{ asset($person1->marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter->interpreter_witness_signature) }}"
-                                        alt="" style="width: 100%;  height:40px;">
+                                        alt="" style="max-width: 100%;  height:40px;">
                                 @endif
                             @endif
                             @if (isset($button) && $button)
@@ -869,6 +870,7 @@ $interpreter = isset($person1) && isset($person1['marriageDocument']) && $person
             </td>
         </tr>
     </table>
+                                </div>
 </body>
 <script type="text/javascript">
     $(document).ready(function() {})

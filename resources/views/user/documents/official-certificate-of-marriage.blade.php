@@ -630,7 +630,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{-- <input type="text" value=""
                                                                 style="  width: 100%;  height: 20px;"> --}}
                                                             {{-- <img src="https://www.signwell.com/assets/vip-signatures/courtney-love-signature-f4f978da27e809c02a68ad1eedceb8d51b0ec6834790f9effdc2db053495d83a.svg"
-                                                                alt="" style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
+                                                                alt="" style="  max-width: 100%;  height:40px; padding: 20px 15px;"> --}}
                                                         </td>
                                                         <td>&nbsp;</td>
                                                         <td style="font-size: 18px; color: black; font-weight: bold;padding-bottom: 15px;padding-top: 15px;">
@@ -673,7 +673,7 @@ $person2parent = isset($person) && isset($person[1]['parents']) ? $person[1]['pa
                                                             {{-- <input type="text" value=""
                                                                 style="  width: 100%;  height: 20px;"> --}}
                                                             {{-- <img src="https://www.signwell.com/assets/vip-signatures/courtney-love-signature-f4f978da27e809c02a68ad1eedceb8d51b0ec6834790f9effdc2db053495d83a.svg"
-                                                                alt="" style="  width: 100%;  height:40px;padding: 20px 15px;"> --}}
+                                                                alt="" style="  max-width: 100%;  height:40px; padding: 20px 15px;"> --}}
                                                         </td>
                                                     </tr>
 
