@@ -80,6 +80,9 @@
     .nav-item{
         list-style: none;;
     }
+    .mr-19{
+        margin-right: 19px;
+    }
     .nav-link {
         border: 0;
         background: #FFFFFF;
@@ -88,6 +91,9 @@
         padding: 24px 19px;
         height: 100%;
         color: #1C1C1C;
+        &.cermonies-padding{
+            padding: 23px 11px 23px 19px;
+        }
         @include media-breakpoint-down(md) {
             padding: 15px 15px;
         }
