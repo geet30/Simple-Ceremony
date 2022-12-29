@@ -73,6 +73,9 @@ class UserNoimController extends Controller
             self::storeParentData($person, $loggedInUserId, $bookingId, $userNoim);
         }, $request->person);
         self::storeWitnessData($request, $loggedInUserId, $bookingId);
+
+        
+
         return env('APP_ENV') == 'dev' ? $request->all() : redirect()->route('user-noim.steps2.get');
     }
     private static function storeWitnessData($request, $loggedInUserId, $bookingId)
@@ -122,7 +125,7 @@ class UserNoimController extends Controller
     }
     public function referrer(Request $request)
     {
-        // dd($request->all());
+       
         $loggedInUserId = Auth::user()->id;
         $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
         $request->merge([
@@ -130,7 +133,11 @@ class UserNoimController extends Controller
             'booking_id' => $bookingId
         ]);
         UserNoimReferrers::updateOrCreate(['user_id' => $loggedInUserId, 'booking_id' => $bookingId], $request->all());
-        // return redirect()->route('user-noim.steps');
+
+        ########  Send Email to Admin and Couple ############
+        $sendMail= Booking::bookingNoimFilledConfirmationEmail($bookingId,$loggedInUserId);
+
+        ######################################### ############
         return redirect('user/NoIM');
 
         return redirect()->back();
@@ -193,6 +200,7 @@ class UserNoimController extends Controller
 
     public function previewDocument(Request $request, $document, $userId = null)
     {
+        
         $loggedInUserId = $userId ?? Auth::user()->id;    
         if($request->bookingId != null){
             $bookingId =  $request->bookingId;
@@ -200,9 +208,10 @@ class UserNoimController extends Controller
         }else{
             $bookingId =  booking::whereUserId($loggedInUserId)->pluck('id')->first();
         }
-        // dd($bookingId);
+       
         // $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->whereUserId($loggedInUserId)->get();
         $person = UserNoim::with('booking.location', 'birthDocument', 'divorceOrWidowedDocument', 'parents', 'witness', 'marriageDocument', 'marriageDocumentPdfNoim', 'marriageDocumentPdfOfficialMarriageCertificate', 'marriageDocumentPdfdeclarationOfNoLegalImpedimentToMarriage', 'marriageDocumentPdfCertificateOfFaithfulPerformanceByInterpreter')->where('booking_id',$bookingId)->get();
+        // dd($person);
         switch ($document) {
             case 'noim-perview':
                 return view('user.documents.noim',  ['person' => $person, 'bookingId'=>$bookingId,'button' => true]);

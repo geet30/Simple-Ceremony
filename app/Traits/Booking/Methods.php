@@ -9,7 +9,7 @@ use Stripe\Stripe;
 use Str;
 use Carbon\Carbon;
 use \Carbon\CarbonPeriod;
-use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail,SendBookingConfirmationMail};
+use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail,SendBookingConfirmationMail,BookingNoimFilledConfirmationMail};
 use Illuminate\Support\Facades\Auth;
 
 trait Methods
@@ -133,6 +133,51 @@ trait Methods
         foreach($mailArray as $mail => $view){
             
             $sendMail = new SendBookingConfirmationMail($dataMail,$view[0],$view[1]);
+            \Mail::to($mail)->later($when, $sendMail);
+        }
+       
+    }
+    static function bookingNoimFilledConfirmationEmail($booking_id,$user_id)
+    {
+        $booking_details =  Booking::with([
+            'user' => function ($query) {
+                $query->select('email', 'phone', 'country_code', 'id');
+            },           
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
+            },
+            'location' => function ($query) {
+                $query->select('name', 'id', 'price','address');
+            },
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id','email');
+            },
+            'type_of_ceremony' => function($query){
+                $query->select('ceremony_name', 'id');
+            },
+        ])->where('id',$booking_id)->where('user_id',$user_id)->first();
+        // dd($booking_details);
+
+        $when = now()->addMinutes(1);
+        $dataMail  = $booking_details;
+        
+
+        $mailArray= [];
+      
+
+        $admin_subject = 'NoIM received '.$booking_details["first_couple_name"].' & '.$booking_details["second_couple_name"].', '.date("M d, Y",strtotime($booking_details["booking_date"])).', '.$booking_details["location_name"];
+
+        $couple_subject =  'Your NoIM has now been lodged';
+
+        
+
+        $mailArray[$booking_details->user->email] = ['emails.noim-added.couple',$couple_subject];
+        $mailArray[config('env.FROM_EMAIL')] = ['emails.noim-added.admin',$admin_subject];
+      
+    
+        foreach($mailArray as $mail => $view){
+            
+            $sendMail = new BookingNoimFilledConfirmationMail($dataMail,$view[0],$view[1]);
             \Mail::to($mail)->later($when, $sendMail);
         }
        
