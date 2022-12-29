@@ -15,11 +15,10 @@
       <div class="dropdown filter_date_div">
          <a role="button" class="theme-btn d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon"></a>
          <div class="dropdown-menu p-3 filter_date_div">
-            <div class="filter-date-calendar" style="width:400px;">
-               <form method="post">
-                  <div class="row">
-
-                     <div class="col-6">
+            <div class="filter-date-calendar" style="width:60vw;">
+               <form method="post" class="row">
+                
+                     <div class="col-6 col-xl-3">
 
                         <h4 class="h4 neutral-100 mb-3">Location</h4>
                         @foreach($locations as $key=>$location)
@@ -29,9 +28,9 @@
                            <label class="form-check-labe body-2 neutral-100">{{ $location->name }}</label>
                         </div>
                         @endforeach
-                        <a onclick="SearchMultipleFilter('/search-financial-report-date','','financialReportLocationListing')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a>
+                       
                      </div>
-                     <div class="col-6">
+                     <div class="col-6  col-xl-3">
                         <h4 class="h4 neutral-100 mb-3">Type Ceremony</h4>
 
                         @foreach($type_ceremonies as $key=>$ceremonies)
@@ -43,7 +42,7 @@
                         @endforeach
 
                      </div>
-                     <div class="col-6">
+                     <div class="col-6  col-xl-3">
                         <h4 class="h4 neutral-100 mb-3">Marriage Celebrants</h4>
 
                         @foreach($celebrants as $key=>$celebrant)
@@ -55,7 +54,7 @@
                         @endforeach
 
                      </div>
-                     <div class="col-6">
+                     <div class="col-6  col-xl-3">
                         <h4 class="h4 neutral-100 mb-3">Partner</h4>
 
                         @foreach($partners as $key=>$partner)
@@ -67,8 +66,10 @@
                         @endforeach
 
                      </div>
-
-                  </div>
+<div class="col-12">
+<a onclick="SearchMultipleFilter('/search-financial-report-date','','financialReportLocationListing')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a>
+</div>
+                 
                </form>
             </div>
          </div>
