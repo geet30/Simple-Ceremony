@@ -46,7 +46,7 @@ class SendBookingTwentyFourHoursPriorMsg extends Command
             foreach($booking as $sendSms){
                 $carbon_date = \Carbon\Carbon::parse($sendSms->booking_date);
                 $twenty_four_prior = $carbon_date->subHour(24);
-                dd($twenty_four_prior);
+                
 
                 $date = today()->format('Y-m-d H:i:s');
                 $today_date = \Carbon\Carbon::parse($date);
