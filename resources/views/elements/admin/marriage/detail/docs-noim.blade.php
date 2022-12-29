@@ -230,7 +230,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
                     <input type="text" value="{{ $conjugal_status2 }}" class="form-control body-1 netural-100"
                         name="name" id="preferredname2" readonly>
                 </div>
-                @if (isset($couple1->conjugal_status) && !empty($couple1->conjugal_status))
+                @if (isset($couple2->conjugal_status) && !empty($couple2->conjugal_status))
                     <div id="divorce-section" class="row {{ $couple2->conjugal_status == 2 ? '' : 'd-none' }}">
                         <div class="col-md-6">
                             <label for="preferredname2" class="form-label small-text2 ps-2">Court location</label>
@@ -342,8 +342,9 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Who has witnessed Person 2 sign the
                     NOIM</label>
+                    <?php $who_signed_person_2_witness = (isset($couple1->marriageDocument)) ? $witnessArr[$couple1->marriageDocument->who_signed_person_2_witness] : '' ?>
                 <input type="text"
-                    value="{{ $couple1 && $couple1->marriageDocument ? $witnessArr[$couple1->marriageDocument->who_signed_person_2_witness] : '' }}"
+                    value="{{ $who_signed_person_2_witness }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
 
