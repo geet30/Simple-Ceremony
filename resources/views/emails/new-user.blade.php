@@ -19,7 +19,7 @@
     </center>
     <font style="font-family: 'Open Sans', sans-serif; color:#fff; font-size:13px; line-height:21px">
     Thanks &amp; Regards,<br />
-    Simple Ceremonies Team</font></td>
+    {{ env('EMAILFOOTER') }} </font></td>
 <td width="5%">&nbsp;</td>
 </tr>
 <tr>

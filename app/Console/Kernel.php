@@ -7,6 +7,11 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        'App\Console\Commands\SendNoimReminderEmail',
+        'App\Console\Commands\SendBookingPriorMsg',
+        'App\Console\Commands\SendNoimReminderMsgAtEightPm'
+    ];
     /**
      * Define the application's command schedule.
      *
@@ -16,7 +21,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         
-        $schedule->command('fortyeighthours:msg')->daily();
+        $schedule->command('fortyEightHours:msg')->daily();
+        $schedule->command('noimReminder:emails')->daily();
+        $schedule->command('noimReminderAtEight:msg')->everyMinute();
+        $schedule->command('noimremindertwelvehours:email')->everyMinute();
+        // $schedule->command('mentor:MentorAvailabilityNotification')->hourly()->days([Schedule::SUNDAY]);
     }
 
     /**
