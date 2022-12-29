@@ -320,7 +320,7 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             </div>
         </div>
         @php
-            $witnessArr = [1 => 'Justice of the peace', 2 => 'Leagel Practitioner', 3 => 'Noty public', 4 => 'Other authorized person'];
+            $witnessArr = [1=>'Authorised Marriage Celebrant', 2 => 'Justice of the peace', 3 => 'Legal Practitioner', 4 => 'Notary Public', 5 => ' Other Authorised Person'];
         @endphp
         <div class="row align-items-baseline">
             <div class="col-md-6 mb-4">

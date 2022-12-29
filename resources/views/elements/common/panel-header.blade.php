@@ -197,6 +197,10 @@ if (Cookie::get('myCart')) {
                                 // dd(Request::segment(3));
                                 $segments = '/marriages/detail/'.Request::segment(3);
                             }
+                            else if($segment =='upcoming' || $segment =='all-records-tab'){
+                             
+                                $segments = '/upcoming/all-records-tab';
+                            }
 
                             else if($segment =='marriages' || $segment =='all-records-tab'){
                                 $segments = '/marriages/all-records-tab';
