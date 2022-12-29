@@ -202,6 +202,8 @@ if (Cookie::get('myCart')) {
                            
                             else if($segment =='all-payments' || $segment =='invoice-couple' || $segment =='celebrants-invoice'){
                                 $segments = '/all-payments/celebrants-invoice';
+                            }else if($segment =='addons' || $segment =='all-ads-on-tab'){
+                                $segments = '/addons/all-ads-on-tab';
                             }else{
                                 $segments .= '/' . $segment;
                             } 

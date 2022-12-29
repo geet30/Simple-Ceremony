@@ -11,7 +11,7 @@
             <div class="col-md-9 mb-4">
                 <label for="InputName" class="form-label small-text2">Location name
                 </label>
-                <select class="js-placeholder-single-input form-control" name="location">
+                <select class="js-placeholder-single-input form-control" name="location" >
                     <option value="" disabled="" selected="" hidden="">Select location</option>
                     @foreach ($allLocations as $loc)
                         <option value="{{ $loc->id }}">{{ $loc->name }}</option>

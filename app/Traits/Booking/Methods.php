@@ -9,7 +9,7 @@ use Stripe\Stripe;
 use Str;
 use Carbon\Carbon;
 use \Carbon\CarbonPeriod;
-use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail};
+use App\Mail\{RegisterUserMail, ContactUsMail, RequestLocationEmail,SendBookingConfirmationMail,BookingNoimFilledConfirmationMail};
 use Illuminate\Support\Facades\Auth;
 
 trait Methods
@@ -65,11 +65,6 @@ trait Methods
                     }
                 }
             }
-            // dd(Cache::get('booking'));
-            // $addons_price = Cache::get('booking')->package_price;
-            // $check_count_of_timeslots = self::calculateTimeslotsPrice();
-            // $price = $data['price'] * $check_count_of_timeslots;
-            // $total_price = $addons_price + $price;
             $DOMAIN = config('env.WEBSITE');
             $send_paramter = [
                 'name' => $data['name'],
@@ -96,6 +91,97 @@ trait Methods
         $sendMail = new RequestLocationEmail($dataMail);
         return \Mail::to($mail_id)->later($when, $sendMail);
     }
+    static function bookingConfirmationEmail($booking_id)
+    {
+        $booking_details =  Booking::with([
+            'user' => function ($query) {
+                $query->select('email', 'phone', 'country_code', 'id');
+            },           
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
+            },
+            'location' => function ($query) {
+                $query->select('name', 'id', 'price','address');
+            },
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id','email');
+            },
+            'type_of_ceremony' => function($query){
+                $query->select('ceremony_name', 'id');
+            },
+        ])->where('id',$booking_id)->first();
+        // dd($booking_details);
+        $when = now()->addMinutes(1);
+        $dataMail  = $booking_details;
+        $price_info = json_decode($booking_details['price_info']); 
+
+        $price_your_fee = (isset($price_info->your_fee )) ? $price_info->your_fee :0;
+        $price_admin_fee = (isset($price_info->admin_fee )) ? $price_info->admin_fee :0;
+        $price_location_fee=(isset($price_info->location_fee )) ?$price_info->location_fee :0;
+        $total_fee = $price_your_fee + $price_admin_fee+$price_location_fee;
+
+        $mailArray= [];
+        $admin_subject = 'New Booking: '.date("M d, Y",strtotime($booking_details["booking_date"])).' at '.$booking_details["location_name"].' Fee $'.$total_fee;
+
+        $celebrant_subject = 'New Booking: '.date("M d, Y",strtotime($booking_details["booking_date"])).' at '.$booking_details["location_name"].' Fee $'.$price_your_fee;
+
+        $mailArray[$booking_details->user->email] = ['emails.booking-confirmation.couple-email','Confirmation of your ceremony booking'];
+        $mailArray[$booking_details->celebrant->email] = ['emails.booking-confirmation.celebrant-email',$celebrant_subject];
+        $mailArray[config('env.FROM_EMAIL')] = ['emails.booking-confirmation.admin-email',$admin_subject];
+      
+    
+        foreach($mailArray as $mail => $view){
+            
+            $sendMail = new SendBookingConfirmationMail($dataMail,$view[0],$view[1]);
+            \Mail::to($mail)->later($when, $sendMail);
+        }
+       
+    }
+    static function bookingNoimFilledConfirmationEmail($booking_id,$user_id)
+    {
+        $booking_details =  Booking::with([
+            'user' => function ($query) {
+                $query->select('email', 'phone', 'country_code', 'id');
+            },           
+            'user.celebrant' => function ($query) {
+                $query->select('celebrant_id','admin_fee','standard_fee', 'id');
+            },
+            'location' => function ($query) {
+                $query->select('name', 'id', 'price','address');
+            },
+            'celebrant' => function ($query) {
+                $query->select('first_name', 'id','email');
+            },
+            'type_of_ceremony' => function($query){
+                $query->select('ceremony_name', 'id');
+            },
+        ])->where('id',$booking_id)->where('user_id',$user_id)->first();
+        // dd($booking_details);
+
+        $when = now()->addMinutes(1);
+        $dataMail  = $booking_details;
+        
+
+        $mailArray= [];
+      
+
+        $admin_subject = 'NoIM received '.$booking_details["first_couple_name"].' & '.$booking_details["second_couple_name"].', '.date("M d, Y",strtotime($booking_details["booking_date"])).', '.$booking_details["location_name"];
+
+        $couple_subject =  'Your NoIM has now been lodged';
+
+        
+
+        $mailArray[$booking_details->user->email] = ['emails.noim-added.couple',$couple_subject];
+        $mailArray[config('env.FROM_EMAIL')] = ['emails.noim-added.admin',$admin_subject];
+      
+    
+        foreach($mailArray as $mail => $view){
+            
+            $sendMail = new BookingNoimFilledConfirmationMail($dataMail,$view[0],$view[1]);
+            \Mail::to($mail)->later($when, $sendMail);
+        }
+       
+    }
     static function contactUsEmail($data)
     {
 
@@ -107,7 +193,6 @@ trait Methods
             'country_code' => $data['phone_code'],
             'description' => $data['enquiry']
         );
-        // dd($dataMail);
 
         $mail_id = config('env.CONTACTUS_EMAIL');
         $sendMail = new ContactUsMail($dataMail);
@@ -144,6 +229,8 @@ trait Methods
 
             $user = User::create($user_inputs);
             $user->assignRole('User');
+
+            ########## Send Register Mail ##########
             $when = now()->addMinutes(1);
             $dataMail  = array(
                 'email' => $user_inputs['email'],
@@ -153,6 +240,8 @@ trait Methods
             $mail_id = $user_inputs['email'];
             $sendMail = new RegisterUserMail($dataMail);
             $mail = \Mail::to($mail_id)->later($when, $sendMail);
+
+            ###########################################
 
             $booking['userId'] = $user->id;
 
@@ -191,7 +280,7 @@ trait Methods
             self::savePaymentDetail($sessionId, $user->id,$booking->id);
             self::createInvoice($booking->id);
 
-            return true;
+            return $booking->id;
         } catch (\Exception $ex) {
             echo "<pre>";
             print_r($ex->getMessage());
@@ -301,9 +390,158 @@ trait Methods
     {
         return RequestLocations::create($data);
     }
-    static function getCalendarBooking($user_id,$locationId=null,$couple=null)
+    // static function getCalendarBooking($user_id,$locationId=null,$couple=null,$booking_date =null,$type = null)
+    // {
+    //     // dd($type);
+    //     $booking = Booking::with(['location','type_of_ceremony'])->where('celebrant_id',$user_id);
+    //     if(!empty($locationId)){
+    //         $booking = $booking->whereIn('locationId',$locationId);
+    //     }
+    //     if(!empty($couple)){
+    //         $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
+    //                 ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
+    //     }
+    //     if(isset($type) && $type =='booking'){
+    //         if(!empty($booking_date)){
+    //             $booking =  $booking->whereDate('booking_date', $booking_date . '%');
+    //         }
+    //     }
+        
+
+    //     $booking = $booking->get()->groupBy('booking_date');      
+    //     $response = [];      
+    //     foreach($booking as $date=>$resultResponse){
+
+    //         $response[$date]['data'] =$resultResponse;
+    //         // $over_ride = CelebrantDateOverRide::with('location')
+    //         // ->where('override_date',$date);
+    //         $over_ride = CelebrantDateOverRide::with('location');
+            
+    //         if(!empty($locationId)){
+               
+    //             $over_ride = $over_ride->whereIn('location_id',$locationId);
+    //         }
+    //         if(isset($type) && $type =='availability'){ 
+    //             if(!empty($booking_date)){
+    //                 $date = $booking_date;                   
+    //             }
+
+    //         }
+    //         $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
+    //         $over_ride = $over_ride->where('override_date',$date)->where('day',strtolower($start_day)); 
+    //         $over_ride = $over_ride->get();   
+            
+    //         $dataArr = [];
+    //         if(count($over_ride) > 0){
+                
+    //             $dataArr[$date] =  $over_ride;
+
+    //         }else{
+               
+    //             $slotsWithoutOverride =CelebrantDaySlot::with('location','availabilitydates','calendardayslots');
+
+    //             if(!empty($locationId)){
+                  
+    //                 $slotsWithoutOverride = $slotsWithoutOverride->whereIn('location_id',$locationId);
+    //             }
+    //             if(isset($type) && $type =='availability'){
+    //                $date = $booking_date;
+                    
+    //             }
+    //             $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l'); 
+    //             $slotsWithoutOverride = $slotsWithoutOverride->whereHas('dates',function($qr) use($date){                 
+    //                 $qr->whereDate('start_date','<=',$date)
+    //                 ->whereDate('end_date','>=',$date);              
+    //             });
+    //             $slotsWithoutOverride =  $slotsWithoutOverride->where('day',strtolower($start_day));
+    //             $slotsWithoutOverride =$slotsWithoutOverride->get();
+               
+              
+    //             if(count($slotsWithoutOverride) > 0){
+                
+    //                 $dataArr[$date] =  $slotsWithoutOverride;
+    
+    //             }
+
+    //         } 
+    //         $slotsInfo = [];
+    //         $slotsInfo['total_slots'] = 0;
+    //         $slotsInfo['availability_slots_count'] = 0;
+    //         $slotsInfo['ceremonies_count'] = 0;
+    //         $data2 =[];
+    //         if(count($dataArr) > 0){ 
+                                               
+    //             foreach($dataArr as $bookingDate=>$dataresponse){                    
+    //                 $slotsInfo['total_slots'] = count($dataresponse);                   
+    //                 foreach($dataresponse as $key=>$result){ 
+    //                     $start_time = $result->start_time;
+    //                     $end_time = $result->end_time;
+    //                     if(isset($result->override_date) && $result->override_date !=''){
+    //                         $booking_date = $result->override_date;
+    //                     }else{
+    //                         $booking_date = $bookingDate;
+    //                     }
+    //                     $checkBooking = Booking::where('locationId',$result->location_id)->where('booking_date', $booking_date)
+                        
+    //                     ->where(function($qrd)use($start_time,$end_time){
+    //                             $qrd->where(function($qra) use($start_time,$end_time){
+    //                                 $qra->where(function($st) use($start_time,$end_time){
+    //                                     $st->whereTime('booking_start_time','>=',$start_time)
+    //                                         ->whereTime('booking_start_time','<',$end_time)
+    //                                         ->whereTime('booking_start_time','=',$start_time)
+    //                                         ->whereTime('booking_end_time','=',$end_time);
+    //                                 })
+    //                                 ->orWhere(function($et) use($start_time,$end_time){
+    //                                     $et->whereTime('booking_end_time','>',$start_time)
+    //                                         ->whereTime('booking_end_time','<=',$end_time)
+    //                                         ->whereTime('booking_start_time','=',$start_time)
+    //                                         ->whereTime('booking_end_time','=',$end_time);
+    //                                 });
+    //                             })
+    //                             ->orWhere(function($qra)use($start_time,$end_time){
+    //                                 $qra->where(function($st) use($start_time){
+    //                                     $st->whereTime('booking_start_time','<=',$start_time)
+    //                                         ->whereTime('booking_end_time','>',$start_time)
+    //                                         ->whereTime('booking_start_time','=',$start_time);
+    //                                 })
+    //                                 ->orWhere(function($et) use($end_time){
+    //                                     $et->whereTime('booking_start_time','<',$end_time)
+    //                                         ->whereTime('booking_end_time','>=',$end_time)
+    //                                         ->whereTime('booking_end_time','=',$end_time);
+    //                                 });
+    //                             });
+    //                     })->get(); 
+                        
+    //                     if(count($checkBooking) > 0){
+    //                         $slotsInfo['ceremonies_count']++;
+    //                         unset($dataresponse[$key]);                                
+    //                         $data2[$bookingDate] = $dataresponse->values(); 
+    //                     } 
+    //                     else{
+    //                         $data2[$bookingDate] =$dataresponse->values();
+    //                     }
+                        
+    //                 }                   
+    //             }             
+    //         }          
+    //         if(!empty($data2)){
+    //             foreach($data2 as $res){
+    //                 $response[$date]['available_slots'] =$res;
+    //             }
+    //         }         
+            
+    //         $slotsInfo['availability_slots_count'] =  $slotsInfo['total_slots'] - $slotsInfo['ceremonies_count'];
+    //         $response[$date]['slotsInfo'] =$slotsInfo;
+    //         // dd($response); 
+           
+    //     }
+    //     return $response;        
+            
+    // }
+    static function getCalendarBooking($user_id,$locationId=null,$couple=null,$booking_date =null,$type = null)
     {
-        $booking = Booking::with('location')->where('celebrant_id',$user_id);
+        // dd($type);
+        $booking = Booking::with(['location','type_of_ceremony'])->where('celebrant_id',$user_id);
         if(!empty($locationId)){
             $booking = $booking->whereIn('locationId',$locationId);
         }
@@ -311,24 +549,35 @@ trait Methods
             $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
                     ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
         }
+        if(isset($type) && $type =='booking'){
+            if(!empty($booking_date)){
+                $booking =  $booking->whereDate('booking_date', $booking_date . '%');
+            }
+        }
+        
 
         $booking = $booking->get()->groupBy('booking_date');      
         $response = [];      
         foreach($booking as $date=>$resultResponse){
 
             $response[$date]['data'] =$resultResponse;
-            $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
-            $over_ride = CelebrantDateOverRide::with('location')
-            ->where('override_date',$date);
+            // $over_ride = CelebrantDateOverRide::with('location')
+            // ->where('override_date',$date);
+            $over_ride = CelebrantDateOverRide::with('location');
             
             if(!empty($locationId)){
                
                 $over_ride = $over_ride->whereIn('location_id',$locationId);
             }
-            
-            $over_ride = $over_ride->where('day',strtolower($start_day))        
-            ->get(); 
-           
+            if(isset($type) && $type =='availability'){ 
+                if(!empty($booking_date)){
+                    $date = $booking_date;                   
+                }
+
+            }
+            $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
+            $over_ride = $over_ride->where('override_date',$date)->where('day',strtolower($start_day)); 
+            $over_ride = $over_ride->get();   
             
             $dataArr = [];
             if(count($over_ride) > 0){
@@ -337,16 +586,24 @@ trait Methods
 
             }else{
                
-                $slotsWithoutOverride =   CelebrantDaySlot::with('location','availabilitydates','calendardayslots')->whereHas('dates',function($qr) use($date){                 
-                        $qr->whereDate('start_date','<=',$date)
-                        ->whereDate('end_date','>=',$date);              
-                    });
+                $slotsWithoutOverride =CelebrantDaySlot::with('location','availabilitydates','calendardayslots');
+
                 if(!empty($locationId)){
                   
                     $slotsWithoutOverride = $slotsWithoutOverride->whereIn('location_id',$locationId);
                 }
-                  
-                $slotsWithoutOverride =$slotsWithoutOverride->where('day',strtolower($start_day))->get();
+                if(isset($type) && $type =='availability'){
+                   $date = $booking_date;
+                    
+                }
+                $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l'); 
+                $slotsWithoutOverride = $slotsWithoutOverride->whereHas('dates',function($qr) use($date){                 
+                    $qr->whereDate('start_date','<=',$date)
+                    ->whereDate('end_date','>=',$date);              
+                });
+                $slotsWithoutOverride =  $slotsWithoutOverride->where('day',strtolower($start_day));
+                $slotsWithoutOverride =$slotsWithoutOverride->get();
+               
               
                 if(count($slotsWithoutOverride) > 0){
                 
@@ -427,7 +684,7 @@ trait Methods
            
         }
         return $response;        
-        dd($data2);      
+            
     }
     static function searchBooking($request)
     {

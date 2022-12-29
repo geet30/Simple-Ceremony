@@ -46,8 +46,6 @@ trait Methods
         return true;
         }
        return false;
-           
-
     }
     static function fetch_locations($id=null,$search=null){
         $columns = ['*'];
@@ -196,46 +194,7 @@ trait Methods
 
        
     } 
-    public static function searchCertificateByDate($request){
-
-        $marriage_certificate = MarriageCertificateNumber::where('user_id',Auth::user()->id)->get();
-       
-        $certificate_no = '';
-        $response = [];
-      
-        foreach($marriage_certificate as $key=>$result){
-            $response[$key] = $result;
-            $certificate_no = $result->id;
-            $booking_date = $request->booking_date;
-            $search = $request->search;
-            // dd($search);
-            
-            $booking = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
-                $qr->where('marriage_certificate_number',$certificate_no);
-            })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',Auth::user()->id);
-            if(isset($booking_date) && !empty($booking_date)){
-                $booking->whereHas('booking_details',function($qr) use ($booking_date){        
-                            
-                    $qr->whereDate('created_at',$booking_date);
-                });
-            }
-            if(isset($search) && !empty($search)){
-                $booking = $booking->where(function ($query) use($search) {
-                    $query->where('first_couple_name', 'like', '%' . $search . '%')
-                        ->orWhere('second_couple_name', 'like', '%' . $search . '%');
-                });
-            }
-            $booking = $booking->first();
-            if(!empty($booking)){
-                
-                $response[$key]['booking_result'] = $booking;
-            }    
-
-        }
-        // dd($response);
-        return $response;        
-        // dd($response);
-    }
+ 
     public static function searchByUser($request)
     {
         $req_page = 1;
@@ -348,19 +307,79 @@ trait Methods
        
         $certificate_no = '';
         $response = [];
-        $data = [];
+        // $data = [];
         foreach($marriage_certificate as $key=>$result){
             $response[$key] = $result;
-            $certificate_no = $result->id;
-           
+            $certificate_no = $result->id;           
             $response[$key]['booking_result'] = Booking::with('booking_details')->whereHas('booking_details',function($qr) use ($certificate_no){
                 $qr->where('marriage_certificate_number',$certificate_no);
-            })->select('id','first_couple_name','second_couple_name')->where('celebrant_id',$celebrant_id)->first();
+            })->select('id','first_couple_name','second_couple_name','booking_date')->where('celebrant_id',$celebrant_id)->first();
 
         }
         return $response;
     }
+    public static function searchCertificateByDate($request){
+        $booking_date = $request->booking_date;
+        $search = $request->search;
+        $response = [];$certificate_no = '';
+        $marriage_certificate=MarriageCertificateNumber::where('user_id',Auth::user()->id)->get();
+       
+            
+            foreach($marriage_certificate as $key=>$result){
+                $response[$key] = $result;
+                $certificate_no = $result->id;  
+                $booking =   Booking::with([
+                    'booking_details' => function ($query) {
+                        $query->select('*');
+                    },
+                    'booking_details.marriage_certificate' => function ($query) {
+                        $query->select('*');
+                    },
+                ]);
 
+                $booking = $booking->whereHas('booking_details',function($qr) use ($certificate_no){
+                    $qr->where('marriage_certificate_number',$certificate_no);
+                })->select('id','first_couple_name','second_couple_name','booking_date')->where('celebrant_id',Auth::user()->id);
+                if($search !=''){
+                    $booking = $booking->where(function ($query) use($search) {
+                        $query->where('first_couple_name', 'like', '%' . $search . '%')
+                            ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+                    });
+                }
+                if(isset($booking_date) && !empty($booking_date)){
+                    if($request->status == 1){
+                    // 
+                        $booking->whereHas('booking_details.marriage_certificate',function($qr) use ($booking_date){        
+                                    
+                            $qr->whereDate('date_of_use',$booking_date);
+                        });
+                    }else{
+                        $booking->whereDate('booking_date',$booking_date);
+                    }
+                                
+                }
+                // dd($booking->toSql());
+                
+                $response[$key]['booking_result'] = $booking->first();
+                
+               
+            }
+            
+        // dd($response);
+       
+        $dataArr = [];
+        foreach($response as $key2=>$res){
+            
+            if($res->booking_result != null){
+                $dataArr[] = $res->booking_result;
+               
+            }
+        }    
+       
+        
+        return $dataArr;        
+        // dd($response);
+    }
     public static function delete_booking_record($request){
         try{
             if(isset($request->id) && !empty($request->id)){
@@ -379,7 +398,6 @@ trait Methods
             return ['status' => false,'message'=>$ex->getMessage()]; 
         }
     }
-  
     public static function searchCalendarByCouple($request){
        
         $search = $request->search;
@@ -423,4 +441,24 @@ trait Methods
         return $allLocations;
 
     }
+    public static function updateCertificate($request){
+        try{
+           
+            $input['date_of_use'] = date('Y-m-d',strtotime($request['date_use']));
+            $input['status'] = $request['status'];
+            $input['details'] = $request['details'];
+            MarriageCertificateNumber::where('id', $request['id'])->update($input);                 
+            $booking_details['marriage_certificate_number'] = $request['id'];
+            BookingDetails::where('booking_id',$request['booking_id'])->update($booking_details);
+        } catch (\Exception $ex) {
+            dd($ex);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+        
+      
+        return true;
+        
+    }
+   
+    
 }

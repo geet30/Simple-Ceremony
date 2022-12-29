@@ -109,6 +109,7 @@ class AddonsController extends Controller
     public function store(AddonsRequest $request)
     {
         try {
+           
             $input = $request->all();
             $checkAddons = Addons::where('name', $request->name)->first();
             if ($checkAddons) {
@@ -123,7 +124,9 @@ class AddonsController extends Controller
             }
             return response()->json(['status' => false, "message" => 'Something went wrong.']);
         } catch (\Exception $ex) {
-            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+           
+            return response()->json(['status' => false, "message" => $ex->getMessage()]);
+            // return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
 

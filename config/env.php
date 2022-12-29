@@ -12,6 +12,8 @@ return [
     'CONTACTPAGE' => 'edo@simpleceremonies.com.au',
     'CONTACTPHONE' => '+61280033919',
     'COMPANYNAME' => 'Simple Ceremonies',
+    'ADMINNAME' => 'Ange and Micheal',
+    'EMAILFOOTER' =>'Simple Ceremonies Team',
     'userType' => [
         'Admin' => 1,
         'User' => 2,
@@ -40,6 +42,7 @@ return [
     'SERVERURL' =>'http://simpleceremoniesacc.crebos.online',
     'COUNTRY' =>'Australia',
     'RESCHEDULE_FEE' =>'85',
+    'TIMEZONE' =>'Australia/Sydney',
     
 
 

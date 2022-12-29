@@ -5,7 +5,8 @@ use App\Http\Controllers\Controller;
 use View;
 use PDF;
 use App\Models\{User, Invoices};
-
+use File;
+use PhpOffice\PhpWord\IOFactory;
 class DownloadController extends Controller
 {
     /**
@@ -21,8 +22,16 @@ class DownloadController extends Controller
         return response()->download($file_path);
     }
     public function viewDocument($file_name) {
+        
         $file_path = public_path('uploads/documents/user/'.$file_name);
-        return response()->file($file_path);
+        $ext =File::extension($file_name);
+        if($ext == 'pdf'){
+            $headers = [
+                'Content-Type' => 'application/pdf',  
+            ];           
+        }     
+        return response()->file($file_path, $headers);
+        
     }  
     public function downloadInvoices($id) {
         $data =   Invoices::with([

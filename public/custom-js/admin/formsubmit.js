@@ -119,6 +119,7 @@ $(document).ready(function(){
                 $('#loading').show();
             },
             success: function(response) {
+                $('#loading').hide();
                 if (response.status) {
                     form.trigger("reset");
                     $(document).find('.message').html("<div class='alert alert-success'>" + response.message + "</div>");
@@ -130,19 +131,22 @@ $(document).ready(function(){
                         $(document).find('.message').html("<div class='alert alert-danger'>" + response.message + "</div>"); 
                     }, 300);   
                 }
-                $('#loading').hide();
                 // display success response from the server
             },
             error: function(response) { // handle the error
-                
-                try {
-                    $.each(response.responseJSON.errors,function(field_name,error){
-                        $(document).find('[name='+field_name+']').after('<span class="form-error">' +error+ '</span>')
-                    })
-                    
-                } catch (err) {
-
+                if( response.status === 422 ) {
+                    $('#loading').hide();
+                    try {
+                        $.each(response.responseJSON.errors,function(field_name,error){
+                            $(document).find('[name='+field_name+']').after('<span class="form-error">' +error+ '</span>')
+                        })
+                        
+                    } catch (err) {
+    
+                    }
                 }
+               
+               
 
             },
 
