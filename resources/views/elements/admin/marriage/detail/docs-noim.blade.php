@@ -326,8 +326,15 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Who has witnessed Person 1 sign the
                     NOIM</label>
+                    <?php $who_signed_person_1_witness = '';
+                    if(isset($couple1->marriageDocument) && !empty($couple1->marriageDocument->who_signed_person_1_witness)){
+                        $who_signed_person_2_witness = $witnessArr[$couple1->marriageDocument->who_signed_person_1_witness];
+                    }
+                    
+                    ?> 
+
                 <input type="text"
-                    value="{{ (isset($couple1->marriageDocument )) ? $witnessArr[$couple1->marriageDocument->who_signed_person_1_witness] : '' }}"
+                    value="{{ $who_signed_person_1_witness }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
@@ -342,8 +349,14 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Who has witnessed Person 2 sign the
                     NOIM</label>
+                    <?php $who_signed_person_2_witness = '';
+                    if(isset($couple1->marriageDocument) && !empty($couple1->marriageDocument->who_signed_person_2_witness)){
+                        $who_signed_person_2_witness = $witnessArr[$couple1->marriageDocument->who_signed_person_2_witness];
+                    }
+                    
+                    ?> 
                 <input type="text"
-                    value="{{ (isset($couple1->marriageDocument )) ? $witnessArr[$couple1->marriageDocument->who_signed_person_2_witness] : '' }}"
+                    value="{{ $who_signed_person_2_witness }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
 
@@ -351,15 +364,28 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
         <div class="row align-items-baseline">
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Occupation name</label>
+                <?php $person_1_witness_occupation_name = '';
+                    if(isset($couple1->marriageDocument) && !empty($couple1->marriageDocument->person_1_witness_occupation_name)){
+                        $who_signed_person_2_witness = $couple1->marriageDocument->person_1_witness_occupation_name;
+                    }
+                    
+                ?> 
+
                 <input type="text"
-                    value="{{ (isset($couple1->marriageDocument )) ? $couple1->marriageDocument->person_1_witness_occupation_name : '' }}"
+                    value="{{ $person_1_witness_occupation_name }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2 ">Authorization Person's Name who
                     witnessed Person 2 on the NOIM</label>
+                <?php $person_2_witness_name = '';
+                    if(isset($couple1->marriageDocument) && !empty($couple1->marriageDocument->person_2_witness_name)){
+                        $who_signed_person_2_witness = $couple1->marriageDocument->person_2_witness_name;
+                    }
+                    
+                ?> 
                 <input type="text"
-                    value="{{ (isset($couple1->marriageDocument )) ? $couple1->marriageDocument->person_2_witness_name : '' }}"
+                    value="{{ $person_2_witness_name}}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
         </div>
