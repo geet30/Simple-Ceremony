@@ -62,7 +62,7 @@
                     <div class="numberCircle">0</div>
                 </div>
                 <div class="col-12 col-md-10 col-lg-11">
-                    <h4 class="h4 neutral-100">No record found</h4>
+                    <h4 class="h4 neutral-100">No records found</h4>
                     
                 </div>
             </div>

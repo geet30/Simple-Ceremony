@@ -4,7 +4,7 @@
 <div class="filter_tab">
     <div class="row mb-4 pt-32 justify-content-between ">
 
-        <div class="col-md-8 col-lg-8 col-xl-8 col-xxl-8">
+        <div class="col-md-7 col-lg-8 col-xl-8 col-xxl-8 align-self-center">
             <div class="align-self-center d-flex position-relative">
                 <div class="dropdown filter-date-calendar-dropdown">
                     <a role="button" class="theme-btn primary-btn-border d-inline-flex align-items-center text-nowrap" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside"><img src="/images/icons/green-calendar.svg" class="me-3" alt="calendar"> Filter by date</a>
@@ -57,7 +57,7 @@
                
             </div>
         </div>
-        <div class="col-md-4 col-lg-3 col-xl-3 col-xxl-2">
+        <div class="col-md-5 col-lg-4  col-xxl-3 align-self-center">
 
             <a class="theme-btn primary-btn d-inline-block mt-2 mb-2 w-100" href="{{url('payments/create')}}">
                 <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">

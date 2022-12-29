@@ -23,6 +23,8 @@
     tbody {
         tr {
             td {
+                text-transform: capitalize;
+                vertical-align: middle;
                 &:first-child {
                     padding-left: 25px;
                 }
@@ -46,7 +48,7 @@
                     }
                 }
                 &:last-child {
-                    padding: 10px 38px 19px 48px;
+                
                     td {
                         border-bottom: none;
                         border-top: none;
@@ -139,4 +141,8 @@
      width: 6px;
      background-repeat: no-repeat;
      }
+}
+.clickable-row
+{
+    cursor: pointer;
 }

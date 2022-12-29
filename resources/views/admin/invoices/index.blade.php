@@ -7,8 +7,8 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.common.panel-header')
-         <div class="row mb-3 align-items-center">
-            <div class="col-lg-12 col-xl-7 col-xxl-8 mb-3 mb-lg-0">
+         <div class="row mb-3 align-items-center ">
+            <div class="col-lg-12  col-xl-9 mb-3 mb-xl-0">
                <ul class="nav theme-tabs payment-tabs" role="tablist" onclick="addTabToUrl(event,'/all-payments/')">
                   <li class="nav-item" role="presentation">
                      <a class="nav-link active" id="couple-invoice" data-bs-toggle="tab" data-bs-target="#invoice-of-couple" href="#" aria-selected="true" role="tab">Invoice from couples</a>
@@ -24,8 +24,8 @@
                   </li>
                </ul>
             </div>
-            <div class="col-lg-4 col-xl-3">
-               <div class="form-group has-search w-100 position-relative">
+            <div class=" col-xl-3 text-end ">
+               <div class="form-group has-search  position-relative">
                   <input type="text" class="form-control" placeholder="Search invoice" onkeyup="searchWithoutTabs('/search-by-invoice',this.value, 'simpletabs')">
                   <span class="fa fa-search form-control-feedback" ></span>
                 </div>
