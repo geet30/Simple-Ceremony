@@ -326,8 +326,10 @@ $couple2 = isset($couple) && isset($couple[1]) ? $couple[1] : null;
             <div class="col-md-6 mb-4">
                 <label for="preferredname2" class="form-label small-text2 ps-2">Who has witnessed Person 1 sign the
                     NOIM</label>
+                    <?php $who_signed_person_1_witness = (isset($couple1->marriageDocument)) ? $witnessArr[$couple1->marriageDocument->who_signed_person_1_witness] : '' ?>
+
                 <input type="text"
-                    value="{{ $couple1 && $couple1->marriageDocument ? $witnessArr[$couple1->marriageDocument->who_signed_person_1_witness] : '' }}"
+                    value="{{ $who_signed_person_1_witness }}"
                     class="form-control body-1 netural-100" name="name" id="preferredname2">
             </div>
             <div class="col-md-6 mb-4">
