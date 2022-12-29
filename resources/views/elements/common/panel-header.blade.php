@@ -192,19 +192,25 @@ if (Cookie::get('myCart')) {
                     @foreach (Request::segments() as $segment)
                         <?php 
                         
-                            
-                            if($segment =='marriages' || $segment =='all-records-tab'){
+                            // echo $segment."<br>";
+                            if($segment =='user' || $segment =='noim'){
+                                // dd(Request::segment(3));
+                                $segments = '/marriages/detail/'.Request::segment(3);
+                            }
+
+                            else if($segment =='marriages' || $segment =='all-records-tab'){
                                 $segments = '/marriages/all-records-tab';
                             }
                             else if($segment =='locations' || $segment == 'all-requests'){
                                 $segments = '/locations/all-requests';
                             }
-                           
                             else if($segment =='all-payments' || $segment =='invoice-couple' || $segment =='celebrants-invoice'){
                                 $segments = '/all-payments/celebrants-invoice';
-                            }else if($segment =='addons' || $segment =='all-ads-on-tab'){
+                            }
+                            else if($segment =='addons' || $segment =='all-ads-on-tab'){
                                 $segments = '/addons/all-ads-on-tab';
-                            }else{
+                            }
+                            else{
                                 $segments .= '/' . $segment;
                             } 
                         ?>
