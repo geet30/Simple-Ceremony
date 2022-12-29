@@ -260,7 +260,7 @@ trait Methods
         $redirection = '';
         if ($request->route_name == 'admin-login') {
             $role = 'Admin';
-            $redirection = 'locations/all-requests';
+            $redirection = 'marriages/all-records-tab';
         } else if ($request->route_name == 'partner-login') {
             $role = 'Partner';
             $redirection = 'add-ons';
