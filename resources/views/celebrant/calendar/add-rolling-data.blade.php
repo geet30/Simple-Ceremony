@@ -15,9 +15,12 @@
          <div class="col-12">
             <div class="card d panel-card ">
                <div class="card-body">
-                  @if(Session::get('success'))
-                  <p>{{ Session::get('success') }}</p>
-                  @endif
+                  @if (session()->has('message'))
+                     <div class="alert alert-success alert-dismissible fade show">
+                           {{ session()->get('message') }}
+                           <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                     </div>
+                  @endIf
                  
                   <h1 class="h3 neutral-100 mb-4 align-self-center">Set your standard hours</h1>
                   <div class="rolling-override-from d-flex align-self-center w-100">

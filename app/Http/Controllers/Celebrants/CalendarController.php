@@ -218,7 +218,7 @@ class CalendarController extends Controller
                 }
             }
         }
-        return redirect()->back()->with(['success' => 'Data saved successfully']);
+        return redirect()->back()->with(['message' => 'Data saved successfully', 'class' => 'alert-success'])->withInput();
     }
 
     public function overRideFormSubmit(Request $request)
@@ -278,8 +278,8 @@ class CalendarController extends Controller
             }
            
         }
-        
-        return redirect()->back()->with(['success' => 'Data saved successfully']);
+        return redirect()->back()->with(['message' => 'Data saved successfully', 'class' => 'alert-success'])->withInput();
+        // return redirect()->back()->with(['success' => 'Data saved successfully']);
     }
     /**
      * Display the specified resource.

@@ -575,8 +575,9 @@ trait Methods
             
         $dataArr = [];
         if(count($over_ride) > 0){
+           
             foreach($over_ride as $overRide){
-                $dataArr[$overRide->override_date] =  $overRide;
+                $dataArr[$overRide->override_date][] =  $overRide;
             }
         }
             
@@ -617,7 +618,7 @@ trait Methods
             
         }
         $slotsWithoutOverride =$slotsWithoutOverride->get();
-        
+        // dd($slotsWithoutOverride);
         if(count($slotsWithoutOverride) > 0){
             
             foreach($date_day_arr as $date_arr){
@@ -630,7 +631,23 @@ trait Methods
                 }
             } 
         }
+        // foreach($dataArr as $innerArr){
+        //    $da = array_unique(
+        //         array_diff_key(
+        //             $innerArr,
+        //             array_unique($innerArr)
+        //         )
+        //     );
+        //     dd($da);
+        //     // foreach($innerArr as $inner){
+        //     //     if($inner->start_time == ''){
+
+        //     //     }
                 
+        //     //     // if()
+        //     // }
+            
+        // }    
     
         $response = [];  
         $data2 =[];
