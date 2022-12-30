@@ -10,6 +10,23 @@ function parsePrice(p)
 {
     return parseFloat(p);
 }
+$(document).ready(function() {
+
+    $(document).on("click",".fc-prev-button, .fc-next-button",function() {
+        console.log('fdf');
+        setTimeout(function () {
+            jQuery('.fc-daygrid-event-harness a div').each(function() {
+                var className = $(this).attr("class");
+                var currentElement = $(this);
+                console.log(className);
+                currentElement.parent().parent().addClass(className);
+            })
+        }, 1000);
+    
+        
+    })
+});
+
 window.showDataModal = function(booking_date,type) { 
     $(".calendarData").html('');
     var url = baseurl + "celebrant-calendar-data/" + booking_date+'/'+type;
@@ -111,9 +128,9 @@ function initCalander(targetId,bookingData) {
                }
                 if(ceremonies_booked_count == 0){
                     (item['htmlcustom']==undefined) ? item['htmlcustom'] ='' :item['htmlcustom'];
-                    item['htmlcustom'] += `${midHtml}<div class="fc-event-no_cermeony">You don't have ceremony</div>${lastHtml}`;
+                    item['htmlcustom'] += `${midHtml}<div class="fc-event-no_cermeony ceremonies_empty">You don't have ceremony</div>${lastHtml}`;
                 }else{
-                    item['htmlcustom'] += `${midHtml}<div class="booking-details"><div class="fc-event-booking_couple">${element2.first_couple_name+' & '+element2.second_couple_name}</div><div class="fc-event-booking_start">${time_start_format}</div><div class="fc-event-booking_location">${element2.location_name}</div></div>${lastHtml}`;
+                    item['htmlcustom'] += `${midHtml}<div class="booking-details ceremonies_exist"><div class="fc-event-booking_couple">${element2.first_couple_name+' & '+element2.second_couple_name}</div><div class="fc-event-booking_start">${time_start_format}</div><div class="fc-event-booking_location">${element2.location_name}</div></div>${lastHtml}`;
                 }
                 itemArr.push(item);
                
@@ -138,14 +155,8 @@ function initCalander(targetId,bookingData) {
         eventDidMount: function(info) {
             // console.log('info', info.event.extendedProps.htmlcustom);
             var element = $(info.el);
-            element.parent().parent().parent().parent().removeClass('ceremonies_empty');
-            element.parent().parent().parent().parent().removeClass('ceremonies_exist');
-            if(info.event.extendedProps.ceremonies_booked_count == 0){
-                element.parent().parent().parent().parent().addClass('ceremonies_empty');
-                
-            }else{
-                element.parent().parent().parent().parent().addClass('ceremonies_exist');               
-            }           
+            // console.log(element,'asdsa');
+          
             
          
             if(info.view.type == 'dayGridMonth'){ // month
@@ -161,6 +172,8 @@ function initCalander(targetId,bookingData) {
                
                 element.html('');
                 element.html(info.event.extendedProps.weeklyHtml); 
+                
+                $('.weeklyClass').find('.fc-event-time').addClass('d-none');
                 // element.find('.availability-slot').addClass('d-none');
                 if($('.fc-scrollgrid-liquid').length){
                     $('.fc-scrollgrid-liquid').addClass('weeklyClass');

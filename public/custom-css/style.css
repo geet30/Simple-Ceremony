@@ -77,3 +77,21 @@
     background-color: #389BD6;
     border-radius: 50%;
 }
+.fc-daygrid-event-harness.booking-slot {
+    order: 3 !important;
+}
+
+
+.fc-daygrid-event-harness.availability-slot {
+    order: 1 !important;
+}
+.fc-daygrid-event-harness.availability-details {
+    order: 2;
+}
+
+.fc-daygrid-event-harness.booking-details {order: 4 !important;}
+
+.fc-daygrid-day-events {
+    display: flex;
+    flex-direction: column;
+}
