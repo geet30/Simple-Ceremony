@@ -84,7 +84,7 @@ function initCalander(targetId,bookingData) {
                
                 // item["booking_id"] = element2.id;
                 // item["booking_id"] = element2.booking_date;
-                // item['ceremonies_booked_count'] =ceremonies_booked_count;
+                item['ceremonies_booked_count'] =ceremonies_booked_count;
               
                 if(ceremonies_booked_count > 0){
                     item['weeklyHtml'] = `<a role="button" data-bs-toggle="modal" onclick="showDataModal('${element2.booking_date}','booking')"
@@ -135,7 +135,7 @@ function initCalander(targetId,bookingData) {
             var element = $(info.el);
             element.parent().parent().parent().parent().removeClass('ceremonies_empty');
             element.parent().parent().parent().parent().removeClass('ceremonies_exist');
-            if(info.event.extendedProps.ceremonies_count == 0){
+            if(info.event.extendedProps.ceremonies_booked_count == 0){
                 element.parent().parent().parent().parent().addClass('ceremonies_empty');
                 
             }else{
@@ -153,30 +153,21 @@ function initCalander(targetId,bookingData) {
                 
             }
             if(info.view.type == 'timeGridWeek'){ //week
+               
                 element.html('');
-                element.append(info.event.extendedProps.weeklyHtml); 
+                element.html(info.event.extendedProps.weeklyHtml); 
                 // element.find('.availability-slot').addClass('d-none');
                 if($('.fc-scrollgrid-liquid').length){
                     $('.fc-scrollgrid-liquid').addClass('weeklyClass');
                 }
                 // element.find('.fc-event-availability').addClass('d-none');
-                // element.find('.fc-event-booking_start').addClass('d-none');
-                // element.find('.fc-event-ceremonies_count').addClass('d-none');
-                // element.find('.booking-details').addClass('d-none');
-               
-                // element.find('.booking-slot').addClass('d-none');
+                
                 
             } 
             if(info.view.type == 'timeGridDay'){//day
                 element.html('');
                 element.append(info.event.extendedProps.weeklyHtml); 
-                // element.html('');
-                // element.append(info.event.extendedProps.htmlcustom);
-                // element.find('.availability-slot').addClass('d-none'); 
-                // element.find('.fc-event-booking_start').addClass('d-none');
-                // element.find('.fc-event-ceremonies_count').addClass('d-none');
-                // if($('.fc-scrollgrid-liquid').length){
-                //     $('.fc-scrollgrid-liquid').addClass('dayClass');
+               
                 // }  
             }       
         },
