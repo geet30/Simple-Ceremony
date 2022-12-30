@@ -593,6 +593,7 @@ trait Methods
             $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
             $days_arr = [$start_day];
             $dateInfo = [$date];
+            $date_day_arr[]=  [$date,strtolower($start_day)]; 
 
             $slotsWithoutOverride = $slotsWithoutOverride->whereHas('dates',function($qr) use($date){                 
                 $qr->whereDate('start_date','<=',$date)
@@ -618,7 +619,7 @@ trait Methods
             
         }
         $slotsWithoutOverride =$slotsWithoutOverride->get();
-        // dd($slotsWithoutOverride);
+       
         if(count($slotsWithoutOverride) > 0){
             
             foreach($date_day_arr as $date_arr){
