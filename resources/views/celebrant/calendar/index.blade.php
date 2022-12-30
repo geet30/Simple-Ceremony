@@ -13,7 +13,7 @@
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.common.panel-header')
          <div class="row pt-31 mb-4">
-            <div class="col-md-8 col-xl-9 d-flex align-self-center">
+            <div class="col-md-12 col-xl-6 col-xxl-6 d-flex align-self-center">
                <?php //dd($celebrant_locations);
                ?>
                <div class="dropdown filter_date_div">
@@ -46,14 +46,16 @@
                
               
                <div class="form-group has-search w-100 ms-4 position-relative">
-                  <input type="text" class="form-control" placeholder="Search couple name" onkeyup="SearchCalendarFilter('/search-calendar-with-couple',this.value)">
+                  <input type="text" class="form-control couple_name" placeholder="Search couple name" >
                   <span class="fa fa-search form-control-feedback"></span>
+                 
                </div>
                <!--  -->
 
             </div>
-            <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-               <a class="theme-btn primary-btn d-flex justify-content-center" href="{{ route('calendar.create') }}">
+            <div class="align-self-center col-md-12 col-xl-6 col-xxl-6 d-flex align-items-center justify-content-xl-end mt-3 mt-xl-0">
+               <a class="theme-btn primary-btn me-3" onclick="SearchCalendarFilter('/search-calendar-with-couple','search')">Search</a>
+               <a class="theme-btn primary-btn d-flex justify-content-center text-nowrap" href="{{ route('calendar.create') }}">
                   <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                   Add new availability
                </a>

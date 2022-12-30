@@ -54,9 +54,14 @@ $(document).ready(function(){
         });
     }
     window.SearchCalendarFilter = function(url,keyword=null){
+
+        
+
         
         closedDiv('filter_date_div');
-       
+        keyword = $('.couple_name').val();
+        
+        // console.log($('.couple_name').val(),'test');
         var locationId = [];
         $('.locations:checked').each(function(i){
             locationId[i] = $(this).val();
