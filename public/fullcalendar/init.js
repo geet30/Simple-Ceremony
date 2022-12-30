@@ -13,15 +13,25 @@ function parsePrice(p)
 $(document).ready(function() {
 
     $(document).on("click",".fc-prev-button, .fc-next-button",function() {
-        // console.log('fdf');
+        
+        console.log('fdf');
         setTimeout(function () {
+            $('#loading').show();
             jQuery('.fc-daygrid-event-harness a div').each(function() {
                 var className = $(this).attr("class");
                 var currentElement = $(this);
                 // console.log(className);
                 currentElement.parent().parent().addClass(className);
             })
+            jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
+                var className = $(this).attr("class");
+                var currentElement = $(this);
+                console.log(className);
+                currentElement.parent().parent().addClass(className);
+            });
+            $('#loading').hide();
         }, 1000);
+       
     
         
     })
@@ -50,7 +60,7 @@ function initCalander(targetId,bookingData) {
     var cl = console.log;
     var ct = console.table;
     if(bookingData.length !== 0){
-        ct(bookingData)
+        // ct(bookingData)
         $.each(bookingData,function(booking_date,response){
             itemArr =[];
             ceremonies_booked_count = 0;

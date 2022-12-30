@@ -97,10 +97,18 @@
 }
 .fc-daygrid-event-dot{display: none !important;}
 
-/* .fc-timegrid-event-harness.fc-timegrid-event-harness-inset {
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset.booking_count_class {
     display: none;
 }
 
-.fc-timegrid-event-harness.fc-timegrid-event-harness-inset:first-of-type {
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset.booking_count_class:first-of-type {
     display: block;
-} */
+}
+
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset.availability_count_class {
+    display: none;
+}
+
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset.availability_count_class:first-of-type {
+    display: block;
+}
