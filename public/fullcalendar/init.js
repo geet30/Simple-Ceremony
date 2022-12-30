@@ -13,14 +13,12 @@ function parsePrice(p)
 $(document).ready(function() {
 
     $(document).on("click",".fc-prev-button, .fc-next-button",function() {
-        
-        console.log('fdf');
+        $('#loading').show();
         setTimeout(function () {
-            $('#loading').show();
             jQuery('.fc-daygrid-event-harness a div').each(function() {
+               
                 var className = $(this).attr("class");
                 var currentElement = $(this);
-                // console.log(className);
                 currentElement.parent().parent().addClass(className);
             })
             jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {

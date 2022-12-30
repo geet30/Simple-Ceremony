@@ -540,22 +540,25 @@ trait Methods
     // }
     static function getCalendarBooking($user_id,$locationId=null,$couple=null,$booking_date =null,$type = null)
     {
+        
         $booking = Booking::with(['location','type_of_ceremony'])->where('celebrant_id',$user_id);
         if(!empty($locationId)){
             $booking = $booking->whereIn('locationId',$locationId);
         }
-        if(!empty($couple)){
-            $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
-                    ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
-        }
+       
+        
         if(isset($type) && $type =='booking'){
             if(!empty($booking_date)){
                 $booking =  $booking->whereDate('booking_date', $booking_date . '%');
             }
         }
         
-    
+        if(!empty($couple)){
+            $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
+                    ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
+        }
         $booking = $booking->get()->groupBy('booking_date');   
+        // dd($booking);
         
         $over_ride = CelebrantDateOverRide::with('location');
             
@@ -570,12 +573,9 @@ trait Methods
         }
         // $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
         // $over_ride = $over_ride->where('override_date',$date)->where('day',strtolower($start_day)); 
-        $over_ride = $over_ride->get();   
-       
-            
+        $over_ride = $over_ride->get();              
         $dataArr = [];
-        if(count($over_ride) > 0){
-           
+        if(count($over_ride) > 0){          
             foreach($over_ride as $overRide){
                 $dataArr[$overRide->override_date][] =  $overRide;
             }
@@ -709,12 +709,9 @@ trait Methods
         }  
         if(!empty($data2)){
             foreach($data2 as $date=>$res){
-                
-               
-
                 if(!empty($couple)){
-                    $response[$date]['availability_slots_count'] = count($res);  
-                    $response[$date]['available_slots'] =$res;
+                    // $response[$date]['availability_slots_count'] = 0;  
+                    // $response[$date]['available_slots'] =[];
                     foreach($booking as $date=>$resultResponse){
                            
                         $response[$date]['ceremonies_count'] =count($resultResponse);
