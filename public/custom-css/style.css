@@ -95,3 +95,12 @@
     display: flex;
     flex-direction: column;
 }
+.fc-daygrid-event-dot{display: none !important;}
+
+/* .fc-timegrid-event-harness.fc-timegrid-event-harness-inset {
+    display: none;
+}
+
+.fc-timegrid-event-harness.fc-timegrid-event-harness-inset:first-of-type {
+    display: block;
+} */
