@@ -38,13 +38,18 @@ function initCalander(targetId,bookingData) {
 
             itemArr =[];
             ceremonies_booked_count = 0;
-            var price =price_info = availability =0;
-            availability = response.slotsInfo.ceremonies_count +'/' + response.slotsInfo.total_slots;
-            availability_weekly = response.slotsInfo.total_slots - response.slotsInfo.ceremonies_count+' Availability';
-            availability_count = response.slotsInfo.total_slots - response.slotsInfo.ceremonies_count;
-            ceremonies_booked_count = response.slotsInfo.ceremonies_count;
+            var price =price_info = availability =availability_count =availability_weekly =0;
+          
+            if(response.ceremonies_count){
+                total_slots = response.availability_slots_count + response.ceremonies_count;
+                ceremonies_booked_count = response.ceremonies_count;
+                
+            }else{
+                total_slots =  response.availability_slots_count;
                
-
+            }
+            availability_count =response.availability_slots_count;
+            availability_weekly = response.availability_slots_count+' Availability';
             $.each(response.available_slots,function(keyAvail,element){
                 item ={};
                 var price =  ' $ '+(parsePrice(element.admin_fee) + parsePrice(element.your_fee) + parsePrice(element.location_fee));
@@ -60,7 +65,7 @@ function initCalander(targetId,bookingData) {
                 var firstHtml ='';
                 
                 if(keyAvail==0){
-                    firstHtml = `<div class="availability-slot"><div class="fc-event-availability">${availability} availability</div>`;
+                    firstHtml = `<div class="availability-slot"><div class="fc-event-availability">${availability_count} availability</div>`;
                 }
                 (item['htmlcustom']==undefined) ? item['htmlcustom'] ='' :item['htmlcustom'];
 
@@ -131,7 +136,7 @@ function initCalander(targetId,bookingData) {
    
       
         eventDidMount: function(info) {
-            console.log('info', info.event.extendedProps.htmlcustom);
+            // console.log('info', info.event.extendedProps.htmlcustom);
             var element = $(info.el);
             element.parent().parent().parent().parent().removeClass('ceremonies_empty');
             element.parent().parent().parent().parent().removeClass('ceremonies_exist');
