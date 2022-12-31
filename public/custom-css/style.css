@@ -98,6 +98,8 @@
 /* .fc-daygrid-event-dot{display: none !important;} */
 .availability_count_class { display: block; }
  .availability_count_class ~  .availability_count_class { display:none; }
+ .booking_count_class { display: block; }
+ .booking_count_class ~  .booking_count_class { display:none; }
 /* .fc-timegrid-event-harness.fc-timegrid-event-harness-inset.booking_count_class {
     display: none;
 }
