@@ -12,7 +12,7 @@ function parsePrice(p)
 }
 $(document).ready(function() {
 
-    $(document).on("click",".fc-prev-button, .fc-next-button",function() {
+    $(document).on("click",".fc-prev-button, .fc-next-button, .fc-timeGridWeek-button, .fc-timeGridDay-button ,.fc-dayGridMonth-button",function() {
         $('#loading').show();
         setTimeout(function () {
             jQuery('.fc-daygrid-event-harness a div').each(function() {
