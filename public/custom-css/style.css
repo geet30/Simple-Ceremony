@@ -95,7 +95,7 @@
     display: flex;
     flex-direction: column;
 }
-.fc-daygrid-event-dot{display: none !important;}
+/* .fc-daygrid-event-dot{display: none !important;} */
 
 .fc-timegrid-event-harness.fc-timegrid-event-harness-inset.booking_count_class {
     display: none;
