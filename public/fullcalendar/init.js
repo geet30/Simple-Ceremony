@@ -83,10 +83,14 @@ function initCalander(targetId,bookingData) {
                 
                 item ["start"] = booking_date+'T'+element.start_time;
                 item ["end"] = booking_date+'T'+element.end_time;
+                var time_start_format1= moment(booking_date+'T'+element.start_time).format('HH:mm');
+
+                var time_end_format2= moment(booking_date+'T'+element.end_time).format('HH:mm');
+
                 item['weeklyHtml'] ='';
                 if(availability_count >0){
                     item['weeklyHtml'] = `<a role="button" class="dropdown-item availability_count_class" data-bs-toggle="modal" onclick="showDataModal('${booking_date}','availability')"
-                    data-bs-target="#show_calendar_data_modal"> ${element.start_time} - ${element.end_time} Availability</a>`;
+                    data-bs-target="#show_calendar_data_modal"> ${time_start_format1} - ${time_end_format2} Availability</a>`;
                 }
                 
                 var firstHtml ='';
@@ -124,7 +128,7 @@ function initCalander(targetId,bookingData) {
                 
                     if(ceremonies_booked_count > 0){
                         item['weeklyHtml'] = `<a role="button" class="booking_count_class" data-bs-toggle="modal" onclick="showDataModal('${element2.booking_date}','booking')"
-                        data-bs-target="#show_calendar_data_modal">${element2.booking_start_time} - ${element2.booking_end_time} Booking</a>`;
+                        data-bs-target="#show_calendar_data_modal">${time_start_format} - ${time_end_format} Booking</a>`;
                     }
 
                     
