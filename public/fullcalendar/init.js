@@ -12,27 +12,27 @@ function parsePrice(p)
 }
 $(document).ready(function() {
 
-    $(document).on("click",".fc-prev-button, .fc-next-button, .fc-timeGridWeek-button, .fc-timeGridDay-button ,.fc-dayGridMonth-button",function() {
-        $('#loading').show();
-        setTimeout(function () {
-            jQuery('.fc-daygrid-event-harness a div').each(function() {
+    // $(document).on("click",".fc-prev-button, .fc-next-button, .fc-timeGridWeek-button, .fc-timeGridDay-button ,.fc-dayGridMonth-button",function() {
+    //     $('#loading').show();
+    //     setTimeout(function () {
+    //         jQuery('.fc-daygrid-event-harness a div').each(function() {
                
-                var className = $(this).attr("class");
-                var currentElement = $(this);
-                currentElement.parent().parent().addClass(className);
-            })
-            jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
-                var className = $(this).attr("class");
-                var currentElement = $(this);
-                console.log(className);
-                currentElement.parent().parent().addClass(className);
-            });
-            $('#loading').hide();
-        }, 1000);
+    //             var className = $(this).attr("class");
+    //             var currentElement = $(this);
+    //             currentElement.parent().parent().addClass(className);
+    //         })
+    //         jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
+    //             var className = $(this).attr("class");
+    //             var currentElement = $(this);
+    //             console.log(className);
+    //             currentElement.parent().parent().addClass(className);
+    //         });
+    //         $('#loading').hide();
+    //     }, 1000);
        
     
         
-    })
+    // })
 });
 
 window.showDataModal = function(booking_date,type) { 
@@ -76,6 +76,7 @@ function initCalander(targetId,bookingData) {
             availability_weekly = response.availability_slots_count+' Availability';
             
             // ct(response.available_slots)
+            var count =1;
             $.each(response.available_slots,function(keyAvail,element){
                 item ={};
                 var price =  ' $ '+(parsePrice(element.admin_fee) + parsePrice(element.your_fee) + parsePrice(element.location_fee));
@@ -85,7 +86,7 @@ function initCalander(targetId,bookingData) {
                 item['weeklyHtml'] ='';
                 if(availability_count >0){
                     item['weeklyHtml'] = `<a role="button" class="dropdown-item availability_count_class" data-bs-toggle="modal" onclick="showDataModal('${booking_date}','availability')"
-                    data-bs-target="#show_calendar_data_modal">${availability_weekly} </a>`;
+                    data-bs-target="#show_calendar_data_modal"> ${element.start_time} - ${element.end_time} Availability</a>`;
                 }
                 
                 var firstHtml ='';
@@ -108,11 +109,10 @@ function initCalander(targetId,bookingData) {
             // console.log(response.data,'daat');
             if(response.data){
                 $.each(response.data,function(keyData,element2){
-                    
-                    // console.log(itemArr.length,'length');
                     item ={};
                     
                     var time_start_format= moment(element2.booking_date+' '+element2.booking_start_time).format('HH:mm');
+
                     var time_end_format= moment(element2.booking_date+' '+element2.booking_end_time).format('HH:mm');
                     
                     item["start"] = element2.booking_date+'T'+element2.booking_start_time;
@@ -124,7 +124,7 @@ function initCalander(targetId,bookingData) {
                 
                     if(ceremonies_booked_count > 0){
                         item['weeklyHtml'] = `<a role="button" class="booking_count_class" data-bs-toggle="modal" onclick="showDataModal('${element2.booking_date}','booking')"
-                        data-bs-target="#show_calendar_data_modal">${ceremonies_booked_count} Booking</a>`;
+                        data-bs-target="#show_calendar_data_modal">${element2.booking_start_time} - ${element2.booking_end_time} Booking</a>`;
                     }
 
                     
@@ -196,7 +196,7 @@ function initCalander(targetId,bookingData) {
                 element.html('');
                 element.html(info.event.extendedProps.weeklyHtml); 
                 
-                $('.weeklyClass').find('.fc-event-time').addClass('d-none');
+                // $('.weeklyClass').find('.fc-event-time').addClass('d-none');
                 // element.find('.availability-slot').addClass('d-none');
                 if($('.fc-scrollgrid-liquid').length){
                     $('.fc-scrollgrid-liquid').addClass('weeklyClass');
@@ -206,8 +206,8 @@ function initCalander(targetId,bookingData) {
                 
             } 
             if(info.view.type == 'timeGridDay'){//day
-                element.html('');
-                element.append(info.event.extendedProps.weeklyHtml); 
+                // element.html('');
+                // element.append(info.event.extendedProps.weeklyHtml); 
                 if($('.fc-scrollgrid-liquid').length){
                     $('.fc-scrollgrid-liquid').addClass('weeklyClass');
                 }
