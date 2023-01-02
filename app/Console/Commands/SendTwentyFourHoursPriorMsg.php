@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Exception;
 use Twilio\Rest\Client;
 use Carbon\Carbon;
-class SendBookingTwentyFourHoursPriorMsg extends Command
+class SendTwentyFourHoursPriorMsg extends Command
 {
     /**
      * The name and signature of the console command.
@@ -61,6 +61,8 @@ class SendBookingTwentyFourHoursPriorMsg extends Command
                     
                     $celebrant_phone_number = '+'.$celebrant_details->country_code.$celebrant_details->phone;
                     $celebrant_name = $celebrant_details->name;
+
+                    $celebrant_message = "Excited. Simple Ceremony ".$booking_start_time." on {Ceremony Date} @ {Locations}. Hi {Prefered Name 1} & {Preferred Name 2}. Phone {Couple Phone number}.";
                     
                     $message = " Hi ".$first_couple_name." and ".$second_couple_name.", All set for your ceremony at ".$booking_start_time." and ".$booking_date."  at ".$location_name.". Click here to log in to your portal to ensure all is set - ".$website_url.". If you have any questions on the day please call me on ".$celebrant_phone_number.". See you soon, ".$celebrant_name;
 
