@@ -13,18 +13,18 @@ function parsePrice(p)
 $(document).ready(function() {
 
     $(document).on("click",".fc-prev-button, .fc-next-button, .fc-timeGridWeek-button, .fc-timeGridDay-button ,.fc-dayGridMonth-button",function() {
-        $('.fc-event-time, .fc-daygrid-event-dot').css('display','none');
+        $('.fc-event-time, .fc-daygrid-event-dot, .fc-event-title').css('display','none');
         // $('.fc-event-time').css('display','none');
         
         
-        // $('#loading').show();
+        $('#loading').show();
         setTimeout(function () {
             jQuery('.fc-daygrid-event-harness a div').each(function() {
                
                 var className = $(this).attr("class");
                 var currentElement = $(this);
                 // currentElement.parent().parent().addClass(className);
-                if(className =='booking-slot' || className =='availability-slot' ){
+                if(className =='booking-slot' || className =='availability-slot' || className =='availability-details'  ){
                     currentElement.parent().parent().addClass(className);
                 }
             })
@@ -220,13 +220,11 @@ function initCalander(targetId,bookingData) {
                 
             } 
             if(info.view.type == 'timeGridDay'){//day
-                // element.html('');
-                // element.append(info.event.extendedProps.weeklyHtml); 
+                element.html('');
+                element.append(info.event.extendedProps.weeklyHtml); 
                 if($('.fc-scrollgrid-liquid').length){
-                    $('.fc-scrollgrid-liquid').addClass('weeklyClass');
+                    $('.fc-scrollgrid-liquid').addClass('dayClass');
                 }
-               
-                // }  
             }       
         },
 
