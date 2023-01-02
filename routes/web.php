@@ -167,6 +167,9 @@ $websiteRoutes = function () {
             Route::get('list-to-do', function () {
                 return view('user.list.listing-empty');
             });
+            Route::get('list-to-do-index', function () {
+                return view('user.list.listing');
+            });
             Route::get('getPay{id?}', [UserController::class, 'getPay'])->name('user.pay');
             Route::post('postPay', [UserController::class, 'postPay'])->name('user.payment');
             Route::get('reschedule-info', [UserController::class, 'getRescheduleInfo']);
