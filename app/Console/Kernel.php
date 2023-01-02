@@ -11,7 +11,7 @@ class Kernel extends ConsoleKernel
         'App\Console\Commands\SendNoimReminderEmail',
         'App\Console\Commands\SendBookingFortyEightHoursPriorMsg',
         'App\Console\Commands\SendNoimReminderMsgAtEightPm',
-        'App\Console\Commands\SendBookingTwentyFourHoursPriorMsg'
+        'App\Console\Commands\SendTwentyFourHoursPriorMsg'
         
     ];
     /**
