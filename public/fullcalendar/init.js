@@ -13,23 +13,26 @@ function parsePrice(p)
 $(document).ready(function() {
 
     $(document).on("click",".fc-prev-button, .fc-next-button, .fc-timeGridWeek-button, .fc-timeGridDay-button ,.fc-dayGridMonth-button",function() {
-        $('.fc-event-time').css('display','none');
-        $('#loading').show();
-        setTimeout(function () {
-            jQuery('.fc-daygrid-event-harness a div').each(function() {
+        $('.fc-event-time, .fc-daygrid-event-dot').css('display','none');
+        // $('.fc-event-time').css('display','none');
+        
+        
+        // $('#loading').show();
+        // setTimeout(function () {
+        //     jQuery('.fc-daygrid-event-harness a div').each(function() {
                
-                var className = $(this).attr("class");
-                var currentElement = $(this);
-                currentElement.parent().parent().addClass(className);
-            })
-            jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
-                var className = $(this).attr("class");
-                var currentElement = $(this);
-                console.log(className);
-                currentElement.parent().parent().addClass(className);
-            });
-            $('#loading').hide();
-        }, 1000);
+        //         var className = $(this).attr("class");
+        //         var currentElement = $(this);
+        //         currentElement.parent().parent().addClass(className);
+        //     })
+        //     jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
+        //         var className = $(this).attr("class");
+        //         var currentElement = $(this);
+        //         console.log(className);
+        //         currentElement.parent().parent().addClass(className);
+        //     });
+        //     $('#loading').hide();
+        // }, 1000);
        
     
         
