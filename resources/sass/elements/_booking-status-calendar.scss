@@ -69,6 +69,21 @@
                     border-radius: 50%;
                 }
             }
+            .availability-slot{
+                .fc-event-availability {
+                    color: #fff;
+                    background: #B6CED0;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
             .booking-slot{
                 .fc-event-ceremonies_count {
                     color: #fff;
@@ -84,6 +99,365 @@
                     margin-top: 6px;
                 }
             }
+            .fc-event-booking_location {
+                text-transform: capitalize;
+            }
         }
-    } 
+    }
+    .fc-day-today {
+        background: #ffffff !important;
+        .fc-daygrid-day-events {
+            display: flex;
+            flex-direction: column;
+            min-height: auto !important;
+            height: 160px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            direction: rtl;
+            margin-left: 3px;
+            padding-left: 15px;
+            margin-top: 10px !important;
+            margin-bottom: 10px;
+            &::-webkit-scrollbar-track
+            {
+                background-color: #E2F3F2;
+                border-radius: 100px;
+            }
+            &::-webkit-scrollbar
+            {
+                width: 3px;
+            }
+            &::-webkit-scrollbar-thumb
+            {
+                background-color: #62CBC9;
+                border-radius: 100px;
+            }
+        }
+        .fc-daygrid-event-harness {
+            direction: ltr;
+        }
+        .fc-event-availability {
+            .fc-event-availability {
+                color: #197CD8;
+                background: #EDF6FF;
+                border-radius: 31px;
+                display: inline-block;
+                padding: 5px 10px;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 16px;
+                margin-bottom: 10px;
+                margin-left: -10px;
+            }
+        }
+        .fc-daygrid-event{
+            flex-wrap: wrap;
+            &:hover{
+                background: transparent;
+            }
+            &:focus-visible{
+                outline: none;
+            }
+            &:focus{
+                box-shadow: unset;
+            }
+            .availability-details{
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    left: -10px;
+                    top: 6px;
+                    background: #1C1C1C;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 50%;
+                }
+            }
+            .availability-slot{
+                .fc-event-availability {
+                    color: #197CD8;
+                    background: #EDF6FF;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
+            .booking-slot{
+                .fc-event-ceremonies_count {
+                    color: #197CD8;
+                    background: #EDF6FF;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
+            .fc-event-booking_location {
+                text-transform: capitalize;
+            }
+        }
+    }
+    .fc-day-future {
+        background: #ffffff !important;
+        .fc-daygrid-day-events {
+            display: flex;
+            flex-direction: column;
+            min-height: auto !important;
+            height: 160px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            direction: rtl;
+            margin-left: 3px;
+            padding-left: 15px;
+            margin-top: 10px !important;
+            margin-bottom: 10px;
+            &::-webkit-scrollbar-track
+            {
+                background-color: #E2F3F2;
+                border-radius: 100px;
+            }
+            &::-webkit-scrollbar
+            {
+                width: 3px;
+            }
+            &::-webkit-scrollbar-thumb
+            {
+                background-color: #62CBC9;
+                border-radius: 100px;
+            }
+        }
+        .fc-daygrid-event-harness {
+            direction: ltr;
+        }
+        .fc-event-availability {
+            .fc-event-availability {
+                color: #197CD8;
+                background: #EDF6FF;
+                border-radius: 31px;
+                display: inline-block;
+                padding: 5px 10px;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 16px;
+                margin-bottom: 10px;
+                margin-left: -10px;
+            }
+        }
+        .fc-daygrid-event{
+            flex-wrap: wrap;
+            &:hover{
+                background: transparent;
+            }
+            &:focus-visible{
+                outline: none;
+            }
+            &:focus{
+                box-shadow: unset;
+            }
+            .availability-details{
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    left: -10px;
+                    top: 6px;
+                    background: #1C1C1C;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 50%;
+                }
+            }
+            .availability-slot{
+                .fc-event-availability {
+                    color: #197CD8;
+                    background: #EDF6FF;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
+            .booking-slot{
+                .fc-event-ceremonies_count {
+                    color: #197CD8;
+                    background: #EDF6FF;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
+            .fc-event-booking_location {
+                text-transform: capitalize;
+            }
+        }
+    }
+    .fc-day-future.ceremonies_exist {
+        background: #FFDECF !important;
+        .fc-daygrid-day-events {
+            display: flex;
+            flex-direction: column;
+            min-height: auto !important;
+            height: 160px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            direction: rtl;
+            margin-left: 3px;
+            padding-left: 15px;
+            margin-top: 10px !important;
+            margin-bottom: 10px;
+            &::-webkit-scrollbar-track
+            {
+                background-color: #FFFFFF;
+                border-radius: 100px;
+            }
+            &::-webkit-scrollbar
+            {
+                width: 3px;
+            }
+            &::-webkit-scrollbar-thumb
+            {
+                background-color: #F8A985;
+                border-radius: 100px;
+            }
+        }
+        .fc-daygrid-event-harness {
+            direction: ltr;
+        }
+        .fc-event-availability {
+            .fc-event-availability {
+                color: #197CD8;
+                background: #EDF6FF;
+                border-radius: 31px;
+                display: inline-block;
+                padding: 5px 10px;
+                font-weight: 700;
+                font-size: 13px;
+                line-height: 16px;
+                margin-bottom: 10px;
+                margin-left: -10px;
+            }
+        }
+        .fc-daygrid-event{
+            flex-wrap: wrap;
+            &:hover{
+                background: transparent;
+            }
+            &:focus-visible{
+                outline: none;
+            }
+            &:focus{
+                box-shadow: unset;
+            }
+            .availability-details{
+                position: relative;
+                &::before{
+                    content: "";
+                    position: absolute;
+                    left: -10px;
+                    top: 6px;
+                    background: #1C1C1C;
+                    height: 5px;
+                    width: 5px;
+                    border-radius: 50%;
+                }
+            }
+            .availability-slot{
+                .fc-event-availability {
+                    color: #197CD8;
+                    background: #EDF6FF;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
+            .booking-slot{
+                .fc-event-ceremonies_count {
+                    color: #197CD8;
+                    background: #EDF6FF;
+                    border-radius: 31px;
+                    display: inline-block;
+                    padding: 5px 10px;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    margin-bottom: 10px;
+                    margin-left: -10px;
+                    margin-top: 6px;
+                }
+            }
+            .fc-event-booking_couple {
+                white-space: normal;
+                text-transform: capitalize;
+            }
+            .fc-event-booking_location {
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+.weeklyClass{
+    .fc-v-event {
+        border: 1px solid transparent;
+        border: transparent;
+        background-color: transparent;
+        background-color: transparent;
+        font-size: 15px;
+        line-height: 18px;
+        color: #1C1C1C;
+        font-weight: 600 !important;
+    }
+    .availability_count_class {
+        font-size: 15px;
+        line-height: 18px;
+        color: #1C1C1C;
+        font-weight: 600 !important;
+        background: #B6CED0;
+        text-decoration: none;
+        padding: 2px 5px;
+        border-radius: 5px;
+        display: inline-block;
+        overflow: hidden;
+    }
+    .booking_count_class {
+        font-size: 15px;
+        line-height: 18px;
+        color: #1C1C1C;
+        font-weight: 600 !important;
+        background: #FFDECF;
+        text-decoration: none;
+        padding: 2px 5px;
+        border-radius: 5px;
+        display: inline-block;
+        overflow: hidden;
+    }
 }

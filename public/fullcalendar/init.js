@@ -18,21 +18,24 @@ $(document).ready(function() {
         
         
         // $('#loading').show();
-        // setTimeout(function () {
-        //     jQuery('.fc-daygrid-event-harness a div').each(function() {
+        setTimeout(function () {
+            jQuery('.fc-daygrid-event-harness a div').each(function() {
                
-        //         var className = $(this).attr("class");
-        //         var currentElement = $(this);
-        //         currentElement.parent().parent().addClass(className);
-        //     })
-        //     jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
-        //         var className = $(this).attr("class");
-        //         var currentElement = $(this);
-        //         console.log(className);
-        //         currentElement.parent().parent().addClass(className);
-        //     });
-        //     $('#loading').hide();
-        // }, 1000);
+                var className = $(this).attr("class");
+                var currentElement = $(this);
+                // currentElement.parent().parent().addClass(className);
+                if(className =='booking-slot' || className =='availability-slot' ){
+                    currentElement.parent().parent().addClass(className);
+                }
+            })
+            // jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
+            //     var className = $(this).attr("class");
+            //     var currentElement = $(this);
+            //     console.log(className);
+            //     currentElement.parent().parent().addClass(className);
+            // });
+            $('#loading').hide();
+        }, 1000);
        
     
         
@@ -104,7 +107,7 @@ function initCalander(targetId,bookingData) {
                 }
                 (item['htmlcustom']==undefined) ? item['htmlcustom'] ='' :item['htmlcustom'];
 
-                item['htmlcustom'] =`${firstHtml}<div class="availability-details"><div class="fc-event-availability-slots">${element.start_time} - ${element.end_time}</div>
+                item['htmlcustom'] =`${firstHtml}<div class="availability-details"><div class="fc-event-availability-slots">${time_start_format1} - ${time_end_format2}</div>
                 <div class="fc-event-availability_location">${element.location.name}</div>
                 <div class="fc-event-availability_slot_price">${price}</div></div>`;
                 itemArr.push(item);
@@ -196,6 +199,9 @@ function initCalander(targetId,bookingData) {
                 if($('.fc-scrollgrid-liquid').length){
                     $('.fc-scrollgrid-liquid').addClass('monthlyClass');
                 } 
+                if(info.event.extendedProps.ceremonies_booked_count > 0){
+                    element.parent().parent().parent().parent().addClass('ceremonies_exist');
+                }
                 element.find('.fc-event-booking_start_end_time').addClass('d-none');
                 
             }
