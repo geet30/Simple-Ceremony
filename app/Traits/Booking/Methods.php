@@ -557,8 +557,7 @@ trait Methods
             $booking =  $booking->where('first_couple_name', 'like', '%' . $couple . '%')
                     ->orWhere('second_couple_name', 'like', '%' . $couple . '%');
         }
-        $booking = $booking->get()->groupBy('booking_date');   
-        // dd($booking);
+        $booking = $booking->get()->groupBy('booking_date'); 
         
         $over_ride = CelebrantDateOverRide::with('location');
             
@@ -580,14 +579,16 @@ trait Methods
                 $dataArr[$overRide->override_date][] =  $overRide;
             }
         }
-            
-        $range = CelebrantDate::where('user_id',auth()->user()->id)->first();
+        $date_day_arr =[];
+        $range = CelebrantDate::where('user_id',$user_id)->first();
+       
         $slotsWithoutOverride =CelebrantDaySlot::with('location','availabilitydates','calendardayslots');
 
         if(!empty($locationId)){
                 
             $slotsWithoutOverride = $slotsWithoutOverride->whereIn('location_id',$locationId);
         }
+        
         if(isset($type) && $type =='availability'){
             $date = $booking_date;
             $start_day = Carbon::createFromFormat('Y-m-d', $date)->format('l');  
@@ -602,21 +603,22 @@ trait Methods
             $slotsWithoutOverride =$slotsWithoutOverride->whereIn('day',$days_arr);
 
         }else{
-            
-            $period =CarbonPeriod::create($range->start_date,$range->end_date); 
-            $dateInfo = $days_arr =[];
-            foreach($period as $date){
-                $dateInfo[] = $date->format('Y-m-d');  
-                $days_arr[] =    strtolower($date->format('l')) ; 
-                $date_day_arr[]=  [$date->format('Y-m-d'),strtolower($date->format('l'))];       
-            }  
-
-            $slotsWithoutOverride = $slotsWithoutOverride->whereHas('dates',function($qr) use($dateInfo){                 
-                $qr->whereDate('start_date','<=',$dateInfo[0])
-                    ->whereDate('end_date','>=',end($dateInfo));  
-            });  
-            $slotsWithoutOverride =$slotsWithoutOverride->whereIn('day',$days_arr);
-            
+            if($range !=''){
+                $period =CarbonPeriod::create($range->start_date,$range->end_date); 
+           
+                $dateInfo = $days_arr =[];
+                foreach($period as $date){
+                    $dateInfo[] = $date->format('Y-m-d');  
+                    $days_arr[] =    strtolower($date->format('l')) ; 
+                    $date_day_arr[]=  [$date->format('Y-m-d'),strtolower($date->format('l'))];       
+                }  
+    
+                $slotsWithoutOverride = $slotsWithoutOverride->whereHas('dates',function($qr) use($dateInfo){                 
+                    $qr->whereDate('start_date','<=',$dateInfo[0])
+                        ->whereDate('end_date','>=',end($dateInfo));  
+                });  
+                $slotsWithoutOverride =$slotsWithoutOverride->whereIn('day',$days_arr);
+            }           
         }
         $slotsWithoutOverride =$slotsWithoutOverride->get();
        

@@ -91,16 +91,19 @@ class CelebrantsController extends Controller
      */
     public function show($id)
     {
+        
         try {
             $allLocations = Locations::all();
             $data = User::where('id', $id)->with(['celebrant', 'celebrantLocations.location' => function ($query) {
                 $query->select('name', 'id');
             }])->first();
             $booking = Booking::with('location')->where('celebrant_id',$id)->get();
-           
+          
             $bookingData = Booking::getCalendarBooking($id);
+            // dd($bookingData);
             return view('admin.marriage-celebrants.detail', compact(['data', 'id', 'allLocations','booking','bookingData']));
         } catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
