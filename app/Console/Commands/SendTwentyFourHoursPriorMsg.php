@@ -36,7 +36,6 @@ class SendTwentyFourHoursPriorMsg extends Command
             $account_sid = getenv("TWILIO_SID");  
             $auth_token = getenv("TWILIO_TOKEN");
             $twilio_number = getenv("TWILIO_FROM");
-           
 
             $booking = Booking::with(['user','user_noim','location','celebrant'])->get();
            
@@ -50,7 +49,7 @@ class SendTwentyFourHoursPriorMsg extends Command
 
                 $date = today()->format('Y-m-d H:i:s');
                 $today_date = \Carbon\Carbon::parse($date);
-                if($today_date == $twenty_four_prior){
+               if($today_date == $twenty_four_prior){
                     $first_couple_name = $sendSms->first_couple_name;
                     $second_couple_name = $sendSms->second_couple_name;
                     $booking_start_time = date('H:i',strtotime($sendSms->booking_start_time));
@@ -62,14 +61,34 @@ class SendTwentyFourHoursPriorMsg extends Command
                     $celebrant_phone_number = '+'.$celebrant_details->country_code.$celebrant_details->phone;
                     $celebrant_name = $celebrant_details->name;
 
-                    $celebrant_message = "Excited. Simple Ceremony ".$booking_start_time." on {Ceremony Date} @ {Locations}. Hi {Prefered Name 1} & {Preferred Name 2}. Phone {Couple Phone number}.";
-                    
-                    $message = " Hi ".$first_couple_name." and ".$second_couple_name.", All set for your ceremony at ".$booking_start_time." and ".$booking_date."  at ".$location_name.". Click here to log in to your portal to ensure all is set - ".$website_url.". If you have any questions on the day please call me on ".$celebrant_phone_number.". See you soon, ".$celebrant_name;
-
-                
                     $phone_number = '+'.$sendSms->user->country_code.$sendSms->user->phone;
                     $count++;
 
+
+                    $celebrant_message = "Excited. Simple Ceremony ".$booking_start_time." on ".$booking_date." @ ".$location_name.". Hi ".$first_couple_name." &  ".$second_couple_name.". Phone ".$phone_number;
+                    
+                    $message = "Critical  information about your wedding”
+
+                    “Hi ".$first_couple_name." and ".$second_couple_name.", not long now. 
+
+                    Your ceremony will be at ".$booking_start_time." on ".$booking_date." at ".$location_name."
+
+                    1. Please  click here - ".$website_url." to check all details, particularly your Witnesses full legal names. (Link to their portal, this takes them to their Portal page 10/37.)
+                    2. Do you want us to order your registered Certificate of Marriage - click here - ".$website_url."
+                    3. ".$celebrant_name." is your celebrant ( Phone ".$celebrant_phone_number.")
+
+                    Cheers
+
+                    Ange,  Michael & SC Team #Do not reply to Txt, use your portal";
+                    // dd($message);
+
+                    $client->messages->create(
+                        $celebrant_phone_number,
+                        [
+                            'from' => $twilio_number,
+                            'body' => $celebrant_message,
+                        ]
+                    );
                     $client->messages->create(
                         $phone_number,
                         [

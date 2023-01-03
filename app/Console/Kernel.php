@@ -27,6 +27,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('noimReminder:emails')->daily();
         $schedule->command('noimReminderAtEight:msg')->everyMinute();
         $schedule->command('noimremindertwelvehours:email')->everyMinute();
+        $schedule->command('twentyfourHours:msg')->everyMinute();
+        
         // $schedule->command('mentor:MentorAvailabilityNotification')->hourly()->days([Schedule::SUNDAY]);
     }
 
