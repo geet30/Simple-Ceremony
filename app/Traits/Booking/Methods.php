@@ -645,9 +645,9 @@ trait Methods
     
         $response = [];  
         $data2 =[];
-        if(count($newdtaArr) > 0){ 
+        if(count($dataArr) > 0){ 
                                                
-            foreach($newdtaArr as $bookingDate=>$dataresponse){                  
+            foreach($dataArr as $bookingDate=>$dataresponse){                  
                                 
                 foreach($dataresponse as $key=>$result){ 
                     $start_time = $result->start_time;
