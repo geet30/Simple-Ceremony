@@ -23,11 +23,19 @@ $(document).ready(function() {
                
                 var className = $(this).attr("class");
                 var currentElement = $(this);
-                // currentElement.parent().parent().addClass(className);
                 if(className =='booking-slot' || className =='availability-slot' || className =='availability-details'  ){
                     currentElement.parent().parent().addClass(className);
                 }
             })
+            // jQuery('.fc-daygrid-event-harness a div').each(function() {
+               
+            //     var className = $(this).attr("class");
+            //     var currentElement = $(this);
+            //     if(className =='booking-slot' || className =='availability-slot' || className =='availability-details'  ){
+            //         currentElement.parent().parent().addClass(className);
+            //     }
+            // })
+            // fc-daygrid-day-events
             // jQuery('.fc-timegrid-event-harness.fc-timegrid-event-harness-inset a a').each(function() {
             //     var className = $(this).attr("class");
             //     var currentElement = $(this);
@@ -119,6 +127,7 @@ function initCalander(targetId,bookingData) {
             // ct(response.data)
             // console.log(response.data,'daat');
             if(response.data){
+                var booking_counter = 1;
                 $.each(response.data,function(keyData,element2){
                     item ={};
                     
@@ -128,9 +137,6 @@ function initCalander(targetId,bookingData) {
                     
                     item["start"] = element2.booking_date+'T'+element2.booking_start_time;
                     item["end"] = element2.booking_date+'T'+element2.booking_end_time;
-                
-                    // item["booking_id"] = element2.id;
-                    // item["booking_id"] = element2.booking_date;
                     item['ceremonies_booked_count'] =ceremonies_booked_count;
                 
                     if(ceremonies_booked_count > 0){
@@ -138,8 +144,7 @@ function initCalander(targetId,bookingData) {
                         data-bs-target="#show_calendar_data_modal">${time_start_format} - ${time_end_format} Booking</a>`;
                     }
 
-                    
-
+            
                     (item['htmlcustom']==undefined) ? item['htmlcustom'] ='' :item['htmlcustom'];
                     var midHtml ='';var lastHtml='';
                     console.table({
@@ -150,13 +155,16 @@ function initCalander(targetId,bookingData) {
                     //     midHtml = `</div><div class="booking-slot"><div class="fc-event-ceremonies_count">${ceremonies_booked_count} ceremonies</div>`;
                         
                     // }
-                    midHtml = `</div><div class="booking-slot"><div class="fc-event-ceremonies_count">${ceremonies_booked_count} ceremonies</div>`;
+                    midHtml = `</div><div class="booking-slot">`;
                     var lastIndex = (response.data.length<=1) ? response.data.length-1 : 0;
-                
+                    if(booking_counter == 1){
+                        midHtml = `</div><div class="booking-slot"><div class="fc-event-ceremonies_count">${ceremonies_booked_count} ceremonies</div>`;
+                        booking_counter =2;
+                    }
                 
                     if(keyData==lastIndex){
                         lastHtml = `</div></div>`;
-                }
+                    }
                     if(ceremonies_booked_count == 0){
                         (item['htmlcustom']==undefined) ? item['htmlcustom'] ='' :item['htmlcustom'];
                         item['htmlcustom'] += `${midHtml}<div class="fc-event-no_cermeony ceremonies_empty">You don't have ceremony</div>${lastHtml}`;

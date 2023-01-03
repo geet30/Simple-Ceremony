@@ -632,32 +632,22 @@ trait Methods
                 }
             } 
         }
-        $newdtaArr = [];
+        // $newdtaArr = [];
         // foreach($dataArr as $datekey=>$innerArr){
-           
         //     foreach($innerArr as $keys=>$innerArr2){
-        //         // $table_name ='celebrant_day_slots';
-
-        //         if (in_array("celebrant_date_over_rides", $innerArr)){
-                    
-
-        //             if($innerArr2->table == 'celebrant_day_slots'){
-        //                 // unset($innerArr2->celebrant_day_slots);
-        //                 unset($innerArr[$keys]);
-        //                 // dd($innerArr[$keys]->table);
-        //                 $newdtaArr[$datekey][] = $innerArr2;
-        //             }
-        //         }      
-         
-        //     }           
+        //         if($innerArr2->table == 'celebrant_date_over_rides'){
+        //             $newdtaArr[$datekey][] = $innerArr2;
+        //         }               
+        //     }   
+        //     // break;        
         // }  
-        dd($newdtaArr);
+        // dd($newdtaArr);
     
         $response = [];  
         $data2 =[];
-        if(count($dataArr) > 0){ 
+        if(count($newdtaArr) > 0){ 
                                                
-            foreach($dataArr as $bookingDate=>$dataresponse){                  
+            foreach($newdtaArr as $bookingDate=>$dataresponse){                  
                                 
                 foreach($dataresponse as $key=>$result){ 
                     $start_time = $result->start_time;
