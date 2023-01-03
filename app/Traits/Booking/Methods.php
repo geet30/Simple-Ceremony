@@ -632,23 +632,16 @@ trait Methods
                 }
             } 
         }
-        // foreach($dataArr as $innerArr){
-        //    $da = array_unique(
-        //         array_diff_key(
-        //             $innerArr,
-        //             array_unique($innerArr)
-        //         )
-        //     );
-        //     dd($da);
-        //     // foreach($innerArr as $inner){
-        //     //     if($inner->start_time == ''){
-
-        //     //     }
-                
-        //     //     // if()
-        //     // }
-            
-        // }    
+        // $newdtaArr = [];
+        // foreach($dataArr as $datekey=>$innerArr){
+        //     foreach($innerArr as $keys=>$innerArr2){
+        //         if($innerArr2->table == 'celebrant_date_over_rides'){
+        //             $newdtaArr[$datekey][] = $innerArr2;
+        //         }               
+        //     }   
+        //     // break;        
+        // }  
+        // dd($newdtaArr);
     
         $response = [];  
         $data2 =[];

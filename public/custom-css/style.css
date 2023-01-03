@@ -100,3 +100,5 @@
 .availability_count_class ~  .availability_count_class { display:none; }
 .booking_count_class { display: block; }
 .booking_count_class ~  .booking_count_class { display:none; } */
+
+.booking-slot .fc-event-ceremonies_count ~  .fc-event-ceremonies_count { display:none; }
