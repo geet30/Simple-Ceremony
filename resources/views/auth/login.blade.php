@@ -89,12 +89,10 @@
                                                             value="{{ Route::current()->getName() }}">
                                                         <div class="col-6 d-flex justify-content-end text-end">
                                                             @if (Route::has('password.request'))
-                                                                <a class="small-text2 forgot-password-link" href="#">
-                                                                    {{ __('Forgot Your Password?') }}
-                                                                </a>
-                                                                {{-- <a class="small-text2 forgot-password-link" href="{{ route('password.request') }}">
+                                                               
+                                                                <a class="small-text2 forgot-password-link" href="{{ route('password.request') }}">
                                                                 {{ __('Forgot Your Password?') }}
-                                                                 </a> --}}
+                                                                 </a>
                                                             @endif
                                                         </div>
                                                     </div>
