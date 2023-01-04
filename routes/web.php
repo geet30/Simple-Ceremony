@@ -130,12 +130,11 @@ $websiteRoutes = function () {
     Route::get('quiz', function () {
         return view('pages.quiz');
     });
-    Route::get('password-reset', function () {
-        return view('user.password-reset');
-    });
+   
     Route::get('create-password', function () {
-        return view('user.create-password');
+        return view('auth.passwords.create-password');
     });
+    Route::post('user-create-password', [UserController::class, 'userCreatePassword'])->name('user.create.password');
     
     Route::middleware('auth')->group(function () {
         Route::prefix('user')->group(function () {
@@ -389,9 +388,7 @@ $partnerRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
     Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm')->name('partner-signup');
-    Route::get('password-reset', function () {
-        return view('partner.password-reset');
-    });
+   
     Route::middleware('auth')->group(function () {
 
 

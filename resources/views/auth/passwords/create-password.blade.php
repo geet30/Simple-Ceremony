@@ -21,7 +21,8 @@
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
                         <div class="card-body">
-                           <form method="POST" action="login">
+                           <form class="needs-validation row" method="POST" action="{{ route('user.create.password') }}" novalidate>
+                              @csrf
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Create a password</h1>
@@ -40,12 +41,12 @@
                                  <div class="col-lg-12">
                                     <div class="row">
                                        <div class="col-6">
-                                          {{-- <button type="submit" class="theme-btn primary-btn w-100">
-                                          Login
-                                          </button> --}}
-                                          <a href="/user/index" class="theme-btn primary-btn w-100 d-block">
+                                           <button type="submit" class="theme-btn primary-btn w-100">
                                              Create
-                                          </a>
+                                          </button> 
+                                          <!-- <a href="/user/index" class="theme-btn primary-btn w-100 d-block">
+                                             Create
+                                          </a> -->
                                        </div>
                                     </div>
                                  </div>

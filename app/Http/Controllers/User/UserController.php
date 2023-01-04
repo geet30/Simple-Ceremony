@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\{User,Addons,Booking,UserBookingAddon,BookingPayments,Locations};
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\{Auth,Hash}; 
 use Cookie;
 use Illuminate\Support\Carbon;
 class UserController extends Controller
@@ -289,7 +289,23 @@ class UserController extends Controller
             dd($e);
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
         }
-    }  
+    } 
+    public function userCreatePassword(Request $request)
+    {
+        try {
+           
+            $user = User::where('email',$request->email)->first();
+            if($user){
+                if ($request->has('password')) {
+                    $input['password'] = Hash::make($request->password);
+                }
+                User::where('id', $user->id)->update($input);
+            }
+            return redirect('login')->with('message', 'Password created successfully');   
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }   
+    } 
     
 
 }
