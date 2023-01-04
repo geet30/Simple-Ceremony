@@ -20,14 +20,6 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
 
-        // if (Auth::guard($guards)->check()) {
-        //     if (Auth::user()->roles->first()->name == 'Admin') {
-        //         return redirect('/locations/all-requests');
-        //     }else{
-        //         return redirect('/');
-        //     }
-        // }
-
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
