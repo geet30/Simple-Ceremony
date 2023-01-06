@@ -1,0 +1,71 @@
+.image-card.admin-gift-voucher-card .card-img-top {
+    height:  173.32px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    aspect-ratio: 1/1;
+}
+@media (max-width: 767.98px) {
+.image-card.admin-gift-voucher-card .card-img-top {
+    height: 300px;
+}
+}
+
+.theme-btn.filter-btn {
+    padding: 10px 17px;
+}
+
+.gift-certificate {
+    background: #EDF6FF;
+    border-radius: 32px;
+    border: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    color: #197CD8;
+    outline: 0;
+    box-shadow: none;
+    text-align: center;
+    display: inline-block;
+    padding: 6px 12px;
+
+    &::before {
+        background: #197CD8;
+        width: 6px;
+        height: 6px;
+        border-radius: 50px;
+        content: "";
+        display: inline-block;
+        margin-right: 0.255em;
+        vertical-align: 0.155em;
+    }
+}
+
+.gift-voucher-detail-image {
+    img {
+        height: 346.5px;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+        border-radius: 10px;
+    }
+}
+
+.drop-zone.add-gift-voucher-drop-zone {
+    min-height: 235px;
+    width: 327.92px;
+    @include media-breakpoint-down(md) {
+        width: 100%;
+    } 
+}
+
+.delete-icon-span {
+    width: 45px;
+    height: 45px;
+    background-color: $white;
+    padding: 5px;
+    z-index: 3;
+    border-radius: 100%;
+    bottom: 13px;
+    left: 13px;
+    cursor: pointer;
+}
+

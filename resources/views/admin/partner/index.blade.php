@@ -9,11 +9,11 @@
          @include('elements.common.panel-header')
          <div class="row mb-4 mt-3">
             <div class="col-md-8 col-xl-9 d-flex align-self-center">
-            <div class="form-group has-search w-100 position-relative">
-               <span class="fa fa-search form-control-feedback"></span>
-               <input type="text" class="form-control" placeholder="Search partners" onkeyup="searchWithoutTabs('/partner',this.value, 'partnersListing', '1')">
+               <div class="form-group has-search w-100 position-relative">
+                  <span class="fa fa-search form-control-feedback"></span>
+                  <input type="text" class="form-control" placeholder="Search partners" onkeyup="searchWithoutTabs('/partner',this.value, 'partnersListing', '1')">
+               </div>
             </div>
-         </div>
             <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
                <a class="theme-btn primary-btn d-flex justify-content-center" href="/partner/create">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">

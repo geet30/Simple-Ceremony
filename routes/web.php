@@ -383,7 +383,24 @@ $adminRoutes = function () {
             $title = "Route List";
             return view('routes', compact('routeCollection', 'title'));
         });
+
+
+        Route::group(['prefix' => 'gift-vouchers'], function () {
+            Route::get('index', function () {
+                return view('admin.gift-vouchers.index');
+            });
+            Route::get('details', function () {
+                return view('admin.gift-vouchers.details');
+            });
+            Route::get('edit-voucher', function () {
+                return view('admin.gift-vouchers.edit-voucher');
+            });
+            Route::get('add-voucher', function () {
+                return view('admin.gift-vouchers.add-voucher');
+            });
+        });
     });
+
 };
 $partnerRoutes = function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('partner-login');
@@ -590,6 +607,7 @@ Route::group(array('domain' => config('env.CELEBRANT')), $celebrantRoutes);
 Route::group(array('domain' => config('env.ADMIN')), $adminRoutes);
 Route::group(array('domain' => config('env.WEBSITE')), $websiteRoutes);
 Auth::routes();
+
 
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
