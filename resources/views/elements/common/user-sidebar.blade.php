@@ -71,7 +71,7 @@
                     <span class="ms-3 d-none d-md-block">Documents</span>
                 </a>
             </li>
-            {{--<li class="nav-item">
+            <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-invoices' || Request::segment(1) == 'invoices' ? 'active' : '' }} font-weight-600" href="{{url('user/invoices')}}" >
 
                     <svg width="25" height="26" viewBox="0 0 25 26" fill="none"
@@ -85,7 +85,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Invoices</span>
                 </a>
-            </li>--}}
+            </li>
             {{--<li class="nav-item">
             
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ Request::segment(2) == 'package' || Request::segment(2) == 'add-ons' ? 'active' : '' }}" href="{{url('user/add-ons')}}" >

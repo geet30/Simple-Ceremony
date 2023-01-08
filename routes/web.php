@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\{BookingController, UserNoimController, UserController};
+use App\Http\Controllers\User\{BookingController, UserNoimController, UserController,DashboardController as UserDashboard};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController};
 use App\Http\Controllers\{HomeController, DownloadController,TwilioSMSController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController,CertificateRegisterController};
@@ -174,12 +174,12 @@ $websiteRoutes = function () {
             Route::get('reschedule-info', [UserController::class, 'getRescheduleInfo']);
             Route::post('reschedule-pay', [UserController::class, 'getReschedulePay'])->name('reschedule.pay');
             Route::post('reschedulePay', [UserController::class, 'reschedulePay'])->name('reschedule.payment');
+            Route::get('invoices', [UserDashboard::class, 'invoices']);
+            Route::get('download-user-invoice/{id}', [UserDashboard::class, 'downloadUserInvoices'])->name('downloadUserInvoices');
         });
     });
 
-    Route::get('all-invoices', function () {
-        return view('user.invoices.all-invoices');
-    });
+ 
     Route::get('notes', function () {
         return view('user.notes.lisiting');
     });

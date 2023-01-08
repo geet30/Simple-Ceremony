@@ -107,7 +107,7 @@
                            </select>
                         </div>
                         <div class="col-md-12 mb-4 d-flex flex-column position-relative">
-                           <label for="photos" class="form-label small-text2 mb-20">1Upload cover photos *</label>
+                           <label for="photos" class="form-label small-text2 mb-20">Upload cover photos *</label>
 
                            <div class="drop-zone text-center">
                            <?php  $required = 'required';

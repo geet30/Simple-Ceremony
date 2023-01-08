@@ -629,21 +629,10 @@ trait Methods
                 foreach($slotsWithoutOverride as $slotsArr){
                     if($date_arr[1] == $slotsArr->day){
                         $dataArr[$date_arr[0]][] =  $slotsArr;
-                    }
-                    
+                    }                   
                 }
             } 
         }
-        // $newdtaArr = [];
-        // foreach($dataArr as $datekey=>$innerArr){
-        //     foreach($innerArr as $keys=>$innerArr2){
-        //         if($innerArr2->table == 'celebrant_date_over_rides'){
-        //             $newdtaArr[$datekey][] = $innerArr2;
-        //         }               
-        //     }   
-        //     // break;        
-        // }  
-        // dd($newdtaArr);
     
         $response = [];  
         $data2 =[];
@@ -722,9 +711,6 @@ trait Methods
                         $response[$date]['data'] =$resultResponse;
                     }
                 }
-
-            
-                
             }
         }  
        
@@ -929,8 +915,66 @@ trait Methods
     }
     static function getRescheduleInfo($id){
        
-        return Locations::where('id',$id)->value('price');
-        // dd($location_detail);
+        // return Locations::where('id',$id)->value('price');
+        $over_ride = CelebrantDateOverRide::with('location')
+            ->where('location_id',$id)
+            ->get();
+            if(count($over_ride) > 0){
+                $data =  $over_ride;
+
+            }else{
+                $data = CelebrantDaySlot::with('location','dates','calendardayslots')
+                ->where('location_id',$id)
+                ->get();
+            } 
+            $data2 =[];
+            if(count($data) > 0){              
+                foreach($data as $key=>$result){
+                    $start_time = $result->start_time;
+                    $end_time = $result->end_time;
+                    $booking = Booking::where('locationId',$id)->where('booking_date', $request->search)
+                    
+                    ->where(function($qrd)use($start_time,$end_time){
+                            $qrd->where(function($qra) use($start_time,$end_time){
+                                $qra->where(function($st) use($start_time,$end_time){
+                                    $st->whereTime('booking_start_time','>=',$start_time)
+                                        ->whereTime('booking_start_time','<',$end_time)
+                                        ->whereTime('booking_start_time','=',$start_time)
+                                        ->whereTime('booking_end_time','=',$end_time);
+                                })
+                                ->orWhere(function($et) use($start_time,$end_time){
+                                    $et->whereTime('booking_end_time','>',$start_time)
+                                        ->whereTime('booking_end_time','<=',$end_time)
+                                        ->whereTime('booking_start_time','=',$start_time)
+                                        ->whereTime('booking_end_time','=',$end_time);
+                                });
+                            })
+                            ->orWhere(function($qra)use($start_time,$end_time){
+                                $qra->where(function($st) use($start_time){
+                                    $st->whereTime('booking_start_time','<=',$start_time)
+                                        ->whereTime('booking_end_time','>',$start_time)
+                                        ->whereTime('booking_start_time','=',$start_time);
+                                })
+                                ->orWhere(function($et) use($end_time){
+                                    $et->whereTime('booking_start_time','<',$end_time)
+                                        ->whereTime('booking_end_time','>=',$end_time)
+                                        ->whereTime('booking_end_time','=',$end_time);
+                                });
+                            });
+                    })->get(); 
+                    
+                    if(count($booking) > 0){
+                      
+                        unset($data[$key]);
+                        $data2 = $data->values();                     
+                        
+                    } else{
+                        $data2 = $data;
+                    }
+                }
+            }        
+            return $data2;
+        dd($data);
     }
           
     static function getCalendarAvailability($request){
@@ -946,16 +990,15 @@ trait Methods
 
             }else{
                
-                $data =   CelebrantDaySlot::with('location','dates','calendardayslots')->whereHas('dates',function($qr) use($request){
-                        $qr->whereDate('start_date','<=',$request->search)
-                        ->whereDate('end_date','>=',$request->search);
-                
-                    })
-                    ->where('day',strtolower($request->day))->where('location_id',$request->locationId)
-                    ->get();
-                    // ->each(function($data) use($request){
-                    //     $data->overrideTest = $data->overrideSearch($request->search);
-                    // }); 
+                $data = CelebrantDaySlot::with('location','dates','calendardayslots')->whereHas('dates',function($qr) use($request){
+                    $qr->whereDate('start_date','<=',$request->search)
+                    ->whereDate('end_date','>=',$request->search);           
+                })
+                ->where('day',strtolower($request->day))->where('location_id',$request->locationId)
+                ->get();
+                // ->each(function($data) use($request){
+                //     $data->overrideTest = $data->overrideSearch($request->search);
+                // }); 
             }   
              
             $data2 =[];
