@@ -89,12 +89,10 @@
                                                             value="{{ Route::current()->getName() }}">
                                                         <div class="col-6 d-flex justify-content-end text-end">
                                                             @if (Route::has('password.request'))
-                                                                <a class="small-text2 forgot-password-link" href="#">
-                                                                    {{ __('Forgot Your Password?') }}
-                                                                </a>
-                                                                {{-- <a class="small-text2 forgot-password-link" href="{{ route('password.request') }}">
+                                                               
+                                                                <a class="small-text2 forgot-password-link" href="{{ route('password.request') }}">
                                                                 {{ __('Forgot Your Password?') }}
-                                                                 </a> --}}
+                                                                 </a>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -137,13 +135,10 @@
                                                             <div class="col-lg-12">
                                                                 <p class="body-3-regular mt-4">Have you made an order and
                                                                     payment but don't have a password?</p>
-                                                                <a class="small-text2 forgot-password-link"
-                                                                    href="#">
-                                                                    Create a password
-                                                                </a>
-                                                                <!-- <a class="small-text2 forgot-password-link" href="/user/create-password">
+                                                                
+                                                                <a class="small-text2 forgot-password-link" href="/user/create-password">
                                                                 Create a password
-                                                                 </a> -->
+                                                                 </a>
                                                             </div>
                                                         @else
                                                             <div class="col-12">

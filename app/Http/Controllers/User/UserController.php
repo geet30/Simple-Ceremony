@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\{User,Addons,Booking,UserBookingAddon,BookingPayments,Locations};
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\{Auth,Hash}; 
 use Cookie;
 use Illuminate\Support\Carbon;
 class UserController extends Controller
@@ -34,11 +34,8 @@ class UserController extends Controller
                 // $savePaymentDetail = Booking::savePaymentDetail($request->reschedule_session_id, $user_id,$bookingId);
                 // BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>3]);
             }
-            
-           
-         
+            // dd($booking);        
             $addons = UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->get();
-            // dd($addons);
             return view('user.overview.index',compact(['addons','booking','locations']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
@@ -208,6 +205,7 @@ class UserController extends Controller
      */
     
     public function getRescheduleInfo(Request $request){
+        // dd($request->all());
         try {
             $getReschedulelocationInfo = Booking::getRescheduleInfo($request->id);
             $user_id = Auth::user()->id;
@@ -271,6 +269,7 @@ class UserController extends Controller
             
             
             $data = unserialize($request->data);
+            dd($data);
             $total_fee = $data['location_fee'] + $data['reschedule_fee'];
             // dd($total_fee);
             $DOMAIN = config('env.WEBSITE');
@@ -280,7 +279,6 @@ class UserController extends Controller
                 'name' => "Reschedule Payment",
                 'price' => $total_fee,
                 'img' => asset('/images/loader.svg')
-                // 'img' => 'http://simpleceremoniesacc.crebos.online/images/loader.svg'
             ];
             return Booking::stripePayment($send_paramter,$success_url,$cancel_url);
               
@@ -289,7 +287,23 @@ class UserController extends Controller
             dd($e);
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
         }
-    }  
+    } 
+    public function userCreatePassword(Request $request)
+    {
+        try {
+           
+            $user = User::where('email',$request->email)->first();
+            if($user){
+                if ($request->has('password')) {
+                    $input['password'] = Hash::make($request->password);
+                }
+                User::where('id', $user->id)->update($input);
+            }
+            return redirect('login')->with('message', 'Password created successfully');   
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }   
+    } 
     
 
 }

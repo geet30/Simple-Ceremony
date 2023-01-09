@@ -14,81 +14,9 @@ Not Available Right Now
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#0901020912</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 21, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">David &amp; Sarah</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$40</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#090893034</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 20, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Joe & Jane</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$120</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#096204704</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 11, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Levi & Avs</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$540</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#0997937212</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 09, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Richard & Ella</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$90</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#098740734</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 09, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Lucas & Grace</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$340</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
+           
+           
+            
             <tr>
                 <td class="body-2 neutral-100" style="min-width: 150px;">#0098072312</td>
                 <td class="body-2 neutral-100" style="min-width: 150px;">Feb 08, 2022</td>
@@ -103,67 +31,7 @@ Not Available Right Now
                 <td style="min-width: 80px;" class="p-3 text-center">
                     <a href="#" class="table-link">Delete</a>
                 </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#81273918293</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 07, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">William & Isla</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$135</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#9723401249</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 06, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Jack & Charlote</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$120</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#98192833041</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 05, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Theo & Ella</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$327</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="body-2 neutral-100" style="min-width: 150px;">#0901020912</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Feb 21, 2022</td>
-                <td class="body-2 neutral-100" style="min-width: 150px;">Noah & Grace</td>
-                <td class="body-2 neutral-100" style="min-width: 100px;">$140</td>
-                <td style="min-width: 50px;" class="p-3 text-center">
-                    <a role="button" class="table-link" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal">View</a>
-                </td>
-                <td style="min-width: 90px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Download</a>
-                </td>
-                <td style="min-width: 80px;" class="p-3 text-center">
-                    <a href="#" class="table-link">Delete</a>
-                </td>
-            </tr>
+          
         </tbody>
         <tfoot>
             <tr>

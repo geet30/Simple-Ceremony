@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\{Auth};
-use App\Models\{Users, Notification, User,Locations};
+use App\Models\{Users, Notification, User,Locations,Booking};
 use Illuminate\Support\Facades\File;
 function timeslots()
 {
@@ -162,6 +162,11 @@ function getTimeSlot($interval, $start_time, $end_time)
 }
 function locationCustomTerms($locationId){
     return Locations::where('id',$locationId)->value('custom_terms');
+    
+}
+function getUserBookingDetails(){
+    $user_id = Auth::user()->id;
+    return Booking::where('user_id',$user_id)->where('status','!=',8)->first();
     
 }
 

@@ -2,7 +2,7 @@
 
 namespace App\Traits\Invoices;
 
-use App\Models\{User, Booking, Invoices};
+use App\Models\{User, Booking, Invoices,UserBookingAddon};
 
 trait Methods
 {
@@ -37,8 +37,7 @@ trait Methods
         }          
    
         return $data;
-    }
-   
+    } 
     public static function createCustomInvoice($data){
         
         $booking =  Booking::where('id',$data->booking_id)->first();
@@ -246,5 +245,9 @@ trait Methods
        
         // dd($data->toSql());
        
-    }   
+    }  
+    public static function getUserInvoices($bookingId){
+        return UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->get();
+    }
+    
 }

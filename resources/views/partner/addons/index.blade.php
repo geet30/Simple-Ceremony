@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -6,7 +6,7 @@
          @include('elements.partner.partner-sidebar')
         </div>
         <div class="col-md-9 col-lg-10 px-md-4">
-            @include('elements.partner.partner-panel-header')
+            @include('elements.common.panel-header')
             <a class="theme-btn primary-btn d-inline-block mb-4" href="/add-new-package">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add new packages

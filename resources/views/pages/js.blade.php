@@ -141,8 +141,21 @@
         $('#tax_invoice_modal').find('.ceremony_date').html(data.booking.booking_date
            );
         $('#tax_invoice_modal').find('.ceremony_type').html(ceremony_type[data.booking.ceremony_type]);
-       // $('#tax_invoice_modal').find('.celebrant_name').html(data.recipient_name);
-       // $('#tax_invoice_modal').find('.celebrant_name').html(data.recipient_name);
+       
+    }
+    window.appendUserInvoiceData = function(result,created_at){
+       
+       var data = JSON.parse(result);
+       console.log(created_at);
+       var created_date = new Date(created_at);
+       created_date = created_date.toDateString().split(' ').slice(1).join(' ');
+   
+        $('#tax_invoice_modal').find('.package_name').html(data.package_name);
+        $('#tax_invoice_modal').find('.partner_name').html( data.user.name);
+        $('#tax_invoice_modal').find('.abn_number').html(data.user.abn_number);
+        $('#tax_invoice_modal').find('.total').html('$'+data.total_fee);
+        $('#tax_invoice_modal').find('.date').html(created_date);
+        
        
     }
     

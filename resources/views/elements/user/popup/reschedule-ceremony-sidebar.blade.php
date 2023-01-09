@@ -44,7 +44,7 @@
                  <div class="col-md-6 event_date">
                      <label for="event_date" class="form-label small-text2">Event date</label>
                      <div class="input-group date theme-datepicker">
-                        <input role="button" type="text" class="form-control body-1 netural-100 event_date_input" id="event_date" name="booking_date"  placeholder="Choose date here" required/>
+                        <input role="button" type="text" class="form-control body-1 netural-100 commonFirstEmpty event_date_input" id="event_date" name="booking_date"  placeholder="Choose date here" required/>
                         <span class="input-group-append">
                         </span>
                         <div class="invalid-feedback event_date_required"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Event date is required</div>
@@ -54,23 +54,15 @@
                   </div>
                <div class="col-md-5 mb-4">
                   <label class="form-label small-text2">Time</label>
-                  <select name="booking_start_time" id="booking_start_time" class="js-placeholder-single-input form-control" required>
+                  <select name="booking_start_time" id="booking_start_time" class="js-placeholder-single-input commonFirstEmpty form-control" required>
                      <option value="" disabled="" selected="" hidden="">--:--</option>
                      <option value="09:00">09:00</option>
-                     <option value="09:30">09:30</option>
-                     <option value="10:00">10:00</option>
-                     <option value="10:30">10:30</option>
-                     <option value="11:00">11:00</option>
-                     <option value="11:30">11:30</option>
-                     <option value="12:00">12:00</option>
-                     <option value="12:30">12:30</option>
                   </select>
                </div>
             </div>
          </div>
          <div class="d-lg-flex">
             <input type="submit" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0" value="Pay">
-            <!-- <a href="#" class="theme-btn primary-btn me-lg-3 d-flex justify-content-center mb-3 mb-lg-0">Pay</a> -->
          </div>
       </form>
       <div class="warning-text mt-4">

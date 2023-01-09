@@ -20,7 +20,7 @@ class AddonsController extends Controller
        
         try {
             $data = Addons::all();
-            return view('partner.add-ons', compact(['data']));
+            return view('partner.addons.index', compact(['data']));
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

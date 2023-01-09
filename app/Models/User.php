@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Traits\User\{Methods, Relationship};
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -42,7 +43,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    /** for send reset email with custom template */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+    
     public function celebrantLocations()
     {
         return $this->hasMany(CelebrantLocations::class, 'celebrant_id', 'id');

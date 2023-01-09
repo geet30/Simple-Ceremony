@@ -7,7 +7,6 @@
       </div>
       <div class="col-md-9 col-lg-10 px-md-4">
          @include('elements.common.panel-header')
-         {{--@include('elements.user-header')--}}
          <div class="card panel-card mt-4">
             <div class="card-body">
                <div class="row">
@@ -67,10 +66,8 @@
                         </div>
                         <div class="col-12">
                             <div class="overview-add-ons">
-                           
+                           @if(count($addons) > 0)
                             @foreach($addons as $booking_addon)
-                           
-                           
                               @foreach($booking_addon->packages as $package)
 
                                <div class="overview-add-ons-details mb-4">
@@ -117,6 +114,9 @@
                                </div>
                               @endforeach
                            @endforeach
+                           @else
+                              No addons added yet
+                           @endif
                             </div>
                          </div>
                      </div>
@@ -133,12 +133,16 @@
                               </div>
                            </li>
                            <li>
+                              <?php             
+                              $carbon_date = \Carbon\Carbon::parse($booking->booking_date);
+                              $one_month_calendar_date = $carbon_date->subMonth();
+                              ?>
                               <span class="step-point"></span>
                               <div class="steps-information">
                                  <div class="steps-information-details">
                                     <span>Arrange call with marriage celebrant</span>
                                     <br>
-                                    <span>Due date Aug 3,2022 <a href="{{url('user/list-to-do')}}" class="ms-2 button-3 turquoise-100">Read list to do</a></span>
+                                    <span>Due date {{date('M d,Y',strtotime($one_month_calendar_date))}} <a href="{{url('user/list-to-do')}}" class="ms-2 button-3 turquoise-100">Read list to do</a></span>
                                  </div>
                               </div>
                            </li>
@@ -147,7 +151,8 @@
                               <div class="steps-information">
                                  <div class="steps-information-details">
                                     <span>Complete NoIM <a href="/user/NoIM" class="ms-2 button-3 turquoise-100">Click here</a></span><br><br>
-                                    <span>NoIM must be loaded no later than <br>Jul 30,2022</span>
+                                   
+                                    <span>NoIM must be loaded no later than <br>{{date('M d,Y',strtotime($one_month_calendar_date))}}</span>
                                  </div>
                               </div>
                            </li>
