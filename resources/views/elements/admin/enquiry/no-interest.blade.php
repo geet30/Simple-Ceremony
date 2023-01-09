@@ -5,6 +5,7 @@
                 <th>Enquiry date</th>
                 <th class="text-center">Name <br>person 1</th>
                 <th class="text-center">Name <br>person 2</th>
+                <th class="text-center">Email</th>
                 <th class="text-center">Phone number</th>
                 <th class="text-center">Reference by</th>
                 <th class="text-center">Date marriage</th>
@@ -40,6 +41,7 @@
                         {{ $enq->enquiry_date }}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width:150px;">{{ $enq->couple_one }}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width:150px;">{{ $enq->couple_two }}</td>
+                    <td class="body-2 neutral-100 text-center" style="min-width:150px;">{{ $enq->email }}</td>
                     <td class="body-2 neutral-100 text-center" style="min-width:150px;">
                         {{ $enq->phone_code != '' ? '+' : '' }}{{ $enq->phone_code }}{{ $enq->phone_code != '' ? '-' : '' }}{{ $enq->phone }}
                     </td>
@@ -75,7 +77,7 @@
             @endforeach
             <?php if($dataArray['noInterest_enquries']->total()==0){?>
             <tr>
-                <td colspan="6">
+                <td colspan="9">
                     <center>No Record Found</center>
                 </td>
             </tr>
@@ -83,7 +85,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="8">
+                <td colspan="9">
                     @include('elements.pagination.tabs-pagination', [
                         'data' => $dataArray['all_enquries'],
                     ])

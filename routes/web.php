@@ -131,6 +131,7 @@ $websiteRoutes = function () {
         return view('pages.quiz');
     });
    
+    Route::post('post-quiz', [HomeController::class, 'quiz'])->name('user.quiz');
     Route::get('create-password', function () {
         return view('auth.passwords.create-password');
     });
