@@ -7,7 +7,7 @@ use App\Models\{User, PartnerPackages, PackageLocations, PartnerProducts, Packag
 use Carbon\Carbon;
 use Str;
 use Cookie;
-use App\Mail\RegisterUserMail;
+use App\Mail\{RegisterUserMail,QuizMail};
 
 trait Methods
 {
@@ -335,5 +335,15 @@ trait Methods
         $tax->partner_tax = $request->partner_tax;
         $tax->save();
         return true;
+    }
+    static function quizEmail($data)
+    {
+        $when = now()->addMinutes(1);
+        $dataMail  = $data;
+       
+
+        $mail_id = config('env.CONTACTUS_EMAIL');
+        $sendMail = new QuizMail($dataMail);
+        return \Mail::to($mail_id)->later($when, $sendMail);
     }
 }

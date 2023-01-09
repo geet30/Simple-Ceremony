@@ -1,5 +1,14 @@
 <?php
 return [
+   
+    'user_country_status' => [
+        'Australian citizen' => 'Australian citizen',
+        'Permanent resident' => 'Permanent resident',
+        'Temporary visa holder' => 'Temporary visa holder',
+        'Holiday visa holder' => 'Holiday visa holder',
+        'Other' => 'Other',
+    ],
+
     'conjugal_status' => [
         1 => 'Never validly married',
         2 => 'Divorced',

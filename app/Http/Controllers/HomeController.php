@@ -131,6 +131,31 @@ class HomeController extends Controller
          }
         
     }
+
+    
+       /**
+     * Post quiz Form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function quiz(Request $request){
+        
+        try {
+            // dd($request->all());
+            $input = $request->except('_token'); 
+            $input['enquiry_date'] = date('Y-m-d');
+                    
+            $response = Enqueries::create($input);
+            if($response){
+                User::quizEmail($request->all());
+                return Redirect::back()->with('open_modal', 'yes');
+            }           
+         }
+         catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+         }
+        
+    }
     /**
      * Show Contact Us 
      *
