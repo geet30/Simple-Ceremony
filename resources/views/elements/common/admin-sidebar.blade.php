@@ -167,7 +167,6 @@
             </li> --}}
         
             {{--<li class="nav-item">
-            
                 <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-payments' || Request::segment(1) == 'payments' ? 'active' : '' }}" href="{{url('all-payments/invoice-couple')}}">
                     <svg width="21" height="25" viewBox="0 0 21 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">

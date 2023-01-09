@@ -8,10 +8,11 @@
                      <td>
                         <table style="width: 100%" cellpadding="0" cellspacing="0">
                            <tbody>
-                              <tr>
+                              <tr style="width:100%;background-color: #F7FCFC;">
                                  <td
-                                    style="background: url(/images/invoice-left.png); background-size:contain;background-repeat: no-repeat;height: 70px;background-color: #F7FCFC;width: 100%">
+                                    style="width:70%;background: url(/images/invoice-left.png); background-size:contain;background-repeat: no-repeat;height: 70px;">
                                  </td>
+                                 <td style="width:30%;background: url(/images/invoice-right.png);background-size:contain;background-repeat: no-repeat;height: 70px;padding-right: 21px;"></td>
                               </tr>
                            </tbody>
                         </table>
@@ -155,14 +156,7 @@
                                     <table style="width: 100%" cellpadding="0" cellspacing="0">
                                        <tbody>
                                           <tr>
-                                             <td style="width: 50%;"></td>
-                                             <td style="width: 50%;background: #1C1C1C;padding: 1px 0;"></td>
-                                          </tr>
-                                          <tr>
-                                             <td style="width: 50%;"></td>
-                                             <td
-                                                style="font-weight: 700;font-size: 13px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;letter-spacing: 1.5px;text-align: center;padding-top: 4px;">
-                                                Authorised Sign</td>
+                                             <td><img src="/images/authorised-sign.png" style="float:right;width: 50%;"></td>
                                           </tr>
                                        </tbody>
                                     </table>
