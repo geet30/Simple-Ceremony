@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\{BookingController, UserNoimController, UserController,DashboardController as UserDashboard};
-use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController};
+use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController,GiftVouchersController};
 use App\Http\Controllers\{HomeController, DownloadController,TwilioSMSController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController,CertificateRegisterController};
 
@@ -386,18 +386,16 @@ $adminRoutes = function () {
 
 
         Route::group(['prefix' => 'gift-vouchers'], function () {
-            Route::get('index', function () {
-                return view('admin.gift-vouchers.index');
-            });
+            Route::get('index', [GiftVouchersController::class, 'index'])->name('vouchers.index');
+            Route::get('add-voucher', [GiftVouchersController::class, 'create'])->name('vouchers.create');
             Route::get('details', function () {
                 return view('admin.gift-vouchers.details');
             });
             Route::get('edit-voucher', function () {
                 return view('admin.gift-vouchers.edit-voucher');
             });
-            Route::get('add-voucher', function () {
-                return view('admin.gift-vouchers.add-voucher');
-            });
+            Route::post('/add-voucher', [GiftVouchersController::class, 'store']);
+
         });
     });
 
