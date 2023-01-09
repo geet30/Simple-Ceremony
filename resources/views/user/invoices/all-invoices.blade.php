@@ -36,7 +36,7 @@
                                 <label for="InputName" class="form-label small-text2 d-none d-md-inline-block"></label>
                                 <div class="d-flex flex-column flex-md-row justify-content-md-between justify-content-lg-start">
                                     <a role="button" class="theme-btn primary-btn me-0 me-lg-4 mb-3 mb-md-0 border-0" data-bs-toggle="modal" data-bs-target="#tax_invoice_modal" onclick="appendUserInvoiceData('{{$package}}','{{$booking_addon->created_at}}')">View</a>
-                                    <a href="{{url('download-invoice',$package->id)}}" role="button" data-booking_id="{{$booking_addon->booking_id}}" class="theme-btn primary-btn-border d-flex pe-auto justify-content-center">Download</a>
+                                    <a href="{{url('user/download-user-invoice',[$booking_addon->booking_id,$package->id])}}" role="button" data-booking_id="{{$booking_addon->booking_id}}" class="theme-btn primary-btn-border d-flex pe-auto justify-content-center">Download</a>
                                 </div>
                             </div>
                         </div>
