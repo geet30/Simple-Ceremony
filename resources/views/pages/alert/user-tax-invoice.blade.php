@@ -159,6 +159,7 @@
                                              <td><img src="/images/authorised-sign.png" style="float:right;width: 50%;"></td>
                                           </tr>
                                        </tbody>
+                                       
                                     </table>
                                  </td>
                               </tr>
