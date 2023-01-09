@@ -249,5 +249,8 @@ trait Methods
     public static function getUserInvoices($bookingId){
         return UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->get();
     }
+    public static function getUserInvoicesPackage($bookingId,$packageId){
+        return UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->where('package_id',$packageId)->first();
+    }
     
 }

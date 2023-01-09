@@ -175,7 +175,7 @@ $websiteRoutes = function () {
             Route::post('reschedule-pay', [UserController::class, 'getReschedulePay'])->name('reschedule.pay');
             Route::post('reschedulePay', [UserController::class, 'reschedulePay'])->name('reschedule.payment');
             Route::get('invoices', [UserDashboard::class, 'invoices']);
-            Route::get('download-user-invoice/{id}', [UserDashboard::class, 'downloadUserInvoices'])->name('downloadUserInvoices');
+            Route::get('download-user-invoice/{bookingid}/{packageid}', [UserDashboard::class, 'downloadUserInvoices'])->name('downloadUserInvoices');
         });
     });
 
