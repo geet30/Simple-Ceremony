@@ -14,6 +14,12 @@
                 </a>
             </div>
          </div>
+         @if (session()->has('message'))
+            <div class="alert alert-success alert-dismissible fade show">
+               {{ session()->get('message') }}
+               <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+         @endIf
          <div class="row">
             <div class="col-12">
                 <ul class="nav theme-tabs gift-vouchers-tabs">
@@ -361,4 +367,5 @@
         </div>
       </div>
    </div>
+
 @endsection

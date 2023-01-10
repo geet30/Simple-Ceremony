@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <section class="login">
    <div class="container-fluid">
@@ -12,6 +12,7 @@
                   <h1 class="body-regular-20 neutral-100 d-block d-lg-none">Create a password</h1>
                </div>
             </div>
+           
          </div>
          <div class="col-lg-6 bg-turquoise-100 position-relative">
             <div class="right-form-part">
@@ -20,23 +21,45 @@
                <div class="row">
                   <div class="col-lg-8 mx-auto col-11">
                      <div class="card card-login">
+                    
                         <div class="card-body">
+                        @if ($errors->any())
+                           <div class="alert alert-danger mb-3 alert-block">
+                              <button type="button" class="close" data-dismiss="alert">×</button>
+                              {{ $errors->first() }}
+                           </div>
+                        @endif
                            <form class="needs-validation row" method="POST" action="{{ route('user.create.password') }}" novalidate>
                               @csrf
                               <div class="row">
                                  <div class="col-lg-12 mb-4 d-none d-lg-block">
                                     <h1 class="body-regular-20 neutral-100 d-none d-lg-block">Create a password</h1>
                                  </div>
+                                 @error('email')
+                                       <div class="alert alert-danger" v-if="showError">{{ $message }}</div>
+                                 @enderror
+                                 @error('password')
+                                       <div class="alert alert-danger" v-if="showError">{{ $message }}</div>
+                                 @enderror
                                  <div class="col-lg-12 mb-4">
                                     <label for="email" class="form-label small-text2">Email *</label>
-                                    <input type="email" placeholder="Type your email here" class="form-control emailInput body-1 netural-100 " name="email" value="" required="" autocomplete="off">
+                                    <input type="email" placeholder="Type your email here" class="form-control  emailInput body-1 netural-100 " name="email" value="" required autocomplete="off">
+                                    <div class="invalid-feedback"> 
+                                       <span><img class="me-2" src="/images/require-iocn.svg"
+                                                                alt="Require Icon">
+                                        </span>Email is required</div>
                                  </div>
+                                
                                  <div class="col-lg-12 mb-4">
                                     <label for="password" class="form-label small-text2">Password *</label>
                                     <div class="password-with-eye">
-                                       <input type="password" placeholder="Type your password here" class="form-control passwordInput body-1 netural-100 " name="password" required="" autocomplete="off">
+                                       <input type="password" placeholder="Type your password here" class="form-control passwordInput body-1 netural-100 " required name="password" autocomplete="off">
                                        <i class="fas fa-eye-slash right-icon turquoise-100 eyeIcon"></i>
+                                      
+                                       <div class="invalid-feedback"> 
+                                          <span><img class="me-2" src="/images/require-iocn.svg"  alt="Require Icon"></span>Password is required</div>
                                     </div>
+                                    
                                  </div>
                                  <div class="col-lg-12">
                                     <div class="row">

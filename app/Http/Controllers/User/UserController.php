@@ -6,6 +6,7 @@ use App\Models\{User,Addons,Booking,UserBookingAddon,BookingPayments,Locations};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Auth,Hash}; 
 use Cookie;
+use Validator;
 use Illuminate\Support\Carbon;
 class UserController extends Controller
 {
@@ -292,14 +293,24 @@ class UserController extends Controller
     {
         try {
            
+            $validator = Validator::make($request->all(), [
+                'email' => 'required|email',
+                'password' => 'required',
+            ]);
+            if($validator->fails()) {
+                return \Redirect::back()->withErrors($validator);
+            }
             $user = User::where('email',$request->email)->first();
+            // dd($user);
             if($user){
                 if ($request->has('password')) {
                     $input['password'] = Hash::make($request->password);
                 }
                 User::where('id', $user->id)->update($input);
+                return redirect('login')->with('message', 'Password created successfully'); 
             }
-            return redirect('login')->with('message', 'Password created successfully');   
+            return \Redirect::back()->withErrors(['msg' => 'Email Does not exist']);
+              
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }   

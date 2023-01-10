@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User};
+use App\Models\{User,GiftVoucher};
 use View;
 use Redirect;
 use Illuminate\Support\Facades\{Auth, Hash};
@@ -41,21 +41,13 @@ class GiftVouchersController extends Controller
     public function store(Request $request)
     {
         try {
-            $id = Auth::user()->id;
-            if ($request->ajax()) {
-                if ($request->has('current_password')) {
-                    if (Hash::check($request->current_password,Auth::user()->password) == false) {
-                        return $this->errorResponse([], 'Current password is not correct.', 400);
-                    }
-                }
-                $response = User::saveProfileDetail($request, $id);
-                if ($response) {
-                    return $this->successResponse([], 'Password changed successfully.');
-                }
-            }
-            $response = User::saveProfileDetail($request, $id);
+           
+            $input = $request->except('_token'); 
+                    
+            $response = GiftVoucher::create($input);
+            
             if ($response) {
-                return redirect('/account')->with('message', 'Detail updated successfully.');
+                return redirect('/gift-vouchers/index')->with('message', 'Voucher added successfully.');
             }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

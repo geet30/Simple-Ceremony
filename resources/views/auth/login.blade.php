@@ -136,7 +136,7 @@
                                                                 <p class="body-3-regular mt-4">Have you made an order and
                                                                     payment but don't have a password?</p>
                                                                 
-                                                                <a class="small-text2 forgot-password-link" href="/user/create-password">
+                                                                <a class="small-text2 forgot-password-link" href="/create-password">
                                                                 Create a password
                                                                  </a>
                                                             </div>
