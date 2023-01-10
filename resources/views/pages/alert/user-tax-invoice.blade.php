@@ -1,8 +1,8 @@
 <div class="modal fade" id="tax_invoice_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg">
       <div class="modal-content border-0 rounded-0">
-         <div class="modal-body p-0" style="min-height:94vh">
-            <div class="table-responsive">
+         <div class="modal-body p-0">
+            <div class="table-responsive rounded-0">
                <table style="width: 100%" cellpadding="0" cellspacing="0">
                   <tbody>
                      <tr>
@@ -10,11 +10,15 @@
                            <table style="width: 100%" cellpadding="0" cellspacing="0">
                               <tbody>
                                  <tr style="width:100%;background-color: #F7FCFC;">
-                                    <td style="width:50%"> <img src="/images/invoice-left.png"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;"> </td>
-                                    <td style="width:50%"> <img src="/images/invoice-right.png"  cellpadding="0" cellspacing="0" alt="" style="width: 50%;max-width: 100%;height: auto;float:right;padding-right: 21px;"> </td>
+                                    <td style="width:50%;padding-top:26px;"> <img src="/images/invoice-left.png"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;"> </td>
+                                    <td style="width:50%;padding-top:26px;"> <img src="/images/invoice-right.png"  cellpadding="0" cellspacing="0" alt="" style="width: 50%;max-width: 100%;height: auto;float:right;padding-right: 21px;"> </td>
                                  </tr>
                               </tbody>
                            </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
                            <table style="width: 100%" cellpadding="0" cellspacing="0">
                               <tbody>
                                  <tr>
@@ -22,24 +26,24 @@
                                        <table style="width: 70%" cellpadding="0" cellspacing="0">
                                           <tbody>
                                              <tr>
-                                                <td
-                                                   style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
-                                                   Invoice from : </td>
-                                                <td style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
-                                                   {{ config('env.COMPANYNAME')}}</td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
+                                                   Invoice from </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding-right:10px;">
+                                                :</td>
+                                                <td style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">{{ config('env.COMPANYNAME')}}</td>
                                              </tr>
                                              <tr>
-                                                <td
-                                                   style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
-                                                   ABN number : </td>
-                                                <td class="abn_number"
-                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
-                                                   </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
+                                                   ABN number </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding-right:10px;">
+                                                :</td>
+                                                <td class="abn_number" style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;"></td>
                                              </tr>
                                              <tr>
-                                                <td
-                                                   style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
-                                                   Date  : </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
+                                                   Date </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding-right:10px;">
+                                                   :</td>
                                                 <td class="date"
                                                    style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;"></td>
                                              </tr>
@@ -51,7 +55,7 @@
                                           <tbody>
                                              <tr>
                                                 <td style="width: 70%"></td>
-                                                <td style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 30%;">
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 30%;">
                                                       Invoice to</td>
                                              </tr>
                                              <tr>
@@ -59,12 +63,20 @@
                                                 <td class="couple_name"
                                                    style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 30%;">{{getUserBookingDetails()->first_couple_name}} & {{getUserBookingDetails()->second_couple_name}}</td>
                                              </tr>
+                                             <tr>
+                                                <td style="width: 70%;height: 23px;"></td>
+                                                <td style="width: 30%;height: 23px;"></td>
+                                             </tr>
                                           </tbody>
                                        </table>
                                     </td>
                                  </tr>
                               </tbody>
                            </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td style="padding: 0px 20px;">
                            <table style="width: 100%" cellpadding="0" cellspacing="0">
                               <thead>
                                  <tr>
@@ -86,13 +98,13 @@
                               <?php ?>
                                  <tr>
                                     <td class="package_name"
-                                       style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: left;"></td>
+                                       style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: left;"></td>
                                     <td class="ceremony_date"
-                                       style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: left;">{{date('M d, Y',strtotime(getUserBookingDetails()->booking_date))}}</td>
+                                       style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: left;">{{date('M d, Y',strtotime(getUserBookingDetails()->booking_date))}}</td>
                                     <td class="partner_name"
-                                       style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: right;"></td>
+                                       style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: right;"></td>
                                  <td class="total"
-                                       style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: right;"></td>
+                                       style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 15px 20px;text-align: right;"></td>
                                  </tr>
                                  <tr>
                                     <td style="padding: 1px;background: #62CBC9;"></td>
@@ -102,14 +114,10 @@
                                  </tr>
                               </tbody>
                            </table>
-                           <table style="width: 100%" cellpadding="0" cellspacing="0">
-                              <tbody>
-                                 <tr>
-                                    <td></td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                        
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
                            <table style="width: 100%" cellpadding="0" cellspacing="0">
                               <tbody>
                                  <tr>
@@ -119,29 +127,33 @@
                                           <tbody>
                                              <tr>
                                                 <td
-                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
+                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
                                                    Total</td>
-                                                <td style="width: 50%;"></td>
+                                                <td></td>
+                                                <td></td>
                                              </tr>
                                              <tr>
-                                                <td
-                                                   style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
-                                                   Total Fee : </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
+                                                   Total Fee </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding-right:10px;">
+                                                :</td>
                                                 <td class="total"
-                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
-                                                   $ 0 Inc GST</td>
+                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">$ 0 Inc GST</td>
                                              </tr>
                                              <tr>
                                                 <td
-                                                   style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
-                                                   GST component : </td>
+                                                   style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">
+                                                   GST component </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding-right:10px;">
+                                                :</td>
                                                 <td
-                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
-                                                   $ 0</td>
+                                                   style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;">$ 0</td>
                                              </tr>
                                              <tr>
-                                             <td style="font-weight: 400;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;"> Date Paid </td>
-                                             <td class="date" style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;"> </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;"> Date Paid </td>
+                                                <td style="font-weight: 500;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding-right:10px;">
+                                                :</td>
+                                                <td class="date" style="font-weight: 700;font-size: 12px;line-height: 20px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;"></td>
                                              </tr>
                                           </tbody>
                                        </table>
@@ -149,6 +161,10 @@
                                  </tr>
                               </tbody>
                            </table>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
                            <table style="width: 100%" cellpadding="0" cellspacing="0">
                               <tbody>
                                  <tr>
@@ -184,7 +200,7 @@
                               </tr>
                            </table>
                         </td>
-                        </tr>
+                     </tr>
                   </tbody>
                </table>
             </div>
