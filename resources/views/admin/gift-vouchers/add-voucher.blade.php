@@ -15,7 +15,8 @@
             <div class="col-md-12">
                <div class="card panel-card mb-5">
                   <div class="card-body">
-                     <form class="row needs-validation" method="POST" novalidate action="">
+                     <form class="row needs-validation" method="POST" novalidate action="{{route('vouchers.store')}}">
+                        @csrf
                         <div class="col-md-12 mb-4 d-flex flex-column position-relative">
                            <label for="photos" class="form-label small-text2 mb-20">Upload cover photos</label>
                            <div class="drop-zone add-gift-voucher-drop-zone text-center position-relative">                                                        
@@ -24,7 +25,7 @@
                                     <span class="dark-blue-100 h4 text-center">Drop your photos here,<br>
                                     or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
                                  </span> 
-                                 <input type="file" name="cover_image" class="drop-zone__input" required="">                          
+                                 <input type="file" name="voucher_image" class="drop-zone__input" required="">                          
                                  <a class="delete-icon-span position-absolute d-flex align-items-center justify-content-center"> 
                                     <svg width="21" height="27" viewBox="0 0 21 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19.9332 2.43421H14.3182V2.37895C14.3182 1.32895 13.4759 0.5 12.4091 0.5H8.59091C7.52406 0.5 6.68182 1.32895 6.68182 2.37895V2.43421H1.06684C0.477273 2.43421 0 2.90395 0 3.48421V4.53421C0 5.11447 0.477273 5.58421 1.06684 5.58421H19.9332C20.5227 5.58421 21 5.11447 21 4.53421V3.48421C21 2.90395 20.5227 2.43421 19.9332 2.43421Z" fill="#62CBC9"/>
@@ -62,7 +63,7 @@
                         </div>
                         <div class="col-md-12 mb-15">
                            <label for="Voucher-description" class="form-label small-text2">Voucher description</label>
-                           <textarea class="form-control body-1 netural-100" id="voucherdescription" placeholder="Type here" name="custom_terms" rows="10"></textarea>
+                           <textarea class="form-control body-1 netural-100" id="voucherdescription" placeholder="Type here" name="voucher_description" rows="10"></textarea>
                         </div>
                         <div class="col-12 mt-15 mb-30">
                            <button class="theme-btn primary-btn" type="submit">Save</button>

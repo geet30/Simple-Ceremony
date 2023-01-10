@@ -394,7 +394,7 @@ $adminRoutes = function () {
             Route::get('edit-voucher', function () {
                 return view('admin.gift-vouchers.edit-voucher');
             });
-            Route::post('/add-voucher', [GiftVouchersController::class, 'store']);
+            Route::post('/add-voucher', [GiftVouchersController::class, 'store'])->name('vouchers.store');
 
         });
     });
