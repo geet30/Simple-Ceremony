@@ -2,21 +2,21 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 col-lg-2 p-0">
+        <div class="col-2 col-md-3 col-lg-2 p-0">
             @include('elements.partner.partner-sidebar')
         </div>
-        <div class="col-md-9 col-lg-10 px-md-4">
+        <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.partner.partner-panel-header')
-         <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="pills-tab" role="tablist">
+         <ul class="add-on-list-nav row nav nav-pills mb-3 mt-3" id="all-upcoming-pill-tab" role="tablist">
             <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
                 <button class="nav-link w-100 active" id="all-ads-on-tab" data-bs-toggle="pill" data-bs-target="#all-ads-on" type="button" role="tab" aria-controls="all-ads-on" aria-selected="true">
                 <div class="add-ons-nav d-flex">
                     <div class="add-ons-nav-image me-4">
-                        <img src="/images/admin/add-ons/message-icon.svg" alt="All add-ons">
+                        <img src="/images/partner/all-upcoming.svg" alt="All add-ons">
                     </div>
                     <div class="add-ons-nav-data text-start ">
                         <h3 class="h3">60</h3>
-                        <p class="subheader-2">All add-ons</p>
+                        <p class="subheader-2">All upcoming</p>
                     </div>
                 </div>
                 </button>
@@ -38,11 +38,11 @@
               <button class="nav-link w-100" id="add-on-approved-tab" data-bs-toggle="pill" data-bs-target="#add-on-approved" type="button" role="tab" aria-controls="add-on-approved" aria-selected="false">
                <div class="add-ons-nav d-flex">
                   <div class="add-ons-nav-image me-4">
-                     <img src="/images/admin/add-ons/hands.svg" alt="">
+                     <img src="/images/partner/booked.svg" alt="">
                   </div>
                   <div class="add-ons-nav-data text-start ">
                      <h3 class="h3">50</h3>
-                     <p class="subheader-2">Approved</p>
+                     <p class="subheader-2">Booked</p>
                   </div>
                </div>
               </button>
@@ -60,7 +60,46 @@
                </div>
               </button>
             </li>
-          </ul>
+            <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
+              <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+               <div class="add-ons-nav d-flex">
+                  <div class="add-ons-nav-image me-4">
+                     <img src="/images/admin/add-ons/cross.svg" alt="">
+                  </div>
+                  <div class="add-ons-nav-data text-start ">
+                     <h3 class="h3">70</h3>
+                     <p class="subheader-2">Cancelled</p>
+                  </div>
+               </div>
+              </button>
+            </li>
+            <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
+              <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+               <div class="add-ons-nav d-flex">
+                  <div class="add-ons-nav-image me-4">
+                     <img src="/images/partner/settled.svg" alt="">
+                  </div>
+                  <div class="add-ons-nav-data text-start ">
+                     <h3 class="h3">70</h3>
+                     <p class="subheader-2">Settled</p>
+                  </div>
+               </div>
+              </button>
+            </li>
+            <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
+              <button class="nav-link w-100" id="add-on-reject-tab" data-bs-toggle="pill" data-bs-target="#add-on-reject" type="button" role="tab" aria-controls="add-on-reject" aria-selected="false">
+               <div class="add-ons-nav d-flex">
+                  <div class="add-ons-nav-image me-4">
+                     <img src="/images/partner/finalised.svg" alt="">
+                  </div>
+                  <div class="add-ons-nav-data text-start ">
+                     <h3 class="h3">70</h3>
+                     <p class="subheader-2">Finalised</p>
+                  </div>
+               </div>
+              </button>
+            </li>
+        </ul>
          <div class="row mb-3">
             <div class="col-lg-4 col-xl-3">
                <div class="form-group has-search w-100 position-relative">
