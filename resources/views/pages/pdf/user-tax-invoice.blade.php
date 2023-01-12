@@ -109,7 +109,7 @@
                            {{$data->packages[0]->user->name}}</td>
                         <td
                            style="font-weight: 400;font-size: 26px;line-height: 38px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;padding: 18px 20px;text-align: right;">
-                           {{$data->packages[0]->total_fee}}</td>
+                           ${{$data->packages[0]->total_fee}}</td>
                      </tr>
                      <tr>
                         <td style="padding: 1px;background: #62CBC9;"></td>
@@ -146,7 +146,7 @@
                                        Total Fee : </td>
                                     <td
                                        style="font-weight: bold;font-size: 26px;line-height: 38px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
-                                       $ 0 Inc GST</td>
+                                       $  {{$data->packages[0]->total_fee}} Inc GST</td>
                                  </tr>
                                  <tr>
                                     <td
@@ -162,7 +162,7 @@
                                        Date paid : </td>
                                     <td
                                        style="font-weight: bold;font-size: 26px;line-height: 38px;color: #1C1C1C;font-family: 'Montserrat', sans-serif;width: 50%;">
-                                       Dec 16 2022</td>
+                                       {{date('M d, Y',strtotime($data->created_at))}}</td>
                                  </tr>
                               </tbody>
                            </table>
