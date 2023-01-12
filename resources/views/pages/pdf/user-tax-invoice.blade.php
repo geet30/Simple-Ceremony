@@ -1,9 +1,9 @@
 @php 
 
 
- $headersrc=  asset(config('env.SERVERURL').'/images/invoice-left.png');
- $footerleftsrc=  asset(config('env.SERVERURL').' /images/invoicefooter-left.png');
-
+ $header_left_src=  asset(config('env.SERVERURL').'/images/invoice-left.png');
+ $header_right_src=  asset(config('env.SERVERURL').'/images/invoice-right.png');
+ $footerleftsrc=  asset(config('env.SERVERURL').'/images/invoicefooter-left.png');
  $footerrightsrc=  asset(config('env.SERVERURL').'/images/authorised-sign.png');
 
 @endphp
@@ -24,8 +24,8 @@
                <table style="width: 100%" cellpadding="0" cellspacing="0">
                   <tbody>
                      <tr style="width:100%;background: #F7FCFC;">
-                        <td style="width:75%"> <img src="http://simpleceremoniesacc.crebos.online/images/invoice-left.png"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;"> </td>
-                        <td style="width:25%"> <img src="http://simpleceremoniesacc.crebos.online/images/invoice-right.png"  cellpadding="0" cellspacing="0" alt="" style="width: 50%;max-width: 100%;height: auto;float:right;padding-right: 21px;"> </td>
+                        <td style="width:75%"> <img src="{{$header_left_src}}"  cellpadding="0" cellspacing="0" alt="" style="max-width: 100%;height: auto;"> </td>
+                        <td style="width:25%"> <img src="{{$header_right_src}}"  cellpadding="0" cellspacing="0" alt="" style="width: 50%;max-width: 100%;height: auto;float:right;padding-right: 21px;"> </td>
                      </tr>
                   </tbody>
                </table>
@@ -179,7 +179,7 @@
                            <tbody>
                                  <tr>
                                     <td style="width: 50%;"></td>
-                                    <td><img src="http://simpleceremoniesacc.crebos.online/images/authorised-sign.png"></td>
+                                    <td><img src="{{$footerrightsrc}}"></td>
                                  </tr>
                               </tbody>
                            </table>
@@ -197,7 +197,7 @@
          <td style="height:20px">&nbsp;</td>
       </tr>
       <tr style="background: #F7FCFC;">
-         <td><img src="http://simpleceremoniesacc.crebos.online/images/invoicefooter-left.png"></td>
+         <td><img src="{{$footerleftsrc}}"></td>
       </tr>
    </table>    
 </body>
