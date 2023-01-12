@@ -16,9 +16,22 @@ class GiftVouchersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.gift-vouchers.index');
+        $search = '';
+        if ($request->has('search') && $request->filled('search')) {
+            $search = $request->search;
+            $gift_voucher = GiftVoucher::where('voucher_title', 'like', '%' . $request->search . '%')->orWhere('voucher_number', 'like', '%' . $request->search . '%')->get();
+            // dd($gift_voucher);
+          
+        } else{
+            $gift_voucher = GiftVoucher::all();
+        }
+        if ($request->ajax()) {
+            return View::make('elements.admin.gift-voucher.listing', ['gift_voucher' => $gift_voucher, 'search' => $search]);
+        }
+        // die;
+        return view('admin.gift-vouchers.index', compact('gift_voucher')); 
     }
  
     
@@ -41,13 +54,19 @@ class GiftVouchersController extends Controller
     public function store(Request $request)
     {
         try {
-           
-            $input = $request->except('_token'); 
-                    
+          
+            $input = $request->except('_token');           
+            if($request->image_id ==null){
+                $input['voucher_image'] ='';
+            }  else{
+                if(!empty($request->voucher_image)){
+                    $input['voucher_image'] = uploadImage($request->voucher_image, 'vouchers');
+                }
+            }
             $response = GiftVoucher::create($input);
             
             if ($response) {
-                return redirect('/gift-vouchers/index')->with('message', 'Voucher added successfully.');
+                return redirect('/gift-vouchers')->with('message', 'Voucher added successfully.');
             }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -62,7 +81,10 @@ class GiftVouchersController extends Controller
      */
     public function show($id)
     {
-        //
+        $gift_voucher = GiftVoucher::where('id',$id)->first();
+        
+        return view('admin.gift-vouchers.details', compact('gift_voucher')); 
+       
     }
 
     /**
@@ -73,7 +95,9 @@ class GiftVouchersController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.account.edit');
+      
+        $data = GiftVoucher::where('id',$id)->first();
+        return view('admin.gift-vouchers.edit-voucher', compact('data')); 
     }
 
     /**
@@ -85,7 +109,25 @@ class GiftVouchersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+           
+            $input = $request->except(['_token', '_method','image_id']);
+            if($request->image_id == null){
+                $input['voucher_image'] ='';
+            }  
+            if(!empty($request->voucher_image)){
+                $input['voucher_image'] = uploadImage($request->voucher_image, 'vouchers');
+            }
+            $response = GiftVoucher::where('id', $id)->update($input);
+            
+            if ($response) {
+                return redirect('/gift-vouchers')->with('message', 'Voucher updated successfully.');
+            }
+          
+        } catch (\Exception $ex) {
+            dd($ex);
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
     }
 
     /**

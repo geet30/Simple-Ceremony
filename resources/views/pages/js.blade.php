@@ -132,8 +132,7 @@
        created_date = created_date.toDateString().split(' ').slice(1).join(' ');
    
        var ceremony_type = <?php echo json_encode(config("ceremonyStatus.typeOfCeremony"));?>;
-       console.log(ceremony_type[data.booking.ceremony_type],'bank');
-   
+       console.log(ceremony_type[data.booking.ceremony_type],'bank');   
         $('#tax_invoice_modal').find('.celebrant_name').html(data.recipient_name);
         $('#tax_invoice_modal').find('.date').html( created_date);
         $('#tax_invoice_modal').find('.abn_number').html(data.abn_number);
