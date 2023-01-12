@@ -1,13 +1,13 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.delete-voucher-image').css('visibility','hidden');
-   
-
+    // alert($('#image_id').val());
+    if($('#image_id').val()=='' || $('#image_id').val()=='0'){
+        $('.delete-voucher-image').css('visibility','hidden');
+    }
     $('.delete-icon-span').click(function(){
+        $('#image_id').val('');
         $('.drop-zone__thumb').remove();
-        // $('.drop-zone__thumb').removeAttr("style");
-        // $('.drop-zone__thumb').removeData("label");
         $('.delete-voucher-image').css('visibility','hidden');
        
         $('.drop-zone__input').before(`<span class="drop-zone__prompt text-center d-flex flex-column py-5 text-center">

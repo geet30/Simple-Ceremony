@@ -148,6 +148,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
  * @param {File} file
  */
 function updateThumbnail(dropZoneElement, file) {
+   
     let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
 
     // First time - remove the prompt
@@ -166,7 +167,6 @@ function updateThumbnail(dropZoneElement, file) {
 
     // Show thumbnail for image files
     if (file.type.startsWith("image/")) {
-        console.log('added');
         const reader = new FileReader();
 
         reader.readAsDataURL(file);

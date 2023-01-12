@@ -354,8 +354,7 @@ $adminRoutes = function () {
 
         Route::post('/change-status', [AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
-
-
+        Route::resource('gift-vouchers', GiftVouchersController::class);
      
 
         Route::get('all-referrers', function () {
@@ -385,18 +384,6 @@ $adminRoutes = function () {
         });
 
 
-        Route::group(['prefix' => 'gift-vouchers'], function () {
-            Route::get('index', [GiftVouchersController::class, 'index'])->name('vouchers.index');
-            Route::get('add-voucher', [GiftVouchersController::class, 'create'])->name('vouchers.create');
-            Route::get('details', function () {
-                return view('admin.gift-vouchers.details');
-            });
-            Route::get('edit-voucher', function () {
-                return view('admin.gift-vouchers.edit-voucher');
-            });
-            Route::post('/add-voucher', [GiftVouchersController::class, 'store'])->name('vouchers.store');
-
-        });
     });
 
 };
