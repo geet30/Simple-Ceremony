@@ -209,11 +209,18 @@ $(document).ready(function () {
     };
     
 
-
+    // for showing 5 tabs initially
     $("ul.add-on-list-nav li:gt(4)").hide();
     $(".collapse_ul").click(function () {
         $(this).toggleClass("button_collapse");
         $("ul.add-on-list-nav li:gt(4)").toggle();
+    });
+
+    // for showing 4 tabs initially
+    $("ul.partner-add-on-list-nav li:gt(3)").hide();
+    $(".collapse_partner_ul").click(function () {
+        $(this).toggleClass("button_collapse");
+        $("ul.partner-add-on-list-nav li:gt(3)").toggle();
     });
     window.submitThroughAjax = function (e, id, method, action) {
         
