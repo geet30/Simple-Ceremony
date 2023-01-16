@@ -26,6 +26,7 @@ $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
+    Route::post('/validateCoupon', [HomeController::class, 'checkIfCouponValid']);
 
 
     Route::get('search-booking-addon', [HomeController::class, 'searchBookingAddon']);

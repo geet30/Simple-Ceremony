@@ -111,7 +111,35 @@ $(document).ready(function(){
             }
         });
     }
+    window.validateCoupon = function(element){
+        var coupon = $(element).val();
+        if(coupon ==''){
+            console.log('coupon',coupon);
+            return false;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/validateCoupon",
+            data: {coupon:coupon},
+            dataType: "json",
+            success: function(res) {
+                
+                if(res.status == false){
+                    $(document).find('.coupon_check').find('.coupon_invalid').removeClass('d-none');
+                    $(document).find('.coupon_check').find('.coupon_invalid').addClass('d-block');
+                    
+                }else{
+                    $(document).find('.coupon_check').find('.coupon_invalid').removeClass('d-block');
+                    $(document).find('.coupon_check').find('.coupon_invalid').addClass('d-none');
+                    
+                }
+                
+            },
+            error: function (jqXHR, exception) {
 
+            }
+        });
+    }
     //hide and show element
     window.displayItem = function(ele, cls) {
         $('.'+ele).addClass('d-none');

@@ -86,8 +86,7 @@ class BookingController extends Controller
     public function postBookingLocationForm(Request $request){
       
         try {
-            // echo "<pre>";print_r($request->price_info);die;
-            // dd($request->price_info);
+           
             $data = [
                 'booking_date' => $request->booking_date,
                 'calendar_dayslot_id' => $request->calendar_dayslot_id,
@@ -179,10 +178,29 @@ class BookingController extends Controller
     public function postBookingLocationPayment(Request $request)
     {
      
-        try {           
-           return  Booking::getLocationDetail();
+        try {  
+            $coupon ='';
+            if($request->coupon_code !=''){
+                $coupon = $request->coupon_code;
+                $data = [
+                    'voucher_number' => $request->coupon_code,
+                ];
+                if(Cache::has('booking')){
+                    $booking = Cache::get('booking');
+                    $booking->fill($data);
+                }else{
+                    $booking = new \App\Models\Booking();
+                    $booking->fill($data);
+                }  
+                $booking['voucher_number'] = $request->coupon_code;
+                Cache::put('booking', $booking);
+            }          
+                 
+            return  Booking::getLocationDetail();
         }
+
         catch (\Exception $ex) {
+            dd($ex);
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }

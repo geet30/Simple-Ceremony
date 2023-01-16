@@ -54,8 +54,15 @@ class GiftVouchersController extends Controller
     public function store(Request $request)
     {
         try {
-          
-            $input = $request->except('_token');           
+            
+
+            $input = $request->except('_token');   
+            $checkName = GiftVoucher::where('voucher_title',$request->voucher_title)->where('voucher_number',$request->voucher_number)->first();
+           
+            if($checkName){
+                $msg = 'Voucher already exists with this name.';
+                return ['status' => false,'message'=>$msg];    
+            }        
             if($request->image_id ==null){
                 $input['voucher_image'] ='';
             }  else{
@@ -64,8 +71,9 @@ class GiftVouchersController extends Controller
                 }
             }
             $response = GiftVoucher::create($input);
+            $saveCoupon = GiftVoucher::addCouponToStripe($input);
             
-            if ($response) {
+            if ($saveCoupon) {
                 return redirect('/gift-vouchers')->with('message', 'Voucher added successfully.');
             }
         } catch (\Exception $ex) {
@@ -118,8 +126,7 @@ class GiftVouchersController extends Controller
             if(!empty($request->voucher_image)){
                 $input['voucher_image'] = uploadImage($request->voucher_image, 'vouchers');
             }
-            $response = GiftVoucher::where('id', $id)->update($input);
-            
+            $response = GiftVoucher::where('id', $id)->update($input);          
             if ($response) {
                 return redirect('/gift-vouchers')->with('message', 'Voucher updated successfully.');
             }
