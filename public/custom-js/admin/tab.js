@@ -5,7 +5,7 @@ $(window).on('load', function () {
         
         $('ul.add-on-list-nav').find('li button#'+current_url[2]).click();   
     }
-    console.log(current_url[2]);
+   
     if(current_url[2] =='invoice-couple'){
         $(document).find('.filter_tab').css('display','none');
     }

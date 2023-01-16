@@ -153,7 +153,7 @@ $(document).ready(function(){
             
             success: function(response)
             {
-               
+               console.log('url',current_url[2]);
                 if(sub_tab_id != undefined)
                     $("#"+divId).html(response);
                 else

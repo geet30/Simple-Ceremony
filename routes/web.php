@@ -355,8 +355,12 @@ $adminRoutes = function () {
 
         Route::post('/change-status', [AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
+        Route::get('gift-voucher/{slug}', [GiftVouchersController::class, 'index'])->name('gift-voucher.all-orders');
+
         Route::resource('gift-vouchers', GiftVouchersController::class);
-     
+        Route::get('search-voucher', [GiftVouchersController::class, 'searchGiftVoucher']);
+        Route::post('search-coupon-orders', [GiftVouchersController::class, 'searchGiftOrderByDate']);
+        
 
         Route::get('all-referrers', function () {
             return view('admin.referrers.all-referrers');

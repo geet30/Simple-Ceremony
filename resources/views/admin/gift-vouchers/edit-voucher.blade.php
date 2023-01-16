@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-6 mb-4">
                               <label class="form-label small-text2">Gift voucher number</label>
-                              <input type="number" name="voucher_number" class="form-control body-1 netural-100" value="{{ (isset($data->voucher_number)) ? $data->voucher_number : '' }}" required readonly>
+                              <input type="text" name="voucher_number" class="form-control body-1 netural-100" value="{{ (isset($data->voucher_number)) ? $data->voucher_number : '' }}" required readonly>
                              
                               <div class="invalid-feedback">
                               voucher number is required

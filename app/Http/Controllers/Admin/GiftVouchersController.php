@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{User,GiftVoucher};
+use App\Models\{User,GiftVoucher,Booking};
 use View;
 use Redirect;
 use Illuminate\Support\Facades\{Auth, Hash};
@@ -16,25 +16,64 @@ class GiftVouchersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $slug = null)
     {
-        $search = '';
-        if ($request->has('search') && $request->filled('search')) {
-            $search = $request->search;
-            $gift_voucher = GiftVoucher::where('voucher_title', 'like', '%' . $request->search . '%')->orWhere('voucher_number', 'like', '%' . $request->search . '%')->get();
-            // dd($gift_voucher);
-          
-        } else{
-            $gift_voucher = GiftVoucher::all();
-        }
-        if ($request->ajax()) {
-            return View::make('elements.admin.gift-voucher.listing', ['gift_voucher' => $gift_voucher, 'search' => $search]);
-        }
-        // die;
-        return view('admin.gift-vouchers.index', compact('gift_voucher')); 
-    }
- 
     
+        $search = '';
+        $records = 10;
+        $req_page = 1;
+        if ($request->has('page')) {
+            $req_page = $request->page;
+        }
+        
+        $gift_voucher = GiftVoucher::all();
+        $data = $allRequest = Booking::with(['booking_coupon','user'])->where('voucher_number','!=',null)->paginate($records, ['*'], 'page', $req_page);
+        // dd($data);
+
+        if ($request->ajax()) {          
+            $viewurl = 'elements.admin.gift-voucher.' . $slug;         
+            return View::make($viewurl, ['req_page' => $req_page, 'gift_voucher' => $gift_voucher,'data'=>$data, 'search' => $search]);
+        }
+        return view('admin.gift-vouchers.index', compact('gift_voucher','data')); 
+    }
+    /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+
+    public function searchGiftOrderByDate(Request $request){
+        try {
+            $data =   GiftVoucher::searchGiftOrderByDate($request);
+            return View::make('elements.admin.gift-voucher.all-orders', ['data' => $data]);
+        } catch (\Exception $ex) {
+           
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
+     /**
+     * Search Voucher
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchGiftVoucher(Request $request)
+    {
+        try {
+            $search ='';
+            if ($request->has('search') && $request->filled('search')) {
+                $search = $request->search;
+                $gift_voucher = GiftVoucher::where('voucher_title', 'like', '%' . $request->search . '%')->orWhere('voucher_number', 'like', '%' . $request->search . '%')->get();
+            }
+            else{
+                $gift_voucher = GiftVoucher::all();
+            }
+            return View::make('elements.admin.gift-voucher.all-active-gift-vouchers', ['gift_voucher' => $gift_voucher, 'search' => $search]);
+        } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }   
     /**
      * Show the form for creating a new resource.
      *
@@ -74,7 +113,7 @@ class GiftVouchersController extends Controller
             $saveCoupon = GiftVoucher::addCouponToStripe($input);
             
             if ($saveCoupon) {
-                return redirect('/gift-vouchers')->with('message', 'Voucher added successfully.');
+                return redirect('/gift-voucher/all-active-gift-vouchers')->with('message', 'Voucher added successfully.');
             }
         } catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
@@ -128,7 +167,7 @@ class GiftVouchersController extends Controller
             }
             $response = GiftVoucher::where('id', $id)->update($input);          
             if ($response) {
-                return redirect('/gift-vouchers')->with('message', 'Voucher updated successfully.');
+                return redirect('/gift-voucher/all-active-gift-vouchers')->with('message', 'Voucher updated successfully.');
             }
           
         } catch (\Exception $ex) {
