@@ -142,17 +142,17 @@
         $('#tax_invoice_modal').find('.ceremony_type').html(ceremony_type[data.booking.ceremony_type]);
        
     }
-    window.appendUserInvoiceData = function(result,created_at){
+    window.appendUserInvoiceData = function(package_name,user_name,abn_number,total_fee,created_at){
        
-       var data = JSON.parse(result);
+    //    var data = JSON.parse(result);
        console.log(created_at);
        var created_date = new Date(created_at);
        created_date = created_date.toDateString().split(' ').slice(1).join(' ');
    
-        $('#tax_invoice_modal').find('.package_name').html(data.package_name);
-        $('#tax_invoice_modal').find('.partner_name').html( data.user.name);
-        $('#tax_invoice_modal').find('.abn_number').html(data.user.abn_number);
-        $('#tax_invoice_modal').find('.total').html('$'+data.total_fee);
+        $('#tax_invoice_modal').find('.package_name').html(package_name);
+        $('#tax_invoice_modal').find('.partner_name').html(user_name);
+        $('#tax_invoice_modal').find('.abn_number').html(abn_number);
+        $('#tax_invoice_modal').find('.total').html('$'+total_fee);
         $('#tax_invoice_modal').find('.date').html(created_date);
         
        
