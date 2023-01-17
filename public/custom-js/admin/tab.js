@@ -16,11 +16,20 @@ $(window).on('load', function () {
 $(document).ready(function(){
     window.addTabToUrl = function(e,url){
         var tab_id = $(e.target).attr("id");
+        console.log(tab_id,'tab');
       
         if(tab_id == 'couple-invoice'){
             $(document).find('.filter_tab').css('display','none');
-        }else{
+        }       
+        else{
             $(document).find('.filter_tab').css('display','block');
+        }
+        if(tab_id =='all-active-gift-vouchers'){
+            
+            $(document).find('.all-orders-filter').css('display','none');
+
+        }else if(tab_id =='all-orders'){
+            $(document).find('.all-orders-filter').css('display','block');
         }
         var url = url +tab_id;
         history.pushState('', '', [url])

@@ -80,43 +80,40 @@ trait Methods
     
     public static function searchGiftOrderByDate($request)
     {
-        // dd($request->all());
         try{
             $req_page = 1;
             $records = 10;
-            $whereClause = [];
-            if(isset($request->current_url[2]) && !empty($request->current_url[2])){
-                $slug = $request->current_url[2];
-            }
-           
-           
-            $data = Booking::with(['booking_coupon','user'])->where('voucher_number','!=',null);
-            // if ($request->has('bookingStatus') && $request->filled('bookingStatus')) {
-            
-            //     $status = $request->bookingStatus;
-               
-            //     $data = $data->whereHas('booking', (function ($q) use ($status) {
-                    
-            //         $q->WhereIn('status', $status);
-                    
-            //     }));
-            //     // $data = $data->whereIn($whereClause);
-            // }
-           
-            if ($request->filled('booking_date')) {
-             
+            // if(isset($request->current_url[2]) && !empty($request->current_url[2])){
+            //     $slug = $request->current_url[2];
+            // }                   
+            $data = Booking::with(['booking_coupon','user'])->where('voucher_number','!=',null);               
+            if ($request->filled('booking_date')) {            
                 $date = date('Y-m-d', strtotime($request->booking_date));
                 $data = $data->Where('created_at', 'like', '%' . $date . '%');         
             } else {
                 $data = $data->orderBy('id', 'DESC');
-            }
-         
+            }         
             return $data->paginate($records, ['*'], 'page', $req_page);
         }catch (\Exception $ex) {
             dd($ex);
-         }
+        }
        
-        // dd($data->toSql());
-       
+    }
+    
+    public static function searchGiftOrderByName($request){
+        try{
+            $req_page = 1;
+            $records = 10;                 
+            $data = Booking::with(['booking_coupon','user'])->where('voucher_number','!=',null);               
+            if ($request->filled('search')) {            
+                $search = strtolower($request->search);
+                $data = $data->Where('first_couple_name', 'like', '%' . $search . '%')->orWhere('second_couple_name', 'like', '%' . $search . '%');         
+            } else {
+                $data = $data->orderBy('id', 'DESC');
+            }         
+            return $data->paginate($records, ['*'], 'page', $req_page);
+        }catch (\Exception $ex) {
+            dd($ex);
+        }
     }
 }

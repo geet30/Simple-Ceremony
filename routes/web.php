@@ -360,6 +360,8 @@ $adminRoutes = function () {
         Route::resource('gift-vouchers', GiftVouchersController::class);
         Route::get('search-voucher', [GiftVouchersController::class, 'searchGiftVoucher']);
         Route::post('search-coupon-orders', [GiftVouchersController::class, 'searchGiftOrderByDate']);
+        Route::get('search-coupon-orders-by-name', [GiftVouchersController::class, 'searchGiftOrderByName']);
+        
         
 
         Route::get('all-referrers', function () {

@@ -34,13 +34,13 @@
                 </ul>
                 <!-- tab content -->
                 <div class="tab-content" id="tabContent">
-                    <div class="tab-pane fade show active all-orders" id="orders" role="tabpanel"
-                        aria-labelledby="orders-tab">
+                    @include('elements.admin.gift-voucher.all-orders-filter')
+                    <div class="tab-pane fade show active all-orders" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         @include('elements.admin.gift-voucher.all-orders')
                     </div>
                     <div class="tab-pane fade active-gift-vouchers" id="active-gift-vouchers" role="tabpanel" aria-labelledby="active-gift-vouchers-tab">
-                    <div class="row mb-22 mt-20">
-                        <div class="col-md-12 d-flex">
+                        <div class="row mb-22 mt-20">
+                            <div class="col-md-12 d-flex">
                                 <div class="form-group has-search w-100 position-relative">
                                     <input type="text" class="form-control" placeholder="Search gift certificate name or gift voucher number"  onkeyup="searchWithoutTabs('/search-voucher',this.value, 'searchResult', '1')">
                                     <span class="fa fa-search form-control-feedback"></span>

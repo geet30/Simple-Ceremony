@@ -53,6 +53,24 @@ class GiftVouchersController extends Controller
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }
+    
+    /**
+     * search the specified booking location in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Booking  $booking
+     * @return \Illuminate\Http\Response
+     * */
+
+     public function searchGiftOrderByName(Request $request){
+        try {
+            $data =   GiftVoucher::searchGiftOrderByName($request);
+            return View::make('elements.admin.gift-voucher.all-orders', ['data' => $data]);
+        } catch (\Exception $ex) {
+           
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
      /**
      * Search Voucher
      *

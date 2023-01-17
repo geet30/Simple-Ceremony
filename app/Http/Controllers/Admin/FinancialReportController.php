@@ -67,16 +67,6 @@ class FinancialReportController extends Controller
             $partners = User::role('Partner')->select('name','id')->get();          
             $celebrants = User::role('Celebrant')->select('first_name','id')->get();
             $data  = FinancialReport::fetch_all_location_reports($id)->paginate($records, ['*'], 'page', $req_page);
-            // $data2 =[];
-            // foreach($data as $key=>$value){
-                
-            //     foreach($value->booking as $result){
-            //         $data2[]=  $result;
-            //     }
-
-            // }
-            
-            // dd($data); 
                    
             if ($request->ajax()) {            
                 $viewurl = 'elements.admin.financial-report.location-listing';
