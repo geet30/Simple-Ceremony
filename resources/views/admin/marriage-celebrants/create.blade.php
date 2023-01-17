@@ -139,7 +139,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">BSB *</label>
-                                            <input type="text" placeholder="Type your BSB here"
+                                            <input type="number" placeholder="Type your BSB here"
                                                 class="form-control body-1 netural-100" name="user[bsb]" id="InputName"
                                                 required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -148,7 +148,7 @@
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <label for="InputName" class="form-label small-text2">Account number *</label>
-                                            <input type="number" placeholder="09090909"
+                                            <input type="number" placeholder="eg. 0000000000000"
                                                 class="form-control body-1 netural-100" name="user[account_no]" min="0"
                                                 id="InputName" required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
