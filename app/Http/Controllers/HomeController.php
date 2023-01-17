@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Locations,Addons,PartnerProducts,User,Enqueries,Booking};
+use App\Models\{Locations,Addons,PartnerProducts,User,Enqueries,Booking,GiftVoucher};
 use Redirect;
 use Cookie;
 use View;
@@ -225,7 +225,19 @@ class HomeController extends Controller
             
         }
     }
-
+   /**
+     *check if coupon is valid 
+    *
+    */
+    function checkIfCouponValid(Request $request){
+        try{
+            return GiftVoucher::retrieveCoupon($request->coupon);
+            // dd($retrieveCoupon);
+        }catch (\Exception $e) {
+            return ['status' => false,'message'=>'Something went wrong']; 
+            
+        }
+    }
     /**
      * Change status of ceremony.
      *

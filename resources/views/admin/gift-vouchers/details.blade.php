@@ -8,7 +8,7 @@
       </div>
       <div class="col-10 col-md-9 col-lg-10 px-4">
          @include('elements.common.panel-header')
-         <a href="{{url('gift-vouchers')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-80"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="{{url('/gift-voucher/all-active-gift-vouchers')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-80"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="row">
             <div class="col-lg-6 col-xl-6">
                <h2 class="neutral-100 h2 mb-20">{{$gift_voucher->voucher_title}}</h2>

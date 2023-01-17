@@ -10,7 +10,7 @@
          @include('elements.common.panel-header')
          <div class="row">
             <div class="col-md-12 mb-4">
-            <a href="{{url('gift-vouchers')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+            <a href="{{url('/gift-voucher/all-active-gift-vouchers')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
             </div>
             <div class="col-md-12">
                <div class="card panel-card mb-5">
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-md-6 mb-4">
                               <label class="form-label small-text2">Gift voucher number</label>
-                              <input type="number" name="voucher_number" class="form-control body-1 netural-100" placeholder="Type voucher number" required>
+                              <input type="text" name="voucher_number" class="form-control body-1 netural-100" placeholder="Type voucher number" required>
                              
                               <div class="invalid-feedback">
                               voucher number is required

@@ -21,6 +21,7 @@ class LocationsController extends Controller
      */
     public function index(Request $request, $slug = null)
     {
+       
         try {
             $filters = LocationFilters::all();
             $records = 10;

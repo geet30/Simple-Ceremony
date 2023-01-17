@@ -26,6 +26,7 @@ $websiteRoutes = function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('login', 'App\Http\Controllers\Auth\LoginController@showLoginForm')->name('user-login');
     Route::post('/checkemail', [HomeController::class, 'checkIfMailExist']);
+    Route::post('/validateCoupon', [HomeController::class, 'checkIfCouponValid']);
 
 
     Route::get('search-booking-addon', [HomeController::class, 'searchBookingAddon']);
@@ -354,8 +355,14 @@ $adminRoutes = function () {
 
         Route::post('/change-status', [AddonsController::class, 'changeStatus']);
         Route::post('/submit-feedback', [AddonsController::class, 'submitFeedback']);
+        Route::get('gift-voucher/{slug}', [GiftVouchersController::class, 'index'])->name('gift-voucher.all-orders');
+
         Route::resource('gift-vouchers', GiftVouchersController::class);
-     
+        Route::get('search-voucher', [GiftVouchersController::class, 'searchGiftVoucher']);
+        Route::post('search-coupon-orders', [GiftVouchersController::class, 'searchGiftOrderByDate']);
+        Route::get('search-coupon-orders-by-name', [GiftVouchersController::class, 'searchGiftOrderByName']);
+        
+        
 
         Route::get('all-referrers', function () {
             return view('admin.referrers.all-referrers');

@@ -33,9 +33,10 @@
 
     @endforeach
     </ul> --}}
-    <div class="col-md-6 mb-4">
-        <label for="InputName" class="form-label small-text2">Input your Voucher code here, if you have one</label>
-        <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="name" id="InputName">
+    <div class="col-md-6 mb-4 coupon_check">
+        <label for="coupon_code" class="form-label small-text2">Input your Voucher code here, if you have one</label>
+        <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="coupon_code" id="coupon_code" onblur="validateCoupon(this)">
+        <div class="invalid-feedback coupon_invalid"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Invalid Coupon</div>
     </div>
     <div class="col-md-12">
         <div class="row">
@@ -45,20 +46,6 @@
             <button type="submit" id="checkout-button"><img class="img-fluid w-100" src="/images/booking-form/visa-card.svg" alt="Visa Card"></button>
             
             </div>
-            <!-- <div class="col-md-4 mb-4">
-            <a onClick="bookingSubmit('/post-booking-user-payment','step-three')">
-                <img class="img-fluid w-100" src="/images/booking-form/b-pay.svg" alt="Visa Card">
-            </a>
-            </div>
-            <div class="col-md-4 mb-4">
-            <a href="#">
-                <img class="img-fluid w-100" src="/images/booking-form/after-pay.svg" alt="Visa Card">
-            </a>
-            </div>
-            <div class="col-md-4">
-            <a href="#">
-                <img class="img-fluid w-100" src="/images/booking-form/ethereum.svg" alt="Visa Card">
-            </a> -->
             </div>
         </div>
     </div>
