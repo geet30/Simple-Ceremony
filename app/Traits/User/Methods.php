@@ -161,6 +161,7 @@ trait Methods
     static function createCelebrant($data)
     {
         $userData = $data['user'];
+        $password = $data['user']['password'];
        
         $userData['password'] = Hash::make($userData['password']);
         $userData['user_type'] =  config('env.userType.Celebrant');
@@ -175,7 +176,7 @@ trait Methods
         $when = now()->addMinutes(1);
         $dataMail  = array(
             'email' => $userData['email'],
-            'password' => $userData['password'],
+            'password' => $password,
         );
         $mail_id = $userData['email'];
         $sendMail = new RegisterUserMail($dataMail);
