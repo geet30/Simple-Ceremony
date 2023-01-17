@@ -21,6 +21,7 @@ errorMsg = $("#invalid-phone-number");
       preventInvalidNumbers: true,
       separateDialCode: true,
       // initialCountry: "auto",
+      initialCountry: "AU",
       geoIpLookup: function(callback) {
         $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
           var countryCode = (resp && resp.country) ? resp.country : "";
