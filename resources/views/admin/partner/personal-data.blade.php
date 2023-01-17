@@ -76,14 +76,14 @@
                     </div>
                     <div class="col-md-3">
                         <label for="InputName" class="form-label small-text2">BSB</label>
-                        <input type="text" value="{{ isset($partner_details['user']['bsb']) ? $partner_details['user']['bsb'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[bsb]" id="InputName" required>
+                        <input type="number" value="{{ isset($partner_details['user']['bsb']) ? $partner_details['user']['bsb'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[bsb]" id="InputName" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 mb-4">
                 <label for="InputName" class="form-label small-text2">Account number</label>
-                <input type="text" value="{{ isset($partner_details['user']['account_no']) ? $partner_details['user']['account_no'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[account_no]" id="InputName" required>
+                <input type="number" value="{{ isset($partner_details['user']['account_no']) ? $partner_details['user']['account_no'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[account_no]" id="InputName" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
             </div>
             <div class="col-md-12 col-lg-6 mb-4 celebrantLocation">

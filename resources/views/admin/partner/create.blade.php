@@ -108,14 +108,14 @@
                                  </div>
                                  <div class="col-md-3">
                                     <label for="InputName" class="form-label small-text2">BSB</label>
-                                    <input type="text" placeholder="73" class="form-control body-1 netural-100" name="user[bsb]" id="InputName" required>
+                                    <input type="number" placeholder="73" class="form-control body-1 netural-100" name="user[bsb]" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="InputName" class="form-label small-text2">Account number</label>
-                              <input type="text" placeholder="09090909" class="form-control body-1 netural-100" name="user[account_no]" id="InputName" required>
+                              <input type="number" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="user[account_no]" id="InputName" required>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
                            </div>
                            <h2 class="h3 netural-100 mb-4 mt-3">Create package</h2>
@@ -150,40 +150,40 @@
                                     <div class="row">
                                        <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">Partner fee</label>
-                                          <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][partner_fee]" id="InputName" required>
+                                          <input type="number" step="0.01" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][partner_fee]" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner fee is required</div>
                                        </div>
                                        <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">SC admin fee</label>
-                                          <input type="text" placeholder="$ 120" class="form-control body-1 netural-100" name="partner_packages[0][admin_fee]" id="InputName" required>
+                                          <input type="number" step="0.01" placeholder="$ 120" class="form-control body-1 netural-100" name="partner_packages[0][admin_fee]" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>SC admin fee is required</div>
                                        </div>
                                        <div class="col-md-4">
                                           <label for="InputName" class="form-label small-text2">Total fee</label>
-                                          <input type="text" placeholder="$ 120" class="form-control body-1 netural-100" name="partner_packages[0][total_fee]" id="InputName" required>
+                                          <input type="number" step="0.01" placeholder="$ 120" class="form-control body-1 netural-100" name="partner_packages[0][total_fee]" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="col-md-3 mb-4">
                                     <label for="InputName" class="form-label small-text2">Deposit (optional)</label>
-                                    <input type="text" placeholder="%" class="form-control body-1 netural-100" name="partner_packages[0][deposit]" id="InputName">
+                                    <input type="number" step="0.01" placeholder="%" class="form-control body-1 netural-100" name="partner_packages[0][deposit]" id="InputName">
                                  </div>
                                  <div class="col-md-3 mb-4">
                                     <label for="InputName" class="form-label small-text2">Simulation partner fee</label>
-                                    <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_partner_fee]" id="InputName" required>
+                                    <input type="number" step="0.01" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_partner_fee]" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation partner fee is required</div>
                                  </div>
                                  <div class="col-md-3 mb-4">
                                     <label for="InputName" class="form-label small-text2">Simulation admin fee</label>
-                                    <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_admin_fee]" id="InputName" required>
+                                    <input type="number" step="0.01" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_admin_fee]" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Simulation admin fee is required</div>
                                  </div>
                                  <div class="col-md-3 mb-4">
                                     <label for="InputName" class="form-label small-text2">Total fee</label>
                                     <div class="d-flex">
                                        <div class="input-error">
-                                          <input type="text" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_total_fee]" id="InputName" required>
+                                          <input type="number" step="0.01" placeholder="$" class="form-control body-1 netural-100" name="partner_packages[0][simulation_total_fee]" id="InputName" required>
                                           <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Total fee is required</div>
                                        </div>
                                        <span class="d-inline-block ms-2 align-self-start" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Fill the deposit field first, after that simulation total deposit can appear">

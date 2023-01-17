@@ -8,6 +8,8 @@ use App\Models\{User,Addons,Locations};
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Validator;
+
 class RegisterController extends Controller
 {
     /*
@@ -83,6 +85,20 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         try {
+            $rules = array(
+                'user.bsb' => 'required|digits:6',
+                'user.account_no' => 'required|digits:12',
+            ); 
+            $messages = array(
+                'user.bsb.required' => 'BSB is required.',
+                'user.bsb.digits' => 'BSB must be 6 digits .',
+                'user.account_no.required' => 'Account no is required.',
+                'user.account_no.digits' => 'Account no must be 12 digits .'
+            );
+            $validator =  Validator::make( $request->all(), $rules, $messages );
+            if($validator->fails()) {
+                return \Redirect::back()->withErrors($validator);
+            }
             $response = User::createPartner($request->all());
             if($response){
              

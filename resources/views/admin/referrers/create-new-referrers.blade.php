@@ -79,7 +79,7 @@
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="InputName" class="form-label small-text2">Account number</label>
-                              <input type="text" placeholder="09090909" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                              <input type="number" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="name" id="InputName" required>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
                            </div>
                            <div class="col-md-12 mb-4">

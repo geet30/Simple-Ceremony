@@ -163,7 +163,7 @@
                               </div>
                               <div class="col-md-12 mb-4">
                                  <label for="InputName" class="form-label small-text2">Account number *</label>
-                                 <input type="number" placeholder="09090909"
+                                 <input type="number" placeholder="eg. 0000000000000"
                                     class="form-control body-1 netural-100" name="user[account_no]"
                                     id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2"

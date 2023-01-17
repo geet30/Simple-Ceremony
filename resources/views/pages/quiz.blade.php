@@ -43,7 +43,9 @@
                      </div>
                      <div class="col-md-6 mb-4">
                         <label for="email" class="form-label small-text2">Email *</label>
-                        <input type="email" placeholder="Email" class="form-control body-1 netural-100" name="email" id="email">
+                        <input type="email" placeholder="Email" class="form-control body-1 netural-100" name="email" id="email" required>
+                        <div class="invalid-feedback phone_number_required"> 
+                           <span><img class="me-2"  src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
                      </div>
                      <div class="col-md-6 mb-4 phone_number">
                         <label for="phone" class="form-label small-text2">Phone number *</label>

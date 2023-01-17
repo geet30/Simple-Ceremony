@@ -150,14 +150,14 @@
                                  </div>
                                  <div class="col-md-3">
                                     <label for="bsb" class="form-label small-text2 ms-2 readonlyInput">BSB</label>
-                                    <input type="text" value="{{ auth()->user()->bsb }}" class="form-control body-1 netural-100" name="user[bsb]" id="bsb" required>
+                                    <input type="number" value="{{ auth()->user()->bsb }}" class="form-control body-1 netural-100" name="user[bsb]" id="bsb" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="account_no" class="form-label small-text2 ms-2">Account number</label>
-                              <input type="text" value="{{ auth()->user()->account_no }}" class="form-control body-1 netural-100 readonlyInput" name="user[account_no]" id="account_no" required readonly>
+                              <input type="number" value="{{ auth()->user()->account_no }}" class="form-control body-1 netural-100 readonlyInput" name="user[account_no]" id="account_no" required readonly>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
                            </div>
                            <div class="col-md-12 mb-4">
