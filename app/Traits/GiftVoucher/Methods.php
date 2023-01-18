@@ -139,7 +139,10 @@ trait Methods
                        
             if ($request->filled('search')) {            
                 $search = strtolower($request->search);
-                $data = $data->where('first_couple_name', 'like', '%' . $search . '%')->orWhere('second_couple_name', 'like', '%' . $search . '%');         
+                $data = $data->where(function ($query) use($search) {
+                    $query->where('first_couple_name', 'like', '%' . $search . '%')
+                        ->orWhere('second_couple_name', 'like', '%' . $search . '%');
+                });      
             } else {
                 $data = $data->orderBy('id', 'DESC');
             }  
