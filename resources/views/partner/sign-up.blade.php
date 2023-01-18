@@ -118,14 +118,14 @@
                               </div>
                               <div class="col-md-5">
                                  <label for="InputName" class="form-label small-text2">BSB</label>
-                                 <input type="number" onkeydown="return event.keyCode !== 69" placeholder="000-000" maxlength="6" min="0"  max="6" class="form-control body-1 netural-100" name="user[bsb]" id="InputName" required>
+                                 <input type="number" onkeydown="return event.keyCode !== 69" placeholder="000-000" class="form-control body-1 netural-100" name="user[bsb]" id="InputName" required>
                                  <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                               </div>
                            </div>
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="InputName" class="form-label small-text2">Account number</label>
-                           <input type="number" onkeydown="return event.keyCode !== 69" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="user[account_no]" id="InputName"   max="12" min="1" required>
+                           <input type="number" onkeydown="return event.keyCode !== 69" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="user[account_no]" id="InputName" required>
                            <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
                         </div>
                         <h2 class="h3 netural-100 mb-4 mt-3">Create package</h2>
