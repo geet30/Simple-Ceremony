@@ -14,7 +14,7 @@
             <font style="font-family: 'Open Sans', arial, sans-serif; color:#3b3b3b; font-size:12px; line-height:21px; font-weight: bold">
            
             You are receiving this email because we received a password reset request for your account. <br>
-            <a href="{{ url('password/reset/' . $data . '?email=' . $notifiable['email']) }}">Reset Password</a> <br>
+            <a href="{{ url('password/reset/' . $data . '?email=' . $notifiable['email']) }}"><b>Reset Password</b></a> <br>
             <p>If you did not request a password reset, no further action is required.</p>
             </font>
     <center>

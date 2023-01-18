@@ -3,7 +3,7 @@
 namespace App\Traits\GiftVoucher;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash, Auth};
-use App\Models\{User,Booking};
+use App\Models\{User,Booking,GiftVoucher};
 use Carbon\Carbon;
 use Stripe\Stripe;
 trait Methods
@@ -58,7 +58,7 @@ trait Methods
     //     }
 
     // } 
-    static function retrieveCoupon($voucherNumber){
+    static function retrieveStripeCoupon($voucherNumber){
         try{
             $stripe = new \Stripe\StripeClient(
                 config('env.STRIPE_SECRET')
@@ -77,6 +77,21 @@ trait Methods
             return ['status' => false,'message'=>$ex->getMessage()]; 
         }
     }
+    static function retrieveGiftCoupon($voucherNumber){
+        try{
+            $checkVoucher = GiftVoucher::where('voucher_number', $voucherNumber)->first();
+            if ($checkVoucher) {
+                return ['status' => true, 'message' => 'valid'];
+            }
+            return ['status' => false, 'message' => 'not valid'];
+        }
+        catch (\Exception $ex) {
+            return ['status' => false, 'message' => 'not valid'];
+            dd($ex->getMessage());
+            return ['status' => false,'message'=>$ex->getMessage()]; 
+        }
+    }
+   
     
     public static function searchGiftOrderByDate($request)
     {

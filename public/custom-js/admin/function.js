@@ -111,8 +111,14 @@ $(document).ready(function(){
             }
         });
     }
+   
     window.validateCoupon = function(element){
         var coupon = $(element).val();
+        console.log('ff');
+        $(document).find('.coupon_check').find('.coupon_invalid').removeClass('d-block');
+                
+        $(document).find('.coupon_check').find('.coupon_invalid').addClass('d-none');
+        $('#checkout-button').css("pointer-events", "auto");
         if(coupon ==''){
             console.log('coupon',coupon);
             return false;
@@ -128,9 +134,14 @@ $(document).ready(function(){
                     $(document).find('.coupon_check').find('.coupon_invalid').removeClass('d-none');
                     $(document).find('.coupon_check').find('.coupon_invalid').addClass('d-block');
                     
+                    $('#checkout-button').css("pointer-events", "none");
+                    return false;
+                    
                 }else{
                     $(document).find('.coupon_check').find('.coupon_invalid').removeClass('d-block');
+                    
                     $(document).find('.coupon_check').find('.coupon_invalid').addClass('d-none');
+                    $('#checkout-button').css("pointer-events", "auto");
                     
                 }
                 

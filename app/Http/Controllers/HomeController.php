@@ -231,11 +231,9 @@ class HomeController extends Controller
     */
     function checkIfCouponValid(Request $request){
         try{
-            return GiftVoucher::retrieveCoupon($request->coupon);
-            // dd($retrieveCoupon);
+            return GiftVoucher::retrieveGiftCoupon($request->coupon);
         }catch (\Exception $e) {
-            return ['status' => false,'message'=>'Something went wrong']; 
-            
+            return ['status' => false,'message'=>'Something went wrong'];            
         }
     }
     /**

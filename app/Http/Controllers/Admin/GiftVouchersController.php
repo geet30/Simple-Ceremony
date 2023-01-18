@@ -128,9 +128,9 @@ class GiftVouchersController extends Controller
                 }
             }
             $response = GiftVoucher::create($input);
-            $saveCoupon = GiftVoucher::addCouponToStripe($input);
+            // $saveCoupon = GiftVoucher::addCouponToStripe($input);
             
-            if ($saveCoupon) {
+            if ($response) {
                 return redirect('/gift-voucher/all-active-gift-vouchers')->with('message', 'Voucher added successfully.');
             }
         } catch (\Exception $ex) {
