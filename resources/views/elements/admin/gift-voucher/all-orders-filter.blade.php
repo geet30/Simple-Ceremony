@@ -50,7 +50,7 @@
             elem.data("selecteddates",dates.join(",")).datepicker('setDates',dates);
            
             getDates();
-      });
+      }).datepicker("setDate", "0");
      
       function getDates()
       {
