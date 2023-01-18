@@ -9,10 +9,10 @@
                 </ol>
             </nav>
         </div>
-        <div class="col-4 d-sm-none align-self-center">
-            <a> <img src="/images/admin/login-logo.svg" alt="Logo" class="img-fluid"></a>
-        </div>
-        <div class="col-8 col-sm-6 d-flex justify-content-end">
+        <!-- <div class="col-4 d-sm-none align-self-center">
+            <a><img src="/images/admin/login-logo.svg" alt="Logo" class="img-fluid"></a>
+        </div> -->
+        <div class="col-sm-6 d-flex justify-content-end">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -145,4 +145,5 @@
             </nav>
         </div>
     </div>
+    
 </header>

@@ -220,8 +220,23 @@ $(document).ready(function () {
     $("ul.partner-add-on-list-nav li:gt(3)").hide();
     $(".collapse_partner_ul").click(function () {
         $(this).toggleClass("button_collapse");
-        $("ul.partner-add-on-list-nav li:gt(3)").toggle();
+        $("ul.partner-add-on-list-nav li:gt(3)").toggle(500);
     });
+    // for showing 4 tabs initially
+    // $("ul.partner-add-on-list-nav li:gt(3)").hide(500);
+    // $('.collapse_partner_ul').click(function() {
+    //     if ($('.collapse_partner_ul').hasClass('button_collapse')){
+    //       $('.collapse_partner_ul').removeClass('button_collapse');
+    //       $("ul.partner-add-on-list-nav li:gt(3)").hide(500);
+    //     } else {
+    //       $('.collapse_partner_ul').addClass('button_collapse');
+    //       $("ul.partner-add-on-list-nav li:gt(3)").show(500);
+    //     }
+    // });
+
+//   $(".collapse_partner_ul").click(function(){
+//     $(".inner-tab-listing").toggle(500);
+//   });
     window.submitThroughAjax = function (e, id, method, action) {
         
         e.preventDefault();

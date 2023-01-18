@@ -72,7 +72,7 @@
 }
 
 #availablity-overview-style::-webkit-scrollbar {
-    width: 6px;
+    width: 3px;
     border-radius: 25px;
     background-color: $turquoise-50;
 }
@@ -261,6 +261,7 @@
         height: 36vh !important;
     }
 }
+
 .custom-footer {
     position: relative;
 }
@@ -319,5 +320,24 @@
         font-weight: 700;
         font-size: 10.7608px;
         line-height: 15px;
+    }
+}
+//new-17-1-23
+.order-details-card {
+    max-height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 15px;
+    margin-right: -15px;
+    @include media-breakpoint-up(md) {
+        .button-1 {
+            font-size: 13px;
+        }
+    }
+}
+
+.h-55 {
+    @include media-breakpoint-up(xl) {
+        height: 55vh !important;
     }
 }
