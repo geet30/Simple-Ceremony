@@ -204,7 +204,7 @@
                                                 <div class="col-md-6 mb-4">
                                                     <label for="InputName" class="form-label small-text2 ms-2">Email
                                                         address</label>
-                                                    <input type="text" class="form-control body-1 netural-100 disabled"
+                                                    <input type="email" class="form-control body-1 netural-100 disabled"
                                                         id="InputName" readonly required=""
                                                         value="{{ $data->email }}" name="user[email]">
                                                 </div>

@@ -33,7 +33,7 @@
                          </div>
                          <div class="col-md-6 mb-4">
                             <label for="email" class="form-label small-text2">Email address</label>
-                            <input type="text" value="{{ auth()->user()->email }}" class="form-control body-1 netural-100 readonlyInput" name="user[email]" id="email" required="" readonly>
+                            <input type="email" value="{{ auth()->user()->email }}" class="form-control body-1 netural-100 readonlyInput" name="user[email]" id="email" required="" readonly>
                            <div class="invalid-feedback"> <span>
                               <img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required
                            </div>

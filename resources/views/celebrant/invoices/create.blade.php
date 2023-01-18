@@ -45,7 +45,7 @@
                      <div class="col-md-6 col-lg-4 col-xl-4 col-xxl-3 mb-4">
                         <label class="form-label small-text2">ABN number</label>
                         <div class="d-flex align-items-center">
-                           <input type="text" placeholder="ABN number" class="form-control body-1 netural-100 abn_number commonFirstEmpty" name="abn_number"  value="{{auth()->user()->abn_number}}" readonly >
+                           <input type="number" onkeydown="return event.keyCode !== 69" placeholder="ABN number" class="form-control body-1 netural-100 abn_number commonFirstEmpty" name="abn_number"  value="{{auth()->user()->abn_number}}" readonly >
                            <span class="d-inline-block ms-2" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="left" data-bs-content="Select the recipient first,after that his data will appear">
                               <img src="/images/booking-form/information.svg" alt="Information Icon" style="width:13px;">
                            </span>

@@ -46,7 +46,7 @@
 
             <div class="col-md-6 mb-4">
                 <label for="InputName" class="form-label small-text2">Email address</label>
-                <input type="text" value="{{ isset($partner_details['user']['email']) ? $partner_details['user']['email'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[email]" id="InputName" required="">
+                <input type="email" value="{{ isset($partner_details['user']['email']) ? $partner_details['user']['email'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[email]" id="InputName" required="">
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
             </div>
             <div class="col-md-6 mb-4">
@@ -64,7 +64,7 @@
             </div>
             <div class="col-md-6 mb-4">
                 <label for="InputName" class="form-label small-text2">ABN Number</label>
-                <input type="text" value="{{ isset($partner_details['user']['abn_number']) ? $partner_details['user']['abn_number'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[abn_number]" id="InputName" required>
+                <input type="number" onkeydown="return event.keyCode !== 69" value="{{ isset($partner_details['user']['abn_number']) ? $partner_details['user']['abn_number'] : '' }}" class="form-control body-1 netural-100 disabled" name="user[abn_number]" id="InputName" required>
                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>ABN Number is required</div>
             </div>
             <div class="col-md-6 mb-4">

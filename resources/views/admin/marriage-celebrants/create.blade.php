@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">ABN Number *</label>
-                                            <input type="number" placeholder="Type your ABN number here" min="0"
+                                            <input type="number" onkeydown="return event.keyCode !== 69" placeholder="Type your ABN number here" min="0"
                                                 class="form-control body-1 netural-100" name="user[abn_number]"
                                                 id="InputName" required>
                                             <div class="invalid-feedback"> <span><img class="me-2"

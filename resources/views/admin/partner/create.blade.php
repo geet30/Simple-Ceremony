@@ -89,7 +89,7 @@
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="InputName" class="form-label small-text2">ABN number *</label>
-                              <input type="text" placeholder="Type your ABN number here" class="form-control body-1 netural-100" name="user[abn_number]" id="InputName" required>
+                              <input type="number" onkeydown="return event.keyCode !== 69" placeholder="Type your ABN number here" class="form-control body-1 netural-100" name="user[abn_number]" id="InputName" required>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>ABN number is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
