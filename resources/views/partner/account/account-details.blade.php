@@ -59,14 +59,14 @@
                                  </div>
                                  <div class="col-md-3">
                                     <label for="InputName" class="form-label small-text2">BSB</label>
-                                    <input type="number" value="73" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                                    <input type="number" onkeydown="return event.keyCode !== 69" placeholder="000-000" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                                  </div>
                               </div>
                            </div>
                            <div class="col-md-6 mb-4">
                               <label for="InputName" class="form-label small-text2">Account number</label>
-                              <input type="number" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                              <input type="number" onkeydown="return event.keyCode !== 69" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="name" id="InputName" required>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
