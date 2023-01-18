@@ -98,31 +98,23 @@ trait Methods
         // dd($request->all());
         try{
             $req_page = 1;
-            $records = 10;
-            // if(isset($request->current_url[2]) && !empty($request->current_url[2])){
-            //     $slug = $request->current_url[2];
-            // }                   
+            $records = 10;                 
             $data = Booking::with(['booking_coupon','user']); 
             $end_date = '';
             if($request->filled('search_end_date')){
                 $end_date =$request->search_end_date;
             } 
             if ($request->filled('search_start_date') && $end_date =='') {
-                $start_date =$request->search_start_date;
+                $start_date =date('Y-m-d',strtotime($request->search_start_date));
                 $data = $data->Where('created_at', 'like', '%' . $start_date . '%')  ;             
                           
             }
             if($end_date !=''){
                 $start_date =$request->search_start_date;
                 
-                $data = $data->whereDate('booking_date','>=',$start_date)
-                    ->whereDate('booking_date','<=',$end_date); 
+                $data = $data->whereDate('created_at','>=',$start_date)
+                    ->whereDate('created_at','<=',$end_date); 
             }
-
-            // if ($request->filled('booking_date')) {            
-            //     $date = date('Y-m-d', strtotime($request->booking_date));
-            //     $data = $data->Where('created_at', 'like', '%' . $date . '%');         
-            // }  
             $data = $data->where('voucher_number','!=','')->where('voucher_number','IS NOT', null);        
             return $data->paginate($records, ['*'], 'page', $req_page);
         }catch (\Exception $ex) {
