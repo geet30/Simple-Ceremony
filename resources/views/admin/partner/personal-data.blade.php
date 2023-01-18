@@ -4,7 +4,8 @@
         <div class="position-relative mb-4">
             
             @if ($partner_details['user']['image'] == '')
-                <img src="/images/admin-celebrants-profile.png" alt="Partner Image"
+
+                <img src="/images/avtar/avatar-d.png" alt="Partner Image"
                     class="img-fluid w-100 profile-image previewImage">
             @else
                 <img src="/uploads/images/user/{{ $partner_details['user']['image'] }}" alt="Partner Image"
