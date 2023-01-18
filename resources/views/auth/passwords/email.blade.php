@@ -1,5 +1,11 @@
+
 @extends('layouts.panels')
 @section('content')
+<?php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+?>
 <section class="login">
    <div class="container-fluid">
       <div class="row align-items-center">
@@ -32,6 +38,7 @@
                                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                                     </div>
                                  </div>
+                                 
                                  @endif
                               </div>
                               <div class="row">
