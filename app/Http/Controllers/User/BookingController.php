@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
-use App\Models\{LocationFilters,Locations,Booking};
+use App\Models\{LocationFilters,Locations,Booking,GiftVoucher};
 use Illuminate\Http\Request;
 use View;
 use DB;
@@ -179,11 +179,13 @@ class BookingController extends Controller
     {
      
         try {  
-            $coupon ='';
-            if($request->coupon_code !=''){
-                $coupon = $request->coupon_code;
+           
+            // if($request->coupon_code !=''){
+                $coupon = (isset($request->coupon_code)) ? $request->coupon_code:'';
+                $voucher_price =  GiftVoucher::where('voucher_number',$coupon)->value('voucher_price');
                 $data = [
-                    'voucher_number' => $request->coupon_code,
+                    'voucher_number' => $coupon,
+                    'voucher_price' =>$voucher_price
                 ];
                 if(Cache::has('booking')){
                     $booking = Cache::get('booking');
@@ -192,9 +194,18 @@ class BookingController extends Controller
                     $booking = new \App\Models\Booking();
                     $booking->fill($data);
                 }  
-                $booking['voucher_number'] = $request->coupon_code;
+                $booking['voucher_number'] = $coupon;
+                $booking['voucher_price'] = $voucher_price;
+
+                
                 Cache::put('booking', $booking);
-            }          
+            // } 
+            // else{
+            //     $data = [
+            //         'voucher_number' => '',
+            //         'voucher_price' =>''
+            //     ];
+            // }         
                  
             return  Booking::getLocationDetail();
         }

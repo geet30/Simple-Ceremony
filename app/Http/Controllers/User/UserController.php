@@ -299,7 +299,7 @@ class UserController extends Controller
             if($validator->fails()) {
                 return \Redirect::back()->withErrors($validator);
             }
-            $user = User::where('email',$request->email)->first();
+            $user = User::where('email',$request->email)->where('user_type',2)->first();
             // dd($user);
             if($user){
                 if ($request->has('password')) {

@@ -3,7 +3,7 @@
 namespace App\Traits\Booking;
 
 use Illuminate\Support\Facades\{View, Storage, DB, Hash};
-use App\Models\{User, CelebrantDaySlot,CelebrantDate,CelebrantDateOverRide,Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages};
+use App\Models\{User, CelebrantDaySlot,CelebrantDate,CelebrantDateOverRide,Invoices,Locations, Booking,UserBookingAddon, BookingPayments, Cart, RequestLocations, LocationPackages,GiftVoucher};
 use Illuminate\Support\Facades\Cache;
 use Stripe\Stripe;
 use Str;
@@ -65,17 +65,22 @@ trait Methods
                 }
             }
             $DOMAIN = config('env.WEBSITE');
-            $couponArr =[];
+            // $couponArr =[];
+            $price = Cache::get('booking')->price;
             $coupon = Cache::get('booking')->voucher_number;
-            $couponArr = [[
-                'coupon' => isset($coupon) ? $coupon : '',
-            ]];
+            if($coupon !=''){
+                $coupon_price = Cache::get('booking')->voucher_price;
+                $price = $price - $coupon_price;
+            }
+            // $couponArr = [[
+            //     'coupon' => isset($coupon) ? $coupon : '',
+            // ]];
             $send_paramter = [
                 'name' => $data['name'],
-                'price' => Cache::get('booking')->price,
+                'price' => $price,
                 'img' => $img,
                 'locationId' => $locationId,
-                'coupon' => $couponArr
+                // 'coupon' => $couponArr
 
             ];
            
@@ -270,6 +275,8 @@ trait Methods
             $booking_inputs['price']  = $data->price;
             $booking_inputs['price_info']  = $data->price_info;
             $booking_inputs['voucher_number']  = $data->voucher_number;
+            $booking_inputs['voucher_price']  = $data->voucher_price;
+            
             $booking_inputs['full_name_of_person_1']  = $data->full_name_of_person_1;
             $booking_inputs['full_name_of_person_2']  = $data->full_name_of_person_2;
             $booking_inputs['full_name_of_witness_1']  = $data->full_name_of_witness_1;
@@ -384,7 +391,7 @@ trait Methods
                     'quantity' => 1
                 ]],
                 'mode' => 'payment',
-                'discounts' => $data['coupon'],
+                // 'discounts' => $data['coupon'],
                 'success_url' => $success_url,
                 'cancel_url' => $cancel_url,
             ]);

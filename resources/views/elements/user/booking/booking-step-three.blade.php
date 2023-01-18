@@ -35,7 +35,7 @@
     </ul> --}}
     <div class="col-md-6 mb-4 coupon_check">
         <label for="coupon_code" class="form-label small-text2">Input your Voucher code here, if you have one</label>
-        <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="coupon_code" id="coupon_code" onblur="validateCoupon(this)">
+        <input type="text" placeholder="Type here" class="form-control body-1 netural-100" name="coupon_code" id="coupon_code" onkeyup="validateCoupon(this)">
         <div class="invalid-feedback coupon_invalid"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Invalid Coupon</div>
     </div>
     <div class="col-md-12">

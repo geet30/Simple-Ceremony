@@ -63,7 +63,7 @@
                            <label class="form-label small-text2 ms-2">Add voucher price</label>
                            <div class="position-relative">
                                  <span class="currency-sign body-1 netural-100">$</span>
-                                 <input type="number" name="voucher_price" class="form-control body-1 netural-100 ps-4" value="{{ (isset($data->voucher_price)) ? $data->voucher_price : '' }}" required readonly>
+                                 <input type="number" name="voucher_price" class="form-control body-1 netural-100 ps-4" value="{{ (isset($data->voucher_price)) ? $data->voucher_price : '' }}" required>
                                  <div class="invalid-feedback" >
                                  voucher price is required.
                               </div>
