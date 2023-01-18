@@ -31,7 +31,7 @@
                                  <span class="dark-blue-100 h4 text-center">Drop your photos here,<br>
                                  or <span class="turquoise-100 text-decoration cursor-pointer">browse file</span></span>
                               </span> 
-                              <input type="file" name="voucher_image" class="drop-zone__input" required="">                          
+                              <input type="file" name="voucher_image" class="drop-zone__input" required="" accept=".png, .jpeg, .jpg">                          
                               <input type="hidden" id="image_id" name="image_id" value="0"> 
                               <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cover photo is required.</div>
                            </div> 

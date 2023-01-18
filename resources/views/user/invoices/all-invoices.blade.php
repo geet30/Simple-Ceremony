@@ -22,15 +22,15 @@
                         <div class="row mb-4">
                             <div class="col-md-6 col-lg-6 col-xl-3 mb-4 mb-xl-0">
                                 <label for="InputName" class="form-label small-text2">Item description</label>
-                                <input type="text" value="{{$package->package_name}}" class="form-control body-1 netural-100 cursor-pointer" readonly="">
+                                <input type="text" value="{{$package->package_name}}" class="form-control body-1 netural-100" style="cursor: auto;" readonly="">
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-3 mb-4 mb-xl-0">
                                 <label for="InputName" class="form-label small-text2">Provider name</label>
-                                <input type="text" value="{{$package->user->name}}" class="form-control body-1 netural-100 cursor-pointer"  readonly="">
+                                <input type="text" value="{{$package->user->name}}" class="form-control body-1 netural-100" style="cursor: auto;"   readonly="">
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-3 mb-4 mb-xl-0">
                                 <label for="InputName" class="form-label small-text2">Date</label>
-                                <input type="text" value="{{date('M d, Y',strtotime($booking_addon->created_at))}}" class="cursor-pointer form-control body-1 netural-100" readonly="">
+                                <input type="text" value="{{date('M d, Y',strtotime($booking_addon->created_at))}}" style="cursor: auto;"  class="form-control body-1 netural-100" readonly="">
                             </div>
                             <div class="col-md-6 col-lg-6 col-xl-3">
                                 <label for="InputName" class="form-label small-text2 d-none d-md-inline-block"></label>
