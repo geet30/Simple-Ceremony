@@ -67,7 +67,7 @@ class LoginController extends Controller
                 }
             }
             return Redirect::to('login')->withErrors([
-                    'email' => 'Credentials do not match our database.'
+                    'email' => 'Password is incorrect'
             ]);
         }
         catch (\Exception $ex) {

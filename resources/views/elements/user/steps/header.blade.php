@@ -26,7 +26,7 @@ if (Cookie::get('myCart')) {
                      <li>Marriage certificate</li>
                      <li>Certificate of Faithful performance of Interpreter</li>
                   </ul>
-                  <a href="{{route('user/NoIM')}}" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to set up NoIM</a>
+                  <a href="/user/NoIM" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to set up NoIM</a>
                </div>
             </div>
          </div>
