@@ -10,6 +10,7 @@
                 line-height: 19px;
                 color: #ffffff;
                 vertical-align: top;
+                position: relative;
                 &:first-child {
                     padding-left: 25px;
                 }
@@ -124,22 +125,22 @@
        content: "";
        display: block;
        height: 6px;
-       right: 8%;
-       top: 12px;
+       right: 10px;
+       top: 17px;
        position: absolute;
        width: 6px;
        background-repeat: no-repeat;
     }
     &:after{
         background-image: url(/images/icons/sort-down.svg);
-     content: "";
-     display: block;
-     height: 6px;
-     right: 8%;
-     bottom:12px;
-     position: absolute;
-     width: 6px;
-     background-repeat: no-repeat;
+        content: "";
+        display: block;
+        height: 6px;
+        right: 10px;
+        bottom: 17px;
+        position: absolute;
+        width: 6px;
+        background-repeat: no-repeat;
      }
 }
 .clickable-row
