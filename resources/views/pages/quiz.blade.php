@@ -35,11 +35,11 @@
                   <div class="row">
                      <div class="col-md-6 mb-4">
                         <label for="couple_one" class="form-label small-text2">Your preferred first name</label>
-                        <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="couple_one" id="couple_one">
+                        <input type="text" pattern="\S(.*\S)?" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="couple_one" id="couple_one">
                      </div>
                      <div class="col-md-6 mb-4">
                         <label for="couple_two" class="form-label small-text2">Your partner's preferred first name</label>
-                        <input type="text" placeholder="Type your partner's preferred name here" class="form-control body-1 netural-100" name="couple_two" id="couple_two">
+                        <input type="text" pattern="\S(.*\S)?" placeholder="Type your partner's preferred name here" class="form-control body-1 netural-100" name="couple_two" id="couple_two">
                      </div>
                      <div class="col-md-6 mb-4">
                         <label for="email" class="form-label small-text2">Email *</label>
