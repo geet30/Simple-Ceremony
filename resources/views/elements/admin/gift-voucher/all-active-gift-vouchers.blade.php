@@ -4,7 +4,11 @@
         @foreach($gift_voucher as $voucher)
         <div class="col-md-6 col-lg-4 col-xl-3 mb-2">
             <a class="card image-card admin-gift-voucher-card" href="{{route('gift-vouchers.show',$voucher->id)}}">
-                <img src="{{ asset('/uploads/images/vouchers/'.$voucher['voucher_image']) }}" class="card-img-top img-fluid" alt="gift-voucher-1">
+                @if(!empty($voucher['voucher_image']))
+               <img src="{{ asset('/uploads/images/vouchers/'.$voucher['voucher_image']) }}" class="w-100 img-fluid mt-27 mb-27" alt="gift voucher Image">
+               @else
+               <img src="{{ asset('/images/voucher/placeholder.png') }}" class="w-100 img-fluid mt-27 mb-27" alt="gift voucher Image">
+               @endif
                 <div class="card-body pt-15 pb-20">
                     <div class="gift-certificate mb-3">
                         <span>Gift Certificate</span>

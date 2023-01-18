@@ -34,8 +34,7 @@ class UserController extends Controller
             if(isset($request->reschedule_session_id) && !empty($request->reschedule_session_id)){
                 // $savePaymentDetail = Booking::savePaymentDetail($request->reschedule_session_id, $user_id,$bookingId);
                 // BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>3]);
-            }
-            // dd($booking);        
+            }       
             $addons = UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->get();
             return view('user.overview.index',compact(['addons','booking','locations']));
         }catch (\Exception $e) {

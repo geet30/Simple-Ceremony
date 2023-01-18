@@ -139,7 +139,7 @@
                                         </div>
                                         <div class="col-md-6 mb-4">
                                             <label for="InputName" class="form-label small-text2">BSB *</label>
-                                            <input type="text" placeholder="Type your BSB here"
+                                            <input type="number" onkeydown="return event.keyCode !== 69" placeholder="Type your BSB here"
                                                 class="form-control body-1 netural-100" name="user[bsb]" id="InputName"
                                                 required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
@@ -148,8 +148,8 @@
                                         </div>
                                         <div class="col-md-12 mb-4">
                                             <label for="InputName" class="form-label small-text2">Account number *</label>
-                                            <input type="number" placeholder="09090909"
-                                                class="form-control body-1 netural-100" name="user[account_no]" min="0"
+                                            <input type="number" onkeydown="return event.keyCode !== 69" placeholder="eg. 0000000000000"
+                                                class="form-control body-1 netural-100" name="user[account_no]" 
                                                 id="InputName" required>
                                             <div class="invalid-feedback"> <span><img class="me-2"
                                                         src="/images/require-iocn.svg" alt="Require Icon"></span>Account
@@ -180,7 +180,7 @@
                                                 fee</label>
                                             <div class=" position-relative">
                                                 <span class="currency-sign body-1 netural-100">$</span>
-                                                <input type="number" step="0.01" min="0"
+                                                <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" min="0"
                                                     class="form-control body-1 netural-100 ps-4"
                                                     name="celebrant[standard_fee]" id="InputName">
                                                 <div class="invalid-feedback"> <span><img class="me-2"
@@ -194,7 +194,7 @@
                                                 fee</label>
                                             <div class=" position-relative">
                                                 <span class="currency-sign body-1 netural-100">$</span>
-                                                <input type="number" step="0.01" min="0"
+                                                <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" min="0"
                                                     class="form-control body-1 netural-100 ps-4"
                                                     name="celebrant[admin_fee]" id="InputName">
                                                 <div class="invalid-feedback"> <span><img class="me-2"

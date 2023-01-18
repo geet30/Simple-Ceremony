@@ -47,7 +47,7 @@
                                  </span> 
                                  <input type="hidden" id="image_id" name="image_id"> 
                               @endif
-                              <input type="file" name="voucher_image" class="drop-zone__input" {{$required}}>    
+                              <input type="file" accept=".png, .jpeg, .jpg" name="voucher_image" class="drop-zone__input" {{$required}}>    
                                  <div class="invalid-feedback" style="position: absolute;bottom: -30px;left: 20px;text-align: left;z-index: 1;"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Cover photo is required.</div>
                            </div> 
                         </div>
@@ -63,7 +63,7 @@
                            <label class="form-label small-text2 ms-2">Add voucher price</label>
                            <div class="position-relative">
                                  <span class="currency-sign body-1 netural-100">$</span>
-                                 <input type="number" name="voucher_price" class="form-control body-1 netural-100 ps-4" value="{{ (isset($data->voucher_price)) ? $data->voucher_price : '' }}" required>
+                                 <input type="number" name="voucher_price" class="form-control body-1 netural-100 ps-4" value="{{ (isset($data->voucher_price)) ? $data->voucher_price : '' }}" required readonly>
                                  <div class="invalid-feedback" >
                                  voucher price is required.
                               </div>
@@ -71,7 +71,7 @@
                         </div>
                         <div class="col-md-6 mb-4">
                               <label class="form-label small-text2">Gift voucher number</label>
-                              <input type="number" name="voucher_number" class="form-control body-1 netural-100" value="{{ (isset($data->voucher_number)) ? $data->voucher_number : '' }}" required>
+                              <input type="text" name="voucher_number" class="form-control body-1 netural-100" value="{{ (isset($data->voucher_number)) ? $data->voucher_number : '' }}" required readonly>
                              
                               <div class="invalid-feedback">
                               voucher number is required

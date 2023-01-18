@@ -48,7 +48,6 @@ trait Methods
     static function getLocationDetail()
     {
         try {
-
             $locationId = Cache::get('booking')->locationId;
             $data = Locations::with([
                 'location_images' => function ($query) {
@@ -66,11 +65,17 @@ trait Methods
                 }
             }
             $DOMAIN = config('env.WEBSITE');
+            $couponArr =[];
+            $coupon = Cache::get('booking')->voucher_number;
+            $couponArr = [[
+                'coupon' => isset($coupon) ? $coupon : '',
+            ]];
             $send_paramter = [
                 'name' => $data['name'],
                 'price' => Cache::get('booking')->price,
                 'img' => $img,
                 'locationId' => $locationId,
+                'coupon' => $couponArr
 
             ];
            
@@ -264,6 +269,7 @@ trait Methods
             $booking_inputs['location_name']  = $data->location_name;
             $booking_inputs['price']  = $data->price;
             $booking_inputs['price_info']  = $data->price_info;
+            $booking_inputs['voucher_number']  = $data->voucher_number;
             $booking_inputs['full_name_of_person_1']  = $data->full_name_of_person_1;
             $booking_inputs['full_name_of_person_2']  = $data->full_name_of_person_2;
             $booking_inputs['full_name_of_witness_1']  = $data->full_name_of_witness_1;
@@ -378,6 +384,7 @@ trait Methods
                     'quantity' => 1
                 ]],
                 'mode' => 'payment',
+                'discounts' => $data['coupon'],
                 'success_url' => $success_url,
                 'cancel_url' => $cancel_url,
             ]);
