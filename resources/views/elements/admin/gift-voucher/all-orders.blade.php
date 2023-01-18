@@ -18,8 +18,8 @@
                 <td class="body-2 neutral-100" style="min-width:250px;">{{date('M d,Y',strtotime($result->created_at))}}</td>
                 <td class="body-2 neutral-100" style="min-width:150px;">{{$result->first_couple_name}}</td>
                 <td class="body-2 neutral-100" style="min-width:150px;">{{$result->user->email}}</td>
-                <td class="body-2 neutral-100" style="min-width:150px;">1</td>
-                <td class="body-2 neutral-100" style="min-width:150px;">{{$result->booking_coupon->voucher_number}}
+                <td class="body-2 neutral-100" style="min-width:150px;">${{$result->voucher_price}}</td>
+                <td class="body-2 neutral-100" style="min-width:150px;">{{(isset($result->booking_coupon->voucher_number)) ?$result->booking_coupon->voucher_number:'' }}
                 </td>
             </tr>
             @endforeach
