@@ -199,8 +199,8 @@ $websiteRoutes = function () {
     });
 
 
-    Route::get('activity-history', function () {
-        return view('user.activity-history.lisiting');
+    Route::get('communication', function () {
+        return view('user.communication.listing');
     });
 
     Route::get('signature', function () {

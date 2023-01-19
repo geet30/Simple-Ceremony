@@ -7,38 +7,37 @@ if (Cookie::get('myCart')) {
 }
 ?>
 <header class="panel-header">
-    <div class="row m-0 justify-content-between">
+    <div class="row m-0 align-items-center">
         @if(Auth::user()->roles->first()->name =='User')
-
-        
             @if( Request::segment(2) != 'profile')
-            <div class="col-12 col-md-8 booking-custom-location align-self-center">
-                <div class="booking-process-bar d-flex align-items-center">
+            <div class="col-12 col-md-12 col-lg-7 booking-custom-location order-2 order-lg-1">
+                <div class="booking-process-bar d-flex align-items-center flex-wrap flex-md-nowrap gap-1">
                     <span class="h4 text-nowrap mb-0 turquoise-100 me-3">Booking progress</span>
-                    <div class="progress body-1 w-75">
-                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">{{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}</div>
-                        
-                    </div>
-                    <div class="booking-info ms-3">
-                        <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
-                        <div class="booking-info-details">
-                            <p class="body-2 neutral-100">Please, set your NoIM to get your marriage legal documents :</p>
-                            <ul class="body-2 neutral-100">
-                                <li>Notice of Intended Marriage form</li>
-                                <li>Official Certificate of Marriage</li>
-                                <li>Statement of No Legal Barriers</li>
-                                <li>Marriage certificate</li>
-                                <li>Certificate of Faithful performance of Interpreter</li>
-                            </ul>
-                            <a href="#" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to
-                                set up NoIM</a>
+                    <div class="d-flex align-items-center w-100">
+                        <div class="progress body-1 w-100">
+                            <div class="progress-bar progress-bar-striped" role="progressbar" style="width: {{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">{{config('ceremonyStatus.booking_progress.'.Auth::user()->booking->status) }}</div>
+                        </div>
+                        <div class="booking-info ms-3">
+                            <img src="/images/user/info-light.svg" alt="Information" class="info-icon">
+                            <div class="booking-info-details">
+                                <p class="body-2 neutral-100">Please, set your NoIM to get your marriage legal documents :</p>
+                                <ul class="body-2 neutral-100">
+                                    <li>Notice of Intended Marriage form</li>
+                                    <li>Official Certificate of Marriage</li>
+                                    <li>Statement of No Legal Barriers</li>
+                                    <li>Marriage certificate</li>
+                                    <li>Certificate of Faithful performance of Interpreter</li>
+                                </ul>
+                                <a href="#" class="user-dash-links turquoise-100 d-inline-block mt-3">Click here here to
+                                    set up NoIM</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             @endif
         @endif
-        <div class="col-12 col-md-4 d-flex justify-content-md-end mb-4 mb-md-0 order-md-2 ms-auto">
+        <div class="col-12 col-md-12 col-lg-5 d-flex justify-content-end mb-4 mb-md-0 order-lg-2 order-1">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -184,7 +183,7 @@ if (Cookie::get('myCart')) {
             </nav>
         </div>
         @if(Auth::user()->roles->first()->name !='User')
-        <div class="col-sm-6 align-self-center order-md-1">
+        <div class="col-sm-6 align-self-center order-2 order-lg-1">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <?php $segments = ''; ?>
@@ -233,7 +232,6 @@ if (Cookie::get('myCart')) {
         
         </div>
         @endif
-        
     </div>
 </header>
 @include('pages.js')
