@@ -30,14 +30,6 @@
                <div class="col-lg-3">
                   <h3 class="body-3-medium text-black mb-3">Informations</h3>
                   <div class="d-flex mb-3">
-                     <div class="dot-status bg-turquoise-100 me-3"></div>
-                     <div  class="body-3-regular neutral-100">Today</div>
-                  </div>
-                  <div class="d-flex mb-3">
-                     <div class="dot-status bg-turquoise-50 me-3"></div>
-                     <div  class="body-3-regular neutral-100">Today</div>
-                  </div>
-                  <div class="d-flex mb-3">
                      <div class="dot-status bg-neutral-100 me-3"></div>
                      <div  class="body-3-regular neutral-100">Available</div>
                   </div>
