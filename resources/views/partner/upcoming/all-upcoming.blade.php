@@ -120,8 +120,8 @@
             <div class="tab-pane fade show active" id="all-upcoming" role="tabpanel" aria-labelledby="all-upcoming-tab" tabindex="0">
                 <div class="table-responsive">
                     <table class="table align-middle theme-table">
-                       <thead>
-                          <tr>
+                        <thead>
+                            <tr>
                             <th class="sort-by">Wedding date </th>
                             <th>Time</th>
                             <th>Order</th>
@@ -131,52 +131,9 @@
                             <th>Phone number</th>
                             <th></th>
                             <th></th> 
-                          </tr>
-                       </thead>
-                       <tbody>
-                       <tr>
-                            <td colspan="12">
-                                <center>No Record Found</center>
-                            </td>
-                        </tr>
-                       </tbody>
-                       <tfoot>
-                          <tr>
-                             <td colspan="9">
-                                <div class="theme-pagination d-flex justify-content-end">
-                                   <div class="align-self-center me-4 button-1">Rows per page: 10</div>
-                                   <div class="align-self-center me-4 button-1 ">1-10 of 150</div>
-                                   <div class="align-self-center">
-                                      <a class="d-inline-flex me-4" href=""><img src="/images/pagination/left.svg"
-                                            class="img-fluid"></a>
-                                      <a class="d-inline-flex me-4" href=""><img src="/images/pagination/right.svg"
-                                            class="img-fluid"> </a>
-                                   </div>
-                                </div>
-                             </td>
-                          </tr>
-                       </tfoot>
-                    </table>
-                </div>
-
-            </div>
-            <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab" tabindex="1">
-                <div class="table-responsive">
-                <table class="table align-middle theme-table">
-                       <thead>
-                          <tr>
-                            <th class="sort-by">Wedding date </th>
-                            <th>Time</th>
-                            <th>Order</th>
-                            <th>Status</th>
-                            <th>Location</th>
-                            <th>Couple Names</th>
-                            <th>Phone number</th>
-                            <th></th>
-                            <th></th> 
-                          </tr>
-                       </thead>
-                       <tbody>
+                            </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
                             <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
@@ -395,6 +352,48 @@
                             </td>
                             <td style="min-width:105px;">
                                 <a href="/order-details" class="table-link">View info</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="9">
+                                <div class="theme-pagination d-flex justify-content-end">
+                                    <div class="align-self-center me-4 button-1">Rows per page: 10</div>
+                                    <div class="align-self-center me-4 button-1 ">1-10 of 150</div>
+                                    <div class="align-self-center">
+                                        <a class="d-inline-flex me-4" href=""><img src="/images/pagination/left.svg"
+                                            class="img-fluid"></a>
+                                        <a class="d-inline-flex me-4" href=""><img src="/images/pagination/right.svg"
+                                            class="img-fluid"> </a>
+                                    </div>
+                                </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab" tabindex="1">
+                <div class="table-responsive">
+                    <table class="table align-middle theme-table">
+                       <thead>
+                          <tr>
+                            <th class="sort-by">Wedding date </th>
+                            <th>Time</th>
+                            <th>Order</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>Couple Names</th>
+                            <th>Phone number</th>
+                            <th></th>
+                            <th></th> 
+                          </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                            <td colspan="12">
+                                <center>No Record Found</center>
                             </td>
                         </tr>
                        </tbody>
