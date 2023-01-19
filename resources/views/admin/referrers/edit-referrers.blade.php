@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -31,7 +31,7 @@
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">Email address</label>
+                              <label for="InputName" class="form-label small-text2">Email</label>
                               <input type="text" value="kristin@gmail.com" class="form-control body-1 netural-100" name="name" id="InputName" required="">
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
                            </div>
@@ -50,40 +50,40 @@
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Business category is required</div>
                              </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">ABN Number</label>
+                              <label for="InputName" class="form-label small-text2">ABN number</label>
                               <input type="text" value="090190190290" class="form-control body-1 netural-100" name="name" id="InputName" required>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>ABN Number is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
+                              <label class="form-label small-text2">Bank</label>
+                              <select required="" name="customer_type" class="js-placeholder-single-input form-control">
+                                    <option value="" disabled="" selected="" hidden="">Westparc</option>
+                                    <option value="1">ANZ</option>
+                                    <option value="2">NAB</option>
+                                    <option value="3">Westpac Bank</option>
+                                    <option value="4">Bank of Queensland</option>
+                                    <option value="5">Macquarie Bank</option>
+                                    <option value="6">Bendigo Bank</option>
+                                    <option value="7">AMP Bank Ltd</option>
+                              </select>
+                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
+                           </div>
+                           <div class="col-md-6 mb-4">
                               <div class="row">
-                                 <div class="col-md-9">
-                                    <label class="form-label small-text2">Bank</label>
-                                    <select required="" name="customer_type" class="js-placeholder-single-input form-control">
-                                        <option value="" disabled="" selected="" hidden="">Westparc</option>
-                                        <option value="1">ANZ</option>
-                                        <option value="2">NAB</option>
-                                        <option value="3">Westpac Bank</option>
-                                        <option value="4">Bank of Queensland</option>
-                                        <option value="5">Macquarie Bank</option>
-                                        <option value="6">Bendigo Bank</option>
-                                        <option value="7">AMP Bank Ltd</option>
-                                    </select>
-                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
-                                 </div>
                                  <div class="col-md-3">
                                     <label for="InputName" class="form-label small-text2">BSB</label>
                                     <input type="text" value="73" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                                  </div>
+                                 <div class="col-md-9">
+                                    <label for="InputName" class="form-label small-text2">Account number</label>
+                                    <input type="text" value="09090909" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
+                                 </div>
                               </div>
                            </div>
-                           <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">Account number</label>
-                              <input type="text" value="09090909" class="form-control body-1 netural-100" name="name" id="InputName" required>
-                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
-                           </div>
                            <div class="col-md-12 mb-4">
-                              <input type="submit" value="Save" class="d-inline-flex theme-btn primary-btn justify-content-start sticky-bottom">
+                              <input type="submit" value="Save" class="d-inline-flex theme-btn primary-btn justify-content-start">
                            </div>
                         </div>
                      </form>

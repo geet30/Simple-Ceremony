@@ -230,6 +230,15 @@ $adminRoutes = function () {
            
         });
 
+        Route::group(['prefix' => 'referrers'], function () {
+            Route::get('/', function () {
+                return view('admin.referrers.calendar');
+            });
+            Route::get('create-new-referrers', function () {
+                return view('admin.referrers.create-new-referrers');
+            });
+        });
+
 
         Route::get('test-google-calender-event', [CalanderController::class, 'createGoogleCalendarEvent']);
         Route::resource('marriage-celebrants', CelebrantsController::class);
@@ -402,7 +411,7 @@ $partnerRoutes = function () {
     Route::middleware('auth')->group(function () {
         Route::group(['prefix' => 'calendar'], function () {
             Route::get('/', function () {
-                return view('partner.calendar.overview');
+                return view('partner.calendar.calendar');
             });
             Route::get('block-out-times', function () {
                 return view('partner.calendar.block-out-times');
