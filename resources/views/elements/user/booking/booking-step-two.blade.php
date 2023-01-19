@@ -15,19 +15,19 @@
         </div>
         <div class="col-md-6 mb-4">
             
-            <label for="InputName" class="form-label small-text2">Your preferred first name</label>
+            <label for="InputName" class="form-label small-text2">Your preferred first name *</label>
             <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="first_couple_name" id="first_couple_name" value="{{ (isset(cache('booking')['first_couple_name']) ? cache('booking')['first_couple_name'] :'')}}" required>
             
        
             <div class="invalid-feedback first_couple_name"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>First Name is required</div>
         </div>
         <div class="col-md-6 mb-4">
-            <label for="InputName" class="form-label small-text2">Your partner's preferred first name</label>
+            <label for="InputName" class="form-label small-text2">Your partner's preferred first name *</label>
             <input type="text" placeholder="Type your preferred name here" class="form-control body-1 netural-100" name="second_couple_name" id="second_couple_name" value="{{ (isset(cache('booking')['second_couple_name']) ? cache('booking')['second_couple_name'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Partner Name is required</div>
         </div>
         <div class="col-md-6 mb-4 email_exist">
-            <label for="InputName" class="form-label small-text2">Your email</label>
+            <label for="InputName" class="form-label small-text2">Your email *</label>
             <input type="email" placeholder="Type your email here" class="form-control body-1 netural-100 email_check" name="email" id="email" onblur="duplicateEmail(this)" value="{{ (isset(cache('booking')['email']) ? cache('booking')['email'] :'')}}" required>
             <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
             <div class="invalid-feedback duplicate_email"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email already Exist</div>
