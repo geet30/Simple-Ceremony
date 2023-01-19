@@ -260,6 +260,7 @@ trait Methods
                 $booking['userId'] = $user->id;
                 Cache::put('booking', $booking);
             }
+            // dd($data);
             $booking_inputs['user_id']  = $user->id;
             $booking_inputs['locationId']  = $data->locationId;
             $booking_inputs['celebrant_id']  = $data->celebrant_id;
@@ -275,7 +276,7 @@ trait Methods
             $booking_inputs['price']  = $data->price;
             $booking_inputs['price_info']  = $data->price_info;
             $booking_inputs['voucher_number']  = $data->voucher_number;
-            $booking_inputs['voucher_price']  = $data->voucher_price;
+            $booking_inputs['voucher_price']  = (isset($data->voucher_price)) ? $data->voucher_price:'0.00';
             
             $booking_inputs['full_name_of_person_1']  = $data->full_name_of_person_1;
             $booking_inputs['full_name_of_person_2']  = $data->full_name_of_person_2;
