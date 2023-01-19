@@ -400,7 +400,14 @@ $partnerRoutes = function () {
     Route::get('sign-up', 'App\Http\Controllers\Auth\RegisterController@showSignupForm')->name('partner-signup');
    
     Route::middleware('auth')->group(function () {
-
+        Route::group(['prefix' => 'calendar'], function () {
+            Route::get('/', function () {
+                return view('partner.calendar.overview');
+            });
+            Route::get('block-out-times', function () {
+                return view('partner.calendar.block-out-times');
+            });
+        });
 
         Route::get('all-partners', function () {
             return view('partner.all-partners');
@@ -461,12 +468,8 @@ $partnerRoutes = function () {
         Route::get('account-edit', function () {
             return view('partner.account.account-edit');
         });
-        Route::get('overview', function () {
-            return view('partner.calendar.overview');
-        });
-        Route::get('block-out-times', function () {
-            return view('partner.calendar.block-out-times');
-        });
+       
+       
     });
 };
 $celebrantRoutes = function () {

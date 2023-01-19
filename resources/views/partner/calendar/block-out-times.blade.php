@@ -1,4 +1,7 @@
 @extends('layouts.panels')
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('pg-calendar/css/style.css') }}"/>
+@endsection
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -15,7 +18,8 @@
                <div class="col-lg-5 mb-3 mb-lg-0">
                   <div class="card  panel-card ">
                      <div class="card-body">
-                        <div class="calendar-wrapper-ns no-border-calander date-range-picker override-form-picker"></div>
+                        <div class="calendar-wrappers date-picker-js-ns no-border-calander " ></div>
+
                      </div>
                      <div class="col-12 d-md-flex mt-4 justify-content-center">
                         <button type="button" class="theme-btn primary-btn d-flex justify-content-center me-md-2 mb-3 mb-md-0" id="submit-first-over-ride-form">Apply</button>
@@ -71,5 +75,20 @@
       </div>
    </div>
 </div>
+
+@section('scripts')
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pg-calendar@1.4.31/dist/js/pignose.calendar.full.js"></script> -->
+<!-- <script src="/datepicker/main.js"></script> -->
+<script src="{{ asset('pg-calendar/js/main.js') }}"></script>
+<script>
+   const dateFormatNs = 'YYYY-MM-DD';
+   $(document).ready(function(){
+      $('.date-picker-js-ns').pignoseCalendar({
+         multiple: true,
+      });
+      $('.pignose-calendar-body').css('pointer-events','none');
+   })
+</script>
+
 
 @endsection

@@ -1,4 +1,8 @@
 @extends('layouts.panels')
+@section('css')
+<link rel="stylesheet" href="./fullcalendar/main.css">
+<link rel="stylesheet" href="./fullcalendar/calendar.css">
+@endsection
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -9,7 +13,7 @@
          @include('elements.partner.partner-panel-header')
          <div class="row pt-31 mb-4">
             <div class="col-12 d-flex justify-content-end">
-               <a class="theme-btn primary-btn d-flex justify-content-center text-nowrap" href="block-out-times">
+               <a class="theme-btn primary-btn d-flex justify-content-center text-nowrap" href="{{url('calendar/block-out-times')}}">
                      Block out times in calendar
                </a>
             </div>
