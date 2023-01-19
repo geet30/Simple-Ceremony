@@ -464,6 +464,9 @@ $partnerRoutes = function () {
         Route::get('overview', function () {
             return view('partner.calendar.overview');
         });
+        Route::get('block-out-times', function () {
+            return view('partner.calendar.block-out-times');
+        });
     });
 };
 $celebrantRoutes = function () {
