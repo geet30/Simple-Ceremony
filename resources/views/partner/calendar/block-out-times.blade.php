@@ -38,7 +38,7 @@
                      <div  class="body-3-regular neutral-100">Not available</div>
                   </div>
                   <h3 class="body-3-medium text-black mb-4 mt-3">Events</h3>
-                  <div class="d-flex add-ons-detail mb-3">
+                  <div class="d-flex add-ons-detail mb-3"> 
                      <div class="numberCircle align-self-center">10</div>
                      <h4 class="body-2 neutral-100 align-self-center mb-0 ms-2">Name holiday in Australia</h4>
                   </div>
