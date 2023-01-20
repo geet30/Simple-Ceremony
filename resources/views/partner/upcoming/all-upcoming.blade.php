@@ -144,7 +144,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -166,7 +166,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -188,7 +188,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -210,7 +210,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -232,7 +232,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -254,7 +254,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -276,7 +276,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -298,7 +298,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -320,7 +320,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status booked">Booked</span></a>
+                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -342,7 +342,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -443,7 +443,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -465,7 +465,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -487,7 +487,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -509,7 +509,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -531,7 +531,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -553,7 +553,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -575,7 +575,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -597,7 +597,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -619,7 +619,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status booked">Booked</span></a>
+                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -641,7 +641,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -699,7 +699,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -721,7 +721,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -743,7 +743,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -765,7 +765,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -787,7 +787,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -809,7 +809,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -831,7 +831,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -853,7 +853,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -875,7 +875,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status booked">Booked</span></a>
+                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -897,7 +897,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -955,7 +955,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -977,7 +977,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -999,7 +999,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1021,7 +1021,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1043,7 +1043,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1065,7 +1065,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1087,7 +1087,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1109,7 +1109,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1131,7 +1131,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status booked">Booked</span></a>
+                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1153,7 +1153,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1211,7 +1211,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1233,7 +1233,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1255,7 +1255,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1277,7 +1277,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1299,7 +1299,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1321,7 +1321,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1343,7 +1343,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1365,7 +1365,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1387,7 +1387,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status booked">Booked</span></a>
+                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1409,7 +1409,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1467,7 +1467,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1489,7 +1489,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1511,7 +1511,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1533,7 +1533,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1555,7 +1555,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1577,7 +1577,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1599,7 +1599,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1621,7 +1621,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1643,7 +1643,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status booked">Booked</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
@@ -1665,7 +1665,7 @@
                                 </ul>
                             </td>
                             <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status"><span class="status  pending">pending</span></a>
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
                             </td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
                             <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
