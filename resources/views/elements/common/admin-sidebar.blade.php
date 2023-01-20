@@ -147,8 +147,8 @@
                     <span class="ps-3  d-none d-md-block  font-weight-600 link-text">Partners</span>
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="body-1 nav-link d-flex align-items-center" href="all-referrers">
+            <li class="nav-item">
+                <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1)=='all-referrers' ? 'active' : ''}}" href="/all-referrers">
                     <svg class="sidebar-icons" width="25" height="26" viewBox="0 0 25 26" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -160,7 +160,7 @@
                     </svg>
                     <span class="ps-3  d-none d-md-block  font-weight-600 link-text">Referrers</span>
                 </a>
-            </li> --}}
+            </li>
         
             {{--<li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center {{ Request::segment(1) == 'all-payments' || Request::segment(1) == 'payments' ? 'active' : '' }}" href="{{url('all-payments/invoice-couple')}}">

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.panels')
 @section('content')
 <div class="container-fluid">
    <div class="row">
@@ -41,7 +41,7 @@
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Phone number is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">Email address</label>
+                              <label for="InputName" class="form-label small-text2">Email</label>
                               <input type="text" value="kristin@gmail.com" class="form-control body-1 netural-100" name="name" id="InputName" required="">
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Email is required</div>
                            </div>
@@ -51,28 +51,28 @@
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Business category is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">ABN Number</label>
+                              <label for="InputName" class="form-label small-text2">ABN number</label>
                               <input type="text" value="090190190290" class="form-control body-1 netural-100" name="name" id="InputName" required>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>ABN Number is required</div>
                            </div>
                            <div class="col-md-6 mb-4">
-                              <div class="row">
-                                 <div class="col-md-9">
-                                    <label for="InputName" class="form-label small-text2">Bank</label>
-                                    <input type="text" value="Westpac" class="form-control body-1 netural-100" name="name" id="InputName" required="">
-                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
-                                 </div>
+                                 <label for="InputName" class="form-label small-text2">Bank</label>
+                                 <input type="text" value="Westpac" class="form-control body-1 netural-100" name="name" id="InputName" required="">
+                                 <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
+                           </div>
+                           <div class="col-md-6 mb-4">
+                               <div class="row">
                                  <div class="col-md-3">
                                     <label for="InputName" class="form-label small-text2">BSB</label>
                                     <input type="text" value="73" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                                  </div>
+                                 <div class="col-md-9">
+                                    <label for="InputName" class="form-label small-text2">Account number</label>
+                                    <input type="text" value="09090909" class="form-control body-1 netural-100" name="name" id="InputName" required>
+                                    <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
+                                 </div>
                               </div>
-                           </div>
-                           <div class="col-md-6 mb-4">
-                              <label for="InputName" class="form-label small-text2">Account number</label>
-                              <input type="text" value="09090909" class="form-control body-1 netural-100" name="name" id="InputName" required>
-                              <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>
                            </div>
                         </div>
                      </form>

@@ -229,7 +229,6 @@ if (Cookie::get('myCart')) {
                     @endforeach
                 </ol>
             </nav>
-        
         </div>
         @endif
     </div>

@@ -10,7 +10,7 @@
       </div>
       <div class="col-10 col-md-9 col-lg-9 col-xl-10 px-4">
          @include('elements.partner.partner-panel-header')
-         <a href="/overview" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-30"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
+         <a href="{{url('calendar')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-30"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div>
             <h1 class="h3 neutral-100 mb-4 align-self-center">Set your standard hours</h1>
             <h2 class="h4 text-black mb-3">Step 1 - Choose the dates</h2>

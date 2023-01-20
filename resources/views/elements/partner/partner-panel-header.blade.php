@@ -1,11 +1,24 @@
 <header class="panel-header">
     <div class="row m-0">
         <div class="col-sm-6 align-self-center d-none d-sm-block">
-            <nav aria-label="breadcrumb">
+        <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item "><a href="#">All location packages</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <?php $segments = ''; ?>
+
+                    @foreach (Request::segments() as $segment)
+                        <?php 
+                            $segments .= '/' . $segment;
+                        ?>
+                        <li class="breadcrumb-item" style="text-transform: capitalize;">
+                            <?php  if(is_numeric($segment)){?>
+                            @if (trim($__env->yieldContent('page-name')))
+                                <a>@yield('page-name')</a>
+                            @endif
+                            <?php }else{?>
+                            <a href="{{ $segments }}">{{ $segment }}</a>
+                            <?php  }?>
+                        </li>
+                    @endforeach
                 </ol>
             </nav>
         </div>
