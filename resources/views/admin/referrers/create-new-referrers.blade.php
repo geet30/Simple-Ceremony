@@ -2,10 +2,10 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-2 col-md-3 col-lg-2 px-0">
+      <div class="col-2 col-md-3 col-lg-3 col-xl-2 p-0">
          @include('elements.common.admin-sidebar')
       </div>
-      <div class="col-10 col-md-9 col-lg-10 px-4">
+      <div class="col-10 col-md-9 col-lg-9 col-xl-10 px-4">
          @include('elements.common.panel-header')
          <a href="{{url('/all-referrers')}}" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="card panel-card">
@@ -71,14 +71,14 @@
                               </select>
                               <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Bank is required</div>
                            </div>
-                           <div class="col-md-6 mb-4">
+                           <div class="col-md-6">
                               <div class="row">
-                                 <div class="col-md-3">
+                                 <div class="col-md-4 col-lg-3 mb-4">
                                     <label for="InputName" class="form-label small-text2">BSB</label>
                                     <input type="text" placeholder="73" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>BSB is required</div>
                                  </div>
-                                 <div class="col-md-9">
+                                 <div class="col-md-8 col-lg-9 mb-4">
                                     <label for="InputName" class="form-label small-text2">Account number</label>
                                     <input type="number" placeholder="eg. 0000000000000" class="form-control body-1 netural-100" name="name" id="InputName" required>
                                     <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Account number is required</div>

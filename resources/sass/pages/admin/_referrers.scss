@@ -1,0 +1,16 @@
+.pending-referrers-details-status-dropdown {
+    .dropdown-toggle {
+        &:after {
+            background-image: url(/images/down-arrow-colored.svg);
+            transform: rotate(180deg);
+        }
+        &.show:after {
+            background-image: url(/images/down-arrow-colored.svg);
+            transform: rotate(180deg);
+            right: -30px;
+        }
+    }
+    .dropdown-menu {
+        left: -46px !important;
+    }
+}

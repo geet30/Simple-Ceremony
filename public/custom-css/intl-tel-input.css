@@ -65,15 +65,15 @@
 }
 
 .intl-tel-input .selected-flag .iti-arrow {
-	position: absolute;
-	top: 50%;
-	margin-top: -2px;
-	right: 6px;
-	width: 0;
-	height: 0;
-	border-left: 3px solid transparent;
-	border-right: 3px solid transparent;
-	border-top: 4px solid #555;
+	border: none;
+    background-image: url(../images/down-arrow.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto 22%;
+    height: 100%;
+    position: absolute;
+    right: -2px;
+    width: 24px;
 }
 
 .intl-tel-input .selected-flag .iti-arrow.up {
@@ -233,7 +233,7 @@
 }
 
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag {
-	width: 78px;
+	width: 80px;
 }
 
 .intl-tel-input.separate-dial-code.iti-sdc-4 input,
