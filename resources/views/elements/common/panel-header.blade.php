@@ -6,7 +6,7 @@ if (Cookie::get('myCart')) {
     $cart_count = count($cart);
 }
 ?>
-<header class="panel-header">
+<header class="panel-header hi">
     <div class="row m-0 align-items-center">
         @if(Auth::user()->roles->first()->name =='User')
             @if( Request::segment(2) != 'profile')
@@ -37,7 +37,7 @@ if (Cookie::get('myCart')) {
             </div>
             @endif
         @endif
-        <div class="col-12 col-md-12 col-lg-5 d-flex justify-content-end mb-4 mb-md-0 order-lg-2 order-1">
+        <div class="col-md-12 col-lg-5 d-flex justify-content-end mb-4 mb-md-0 order-lg-2 order-1">
             <nav class="navbar navbar-expand-sm bg-light p-0 align-self-center">
                 <div class=" navbar-collapse" id="navbarScroll">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0 l d-flex flex-row ">
@@ -183,7 +183,7 @@ if (Cookie::get('myCart')) {
             </nav>
         </div>
         @if(Auth::user()->roles->first()->name !='User')
-        <div class="col-sm-6 align-self-center order-2 order-lg-1">
+        <div class="col-md-6 col-lg-7 align-self-center order-2 order-md-1">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <?php $segments = ''; ?>

@@ -2,20 +2,20 @@
 @section('content')
 <div class="container-fluid">
    <div class="row">
-      <div class="col-2 col-md-3 col-lg-2 px-0">
+      <div class="col-2 col-md-3 col-lg-3 col-xl-2 p-0">
             @include('elements.common.admin-sidebar')
         </div>
-        <div class="col-10 col-md-9 col-lg-10 px-4">
+        <div class="col-10 col-md-9 col-lg-9 col-xl-10 px-4">
          @include('elements.common.panel-header')
-         <div class="row mb-4 mt-3">
-            <div class="col-md-8 col-xl-9 d-flex align-self-center">
+         <div class="row mb-4 mt-3 align-items-center">
+            <div class="col-md-7 col-lg-8 col-xl-9">
             <div class="form-group has-search w-100 position-relative">
                <span class="fa fa-search form-control-feedback"></span>
                <input type="text" class="form-control" placeholder="Search referrers">
             </div>
          </div>
-            <div class="align-self-center col-md-4 col-xl-3 d-grid mt-3 mt-md-0">
-               <a class="theme-btn primary-btn d-flex justify-content-center" href="{{url('/referrers/create-new-referrers')}}">
+            <div class="col-md-5 col-lg-4 col-xl-3 d-grid mt-3 mt-md-0">
+               <a class="theme-btn primary-btn d-flex justify-content-center px-md-1" href="{{url('/referrers/create-new-referrers')}}">
                <img class="me-2" src="/images/icons/add.svg" alt="shopping-icon">
                Add new referrers
                </a>

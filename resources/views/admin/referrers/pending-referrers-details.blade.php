@@ -9,7 +9,7 @@
          @include('elements.common.panel-header')
          <a href="/all-referrers" class="theme-btn secondary-btn-border d-inline-flex admin-back-btn mb-4"><img class="me-2" src="/images/icons/back.svg" alt="Back Icon">Back</a>
          <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-4">
                <div class="card panel-card">
                   <div class="card-body">
                      <div class="row mb-3">
@@ -39,7 +39,7 @@
                                  <thead>
                                     <tr>
                                        <th>Couple name</th>
-                                       <th class="text-center">Register date</th>
+                                       <th class="text-center sort-by">Register date</th>
                                        <th class="text-center">Status</th>
                                     </tr>
                                  </thead>
@@ -48,13 +48,13 @@
                                        <td class="body-2 neutral-100" style="min-width:150px;">David & Sarah</td>
                                        <td class="body-2 neutral-100 text-center" style="min-width:150px;">June 11, 2022</td>
                                        <td style="min-width:200px;" class="p-3 text-center">
-                                          <div class="dropdown table-dropdown">
+                                          <div class="dropdown table-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown">
                                              <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                              Pending
                                              </button>
                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                                <li><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                              </ul>
                                           </div>
                                        </td>
@@ -63,13 +63,13 @@
                                        <td class="body-2 neutral-100" style="min-width:150px;">David & Sarah</td>
                                        <td class="body-2 neutral-100 text-center" style="min-width:150px;">June 11, 2022</td>
                                        <td style="min-width:200px;" class="p-3 text-center">
-                                          <div class="dropdown table-dropdown">
+                                          <div class="dropdown table-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown">
                                              <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                              Pending
                                              </button>
-                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                                <li><a class="dropdown-item approved" href="#">paid</a></li>
+                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
+                                                <li class="d-inline-block"><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                              </ul>
                                           </div>
                                        </td>
@@ -78,13 +78,13 @@
                                        <td class="body-2 neutral-100" style="min-width:150px;">David & Sarah</td>
                                        <td class="body-2 neutral-100 text-center" style="min-width:150px;">June 11, 2022</td>
                                        <td style="min-width:200px;" class="p-3 text-center">
-                                          <div class="dropdown table-dropdown">
+                                          <div class="dropdown table-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown">
                                              <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                              Pending
                                              </button>
-                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                                <li><a class="dropdown-item approved" href="#">paid</a></li>
+                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
+                                                <li class="d-inline-block"><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                              </ul>
                                           </div>
                                        </td>
@@ -93,13 +93,13 @@
                                        <td class="body-2 neutral-100" style="min-width:150px;">David & Sarah</td>
                                        <td class="body-2 neutral-100 text-center" style="min-width:150px;">June 11, 2022</td>
                                        <td style="min-width:200px;" class="p-3 text-center">
-                                          <div class="dropdown table-dropdown">
+                                          <div class="dropdown table-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown">
                                              <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                              Pending
                                              </button>
-                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                                <li><a class="dropdown-item approved" href="#">paid</a></li>
+                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
+                                                <li class="d-inline-block"><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                              </ul>
                                           </div>
                                        </td>
@@ -108,13 +108,13 @@
                                        <td class="body-2 neutral-100" style="min-width:150px;">David & Sarah</td>
                                        <td class="body-2 neutral-100 text-center" style="min-width:150px;">June 11, 2022</td>
                                        <td style="min-width:200px;" class="p-3 text-center">
-                                          <div class="dropdown table-dropdown">
+                                          <div class="dropdown table-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown">
                                              <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                              Pending
                                              </button>
-                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                                <li><a class="dropdown-item approved" href="#">paid</a></li>
+                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
+                                                <li class="d-inline-block"><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                              </ul>
                                           </div>
                                        </td>
@@ -123,13 +123,13 @@
                                        <td class="body-2 neutral-100" style="min-width:150px;">David & Sarah</td>
                                        <td class="body-2 neutral-100 text-center" style="min-width:150px;">June 11, 2022</td>
                                        <td style="min-width:200px;" class="p-3 text-center">
-                                          <div class="dropdown table-dropdown">
+                                          <div class="dropdown table-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown display-dropdown-arrow pending-referrers-details-status-dropdown">
                                              <button class="btn dropdown-toggle waiting-approval" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                              Pending
                                              </button>
-                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
-                                                <li><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
-                                                <li><a class="dropdown-item approved" href="#">paid</a></li>
+                                              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="">
+                                                <li class="d-inline-block"><a class="dropdown-item approved" href="#">paid</a></li>
+                                                <li class="d-inline-block"><a class="dropdown-item waiting-approval" href="#">Pending</a></li>
                                              </ul>
                                           </div>
                                        </td>
@@ -142,16 +142,14 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-4">
                <div class="card panel-card">
                   <div class="card-body">
-                     <div class="row mb-4">
-                        <div class="col-md-8 align-self-center">
-                           <div class="table-dropdown d-flex align-items-lg-center flex-column flex-lg-row">
-                              <h1 class="h4 netural-100 mb-0">Detail informations</h1>
-                           </div>
+                     <div class="row mb-4 align-items-center">
+                        <div class="col-sm-6 col-md-6 col-lg-7">
+                           <h1 class="h4 netural-100 mb-0">Detail informations</h1>
                         </div>
-                        <div class="col-md-4 align-self-start d-flex justify-content-md-end mt-3 mt-md-0">
+                        <div class="col-sm-6 col-md-6 col-lg-5 d-flex justify-content-sm-end mt-2 mt-sm-0">
                            <a href="edit-referrers" class="theme-btn primary-btn"> <img class="me-2" src="/images/admin/add-ons/admin-addon-edit.svg" alt="Edit"> Edit</a>
                         </div>
                      </div>

@@ -899,6 +899,14 @@ body .off-canvas-change-status {
     }
 }
 
+body .display-dropdown-arrow {
+    .dropdown-toggle {
+        &:after {
+            display: inline-block !important;
+        }
+    }
+}
+
 .collapse-tab-list {
     a {
         box-shadow: 0px 2px 16px #C3ECEB;
