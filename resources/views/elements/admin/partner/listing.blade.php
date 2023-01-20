@@ -13,17 +13,18 @@
          @foreach($data as $result)
          
             <tr>
-               <td style="min-width:260px" class="body-2" class="body-2">{{$result['name']}}</td>
-               @foreach($result->partnerProducts as $addons)
-                  <td  style="min-width:200px" class="body-2">{{$addons->addon->name}}</td>
-               @endforeach
-               <td  style="min-width:180px" class="body-2">+{{$result['country_code']}}{{$result['phone']}}</td>
-               <td  style="min-width:180px" class="body-2">{{$result['email']}}</td>
+            @foreach($result->partnerProducts as $addons)
+               <td style="min-width:260px" class="body-2 table-anchor-link"><a href="{{ url('partner/details',$addons['id'])}}"></a>{{$result['name']}}</td>
+               
+               <td  style="min-width:200px" class="body-2 table-anchor-link"><a href="{{ url('partner/details',$addons['id'])}}"></a>{{$addons->addon->name}}</td>
+              
+               <td  style="min-width:180px" class="body-2 table-anchor-link"><a href="{{ url('partner/details',$addons['id'])}}"></a>+{{$result['country_code']}}{{$result['phone']}}</td>
+               <td  style="min-width:180px" class="body-2 table-anchor-link"><a href="{{ url('partner/details',$addons['id'])}}"></a>{{$result['email']}}</td>
                <td  style="min-width:180px">
-               @foreach($result->partnerProducts as $product_id)
-                  <a href="{{ url('partner/details',$product_id['id'])}}" class="table-link body-2">View info</a>
-               @endforeach
+                  <a href="{{ url('partner/details',$addons['id'])}}" class="table-link body-2">View info</a>
+              
                </td>
+               @endforeach
             </tr>
          @endforeach
       @else

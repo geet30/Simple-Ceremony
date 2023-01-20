@@ -11,8 +11,8 @@
    <tbody>
       @foreach($data as $value)
       <tr>
-        <td class="body-2 neutral-100" style="min-width: 200px;max-width: 200px;">{{$value->ceremony_name}}</td>
-        <td class="body-2 neutral-100" style="min-width: 200px;max-width: 200px;">
+        <td class="body-2 neutral-100 table-anchor-link" style="min-width: 200px;max-width: 200px;"><a href="/all-type-of-ceremonies/{{ $value->id }}/edit"></a>{{$value->ceremony_name}}</td>
+        <td class="body-2 neutral-100 table-anchor-link" style="min-width: 200px;max-width: 200px;"><a href="/all-type-of-ceremonies/{{ $value->id }}/edit"></a>
             <ul class="p-0 m-0">
                 @foreach($value->additional_info as $result)
               
@@ -26,7 +26,7 @@
                 {!! nl2br($value->conditions) !!}
             </div>
         </td>
-        <td class="text-center body-2 neutral-100" style="min-width: 150px;">$ {{$value->fee_adjustment}}</td>
+        <td class="text-center body-2 neutral-100 table-anchor-link" style="min-width: 150px;"><a href="/all-type-of-ceremonies/{{ $value->id }}/edit"></a>$ {{$value->fee_adjustment}}</td>
         <td class="text-center body-2 neutral-100" style="min-width: 150px;">
            <a href="/all-type-of-ceremonies/{{ $value->id }}/edit" role="button" class="table-link">Edit</a>
            

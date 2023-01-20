@@ -17,11 +17,11 @@
                @if(count($data) > 0)
                   @foreach($data as $request)
                      <tr>
-                        <td class="body-2 neutral-100">{{ $request->username}}</td>
-                        <td class="body-2 neutral-100">{{ $request->name}}</td>
-                        <td class="body-2 neutral-100" >{{$request->direction}}</td>
-                        <td class="body-2 neutral-100">{{ $request->post_code}}</td>
-                        <td class="body-2 neutral-100">{{ (isset($request->address)) ? $request->address :'' }} {{(isset($request->town)) ? ', '.$request->town :'' }} {{(isset($request->state)) ? ', '.$request->state :'' }}</td>
+                        <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('location.view',$request->id)}}"></a>{{ $request->username}}</td>
+                        <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('location.view',$request->id)}}"></a>{{ $request->name}}</td>
+                        <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('location.view',$request->id)}}"></a>{{$request->direction}}</td>
+                        <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('location.view',$request->id)}}"></a>{{ $request->post_code}}</td>
+                        <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('location.view',$request->id)}}"></a>{{ (isset($request->address)) ? $request->address :'' }} {{(isset($request->town)) ? ', '.$request->town :'' }} {{(isset($request->state)) ? ', '.$request->state :'' }}</td>
                         @if($request->status == 0)
                            <td><a class="table-link button-1"> <a class="btn edit-btn" href="{{route('locations.create',$request->id)}}">Confirm</a></td>
                         @endif
