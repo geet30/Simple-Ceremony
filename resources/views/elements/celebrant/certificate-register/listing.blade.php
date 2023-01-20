@@ -30,11 +30,18 @@
                ?>
          
                <tr>
-                  <td class="body-2 neutral-100">{{$certificate_no}}</td>
-                  <td class="body-2 neutral-100">{{$created_at}}</td>
-                  <td class="body-2 neutral-100">{{$couple_name}}</td>
-                  <td class="body-2 neutral-100">{{$status}}</td>
-                  <td class="body-2 neutral-100">{{$request->details}}</td>
+                  <td class="body-2 neutral-100 table-anchor-link">
+                     <a href="" role="button" class="table-link getEditData offcanvasCommonClass" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register"></a>{{$certificate_no}}</td>
+                  <td class="body-2 neutral-100 table-anchor-link">
+                     <a href="" role="button" class="table-link getEditData offcanvasCommonClass" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register"></a>{{$created_at}}</td>
+                  <td class="body-2 neutral-100 table-anchor-link">
+                     <a href="" role="button" class="table-link getEditData offcanvasCommonClass" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register"></a>   
+                     {{$couple_name}}</td>
+                  <td class="body-2 neutral-100 table-anchor-link">
+                     <a href="" role="button" class="table-link getEditData offcanvasCommonClass" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register"></a>
+                     {{$status}}</td>
+                  <td class="body-2 neutral-100 table-anchor-link">
+                     <a href="" role="button" class="table-link getEditData offcanvasCommonClass" data-bs-toggle="offcanvas" data-bs-target="#edit-certificate-register" aria-controls="edit-certificate-register"></a>{{$request->details}}</td>
                
                   <td  style="min-width:300px;">
                      <ul class="mb-0 pl-0">

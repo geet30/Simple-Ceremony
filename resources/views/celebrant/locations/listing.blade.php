@@ -29,11 +29,12 @@
             
             ?>
             <tr>
-               <td class="body-2 neutral-100">{{ $request->name}}</td>
-               <td class="body-2 neutral-100" >{{$request->direction}}</td>
-               <td class="body-2 neutral-100">{{ $request->post_code}}</td>
-               <td class="body-2 neutral-100">{{ (isset($request->address)) ? $request->address :'' }} {{(isset($request->town)) ? ', '.$request->town :'' }} {{(isset($request->state)) ? ', '.$request->state :'' }}</td>
-               <td style="min-width:180px;">
+               <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('all-locations.show',[$request->id, 'table' => $request->table ])}}"></a>{{ $request->name}}</td>
+               <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('all-locations.show',[$request->id, 'table' => $request->table ])}}"></a>{{$request->direction}}</td>
+               <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('all-locations.show',[$request->id, 'table' => $request->table ])}}"></a>{{ $request->post_code}}</td>
+               <td class="body-2 neutral-100 table-anchor-link"><a href="{{route('all-locations.show',[$request->id, 'table' => $request->table ])}}"></a>{{ (isset($request->address)) ? $request->address :'' }} {{(isset($request->town)) ? ', '.$request->town :'' }} {{(isset($request->state)) ? ', '.$request->state :'' }}</td>
+               <td style="min-width:180px;" class="table-anchor-link">
+                  <a href="{{route('all-locations.show',[$request->id, 'table' => $request->table ])}}"></a>
                   <span class="status {{$status_class}}">{{$status}}</span>
                </td>
                <td  style="min-width:300px;">
