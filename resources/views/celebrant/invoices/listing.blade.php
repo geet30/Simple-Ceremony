@@ -19,7 +19,7 @@
             @php $total_fee += round($result['amount'],0);@endphp
             <tr>
             
-               <td class="body-2 neutral-100 text-center" >{{$result->invoice_number}}</td>
+               <td class="body-2 neutral-100 text-center">{{$result->invoice_number}}</td>
                <td class="body-2 neutral-100 text-center">{{date('M d, Y',strtotime($result->created_at))}}</td>
                <td class="body-2 neutral-100 text-center">{{date('M d, Y',strtotime($result->booking->booking_date))}}</td>
                <td class="body-2 neutral-100 text-center">{{$result->booking->first_couple_name}} & {{$result->booking->second_couple_name}}</td>
