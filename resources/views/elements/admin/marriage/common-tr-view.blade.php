@@ -1,4 +1,4 @@
-<tr class='clickable-row' data-href="{{route('marriage.detail',$result->id)}}">
+<tr data-href="{{route('marriage.detail',$result->id)}}">
     <td style="min-width:160px" class="body-2">{{$result->first_couple_name}} & {{$result->second_couple_name}}</td>
     <td style="min-width:130px" class="body-2">{{config('ceremonyStatus.typeOfCeremony.'.$result->ceremony_type) }}</td>
     <td style="min-width:130px" class="body-2">{{date('M d, Y',strtotime($result->created_at))}}</td>

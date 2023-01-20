@@ -1,5 +1,5 @@
 <div class="offcanvas offcanvas-end theme-offcanvas" tabindex="-1"
-    id="change_status" aria-labelledby="offcanvasRightLabel">
+    id="change_status_offcanvas" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
         <p id="offcanvasRightLabel" class="h3 neutral-100">Change status</p>
 

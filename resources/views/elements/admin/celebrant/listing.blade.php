@@ -22,14 +22,16 @@
                          $status_class = 'rejected';
                      }
                  @endphp
-                 <tr class='clickable-row' data-href="/marriage-celebrants/{{ $celebrant->id }}">
-                     <td class="body-2 neutral-100" style="min-width:180px;">{{ $celebrant->first_name }}
+                 <tr>
+                     <td class="body-2 neutral-100 table-anchor-link" style="min-width:180px;"><a href="/marriage-celebrants/{{ $celebrant->id }}"></a>
+                        {{ $celebrant->first_name }}
                          {{ $celebrant->surname }}</td>
-                     <td class="body-2 neutral-100" style="min-width:180px;">
+                     <td class="body-2 neutral-100 table-anchor-link" style="min-width:180px;"><a href="/marriage-celebrants/{{ $celebrant->id }}"></a>
                          {{ $celebrant->country_code != '' ? '+' : '' }}{{ $celebrant->country_code }}{{ $celebrant->country_code != '' ? '-' : '' }}{{ $celebrant->phone }}
                      </td>
-                     <td class="body-2 neutral-100" style="min-width:250px;">{{ $celebrant->email }}</td>
-                     <td class="body-2 neutral-100" style="min-width:200px;">
+                     <td class="body-2 neutral-100 table-anchor-link" style="min-width:250px;"><a href="/marriage-celebrants/{{ $celebrant->id }}"></a>{{ $celebrant->email }}</td>
+                     <td class="body-2 neutral-100 table-anchor-link" style="min-width:200px;">
+                        <a href="/marriage-celebrants/{{ $celebrant->id }}"></a>
                          <ul class="m-0 p-0 ">
                              @foreach ($celebrant->celebrantLocations as $location)
                                  <li>{{ $location->location->name }}</li>
