@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\{Auth};
 use App\Models\{Users, Notification, User,Locations,Booking};
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 function timeslots()
 {
     $start = new \DateTime('00:00');
@@ -89,7 +90,8 @@ function uploadImage($image, $folder)
     }
     $fileImageNameExtension = $image->getClientOriginalName();
     $fileName = pathInfo($fileImageNameExtension, PATHINFO_FILENAME);
-    $imageName = $fileName . '-' . time() . '.' . $image->getClientOriginalExtension();
+    $uniqid = Str::random(9);
+    $imageName = $uniqid . '-' . time() . '.' . $image->getClientOriginalExtension();
     if ($image->move(public_path('uploads/images/' . $folder), $imageName)) {
         return $imageName;
     } else {
@@ -108,7 +110,8 @@ function uploadFile($file, $folder)
     }
     $fileImageNameExtension = $file->getClientOriginalName();
     $fileName = pathInfo($fileImageNameExtension, PATHINFO_FILENAME);
-    $imageName = $fileName . '-' . time() . '-' . rand(9999, 999999999) . '.' . $file->getClientOriginalExtension();
+    $uniqid = Str::random(9);
+    $imageName = $uniqid . '-' . time() . '-' . rand(9999, 999999999) . '.' . $file->getClientOriginalExtension();
     if ($file->move(public_path($folder), $imageName)) {
       
         return $imageName;
