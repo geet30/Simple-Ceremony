@@ -7,6 +7,7 @@
         </div>
         <div class="col-10 col-md-9 col-lg-9 col-xl-10 px-4">
          @include('elements.partner.partner-panel-header')
+        @include('elements.partner.change-status')
          <div class="inner-tab-listing">
             <ul class="add-on-list-nav partner-add-on-list-nav row nav nav-pills mb-3 mt-3" id="all-upcoming-pill-tab" role="tablist">
                 <li class="nav-item col-md-6 col-lg-6 col-xl-3 col-xxl-3 mb-3" role="presentation">
@@ -134,226 +135,227 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                            <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
-                            <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
-                                <ul class="m-0 ps-3">
-                                    <li class="text-nowrap">Corona pack</li>
-                                    <li class="text-nowrap">Zoom streaming</li>
-                                </ul>
-                            </td>
-                            <td style="min-width:115px;">
-                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
-                            </td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
-                            <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
-                            <td style="min-width:50px;">
-                                <a href="#" class="table-link">Note</a>
-                            </td>
-                            <td style="min-width:105px;">
-                                <a href="/order-details" class="table-link">View info</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" role="button" href="#change_status_offcanvas" aria-controls="change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                   
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status booked">Booked</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>Apr 12, 2022</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:60px;"><a href="/order-details"></a>09:30</td>
+                                <td class="table-anchor-link body-2 neutral-100" style="min-width:150px;"><a href="/order-details"></a>
+                                    <ul class="m-0 ps-3">
+                                        <li class="text-nowrap">Corona pack</li>
+                                        <li class="text-nowrap">Zoom streaming</li>
+                                    </ul>
+                                </td>
+                                <td style="min-width:115px;">
+                                    <a class="cursor-pointer text-decoration-none" data-bs-toggle="offcanvas" data-bs-target="#change_status_offcanvas"><span class="status  pending">pending</span></a>
+                                </td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:130px;"><a href="/order-details"></a>Blues point</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:150px;"><a href="/order-details"></a>David & Sarrah</td>
+                                <td class="body-2 neutral-100 table-anchor-link" style="min-width:135px;"><a href="/order-details"></a>09090909090</td>
+                                <td style="min-width:50px;">
+                                    <a href="#" class="table-link">Note</a>
+                                </td>
+                                <td style="min-width:105px;">
+                                    <a href="/order-details" class="table-link">View info</a>
+                                </td>
+                            </tr>
                         </tbody>
                         <tfoot>
                             <tr>
@@ -1699,9 +1701,9 @@
           </div>
         </div>
     </div>
-</div>
+
 @include('elements.partner.partner-upcoming-note-popup')
 @include('elements.partner.partner-upcoming-edit-popup')
 @include('elements.partner.partner-upcoming-note-edit-sidebar')
-@include('elements.partner.change-status')
+
 @endsection
