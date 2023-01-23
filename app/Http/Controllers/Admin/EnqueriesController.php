@@ -29,7 +29,7 @@ class EnqueriesController extends Controller
             $follow_enquries = (clone $enquries)->where('status', 0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             $booked_enquries = (clone $enquries)->where('status', 1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             $noInterest_enquries = (clone $enquries)->where('status', 2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-
+// dd($all_enquries);
             $dataArray = array(
                 'all_enquries' => $all_enquries,
                 'follow_enquries' => $follow_enquries,
@@ -77,6 +77,7 @@ class EnqueriesController extends Controller
             $input = $request->except('_token');
             $input['marriage_date'] = date('Y-m-d',strtotime($request->marriage_date));
             $input['enquiry_date'] = date('Y-m-d',strtotime($request->enquiry_date));
+            $input['next_followup_date'] = date('Y-m-d',strtotime($request->next_followup_date));
                     
             $result = Enqueries::create($input);
             if ($result) {
@@ -125,6 +126,7 @@ class EnqueriesController extends Controller
            
             $input['marriage_date'] = date('Y-m-d',strtotime($request->marriage_date));
             $input['enquiry_date'] = date('Y-m-d',strtotime($request->enquiry_date));
+            $input['next_followup_date'] = date('Y-m-d',strtotime($request->next_followup_date));
            
             $result = Enqueries::where('id', $id)->update($input);
             if ($result) {
