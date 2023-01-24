@@ -84,15 +84,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 mb-4">
-                                            <label for="InputName" class="form-label small-text2">Email</label>
-                                            <input type="email" placeholder="Add email here"
-                                                class="form-control body-1 netural-100" name="email" id="InputName"
-                                                required value="{{ $detail->email }}">
-                                            <div class="invalid-feedback"> <span><img class="me-2"
-                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Email
-                                                is required and please add correct format</div>
-                                        </div>
+                                        
                                         <div class="col-md-6 mb-4 phone_number">
                                             <label for="phone" class="form-label small-text2">Phone number *</label>
                                             <input type="hidden" id="code" name="phone_code"
@@ -157,6 +149,28 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="InputName" class="form-label small-text2">Email</label>
+                                            <input type="email" placeholder="Add email here"
+                                                class="form-control body-1 netural-100" name="email" id="InputName"
+                                                required value="{{ $detail->email }}">
+                                            <div class="invalid-feedback"> <span><img class="me-2"
+                                                        src="/images/require-iocn.svg" alt="Require Icon"></span>Email
+                                                is required and please add correct format</div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="date" class="form-label small-text2">Date for next follow up</label>
+                                            <div class="input-group date theme-datepicker">
+                                                <input role="button" type="text" class="form-control body-1 netural-100"
+                                                    id="date" placeholder="Choose next follow up date here" name="next_followup_date"
+                                                    required value="{{ $detail->next_followup_date }}"/>
+                                                <div class="invalid-feedback"> 
+                                                    <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>Date next follow is required
+                                                </div>
+                                                <span class="input-group-append">
+                                                </span>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12 mb-4">
                                             <label for="InputName" class="form-label small-text2">Enquiry</label>
                                             <textarea class="form-control body-1 netural-100" id="ceremonyplace" placeholder="Type here" name="enquiry"
@@ -178,6 +192,5 @@
             </div>
         </div>
     </div>
-    @include('elements.admin.enquiry.enquiry-date-calander')
-    @include('elements.admin.enquiry.marriage-calander')
+    
 @endsection

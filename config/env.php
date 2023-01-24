@@ -3,6 +3,7 @@
 return [
     'STRIPE_SECRET'                =>  env('STRIPE_SECRET'),
     'STRIPE_KEY'                   => env('STRIPE_KEY'),
+    'GOOGLE_API_KEY'               => env('GOOGLE_API_KEY'),
     'PARTNER'                      => env('PARTNER'),
     'CELEBRANT'                    => env('CELEBRANT'),
     'ADMIN'                        => env('ADMIN'),
