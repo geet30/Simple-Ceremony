@@ -125,7 +125,7 @@
                     <span class="ms-3 d-none d-md-block">Activity history</span>
                 </a>
             </li> -->
-            {{--<li class="nav-item">
+            <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ Request::segment(2) == 'list-to-do' ? 'active' : '' }}" href="/user/list-to-do">
                     <svg  class="sidebar-icons" width="23" height="24" viewBox="0 0 23 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -144,7 +144,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">List to-do</span>
                 </a>
-            </li>--}}
+            </li>
             {{--<li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/notes">
                     <svg  class="sidebar-icons" width="20" height="23" viewBox="0 0 20 23" fill="none"

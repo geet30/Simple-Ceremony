@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\{BookingController, UserNoimController, UserController,DashboardController as UserDashboard};
+use App\Http\Controllers\User\{BookingController, UserListToDoController,UserNoimController, UserController,DashboardController as UserDashboard};
 use App\Http\Controllers\Admin\{AddonsController, PartnerController, MarriagesController, CelebrantsController, AccountController, LocationsController, NotificationsController, EnqueriesController, CalanderController, InvoicesController,FinancialReportController,CeremoniesTypeController,GiftVouchersController};
 use App\Http\Controllers\{HomeController, DownloadController,TwilioSMSController};
 use App\Http\Controllers\Celebrants\{DashboardController, LocationsController as CelebrantLocations, InvoicesController as CelebrantInvoices, CalendarController,CertificateRegisterController};
@@ -156,6 +156,10 @@ $websiteRoutes = function () {
             Route::get('NoIM', function () {
                 return view('user.NoIM.view');
             });
+            
+            Route::resource('list-to-do', UserListToDoController::class); 
+            Route::post('/list-to-do-update/{id}', [UserListToDoController::class, 'update'])->name('list-to-do.update');  
+            Route::get('list-to-do/destroy/{id}', [UserListToDoController::class, 'destroy'])->name('list-to-do.destroy');        
 
             Route::resource('user-noim', UserNoimController::class);
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
@@ -165,12 +169,7 @@ $websiteRoutes = function () {
             Route::post('account', [AccountController::class, 'updateUserAccount']);
             Route::put('account/update', [AccountController::class, 'updateUserAccount'])->name('updateUserAccount');
             Route::get('overview/invitation', [UserController::class, 'getInvitation'])->name('getInvitation');
-            Route::get('list-to-do', function () {
-                return view('user.list.listing-empty');
-            });
-            Route::get('list-to-do-index', function () {
-                return view('user.list.listing');
-            });
+           
             Route::get('getPay{id?}', [UserController::class, 'getPay'])->name('user.pay');
             Route::post('postPay', [UserController::class, 'postPay'])->name('user.payment');
             Route::get('reschedule-info', [UserController::class, 'getRescheduleInfo']);
