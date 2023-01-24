@@ -23,6 +23,8 @@ class UserController extends Controller
             $booking=Booking::marriages()->where('user_id',$user_id)->first();          
             $bookingId =  Booking::whereUserId($user_id)->pluck('id')->first();
             $locations = Locations::all();
+            $getBookinglocation = Locations::where('id',$booking->locationId)->first();
+            // dd($getBookinglocation);
             if(isset($request->session_id) && !empty($request->session_id)){
                 $cart = json_decode(Cookie::get('myCart'));  
 
@@ -36,7 +38,7 @@ class UserController extends Controller
                 // BookingPayments::where('booking_id',$bookingId)->update(['payment_type' =>3]);
             }       
             $addons = UserBookingAddon::with('packages','packages.user','packages.product')->where('booking_id',$bookingId)->get();
-            return view('user.overview.index',compact(['addons','booking','locations']));
+            return view('user.overview.index',compact(['addons','booking','locations','getBookinglocation']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             
