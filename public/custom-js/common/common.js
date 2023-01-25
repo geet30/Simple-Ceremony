@@ -266,8 +266,23 @@ $(document).ready(function () {
                 changeButtonColor("changeButton", text);
             }
         }
+            
+        if(action =='/user/list-to-do/changeStatus'){
+            $('#'+id).next('.status_next_class').find('.finished').html('');
+            if ($(e.target).prop("checked")) {
+            
+                $('#'+id).next('.status_next_class').find(".text-of-previous").addClass("text-decoration-line-through");
+                $('#'+id).next('.status_next_class').find('.finished').html('Finished');
+              
+            }else{
+                $('#'+id).next('.status_next_class').find(".text-of-previous").removeClass("text-decoration-line-through");
+                $('#'+id).next('.status_next_class').find('.finished').html('');
+            }
+        }
+                   
         var formData = new FormData(document.getElementsByName(id)[0]);
         var form = e.target;
+       
 
         submitfunctionWithoutReload(
             id,

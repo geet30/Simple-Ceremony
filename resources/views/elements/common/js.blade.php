@@ -106,5 +106,22 @@ $(document).ready(function(){
 
     
     }
+
+    $(document).find(".getListToDoEditData").on("click", function(e) { 
+       
+       var due_date = $(this).data('due_date');       
+       var name = $(this).data('name');
+       var description = $(this).data('description');
+       var id = $(this).data('id'); 
+       console.log(name,'name');  
+       
+       $('#update-list-to-do').find('#id').val(id);
+       $('#update-list-to-do').find('#description').val(description);
+       $('#update-list-to-do').find('#due_date').val(due_date);
+       $('#update-list-to-do').find('#name').val(name);
+                 
+       $("#update-list-to-do").prop("action",$(this).data('action'));    
+
+   })
 });
 </script>

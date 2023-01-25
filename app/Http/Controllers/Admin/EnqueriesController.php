@@ -29,7 +29,6 @@ class EnqueriesController extends Controller
             $follow_enquries = (clone $enquries)->where('status', 0)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             $booked_enquries = (clone $enquries)->where('status', 1)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
             $noInterest_enquries = (clone $enquries)->where('status', 2)->orderBy('id', 'DESC')->paginate($records, ['*'], 'page', $req_page);
-// dd($all_enquries);
             $dataArray = array(
                 'all_enquries' => $all_enquries,
                 'follow_enquries' => $follow_enquries,
