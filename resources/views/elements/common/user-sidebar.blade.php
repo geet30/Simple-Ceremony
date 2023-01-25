@@ -96,8 +96,7 @@
                     <span class="ms-3 d-none d-md-block">Invoices</span>
                 </a>
             </li>
-            {{--<li class="nav-item">
-            
+            <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600 {{ Request::segment(2) == 'package' || Request::segment(2) == 'add-ons' ? 'active' : '' }}" href="{{url('user/add-ons')}}" >
                     <svg  class="sidebar-icons" width="18" height="25" viewBox="0 0 18 25" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +112,7 @@
                     </svg>
                     <span class="ms-3 d-none d-md-block">Add-ons</span>
                 </a>
-            </li>--}}
+            </li>
             <!-- <li class="nav-item">
                 <a class="body-1 nav-link d-flex align-items-center font-weight-600" href="/user/activity-history">
                     <svg width="19" height="19" viewBox="0 0 19 19" fill="none"

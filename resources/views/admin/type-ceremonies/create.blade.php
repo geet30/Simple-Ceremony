@@ -76,9 +76,9 @@
                                     <strong>{{ $message }}</strong>
                                  </span>
                                  @enderror
-                                 <div class="invalid-feedback additional_information_error" >
+                                 <!-- <div class="invalid-feedback additional_information_error" >
                                  Additional Conditions is required.
-                              </div>
+                              </div> -->
 
                                 
                              </div>

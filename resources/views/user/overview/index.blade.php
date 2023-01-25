@@ -213,28 +213,28 @@
       </div>
    </div>
 </div>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAspKv1oWLKCVesOm4bBIbmJdGUV61GQ6o&callback=initMap"  async defer></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-yDW1tx5awBRPnyCPUExI9YglmbeK-gE&callback=initMap"  async defer></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
 
-<!-- <script src="/custom-js/common/pin-google-location.js"></script> -->
+<!-- <script src="/custom-js/common/pin-google-location.js"></script>-->
 <script>
-// function initMap() {
-//   // The location of Uluru
-//   const uluru = { lat: -25.344, lng: 131.031 };
-//   // The map, centered at Uluru
-//   const map = new google.maps.Map(document.getElementById("pin-location"), {
-//     zoom: 4,
-//     center: uluru,
-//   });
-//   // The marker, positioned at Uluru
-//   const marker = new google.maps.Marker({
-//     position: uluru,
-//     map: map,
-//   });
-// }
+function initMap() {
+  // The location of Uluru
+  const uluru = { lat: -25.344, lng: 131.031 };
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("pin-location"), {
+    zoom: 4,
+    center: uluru,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+}
 
-// window.initMap = initMap;
+window.initMap = initMap;
 // var locations  = //<?php //echo json_encode($getBookinglocation);?>;
    // initLocation('pin-location',@json($getBookinglocation))
 </script>

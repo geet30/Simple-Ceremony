@@ -69,7 +69,7 @@ class CeremoniesTypeController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'conditions' => ['required'],
-                'additional_info' => ['required'],
+                // 'additional_info' => ['required'],
             ]);
             if($validator->fails()) {
                 return \Redirect::back()->withErrors($validator);
@@ -125,7 +125,7 @@ class CeremoniesTypeController extends Controller
             $validator = Validator::make($request->all(), [
                 
                 'conditions' => ['required'],
-                'additional_info' => ['required'],
+                // 'additional_info' => ['required'],
             ]);
             if($validator->fails()) {
                 return Redirect::back()->withErrors($validator);
