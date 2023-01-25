@@ -7,6 +7,7 @@ use App\Models\{Locations,Addons,PartnerProducts,User,Enqueries,Booking,GiftVouc
 use Redirect;
 use Cookie;
 use View;
+use Illuminate\Support\Facades\Cache;
 class HomeController extends Controller
 {
     /**
@@ -30,6 +31,23 @@ class HomeController extends Controller
             $locations = Locations::getLocations()->skip(0)->take(3)->get();  
             $addons =  Addons::products()->skip(0)->take(4)->get()->toArray();
             return View::make('pages.home',compact(['locations' ,'addons' ]));
+        }
+        catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }      
+    }
+
+    
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function paymentCancel()
+    { 
+        try {
+            Cache::forget('booking');
+            return view('elements.user.booking.payment-cancel');
         }
         catch (\Exception $ex) {
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);

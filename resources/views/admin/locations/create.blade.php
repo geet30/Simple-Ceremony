@@ -83,7 +83,7 @@
                            <input type="number" min="0" placeholder="Type location number here" class="form-control body-1 netural-100" name="loc_number" id="Locationnumber" value="{{ isset($data['loc_number']) ? $data['loc_number'] : old('loc_number') }}">
                            
                         </div>
-                        <div class="col-md-5 mb-4">
+                        <!-- <div class="col-md-5 mb-4">
                            <label for="Price" class="form-label small-text2">Price *</label>
                            <div class=" theme-input-group">
                               <input type="number" min="0" step="0.01" placeholder="Type price here" class="form-control body-1 netural-100 pl-30" value="{{ isset($data['price']) ? $data['price'] : old('price') }}" name="price" id="Price" required>
@@ -93,7 +93,7 @@
                            </div>
                            </div>
                            
-                        </div>
+                        </div> -->
                         <div class="col-md-5 mb-4 ">
                            <label for="InputName" class="form-label small-text2">Choose marriage celebrant</label>
                            

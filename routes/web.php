@@ -58,9 +58,9 @@ $websiteRoutes = function () {
     Route::get('payment-success', function () {
         return view('elements.user.booking.booking-step-three');
     });
-    Route::get('payment-cancel', function () {
-        return view('elements.user.booking.payment-cancel');
-    });
+  
+    Route::get('payment-cancel', [HomeController::class, 'paymentCancel'])->name('paymentCancel');
+
 
     Route::get('request-custom-location', [HomeController::class, 'requestCustomLocation'])->name('request-custom-location');
     Route::post('post-custom-location', [HomeController::class, 'postCustomLocation'])->name('post-custom-location');

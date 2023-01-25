@@ -20,6 +20,7 @@ class BookingController extends Controller
     public function index()
     {
         try {
+            
             $timeslot  = timeslots();
             $filters = LocationFilters::all();
             $locations = Locations::getLocations()->get();
