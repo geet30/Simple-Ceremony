@@ -85,13 +85,12 @@ class UserListToDoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Enqueries  $enqueries
+     * @param  \App\Models\ListToDo  $list-to-do
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        // $detail = Enqueries::find($id);
-        // return view('admin.enquiries.detail', compact(['detail']));
+       
     }
     /**
      * Remove the specified resource from storage.
@@ -101,16 +100,31 @@ class UserListToDoController extends Controller
      */
 
     public function destroy($id)
-    {
-      
-        try {
-           
+    {     
+        try {          
             ListToDo::destroy($id);
-            // $data = ListToDo::where('id', $id)->delete();
-            $route = 'addons/all#addons-setting';
             return redirect('user/list-to-do')->with(['message' => 'List to do deleted successfully', 'class' => 'alert-success']);
 
         } catch (\Exception $ex) {
+            return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
+        }
+    }
+    /**
+     * change the status of resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function saveRecord(Request $request)
+    {
+        try {
+            $input['status'] = 0;
+            if($request->status !=''){
+                $input['status'] = 1;
+            }          
+            $result = ListToDo::where('id', $request->list_id)->update($input);
+            return response()->json(['status' => 'true', "message" => 'Finished']);
+        } catch (\Exception $ex) {
+
             return \Redirect::back()->withErrors(['msg' => $ex->getMessage()]);
         }
     }

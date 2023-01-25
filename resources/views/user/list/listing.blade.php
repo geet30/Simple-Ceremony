@@ -28,21 +28,37 @@
          @endif
          <div class="row">
          @foreach($lists as $list)
+         <?php 
+         $status_class ="";$finished = '';
+         if($list->status == 1){
+   
+            $status_class ='text-decoration-line-through';
+            $finished = 'Finished';
+         }
+         ?>
+         
             <div class="col-12 mb-3">
                <div class="list-box">
                   <div class="row">
                      <div class="col-10 ">
                         <div class="d-sm-flex">
-                           <div class="form-check me-3">
-                              <input class="form-check-input" type="checkbox" name="remember" id="checkbox1" autocomplete="off" checked>
-                              <label class="form-check-label small-text2" for="checkbox1">
-                              </label>
-                           </div>
-                           <div class="mt-3 mt-sm-0">
-                              <ul class="list ps-0 mb-2">
-                                 <li class="text-decoration-line-through">{{$list->name}}</li>
+                           <form method="POST" name="list-to-do-{{$list->id}}" id="list-to-do-{{$list->id}}"
+                              action="{{ route('list-to-do.changeStatus') }}">
+                              @csrf
+                              <div class="form-check me-3">
+                           
+                                 <input type="hidden" name="list_id" value="{{$list->id}}">
+                                 <input class="form-check-input" type="checkbox" name="status"  onchange="submitAjaxWithoutReload(event, 'list-to-do-{{$list->id}}', 'post', '/user/list-to-do/changeStatus')" autocomplete="off" value="1" {{ $list->status ? 'checked' : '' }}>
+                                 <label class="form-check-label small-text2" for="status">
+                                 </label>
+                           
+                              </div>
+                           </form>
+                           <div class="mt-3 mt-sm-0  status_next_class">
+                              <ul class="list ps-0 mb-2 ">
+                                 <li class="text-of-previous {{$status_class}}">{{$list->name}}</li>
                                  <li class="dot-list">&#x2022;</li>
-                                 <li >Due {{date('M d, Y',strtotime($list->due_date))}}<span  class="finished ms-2">Finished</span></li>
+                                 <li ><span class="text-of-previous {{$status_class}}">Due {{date('M d, Y',strtotime($list->due_date))}}</span><span  class="finished ms-2">{{$finished}}</span></li>
                               </ul>
                               <p class="mb-0 body-3-regular neutral-100">{{$list->description}}</p>
                            </div>

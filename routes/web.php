@@ -158,8 +158,12 @@ $websiteRoutes = function () {
             });
             
             Route::resource('list-to-do', UserListToDoController::class); 
-            Route::post('/list-to-do-update/{id}', [UserListToDoController::class, 'update'])->name('list-to-do.update');  
-            Route::get('list-to-do/destroy/{id}', [UserListToDoController::class, 'destroy'])->name('list-to-do.destroy');        
+            Route::prefix('list-to-do')->group(function () {
+                Route::post('/update/{id}', [UserListToDoController::class, 'update'])->name('list-to-do.update');  
+                Route::get('/destroy/{id}', [UserListToDoController::class, 'destroy'])->name('list-to-do.destroy');  
+                Route::post('changeStatus', [UserListToDoController::class, 'saveRecord'])->name('list-to-do.changeStatus');  
+            });
+                
 
             Route::resource('user-noim', UserNoimController::class);
             Route::get('steps', [UserNoimController::class, 'steps'])->name('user-noim.steps');
