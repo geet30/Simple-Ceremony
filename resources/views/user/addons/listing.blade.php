@@ -10,20 +10,24 @@
       <div class="col-10 col-md-9 col-lg-10 px-md-4">
          @include('elements.common.panel-header')
          <div class="col-md-9 mt-3 mb-4 d-flex">
-            <div class="dropdown">
+         <div class="dropdown">
                <a class="btn">
                <img src="/images/location-page/filter-icon.svg" class="fliter-icon" alt="Filter Icon">
                </a>
                <div class="select-with-checkbox">
-                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control" multiple="multiple">
-                     <option value="O1" data-badge="">All</option>
-                     <option value="O2" data-badge="">Harbour</option>
-                     <option value="O3" data-badge="">Beach</option>
-                     <option value="O4" data-badge="">Park</option>
-                     <option value="O5" data-badge="">River</option>
-                     <option value="O6" data-badge="">Outdoors</option>
-                     <option value="O7" data-badge="">Indoors</option>
-                     <option value="O7" data-badge="">Unique</option>
+                  <select name="filter_by_categories" id="selectinput" class="js-placeholder-single-input js-select2 form-control searchingMultiple location_categories_button" multiple="multiple">
+                     <optgroup label="Category">
+                     @foreach($category as $key=>$addon)
+                    
+                        <option value="{{ $addon->id }}" data-badge="">{{ $addon->name }}</option>
+                     @endforeach
+                     </optgroup>
+                     <optgroup label="Location">
+                        @foreach ($locations as $location)
+                           <option value="{{ $location->id }}" data-badge="">{{ $location->name }}
+                              </option>
+                           @endforeach
+                     </optgroup>
                   </select>
                </div>
             </div>

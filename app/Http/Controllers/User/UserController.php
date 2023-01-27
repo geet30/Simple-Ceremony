@@ -55,7 +55,9 @@ class UserController extends Controller
        
         try{
             $addons = Addons::products()->get()->toArray();
-            return view('user.addons.listing',compact(['addons']));
+            $category = Addons::all();
+            $locations = Locations::getLocations()->get(); 
+            return view('user.addons.listing',compact(['addons','locations','category']));
         }catch (\Exception $e) {
             return \Redirect::back()->withErrors(['msg' => $e->getMessage()]);
             

@@ -43,13 +43,19 @@
  
 
 
-                        <div id="pin-location"></div>      
-                        <div class="col-md-12 mb-4">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3313.637456914615!2d151.20927081554817!3d-33.84745908066219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12aef2e9f08045%3A0x32d189ddcd6f84ce!2sSimple%20Ceremonies!5e0!3m2!1sen!2sin!4v1654854264298!5m2!1sen!2sin" width="100%" height="158" style="border:0;border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                        <div id="pin-location" style="height: 300px; width:713px;"></div>      
+                     
                         <div class="col-md-12 mb-4">
                            <label for="InputName" class="form-label small-text2">Pin Location</label>
-                           <input type="text" value="" class="form-control body-1 netural-100" readonly="">
+                           <?php 
+                          
+                           $random =  Str::random(12);
+                           $random_url = 'https://maps.google.com/maps?'.$random;
+                           $lat = $booking->location->latitude;$lng =$booking->location->longitude;
+                           ?>
+                          
+                           <button class="form-control body-1 netural-100" readonly=""><a href="https://maps.google.com/maps?z=5&t=m&q={{$lat}},{{$lng}}" target="_blank">{{$random_url}}</a></button>
+                              
                         </div>
                         <div class="col-md-6 mb-4">
                            <label for="InputName" class="form-label small-text2">Date of ceremony</label>
@@ -213,30 +219,35 @@
       </div>
    </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-yDW1tx5awBRPnyCPUExI9YglmbeK-gE&callback=initMap"  async defer></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAspKv1oWLKCVesOm4bBIbmJdGUV61GQ6o&callback=initialize"  async defer></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gmaps.js/0.4.24/gmaps.js"></script> -->
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAspKv1oWLKCVesOm4bBIbmJdGUV61GQ6o&callback=initLocation"  async defer></script>
 
-<!-- <script src="/custom-js/common/pin-google-location.js"></script>-->
 <script>
-function initMap() {
-  // The location of Uluru
-  const uluru = { lat: -25.344, lng: 131.031 };
-  // The map, centered at Uluru
-  const map = new google.maps.Map(document.getElementById("pin-location"), {
-    zoom: 4,
-    center: uluru,
-  });
-  // The marker, positioned at Uluru
-  const marker = new google.maps.Marker({
-    position: uluru,
-    map: map,
-  });
+
+var locations  = <?php echo json_encode($getBookinglocation);?>;
+// initLocation('pin-location',@json($getBookinglocation));
+var directionsDisplay,directionsService,map;
+function initLocation() {
+   console.log('location--',locations)
+    var targetId= 'pin-location';
+   var directionsService = new google.maps.DirectionsService();
+   directionsDisplay = new google.maps.DirectionsRenderer();
+   var myLatlng = new google.maps.LatLng(locations.latitude,locations.longitude);
+   var mapOptions = { zoom:7, mapTypeId: google.maps.MapTypeId.ROADMAP, center: myLatlng }
+   map = new google.maps.Map(document.getElementById(targetId), mapOptions);
+   directionsDisplay.setMap(map);
+   // To add the marker to the map, use the 'map' property
+      var marker = new google.maps.Marker({
+         position: myLatlng,
+         map: map,
+         title:"Hello World!"
+      });
 }
 
-window.initMap = initMap;
-// var locations  = //<?php //echo json_encode($getBookinglocation);?>;
-   // initLocation('pin-location',@json($getBookinglocation))
 </script>
 
 @include('elements.user.popup.cart-payment-popup')

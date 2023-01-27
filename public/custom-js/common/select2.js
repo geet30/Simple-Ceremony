@@ -5,6 +5,7 @@ $('.js-placeholder-single-input').select2({
 
 
 var current_url = window.location.pathname.split('/');
+console.log(current_url);
 
 if(current_url[1] =='upcoming'){
   var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('search-marriage')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
@@ -12,6 +13,10 @@ if(current_url[1] =='upcoming'){
 else if(current_url[1] =='add-ons'){
   var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('/search-addon-with-location','','searchAddon')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
 }
+else if(current_url[2] =='add-ons'){
+  var filter= `<div class="search-location"><a onclick="SearchMultipleFilter('/search-addon-with-location','','searchAddon')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;
+}
+
 else if(current_url[1]=='calendar'){
   
   var filter= `<div class="search-location"><a onclick="SearchCalendarFilter('/search-calendar-by-location')" class="theme-btn primary-btn d-inline-flex px-5">Filter</a></div>`;

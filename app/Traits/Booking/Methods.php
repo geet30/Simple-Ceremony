@@ -881,7 +881,7 @@ trait Methods
     {
         return  Booking::with([
             'location' => function ($query) {
-                $query->select('name', 'id', 'price','address','town','post_code');
+                $query->select('name', 'id', 'price','address','town','post_code','latitude','longitude');
             },
             'celebrant' => function ($query) {
                 $query->select('first_name', 'id');
