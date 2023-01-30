@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::table('locations', function (Blueprint $table) {
             $table->decimal('latitude', 10, 8)->nullable()->default('0.00')->change();
-            $table->decimal('longitude', 11, 8)->nullable()->change();
+            $table->decimal('longitude', 11, 8)->nullable()->default('0.00')->change();
         });
         Schema::table('request_locations', function (Blueprint $table) {
             $table->decimal('latitude', 10, 8)->nullable()->default('0.00')->change();
-            $table->decimal('longitude', 11, 8)->nullable()->change();
+            $table->decimal('longitude', 11, 8)->nullable()->default('0.00')->change();
         });
     }
 
