@@ -41,11 +41,11 @@
                      </div>
                      <div class="col-md-5 mb-4">
                         <label for="latitude" class="form-label small-text2">Latitude</label>
-                        <input type="text" value="{{ (isset($data->latitude)) ? $data->latitude : '' }}" class="form-control body-1 netural-100" name="latitude" id="latitude" readonly>
+                        <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" value="{{ (isset($data->latitude)) ? $data->latitude : '' }}" class="form-control body-1 netural-100" name="latitude" id="latitude" readonly>
                      </div>
                      <div class="col-md-5 mb-4">
                         <label for="latitude" class="form-label small-text2">Longitude</label>
-                        <input type="text" value="{{ (isset($data->longitude)) ? $data->longitude : '' }}" class="form-control body-1 netural-100" name="longitude" id="longitude" readonly>
+                        <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" value="{{ (isset($data->longitude)) ? $data->longitude : '' }}" class="form-control body-1 netural-100" name="longitude" id="longitude" readonly>
                      </div>
                     
                      
