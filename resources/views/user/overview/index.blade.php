@@ -54,7 +54,7 @@
                            $lat = $booking->location->latitude;$lng =$booking->location->longitude;
                            ?>
                           
-                           <button class="form-control body-1 netural-100" readonly=""><a href="https://maps.google.com/maps?z=5&t=m&q={{$lat}},{{$lng}}" target="_blank">{{$random_url}}</a></button>
+                           <button class="form-control body-1 netural-100 text-start" readonly=""><a href="https://maps.google.com/maps?z=5&t=m&q={{$lat}},{{$lng}}" target="_blank">{{$random_url}}</a></button>
                               
                         </div>
                         <div class="col-md-6 mb-4">
