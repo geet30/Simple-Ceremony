@@ -92,6 +92,7 @@
                 </div>
             </td>
             <td style="min-width:180px">
+           
                 <input type="hidden" name="override[{{$date}}][slots][0][location_fee]" class="input-location_fee" value="">
                 <select name="override[{{$date}}][slots][0][location]" data-width="100%" id="override[{{$date}}][slots][0][location]" class="js-placeholder-single-input form-control over-ride-location-select-ns ns-required" required data-day="{{$day}}" data-dayText="{{$dayText}}" data-date="{{$date}}" data-dateText="{{$dateText}}" >
                     <option value="" selected="">Name location</option>

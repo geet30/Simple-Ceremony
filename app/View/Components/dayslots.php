@@ -27,6 +27,7 @@ class DaySlots extends Component
         })
         // ->where('status',1)
         ->get();
+        
         $fetch_celebrant_locations =  CelebrantLocations::where('celebrant_id',auth()->user()->id)->get();
             
         $location_ids =[];

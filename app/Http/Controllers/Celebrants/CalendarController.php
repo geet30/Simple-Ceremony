@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\{Booking,CelebrantDate,CelebrantDaySlot,Locations,CelebrantDetail,CelebrantDateOverRide,CelebrantLocations};
 use App\View\Components\daySubSlots;
 use Carbon\Carbon;
-use App\View\Components\OverRideDays;
+use App\View\Components\overRideDays;
 use App\Traits\Celebrant\{Methods as CelebrantMethods};
 use View;
 class CalendarController extends Controller
@@ -336,11 +336,28 @@ class CalendarController extends Controller
         $dateText = $request->dateText;
         $day = $request->day;
         $dayText = $request->dayText;
-        $location = Locations::whereHas('request_location',function($qr){
-                $qr->where('celebrant_id',auth()->user()->id);
-            })
-            // ->where('status',1)
-            ->get();
+        // $location = Locations::whereHas('request_location',function($qr){
+        //         $qr->where('celebrant_id',auth()->user()->id);
+        //     })
+        //     // ->where('status',1)
+        //     ->get();
+        $fetch_celebrant_locations =  CelebrantLocations::where('celebrant_id',auth()->user()->id)->get();
+        
+        $location_ids =[];
+        foreach($fetch_celebrant_locations as $celebrant_location){
+            $location_ids[] = $celebrant_location['location_id'];
+
+        }
+
+        $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
+            
+        
+            
+        $data  = Locations::whereHas('request_location',function($qr){
+            $qr->where('celebrant_id',auth()->user()->id);
+        }) ->get();
+        
+        $location = $getcelebrantAssignedLocation->concat($data);
         $price = CelebrantDetail::where('celebrant_id',auth()->user()->id)->first();
         $slots = getTimeSlot(15,'00:00','23:00');
         return view('components.over-ride-days',['day' => $day,'date' => $date, 'dateText' => $dateText,'dayText' => $dayText,'location' => $location, 'slots' => $slots,'price' => $price]);
@@ -358,6 +375,7 @@ class CalendarController extends Controller
             })
             // ->where('status',1)
             ->get();
+            
         $slots = getTimeSlot(15,'00:00','23:00');
         return view('components.over-ride-day-slots',['day' => $day,'date' => $date, 'dateText' => $dateText,'dayText' => $dayText,'location' => $location, 'slots' => $slots,'key' => $key,'price' => $price]);
     }
