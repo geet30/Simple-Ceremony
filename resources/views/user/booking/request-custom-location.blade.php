@@ -93,12 +93,12 @@
                      </div>
                      <div class="col-md-4 mb-4">
                         <label for="latitude" class="form-label small-text2">latitude*</label>
-                        <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" placeholder="Type your latitude here" class="form-control body-1 netural-100" name="latitude" id="latitude" required>
+                        <input type="number" onkeydown="return event.keyCode !== 69" step="any" placeholder="Type your latitude here" class="form-control body-1 netural-100" name="latitude" id="latitude" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>latitude is required</div>
                      </div>
                      <div class="col-md-4 mb-4">
                         <label for="longitude" class="form-label small-text2">Longitude*</label>
-                        <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" placeholder="Type your Longitude here" class="form-control body-1 netural-100" name="longitude" id="longitude" required>
+                        <input type="number" onkeydown="return event.keyCode !== 69" step="any" placeholder="Type your Longitude here" class="form-control body-1 netural-100" name="longitude" id="longitude" required>
                         <div class="invalid-feedback"> <span><img class="me-2" src="/images/require-iocn.svg" alt="Require Icon"></span>longitude is required</div>
                      </div>
                     

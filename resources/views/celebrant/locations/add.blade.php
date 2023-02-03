@@ -67,11 +67,17 @@
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Latitude</label>
-                           <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="latitude" id="latitude" value="{{ isset($data['latitude']) ? $data['latitude'] : old('latitude') }}">
+                           <input type="number" onkeydown="return event.keyCode !== 69"  placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="latitude" id="latitude" value="{{ isset($data['latitude']) ? $data['latitude'] : old('latitude') }}" step="any" required>
+                           <div class="invalid-feedback">
+                              Latitude is required.
+                           </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="Google" class="form-label small-text2">Longitude</label>
-                           <input type="number" onkeydown="return event.keyCode !== 69" step="0.01" placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="longitude" id="longitude" value="{{ isset($data['longitude']) ? $data['longitude'] : old('longitude') }}">
+                           <input type="number" onkeydown="return event.keyCode !== 69"  placeholder="Type Google coordinates here" class="form-control body-1 netural-100" name="longitude" id="longitude" value="{{ isset($data['longitude']) ? $data['longitude'] : old('longitude') }}" step="any" required>
+                           <div class="invalid-feedback">
+                           Longitude is required.
+                           </div>
                         </div>
                         <div class="col-md-5 mb-4">
                            <label for="directions" class="form-label small-text2">Specific directions</label>
