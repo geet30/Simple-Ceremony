@@ -46,7 +46,6 @@ class DaySlots extends Component
         }) ->get();
      
         $this->location = $getcelebrantAssignedLocation->concat($data);
-
         // dd($this->location);
         $this->slots = self::getTimeSlot(15,'00:00','23:00');
     }
