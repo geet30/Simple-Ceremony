@@ -39,7 +39,6 @@ class DaySlots extends Component
 
         $getcelebrantAssignedLocation = Locations::whereIn('id',$location_ids)->get();
             
-       
             
         $data  = Locations::whereHas('request_location',function($qr){
             $qr->where('celebrant_id',auth()->user()->id);
