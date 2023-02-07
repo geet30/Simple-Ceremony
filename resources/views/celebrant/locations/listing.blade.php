@@ -14,7 +14,7 @@
          @if(count($data) > 0)
          @foreach($data as $request)
          <?php
-         
+         // echo "<pre>";print_r($request);
             $status_class = 'pending';
             if ($request->status == 1) {
                $status = 'Active';
@@ -44,7 +44,7 @@
                      @if($request->celebrant_id == auth()->user()->id)
                      <a href="/all-locations/{{ $request->id }}/edit" class="table-link me-2">Edit</a>
                      @endif
-                     <a href="" role="button" data-bs-toggle="modal" data-bs-target="#delete_celebrant_location" class="table-link delete_append_id" data-id="{{ $request->id }}" data-request_id="{{ $request->custom_location_id }}">Delete</a>
+                     <a href="" role="button" data-bs-toggle="modal" data-bs-target="#delete_celebrant_location" class="table-link delete_append_id" data-id="{{ $request->id }}" data-request_id="{{ $request->table }}">Delete</a>
                   </ul>
                </td>
             </tr>

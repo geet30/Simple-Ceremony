@@ -169,7 +169,7 @@ class LocationsController extends Controller
         $table = $request->table;
         $partners = Locations::partners();
         // $get_if_not_custom_location = Locations::where('id',$id)->value('custom_location_id');
-        if($request->table == 'locations'){ // means its not a custom location
+        if($request->table == 'locations'){ // means its not a request location
             $data  =  Locations::getLocations($id, '*', 'packages')->first();
         }else{
             $data  = CelebrantMethods::fetch_locations($id)->first();
@@ -228,11 +228,14 @@ class LocationsController extends Controller
      */
     public function destroy(Request $request,$id)
     {
-        // dd($request->all());
         
         try {
-            $data = RequestLocations::where('id', '=', $request->request_id)->delete();
-            $data = CelebrantLocations::where('location_id', '=', $request->id)->where('celebrant_id', '=', auth()->user()->id)->delete();
+            if($request->table == 'locations'){ // means its not a request location
+                $data = CelebrantLocations::where('location_id', '=', $request->id)->where('celebrant_id', '=', auth()->user()->id)->delete();
+            }else{
+                $data = RequestLocations::where('id', '=', $request->id)->delete();
+                $data = CelebrantLocations::where('location_id', '=', $request->id)->where('celebrant_id', '=', auth()->user()->id)->delete();
+            }         
             
             
             return redirect('all-locations')->with(['message' => 'Location deleted successfully', 'class' => 'alert-success']);
